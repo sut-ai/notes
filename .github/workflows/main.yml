@@ -25,4 +25,4 @@ jobs:
           enable_jekyll: true
           allow_empty_commit: true
           publish_dir: .
-          exclude_assets: ''
+          exclude_assets: '.github'
