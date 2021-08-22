@@ -1,0 +1,18 @@
+title: SUT-AI | Notes
+
+header:
+  title: Notes
+  # todo: update
+  description: Lecture notes and Handouts!
+
+# navbar
+nav:
+  patch: index/nav.yml
+
+# metatags
+meta:
+  patch: index/meta.yml
+
+# configurations
+config:
+  patch: index/config.yml
