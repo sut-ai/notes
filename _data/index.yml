@@ -1,0 +1,26 @@
+title: SUT-AI | Notes
+header:
+  title: <p>Notes</p>
+  description: <p>Lecture notes and Handouts!</p>
+nav:
+  brand:
+    text: CE417
+    link: https://sut-ai.github.io/
+  content:
+  - index: index
+    text: Notes
+    description: Lecture notes and Handouts!
+    link: /notes/
+meta:
+- name: keywords
+  content: Webifier, Sharif University of Technology, Mohammad Hossein Rohban
+- name: author
+  content: sut-ai
+config:
+  comments:
+    repo: sut-ai/comments
+    issue_term: pathname
+    issue_label: comments
+    theme: github-light
+    crossorigin: anonymous
+  google_analytics_id: G-VZRZHCJ5V0
