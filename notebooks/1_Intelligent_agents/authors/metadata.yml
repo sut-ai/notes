@@ -1,7 +1,7 @@
-title: LN | Uninformed Search
+title: LN | Intelligent Agents
 
 header:
-  title: Uninformed Search
+  title: Intelligent Agents
 
 authors:
   label:
@@ -9,25 +9,19 @@ authors:
     text: Authors
   kind: people
   content:
-    - name: Fatemeh Khashei
+    - name: Hamed Rashidpour
       role: Author
       contact:
         - icon: fab fa-github
-          link: https://github.com/fatteme
+          link: https://github.com/hamedrashidpour
         - icon: fas fa-envelope
-          link: mailto:fatt3me@gmail.com
+          link: mailto:hamedrashid1421@gmail.com
 
-    - name: Hossein Sobhi
+    - name: Mohammad Reza Ahmadi Teshnizi
       role: Author
       contact:
         - icon: fas fa-envelope
-          link: mailto:hoseinsobhi@gmail.com
-          
-    - name: Ali Asghar Ghanati
-      role: Author
-      contact:
-        - icon: fas fa-envelope
-          link: mailto:a.a.ghanati@gmail.com
+          link: mailto:mohammadrezaahmaditeshnizi@gmail.com
 
     - name: Zeinab Sadat Saghi
       role: Supervisor
