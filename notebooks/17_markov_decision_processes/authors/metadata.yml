@@ -25,6 +25,8 @@ authors:
     - name: Erfan Faravani
       role: Author
       contact:
+        - icon: fab fa-github
+          link: https://github.com/erfanfi79
         - icon: fas fa-envelope
           link: mailto:erfanfaravani@gmail.com
 
