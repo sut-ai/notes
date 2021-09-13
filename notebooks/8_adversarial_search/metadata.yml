@@ -19,7 +19,7 @@ authors:
 
     - name: Mehrdad Dadar
       role: Author
-      image: ../mehrdad_dadar.jpg
+      image: mehrdad_dadar.jpg
       contact:
         - icon: fab fa-github
           link: https://github.com/arhemd
@@ -28,7 +28,7 @@ authors:
     
     - name: Parsa Azimi
       role: Author
-      image: ../parsa_azimi.jpg
+      image: parsa_azimi.jpg
       contact:
         - icon: fab fa-github
           link: https://github.com/parsa-azm
