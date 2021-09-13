@@ -17,7 +17,7 @@ authors:
 
     - name: Parsa Hosseini
       role: Author
-      image: ../parsa_hosseini.jpg
+      image: parsa_hosseini.jpg
       contact:
         - icon: fab fa-github
           link: https://github.com/sudoparsa
