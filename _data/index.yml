@@ -1,7 +1,10 @@
 title: SUT-AI | Notes
 header:
   title: <p>Notes</p>
-  description: <p>Lecture notes and Handouts!</p>
+  background: /notes/assets/images/notes-header.jpg
+  description: <p>Lecture Notes and Handouts!</p>
+footer:
+  background: /notes/assets/images/notes-header.jpg
 nav:
   brand:
     text: CE417
@@ -9,11 +12,12 @@ nav:
   content:
   - index: index
     text: Notes
-    description: Lecture notes and Handouts!
+    description: Lecture Notes and Handouts!
     link: /notes/
 meta:
 - name: keywords
-  content: Webifier, Sharif University of Technology, Mohammad Hossein Rohban
+  content: Webifier, Sharif University of Technology, Mohammad Hossein Rohban, Handouts,
+    Notes, Artificial Intelligence
 - name: author
   content: sut-ai
 config:
@@ -24,3 +28,83 @@ config:
     theme: github-light
     crossorigin: anonymous
   google_analytics_id: G-VZRZHCJ5V0
+notebooks:
+  label: Lecture Notes
+  background: /notes/assets/images/notes-header.jpg
+  content:
+  - pdf: /notes/assets/notebooks/1_intelligent_agents/index.pdf
+    text: Intelligent Agents
+    kind: S2021, LN, PDF
+  - notebook: notebooks/2_uninformed_search/
+    kind: notebook
+    text: <p>Uninformed Search</p>
+    link: /notes/notebooks/2_uninformed_search/
+  - notebook: notebooks/4_advanced_heuistics/
+    kind: notebook
+    text: <p>Advanced Heuistics</p>
+    link: /notes/notebooks/4_advanced_heuistics/
+  - notebook: notebooks/5_local_search/
+    kind: notebook
+    text: <p>Local Search</p>
+    link: /notes/notebooks/5_local_search/
+  - notebook: notebooks/6_search_in_continuous_space/
+    kind: notebook
+    text: <p>Search in Continuous Space (Convex Optimization and Gradient descent)</p>
+    link: /notes/notebooks/6_search_in_continuous_space/
+  - pdf: /notes/assets/notebooks/7_CSP/index.pdf
+    kind: S2021, LN, PDF
+  - notebook: notebooks/8_adversarial_search/
+    kind: notebook
+    text: <p>Adversarial Search (minimax, alpha-beta pruning, expectimax)</p>
+    link: /notes/notebooks/8_adversarial_search/
+  - notebook: notebooks/9_bayesian_networks/index1.ipynb
+    kind: notebook
+    metadata: notebooks/9_bayesian_networks/metadata.yml
+    text: Baysian Networks - Part 1
+    link: /notes/notebooks/9_bayesian_networks/index1.html
+  - notebook: notebooks/9_bayesian_networks/index2.ipynb
+    kind: notebook
+    metadata: notebooks/9_bayesian_networks/metadata.yml
+    text: Baysian Networks - Part 2
+    link: /notes/notebooks/9_bayesian_networks/index2.html
+  - notebook: notebooks/9_bayesian_networks/index3.ipynb
+    kind: notebook
+    metadata: notebooks/9_bayesian_networks/metadata.yml
+    text: Baysian Networks - Part 3
+    link: /notes/notebooks/9_bayesian_networks/index3.html
+  - notebook: notebooks/11_temporal_probability_models/index1.ipynb
+    kind: notebook
+    metadata: notebooks/11_temporal_probability_models/metadata.yml
+    text: Temporal Probability Models - Part 1
+    link: /notes/notebooks/11_temporal_probability_models/index1.html
+  - notebook: notebooks/11_temporal_probability_models/index2.ipynb
+    kind: notebook
+    metadata: notebooks/11_temporal_probability_models/metadata.yml
+    text: Temporal Probability Models - Part 2
+    link: /notes/notebooks/11_temporal_probability_models/index2.html
+  - notebook: notebooks/11_temporal_probability_models/index3.ipynb
+    kind: notebook
+    metadata: notebooks/11_temporal_probability_models/metadata.yml
+    text: Temporal Probability Models - Part 3
+    link: /notes/notebooks/11_temporal_probability_models/index3.html
+  - notebook: notebooks/11_temporal_probability_models/index4.ipynb
+    kind: notebook
+    metadata: notebooks/11_temporal_probability_models/metadata.yml
+    text: Temporal Probability Models - Part 4
+    link: /notes/notebooks/11_temporal_probability_models/index4.html
+  - notebook: notebooks/13_learning_a_decision_tree/
+    kind: notebook
+    text: <p>Learning a Decision Tree (classification)</p>
+    link: /notes/notebooks/13_learning_a_decision_tree/
+  - notebook: notebooks/15_neural_networks/
+    kind: notebook
+    text: <p>Neural Networks &amp; MLPs</p>
+    link: /notes/notebooks/15_neural_networks/
+  - notebook: notebooks/16_deep_neural_networks/
+    kind: notebook
+    text: <p>Deep Neural Networks (CNNs,...)</p>
+    link: /notes/notebooks/16_deep_neural_networks/
+  - notebook: notebooks/18_reinforcement_learning/
+    kind: notebook
+    text: <p>Reinforcement Learning</p>
+    link: /notes/notebooks/18_reinforcement_learning/
