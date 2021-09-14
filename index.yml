@@ -2,17 +2,19 @@ title: SUT-AI | Notes
 
 header:
   title: Notes
-  # todo: update
-  description: Lecture notes and Handouts!
+  background: images/notes-header.jpg
+  description: Lecture Notes and Handouts!
 
-# navbar
+footer:
+  background: images/notes-header.jpg
+
 nav:
   patch: index/nav.yml
 
-# metatags
 meta:
   patch: index/meta.yml
 
-# configurations
 config:
   patch: index/config.yml
+
+patch: notebooks/index.yml

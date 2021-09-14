@@ -1,0 +1,10 @@
+notebooks:
+  label: Lecture Notes
+  background: images/notes-header.jpg
+  content:
+    - pdf: notebooks/1_intelligent_agents/index.pdf
+      text: Intelligent Agents
+      kind: S2021, LN, PDF
+    - notebook: notebooks/2_uninformed_search/
+      kind: S2021, LN, Notebook
+    
