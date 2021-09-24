@@ -1,7 +1,7 @@
 ---
 layout: content
 metadata: notebooks_11_temporal_probability_models_metadata
-colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/11_temporal_probability_models/index3.ipynb/index.ipynb
+colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/11_temporal_probability_models/index.ipynb
 ---
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -17,7 +17,7 @@ colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/noteboo
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="robot localization" src="/notes/assets/notebooks/11_temporal_probability_models/resource/robot-localization.gif"/></p>
+<p><img alt="robot localization" src="/notes/assets/resource/robot-localization.gif"/></p>
 </div>
 </div>
 </div>
@@ -35,7 +35,7 @@ colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/noteboo
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Dynamic-Bayes-Net">Dynamic Bayes Net<a class="anchor-link" href="#Dynamic-Bayes-Net">¶</a></h2><p>Dynamic Bayesian Networks (<strong>DBN</strong>) extend standard Bayesian networks with the concept of time. This allows us to model time series or sequences. In fact they can model complex multivariate time series, which means we can model the relationships between multiple time series in the same model, and also different regimes of behavior, since time series often behave differently in different contexts.</p>
-<p><img alt="dbn" src="/notes/assets/notebooks/11_temporal_probability_models/resource/dbn.png"/></p>
+<p><img alt="dbn" src="/notes/assets/resource/dbn.png"/></p>
 <h3 id="DBN-Particle-Filters">DBN Particle Filters<a class="anchor-link" href="#DBN-Particle-Filters">¶</a></h3><p>A particle is a complete sample for a time step. This is similar to reqgular filtering where we have to use sampling methods introduced earlier in the course instead of just a distribution.</p>
 <p>Below are the steps we have to follow:</p>
 <ul>
@@ -61,7 +61,7 @@ Likelihood $p(E_1^a |G_1^a) \times p(E_1^b |G_1^b)$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Most-Likely-Explanation">Most Likely Explanation<a class="anchor-link" href="#Most-Likely-Explanation">¶</a></h2><p><img alt="mle" src="/notes/assets/notebooks/11_temporal_probability_models/resource/mle.png"/></p>
+<h2 id="Most-Likely-Explanation">Most Likely Explanation<a class="anchor-link" href="#Most-Likely-Explanation">¶</a></h2><p><img alt="mle" src="/notes/assets/resource/mle.png"/></p>
 <p>We are introducing a new query, we can ask our temporal model. The query statement is as follows:</p>
 <pre><code>What is the most likely path of states that would have produced the current result.
 
@@ -69,7 +69,7 @@ Likelihood $p(E_1^a |G_1^a) \times p(E_1^b |G_1^b)$</p>
 <p>Or more formally if our states are $X_i$ our observations are $E_i$, we want to find</p>
 $$argmax_{x_{1:t}} P(x_{1:t}|e_{1:t})$$<p>But how can we answer this query?</p>
 <p>First, let's define the <strong>state trellis</strong>.</p>
-<p><img alt="trellis" src="/notes/assets/notebooks/11_temporal_probability_models/resource/trellis.png"/></p>
+<p><img alt="trellis" src="/notes/assets/resource/trellis.png"/></p>
 <p>State trellis is a directed weighted graph $G$ that its nodes are the states, and an arc between two states $u$, and $v$ represents a transition between these two states. The weight of this arc is defined by the probablity of this arc happening. More formally, assume we have a transition between $x_{t-1}$ and $x_t$. Then the weight of the arc between these two will be $P(x_{t}|x_{t-1}) \times P(e_t|x_t)$</p>
 <p>Note that with this definition, each path is a sequence of states, and the product of weights in this path is the probability of this path, provided the evidence.</p>
 <h3 id="Viterbi's-Algorithm">Viterbi's Algorithm<a class="anchor-link" href="#Viterbi's-Algorithm">¶</a></h3><p>Viterbi, uses dynamic programming model, to find the best path along the states. It first finds how probable a state at time $t-1$ is, and then reasons that the state at time $t$ relies solely on last state, and so having those probablities is enough to find the probability of new steps. Finally, the state that helps us find the most likely last state is it's parent.</p>
@@ -80,7 +80,7 @@ m_t[x_t] &amp;= max_{x_{1:t-1}} P(x_{1:t-1}, x_t, e_{1:t}) \\
 <p>The doctor believes that the health condition of his patients operates as a discrete Markov chain. There are two states, "Healthy" and "Fever", but the doctor cannot observe them directly; they are hidden from him. On each day, there is a certain chance that the patient will tell the doctor he is "normal", "cold", or "dizzy", depending on his health condition.</p>
 <p>The observations (normal, cold, dizzy) along with a hidden state (healthy, fever) form a hidden Markov model (HMM).</p>
 <p>In this piece of code, start_p represents the doctor's belief about which state the HMM is in when the patient first visits (all he knows is that the patient tends to be healthy). The particular probability distribution used here is not the equilibrium one, which is (given the transition probabilities) approximately <code>{'Healthy': 0.57, 'Fever': 0.43}</code>. The transition_p represents the change of the health condition in the underlying Markov chain. In this example, there is only a 30% chance that tomorrow the patient will have a fever if he is healthy today. The emit_p represents how likely each possible observation, normal, cold, or dizzy is given their underlying condition, healthy or fever. If the patient is healthy, there is a 50% chance that he feels normal; if he has a fever, there is a 60% chance that he feels dizzy.</p>
-<p><img alt="health" src="/notes/assets/notebooks/11_temporal_probability_models/resource/health.png"/></p>
+<p><img alt="health" src="/notes/assets/resource/health.png"/></p>
 <p>The patient visits three days in a row and the doctor discovers that on the first day he feels normal, on the second day he feels cold, on the third day he feels dizzy. The doctor has a question: what is the most likely sequence of health conditions of the patient that would explain these observations?</p>
 </div>
 </div>

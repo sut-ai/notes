@@ -1,0 +1,276 @@
+/notes/:
+  category: Page
+  content: ''
+  description: Lecture Notes and Handouts!
+  title: Notes
+  url: /notes/
+/notes/notebooks/11_temporal_probability_models/index1.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Temporal Probability Models - Part 1
+  url: /notes/notebooks/11_temporal_probability_models/index1.html
+/notes/notebooks/11_temporal_probability_models/index2.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Temporal Probability Models - Part 2
+  url: /notes/notebooks/11_temporal_probability_models/index2.html
+/notes/notebooks/11_temporal_probability_models/index3.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Temporal Probability Models - Part 3
+  url: /notes/notebooks/11_temporal_probability_models/index3.html
+/notes/notebooks/11_temporal_probability_models/index4.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Temporal Probability Models - Part 4
+  url: /notes/notebooks/11_temporal_probability_models/index4.html
+/notes/notebooks/13_learning_a_decision_tree/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Learning a Decision Tree (classification)</p>
+  url: /notes/notebooks/13_learning_a_decision_tree/
+/notes/notebooks/15_neural_networks/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Neural Networks &amp; MLPs</p>
+  url: /notes/notebooks/15_neural_networks/
+/notes/notebooks/16_deep_neural_networks/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Deep Neural Networks (CNNs,...)</p>
+  url: /notes/notebooks/16_deep_neural_networks/
+/notes/notebooks/18_reinforcement_learning/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Reinforcement Learning</p>
+  url: /notes/notebooks/18_reinforcement_learning/
+/notes/notebooks/2_uninformed_search/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Uninformed Search</p>
+  url: /notes/notebooks/2_uninformed_search/
+/notes/notebooks/4_advanced_heuistics/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Advanced Heuistics</p>
+  url: /notes/notebooks/4_advanced_heuistics/
+/notes/notebooks/5_local_search/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Local Search</p>
+  url: /notes/notebooks/5_local_search/
+/notes/notebooks/6_search_in_continuous_space/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Search in Continuous Space (Convex Optimization and Gradient descent)</p>
+  url: /notes/notebooks/6_search_in_continuous_space/
+/notes/notebooks/8_adversarial_search/:
+  category: notebook
+  content: ''
+  description: ''
+  title: <p>Adversarial Search (minimax, alpha-beta pruning, expectimax)</p>
+  url: /notes/notebooks/8_adversarial_search/
+/notes/notebooks/9_bayesian_networks/index1.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Baysian Networks - Part 1
+  url: /notes/notebooks/9_bayesian_networks/index1.html
+/notes/notebooks/9_bayesian_networks/index2.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Baysian Networks - Part 2
+  url: /notes/notebooks/9_bayesian_networks/index2.html
+/notes/notebooks/9_bayesian_networks/index3.html:
+  category: notebook
+  content: ''
+  description: ''
+  title: Baysian Networks - Part 3
+  url: /notes/notebooks/9_bayesian_networks/index3.html
+assets/notebooks/1_intelligent_agents/index.pdf:
+  category: S2021, LN, PDF
+  content: ''
+  description: ''
+  title: Intelligent Agents
+  url: assets/notebooks/1_intelligent_agents/index.pdf
+assets/notebooks/7_CSP/index.pdf:
+  category: S2021, LN, PDF
+  content: ''
+  description: ''
+  title: S2021, LN, PDF
+  url: assets/notebooks/7_CSP/index.pdf
+http://ce.sharif.edu/courses/99-00/1/ce417-2/index.php/section/resources/file/resources:
+  category: External
+  content: ''
+  description: ''
+  title: AI course at Sharif University of Technology
+  url: http://ce.sharif.edu/courses/99-00/1/ce417-2/index.php/section/resources/file/resources
+https://anuradhasrinivas.files.wordpress.com/2014/03/proof-for-perceptron-convergence.pdf:
+  category: PDF
+  content: ''
+  description: ''
+  title: site
+  url: https://anuradhasrinivas.files.wordpress.com/2014/03/proof-for-perceptron-convergence.pdf
+https://debuggercafe.com/visualizing-filters-and-feature-maps-in-convolutional-neural-networks-using-pytorch/:
+  category: External
+  content: ''
+  description: ''
+  title: filter and feature maps visulaization
+  url: https://debuggercafe.com/visualizing-filters-and-feature-maps-in-convolutional-neural-networks-using-pytorch/
+https://en.wikipedia.org/wiki/Digital_image_processing:
+  category: External
+  content: ''
+  description: ''
+  title: Image processing
+  url: https://en.wikipedia.org/wiki/Digital_image_processing
+https://en.wikipedia.org/wiki/Graph_coloring:
+  category: External
+  content: ''
+  description: ''
+  title: Graph coloring
+  url: https://en.wikipedia.org/wiki/Graph_coloring
+https://en.wikipedia.org/wiki/Graph_partition:
+  category: External
+  content: ''
+  description: ''
+  title: Graph partitioning
+  url: https://en.wikipedia.org/wiki/Graph_partition
+https://en.wikipedia.org/wiki/Machine_translation:
+  category: External
+  content: ''
+  description: ''
+  title: Machine Translation
+  url: https://en.wikipedia.org/wiki/Machine_translation
+https://en.wikipedia.org/wiki/Minimax#Pseudocode:
+  category: External
+  content: ''
+  description: ''
+  title: ' Pseudocode '
+  url: https://en.wikipedia.org/wiki/Minimax#Pseudocode
+https://en.wikipedia.org/wiki/Natural_language_processing:
+  category: External
+  content: ''
+  description: ''
+  title: Natural Language Processing
+  url: https://en.wikipedia.org/wiki/Natural_language_processing
+https://en.wikipedia.org/wiki/Scheduling_(computing:
+  category: External
+  content: ''
+  description: ''
+  title: Scheduling
+  url: https://en.wikipedia.org/wiki/Scheduling_(computing
+https://en.wikipedia.org/wiki/Simulated_annealing:
+  category: External
+  content: ''
+  description: ''
+  title: https://en.wikipedia.org/wiki/Simulated_annealing
+  url: https://en.wikipedia.org/wiki/Simulated_annealing
+https://en.wikipedia.org/wiki/Travelling_salesman_problem:
+  category: External
+  content: ''
+  description: ''
+  title: Traveling salesman
+  url: https://en.wikipedia.org/wiki/Travelling_salesman_problem
+https://link.springer.com/chapter/10.1007/3-540-45634-1_4:
+  category: External
+  content: ''
+  description: ''
+  title: this paper
+  url: https://link.springer.com/chapter/10.1007/3-540-45634-1_4
+https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414:
+  category: External
+  content: ''
+  description: ''
+  title: https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414
+  url: https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414
+https://plato.stanford.edu/entries/game-theory/:
+  category: External
+  content: ''
+  description: ''
+  title: ' Stanford Encyclopedia of Philosophy '
+  url: https://plato.stanford.edu/entries/game-theory/
+https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-deep-learning-tips-and-tricks:
+  category: External
+  content: ''
+  description: ''
+  title: Dropout
+  url: https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-deep-learning-tips-and-tricks
+https://sut-ai.github.io/:
+  category: External
+  content: ''
+  description: ''
+  title: CE417
+  url: https://sut-ai.github.io/
+https://www.analyticsvidhya.com:
+  category: External
+  content: ''
+  description: ''
+  title: https://www.analyticsvidhya.com
+  url: https://www.analyticsvidhya.com
+? https://www.artiba.org/blog/ai-and-game-theory-a-primer#:~:text=Game%20theory%20is%20a%20crucial%20element%20in%20building%20AI%20models%20today.&text=In%20reinforcement%20learning%2C%20multiple%20agents,considered%20as%20the%20most%20suitable.
+: category: External
+  content: ''
+  description: ''
+  title: brief article
+  url: https://www.artiba.org/blog/ai-and-game-theory-a-primer#:~:text=Game%20theory%20is%20a%20crucial%20element%20in%20building%20AI%20models%20today.&text=In%20reinforcement%20learning%2C%20multiple%20agents,considered%20as%20the%20most%20suitable.
+https://www.geeksforgeeks.org:
+  category: External
+  content: ''
+  description: ''
+  title: https://www.geeksforgeeks.org
+  url: https://www.geeksforgeeks.org
+https://www.geeksforgeeks.org/8-puzzle-problem-using-branch-and-bound/:
+  category: External
+  content: ''
+  description: ''
+  title: here
+  url: https://www.geeksforgeeks.org/8-puzzle-problem-using-branch-and-bound/
+https://www.javatpoint.com:
+  category: External
+  content: ''
+  description: ''
+  title: https://www.javatpoint.com
+  url: https://www.javatpoint.com
+https://www.kaggle.com/androbomb/simple-nn-with-python-multi-layer-perceptron:
+  category: External
+  content: ''
+  description: ''
+  title: here
+  url: https://www.kaggle.com/androbomb/simple-nn-with-python-multi-layer-perceptron
+https://www.kaggle.com/getting-started/46727:
+  category: External
+  content: ''
+  description: ''
+  title: https://www.kaggle.com/getting-started/46727
+  url: https://www.kaggle.com/getting-started/46727
+https://www.managementstudyguide.com/facility-layout.htm:
+  category: External
+  content: ''
+  description: ''
+  title: Facility layout
+  url: https://www.managementstudyguide.com/facility-layout.htm
+https://www.tensorflow.org/tutorials/keras/classification:
+  category: External
+  content: ''
+  description: ''
+  title: https://www.tensorflow.org/tutorials/keras/classification
+  url: https://www.tensorflow.org/tutorials/keras/classification
+https://www.wikipedia.org:
+  category: External
+  content: ''
+  description: ''
+  title: https://www.wikipedia.org
+  url: https://www.wikipedia.org

@@ -1,15 +1,11 @@
 
 body {
-    zoom: 150%;
-    background: linear-gradient(-45deg, #000066, #116666, #006666,  #006633, #665555);
-    background-size: 400% 400%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    animation: gradient 15s ease infinite;
+    zoom: 130%;
 }
 
 * > p:last-child { margin-bottom: 0 !important; }
+
+a { text-decoration: none; }
 
 @keyframes gradient {
     0% {
@@ -41,7 +37,6 @@ footer {
 .app-content {
     padding: 3vh 0;
     max-width:80%;
-    position
 }
 
 .app-body {

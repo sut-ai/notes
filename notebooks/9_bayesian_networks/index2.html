@@ -1,36 +1,36 @@
 ---
 layout: content
 metadata: notebooks_9_bayesian_networks_metadata
-colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/9_bayesian_networks/index2.ipynb/index.ipynb
+colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/9_bayesian_networks/index.ipynb
 ---
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Bayesian-Network:-Representation"><strong>Bayesian Network: Representation</strong><a class="anchor-link" href="#Bayesian-Network:-Representation">¶</a></h1><h2 id="Table-of-Content"><strong>Table of Content</strong><a class="anchor-link" href="#Table-of-Content">¶</a></h2><ul>
-<li><a href="#Bayesian-Network-Representation"><strong>Bayesian Network: Representation</strong></a><ul>
-<li><a href="#Table-Of-Content"><strong>Table of Content</strong></a></li>
-<li><a href="#Bayes'-Net-Examples"><strong>Bayes' Net Examples</strong></a></li>
-<li><a href="#Bayes'-Net-Semantics"><strong>Bayes' Net Semantics</strong></a><ul>
-<li><a href="#Example"><strong>Example</strong></a></li>
-<li><a href="#Joint-Dist.-Validation"><strong>Joint Dist. Validation</strong></a></li>
-<li><a href="#What-Cond.-Independencies-could-be-implied?"><strong>What Cond. Independencies could be implied?</strong></a><ul>
-<li><a href="#Proof"><strong>Proof</strong></a></li>
+<li><a href="#Bayesian-Network-Representation">Bayesian Network: Representation</a><ul>
+<li><a href="#Table-Of-Content">Table of Content</a></li>
+<li><a href="#Bayes'-Net-Examples">Bayes' Net Examples</a></li>
+<li><a href="#Bayes'-Net-Semantics">Bayes' Net Semantics</a><ul>
+<li><a href="#Example">Example</a></li>
+<li><a href="#Joint-Dist.-Validation">Joint Dist. Validation</a></li>
+<li><a href="#What-Cond.-Independencies-could-be-implied?">What Cond. Independencies could be implied?</a><ul>
+<li><a href="#Proof">Proof</a></li>
 </ul>
 </li>
-<li><a href="#Bayes'-Net-Probability-Examples"><strong>Bayes' Net Probability Examples</strong></a></li>
+<li><a href="#Bayes'-Net-Probability-Examples">Bayes' Net Probability Examples</a></li>
 </ul>
 </li>
-<li><a href="#Bayes'-Net-Size-Analysis"><strong>Bayes' Net Size Analysis</strong></a></li>
-<li><a href="#Does-Bayes'-Net-Necessarily-Represent-Causal-Relations?"><strong>Does Bayes' Net Necessarily Represent Causal Relations?</strong></a></li>
-<li><a href="#Conditional-Independencies-in-Bayes'-Net"><strong>Conditional Independencies in Bayes' Net</strong></a></li>
+<li><a href="#Bayes'-Net-Size-Analysis">Bayes' Net Size Analysis</a></li>
+<li><a href="#Does-Bayes'-Net-Necessarily-Represent-Causal-Relations?">Does Bayes' Net Necessarily Represent Causal Relations?</a></li>
+<li><a href="#Conditional-Independencies-in-Bayes'-Net">Conditional Independencies in Bayes' Net</a></li>
 </ul>
 </li>
 </ul>
 <h2 id="Bayes'-Net-Examples"><strong>Bayes' Net Examples</strong><a class="anchor-link" href="#Bayes'-Net-Examples">¶</a></h2><p>These are some examples of how uncertain environment variables can be modeled as Bayesian Network. Try to justify relations between those variable to get a better grasp of how BN works.</p>
 <h3 id="Coin-Flips-1"><strong>Coin Flips</strong> 1<a class="anchor-link" href="#Coin-Flips-1">¶</a></h3><p>Problem of tossing n independent coins is an example of modeling a probabilistic environment. No interaction between coins results in absolute independency.</p>
 <figure>
-<img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/coin_flip_example.png" width="400"/>
+<img alt="drawing" src="/notes/assets/./images_p2/coin_flip_example.png" width="400"/>
 <center>
 <figcaption>BN for independent coin flip of n coins</figcaption>
 </center>
@@ -43,12 +43,12 @@ colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/noteboo
 </li>
 <li><p>Two models can be considered for such a problem:
 <br/>
-<img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/rain_traffic_1.png" width="200"/>
+<img alt="drawing" src="/notes/assets/./images_p2/rain_traffic_1.png" width="200"/>
 <br/>
 An agent using dependent model usually is more realistic.</p>
 </li>
 </ul>
-<h3 id="Second-Traffic-1"><strong>Second Traffic</strong> 1<a class="anchor-link" href="#Second-Traffic-1">¶</a></h3><p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/traffic_II_example.png" width="500"/></p>
+<h3 id="Second-Traffic-1"><strong>Second Traffic</strong> 1<a class="anchor-link" href="#Second-Traffic-1">¶</a></h3><p><img alt="drawing" src="/notes/assets/./images_p2/traffic_II_example.png" width="500"/></p>
 <ul>
 <li><p>Variables:</p>
 <ul>
@@ -62,7 +62,7 @@ An agent using dependent model usually is more realistic.</p>
 </li>
 <li><p>Model: 
   Low pressure might cause rain (R is dependent to L) and rain might cause traffic. A ballgame being held also might cause traffic and rain causes drips from stadium roof. <em>Russell</em>'s tooth cavity  is independent of other variables, so BN of this environment is presented in the following figure:</p>
-<p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/second_traffic_1.png" width="300"/></p>
+<p><img alt="drawing" src="/notes/assets/./images_p2/second_traffic_1.png" width="300"/></p>
 <p>In this environment rain can cause ballgame be canceled, so B is slightly dependent on R which is shown by blue arrow from R to B, but to keep our model as simple as possible, we tend to not include this relation in our BN. This results in ignoring some information from problem's environment, So we need to keep a balance between model simplicity and information loss.</p>
 </li>
 </ul>
@@ -77,17 +77,17 @@ An agent using dependent model usually is more realistic.</p>
 </ul>
 </li>
 <li>Representation: <br/>
-<img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/alarm_network_1.png" width="180"/></li>
+<img alt="drawing" src="/notes/assets/./images_p2/alarm_network_1.png" width="180"/></li>
 </ul>
 <h2 id="Bayes'-Net-Semantics"><strong>Bayes' Net Semantics</strong><a class="anchor-link" href="#Bayes'-Net-Semantics">¶</a></h2><p>BN is a directed acyclic graph in which every node refers to the probability of a random variable X conditioned to its parents. Here 
 $$P(X | A_1, A_2, A_3, .., A_n)$$
 means probability distribution of any x conditioned to every possible combination of its parents (A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ....A<sub>n</sub>).  All these probability combinations are gathered in a table called conditional probability table (CPT). The following figure shows an example of CPT:</p>
-<p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/bn_semantics.png" width="200"/></p>
+<p><img alt="drawing" src="/notes/assets/./images_p2/bn_semantics.png" width="200"/></p>
 <p>So every BN consists of <strong>Topology</strong>(graph) and <strong>Local Conditional Probabilities</strong>.</p>
 <p>Bayes' Net <em>implicitly</em> encodes joint distribution. Joint distribution of random variables included in a BN is calculated using the product of all local conditional distributions. The following equation shows explicit formula:</p>
 $$P(x_1,x_2,x_3,..,x_n) = \prod_{i=1}^{n}P(x_i|parents(X_i))$$<p>where x<sub>i</sub> is an observation of X<sub>i</sub>.</p>
 <h3 id="Example"><strong>Example</strong><a class="anchor-link" href="#Example">¶</a></h3><p>Here is an example of how a joint distribution is embedded in a BN:</p>
-<p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/joint_example.png" width="400"/></p>
+<p><img alt="drawing" src="/notes/assets/./images_p2/joint_example.png" width="400"/></p>
 <p>To compute P(+cavity, +catch, -toothache):
 $$P(+cavity, +catch, -toothache) = \\P(+cavity|parents(Cavity))  \times P(+catch|parents(Catch)) \\\times P(+toothache|parents(Toothache)) \\
 = P(+cavity) \times P(+catch|+cavity) \times P(-toothache|+cavity)$$</p>
@@ -145,10 +145,10 @@ $$
 $$
 \Rightarrow P(x_i|x_1,x_2,x_3,..,x_{i-1}) = P(x_i|parents(X_i)) \quad \square .
 $$</p>
-<h3 id="Bayes'-Net-Probability-Examples"><strong>Bayes' Net Probability Examples</strong><a class="anchor-link" href="#Bayes'-Net-Probability-Examples">¶</a></h3><h4 id="Coin-Flips-2"><strong>Coin Flips</strong> 2<a class="anchor-link" href="#Coin-Flips-2">¶</a></h4><p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/coin_flip_2.png"/><br/></p>
-<h4 id="Traffic-2"><strong>Traffic</strong> 2<a class="anchor-link" href="#Traffic-2">¶</a></h4><p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/traffic_2.png" width="400"/><br/></p>
-<h4 id="Reverse-Traffic-1"><strong>Reverse Traffic</strong> 1<a class="anchor-link" href="#Reverse-Traffic-1">¶</a></h4><p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/reverse_traffic_1.jpg" width="400"/><br/></p>
-<h4 id="Alarm-Network-2"><strong>Alarm Network</strong> 2<a class="anchor-link" href="#Alarm-Network-2">¶</a></h4><p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/alarm_network_2.png" width="800"/></p>
+<h3 id="Bayes'-Net-Probability-Examples"><strong>Bayes' Net Probability Examples</strong><a class="anchor-link" href="#Bayes'-Net-Probability-Examples">¶</a></h3><h4 id="Coin-Flips-2"><strong>Coin Flips</strong> 2<a class="anchor-link" href="#Coin-Flips-2">¶</a></h4><p><img alt="drawing" src="/notes/assets/./images_p2/coin_flip_2.png"/><br/></p>
+<h4 id="Traffic-2"><strong>Traffic</strong> 2<a class="anchor-link" href="#Traffic-2">¶</a></h4><p><img alt="drawing" src="/notes/assets/./images_p2/traffic_2.png" width="400"/><br/></p>
+<h4 id="Reverse-Traffic-1"><strong>Reverse Traffic</strong> 1<a class="anchor-link" href="#Reverse-Traffic-1">¶</a></h4><p><img alt="drawing" src="/notes/assets/./images_p2/reverse_traffic_1.jpg" width="400"/><br/></p>
+<h4 id="Alarm-Network-2"><strong>Alarm Network</strong> 2<a class="anchor-link" href="#Alarm-Network-2">¶</a></h4><p><img alt="drawing" src="/notes/assets/./images_p2/alarm_network_2.png" width="800"/></p>
 <h2 id="Bayes'-Net-Size-Analysis"><strong>Bayes' Net Size Analysis</strong><a class="anchor-link" href="#Bayes'-Net-Size-Analysis">¶</a></h2><p>As shown the <a href="#Alarm-Network-2">Alarm Network</a> example every node holds a CPT of 2<sup>number of parents</sup> probabilities. This makes BN a very more efficient method to present joint probability distribution.
 $$
 \sum_{any \ node \ x} 2^{\ number \ of \ parents \ of \ x} \le 2^n
@@ -166,12 +166,12 @@ $$</p>
 <li>D: Roof drips.</li>
 </ul>
 <p>Its BN would be like this:</p>
-<p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/causal_relation_p1.png"/><br/></p>
+<p><img alt="drawing" src="/notes/assets/./images_p2/causal_relation_p1.png"/><br/></p>
 <p>Now if our agent is not able to know about whether it's raining or not, It will have only 2 random variables (T, D) and the BN will be one of these two(since T and D are not independent):</p>
-<p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/causal_relation_p2.png"/><br/></p>
+<p><img alt="drawing" src="/notes/assets/./images_p2/causal_relation_p2.png"/><br/></p>
 <p>So there might be an arrow from T to D or back from D to T, when there is no causal relation between them. In conclusion, BN do not necessarily reflect a causal pattern.</p>
 <h3 id="What-Does-Bayes'-Net-Really-Represent?">What Does Bayes' Net Really Represent?<a class="anchor-link" href="#What-Does-Bayes'-Net-Really-Represent?">¶</a></h3><p>BN topology may happen to encode causal structure, but what it really encodes is conditional independence (Local Cond. Indep.)</p>
-<h2 id="Conditional-Independencies-in-Bayes'-Net">Conditional Independencies in Bayes' Net<a class="anchor-link" href="#Conditional-Independencies-in-Bayes'-Net">¶</a></h2><p><img alt="drawing" src="/notes/assets/notebooks/9_bayesian_networks/images_p2/cond_indep_intro.png" width="400"/><br/></p>
+<h2 id="Conditional-Independencies-in-Bayes'-Net">Conditional Independencies in Bayes' Net<a class="anchor-link" href="#Conditional-Independencies-in-Bayes'-Net">¶</a></h2><p><img alt="drawing" src="/notes/assets/./images_p2/cond_indep_intro.png" width="400"/><br/></p>
 <p>In this BN we already know these relations:
 $$
 \begin{cases}

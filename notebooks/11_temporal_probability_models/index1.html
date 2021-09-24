@@ -1,7 +1,7 @@
 ---
 layout: content
 metadata: notebooks_11_temporal_probability_models_metadata
-colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/11_temporal_probability_models/index1.ipynb/index.ipynb
+colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/11_temporal_probability_models/index.ipynb
 ---
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -14,7 +14,7 @@ colab: https://colab.research.google.com/github/sut-ai/notes/blob/master/noteboo
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="decorative" src="/notes/assets/notebooks/11_temporal_probability_models/resource/decorative_1.png"/></p>
+<p><img alt="decorative" src="/notes/assets/resource/decorative_1.png"/></p>
 </div>
 </div>
 </div>
@@ -48,7 +48,7 @@ is to infer the state of the car from observed evidence, which also remains fixe
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="Markov chain" src="/notes/assets/notebooks/11_temporal_probability_models/resource/markov_chain.png"/></p>
+<p><img alt="Markov chain" src="/notes/assets/resource/markov_chain.png"/></p>
 </div>
 </div>
 </div>
@@ -75,7 +75,7 @@ P(X_1, X_2, ..., X_T) &amp;= P(X_1)P(X_2|X_1)P(X_3|X_2, X_1)...P(X_T|X_{T-1},...
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h4><p><img alt="Weekly Weather" src="/notes/assets/notebooks/11_temporal_probability_models/resource/weather_example.png"/>
+<h4 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h4><p><img alt="Weekly Weather" src="/notes/assets/resource/weather_example.png"/>
 Let's have an example to clear the air. We assume that changes of the weather is a Markov process, i.e. its state relies solely on its last step. So we make our snapshots everyday. We also that weather is classified into two states, namely rain and sun. Moreover, the <em>initial state probabilities</em> are defined by:</p>
 <table>
 <thead><tr>
@@ -127,7 +127,7 @@ Let's have an example to clear the air. We assume that changes of the weather is
 </tbody>
 </table>
 <p>We can also, represent this CPT as depicted by figures below.</p>
-<p><img alt="Representation 1" src="/notes/assets/notebooks/11_temporal_probability_models/resource/represent_2.png"/></p>
+<p><img alt="Representation 1" src="/notes/assets/resource/represent_1.png"/> <img alt="Representation 2" src="/notes/assets/resource/represent_2.png"/></p>
 </div>
 </div>
 </div>
@@ -157,7 +157,7 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 &amp;= \sum_{x_{t-1}} P(x_t|x_{t-1})P(x_{t-1})
 \end{align*}<p>This is like we are <em>simulating</em> the transition for every day.</p>
 <p>An execution of this algorithm up to $t=4$ has been done below.</p>
-<p><img alt="mini-forward execution" src="/notes/assets/notebooks/11_temporal_probability_models/resource/mini-forward.png"/></p>
+<p><img alt="mini-forward execution" src="/notes/assets/resource/mini-forward.png"/></p>
 <p>Let's put it into code.</p>
 </div>
 </div>
@@ -230,7 +230,7 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Stationary-Distributions">Stationary Distributions<a class="anchor-link" href="#Stationary-Distributions">¶</a></h3><p>A stationary distribution is a specific entity which is unchanged by the effect of some matrix or operator.</p>
 <p>Regarding our topic, it's a special distribution for a Markov chain, such that if the chain starts with its stationary distribution, the marginal distribution of all states at any time will always be the same stationary distribution. Assuming irreducibility, the stationary distribution is always unique if it exists.</p>
-<p><img alt="stationary decorative" src="/notes/assets/notebooks/11_temporal_probability_models/resource/stationary-decorative.png"/></p>
+<p><img alt="stationary decorative" src="/notes/assets/resource/stationary-decorative.png"/></p>
 <p>For most chains, influence of the initial distribution gets less and less over time and the distribution we end up in is independent of the initial distribution. This is the so-called <strong>stationary distribution</strong>. Note that regarding its definition, it satisfies:</p>
 $$P(X_\infty) = P(X_{\infty +1}) = \sum_x P(X|x)P(X_\infty)$$
 </div>
@@ -284,11 +284,11 @@ $$P(X_i|X_1,X_2,...X_n, E_1, ..., E_m)$$ Where $E_i$ is an evidence.</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Hidden-Markov-Model">Hidden Markov Model<a class="anchor-link" href="#Hidden-Markov-Model">¶</a></h3><p>Usually if we look at the problem's input, it doesn't yield a Markov chain. But still, there is hope.</p>
 <p>If the problem has a superior state that is a Markov process, we can make an assumption about this superior state, our <strong>belief</strong>, and update it as we <strong>observe</strong> problem's inputs.</p>
-<p><img alt="Hidden Markov Model" src="/notes/assets/notebooks/11_temporal_probability_models/resource/hmm.png"/></p>
+<p><img alt="Hidden Markov Model" src="/notes/assets/resource/hmm.png"/></p>
 <p>To model this system, we start with a simple Markov chain, and at each state, add a new node for the inputs of the problem such as agent's sensors, etc. which is solely relied on its state (i.e. $P(E_t|X_{0:t},E_{0:t-1}) = P(E_t|X_t)$. This property is called <strong>sensor Markov assumption</strong>).</p>
 <p>You can see a sample Hidden Markov Model (<strong>HMM</strong>) above.</p>
 <h4 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h4><p>Let's use the weather problem to clear the air again. Imagine that you are the security guard stationed at a secret  underground installation. You want to know whether it’s raining today, but your only access to the outside world occurs each morning when you see the director coming in with, or without, an umbrella. For each day $t$, the set $E_t$ thus contains a single evidence variable $Umbrella_t$ or $U_t$ for short (whether the umbrella appears), and the set $X_t$ contains a single state variable $Rain_t$ or $R_t$ for short (whether it is raining).</p>
-<p><img alt="HMM Weather Example" src="/notes/assets/notebooks/11_temporal_probability_models/resource/hmm-weather.png"/></p>
+<p><img alt="HMM Weather Example" src="/notes/assets/resource/hmm-weather.png"/></p>
 <p>This Bayes net can help us to find whatever query we have.</p>
 </div>
 </div>

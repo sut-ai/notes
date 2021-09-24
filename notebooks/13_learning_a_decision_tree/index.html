@@ -116,7 +116,7 @@ A decision tree is a simple representation for classifying examples. For this se
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h2>Overview</h2>
 <br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/overview.png"/>
+<img src="/notes/assets/pictures/overview.png"/>
 <br/></p>
 </div>
 </div>
@@ -134,11 +134,11 @@ Decision Tree Examples
 <br/><br/>
         1. Accept A New Job Offer
         <br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/find-job.png"/>
+<img src="/notes/assets/pictures/find-job.png"/>
 <br/>
         2. Predict Fuel Efficiency 
         <br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency.png"/>
+<img src="/notes/assets/pictures/fuel-efficiency.png"/>
 <br/><br/>
 </font>
 </div>
@@ -155,11 +155,11 @@ Building A Decision Tree
         </font>
 <br/><br/>
         Now we want to build a decision tree for Fuel Efficiency Example
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency2.png"/>
+        <img src="/notes/assets/pictures/fuel-efficiency2.png"/>
 <h2>Build decision Tree</h2>
 <h3>The Starting Node</h3>
         We can start with an empty tree and improve it at each level. For example, for the second example we have a tree that for all data, it returns mpg=bad. So for our dataset we got 22 correct answers and 18 wrong answers with this tree. but we can improve it!
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency3.png" style="width:200px;height:100px"/></font></div></p>
+        <img src="/notes/assets/pictures/fuel-efficiency3.png" style="width:200px;height:100px"/></font></div></p>
 <p>&lt;/div&gt;</p>
 </div>
 </div>
@@ -173,14 +173,14 @@ Building A Decision Tree
         There are several operators for building a decision tree.
         <h4>Improving the tree</h4>
         To improve our tree, we can add more nodes(features) to get more correct answer and predict better.
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency4.png">
+        <img src="/notes/assets/pictures/fuel-efficiency4.png"/>
 <h4>Recursive step</h4>
         We can consider each leaf as a root and do the same for those.Maybe we get to some node that doesn’t have any data. In these situations we should end up and predict randomly.
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency5.png"/>
+        <img src="/notes/assets/pictures/fuel-efficiency5.png">
         After one level we got this tree ?
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency6.png"/>
+        <img src="/notes/assets/pictures/fuel-efficiency6.png"/>
         And after adding all nodes(features) to the tree we got a Full Tree like this:
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/fuel-efficiency7.png"/>
+        <img src="/notes/assets/pictures/fuel-efficiency7.png"/>
 </img></font>
 </div>
 </div>
@@ -217,7 +217,7 @@ Building A Decision Tree
 <h3>Splitting: choosing a good attribute</h3>
 
 Look at the example to get the main point of splitting! 
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p10.png"/>
+<img src="/notes/assets/pictures/p10.png"/>
 <h4>Measuring uncertainty</h4>
 <br/>
 •Good split if we are more certain about classification after split<br/>
@@ -256,22 +256,22 @@ Look at the example to get the main point of splitting!
 <font color="purple" size="6">Entropy</font><br/>
         First we start with definition of entropy:<br/>
       Entropy H(Y) of a random variable Y:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p16.png" style="width:400px"/>
+<img src="/notes/assets/pictures/p16.png" style="width:400px"/>
 As it can be figured out, more uncertainty, more entropy!<br/>
 It's interesting to know that in Information Theory interpretation entropy is defined as:<br/>
     Expected number of bits needed to encode a randomly drawn value of Y (under most efficient code)<br/>
 And for a diagram view of entropy we can say it has a peak in the middle of it, then it falls.
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p17.png" style="height:300px"/>
+<img src="/notes/assets/pictures/p17.png" style="height:300px"/>
 <font color="green" size="5.7">Example of Entropy</font><br/>
 If P(Y=t) = 5/6 and P(Y=f) = 1/6 the value of H(Y) would be:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p18.png" style="height:300px"/>
+<img src="/notes/assets/pictures/p18.png" style="height:300px"/>
 <font color="purple" size="6">Conditional Entropy</font><br/>
 definition:<br/>
    Conditional Entropy H(Y|X) of a random variable Y conditioned on a random
 variable X<br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p19.png"/>
+<img src="/notes/assets/pictures/p19.png"/>
 And here an example of conditional entropy:<br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p20.png" style="height:300px"/>
+<img src="/notes/assets/pictures/p20.png" style="height:300px"/>
 </font>
 </div>
 </div>
@@ -286,9 +286,9 @@ And here an example of conditional entropy:<br/>
 <font color="purple" size="6.6">Information Gain</font><br/>
         definition:<br/>
     The information gain is the amount of information gained about a random variable or signal from observing another random variable and defined by this equation:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p21.png"/>
+<img src="/notes/assets/pictures/p21.png"/>
 And for IG of our last example we have:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p22.png"/>
+<img src="/notes/assets/pictures/p22.png"/>
 </font>
 </div>
 </div>
@@ -312,15 +312,15 @@ Steps of building a tree:<br/>
       . Start from empty decision tree<br/>
       . Split on next best attribute (feature)<br/>
       . Use information gain (or...?) to select attribute:<br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p23.png" style="width:400px"/>
+<img src="/notes/assets/pictures/p23.png" style="width:400px"/>
       . Recurse<br/><br/>
 <font color="green" size="6">Example</font><br/>       
 Now we want to build a tree step by step, as an example for figuring out the way to build a DT.<br/>
 Suppose we want to predict MPG; now look at all the information gains in the picture below
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p24.png"/>
+<img src="/notes/assets/pictures/p24.png"/>
 Now we should do our iterations.<br/>
 For first iteration we have:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p25.png"/>
+<img src="/notes/assets/pictures/p25.png"/>
 </font>
 </div>
 </div>
@@ -342,9 +342,9 @@ don’t recurse.<br/>
       . Base Case Two: If all records have exactly the same set of input attributes then
 don’t recurse.<br/>
 Base Case One:
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p26.png"/>
+        <img src="/notes/assets/pictures/p26.png"/>
 Base Case Two:
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p27.png"/>
+        <img src="/notes/assets/pictures/p27.png"/>
 <br/>
 Now there is one other idea for termination that we want to discuss:<br/>
     . Base Case 3: If all attributes have zero information gain then don't recurse.<br/>
@@ -356,11 +356,11 @@ Because it's kind of a greedy idea!!<br/>
 In this idea we check information gain of our variables alone, but if we check the information we get from combination of variables, there maybe be usefull information.<br/>
 Here an example of this idea's problem:<br/>
     For Y = a xor b, we use this idea and here the result:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p28.png"/>
+<img src="/notes/assets/pictures/p28.png"/>
 But without this idea:
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p29.png"/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p30.png"/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p31.png"/>
+<img src="/notes/assets/pictures/p29.png"/>
+<img src="/notes/assets/pictures/p30.png"/>
+<img src="/notes/assets/pictures/p31.png"/>
 So as we can see, this idea didn't come up with good results.
 </font>
 </div>
@@ -384,7 +384,7 @@ Take the facing graph as an example. Suppose we are given a dataset of (x, y)s a
 As you might’ve gotten it so far, all the three functions (red, green, and blue) are estimating it right and if we don’t have any prior knowledge, all three functions have the exact probability to be our suggesting function.
 “No Free lunch” states that, in absence of any sense on what functions are more likely, learning is impossible.
 For example, if we already knew that a very smooth function generated these points we are more likely to prefer the blue function to others.
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p11.png" style="width:400px;height:300px"/>
+<img src="/notes/assets/pictures/p11.png" style="width:400px;height:300px"/>
 </font>
 </div>
 </div>
@@ -405,7 +405,7 @@ For example, if we already knew that a very smooth function generated these poin
 </font>
 <br/>
         This principle states that from all possible hypotheses on a dataset, choose the shortest (the least complex) one. Because a short hypothesis is less likely to overfit.
-        <img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p12.png" style="width:700px;height:300px"/>
+        <img src="/notes/assets/pictures/p12.png" style="width:700px;height:300px"/>
 <h6>Variance of model</h6>
         If we change the training data, how much our result on validation set changes
         <h6>Bias of model</h6>
@@ -452,7 +452,7 @@ For example, if we already knew that a very smooth function generated these poin
 <font color="purple" size="6">Chi-Square Test (remembrance)<br/></font>
 Having two features where the first feature has k classes and the second one has n classes. With people which we know their classes in both features, H0(null hypothesis) states that in a table with k rows and n columns, rows are independent from columns and conversely.
         <br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p13.png"/>
+<img src="/notes/assets/pictures/p13.png"/>
 <font color="purple" size="6">Using Chi-Square in growing tree<br/></font>
 As you know, for choosing what feature to be used in each depth we got help from a concept called IG. after the tree is grown (fully or with a limit on depth and leaves) we test each feature in each depth and calculate the p_value. After setting a threshold calledMaxPchance, if calculate pfor any feature is greater than MaxPchance. We prune that feature and the decision will be based on the previous feature (parent node).
 How to find a good MaxPchance?
@@ -478,7 +478,7 @@ Idea:<br/>
      Decision Trees overfit easily and it's hard to grow them on a big number of features.<br/>
 Approach:<br/> 
      Use multiple decision trees instead of only one.
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p14.png"/>
+<img src="/notes/assets/pictures/p14.png"/>
 For each tree:<br/>
 <font color="green" size="6">Training Set</font><br/>
 Assume T as the original training set. It’s not usual to divide it into N subsets (N number of decision trees in forest). For  the sake of resolving the overfit, we choose a subset size of $φ1|T|$ then we bootstrap (bagging) T into N subsets of size $φ1|T|$. ($0 &lt; φ1|T| &lt;=1$)<br/>
@@ -498,7 +498,7 @@ As we know each tree has a probability with its prediction which shows how much 
       . less recall<br/>
       . more precision<br/>
       . has a more reasonable answer when the number of trees is even<br/>
-<img src="/notes/assets/notebooks/13_learning_a_decision_tree/pictures/p15.png"/>
+<img src="/notes/assets/pictures/p15.png"/>
 </font>
 </div>
 </div>

@@ -15,7 +15,7 @@ Actually, the <em>state</em> of the environment, the way <em>time</em> is handle
 Let's denote the location of cities as $y_1, y_2, ..., y_n$.
 Then we can find answer to our question by solving the optimization problem below:
 $$\min_{x} \sum^{n}_{i=1}||x-y_i||_2$$</p>
-<h3 id="Image-deblurring-and-denoising">Image deblurring and denoising<a class="anchor-link" href="#Image-deblurring-and-denoising">¶</a></h3><p><img alt="Image Denoising" src="/notes/assets/notebooks/6_search_in_continuous_space/house.jpg"/>
+<h3 id="Image-deblurring-and-denoising">Image deblurring and denoising<a class="anchor-link" href="#Image-deblurring-and-denoising">¶</a></h3><p><img alt="Image Denoising" src="/notes/assets/./house.jpg"/>
 Image <strong>Deblurring</strong> (<strong>Noise reduction</strong>) is the processes of removing blurring artifacts (noise) from images [input image say $Y$ which is blurred image which generally happens due to camera shake or some other phenomenon].
 <img alt="Image Denoising" src="https://uupload.ir/files/dzfn_picture1.png"/>
 Given corrupted image $Y \in \mathbb R^{m\times n}$, we reconstruct the image by solving the optimization problem below:
@@ -46,13 +46,13 @@ In contrast, for constrained optimization, it may be difficult to even find a po
 <p>However, if we make some reasonable assumptions about the function being examined, near-optimal solutions can be found in finite time. One such assumption is Lipschitz continuity. The mathematical definition is as follows:</p>
 $$\exists L\in\mathbb{R}:\forall x,y\in\mathbb{R}^n|f(x)-f(y)|\le L||x-y||$$<p>It means that the difference between the value of the function at two points is never more than a constant multiple of the distance of the two points. This assumption restricts the growth of the function when moving from one point to another. As to know how this assumption can help us find a near optimal solution, consider the following case:</p>
 <p>Assume $S$ is a bounded subset of $\mathbb{R}$. We know that $\forall x,y\in\mathbb{R}^n|f(x)-f(y)|\le 5||x-y||$ and we want to find a function value which is at most $0.1$ far from the actual minimum or maximum. ow, consider points in $S$ at most $\frac{0.1}{5}=0.02$ far from each other and from the boundaries of $S$ and call the set of these points $P$. Because of the restriction imposed on $f$ we can be sure that the value of the function at points not in $P$ is at most $0.02 \times 5 = 0.1$ far from the two nearest points in $P$. Consequentially, if we take the minimum or maximum value of $f$ among points in $P$, we can be sure that this value is at most $0.1$ far from the real minimum or maximum of $f$ in $S$.</p>
-<p><img alt="" src="/notes/assets/notebooks/6_search_in_continuous_space/lipschitz.png"/></p>
+<p><img alt="" src="/notes/assets/./lipschitz.png"/></p>
 <p>Lipschitz continuity made it possible to find near-optimal solutions, but it can be proved that any algorithm to find a near-optimal minimum or maximum for a Lipschitz continuous function on $\mathbb{R}^n$ has $\Omega\big(\frac{1}{t^\frac{1}{n}}\big)$ error after $t$ iterations. We can see that assumptions can make a big difference, but we still need faster algorithms.</p>
 <h2 id="Convexity">Convexity<a class="anchor-link" href="#Convexity">¶</a></h2><p>Originally, researchers distinguished between linear (easy) and nonlinear (hard) problems, but in 80s and 90s it became clear that this wasn’t the right distinction; the key difference is between convex and non-convex problems.</p>
-<p><img alt="" src="/notes/assets/notebooks/6_search_in_continuous_space/convex.png"/></p>
+<p><img alt="" src="/notes/assets/./convex.png"/></p>
 <p>First, we need to know the definition of convex sets and convex functions:</p>
 <h3 id="Convex-sets">Convex sets<a class="anchor-link" href="#Convex-sets">¶</a></h3><p>A set $\mathcal{C}$ is convex if and only if $$\forall x,y\in\mathcal{C},\theta\in[0,1]\;\;\;\;\;\theta x+(1-\theta)y\in\mathcal{C}.$$</p>
-<p><img alt="" src="/notes/assets/notebooks/6_search_in_continuous_space/set.png"/></p>
+<p><img alt="" src="/notes/assets/./set.png"/></p>
 <p>For example, the following sets are convex:</p>
 <ul>
 <li>$\mathbb{R}^n$ for all non-negative integers $n$</li>
@@ -63,7 +63,7 @@ $$\exists L\in\mathbb{R}:\forall x,y\in\mathbb{R}^n|f(x)-f(y)|\le L||x-y||$$<p>I
 </ul>
 <p>Note that the union of any number of convex sets need not be convex. (Consider the union of two disjoint circles in $\mathbb{R}^2$.)</p>
 <h3 id="Convex-functions">Convex functions<a class="anchor-link" href="#Convex-functions">¶</a></h3><p>A function $f:\mathbb{R}^n\rightarrow\mathbb{R}$ is convex if and only if it never curves downward. The formal definition is as follows:</p>
-$$\forall x,y\in\mathbb{R}^n,\theta\in[0,1]\;\;\;f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)$$<p><img alt="" src="/notes/assets/notebooks/6_search_in_continuous_space/function.png"/></p>
+$$\forall x,y\in\mathbb{R}^n,\theta\in[0,1]\;\;\;f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)$$<p><img alt="" src="/notes/assets/./function.png"/></p>
 <p>If the function $f$ is convex, we call $-f$ concave, and if $f$ is both convex and concave, then it is an affine function is of the form $$f(x)=\sum^{n}_{i=1}a_ix_i+b.$$</p>
 <p>Examples of convex functions are:</p>
 <ul>

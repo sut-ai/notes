@@ -415,18 +415,18 @@ Tabu search raises the space complexity from O(1) to O(k) but in many problems t
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>How to define this schedulability?</strong>
-<br>
+<br/>
 There is only one theorem about this.
-<br>
+<br/>
 <em>Theorem</em>: If T is decreased sufficiently slow, global optima will be found approximately with probability of 1.
-<br>
+<br/>
 <strong>Is this rate same for all problems?</strong>
-<br>
+<br/>
 No, it depends on the problem.
-<br>
+<br/>
 <strong>Now, Is this theorem a useful guarantee?</strong>
-<br>
-Convergence can be guaranteed if at each step, T drops no more quickly than $\frac{C}{log n}$, where C is a constant and problem dependent and n is the number of steps so far.In practice different Cs are used to find the best choice for problem.</br></br></br></br></br></br></p>
+<br/>
+Convergence can be guaranteed if at each step, T drops no more quickly than $\frac{C}{log n}$, where C is a constant and problem dependent and n is the number of steps so far.In practice different Cs are used to find the best choice for problem.</p>
 </div>
 </div>
 </div>
@@ -463,8 +463,8 @@ Convergence can be guaranteed if at each step, T drops no more quickly than $\fr
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Keeping only one node in memory is an extreme reaction to memory problems.
-<br>
-<strong>Local beam search</strong> is another algorithm which keeps track of k states instead of keeping only one node in memory.</br></p>
+<br/>
+<strong>Local beam search</strong> is another algorithm which keeps track of k states instead of keeping only one node in memory.</p>
 </div>
 </div>
 </div>
@@ -514,10 +514,10 @@ Convergence can be guaranteed if at each step, T drops no more quickly than $\fr
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Quite often, all k states end up on same local hill.
-<br>
+<br/>
 <strong>So, What should be done?</strong>
-<br>
-The idea is to use <strong>Stochastic beam search</strong> which chooses k successors randomly,biased towards good ones.</br></br></p>
+<br/>
+The idea is to use <strong>Stochastic beam search</strong> which chooses k successors randomly,biased towards good ones.</p>
 </div>
 </div>
 </div>

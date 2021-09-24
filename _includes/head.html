@@ -1,6 +1,8 @@
+<!--viewport meta-tag for responsiveness-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Local CSS Stylesheets -->
-
 <link rel="stylesheet" href="{{ '/assets/css/jupyter.css' | prepend: site.baseurl }}">
 
 <!-- JQuery -->
@@ -41,6 +43,8 @@
             }
         });
 
+
+
 </script>
 <link rel="stylesheet" href="{{ '/assets/css/codehilite.css' | prepend: site.baseurl }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
@@ -54,5 +58,12 @@
   gtag('js', new Date());
 
   gtag('config', '{{site.data.index.config.google_analytics_id}}');
+
+
 </script>
+{% endif %}
+
+{% if site.data.index.config.search != null %}
+<!--jekyll-simple-search-->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 {% endif %}
