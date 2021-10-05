@@ -37,3 +37,7 @@ authors:
       link: mailto:alialaee98@gmail.com
     kind: person
     image: https://github.com/aliash98.png
+kind: Content
+search:
+  content: true
+  links: false

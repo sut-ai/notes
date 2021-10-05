@@ -37,3 +37,7 @@ authors:
     - icon: fas fa-envelope
       link: mailto:ghaznavi.mahdi@gmail.com
     kind: person
+kind: Content
+search:
+  content: true
+  links: false

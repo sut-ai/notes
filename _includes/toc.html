@@ -1,11 +1,10 @@
-<div class="container-fluid p-0 m-0 no-gutters"
-     >
+<div class="container-fluid p-0 m-0 no-gutters">
     {% assign index_tag = include.index.title | remove: " " %}
 
     <!--generic content spaces-->
     {% for pair in include.index %}
-        {% if pair[0] == "title" or pair[0] == "nav" or pair[0] =="footer" or pair[0] =="header"
-            or pair[0] == "meta" or pair[0] == "config" %}
+        {% if pair[0] == "title" or pair[0] == "nav" or pair[0] == "footer" or pair[0] =="header"
+            or pair[0] == "meta" or pair[0] == "config" or pair[0] == "search" or pair[0] == "style" or pair[0] == "kind" %}
             {% continue %}
         {% endif %}
 
@@ -33,7 +32,7 @@
         {% if content[0] %}
             {% assign spacing = "p-0" %}
         {% else %}
-            {% assign spacing = "px-5 p-4" %}
+            {% assign spacing = "px-4 p-4" %}
         {% endif %}
         {% if pair[1].label != false and pair[1].label.position != "top" and pair[1].label.position != "bottom" %}
             {% assign pad_direction = "e" %}

@@ -39,3 +39,7 @@ authors:
       link: mailto:atenasaghi@ce.sharif.edu
     kind: person
     image: https://github.com/atenasadat.png
+kind: Content
+search:
+  content: true
+  links: false

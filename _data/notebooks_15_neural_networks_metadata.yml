@@ -43,3 +43,7 @@ authors:
       link: mailto:nimxj4141@gmail.com
     kind: person
     image: https://github.com/nimajam41.png
+kind: Content
+search:
+  content: true
+  links: false

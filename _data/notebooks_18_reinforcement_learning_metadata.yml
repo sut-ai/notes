@@ -32,3 +32,7 @@ authors:
     - icon: fab fa-linkedin
       link: https://www.linkedin.com/in/sepehr-amini-afshar-2201381b8/
     kind: person
+kind: Content
+search:
+  content: true
+  links: false
