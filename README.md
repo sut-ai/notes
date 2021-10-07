@@ -17,7 +17,7 @@ This repository contains Lecture Notes regarding artificial intelligence course.
 Right now we only accept educational notebooks, if you want to submit your notebook, do as follows: 
 1. First [fork this repository](https://github.com/sut-ai/notes/fork)!
 2. Create a new folder in `notebooks/` (please follow lower-cased underline seperated naming convention for your folder).
-3. Create your notebook inside your newly created folder and name it `index.ipynb`. Make sure that all the necessary files (images and other potential assets) are all located inside this folder. Make sure that all your assets are referenced relative from your notebook.
+3. Create your notebook inside your newly created folder and name it `index.md`. Make sure that all the necessary files (images and other potential assets) are all located inside this folder. Make sure that all your assets are referenced relative from your notebook.
 4. Create `matadata.yml` inside your notebook and fill in these informations:
 
     ```yml
