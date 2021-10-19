@@ -1,0 +1,31 @@
+title: <intelligent agents> # shown on browser tab
+
+header:
+    title: <intelligent agents> # title of your notebook
+    description: <agents and their types> # short description of your notebook
+
+authors:
+    label:
+        position: top
+    content:
+    # list of notebook authors
+    - name: <Amirreza Mirzaei> # name of author
+      role: Author # change this if you want
+      contact:
+      - link: https://github.com/amirrezamirzaei
+        icon: fab fa-github
+    - name: <Bardia Mohammdi> # name of author
+        role: Author # change this if you want
+        contact:
+          - link: https://github.com/bardia-mhd
+            icon: fab fa-github
+    - name: <Sina Elahimanesh> # name of author
+        role: Author # change this if you want
+        contact:
+          - link: https://github.com/sinaelahimanesh
+            icon: fab fa-github
+
+comments:
+    # enable comments for your post
+    label: false
+    kind: comments
