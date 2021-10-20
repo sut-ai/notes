@@ -1,10 +1,4 @@
-# I'm Only Adding this for testing pull requests "some errors"
-
 a
-
-"just errors in the new line"
-
-
 # AI Educational Materials
 
 
