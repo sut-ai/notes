@@ -2,7 +2,7 @@
 
 a
 
-"justttt errors ni the wen linne"
+"just errors in the new line"
 
 
 # AI Educational Materials
