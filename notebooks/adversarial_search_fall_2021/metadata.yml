@@ -10,6 +10,7 @@ authors:
     content:
     - name: Mohammad Abolnejadian 
       role: Author 
+      image: mohammad_abolnejadian.jpg
       contact:
       - link: https://github.com/mothegoat
         icon: fab fa-github
@@ -18,6 +19,7 @@ authors:
 
     - name: Mohammadali MohammadKhani 
       role: Author 
+      image: mohammadali_mohammadkhani.jpg
       contact:
       - link: https://github.com/MoaliMkh
         icon: fab fa-github
@@ -29,6 +31,7 @@ authors:
 
     - name: Matin Daghyani 
       role: Author 
+      image: matin_daghyani.jpg
       contact:
       - link: https://github.com/mtndaghyani
         icon: fab fa-github
