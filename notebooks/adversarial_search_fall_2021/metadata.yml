@@ -1,0 +1,41 @@
+title: Adversarial Search # shown on browser tab
+
+header:
+    title: Adversarial Search # title of your notebook
+    description: An intro into aversarial search # short description of your notebook
+
+authors:
+    label: 
+        position: top
+    content:
+    - name: Mohammad Abolnejadian 
+      role: Author 
+      contact:
+      - link: https://github.com/mothegoat
+        icon: fab fa-github
+      - link: mailto:mohammad.abolnejadian@gmail.com
+        icon: fas fa-envelope
+
+    - name: Mohammadali MohammadKhani 
+      role: Author 
+      contact:
+      - link: https://github.com/MoaliMkh
+        icon: fab fa-github
+      - link: mailto:mohammadali1379@gmail.com
+        icon: fas fa-envelope
+      # optionally add other contact information like  
+      # - link: <change this> # contact link
+      #   icon: <change this> # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
+
+    - name: Matin Daghyani 
+      role: Author 
+      contact:
+      - link: https://github.com/mtndaghyani
+        icon: fab fa-github
+       - link: mailto:matin.daghyani@gmail.com
+        icon: fas fa-envelope
+
+# comments:
+#     # enable comments for your post
+#     label: false
+#     kind: comments

@@ -18,6 +18,8 @@ notebooks:
       kind: S2021, LN, PDF
     - notebook: notebooks/8_adversarial_search/
       kind: S2021, LN, Notebook
+    - notebook: notebooks/adversarial_search_fall_2021/
+      kind: F2021, LN, Notebook
     - notebook: notebooks/9_bayesian_networks/index1.ipynb
       kind: S2021, LN, Notebook
       metadata: notebooks/9_bayesian_networks/metadata.yml
