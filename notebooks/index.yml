@@ -12,6 +12,7 @@ notebooks:
       kind: S2021, LN, Notebook
     - notebook: notebooks/5_local_search/
       kind: S2021, LN, Notebook
+      #Fall 1400
     - notebook: notebooks/6_search_in_continuous_space/
       kind: S2021, LN, Notebook
     - pdf: notebooks/7_CSP/index.pdf
