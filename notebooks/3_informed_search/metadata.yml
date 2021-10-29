@@ -1,0 +1,34 @@
+title: Informed Search
+
+header:
+  title: Informed Search
+
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+    - name: Pouria Molahoseini
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/pxouria
+        - icon: fas fa-envelope
+          link: mailto:pouria77up@gmail.com
+
+    - name: Armin Azizi
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/seyedarmin-azizi
+        - icon: fas fa-envelope
+          link: mailto:armin.az77@yahoo.com
+
+    - name: Mohammad Reza Taremi
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/themimte
+        - icon: fas fa-envelope
+          link: mailto:mohammadrezataremi77@gmail.com
