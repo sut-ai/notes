@@ -68,6 +68,8 @@ If we want our heuristic to be *Consistent* we should have **h(G) = 0** and **h(
  
 Because of the *Admissibility* **h(C) should be less than 3**, but if **h(A) > 1 + h(C)** then our heuristic is *Inconsistent!*. Hence if we assume that **h(C) = 1**, **h(G) = 0** and **h(A) = 4** our heuristic is *Admissible but Inconsistent!*
  
+<hr style="border:2px solid gray"> </hr>
+
 ### Monotonic heuristic function
 We also can make a non-monotonic heuristic, monotonic with some changes!
 For this we only need to define a new and more appropriate heuristic like the below schema.
