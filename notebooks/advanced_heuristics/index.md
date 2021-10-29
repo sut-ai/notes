@@ -7,7 +7,7 @@ Distance is a numerical measurement of how far apart objects or points are:
 * [Euclidean Distance](https://en.wikipedia.org/wiki/Euclidean_distance) calculates the distance between two real-valued vectors.
 * [Manhattan Distance](https://en.wikipedia.org/wiki/Taxicab_geometry) is sum of the absolute differences of their Cartesian coordinates.
 <p align="center">
-  <img src="distance.png" alt="distance" width="400" height="300"/>
+  <img src="pic/distance.png" alt="distance" width="400" height="300"/>
 </p>
 * Heuristic guidance means how far is the goal state from a given state approximately.
  
@@ -17,32 +17,32 @@ So an **Admissible Heuristic** is a *non-negative* function h of nodes, where **
  
 Effect of **Admissibility** on a Heuristic is shown in the below schema:
 <p align="center">
-<img src="admissible.png" alt="admissible" width="600" height="300"/>
+<img src="pic/admissible.png" alt="admissible" width="600" height="300"/>
 </p>
  
 Now we define **f(n)** function as **f(n) = h(n) + g(n)** where g(n) is sum of costs from root to n node.
 
 ***Monotonicity or Consistency is that the heuristic function holds in triangle inequality.*** Namely **f(n) is never Decreasing.**
 <p align="center">
-<img src="consistency.png" alt="consistency" width="600" height="300"/>
+<img src="pic/consistency.png" alt="consistency" width="600" height="300"/>
 </p>
 
 
 Effect of **Monotonicity** on a Heuristic is shown in the below schema:
 <p align="center">
-<img src="monotonic.png" alt="monotonic" width="600" height="300"/>
+<img src="pic/monotonic.png" alt="monotonic" width="600" height="300"/>
 </p>
  
 We will prove that **Consistency** implies **Admissibility** whereas the opposite is not necessarily true.
 <p align="center">
-<img src="proof.png" alt="proof" width="800" height="300"/>
+<img src="pic/proof.png" alt="proof" width="800" height="300"/>
 </p>
  
 Now we want to show an **inconsistent, admissible example!**
 So consider this figure:
 
 <p align="center">
-<img src="example.png" alt="example"/>
+<img src="pic/example.png" alt="example"/>
 </p>
  
 If our heuristic is admissible, we have that **h(n) $\le$ h*(n)** for every node n where **h*** is the real cost to the goal. So we deduct that **h(A) $\le$ 4**, **h(C) $\le$ 3** and **h(G) $\le$ 0**.
@@ -55,7 +55,7 @@ Because of the *Admissibility* **h(C) should be less than 3**, but if **h(A) > 1
 We also can make a non-monotonic heuristic, monotonic with some changes!
 For this we only need to define a new and more appropriate heuristic like the below schema.
 <p align="center">
-<img src="c.png" alt="new heuristic" width="500" height="150"/>
+<img src="pic/c.png" alt="new heuristic" width="500" height="150"/>
 </p>
  
  
@@ -64,7 +64,7 @@ For this we only need to define a new and more appropriate heuristic like the be
  
 Above Heuristic is defined Recursively.
 <p align="center">
-<img src="heuristic proof.png" alt="heuristic proof" width="400" height="300"/>
+<img src="pic/heuristic proof.png" alt="heuristic proof" width="400" height="300"/>
 </p>
 
 **$\overline{h}$(n’) $\ge$ $\overline{h}$(n) - c(n, a, n')**
@@ -120,7 +120,7 @@ h' = min(S'), h = min(S) $\Lambda$ S $\subseteq$ S' $\Lambda$ $\forall$ s, s' if
  In below problem, which is an NP-hard problem (indissoluble in linear time), we want to find the Hamiltonian path with least weight.
 
 <p align="center">
-<img src="hamilton path.png" alt="hamilton path" width="500" height="300"/>
+<img src="pic/hamilton path.png" alt="hamilton path" width="500" height="300"/>
 </p>
 
 Hamilton path is a tree which every its inner node have exactly one leaf. Hence, the problem is converting above graph to a 1-array tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-array tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in $n^{2}$ time complexity.
