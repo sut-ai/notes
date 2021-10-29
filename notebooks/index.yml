@@ -7,7 +7,8 @@ notebooks:
       kind: S2021, LN, PDF
     - notebook: notebooks/2_uninformed_search/
       kind: S2021, LN, Notebook
-    #- notebook: notebooks/3_informed_search/
+    - notebook: notebooks/3_informed_search/
+      kind: S2021, LN, Notebook
     - notebook: notebooks/4_advanced_heuistics/
       kind: S2021, LN, Notebook
     - notebook: notebooks/5_local_search/
