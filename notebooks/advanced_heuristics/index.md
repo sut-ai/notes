@@ -137,7 +137,7 @@ A* opens all node with **f(n) < C** and some with **f(n) = C**.
  
  
 Note that 
-**$h_{2}(n)$
+**h<sub>2</sub>(n)
 &ge;
 $h_{1}(n)$**
  
