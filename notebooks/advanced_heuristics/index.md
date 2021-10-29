@@ -91,7 +91,7 @@ We will prove that **Consistency** implies **Admissibility** whereas the opposit
 <em> &le; c(n<sub>1</sub> ,a<sub>1</sub> , n<sub>2</sub>) + c(n<sub>1</sub> ,a<sub>1</sub> , n<sub>3</sub>) + h(n<sub>3</sub>) &le;</em>
 
 …
-&le; &Sigma; c(n<sub>1</sub> ,a<sub>1</sub> , n<sub>i+1</sub>) + 0 &#8658; h(n<sub>1</sub>) &le; cost of (every) path from n<sub>1</sub> to goal &le; cost of optimal path from n<sub>1</sub> to goal 
+<em> &le; &Sigma; c(n<sub>1</sub> ,a<sub>1</sub> , n<sub>i+1</sub>) + 0 &#8658; h(n<sub>1</sub>) &le; cost of (every) path from n<sub>1</sub> to goal &le; cost of optimal path from n<sub>1</sub> to goal </em>
  
 Now we want to show an **inconsistent, admissible example!**
 So consider this figure:
