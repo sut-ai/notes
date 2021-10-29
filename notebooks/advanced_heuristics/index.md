@@ -180,6 +180,7 @@ In previous sectionwe introduced relaxing method which improves heuristic functi
 
 In this method we choose a subset of constraints by a specific pattern and ignore the other constraints. Since we ignored some constraints we did relaxing method and hence answer of the converted problem is a heuristic gfunction.
 
+for further information watch this video: [watch](https://www.youtube.com/watch?v=HZWV4uOJWk8)
 <hr style="border:2px solid gray"> </hr>
 
 ### Combining Pattern DB
