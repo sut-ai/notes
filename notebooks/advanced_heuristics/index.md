@@ -110,7 +110,7 @@ For this we only need to define a new and more appropriate heuristic like the be
  
  
  
-**<SPAN STYLE="text-decoration:overline">h</SPAN>$(n’) = max(h(n’), <SPAN STYLE="text-decoration:overline">h</SPAN>(n’) - c(n, a, n’))**
+**ℏ(n’) = max(h(n’), ℏ(n’) - c(n, a, n’))**
 
  
 Above Heuristic is defined Recursively.
@@ -118,9 +118,9 @@ Above Heuristic is defined Recursively.
 <img src="pic/heuristic proof.png" alt="heuristic proof" width="400" height="300"/>
 </p>
 
-**$\overline{h}$(n’) &ge; $\overline{h}$(n) - c(n, a, n')**
+**ℏ(n’) &ge; ℏ(n) - c(n, a, n')**
  
-So obviously we have **$\overline{h}$(n’) + c(n, a, n') &ge; $\overline{h}$(n)**
+So obviously we have **ℏ(n’) + c(n, a, n') &ge; ℏ(n)**
  
 <hr style="border:2px solid gray"> </hr>
 
