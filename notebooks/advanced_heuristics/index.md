@@ -31,7 +31,7 @@
 ## Introduction
 nothing yet!
 
-$a &ge; b$
+a $&ge;$ b
 
 $a&le;b$
 
@@ -91,7 +91,7 @@ So consider this figure:
 <img src="pic/example.png" alt="example"/>
 </p>
  
-If our heuristic is admissible, we have that **h(n) $\le$ h*(n)** for every node n where **h*** is the real cost to the goal. So we deduct that **h(A) $\le$ 4**, **h(C) $\le$ 3** and **h(G) $\le$ 0**.
+If our heuristic is admissible, we have that **h(n) $&le;$ h*(n)** for every node n where **h*** is the real cost to the goal. So we deduct that **h(A) $\le$ 4**, **h(C) $\le$ 3** and **h(G) $\le$ 0**.
  
 If we want our heuristic to be *Consistent* we should have **h(G) = 0** and **h(n) $\le$ cost(n, c) + h(c)** so in our case we have **h(A) $\le$ 1 + h(C)** and **h(C) $\le$ 3 + h(G) = 3**
  
