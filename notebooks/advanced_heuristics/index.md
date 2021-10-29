@@ -143,7 +143,7 @@ $h_{1}(n)$**
  
 If node n is expanded by A* with $h_{2}$ then **$h_{2}(n)$ < C - g(n)**
  
-So ***$h_{1}(n)$ &le; $h_{2}(n)$ < C - g(n)*** and it would be expanded by A* with $h_{1}$ as well.
+So ***h<sub>1</sub>(n) &le; h<sub>2</sub>(n) < C - g(n)*** and it would be expanded by A* with $h_{1}$ as well.
 
 
 We also can improve our heuristic by some methods.
