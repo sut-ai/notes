@@ -131,7 +131,7 @@ On another hand it means if a node is expanded by $h_{2}$ it will be expanded by
  
 *Proof:*
  
-If $h_{2}$ dominate $h_{1}$, A* with $h_{2}$ expands at most the same number of nodes as when using $h_{1}$.
+If h<sub>2</sub> dominate h<sub>1</sub>, A* with h<sub>2</sub> expands at most the same number of nodes as when using h<sub>1</sub>.
  
 A* opens all node with **f(n) < C** and some with **f(n) = C**.
  
