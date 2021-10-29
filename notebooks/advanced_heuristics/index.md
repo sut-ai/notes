@@ -65,7 +65,7 @@ Now we define **f(n)** function as **f(n) = h(n) + g(n)** where g(n) is sum of c
 
 ***Monotonicity or Consistency is that the heuristic function holds in triangle inequality.*** Namely **f(n) is never Decreasing.**
 <p align="center">
-<img src="pic/consistency.png" alt="consistency" width="600" height="300"/>
+<img src="pic/consistency.png" alt="consistency"/>
 </p>
 A heuristic is consistent if: _h(n) &le; c(n, a, n’) + h(n’)_
 
