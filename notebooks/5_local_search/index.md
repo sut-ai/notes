@@ -24,6 +24,7 @@ Local Search is a heuristic method for solving computationally hard contraint sa
 Usually local search is used for problems which have a state as its solution, and for many problems the path to the final solution is irrelevent. The procedure of this method is quite simple, at first the algorithm starts from a solution which may not be optimal, or may not satisfy all the constraints, and by every step or iteration, the algorithm tries to find a slightly better solution. This gradual improvement of the solution is done by examining different neighbors of the current state, and chosing the best neighbor as the next state of the search. 
 
 An example of the applications of local search is solving the TSP problem. In each step we may try to replace two edges by two other edges which may result in a shorter cycle in the graph.
+
 ![Imgae of TSP problem solved by local search](https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png )
 
 ### 1.2. Advantages
