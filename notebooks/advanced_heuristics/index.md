@@ -85,7 +85,7 @@ for more information and better understanding watch this video: [watch](https://
 ### Monotonicity implies admissibility
 We will prove that **Consistency** implies **Admissibility** whereas the opposite is not necessarily true.
 <p align="center">
-<img src="pic/proof.png" alt="proof" width="800" height="300"/>
+<img src="pic/proof.png" alt="proof" width="800" height="180"/>
 </p>
  
 Now we want to show an **inconsistent, admissible example!**
