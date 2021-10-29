@@ -153,20 +153,13 @@ If node n is expanded by A* with h<sub>2</sub> then **h<sub>2</sub>(n) < C - g(n
  
 So ***h<sub>1</sub>(n) &le; h<sub>2</sub>(n) < C - g(n)*** and it would be expanded by A* with h<sub>1</sub> as well.
 
-
-We also can improve our heuristic by some methods.
- 
-We are always trying to lower the difference between h* and h, expanded nodes and algorithm time complexity by making change in our heuristic.
- 
-One of the main ways for improving heuristics is **Relaxing** the problem.
- 
-In this procedure we try to enlarge the feasible answers set by simplifying the problem.
-
 <hr style="border:2px solid gray"> </hr>
 
 ### Relaxing
- 
-One of the most common ways to find efficient heuristic function is that we convert our hard problem which is indissoluble in reasonable time, to a *more general problem with larger state space*.
+
+We also can improve our heuristic by some methods. We are always trying to lower the difference between h* and h, expanded nodes and algorithm time complexity by making change in our heuristic.
+One of the main ways for improving heuristics is **Relaxing** the problem .In this procedure we try to enlarge the feasible answers set by simplifying the problem.
+So one of the most common ways to find efficient heuristic function is that we convert our hard problem which is indissoluble in reasonable time, to a *more general problem with larger state space*.
  
 Discussing more specifically, original problem has a set of constraints. Noe we **ignore some constraints** and solve the expanded problem. Since number of constraints have decreased, we have more goal states and our state space expands.
  
