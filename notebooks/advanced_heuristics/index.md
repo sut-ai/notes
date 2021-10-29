@@ -216,7 +216,7 @@ One solution for solving this drawback is Disjoint Pattern DB. In this method we
 <img src="pic/pattern.png" alt="pattern" width="500" height="300"/>
 </p>
 
-As you can see in this problm we have an undirected graph, which each of its nodes is a florist shop and has some flower breeds. Two brothers should march from start_node towards goal_node in a way that has the least cost and they met every existing flower breeds. In this case we choose a subset of flower breeds S that reach goal_node by a specific pattern and set goal_state as satisfying path with the least cost and meeting every existing flower breeds of set S. Hitherto we used pure Pattern DB.
+As you can see in this problem we have an undirected graph, which each of its nodes is a florist shop and has some flower breeds. Two brothers should march from start_node towards goal_node in a way that has the least cost and they met every existing flower breeds. In this case we choose a subset of flower breeds S that reach goal_node by a specific pattern and set goal_state as satisfying path with the least cost and meeting every existing flower breeds of set S. Hitherto we used pure Pattern DB.
 
 Now we can have souple of flower breeds subset  and combine obtained answers by them. For example if we have K flower breeds, we can solve the problem for each flower breed and calculate its heuristic function and then choose maximum of the functions. So we used Combining Pattern DB to achieve a better heuristic function.
 
