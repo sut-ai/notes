@@ -212,12 +212,16 @@ One solution for solving this drawback is Disjoint Pattern DB. In this method we
 
 **Example**
 
-First practical problem of the first mini project of the course is an example of this method. In this problm we have an undirected graph, which each of its nodes is a florist shop and has some flower breeds. Two brothers should march from start_node towards goal_node in a way that has the least cost and they met every existing flower breeds. In this case we choose a subset of flower breeds S that reach goal_node by a specific pattern and set goal_state as satisfying path with the least cost and meeting every existing flower breeds of set S. Hitherto we used pure Pattern DB.
+<p align="center">
+<img src="pic/pattern.png" alt="pattern" width="500" height="300"/>
+</p>
+
+As you can see in this problm we have an undirected graph, which each of its nodes is a florist shop and has some flower breeds. Two brothers should march from start_node towards goal_node in a way that has the least cost and they met every existing flower breeds. In this case we choose a subset of flower breeds S that reach goal_node by a specific pattern and set goal_state as satisfying path with the least cost and meeting every existing flower breeds of set S. Hitherto we used pure Pattern DB.
 
 Now we can have souple of flower breeds subset  and combine obtained answers by them. For example if we have K flower breeds, we can solve the problem for each flower breed and calculate its heuristic function and then choose maximum of the functions. So we used Combining Pattern DB to achieve a better heuristic function.
 
 ## Conclusion
-So far we've introduced some efficient ways to make our heuristic closer to the real answer. some of them were to make our heuristic monotonic شnd Dominant, or to make a dominant heuristic based on some heuristics we had. some advanced ways were for even more basic problem, namely how to create a heuristic function for a problem. these included Relaxing problems and Patternal DBs. We Entered deeply into the Patternal DBs And introduced ways to improve them a lot. despite all these ways, there are so many problems that aren't solvable by even these ways, and there are so many ways ahead of us that you have to learn & use further. thanks for reading all of these concepts and we wish you have a great future. a bid farewell.
+So far we've introduced some efficient ways to make our heuristic closer to the real answer. some of them were to make our heuristic monotonic and Dominant, or to make a dominant heuristic based on some heuristics we had. some advanced ways were for even more basic problem, namely how to create a heuristic function for a problem. these included Relaxing problems and Patternal DBs. We Entered deeply into the Patternal DBs And introduced ways to improve them a lot. despite all these ways, there are so many problems that aren't solvable by even these ways, and there are so many ways ahead of us that you have to learn & use further. thanks for reading all of these concepts and we wish you have a great future. a bid farewell.
 
 ## References
 https://machinelearningmastery.com/distance-measures-for-machine-learning/
