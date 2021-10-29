@@ -2,9 +2,9 @@
 #### Kahbod Aeini, Mohammadreza Daviran and Sepehr Kianian
 
 ## Contents
-1. [Introduction](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#introduction)
+1.[Introduction](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#introduction)
 
-2. [Body](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#body)
+2.[Body](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#body)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 * [Distance](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#distance)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -24,9 +24,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 * [Disjoint Pattern DB](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#disjoint-pattern-db)
 
-3. [Conclusion](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#conclusion)
+3.[Conclusion](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#conclusion)
 
-4. [References](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#references)
+4.[References](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#references)
 
 ## Introduction
 nothing yet!
