@@ -221,8 +221,13 @@ So far we've introduced some efficient ways to make our heuristic closer to the 
 
 ## References
 https://machinelearningmastery.com/distance-measures-for-machine-learning/
+
 https://artint.info/2e/html/ArtInt2e.Ch3.S6.SS2.html
+
 https://en.wikipedia.org/wiki/Consistent_heuristic
+
 https://stackoverflow.com/questions/1568600/what-is-the-difference-between-monotonicity-and-the-admissibility-of-a-heuristic
+
 https://stackoverflow.com/questions/46554459/intuitively-understanding-why-consistency-is-required-for-optimality-in-a-searc
+
 https://courses.cs.washington.edu/courses/cse473/12sp/slides/04-heuristics.pdf
