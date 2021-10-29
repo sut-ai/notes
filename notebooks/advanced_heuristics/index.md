@@ -68,7 +68,9 @@ Now we define **f(n)** function as **f(n) = h(n) + g(n)** where g(n) is sum of c
 <img src="pic/consistency.png" alt="consistency" width="270" height="350"/>
 </p>
 A heuristic is consistent if: <em>h(n) &le; c(n, a, n’) + h(n’)</em>
-if h is consistent, we have: _f(n’) = g(n’) + h (n’) = g(n) + c(n, a, n’) + h(n’) &ge; g(n) + h(n) [= f(n)]_
+
+if h is consistent, we have: <em>f(n’) = g(n’) + h (n’) = g(n) + c(n, a, n’) + h(n’) &ge; g(n) + h(n) [= f(n)]</em>
+
 I.e., f(n) is nondecreasing along any path.
 
 Effect of **Monotonicity** on a Heuristic is shown in the below schema:
