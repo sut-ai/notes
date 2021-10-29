@@ -14,6 +14,8 @@ authors:
       contact:
       - link: https://github.com/amirrezamirzaei
         icon: fab fa-github
+      - link: mailto:amirreza2001@gmail.com
+        icon: fas fa-envelope
     - name: <Bardia Mohammdi> # name of author
         role: Author # change this if you want
         contact:
