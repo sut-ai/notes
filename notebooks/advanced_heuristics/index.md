@@ -67,7 +67,7 @@ Now we define **f(n)** function as **f(n) = h(n) + g(n)** where g(n) is sum of c
 <p align="center">
 <img src="pic/consistency.png" alt="consistency" width="600" height="300"/>
 </p>
-A heuristic is consistent if: _h(n)_ _&le;_ _c(n, a, n’)_ _+_ _h(n’)_
+A heuristic is consistent if: _h(n) &le; c(n, a, n’) + h(n’)_
 
 if h is consistent, we have: _f(n’) = g(n’) + h (n’) = g(n) + c(n, a, n’) + h(n’)  &ge; g(n) + h(n) [= f(n)]_
 
