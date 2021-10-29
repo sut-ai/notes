@@ -110,7 +110,8 @@ For this we only need to define a new and more appropriate heuristic like the be
  
  
  
-**$\overline{h}$(n’) = max(h(n’), ℏ(n’) - c(n, a, n’))**
+**<SPAN STYLE="text-decoration:overline">h</SPAN>$(n’) = max(h(n’), <SPAN STYLE="text-decoration:overline">h</SPAN>(n’) - c(n, a, n’))**
+
  
 Above Heuristic is defined Recursively.
 <p align="center">
