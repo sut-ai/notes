@@ -33,6 +33,8 @@ nothing yet!
 
 a &ge; b
 
+a<sup>2
+
 $a&le;b$
 
 ## Body
