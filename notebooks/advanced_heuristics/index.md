@@ -8,7 +8,8 @@ nothing yet!
 
 ## Body
 
-First we review some basic definitions
+### Distance
+First we review some basic definitions:
  
 Distance is a numerical measurement of how far apart objects or points are:
 * [Euclidean Distance](https://en.wikipedia.org/wiki/Euclidean_distance) calculates the distance between two real-valued vectors.
@@ -16,6 +17,8 @@ Distance is a numerical measurement of how far apart objects or points are:
 <p align="center">
   <img src="pic/distance.png" alt="distance" width="400" height="300"/>
 </p>
+
+### Heuristic
 * Heuristic guidance means how far is the goal state from a given state approximately.
  
 ***Admissiblity of a heuristic function means value of the function is always a Lower Bound of the remaining cost.***
@@ -41,7 +44,8 @@ Effect of **Monotonicity** on a Heuristic is shown in the below schema:
 </p>
 
 for more information and better understanding watch this video: [watch](https://www.youtube.com/watch?v=CJmlP03ik5g)
- 
+
+### Monotonicity implies admissibility
 We will prove that **Consistency** implies **Admissibility** whereas the opposite is not necessarily true.
 <p align="center">
 <img src="pic/proof.png" alt="proof" width="800" height="300"/>
@@ -60,7 +64,7 @@ If we want our heuristic to be *Consistent* we should have **h(G) = 0** and **h(
  
 Because of the *Admissibility* **h(C) should be less than 3**, but if **h(A) > 1 + h(C)** then our heuristic is *Inconsistent!*. Hence if we assume that **h(C) = 1**, **h(G) = 0** and **h(A) = 4** our heuristic is *Admissible but Inconsistent!*
  
- 
+### Monotonic heuristic function
 We also can make a non-monotonic heuristic, monotonic with some changes!
 For this we only need to define a new and more appropriate heuristic like the below schema.
 <p align="center">
@@ -80,7 +84,7 @@ Above Heuristic is defined Recursively.
  
 So obviously we have **$\overline{h}$(n’) + c(n, a, n') $\ge$ $\overline{h}$(n)**
  
-***Heuristic Dominance***
+### Heuristic Dominance
  
 For one heuristic to dominate another, all of its values must be greater than or equal to the corresponding values of the other heuristic.
 So if $h_{2}$ dominates $h_{1}$(both are admissible) it means that A* algorithm expands less nodes with $h_{2}$ in the target path than $h_{1}$.
@@ -101,7 +105,8 @@ $h_{1}(n)$**
 If node n is expanded by A* with $h_{2}$ then **$h_{2}(n)$ < C - g(n)**
  
 So ***$h_{1}(n)$ $\le$ $h_{2}(n)$ < C - g(n)*** and it would be expanded by A* with $h_{1}$ as well.
- 
+
+
 We also can improve our heuristic by some methods.
  
 We are always trying to lower the difference between h* and h, expanded nodes and algorithm time complexity by making change in our heuristic.
@@ -112,7 +117,7 @@ In this procedure we try to enlarge the feasible answers set by simplifying the 
 
 <hr style="border:2px solid gray"> </hr>
 
-***Relaxing***
+### Relaxing
  
 One of the most common ways to find efficient heuristic function is that we convert our hard problem which is indissoluble in reasonable time, to a *more general problem with larger state space*.
  
@@ -134,17 +139,17 @@ h' = min(S'), h = min(S) $\Lambda$ S $\subseteq$ S' $\Lambda$ $\forall$ s, s' if
 
 Hamilton path is a tree which every its inner node have exactly one leaf. Hence, the problem is converting above graph to a 1-array tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-array tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in $n^{2}$ time complexity.
 
-***Pattern DB***
+### Pattern DB
 
 In previous sectionwe introduced relaxing method which improves heuristic function by lowering constraints. Pattern DB is yet another way to improve heuristic function which is actually a subset of Relaxing method.
 
 In this method we choose a subset of constraints by a specific pattern and ignore the other constraints. Since we ignored some constraints we did relaxing method and hence answer of the converted problem is a heuristic gfunction.
 
-***Combining Pattern DB***
+### Combining Pattern DB
 
 We can act further and use couple of patterns and choose couple of constraints' subsets. Therefore we have couple of heuristic functions. This helps dominancy of our heuristic function. First thing to do finding the dominant heuristic function is to choose the maximum function of the obtained heuristic functions. Since every heuristic is always less than the real answer, maximum of these functions is a lower bound of the real answer and for every set of obtained heuristic functions we can implement this method to find a dominant heuristic function.
 
-***Disjoint Pattern DB***
+### Disjoint Pattern DB
 
 One of the main flaws of choosing maximum of the obtained heuristic functions is that in many cases, there is an upper bound for these functions. Therefore even by expanding subset of chosen constraints, we will not cross the upper bound.
 
