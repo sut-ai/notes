@@ -127,8 +127,8 @@ So obviously we have **ℏ(n’) + c(n, a, n') &ge; ℏ(n)**
 ### Heuristic Dominance
  
 For one heuristic to dominate another, all of its values must be greater than or equal to the corresponding values of the other heuristic.
-So if $h_{2}$ dominates $h_{1}$(both are admissible) it means that A* algorithm expands less nodes with $h_{2}$ in the target path than $h_{1}$.
-On another hand it means if a node is expanded by $h_{2}$ it will be expanded by $h_{1}$(consider that it’s not a biconditional proposition!)
+So if h<sub>2</sub> dominates h<sub>1</sub>(both are admissible) it means that A* algorithm expands less nodes with h<sub>2</sub> in the target path than h<sub>1</sub>.
+On another hand it means if a node is expanded by h<sub>2</sub> it will be expanded by h<sub>1</sub>(consider that it’s not a biconditional proposition!)
  
 *Proof:*
  
@@ -140,9 +140,9 @@ A* opens all node with **f(n) < C** and some with **f(n) = C**.
 Note that 
 **h<sub>2</sub>(n)
 &ge;
-$h_{1}(n)$**
+$h<sub>1</sub>(n)$**
  
-If node n is expanded by A* with $h_{2}$ then **h<sub>2</sub>(n)$ < C - g(n)**
+If node n is expanded by A* with h<sub>2</sub> then **h<sub>2</sub>(n)$ < C - g(n)**
  
 So ***h<sub>1</sub>(n) &le; h<sub>2</sub>(n) < C - g(n)*** and it would be expanded by A* with h<sub>1</sub>$ as well.
 
