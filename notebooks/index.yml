@@ -33,6 +33,8 @@ notebooks:
     - notebook: notebooks/11_temporal_probability_models/index1.ipynb
       kind: S2021, LN, Notebook
       metadata: notebooks/11_temporal_probability_models/metadata.yml
+    - notebook: notes/notebooks/6_search_in_continuous_space/Search in Continuous Space (1).zip
+      kind: zip file
       text: Temporal Probability Models - Part 1
     - notebook: notebooks/11_temporal_probability_models/index2.ipynb
       kind: S2021, LN, Notebook
