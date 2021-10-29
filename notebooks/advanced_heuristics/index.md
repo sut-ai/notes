@@ -1,7 +1,14 @@
-# Advanced Heuristic
+# Advanced Heuristics
 #### Kahbod Aeini, Mohammadreza Daviran and Sepehr Kianian
 
 ## Contents
+[Text](link)
+
+[Text](link)
+
+[Text](link)
+
+[Text](link)
 
 ## Introduction
 nothing yet!
