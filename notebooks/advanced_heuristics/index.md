@@ -18,6 +18,8 @@ Distance is a numerical measurement of how far apart objects or points are:
   <img src="pic/distance.png" alt="distance" width="400" height="300"/>
 </p>
 
+<hr style="border:2px solid gray"> </hr>
+
 ### Heuristic
 * Heuristic guidance means how far is the goal state from a given state approximately.
  
@@ -44,6 +46,8 @@ Effect of **Monotonicity** on a Heuristic is shown in the below schema:
 </p>
 
 for more information and better understanding watch this video: [watch](https://www.youtube.com/watch?v=CJmlP03ik5g)
+
+<hr style="border:2px solid gray"> </hr>
 
 ### Monotonicity implies admissibility
 We will prove that **Consistency** implies **Admissibility** whereas the opposite is not necessarily true.
@@ -84,6 +88,8 @@ Above Heuristic is defined Recursively.
  
 So obviously we have **$\overline{h}$(n’) + c(n, a, n') $\ge$ $\overline{h}$(n)**
  
+<hr style="border:2px solid gray"> </hr>
+
 ### Heuristic Dominance
  
 For one heuristic to dominate another, all of its values must be greater than or equal to the corresponding values of the other heuristic.
@@ -139,15 +145,21 @@ h' = min(S'), h = min(S) $\Lambda$ S $\subseteq$ S' $\Lambda$ $\forall$ s, s' if
 
 Hamilton path is a tree which every its inner node have exactly one leaf. Hence, the problem is converting above graph to a 1-array tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-array tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in $n^{2}$ time complexity.
 
+<hr style="border:2px solid gray"> </hr>
+
 ### Pattern DB
 
 In previous sectionwe introduced relaxing method which improves heuristic function by lowering constraints. Pattern DB is yet another way to improve heuristic function which is actually a subset of Relaxing method.
 
 In this method we choose a subset of constraints by a specific pattern and ignore the other constraints. Since we ignored some constraints we did relaxing method and hence answer of the converted problem is a heuristic gfunction.
 
+<hr style="border:2px solid gray"> </hr>
+
 ### Combining Pattern DB
 
 We can act further and use couple of patterns and choose couple of constraints' subsets. Therefore we have couple of heuristic functions. This helps dominancy of our heuristic function. First thing to do finding the dominant heuristic function is to choose the maximum function of the obtained heuristic functions. Since every heuristic is always less than the real answer, maximum of these functions is a lower bound of the real answer and for every set of obtained heuristic functions we can implement this method to find a dominant heuristic function.
+
+<hr style="border:2px solid gray"> </hr>
 
 ### Disjoint Pattern DB
 
