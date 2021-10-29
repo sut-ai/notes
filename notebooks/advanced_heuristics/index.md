@@ -33,7 +33,7 @@ nothing yet!
 
 $a \ge b$
 
-$a&lt;b$
+$a&le;b$
 
 ## Body
 
