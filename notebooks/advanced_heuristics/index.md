@@ -91,9 +91,9 @@ So consider this figure:
 <img src="pic/example.png" alt="example"/>
 </p>
  
-If our heuristic is admissible, we have that **h(n) $&le;$ h*(n)** for every node n where **h*** is the real cost to the goal. So we deduct that **h(A) $\le$ 4**, **h(C) $\le$ 3** and **h(G) $\le$ 0**.
+If our heuristic is admissible, we have that **h(n) &le; h*(n)** for every node n where **h*** is the real cost to the goal. So we deduct that **h(A) &le; 4**, **h(C) &le; 3** and **h(G) &le; 0**.
  
-If we want our heuristic to be *Consistent* we should have **h(G) = 0** and **h(n) $\le$ cost(n, c) + h(c)** so in our case we have **h(A) $\le$ 1 + h(C)** and **h(C) $\le$ 3 + h(G) = 3**
+If we want our heuristic to be *Consistent* we should have **h(G) = 0** and **h(n) $\le$ cost(n, c) + h(c)** so in our case we have **h(A) &le; 1 + h(C)** and **h(C) &le; 3 + h(G) = 3**
  
 Because of the *Admissibility* **h(C) should be less than 3**, but if **h(A) > 1 + h(C)** then our heuristic is *Inconsistent!*. Hence if we assume that **h(C) = 1**, **h(G) = 0** and **h(A) = 4** our heuristic is *Admissible but Inconsistent!*
  
@@ -115,9 +115,9 @@ Above Heuristic is defined Recursively.
 <img src="pic/heuristic proof.png" alt="heuristic proof" width="400" height="300"/>
 </p>
 
-**$\overline{h}$(n’) $\ge$ $\overline{h}$(n) - c(n, a, n')**
+**$\overline{h}$(n’) &ge; $\overline{h}$(n) - c(n, a, n')**
  
-So obviously we have **$\overline{h}$(n’) + c(n, a, n') $\ge$ $\overline{h}$(n)**
+So obviously we have **$\overline{h}$(n’) + c(n, a, n') &ge; $\overline{h}$(n)**
  
 <hr style="border:2px solid gray"> </hr>
 
@@ -136,12 +136,12 @@ A* opens all node with **f(n) < C** and some with **f(n) = C**.
  
 Note that 
 **$h_{2}(n)$
-$\ge$ 
+&ge;
 $h_{1}(n)$**
  
 If node n is expanded by A* with $h_{2}$ then **$h_{2}(n)$ < C - g(n)**
  
-So ***$h_{1}(n)$ $\le$ $h_{2}(n)$ < C - g(n)*** and it would be expanded by A* with $h_{1}$ as well.
+So ***$h_{1}(n)$ &le; $h_{2}(n)$ < C - g(n)*** and it would be expanded by A* with $h_{1}$ as well.
 
 
 We also can improve our heuristic by some methods.
