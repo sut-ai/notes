@@ -31,7 +31,9 @@
 ## Introduction
 nothing yet!
 
-a$\ge$b
+$a\ge b$
+
+$a&lt;b$
 
 ## Body
 
