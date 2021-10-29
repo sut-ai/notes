@@ -30,6 +30,7 @@
 
 ## Introduction
 nothing yet!
+a $\geqslant$ b
 
 ## Body
 
