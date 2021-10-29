@@ -2,13 +2,13 @@
 #### Kahbod Aeini, Mohammadreza Daviran and Sepehr Kianian
 
 ## Contents
-[Text](link)
+[Introduction](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#introduction)
 
-[Text](link)
+[Body](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#body)
 
-[Text](link)
+[Conclusion](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#conclusion)
 
-[Text](link)
+[References](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#references)
 
 ## Introduction
 nothing yet!
