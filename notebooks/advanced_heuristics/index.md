@@ -165,7 +165,7 @@ Discussing more specifically, original problem has a set of constraints. Noe we 
  
 Consider h as the answer and h' as our heuristic
  
-h' = min(S'), h = min(S) &and; S &SubsetEqual; S' &and; &forall; s, s': if s &SubsetEqual; s' &U+21d2; min(s') &le; min(s) => h' &le; h$
+h' = min(S'), h = min(S) &and; S &SubsetEqual; S' &and; &forall; s, s': if s &SubsetEqual; s' &#U+21d2; min(s') &le; min(s) => h' &le; h
 
  
  ***Example***
