@@ -176,7 +176,7 @@ h' = min(S'), h = min(S) $\Lambda$ S $\subseteq$ S' $\Lambda$ $\forall$ s, s' if
 <img src="pic/hamilton path.png" alt="hamilton path" width="500" height="300"/>
 </p>
 
-Hamilton path is a tree which every its inner node have exactly one leaf. Hence, the problem is converting above graph to a 1-array tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-array tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in $n^{2}$ time complexity.
+Hamilton path is a tree which every its inner node have exactly one leaf. Hence, the problem is converting above graph to a 1-array tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-array tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in n<sup>2 time complexity.
 
 <hr style="border:2px solid gray"> </hr>
 
