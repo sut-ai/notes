@@ -1,25 +1,38 @@
-title: <change this> # shown on browser tab
+title: LN | Advanced Heuristics # shown on browser tab
 
 header:
-    title: advanced Heuristics # title of your notebook
-    description: <change this> # short description of your notebook
+    title: Advanced Heuristics # title of your notebook
+    description: making heuristics better and more efficient # short description of your notebook
 
 authors:
     label: 
         position: top
+        text: Authors
+    kind: people
     content:
     # list of notebook authors
-    - name: Mohammadreza Daviran # name of author
-      role: Author # change this if you want
+    - name: Mohammadreza Daviran 
+      role: Author
       contact:
-      # list of contact information
-      - link: https://github.com/<your_github_username>
+      - link: https://github.com/mmdrez4
         icon: fab fa-github
-      # optionally add other contact information like  
-      # - link: <change this> # contact link
-      #   icon: <change this> # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
+      - link: mailto:mohammadreza.dn80@gmail.com
+        icon: fas fa-envelope
+        
+        
+    - name: Kahbod Aeini
+      role: Author 
+      contact:
+      - link: https://github.com/kahbodaeini
+        icon: fab fa-github
+    
+    
+    - name: Sepehr Kianian 
+      role: Author
+      contact:
+      - link: https://github.com/Sepehrkianian09
+        icon: fab fa-github
 
 comments:
-    # enable comments for your post
     label: false
     kind: comments
