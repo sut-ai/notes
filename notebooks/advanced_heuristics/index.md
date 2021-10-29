@@ -32,6 +32,8 @@ Effect of **Monotonicity** on a Heuristic is shown in the below schema:
 <p align="center">
 <img src="pic/monotonic.png" alt="monotonic" width="600" height="300"/>
 </p>
+
+for more information and better understanding watch this video: [watch](https://www.youtube.com/watch?v=CJmlP03ik5g)
  
 We will prove that **Consistency** implies **Admissibility** whereas the opposite is not necessarily true.
 <p align="center">
