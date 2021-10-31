@@ -1,0 +1,25 @@
+title: LN | Uninformed Search # shown on browser tab
+
+header:
+    title: Uninformed Search # title of your notebook
+    description: We witie about an uninformed search. 
+
+authors:
+    label: 
+        position: top
+    content:
+    # list of notebook authors
+    - name: Mohsen Osooli # name of author
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/mohsenosl99
+        icon: fab fa-github
+      # optionally add other contact information like  
+      # - link: <change this> # contact link
+      #   icon: <change this> # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
+
+comments:
+    # enable comments for your post
+    label: false
+    kind: comments
