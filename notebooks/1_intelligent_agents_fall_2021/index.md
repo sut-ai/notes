@@ -28,7 +28,7 @@ Table of contents
 - [Rational agents and performance measure](#Rational-agents-and-performance-measure)
     - [Rationality vs perfection](#Rationality-vs-perfection)
     - [Autonomy](#Autonomy)
-- [Task environment (PEAS)](#Task-environment-(PEAS))
+- [Task environment (PEAS)](#Task-environment-PEAS)
     - [PEAS example](#PEAS-example)
 - [Properties of task environments](#Properties-of-task-environments)
     - [Types of environment](#Types-of-environment)
