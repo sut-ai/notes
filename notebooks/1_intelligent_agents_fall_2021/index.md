@@ -1,3 +1,4 @@
+
 <div align="center">
     <br>
     <br>
@@ -28,8 +29,10 @@ Table of contents
     - [Rationality vs perfection](#Rationality-vs-perfection)
     - [Autonomy](#Autonomy)
 - [Task environment (PEAS)](#Task-environment-(PEAS))
-    - [Types of environment](#Types-of-environment)
     - [PEAS example](#PEAS-example)
+- [Properties of task environments](#Properties-of-task-environments)
+    - [Types of environment](#Types-of-environment)
+    - [Types of environment example](#Types-of-environment-example)
 - [Type of agents](#Type-of-agents)
     - [Reflex agents](#Reflex-agents)
     - [Goal-based agents](#Goal-based-agents)
@@ -71,15 +74,6 @@ A rational agent should be autonomous meaning it mustn't only rely on the prior 
 # Task environment (PEAS)
 We have already talked about performance measure, task environment, actuators and sensors. We group all these under the heading of the <b>Task environment </b> and we abbreviate it as <b>PEAS</b>(<b>P</b>erformance measure, <b>E</b>nviroment, <b>A</b>ctuators, <b>S</b>ensors). When designing an agent our first step should be specifying the task environment.
 
-#### Types of environment
-<ul>
-  <li><b>Fully observable or partially observable</b> (Do the agent sensors give access to the complete state of the environment at each time?)</li>
-  <li><b>Single agent or multiagent</b> (Are there more than one agent in the environment?)</li>
-  <li><b>Deterministic or stochastic</b> (Is the next state completely determined by the current state and the executed action?)</li>
-  <li><b>Episodic or sequential</b> (Is the agent's experience divided into atomic "episodes“ where the choice of action in each episode depends only on the episode itself?)</li>
-  <li><b>Discrete or continuous</b> (Are there a limited number of distinct, clearly defined states, percepts and actions?)</li>  
-</ul>
-
 
 #### PEAS example
 Here are a few examples of specifying PEAS for different agents.
@@ -89,6 +83,70 @@ Here are a few examples of specifying PEAS for different agents.
 | Hospital Management System       | Patient’s health, Admission process, Payment | Hospital, Doctors, Patients |  Prescription, Diagnosis, Scan report | Symptoms, Patient’s response |
 | Automated Car Drive       | Comfortable trip, Safety, Maximum Distance | Roads, Traffic, Vehicles |  Steering wheel, Accelerator, Brake, Mirror | Camera, GPS, Odometer |
 | Subject Tutoring       | Maximize scores, Improvement is students | Classroom, Desk, Chair, Board, Staff, Students |  Smart displays, Corrections | Eyes, Ears, Notebooks |
+
+# Properties of task environments
+
+#### Types of environment
+we can categorize an environment in many ways, you will find some of the most important ones listed below.
+
+<ul>
+  <li><b>Fully observable or partially observable</b> (Do the agent sensors give access to the complete state of the environment at each time?)</li>  
+    <ul> 
+        <li>We say an environment is fully observable if an agent has access to the complete state of the environment at each time.</li>
+        <li>If an agent doesn't know the complete state of the environment we say the environment is partially observable.</li>
+        <li>In the most extreme case when an agent knows nothing about the state of the environment we say the environment is unobservable.</li>
+        <li><b>examples</b>: In the vacuum world example our agent doesn't know if there is dirt in another room so this environment is partially observable for our agent. 
+    A simple chess agent has complete access to the chessboard's information at any given time so this environment is fully observable for our agent.</li>
+    </ul>
+    <br>    
+          
+  <li><b>Single agent or multiagent</b> (Are there more than one agent in the environment?)</li>
+    <ul>
+        <li>We say an environment is a multiagent environment if there is more than one agent operating in it otherwise we say the environment is sigle agent.</li>
+        <li>In some cases, we can model our environment both as a single agent and multiagent environment. For example, imagine an automatic taxi agent. Should this agent treat the other cars as objects or as another agent? It's  better to model our environment as a multiagent environment if the behavior of the other entities can be modeled as an agent seeking to maximize its performance measure which is somehow affected by our agent.</li>
+        <li>a multiagent environment could be a competitive or cooperative or even a mix of both.</li>
+        <li><b>examples</b>: chess and automatic driving are multiagent environments. solving a crossword puzzle is a single agent environment.</li>
+    </ul>
+    <br>  
+
+  <li><b>Deterministic or stochastic</b> (Is the next state completely determined by the current state and the executed action?)</li>
+    <ul>
+        <li>We say an environment is deterministic if the next state is completely determined by the current state and the agent action otherwise, it is stochastic.</li>
+        <li><b>examples</b>: Chess is a deterministic environment. Automatic driving is stochastic because an agent can't predict everything(e.g traffic, accidents).</li>
+    </ul>  
+    <br>
+   
+  <li><b>Episodic or sequential</b> (Is the agent's experience divided into atomic "episodes“ where the choice of action in each episode depends only on the episode itself?)</li>
+    <ul>
+        <li>We say an environment is episodic if the agent experience can be divided into atomic "episodes" In a way that the action taken in an episode is independent of the previous episodes actions.</li>
+        <li>We say an environment is sequential if the current decision could affect all future decisions. </li>
+        <li><b>examples</b>: Chess and automatic driving are sequential. a part picking robot is episodic.</li>
+    </ul>
+    <br>
+    <li><b>Static or dynamic</b> (Is the environment unchanged while an agent is deliberating?)</li>  
+    <ul>
+        <li>We say an environment is dynamic if it can change while the agent is deliberating.</li>
+        <li>There is a special case that the environment doesn't change but the performance score has a time penalty we call these environment semi-dynamic.</li>
+        <li><b>examples</b>: Automatic driving is dynamic. Chess without clock is static.</li>
+    </ul>
+    <br>
+  <li><b>Discrete or continuous</b> (Are there a limited number of distinct, clearly defined states, percepts and actions?)</li>  
+    <ul>
+        <li>We say an environment's state is discrete if there are a finite number of distinct states otherwise we say the environment's state in continuous.</li>
+         <li><b>examples</b>: Chess is discrete. Automtic driving is continuous.</li>
+    </ul>
+</ul>
+
+#### Types of environment example
+Here are a few examples of Identfying an environment different dimensions.
+
+| environment| Fully observable? | Deterministic? |  Episodic? | Static? | Discrete?|Single agent?|
+| ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- | ----------- |
+| Solitaire | No | Yes |  Yes | Yes | Yes | Yes |
+| Backgammon | Yes | No |  No | Yes | Yes | No |
+| Taxi driving | No | No |  No | No | No | No |
+| Medical diagnosis | No | No |  No | No | No | Yes |
+
 
 
 # Type of agents
