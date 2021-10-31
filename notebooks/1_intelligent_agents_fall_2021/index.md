@@ -62,7 +62,7 @@ A <b>rational</b> agent chooses the set of action in order to maximize its perfo
 
 
 #### Rationality vs perfection
-Keep in mind that rationality is distinct from omniscience. An omniscient agent knows the actual outcome of its actions but in reality, an agent only knows the expected outcome of its action.
+Keep in mind that rationality is distinct from omniscience. An omniscient agent knows the actual outcome of its actions but in reality, an agent only knows the expected outcome of its action. For example, imagine your trying to cross the street and no cars are on the street Naturally, you will cross the street to reach your goal. now imagine as you are passing the street a meteorite falls on you. Can anyone blame you for being irrational and not expecting a meteorite to flatten you? 
 
 #### Autonomy
 A rational agent should be autonomous meaning it mustn't only rely on the prior knowledge of its designer and must learn to compensate for partial or incorrect prior knowledge. In other words, rational agents should learn from experience. For example, in the vacuum world our agent could start to learn when the rooms usually get dirty based on its experience.
