@@ -165,7 +165,7 @@ As an example look at this Pacman agent below, at each turn the agent look at it
 <img src="./images/reflex_agent.gif" width="500" style="margin-left: auto;margin-right: auto;"/>
 
 ## Goal-based agents
-This kind of agent has a specific goal and it tries to reach that goal efficiently. They have a model of how the world evolves in response to actions, and they make decisions based on (hypothesized) consequences of actions to reach their goal state. Search and Planning are two subfields that are closely tied with these kind of agents. In other words, these kinds of agents act on <b>how the world WOULD BE.</b>  
+This kind of agent has a specific goal and it tries to reach that goal efficiently. They have a model of how the world evolves in response to actions, and they make decisions based on (hypothesized) consequences of actions to reach their goal state. Search and Planning are two subfields that are closely tied with these kinds of agents. In other words, these kinds of agents act on <b>how the world WOULD BE.</b>  
 as an example look at this Pacman agent below. the goal is to collect every point.
 
 <img src="./images/goal_based_agent.gif" width="500" style="margin-left: auto;margin-right: auto;"/>
