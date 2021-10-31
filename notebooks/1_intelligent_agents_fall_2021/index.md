@@ -37,11 +37,12 @@ Table of contents
     - [Reflex agents](#Reflex-agents)
     - [Goal-based agents](#Goal-based-agents)
     - [Utility-based agents](#Utility-based-agents)
+    - [Learning agents](#Learning-agents)
 - [Conclusion](#Conclusion)
 - [References](#References)
 
 # Introduction
-In this notebook we will discuss the nature of intelligent agents.
+In this notebook, we will discuss the nature of intelligent agents.  The concepts that are introduced here will give you some insight about agents and environments. You will also be introduced to a few of the most common agent architectures.
 
 
 # Intelligent agents
@@ -104,7 +105,7 @@ we can categorize an environment in many ways, you will find some of the most im
     <ul>
         <li>We say an environment is a multiagent environment if there is more than one agent operating in it otherwise we say the environment is sigle agent.</li>
         <li>In some cases, we can model our environment both as a single agent and multiagent environment. For example, imagine an automatic taxi agent. Should this agent treat the other cars as objects or as another agent? It's  better to model our environment as a multiagent environment if the behavior of the other entities can be modeled as an agent seeking to maximize its performance measure which is somehow affected by our agent.</li>
-        <li>a multiagent environment could be a competitive or cooperative or even a mix of both.</li>
+        <li>a multiagent environment could be competitive or cooperative or even a mix of both.</li>
         <li><b>examples</b>: chess and automatic driving are multiagent environments. solving a crossword puzzle is a single agent environment.</li>
     </ul>
     <br>  
@@ -126,19 +127,19 @@ we can categorize an environment in many ways, you will find some of the most im
     <li><b>Static or dynamic</b> (Is the environment unchanged while an agent is deliberating?)</li>  
     <ul>
         <li>We say an environment is dynamic if it can change while the agent is deliberating.</li>
-        <li>There is a special case that the environment doesn't change but the performance score has a time penalty we call these environment semi-dynamic.</li>
-        <li><b>examples</b>: Automatic driving is dynamic. Chess without clock is static.</li>
+        <li>There is a special case that the environment doesn't change but the performance score has a time penalty we call these environments semi-dynamic.</li>
+        <li><b>examples</b>: Automatic driving is dynamic. Chess without a clock is static.</li>
     </ul>
     <br>
-  <li><b>Discrete or continuous</b> (Are there a limited number of distinct, clearly defined states, percepts and actions?)</li>  
+  <li><b>Discrete or continuous</b> (Are there a limited number of distinct, clearly defined states, percepts, and actions?)</li>  
     <ul>
         <li>We say an environment's state is discrete if there are a finite number of distinct states otherwise we say the environment's state in continuous.</li>
-         <li><b>examples</b>: Chess is discrete. Automtic driving is continuous.</li>
+         <li><b>examples</b>: Chess is discrete. Automatic driving is continuous.</li>
     </ul>
 </ul>
 
 #### Types of environment example
-Here are a few examples of Identfying an environment different dimensions.
+Here are a few examples of Identifying an environment's different dimensions.
 
 | environment| Fully observable? | Deterministic? |  Episodic? | Static? | Discrete?|Single agent?|
 | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- | ----------- |
@@ -163,7 +164,6 @@ As an example look at this Pacman agent below, at each turn the agent look at it
 
 <img src="./images/reflex_agent.gif" width="500" style="margin-left: auto;margin-right: auto;"/>
 
-
 ## Goal-based agents
 This kind of agent has a specific goal and it tries to reach that goal efficiently. They have a model of how the world evolves in response to actions, and they make decisions based on (hypothesized) consequences of actions to reach their goal state. Search and Planning are two subfields that are closely tied with these kind of agents. In other words, these kinds of agents act on <b>how the world WOULD BE.</b>  
 as an example look at this Pacman agent below. the goal is to collect every point.
@@ -175,14 +175,15 @@ as an example look at this Pacman agent below. the goal is to collect every poin
 This kind of agent like goal-based agents has a goal. But they also have a Utility function they seek to reach their goal in a way that maximizes the utility function. For example, think about an automated car agent. They are many ways for this agent to get from point A to point B. But some of them are quicker, safer, cheaper. The utility function allows the agent to compare different states with each other and ask the question how happy am I in this state. 
 In other words, this kind of agent act on <b>how the world will LIKELY be.</b>  
 
+
+## Learning agents
+This kind of agent usually has 4 parts. the most important two are "the learning element", which is responsible for making improvements, and the "performance element", which is responsible for selecting external actions. The learning element uses feedback from a "critic" on how the agent is doing and determines how the performance element, or "actor", should be modified to do better in the future.   
+The last part of these agents is the "problem generator" which is responsible for suggesting actions that will lead to new unexplored states.   
+These agents try to do their best by both exploring the environment and using the gathered information to decide rationally. one of the advantages of Learning agents is that they can be deployed in an environment that they don't have a lot of prior knowledge on. they will gain this knowledge over time by exploring that environment.
+
 # Conclusion
-You should know about these topics after reading this note.
-<ul>
-    <li>Intelligent agents</li>
-    <li>Performance measure</li>
-    <li>Task environment(PEAS)</li>
-    <li>Types of agents</li>
-</ul>
+We discussed the concept of an intelligent agent and the difference between a rational agent and a perfect agent. 
+then we talked about specifying the task environment for an agent and how can we categorize some main concepts of an environment. We also talked about some agent architectures that are commonly used.
 
 
 # References
