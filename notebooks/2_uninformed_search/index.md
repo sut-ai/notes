@@ -3,18 +3,18 @@
 
 # Contents 
 
-1. Introduction
-2. Breadth-first Search
-3. Uniform cost search
-4. Depth-first Search
-5. Depth-limited Search
-6. Iterative deepening depth-first search
-7. Bidirectional search
-8. Conclusion
+[Introduction]()
+Breadth-first Search
+Uniform cost search
+Depth-first Search
+Depth-limited Search
+Iterative deepening depth-first search
+Bidirectional search
+Conclusion
 
 
 ## Introduction
-
+As the name suggests, Uninformed search and algorithms try to reach the goal state blindly which means they don't have and save extra and additional information about search space. They operate in a brute force way and use no domain knowlege for operating and they just search and move forward, whether it is a right way and route or not until they reach the goal state.
 
 ## Breadth-first Search
 It is one of the algorithms to search a graph or a tree to find a specific thing we’re looking for. It is an uninformed kind of search and uses memory to search nodes. The procedure of it is that the algorithm starts from a node and explores all the nodes above it that are in the same level and it chooses the shallowest unexpanded node for expansion. This algorithm has some similarities with the DFS algorithm but it is different in some ways. 
