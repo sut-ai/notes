@@ -140,7 +140,7 @@ Consider n-ary CSP problem:
 
 Dual form of this problem with new constraint($X, Y, Z$ be consistent in $C_1, C_2, C_3$) is as follow:
 
-![Forward checking limits](/images/ex1.png)
+![Forward checking limits](images/ex1.png)
 
 #  Standard Search Formulation (incremental)
 
@@ -228,13 +228,17 @@ Now we want to see if we can detect failure sooner. The idea is to keep track of
 
 ![Forward checking limits](images/14.png?raw=true)
 
+$ dsa $
+
+$dsa$
+
 In each state, we show the possible values for each variables. The first table is the first state. Then after two steps and choosing the variables $WA$ and $Q$, the updated table will become the last table.
 
 ## Constraint Propagation <div id='CP'/>
 
 Forward checking method, detects failures in only one level higher than ordinary MRV. As a result, in many cases it fails to detect failures.
 
-![Forward checking limits](/images/ForwardChecking.png)
+![Forward checking limits](images/ForwardChecking.png)
 
 For instance, In this example NT and SA can't be blue at the same time but Forward Checking doesn't detect that.
 
