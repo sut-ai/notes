@@ -1,13 +1,11 @@
-<font size = 5 color=red>
-<b>Table of Contents</b>
-</font>
-<br>
+
+# Table of Contents
 
 ---
 
 
-+ <font size = 4.5 color=Orange>
-  <b>Introduction</b>
++ ### <font size = 4.5 color=Orange>
+  ### Introduction
   </font>
   
   - <font size = 3 color=green>
@@ -22,10 +20,8 @@
     <b>Different catergories of games</b>
     </font>
   
-  <br>
-
-+ <font size = 4.5 color=Orange>
-  <b>Different Types of Trees for games</b>
++ ### <font size = 4.5 color=Orange>
+  ### Different Types of Trees for games
   </font>
   
   - <font size = 3 color=green>
@@ -36,11 +32,8 @@
     <b>Adverserial Agent Trees</b>
     </font>
 
-  <br>
-
-
-+ <font size = 4.5 color=Orange>
-  <b>Minimax Strategy</b>
++ ### <font size = 4.5 color=Orange>
+  ### Minimax Strategy
   </font>
   
   - <font size = 3 color=green>
@@ -51,10 +44,8 @@
     <b>Properties of Minimax Strategy</b>
     </font>
 
-  <br>
-
-+ <font size = 4.5 color=Orange>
-  <b>Resource Limit</b>
++ ### <font size = 4.5 color=Orange>
+  ### Resource Limit
   </font>
   
   - <font size = 3 color=green>
@@ -69,12 +60,8 @@
     <b>Iterative Deepening Search</b>
     </font>
   
-  <br>
-
-
-
-+ <font size = 4.5 color=Orange>
-  <b>Pruning</b>
++ ### <font size = 4.5 color=Orange>
+  ### Pruning
   </font>
 
   - <font size = 3 color=green>
@@ -89,66 +76,47 @@
     <b>Alpha-Beta Pruning</b>
     </font>
   
-  <br>
-
-
-
-
-+ <font size = 4.5 color=Orange>
-  <b>Expectimax Search</b>
++ ### <font size = 4.5 color=Orange>
+  ### Expectimax Search
   </font>
   
   - <font size = 3 color=green>
     <b>Node Values in Expectimax Search</b>
     </font>
   
-  <br>
-
-
-+ <font size = 4.5 color=Orange>
-  <b>Other Types of Games</b>
++ ### <font size = 4.5 color=Orange>
+  ### Other Types of Games
   </font>
   
   - <font size = 3 color=green>
     <b>Multi-Agent Utilities</b>
     </font>
 
-  <br>
-
-
-+ <font size = 4.5 color=Orange>
-  <b>Summary</b>
++ ### <font size = 4.5 color=Orange>
+  ### Conclusion
   </font>
-  
-  <br>
-
-+ <font size = 4.5 color=Orange>
-  <b>Reference</b>
++ ### <font size = 4.5 color=Orange>
+  ### Reference
   </font>
 
-  <br>
-
-
-
-<font size = 5 color=red>
-<b>Introduction</b>
+## <font size = 5 color=red>
+## Introduction
 </font>
 <br>
-<font size = 3 color=#FF7500>
-<b>The concept of adversarial search and an introduction to Game Theory</b>
+
+### <font size = 3 color=#FF7500>
+### The concept of adversarial search and an introduction to Game Theory
 </font>
 
 In previous lectures, we discussed situations in which we had only a single agent. We didn't consider other parameters affecting our environment but in this chapter, a new type of search called **Adversarial Search** is introduced. In adversarial search, we define our problem in a multi-agent context. For instance, while playing a game, our agent has to consider the other agent's moves (adversarial moves) to play in an efficient way. Even in some games we can define a winning stategy which means we can guarantee that in every state of our game, no matter how bad it is, our agent is able to win the game.
 To gather more information about the concept of adversarial search, visit <a href="https://www.techslang.com/definition/what-is-adversarial-search/">this link</a>.
 
-<font size = 3 color=#FF7500>
-<b> Game Theory Explanation and Deterministic Games</b>
+### <font size = 3 color=#FF7500>
+### Game Theory Explanation and Deterministic Games
 </font>
 <br>
 Briefly, Game Theory is designing the strategies and the steps of our player to interact in the best way, according to the rival's steps and strategies. In other words, Game theory is the study of mathematical models of strategic interactions among rational decision-makers.
 To achieve this goal, we need to express our game and its rules and actions in a mathematical form. The common model used to represent games is the model below:
-
-
 
 1. States of the game: $S_i$, starting with $S_0$\
     Which means how the game will look after each action of competitors.
@@ -185,8 +153,8 @@ To achieve this goal, we need to express our game and its rules and actions in a
     <br>
 <br>
 
-<font size = 3 color=#FF7500>
-<b> Different catergories of games</b>
+### <font size = 3 color=#FF7500>
+### Different catergories of games
 </font>
 <br>
 
@@ -210,8 +178,8 @@ Before we discuss types of games, we need to define a concept named **Utility Fu
     <em>A good example on zero-sum vs. non-zero-sum games. (Credit: Market Business News)</em></br>
 </p>
 
-<font size = 5 color=red>
-<b>Differnt Types of Trees for games</b>
+## <font size = 5 color=red>
+## Differnt Types of Trees for games</b>
 </font>
 <br>
 
@@ -229,8 +197,8 @@ Consider the game Pacman which has only an agent playing the game. Starting from
 Like the previous Example, we explain this concept with the game Pacman but this time, the game has another agent called the adversarial agent or specific to this game, **The Ghost**.
 Like Single Agent Trees, we can form a tree to express the moves of the agents, but the difference is that at each level of the tree, only one agent can play. For example if we start with the player P1 at the root of the tree, based on its move, we gain 2 successors and we go to the first level of the tree. At this level of tree, only the other player called P2 can move and each of the 2 nodes will have 2 successors based on P2's move. So we have 4 nodes in the second level and the game will continue this way till the end. In this Configuration, how can we calculate the utility value of nodes? This will be our next topic.  
 
-<font size = 5 color=red>
-<b>Minimax Strategy</b>
+## <font size = 5 color=red>
+## Minimax Strategy
 </font>
 <br>
 To gain the value of every node in Adversarial tree, we classify the nodes into two groups:
@@ -309,8 +277,8 @@ $O(bm)$, because it's like DFS and only stores the nodes on the current path.
 
 
 
-<font size = 5 color=red>
-<b>Resource Limits</b>
+## <font size = 5 color=red>
+## Resource Limits
 </font>
 <br>
 Although the minimax algorithm would be proper for problems with relatively small state space, it isn't an efficient and feasible one for problems with more complicated and larger state space. Since the number of game states it has to examine, is exponential in relation to the depth of the tree.
@@ -360,8 +328,8 @@ So simply instead of running the depth-limited-search once, we start running the
 This algorithm is called _iterative-deepening search_.
 
 
-<font size = 5 color=red>
-<b>Pruning</b>
+## <font size = 5 color=red>
+## Pruning 
 </font>
 <br>
 
@@ -488,8 +456,8 @@ Now let's look at an example while running this code.
 
 
 
-<font size = 5 color=red>
-<b>Expectimax Search</b>
+## <font size = 5 color=red>
+## Expectimax Search
 </font>
 <br>
 
@@ -542,8 +510,8 @@ So the general formula for values will be as follows:
 |min EXPECTIMAX(Eval(s, a)) | PLAYER(s) = MIN|
 | $\sum_{r}$ P(r)EXPECTIMAX(RESULT(s,r)) | PLAYER(s)= CHANCE|
 
-<font size = 5 color=red>
-<b>Other types of games</b>
+## <font size = 5 color=red>
+## Other types of games 
 </font>
 <br>
 On top of what's been discussed before, we can count another type of game called <b>Mixed Layer Types</b>. In this type, in addition to players' action, we have another random factor affecting the game. So in our computations we must consider this factor. Foe example, Backgammon is a Mixed layer types game, because rolling the dice will affect the states and result of the game.
@@ -566,8 +534,8 @@ Td-Gammon is a computer backgammon program developed in 1992. It uses a 2-depth 
 <br>
 In games with multiple players, terminal states have utility in form of tuple values and each player tries to maximize its own part. This idea can raise the cooperation and competetion strategies dynamically.
 
-<font size = 5 color=red>
-<b>Summary</b>
+## <font size = 5 color=red>
+## Conclusion
 </font>
 <br>
 
@@ -588,10 +556,9 @@ Another point that has to be considered is that While we are looking for a good 
 
 Uncertain factors (like rolling dice) are represented by Expectation Nodes in a game tree. Optimal strategy in such games can be found using **Expectimax Search** which was explained before.
 
-<font size = 5 color=red>
-<b>Useful links</b>
+## <font size = 5 color=red>
+## Useful links
 </font>
-<br>
 
 + [Step-by-Step alpha-betta example](https://www.youtube.com/watch?v=xBXHtz4Gbdo)
 + [A simple overview of adversarial search with some examples](https://www.baeldung.com/cs/expectimax-search)
@@ -601,8 +568,8 @@ Uncertain factors (like rolling dice) are represented by Expectation Nodes in a 
 
 
 
-<font size = 5 color=red>
-<b>References</b>
+## <font size = 5 color=red>
+## References
 </font>
 <br>
 
