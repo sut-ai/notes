@@ -7,9 +7,9 @@ Every problem around us should be modeled and formulated in the first step if we
 
 [Introduction](#Introduction)
 
-[Breadth-first Search](#Breadth-first Search)
+[Breadth-first Search](#Breadth-first-Search)
 
-[Uniform cost search](#Uniform cost search)
+[Uniform cost search](#Uniform-cost-search)
 
 [Depth-first Search](#Depth-first Search)
 
