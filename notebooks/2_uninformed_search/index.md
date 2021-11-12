@@ -27,6 +27,10 @@ As the name suggests, Uninformed search and algorithms try to reach the goal sta
 There are two kinds of search; Tree search and Graph search which is explained below.
 In tree search, while using the main strategy, we consider expanded nodes again if it's neseccary or on the way. But in graph search we will not do that and the expanded nodes will be ignored and will not get expanded again. It is obvious that Graph search is much faster than tree search.
 
+Also two concepts need to be discussed which are Optimality and Time complexity.
+Optimality criteria are the conditions a function must satisfy at its minimum point which in this concept is reaching out the goal state.
+Time complexity is the amount of time taken by an algorithm to run, as a function of the length of the input. It measures the time taken to execute each statement of code in an algorithm.
+
 ## Breadth-first Search
 It is one of the algorithms to search a graph or a tree to find a specific thing we’re looking for. It is an uninformed kind of search and uses memory to search nodes. The procedure of it is that the algorithm starts from a node and explores all the nodes above it that are in the same level and it chooses the shallowest unexpanded node for expansion. This algorithm has some similarities with the DFS algorithm but it is different in some ways. 
 
