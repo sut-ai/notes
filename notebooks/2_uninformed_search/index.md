@@ -1,6 +1,8 @@
 
 # Uninformed Search
 
+Every problem around us should be modeled and formulated in the first step if we want to solve them. After that we must find a solution and solution is an action sequence, in order to do that we must "search". This is where search algorithm are being used and developed. The search possible action sequences starting at the initial state form a search tree with the initial state node at the root; the branches are actions and the nodes correspond to states in the state space of the problem. the very first thing we have to do is to check that if the current state is the goal node or not. If it is not we must take various actions and we do this by expansion; expandind the current state. This would lead to generating a new set of states from parent node and new states are called child nodes. Depends on the search strategy we chose, we proceed to reach out the goal state and then we stop.
+
 # Contents 
 
 [Introduction]()
@@ -22,6 +24,9 @@ Conclusion
 
 ## Introduction
 As the name suggests, Uninformed search and algorithms try to reach the goal state blindly which means they don't have and save extra and additional information about search space. They operate in a brute force way and use no domain knowlege for operating and they just search and move forward, whether it is a right way and route or not until they reach the goal state.
+
+There are two kinds of search; Tree search and Graph search which is explained below.
+In tree search, while using the main strategy, we consider expanded nodes again if it's neseccary or on the way. But in graph search we will not do that and the expanded nodes will be ignored and will not get expanded again. It is obvious that Graph search is much faster than tree search.
 
 ## Breadth-first Search
 It is one of the algorithms to search a graph or a tree to find a specific thing we’re looking for. It is an uninformed kind of search and uses memory to search nodes. The procedure of it is that the algorithm starts from a node and explores all the nodes above it that are in the same level and it chooses the shallowest unexpanded node for expansion. This algorithm has some similarities with the DFS algorithm but it is different in some ways. 
@@ -148,7 +153,11 @@ Depth-limited search can be terminated with two Conditions of failure:
 * Cutoff failure value: It defines no solution for the problem within a given depth limit.
 
 Look at the example:
+
+
 ![](https://github.com/mohsenosl99/notes/blob/master/notebooks/2_uninformed_search/images/depth-limited-search-algorithm.png)
+
+At first we determine a level until which we are going to expand nodes. For the first step we consider it to be zero. We expand the nodes with DFS startegy and check them if they are goal state or not. If the goal state were not among them, we return to the begininng node and start again but this time we expand the nodes a level deeper which would be level one. We proceed until when we reach out the desired state.
 
 ### Performance Measure:
 
@@ -192,7 +201,7 @@ Suppose that node M is goal. So we start from Limit =0 (node A). We check that A
 
 **Completeness**
 
-This algorithm is complete is ifthe branching factor is finite.
+This algorithm is complete is if the branching factor is finite.
 
 **Time Complexity**
 
