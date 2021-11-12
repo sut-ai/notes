@@ -27,7 +27,6 @@ An example of the application of local search is solving the travelling salesman
 
 <p align="center">
   <img src=https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png>
-	<figcaption>Imgae of TSP solved by local search</figcaption>
 </p>
 
 
