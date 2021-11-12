@@ -6,7 +6,7 @@
 	 - [What is Local Search?](#WhatIsLocalSearch)
 	 - [Advantages](#Advantages)
 - [Methods](#methods) 
-	-  [Hill Climbing](hillClimbing)  
+	-  [Hill Climbing](#hillClimbing)  
 	-  [Tabu Search](#tabuSearch)  
 	-  [Local Beam Search](#localBeamSearch) 
     -  [Simulated Annealing](#SimulatedAnnealing) 
