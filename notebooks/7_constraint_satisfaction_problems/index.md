@@ -27,13 +27,17 @@ Constraint Satisfaction
 - [Summary](#summary)
 # Introduction
 
-In Constraint Satisfaction Problems, we are dealing with special form of search problems. These problems try to find some search algorithms that require new conditions. The conditions are Constraints.
+Try to the answer this problem: 
 
-In CSPs, we have some variables $X_i$ that we should declare some values from domain $D_i$.
-We may have more than one goal state in CSP and each goal satisfy **all** constraints.
+We want to find two countries that the language of one of them is Hungarian and the name of other one starts with the letter "A".
 
-Usually, there is a function for solving Constrains Satisfaction Problems that returns a Boolean value. Either there is an answer or not.
-We start with some famous CSPs.
+You can see that answering this problem differs from other search problems. Here, at first you consider some **constraints** and instead of search whole countries, you search **locally** and only for the countries  that may satisfy the constraints.
+
+**Constraint Satisfaction Problems** (CSPs) are problems like the one we saw earlier that rather than searching on all search states, we only search for particular states that satisfy constraints. This help us to use more efficient algorithms for search problems. 
+
+**Constraint Satisfaction** is a technique that tries to solve a problem under certain constraints. A problem is solved when there is a solution which satisfy all constraints.
+
+In CSPs, we have some variables <img src="https://render.githubusercontent.com/render/math?math=X_i"> that we should declare some values from domain <img src="https://render.githubusercontent.com/render/math?math=D_i">, and some constraints that need to be satisfy.
 
 # Examples
 ## Map-Coloring
@@ -44,16 +48,16 @@ In this problem, we want to color all regions of Australia with three colors in 
 
 **Variables**: Western Australia, Northern Territory, South Australia, Queensland, New South Wales, Victoria, Tasmania
 
-**Domains**: $\{Red, Green, Blue\}$
+**Domains**: <img src="https://render.githubusercontent.com/render/math?math=\{Red, Green, Blue\}">
 
 **Constraints**: two adjacent regions must have two different colors.
 
 **Solution(s)**: all assignments with satisfying all constraints. 
 
 For example:
-$[WA : Red, NT : Green, SA : Blue, Q : Red, NSW : Green, V : Red, T : Green]$
+<img src="https://render.githubusercontent.com/render/math?math=[WA : Red, NT : Green, SA : Blue, Q : Red, NSW : Green, V : Red, T : Green]">
 
-![Forward checking limits](images/2.png?raw=true|width=100)
+![Forward checking limits](images/2.png?raw=true|width=60)
 
 But why we try to formulate a problem as a CSP format? One reason is that CSPs yields a natural representation for a wide variety of problems; so if we already have a CSP-solving system, it is easier to solve a problem using that rather than design a custom solution using another search technique. Also CSP solvers are generally faster than normal search algorithms. In map coloring for example, if we assign $SA = blue$, for five neighbors only colors of green and red are available. Without CSP technique, we must consider $3^5=243$ assignments for five neighbors but by using CSP format, we never have to consider blue as a value, therefore we have only $2^5=32$ assignments. A $87\%$ reduction!
 
@@ -73,6 +77,7 @@ Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we 
 **Constraint:**
 
 <img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\}">
+
 
 
 $$ \forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\} $$
