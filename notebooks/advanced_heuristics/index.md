@@ -111,7 +111,7 @@ For this we only need to define a new and more appropriate heuristic like the be
  
  
  
-**ℏ(n’) = max(h(n’), ℏ(n’) - c(n, a, n’))**
+**ℏ(n’) = max(h(n’), ℏ(n) - c(n, a, n’))**
 
  
 Above Heuristic is defined Recursively.
