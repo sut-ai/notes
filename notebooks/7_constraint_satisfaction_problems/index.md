@@ -167,6 +167,23 @@ Depth-first search for CSPs with single variable assignments is called backtrack
 Backtracking search is the basic uniformed algorithm for CSPs and can solve n-queens for $n \approx 25$.
 
 ![backtrack code](/images/8.png)
+```python
+def Backtracking-Search(csp):
+    return Recursive-Backtracking ({}, csp)
+
+def Recursive-Backtracking(assignment, csp):
+  if assignment is complete:
+     return assignment
+  var = Select-Unassigned-Variable(Variables[csp], assignment, csp)
+  for value in Order-Domain-Values(var, assignment, csp):
+    if value is consistent with assignment given Constraints[csp]:
+  add {var = value} to assignment
+  result = Recursive-Backtracking(assignment, csp)
+  if result ≠ failure:
+     return result
+  remove {var = value} from assignment
+  return failure
+```
 
 Backtracking search tries to find acceptable values for all variables recursively. Returns solution if it finds any, otherwise if the last assignment is leading to conflict, it removes that value for that variable and try other values. If no value is accepted, it backtracks to the previous assignment and changes that.
 
@@ -209,7 +226,7 @@ Combining these heuristics, makes 1000 queens feasible.
 
 Now we want to see if we can detect failure sooner. The idea is to keep track of remaining legal values for unassigned variables. It terminates search when there is no available value for any variable.
 
-![Forward checking limits](/images/14.png)
+![Forward checking limits](images/14.png?raw=true)
 
 In each state, we show the possible values for each variables. The first table is the first state. Then after two steps and choosing the variables $WA$ and $Q$, the updated table will become the last table.
 
