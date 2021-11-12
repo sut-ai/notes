@@ -2,7 +2,7 @@
 Search in Continuous Space
 #
 # **Table of Contents**
-[Introduction	 ](#_Toc87638545)
+* [Introduction	 ](#_Toc87638545)
 
 [Types of optimization techniques	](#_Toc87638546)
 
