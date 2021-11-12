@@ -2,51 +2,51 @@
 Search in Continuous Space
 #
 # **Table of Contents**
-` `**TOC \o "1-3" \h \z \u [Introduction	 PAGEREF _Toc87638545 \h 2**](#_Toc87638545)**
+[Introduction	 **](#_Toc87638545)**
 
-[**Types of optimization techniques	 PAGEREF _Toc87638546 \h 3**](#_Toc87638546)
+[**Types of optimization techniques	 **](#_Toc87638546)
 
-[*Linear programming (LP) and Nonlinear programming (NLP)	 PAGEREF _Toc87638547 \h 3*](#_Toc87638547)
+[*Linear programming (LP) and Nonlinear programming (NLP)	 *](#_Toc87638547)
 
-[*Continuous optimization and Integer programming (IP)	 PAGEREF _Toc87638548 \h 3*](#_Toc87638548)
+[*Continuous optimization and Integer programming (IP)	*](#_Toc87638548)
 
-[*Constrained optimization and Unconstrained optimization	 PAGEREF _Toc87638549 \h 3*](#_Toc87638549)
+[*Constrained optimization and Unconstrained optimization	*](#_Toc87638549)
 
-[*Differentiable optimization and Non-differentiable optimization	 PAGEREF _Toc87638550 \h 4*](#_Toc87638550)
+[*Differentiable optimization and Non-differentiable optimization	 *](#_Toc87638550)
 
-[Cost functions	 PAGEREF _Toc87638551 \h 4](#_Toc87638551)
+[Cost functions	](#_Toc87638551)
 
-[**Convexity	 PAGEREF _Toc87638552 \h 4**](#_Toc87638552)
+[**Convexity	**](#_Toc87638552)
 
-[*Convex versus non-Convex Optimization Problems	 PAGEREF _Toc87638553 \h 6*](#_Toc87638553)
+[*Convex versus non-Convex Optimization Problems	*](#_Toc87638553)
 
-[*Local and global optimization:	 PAGEREF _Toc87638554 \h 7*](#_Toc87638554)
+[*Local and global optimization:	 *](#_Toc87638554)
 
-[Local optimization	 PAGEREF _Toc87638555 \h 7](#_Toc87638555)
+[Local optimization	 ](#_Toc87638555)
 
-[Global optimization	 PAGEREF _Toc87638556 \h 7](#_Toc87638556)
+[Global optimization	](#_Toc87638556)
 
-[*Locally optimal for a convex optimization problem	 PAGEREF _Toc87638557 \h 8*](#_Toc87638557)
+[*Locally optimal for a convex optimization problem	 *](#_Toc87638557)
 
-[*Hessian being positive semi-definite iff convexity (Theorem one: One dimensional)	 PAGEREF _Toc87638558 \h 9*](#_Toc87638558)
+[*Hessian being positive semi-definite iff convexity (Theorem one: One dimensional)	 *](#_Toc87638558)
 
-[*Hessian being positive semi-definite iff convexity (Theorem two: Multi-dimensional)	 PAGEREF _Toc87638559 \h 9*](#_Toc87638559)
+[*Hessian being positive semi-definite iff convexity (Theorem two: Multi-dimensional)	 *](#_Toc87638559)
 
-[*Examples of Convex Functions:	 PAGEREF _Toc87638560 \h 10*](#_Toc87638560)
+[*Examples of Convex Functions:	 *](#_Toc87638560)
 
-[**Gradient	 PAGEREF _Toc87638561 \h 11**](#_Toc87638561)
+[**Gradient	 **](#_Toc87638561)
 
-[*Gradient Descent	 PAGEREF _Toc87638562 \h 11*](#_Toc87638562)
+[*Gradient Descent	 *](#_Toc87638562)
 
-[*Challenges with gradient descent	 PAGEREF _Toc87638563 \h 14*](#_Toc87638563)
+[*Challenges with gradient descent	*](#_Toc87638563)
 
-[Local minima and saddle points	 PAGEREF _Toc87638564 \h 14](#_Toc87638564)
+[Local minima and saddle points	 ](#_Toc87638564)
 
-[Vanishing and Exploding Gradients	 PAGEREF _Toc87638565 \h 14](#_Toc87638565)
+[Vanishing and Exploding Gradients	 ](#_Toc87638565)
 
-[**Conclusion	 PAGEREF _Toc87638566 \h 15**](#_Toc87638566)
+[**Conclusion	 **](#_Toc87638566)
 
-[**References	 PAGEREF _Toc87638567 \h 15**](#_Toc87638567)
+[**References	 **](#_Toc87638567)
 
 
 #
