@@ -38,7 +38,7 @@ We start with some famous CSPs.
 # Examples
 ## Map-Coloring
 
-![Forward checking limits](/images/1.png)
+![Forward checking limits](images/1.png?raw=true)
 
 In this problem, we want to color all regions of Australia with three colors in a way which two adjacent regions must not have same colors.
 
@@ -53,7 +53,7 @@ In this problem, we want to color all regions of Australia with three colors in 
 For example:
 $[WA : Red, NT : Green, SA : Blue, Q : Red, NSW : Green, V : Red, T : Green]$
 
-![Forward checking limits](/images/2.png)
+![Forward checking limits](images/2.png?raw=true)
 
 But why we try to formulate a problem as a CSP format? One reason is that CSPs yields a natural representation for a wide variety of problems; so if we already have a CSP-solving system, it is easier to solve a problem using that rather than design a custom solution using another search technique. Also CSP solvers are generally faster than normal search algorithms. In map coloring for example, if we assign $SA = blue$, for five neighbors only colors of green and red are available. Without CSP technique, we must consider $3^5=243$ assignments for five neighbors but by using CSP format, we never have to consider blue as a value, therefore we have only $2^5=32$ assignments. A $87\%$ reduction!
 
@@ -61,7 +61,7 @@ But why we try to formulate a problem as a CSP format? One reason is that CSPs y
 
 For binary CSPs, we use constraint graph. Binary CSP is a problem that each constraint relates to at most two variables. (For example in map coloring, in every step we are looking at $2$ regions that can’t have same color.)  The nodes of graph correspond to variables and a link connected to two nodes is a constraint that those variables participate in the constraint
 
-![Forward checking limits](/images/3.png)
+![Forward checking limits](images/3.png?raw=true)
 
 ## N-Queens
 Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we want to put n-queens on a $n \times n$ chess board in a way that no queen is able to treat another. In other words, there must be exactly one queen in each row or column or dimeter. All tiles of the board have either one queen or none. CSP formulation for this problem is as follow:
@@ -71,6 +71,10 @@ Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we 
 **Domains:** $\{0, 1\}$
 
 **Constraint:**
+
+<img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\}">
+
+
 $$ \forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\} $$
 $$ \forall i,j,k \quad (X_{ij}, X_{kj}) \in \{(0,0), (0,1), (1,0)\} $$
 $$ \forall i,j,k \quad (X_{ij}, X_{j+k,k+j}) \in \{(0,0), (0,1), (1,0)\} $$
@@ -81,7 +85,7 @@ The variables, $X_{ij}$, represents a queen in row i and column j. The domain is
 
 This problem is not a binary CSP because of the last constraint. We have every other constraint in the last one.
 
-![Forward checking limits](/images/5.png)
+![Forward checking limits](images/5.png?raw=true)
 
 The picture above shows a solved 8-Queens.
 
@@ -140,7 +144,7 @@ Consider n-ary CSP problem:
 
 Dual form of this problem with new constraint($X, Y, Z$ be consistent in $C_1, C_2, C_3$) is as follow:
 
-![Forward checking limits](images/ex1.png)
+![Forward checking limits](images/ex1.png?raw=true)
 
 #  Standard Search Formulation (incremental)
 
@@ -166,7 +170,7 @@ Depth-first search for CSPs with single variable assignments is called backtrack
 
 Backtracking search is the basic uniformed algorithm for CSPs and can solve n-queens for $n \approx 25$.
 
-![backtrack code](/images/8.png)
+![backtrack code](images/8.png?raw=true)
 ```python
 def Backtracking-Search(csp):
     return Recursive-Backtracking ({}, csp)
@@ -187,7 +191,7 @@ def Recursive-Backtracking(assignment, csp):
 
 Backtracking search tries to find acceptable values for all variables recursively. Returns solution if it finds any, otherwise if the last assignment is leading to conflict, it removes that value for that variable and try other values. If no value is accepted, it backtracks to the previous assignment and changes that.
 
-![backtrack gif](/images/prog.gif)
+![backtrack gif](images/prog.gif?raw=true)
 
 # Improving Backtrack
 Now we want to improve backtracking. These are four methods and ideas that help us to gain speed in backtracking search:
@@ -202,19 +206,19 @@ For each we will give an answer Let’s start from the first question.
 For the first question we introduce The Minimum Remaining Value (MRV).
 This heuristic tells us which variable should be the next variable to be assigned. In each assignment, the possible values for the next assignment may be reduced due to the problem’s assignments. In map coloring, after coloring the first state, the neighbors cannot have the same value. If we assign randomly in each state, we might reach to a point where a variable becomes so limited that it can’t have any values.
 
-![MRV](/images/10.png)
+![MRV](images/10.png?raw=true)
 
 If we don’t use MRV and choose a variable randomly, at the last step in the picture, we may color the north-west region, there will be no available values for the southern region and we have to backtrack. Clearly, we don’t need to backtrack if we use MRV.
 
 ## Degree Heuristic
 At a tie-breaker situation in MRV, we may use Degree heuristic. Degree heuristic prioritize the variable with the most constraints on remaining variables. Like at the beginning of the problem, when there is no colored state.
 
-![MRV](/images/11.png)
+![MRV](images/11.png?raw=true)
 
 ## Least Constraining Value
 For the second question, we may use least constraining value. In this approach, for a given variable, it chooses the least constraining value: the one that rules out the fewest values in the remaining variables.
 
-![MRV](/images/12.png)
+![MRV](images/12.png?raw=true)
 
 In the above situation, if we assign the north west region with blue value, we will have no available value for the southern region but assigning it to red value, it allows to have an available value for the southern region and we can avoid failure.
 
@@ -238,7 +242,7 @@ In each state, we show the possible values for each variables. The first table i
 
 Forward checking method, detects failures in only one level higher than ordinary MRV. As a result, in many cases it fails to detect failures.
 
-![Forward checking limits](images/ForwardChecking.png)
+![Forward checking limits](images/ForwardChecking.png?raw=true)
 
 For instance, In this example NT and SA can't be blue at the same time but Forward Checking doesn't detect that.
 
@@ -255,7 +259,7 @@ Consider coloring example. Suppose in allowed domain of $X, Y$, which are neighb
 
 One algorithm which is based on this concept is **AC-3**. (AC-3 Description)
 
-![Forward checking limits](/images/AC3.png)
+![Forward checking limits](images/AC3.png?raw=true)
 
 
 This algorithm can reduce *search algorithms* time، 
@@ -274,7 +278,7 @@ As it seems the second method is more complex and leads to a combinatory problem
 
 Although this method makes algorithms more efficient, in many cases it **can’t** detect early failures.
 
-![AC3 limits](/images/AC3lim.png)
+![AC3 limits](images/AC3lim.png?raw=true)
 
 For example, in this case all edges are consistent but it's obvious that we can't assign values to all nodes.
 
@@ -296,18 +300,18 @@ However, checking Strong k-Consistency **is not** an easy job(!) and has a high 
 
 one of the ways we can use the problem structure is to see whether constraint graph has separated connected component or not. If it has connected components, then we can solve the problem by finding solution for each of components independently.
 
-![connected component](/images/component.png)
+![connected component](images/component.png?raw=true)
 
 Of course, in real problems we will not see cases like the previous example very often. But one of the cases which often occurs is when there is a modular structure in the graph. With some considerations, we can solve the problem for each module independently and achieve a better time complexity.
 
 **Modular Structure**: 
 in some subgraphs there are some dense connections which have sparse connections with other subgraphs, as in figure below:
 
-![connected component](/images/modular.jpg)
+![connected component](images/modular.jpg?raw=true)
 
 Another way to use the problem structure is to see whether constraint graph is in tree form or not. If it is in tree form, we can solve the problem in $O(nd^2)$  which is way better than time complexity of a general case problem which is $O(d^n)$. To solve the problem, we first choose a node as the root of the graph and then we sort nodes from the highest to deepest, as in figure below:
 
-![connected component](/images/sorted.png)
+![connected component](images/sorted.png?raw=true)
 
 Then we delete all inconsistent values from node $n$ to node 2. (In AC-3 language, we call Remove-Inconsistent function for node $n$ to node 2). Because all edges are consistent, we can assign a value to $X_1$ (root) and then for each $X_i$ we will assign a value in order not to become inconsistent with respect to just its father. *Due to Arc-Consistency*, that’s possible.
 
