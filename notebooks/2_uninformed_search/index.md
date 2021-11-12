@@ -5,22 +5,21 @@ Every problem around us should be modeled and formulated in the first step if we
 
 # Contents 
 
-[Introduction]()
+[Introduction](#Introduction)
 
-Breadth-first Search
+[Breadth-first Search](#Breadth-first-Search)
 
-Uniform cost search
+[Uniform cost search](#Uniform-cost-search)
 
-Depth-first Search
+[Depth-first Search](#Depth-first-Search)
 
-Depth-limited Search
+[Depth-limited Search](#Depth-limited-Search)
 
-Iterative deepening depth-first search
+[Iterative deepening depth-first search](#Iterative-deepening-depth-first-search)
 
-Bidirectional search
+[Bidirectional search](#Bidirectional-search)
 
-Conclusion
-
+[Conclusion](#Conclusion)
 
 ## Introduction
 As the name suggests, Uninformed search and algorithms try to reach the goal state blindly which means they don't have and save extra and additional information about search space. They operate in a brute force way and use no domain knowlege for operating and they just search and move forward, whether it is a right way and route or not until they reach the goal state.
