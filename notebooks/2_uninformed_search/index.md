@@ -258,7 +258,7 @@ The refrences that were used are as follow.
 
 -Artificial Intelligence, A modern approach, Russel & Norvig (Third Edition)
 
--www.geeksforgeeks.com
+-www.geeksforgeeks.org
 
 -www.javatpoint.com/ai-uninformed-search-algorithms
 
