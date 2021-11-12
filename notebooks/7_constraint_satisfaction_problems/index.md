@@ -53,7 +53,7 @@ In this problem, we want to color all regions of Australia with three colors in 
 For example:
 $[WA : Red, NT : Green, SA : Blue, Q : Red, NSW : Green, V : Red, T : Green]$
 
-![Forward checking limits](images/2.png?raw=true)
+![Forward checking limits](images/2.png?raw=true|width=100)
 
 But why we try to formulate a problem as a CSP format? One reason is that CSPs yields a natural representation for a wide variety of problems; so if we already have a CSP-solving system, it is easier to solve a problem using that rather than design a custom solution using another search technique. Also CSP solvers are generally faster than normal search algorithms. In map coloring for example, if we assign $SA = blue$, for five neighbors only colors of green and red are available. Without CSP technique, we must consider $3^5=243$ assignments for five neighbors but by using CSP format, we never have to consider blue as a value, therefore we have only $2^5=32$ assignments. A $87\%$ reduction!
 
