@@ -4,12 +4,19 @@
 # Contents 
 
 [Introduction]()
+
 Breadth-first Search
+
 Uniform cost search
+
 Depth-first Search
+
 Depth-limited Search
+
 Iterative deepening depth-first search
+
 Bidirectional search
+
 Conclusion
 
 
