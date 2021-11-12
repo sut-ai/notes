@@ -25,6 +25,7 @@ Constraint Satisfaction
   - [Strong k-Consistency <div id='SKC'/>](#strong-k-consistency-div-idskc)
   - [Using problem structure <div id='PS'/>](#using-problem-structure-div-idps)
 - [Summary](#summary)
+- [References](#references)
 # Introduction
 
 Try to the answer this problem: 
@@ -59,18 +60,18 @@ For example:
 
 ![Forward checking limits](images/2.png?raw=true|width=60)
 
-But why we try to formulate a problem as a CSP format? One reason is that CSPs yields a natural representation for a wide variety of problems; so if we already have a CSP-solving system, it is easier to solve a problem using that rather than design a custom solution using another search technique. Also CSP solvers are generally faster than normal search algorithms. In map coloring for example, if we assign $SA = blue$, for five neighbors only colors of green and red are available. Without CSP technique, we must consider $3^5=243$ assignments for five neighbors but by using CSP format, we never have to consider blue as a value, therefore we have only $2^5=32$ assignments. A $87\%$ reduction!
+But why we try to formulate a problem as a CSP format? One reason is that CSPs yields a natural representation for a wide variety of problems; so if we already have a CSP-solving system, it is easier to solve a problem using that rather than design a custom solution using another search technique. Also CSP solvers are generally faster than normal search algorithms. In map coloring for example, if we assign <img src="https://render.githubusercontent.com/render/math?math=SA = blue">, for five neighbors only colors of green and red are available. Without CSP technique, we must consider <img src="https://render.githubusercontent.com/render/math?math=3^5 = 243"> assignments for five neighbors but by using CSP format, we never have to consider blue as a value, therefore we have only <img src="https://render.githubusercontent.com/render/math?math=2^5 = 32"> assignments. A 87% reduction!
 
 ## Constraint Graph
 
-For binary CSPs, we use constraint graph. Binary CSP is a problem that each constraint relates to at most two variables. (For example in map coloring, in every step we are looking at $2$ regions that can’t have same color.)  The nodes of graph correspond to variables and a link connected to two nodes is a constraint that those variables participate in the constraint
+For binary CSPs, we use constraint graph. Binary CSP is a problem that each constraint relates to at most two variables. (For example in map coloring, in every step we are looking at 2 regions that can’t have same color.)  The nodes of graph correspond to variables and a link connected to two nodes is a constraint that those variables participate in the constraint
 
 ![Forward checking limits](images/3.png?raw=true)
 
 ## N-Queens
-Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we want to put n-queens on a $n \times n$ chess board in a way that no queen is able to treat another. In other words, there must be exactly one queen in each row or column or dimeter. All tiles of the board have either one queen or none. CSP formulation for this problem is as follow:
+Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we want to put n-queens on a <img src="https://render.githubusercontent.com/render/math?math=n \times n"> chess board in a way that no queen is able to treat another. In other words, there must be exactly one queen in each row or column or dimeter. All tiles of the board have either one queen or none. CSP formulation for this problem is as follow:
 
-**Variablex:** $X_{ij}$ which represents a queen in row i and column j.
+**Variablex:** <img src="https://render.githubusercontent.com/render/math?math=X_{ij}"> which represents a queen in row i and column j.
 
 **Domains:** $\{0, 1\}$
 
@@ -78,15 +79,15 @@ Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we 
 
 <img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\}">
 
+<img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{kj}) \in \{(0,0), (0,1), (1,0)\}">
 
+<img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{j + k,k+j}) \in \{(0,0), (0,1), (1,0)\}">
 
-$$ \forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\} $$
-$$ \forall i,j,k \quad (X_{ij}, X_{kj}) \in \{(0,0), (0,1), (1,0)\} $$
-$$ \forall i,j,k \quad (X_{ij}, X_{j+k,k+j}) \in \{(0,0), (0,1), (1,0)\} $$
-$$ \forall i,j,k \quad (X_{ij}, X_{j+k,j-k}) \in \{(0,0), (0,1), (1,0)\} $$
-$$ \sum_{i,j} X_{ij} = N $$
+<img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{j+k,j-k}) \in \{(0,0), (0,1), (1,0)\}">
 
-The variables, $X_{ij}$, represents a queen in row i and column j. The domain is binary because for every tile we can show if there is a queen or there is not.
+<img src="https://render.githubusercontent.com/render/math?math=\sum_{i,j} X_{ij} = N">
+
+The variables, <img src="https://render.githubusercontent.com/render/math?math=X_{ij}">, represents a queen in row i and column j. The domain is binary because for every tile we can show if there is a queen or there is not.
 
 This problem is not a binary CSP because of the last constraint. We have every other constraint in the last one.
 
@@ -111,7 +112,7 @@ Usually real-world problems involve real-valued variables.
 Base on variables, we can classify CSPs into two parts: Discrete variables and Continuous variables. Discrete variables can also divide into two parts of Finite domain and Infinite domain. Our main focus is on discrete variables specially finite domain ones. 
 - Discrete variables:
   - Finite domains:
-    - Size $d$, $O(d^n)$ complete assignments.
+    - Size <img src="https://render.githubusercontent.com/render/math?math=d, O(d^n)"> complete assignments.
     - e.g., Boolean CSPs, incl. Boolean satisfiability (NP-complete).
    - Infinite domains (integers, strings, etc.)
       - e.g., job scheduling, variables are start/end days for each job.
@@ -141,13 +142,14 @@ Dual constraint graph is a graph which its vertices are not variables but constr
 
 Consider n-ary CSP problem:
 
-**Variable:** $X, Y, Z$
+**Variable:** <img src="https://render.githubusercontent.com/render/math?math=X, Y, Z">
 
-**Domain:** $\{1, 2, 3\}$
+**Domain:** <img src="https://render.githubusercontent.com/render/math?math={1, 2, 3}">
 
-**Constraint:** $C_1: X + Y + Z \le 3,\quad C_2: X+Y \le 2, \quad C_3: Z \ge 1 $
+**Constraint:** <img src="https://render.githubusercontent.com/render/math?math=C_1: X + Y + Z \le 3,\quad C_2: X+Y \le 2, \quad C_3: Z \ge 1">
 
-Dual form of this problem with new constraint($X, Y, Z$ be consistent in $C_1, C_2, C_3$) is as follow:
+
+Dual form of this problem with new constraint(<img src="https://render.githubusercontent.com/render/math?math=X, Y, Z"> be consistent in <img src="https://render.githubusercontent.com/render/math?math=C_1, C_2, C_3"> is as follow:
 
 ![Forward checking limits](images/ex1.png?raw=true)
 
@@ -164,18 +166,19 @@ Now we want to come up with a general standard solution based on search techniqu
 Note that for all CSPs, this formulation is the same.
 We want to assign values to all n variables; therefore, the solution –if there is any- must be in depth n. So it’s reasonable to use DFS (Depth First Search) algorithm.
 
-In the initial state, we can choose n variables to assign with $d$, size of domain. So at the initial state, we will have $n\times d$ branch factors, maximum successors of a node. Appling the same method to each one in the first layer, each node in depth 1 has $(n-1) \times d$ branch factors, so the maximum number of leaves is $nd \times (n-1)d \times \dots \times d = n!d^n$.
+In the initial state, we can choose n variables to assign with d, size of domain. So at the initial state, we will have nd branch factors, maximum successors of a node. Appling the same method to each one in the first layer, each node in depth 1 has
+<img src="https://render.githubusercontent.com/render/math?math=(n-1) \times d"> branch factors, so the maximum number of leaves is <img src="https://render.githubusercontent.com/render/math?math=nd \times (n-1)d \times \dots \times d = n!d^n">.
 
 # Backtracking Search
 With backtracking, we can reduce the number of leaves. If we consider one order of assignment and continue that, we will get to solution because the variable assignments are commutative. 
 
-E.g., the assignments $[WA=red \; then \; NT=green]$ is the same as $[NT=green \; then\;  WA=red]$. With this trick, each node needs to assign to only a single variable and reduce the number of leaves to $d^n$.
+E.g., the assignments <img src="https://render.githubusercontent.com/render/math?math=[WA:red \rightarrow NT:green]">,
+ is the same as <img src="https://render.githubusercontent.com/render/math?math=[NT:green \rightarrow WA:red]">. With this trick, each node needs to assign to only a single variable and reduce the number of leaves to <img src="https://render.githubusercontent.com/render/math?math=d^n">.
 
 Depth-first search for CSPs with single variable assignments is called backtracking. The name is chosen because when the algorithm fails to assign a variable, it will go to previous depth and starts searching again.
 
-Backtracking search is the basic uniformed algorithm for CSPs and can solve n-queens for $n \approx 25$.
+Backtracking search is the basic uniformed algorithm for CSPs and can solve n-queens for <img src="https://render.githubusercontent.com/render/math?math=n \approx 25">.
 
-![backtrack code](images/8.png?raw=true)
 ```python
 def Backtracking-Search(csp):
     return Recursive-Backtracking ({}, csp)
@@ -237,11 +240,7 @@ Now we want to see if we can detect failure sooner. The idea is to keep track of
 
 ![Forward checking limits](images/14.png?raw=true)
 
-$ dsa $
-
-$dsa$
-
-In each state, we show the possible values for each variables. The first table is the first state. Then after two steps and choosing the variables $WA$ and $Q$, the updated table will become the last table.
+In each state, we show the possible values for each variables. The first table is the first state. Then after two steps and choosing the variables WA and Q, the updated table will become the last table.
 
 ## Constraint Propagation <div id='CP'/>
 
@@ -253,11 +252,11 @@ For instance, In this example NT and SA can't be blue at the same time but Forwa
 
 Constraint Propagation method can detect failure when in a higher height. In order to explain this algorithm, we must first define **consistency** for an edge.
 
- $X \rightarrow Y$ edge is consistent iff for every value $x$ in Domain of $X$, there exists some allowed (does not violate any constraint) $y$ in Domain of $Y$.
+<img src="https://render.githubusercontent.com/render/math?math=X \rightarrow Y">  edge is consistent iff for every value x in Domain of X, there exists some allowed (does not violate any constraint) y in Domain of Y.
 
 By making every edge consistent (if possible), Constraint Propagation causes many of non-allowed states (which violate constraints) not to appear in search.
 
-Consider coloring example. Suppose in allowed domain of $X, Y$, which are neighbors, remains $\{g, b, r\},\{g\}$ respectively. In this situation, $X \rightarrow Y$ edge is not consistent because if we attribute value $g$ to $X$, there remains no allowed option for $Y$. However If we **delete** $g$ from domain of $X$, we can make this edge consistent. But we have to note that all edges which $X$ exists as the destination, may become inconsistent. So for example if $Z \rightarrow X$ become inconsistent, one or more member of Domain of $Z$ will be deleted and by continuing this process (spreading consistency over all edges) we can have a new *equivalent problem* which there exists *less members* in Domain of the variables and by deleting many states, we can save time.
+Consider coloring example. Suppose in allowed domain of X, Y, which are neighbors, remains {g, b, r},{g} respectively. In this situation, <img src="https://render.githubusercontent.com/render/math?math=X \rightarrow Y">  edge is not consistent because if we attribute value g to X, there remains no allowed option for Y. However If we **delete** g from domain of X, we can make this edge consistent. But we have to note that all edges which $X$ exists as the destination, may become inconsistent. So for example if <img src="https://render.githubusercontent.com/render/math?math=Z \rightarrow X"> become inconsistent, one or more member of Domain of Z will be deleted and by continuing this process (spreading consistency over all edges) we can have a new *equivalent problem* which there exists *less members* in Domain of the variables and by deleting many states, we can save time.
 
 ## Arc consistency (AC3) <div id='AC3'/>
 
@@ -268,15 +267,15 @@ One algorithm which is based on this concept is **AC-3**. (AC-3 Description)
 
 
 This algorithm can reduce *search algorithms* time، 
-However, It takes $O(n^2d^3)$ time to only execute this algorithm alone.
+However, It takes <img src="https://render.githubusercontent.com/render/math?math=O(n^2d^3)"> time to only execute this algorithm alone.
 
- It takes $O(d^2)$  time to execute Remove-Inconsistent-Value function and each edge may calls this function $O(d)$ times and because there is $O(n^2)$ edges it can lead to $O(n^2d^3)$ execution time overall. One solution is to execute AC-3 algorithm limited times. However, this trade-off still remains.
+ It takes <img src="https://render.githubusercontent.com/render/math?math=O(d^2)">  time to execute Remove-Inconsistent-Value function and each edge may calls this function <img src="https://render.githubusercontent.com/render/math?math=O(d)"> times and because there is <img src="https://render.githubusercontent.com/render/math?math=O(n^2)"> edges it can lead to <img src="https://render.githubusercontent.com/render/math?math=O(n^2d^3)">  execution time overall. One solution is to execute AC-3 algorithm limited times. However, this trade-off still remains.
 
 ## Extending to cases which have n-ary constraints <div id='EXT'/>
 
 To check consistency of a constraint in a n-ary case we have two options. One of them is to convert these constraints to binary constraints via the previous method or via performing intelligent methods. 
 
-Another option is to divide variables into two categories via different methods (we can actually do this in $2^n - 2$ different ways) and each time consider a member of the first category and check if there is a member in the second category which satisfies constraints or not. Then we can say this constraint is consistent.
+Another option is to divide variables into two categories via different methods (we can actually do this in <img src="https://render.githubusercontent.com/render/math?math=2^n - 2"> different ways) and each time consider a member of the first category and check if there is a member in the second category which satisfies constraints or not. Then we can say this constraint is consistent.
 As it seems the second method is more complex and leads to a combinatory problem. The first method is more efficient. 
 
 ## Arc-Consistency limitations <div id='ACL'/>
@@ -291,13 +290,13 @@ One way to confront these problems is to use *“Strong k-Consistency”* concep
 
 ## k-Consistency <div id='KC'/>
 
- For each $k$ nodes, any consistent assignment to $k-1$ can be extended to the $k$ th node. We must note that checking some k-Consistencies which $k$ is large, will have a high complexity. However, in our previous example if we check $k = 2$, we will see that we can detect failure.
+ For each k nodes, any consistent assignment to k-1 can be extended to the k th node. We must note that checking some k-Consistencies which k is large, will have a high complexity. However, in our previous example if we check k = 2, we will see that we can detect failure.
 
 ## Strong k-Consistency <div id='SKC'/>
 
 Includes 1-Consistency, …, k-Consistency.
 
-We must note that one **can’t** achieve (k-1)-Consistency from k-Consistency. That’s due to the fact that in order to have k-Consistency, it’s necessary to have $k-1$ consistent nodes (to expand to $k$) and if there is no $k-1$ consistent nodes, due to vacuous truth (in logic), we will have k-Consistency and obviously it’s possible that we don’t have (k-1)-Consistency.
+We must note that one **can’t** achieve (k-1)-Consistency from k-Consistency. That’s due to the fact that in order to have k-Consistency, it’s necessary to have k-1 consistent nodes (to expand to k) and if there is no k-1 consistent nodes, due to vacuous truth (in logic), we will have k-Consistency and obviously it’s possible that we don’t have (k-1)-Consistency.
 
 However, checking Strong k-Consistency **is not** an easy job(!) and has a high complexity. To the extent that Strong n-Consistency is equal to solving the problem without backtracking. That’s because we can choose any assignment to a variable and by 2-Consistency get to 2 variables. Then by 3-Consistency get to 3 variables and all the way up to $n$ variables which is equivalent to finding the solution.
 
@@ -314,13 +313,14 @@ in some subgraphs there are some dense connections which have sparse connections
 
 ![connected component](images/modular.jpg?raw=true)
 
-Another way to use the problem structure is to see whether constraint graph is in tree form or not. If it is in tree form, we can solve the problem in $O(nd^2)$  which is way better than time complexity of a general case problem which is $O(d^n)$. To solve the problem, we first choose a node as the root of the graph and then we sort nodes from the highest to deepest, as in figure below:
+Another way to use the problem structure is to see whether constraint graph is in tree form or not. If it is in tree form, we can solve the problem in <img src="https://render.githubusercontent.com/render/math?math=O(nd^2)"> which is way better than time complexity of a general case problem which is <img src="https://render.githubusercontent.com/render/math?math=O(d^n)"> . To solve the problem, we first choose a node as the root of the graph and then we sort nodes from the highest to deepest, as in figure below:
 
 ![connected component](images/sorted.png?raw=true)
 
-Then we delete all inconsistent values from node $n$ to node 2. (In AC-3 language, we call Remove-Inconsistent function for node $n$ to node 2). Because all edges are consistent, we can assign a value to $X_1$ (root) and then for each $X_i$ we will assign a value in order not to become inconsistent with respect to just its father. *Due to Arc-Consistency*, that’s possible.
+Then we delete all inconsistent values from node $n$ to node 2. (In AC-3 language, we call Remove-Inconsistent function for node $n$ to node 2). Because all edges are consistent, we can assign a value to <img src="https://render.githubusercontent.com/render/math?math=X_1"> (root) and then for each <img src="https://render.githubusercontent.com/render/math?math=X_i"> we will assign a value in order not to become inconsistent with respect to just its father. *Due to Arc-Consistency*, that’s possible.
 
-In cases which are almost tree form, there is a minimum cutset which includes a few members. In these cases, we can use *Conditioning method*. In this method, we first assign values to variables of the cutset in different ways. Then we solve the problem for other variables (which form a tree). If we consider $c$ as the size of the cutset, this method includes $d^c$ value assignments and then solving problem for the remaining tree which we know it has $O((n-c)d^2)$ time complexity. Hence, this method has $O(d^c.(n-c)d^2)$ time complexity which is good for small $c$. 
+In cases which are almost tree form, there is a minimum cutset which includes a few members. In these cases, we can use *Conditioning method*. In this method, we first assign values to variables of the cutset in different ways. Then we solve the problem for other variables (which form a tree). If we consider $c$ as the size of the cutset, this method includes $d^c$ value assignments and then solving problem for the remaining tree which we know it has <img src="https://render.githubusercontent.com/render/math?math=O((n-c)d^2)"> time complexity. Hence, this method has 
+<img src="https://render.githubusercontent.com/render/math?math=O(d^c.(n-c)d^2)"> time complexity which is good for small c. 
 
 # Summary
 - CSPs are kind of problem with a set of variable/value pairs that represent a state.
@@ -332,3 +332,10 @@ These pairs represent the conditions of solution by a set of constraints on vari
 - Custset conditioning can make a general CSP structure to a tree-structured one. It is very efficient for small cutsets.
 - Tree decomposition technique transform the CSP into a tree of subproblems. It is very efficient if tree width of the constraint graph is small. 
 - Time complexity of CSP is related to the structure of its constraint graph. 
+
+# References
+https://www.tutorialandexample.com/constraint-satisfaction-problems-in-artificial-intelligence/
+
+Factor Graphs 1 - Constraint Satisfaction Problems | Stanford CS221: AI (Autumn 2019)
+
+https://cis.temple.edu/~giorgio/cis587/readings/constraints.html
