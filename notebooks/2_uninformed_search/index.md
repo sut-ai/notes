@@ -5,7 +5,7 @@ Every problem around us should be modeled and formulated in the first step if we
 
 # Contents 
 
-[Introduction]()
+[Introduction](#Introduction)
 
 Breadth-first Search
 
