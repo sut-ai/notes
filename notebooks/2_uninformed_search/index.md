@@ -252,6 +252,7 @@ It uses memory to save queues and nodes that had been expanded. But the time for
 ## Conclusion
 The algorithms discussed above are the most used and practical algorithms that are being used in the academic and industry enviornment. These algorithm are being developed and expanded everyday and in a near future we will be using much more faster and efficient algorithms.
 
+![](https://github.com/mohsenosl99/notes/blob/master/notebooks/2_uninformed_search/images/Conclusion.jpg)
 
 
 The refrences that were used are as follow.
