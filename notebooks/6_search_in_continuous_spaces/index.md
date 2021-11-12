@@ -2,19 +2,13 @@
 Search in Continuous Space
 #
 # **Table of Contents**
-* [Introduction	 ](#_Toc87638545)
-
-[Types of optimization techniques	](#_Toc87638546)
-
-[Linear programming (LP) and Nonlinear programming (NLP)	](#_Toc87638547)
-
-[Continuous optimization and Integer programming (IP)	](#_Toc87638548)
-
-[Constrained optimization and Unconstrained optimization	](#_Toc87638549)
-
-[Differentiable optimization and Non-differentiable optimization	 ](#_Toc87638550)
-
-[Cost functions	](#_Toc87638551)
+- [Introduction](#introduction)
+- [Types of optimization techniques](#types-of-optimization-techniques)
+  * [Linear programming (LP) and Nonlinear programming (NLP)](#linear-programming--lp--and-nonlinear-programming--nlp-)
+  * [Continuous optimization and Integer programming (IP)](#continuous-optimization-and-integer-programming--ip-)
+  * [Constrained optimization and Unconstrained optimization](#constrained-optimization-and-unconstrained-optimization)
+  * [Differentiable optimization and Non-differentiable optimization](#differentiable-optimization-and-non-differentiable-optimization)
+    + [Cost functions](#cost-functions)
 
 [Convexity	](#_Toc87638552)
 
