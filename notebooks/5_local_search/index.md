@@ -2,7 +2,7 @@
 
 ## Contents
 
-- Introduction
+- [Introduction](#introduction)
 	 - What is Local Search?
 	 - Advantages
 - Methods 
@@ -15,7 +15,7 @@
 - Summary
 - References
 
-## 1. Introduction
+## 1. Introduction <a name="introduction"></a>
 
 ### 1.1. What is Local Search?
 
