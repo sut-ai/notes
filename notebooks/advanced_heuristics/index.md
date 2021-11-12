@@ -181,7 +181,7 @@ Hamiltonian path is a tree which every its inner has have exactly one son. Hence
 
 In previous section we introduced relaxing method which improves heuristic function by lowering constraints. Pattern DB is yet another way to improve heuristic function which is actually a subset of Relaxing method.
 
-In this method we choose a subset of constraints by a specific pattern and ignore the other constraints. Since we ignored some constraints we did relaxing method and hence answer of the converted problem is a heuristic gfunction.
+In this method we choose a subset of constraints by a specific pattern and ignore the other constraints. Since we ignored some constraints we did relaxing method and hence answer of the converted problem is a heuristic function.
 
 for further information watch this video: [watch](https://www.youtube.com/watch?v=HZWV4uOJWk8)
 
