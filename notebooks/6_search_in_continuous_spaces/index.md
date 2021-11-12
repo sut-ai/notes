@@ -285,9 +285,12 @@ b) Learning rate is too small, it takes more time but converges to the minimum
 
 c) Learning rate is higher than the optimal value, it overshoots but converges ( 1/C < η <2/C)
 
+d) Learning rate is very large, it overshoots and diverges, moves away from the minima, performance **decreases on learning**
+
+
 *Figure  SEQ Figure \\* ARABIC 12. Four different learning rates working on function f*
 
-![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.030.png)d) Learning rate is very large, it overshoots and diverges, moves away from the minima, performance **decreases on learning**
+![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.030.png)
 
 
 ## Challenges with gradient descent
