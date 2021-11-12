@@ -27,10 +27,9 @@
 [References](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#references)
 
 ## Introduction
-Heuristics are methods for solving problems in a fast way. Actually It's about using a practical method that doesn’t necessarily need to be perfect! Heuristic methods speed up the process of reaching a satisfactory solution. 
-Moreover Advanced Heuristics are creating a sequence of heuristics to detect complex malware and detecting then solving the problems. In this lecture note first we review some prerequisites then we will mention some approaches to make heuristics more efficient!
-
-## Body
+Heuristics are methods for solving problems in a fast way. Actually It's about using a practical method that doesn’t necessarily need to be perfect! Heuristic methods speed up the process of reaching a satisfactory solution.
+In this lecture we review some prerequisites then we present a couple of approaches and Heuristics, which seeked to be flawless, but the space and time complexity of these algorithms is not sufficient. So we try to improve the Heuristics to eliminate the recent obstacles and make our heuristics more efficient. we call these methods advanced heuristics!
+We'll show how to detect complex problems then solving them by advanced heuristics and compare them with the previous methods.
 
 ### Distance
 First we review some basic definitions:
