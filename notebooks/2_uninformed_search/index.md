@@ -11,13 +11,13 @@ Every problem around us should be modeled and formulated in the first step if we
 
 [Uniform cost search](#Uniform-cost-search)
 
-[Depth-first Search](#Depth-first Search)
+[Depth-first Search](#Depth-first-Search)
 
-[Depth-limited Search](#Depth-limited Search)
+[Depth-limited Search](#Depth-limited-Search)
 
-[Iterative deepening depth-first search](#Iterative deepening depth-first search)
+[Iterative deepening depth-first search](#Iterative-deepening-depth-first-search)
 
-[Bidirectional search](#Bidirectional search)
+[Bidirectional search](#Bidirectional-search)
 
 [Conclusion](#Conclusion)
 
