@@ -5,21 +5,21 @@ Every problem around us should be modeled and formulated in the first step if we
 
 # Contents 
 
-[Introduction](#Introduction)
+[Introduction]()
 
-[Breadth-first Search](#Breadth-first-Search)
+Breadth-first Search
 
-[Uniform cost search](#Uniform-cost-search)
+Uniform cost search
 
-[Depth-first Search](#Depth-first-Search)
+Depth-first Search
 
-[Depth-limited Search](#Depth-limited-Search)
+Depth-limited Search
 
-[Iterative deepening depth-first search](#Iterative-deepening-depth-first-search)
+Iterative deepening depth-first search
 
-[Bidirectional search](#Bidirectional-search)
+Bidirectional search
 
-[Conclusion](#Conclusion)
+Conclusion
 
 
 ## Introduction
@@ -216,11 +216,13 @@ Note: In this algorithm because of the fact that we want to avoid space problems
 
 **Space Complexity**
 
-The space complexity of IDDFS will be O(bd).
+>The space complexity of IDDFS will be O(d), where d is the depth of the goal.
+
+Exactly like DFS, only those nodes will be stored in the stack that represents the branch of the tree which is being expanded. Since the maximum depth of stack is d, the maximum amount of space which is needed would be O(d).
 
 **Optimality**
 
-IDDFS algorithm is optimal if path cost equals 1.
+>IDDFS algorithm is optimal if path cost equals 1.
 
 
 
