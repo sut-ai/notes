@@ -139,7 +139,9 @@ The Simulated Annealing (SA) algorithm is based upon Physical Annealing in real 
         
 Simulated Annealing (SA) mimics the Physical Annealing process but is used for optimizing parameters in a model. This process is very useful for situations where there are a lot of local minima algorithms would be stuck at.
 
-![](https://miro.medium.com/max/788/1*iXV2btukAUcn5lfd-ZjU7A.png)
+<p align="center">
+  <img src=https://miro.medium.com/max/788/1*iXV2btukAUcn5lfd-ZjU7A.png>
+</p>
     
 In problems like the one above, if a local minima algorithm like Gradient Descent started at the starting point indicated, it would be stuck at the local minima and not be able to reach the global minima.
 
@@ -152,8 +154,10 @@ In problems like the one above, if a local minima algorithm like Gradient Descen
 3. Decide whether to move to the neighbour found in step 2. Mostly by calculating the difference in cost between the current solution and the new neighbour solution. if the difference in cost between the current and new solution is greater than 0 (the new solution is better), then accept the new solution. If the difference in cost is less than 0 (the old solution is better), then accept it by the probabilty function respected to the difference and T.
 4. Decrease the temperature according to temperature reduction function.
 5. Repeat steps 2, 3, 4 until the termination conditions are reached.
-    
-![](https://ars.els-cdn.com/content/image/3-s2.0-B9780128150108000028-f02-14-9780128150108.jpg)
+
+<p align="center">
+  <img src=https://ars.els-cdn.com/content/image/3-s2.0-B9780128150108000028-f02-14-9780128150108.jpg>
+</p>
 
 ##### Psudocode
 
@@ -184,25 +188,33 @@ The mapping of time to temperature and how fast the temperature decreases is cal
 
 Probabilty function determines chance of going to new neighbour. The equation has been altered to the following:
 
-![](pp.png)
-    
+<p align="center">
+  <img src=pp.png>
+</p>
+ 
 Where the delta c is the change in cost and the t is the current temperature.
 
 #### 2.4.4 High vs. Low temperature
 
 Due to the way the probability is calculated, when the temperature is higher, is it more likely that the algorithm accepts a worse solution. This promotes Exploration of the search space and allows the algorithm to more likely travel down a sub-optimal path to potentially find a global maximum.
 
-![](pp2.png)
+<p align="center">
+  <img src=pp2.png>
+</p>
     
 When the temperature is lower, the algorithm is less likely or will not to accept a worse solution. This promotes Exploitation which means that once the algorithm is in the right search space, there is no need to search other sections of the search space and should instead try to converge and find the global maximum.
 
-![](pp3.png)
+<p align="center">
+  <img src=pp3.png>
+</p>
     
 So at first, the high temprature causes more bad moves and the acceptation probability drops slowly(low slope). and as the temperature decreases, the bad moves' probability converges to zero so fast(high slope).
 
 In this exmaple, SA is searching for a maximum. By cooling the temperature slowly, the global maximum is found.
 
-![](https://upload.wikimedia.org/wikipedia/commons/d/d5/Hill_Climbing_with_Simulated_Annealing.gif)
+<p align="center">
+  <img src=https://upload.wikimedia.org/wikipedia/commons/d/d5/Hill_Climbing_with_Simulated_Annealing.gif>
+</p>
 
 #### 2.4.5 Simulated Annealing in practice
 
@@ -238,7 +250,9 @@ There is only one theorem about this.
 
 Genetic algorithms is a group of algorithms which are search heuristic that are inspired by Charles Darwin’s theory of natural evolution. These algorithms reflect the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation.
 
-![](pp4.png)
+<p align="center">
+  <img src=pp4.png>
+</p>
 
 In a genetic algorithm, a population of candidate solutions (called individuals, creatures, or phenotypes) to an optimization problem is evolved toward better solutions. Each candidate solution has a set of properties (its chromosomes or genotype) which can be mutated and altered; traditionally, solutions are represented in binary as strings of 0s and 1s, but other encodings are also possible.
 
@@ -282,7 +296,9 @@ The evolution usually starts from a population of randomly generated individuals
 ###### Genetic representation
 In the genetic algorithms, An individual is characterized by a set of parameters (variables) known as Genes. Genes are joined into a string to form a Chromosome (solution). The genetic representation is the way that the individuals are modeled to be used in the algorithm. The most standard one which is used in the genetic algorithms is an array of bits. other representations can be true in some questions but the crossover or mutation will be more complex than array of bits.
 
-![](https://miro.medium.com/max/1050/1*wDiDa61xUo-LfGdqaZPIbA.png)
+<p align="center">
+  <img src=https://miro.medium.com/max/1050/1*wDiDa61xUo-LfGdqaZPIbA.png>
+</p>
         
 ###### Fitness function
 The fitness function determines how fit an individual is (the ability of an individual to compete with other individuals). It gives a fitness score to each individual. The probability that an individual will be selected for reproduction is based on its fitness score.
@@ -308,19 +324,25 @@ Note that there exist both asexual and sexual reproduction which in asexual repr
 
 - ***Crossover***    
 Crossover is the most significant phase in a genetic algorithm. For each pair of parents to be mated, a number of crossover points are chosen at random from within the genes. Offspring are created by exchanging the genes of parents among themselves until the crossover points are reached. The new offspring are added to the population and replace their parents.(population size must be fixed)
-        
-![](https://miro.medium.com/max/368/1*Wi6ou9jyMHdxrF2dgczz7g.png)
 
-![](https://miro.medium.com/max/350/1*eQxFezBtdfdLxHsvSvBNGQ.png)
+<p align="center">
+  <img src=https://miro.medium.com/max/368/1*Wi6ou9jyMHdxrF2dgczz7g.png>
+</p>
 
-![](https://miro.medium.com/max/350/1*_Dl6Hwkay-UU24DJ_oVrLw.png)
-        
+<p align="center">
+  <img src=https://miro.medium.com/max/350/1*eQxFezBtdfdLxHsvSvBNGQ.png>
+</p>
+
+<p align="center">
+  <img src=https://miro.medium.com/max/350/1*_Dl6Hwkay-UU24DJ_oVrLw.png>
+</p>
+   
 - ***Mutation***
 In certain new offspring formed, some of their genes can be subjected to a mutation with a low random probability. This implies that some of the bits in the bit string can be flipped. Mutation occurs to maintain diversity within the population and prevent premature convergence.
         
-
-![](https://miro.medium.com/max/395/1*CGt_UhRqCjIDb7dqycmOAg.png)
-
+<p align="center">
+  <img src=https://miro.medium.com/max/395/1*CGt_UhRqCjIDb7dqycmOAg.png>
+</p>
 
 ##### 2.5.1.5 Termination
     
@@ -329,7 +351,9 @@ This generational process is repeated until the population converge or terminati
 ##### Example 2.5.1: 8-Queens
 Put 8 queens in 8 * 8 board which queens cannot attack eachother. 
 
-  ![8-queens-string.PNG](1.png)
+<p align="center">
+  <img src=1.png>
+</p>
     
 ##### Preparations
 - **Genetic representation**: 8 byte array is used which indices of array show the columns and the values in the array show the rows(1 <= values <= 8) which queens exist. for example, array[i] = j means that a queen exists in (j, i) of the chess board. ([2, 4, 7, 4, 8, 5, 5, 2] for above figure)
@@ -348,18 +372,22 @@ Each individuals have the probabilty according to their fitness((fitness of x) /
 ##### Crossover
 New offspring are generated by selecting some genes from one parent and the rest from another.
  
- ![8-queens-crossover.PNG](2.png)
-
+<p align="center">
+  <img src=2.png>
+</p>
 
  ##### Mutation
  With the propabilty of P, some genes of new children change.
 
-  ![8-queens-mutation.PNG](3.png)
-  
+<p align="center">
+  <img src=3.png>
+</p>
 
 In the picture below overview of the solution has shown:
-![Overview of solution](8Queens_Genetics.jpg)
 
+<p align="center">
+  <img src=8Queens_Genetics.jpg>
+</p>
 
 #### 2.5.2 Pros and Cons
     
@@ -428,8 +456,10 @@ Imagine the set is {10, 7, 5, 18, 12, 20, 15} and the sum is 30.
 
 - Freeze {x1, x2, x3, x5, x7}
 - Constraint search for non-frozen variables ({x4, x6})
-    
-![](LNS_ex.jpg)
+
+<p align="center">
+  <img src=LNS_ex.jpg>
+</p>
 
 So as you see, the lower penalty is found, so we update {x1, x2, x3, x4, x5, x6, x7} and p. Then go to the next iteration.
 
@@ -446,8 +476,9 @@ We continue the second step until we reach a good enough penalty and the return 
     - As shown in figure below, LNS takes longer runtime than hard constraint attitude.
     - It seems that the initial solution found by LNS is very insufficent and moreover maybe the choices for better neighbourhoods are not well enough. It can be better if we combine some atrributes of backtrack and LNS in each step to reach the better condition. There is a version called Non-failing LNS which has done this and you can look for more details in this [link](https://www.youtube.com/watch?v=VKUxuBaBAkc).
     
-    
-![](LNS2.png)
+<p align="center">
+  <img src=LNS2.png>
+</p>
 
 #### 2.6.3 Applications
     
