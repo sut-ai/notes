@@ -2,10 +2,8 @@
 #### Kahbod Aeini, Mohammadreza Daviran and Sepehr Kianian
 
 ## Contents
-1.[Introduction](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#introduction)
+[Introduction](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#introduction)
 
-2.[Body](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#body)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 * [Distance](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#distance)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 * [Heuristic](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#heuristic)
@@ -24,12 +22,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 * [Disjoint Pattern DB](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#disjoint-pattern-db)
 
-3.[Conclusion](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#conclusion)
+[Conclusion](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#conclusion)
 
-4.[References](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#references)
+[References](https://github.com/mmdrez4/notes/blob/master/notebooks/advanced_heuristics/index.md#references)
 
 ## Introduction
-Heuristics are methods for solving problems in a fast way. Actually It's about using a practical method that doesn’t necessarily need to be perfect! Heuristic methods speed up the process of reaching a satisfactory solution. Moreover Advanced Heuristics are creating a sequence of heuristics to detect complex malware and detecting then solving the problems. In this lecture note first we review some prerequisites then we will mention some approaches to make heuristics more efficient!
+Heuristics are methods for solving problems in a fast way. Actually It's about using a practical method that doesn’t necessarily need to be perfect! Heuristic methods speed up the process of reaching a satisfactory solution. 
+Moreover Advanced Heuristics are creating a sequence of heuristics to detect complex malware and detecting then solving the problems. In this lecture note first we review some prerequisites then we will mention some approaches to make heuristics more efficient!
 
 ## Body
 
@@ -218,9 +217,5 @@ https://machinelearningmastery.com/distance-measures-for-machine-learning/
 https://artint.info/2e/html/ArtInt2e.Ch3.S6.SS2.html
 
 https://en.wikipedia.org/wiki/Consistent_heuristic
-
-https://stackoverflow.com/questions/1568600/what-is-the-difference-between-monotonicity-and-the-admissibility-of-a-heuristic
-
-https://stackoverflow.com/questions/46554459/intuitively-understanding-why-consistency-is-required-for-optimality-in-a-searc
 
 https://courses.cs.washington.edu/courses/cse473/12sp/slides/04-heuristics.pdf
