@@ -3,21 +3,21 @@
 ## Contents
 
 - [Introduction](#introduction)
-	 - What is Local Search?
-	 - Advantages
-- Methods 
-	-  Hill Climbing  
-	-  Tabu Search  
-	-  Local Beam Search 
-    -  Simulated Annealing 
-	-  Genetic Algorithms
-	-  Large Neighborhood Search 
-- Summary
-- References
+	 - [What is Local Search?](#WhatIsLocalSearch)
+	 - [Advantages](#Advantages)
+- [Methods](#methods) 
+	-  [Hill Climbing](hillClimbing)  
+	-  [Tabu Search](#tabuSearch)  
+	-  [Local Beam Search](#localBeamSearch) 
+    -  [Simulated Annealing](#SimulatedAnnealing) 
+	-  [Genetic Algorithms](#geneticAlgorithms)
+	-  [Large Neighborhood Search](#largeN) 
+- [Summary](#summary)
+- [References](#references)
 
 ## 1. Introduction <a name="introduction"></a>
 
-### 1.1. What is Local Search?
+### 1.1. What is Local Search? <a name="WhatIsLocalSearch"></a>
 
 Local Search is a heuristic method for solving computationally hard constraint satisfaction or optimization problems. The family of local search methods is typically used in search problems where the search space is either very huge or infinite. In such Problems, classical search algorithms do not work efficiently. 
 
@@ -30,16 +30,16 @@ An example of the application of local search is solving the travelling salesman
 </p>
 
 
-### 1.2. Advantages
+### 1.2. Advantages <a name="Advantages"></a>
 
 Local search has a memory complexity of O(1) which is very efficient. This is the case because only the current state of the program is saved in memory. The time complexity of local search is O(T) which T is the number of iterations. 
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMzIzNDYwNDMxLDczMDk5ODExNl19
 -->
-## 2. Methods
+## 2. Methods <a name="methods"></a>
 
-### 2.1. Hill Climbing
+### 2.1. Hill Climbing <a name="hillClimbing"></a>
 Imagine you want to climb a mountain and you need to find a path that leads to the peak. And ofcourse you want to do this as fast as possible. What would you do if you were in this situation?
 The first inituitive idea that comes to mind is roughly simple, in each step try to go as high as possible, done. This is what '*Hill Climbing*' algorithm do. This iterative algorithm starts with a random state and in each iteartion tries to do the best, which means chossing a neighbor that has the highset value among all other neighbors. This algorithm continues till we reach a local maximum.
 
@@ -106,7 +106,7 @@ Running 8-queens problem with this algorithm results as follow:
 - With sideway moves: ($p = 0.94$)
 	- Expected number of iterations: $\frac{1}{0.94} \approx 1.04$
 
-### 2.2 Tabu Search
+### 2.2 Tabu Search <a name="tabuSearch"></a>
 This algorithm is similar to *'hill climbing'* but uses a trick to prevent from stucking in local maxima. This is actualy a meta-heuristic algorithm that means it helps to guide and control actual heuristic. But how this strategy helps us to find global optimal?
 First of all, it has a list called 'tabu list' which has some states. Like hill climbing, from each state we are going to find its neighbors and choose one of them. But here we are not allowed to choose those states that are in tabu list, they are taboo. Also we don't stop if the best neighbor is not as good as current state, if it was so, we update best solution and move to that state and if it wasn't, we just move to the new state. The termination creteria can be a limitation on number of iterations. Below you can find a flowchart of this algorithm steps. 
 
@@ -114,7 +114,7 @@ First of all, it has a list called 'tabu list' which has some states. Like hill 
 
 Here we suppose to have a strategy to determine which states should be added to tabu list and which should take out of this list.
 
-### 2.3 Local Beam Search
+### 2.3 Local Beam Search <a name="localBeamSearch"></a>
 Imagine you are living on Kepler-442b (which is an Earth-like exoplanet) and you've found a wide plain that consists of treasure. But you don't know where the treasure is, and you just know how probable is a cell of this field to have treasure beneath it. What strategy do you adopt to find the most probable cell to have treasure?
 
 ![beam search](local-beam.jpg)
@@ -133,7 +133,7 @@ function Local-Beam-Search(problem) return state
 		current[k] <- neighbors[k]
 ```
 
-### 2.4 Simulated Annealing
+### 2.4 Simulated Annealing <a name="SimulatedAnnealing"></a>
 
 The Simulated Annealing (SA) algorithm is based upon Physical Annealing in real life. Physical Annealing is the process of heating up a material until it reaches an annealing temperature and then it will be cooled down slowly in order to change the material to a desired structure. When the material is hot, the molecular structure is weaker and is more susceptible to change. When the material cools down, the molecular structure is harder and is less susceptible to change.
         
@@ -234,7 +234,7 @@ There is only one theorem about this.
 - [Image processing](https://en.wikipedia.org/wiki/Digital_image_processing)
 - ...
 
-### 2.5 Genetic algorithms
+### 2.5 Genetic algorithms <a name="geneticAlgorithms"></a>
 
 Genetic algorithms is a group of algorithms which are search heuristic that are inspired by Charles Darwin’s theory of natural evolution. These algorithms reflect the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation.
 
@@ -379,7 +379,7 @@ It has wide variety of applications in:
 - Encryption and Code Breaking ([Relation to simulated annealing](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.324.5081&rep=rep1&type=pdf))
 
 
-### 2.6 Large Neighbourhood Search
+### 2.6 Large Neighbourhood Search <a name="largeN"></a>
 
 Large Neighbourhood Search (LNS) is an iterative local search method for solving optimization problems using Contraint Programming(CP). The algorithm is as follows:
 
@@ -452,12 +452,12 @@ We continue the second step until we reach a good enough penalty and the return 
 - [Routing problems](https://en.wikipedia.org/wiki/Vehicle_routing_problem) ([Relation to LNS](https://link.springer.com/chapter/10.1007/3-540-49481-2_30))
 - [Scheduling problems](https://www.quinyx.com/blog/scheduling-problems) ([Relation to LNS](http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1530574&dswid=9745))
 
-## 3. Summary
+## 3. Summary <a name="summary"></a>
 As mentioned before, local search methods can be used widely in search problems with very big search spaces. In such spaces, classic search algorithms cannot work efficiently due to their exponential usage of either memory or time. In contrast, local search methods have a very low memory usage of O(1) which is because of the irrelevance of the path to the current solution, and also the time complexity of these methods is O(T) which T is the number of iterations. 
 
 Many local search algorithms have been introduced above, and many have been proved to be very efficient for optimization problems, Hill climbing for instance was a method to solve such problems. An important challenge for these optimization algorithms was the possibility of getting stuck in a local optimum, other methods like Simulated Annealing was proposed to face this challenge and have been shown to be effective.
 
-## 4. References
+## 4. References <a name="references"></a>
 
 - https://towardsdatascience.com/optimization-techniques-simulated-annealing-d6a4785a1de7
 
