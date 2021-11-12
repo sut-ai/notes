@@ -41,7 +41,8 @@ It is not an optimal algorithm in general but if cost of steps be equal to one, 
 
 As it is obvious this algorithm has some pros and cons. The benefit of it is that it is accurate and easy to run and implement. But if the goal be at depth 21, this algorithm would take hundreds of years to find the solution.
 
-
+As it is obvious from the example below, the algorithm searches aevery node in a level and then goes to next level .
+![](https://github.com/mohsenosl99/notes/blob/master/notebooks/2_uninformed_search/images/breadth-first-search.png)
 ## Uniform-Cost Search 
 
 Uniform-Cost Search (**UCS**) is a variant of Dijikstra’s algorithm. Here, instead of inserting all vertices into a priority queue, we insert only source, then one by one insert when needed. In every step, we check if the item is already in priority queue (using visited array). If yes, we perform decrease key, else we insert it. 
@@ -232,7 +233,14 @@ It uses memory to save queues and nodes that had been expanded. But the time for
 
 
 ## Conclusion
+The algorithms discussed above are the most used and practical algorithms that are being used in the academic and industry enviornment. These algorithm are being developed and expanded everyday and in a near future we will be using much more faster and efficient algorithms.
 
+
+
+The refrences that were used are as follow.
+
+-Artificial Intelligence, A modern approach, Russel & Norvig (Third Edition)
+-geeksforgeeks.com
 
 
 
