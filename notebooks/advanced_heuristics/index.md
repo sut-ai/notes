@@ -184,11 +184,20 @@ In previous section we introduced relaxing method which improves heuristic funct
 In this method we choose a subset of constraints by a specific pattern and ignore the other constraints. Since we ignored some constraints we did relaxing method and hence answer of the converted problem is a heuristic gfunction.
 
 for further information watch this video: [watch](https://www.youtube.com/watch?v=HZWV4uOJWk8)
+
+<p align="center">
+  <img src="pic/Pattern-Db.jpg" alt="distance" width="400" height="300"/>
+</p>
+
 <hr style="border:2px solid gray"> </hr>
 
 ### Combining Pattern DB
 
 We can go further and use couple of patterns and choose couple of constraints' subsets. Therefore we have couple of heuristic functions. This helps dominancy of our heuristic function. First thing to do finding the dominant heuristic function is to choose the maximum function of the obtained heuristic functions. Since every heuristic is always less than the real answer, maximum of these functions is a lower bound of the real answer and for every set of obtained heuristic functions we can implement this method to find a dominant heuristic function.
+
+<p align="center">
+  <img src="pic/Combining-Pattern-DB.jpg" alt="distance" width="400" height="300"/>
+</p>
 
 <hr style="border:2px solid gray"> </hr>
 
