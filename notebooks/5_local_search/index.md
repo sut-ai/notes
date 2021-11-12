@@ -25,8 +25,11 @@ Usually, local search is used for problems that have a state as its solution, an
 
 An example of the application of local search is solving the TSP problem. In each step, we may try to replace two edges with two other edges which may result in a shorter cycle in the graph.
 
-![Imgae of travelling salesman problem solved by local search](https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png?classes=center)
+<p align="center">
+  <img src=https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png>
+</p>
 
+Imgae of travelling salesman problem solved by local search
 ### 1.2. Advantages
 
 Local search has a memory complexity of O(1) which is very efficient. This is the case because only the current state of the program is saved in memory. The time complexity of local search is O(T) which T is the number of iterations. 
