@@ -25,7 +25,7 @@ Usually, local search is used for problems that have a state as its solution, an
 
 An example of the application of local search is solving the TSP problem. In each step, we may try to replace two edges with two other edges which may result in a shorter cycle in the graph.
 
-![Imgae of travelling salesman problem solved by local search](https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png){.center}
+![Imgae of travelling salesman problem solved by local search](https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png?classes=center)
 
 ### 1.2. Advantages
 
