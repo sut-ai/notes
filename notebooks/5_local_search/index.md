@@ -52,31 +52,32 @@ function Hill-Climbing(problem) returns a state
             return current
         current <- neighbor
 ```
-
-![hill-climbing](hill-climbing.png)
+<p align="center">
+  <img src=hill-climbing.png>
+</p>
 
 ###### Example 2.1.1 (8-queens Problem)
 This is one of the problmes which can be formulated as a *'local search'* problem. Our goal is to place 8 queen on a chess board in a way that no queen attacks the others. Each state is a placing of queens on board and the value of each state is 'the number of attacking queens'. This problem is a minimization version of local search and our goal is to find a state that has the least cost(value). The successor of each state comes from moving just one queen in her column.
 
 Using *'hill climbing'* to solve this problem leads to following results:
 
-- (Probability of sucesse for a random initial state) $p = 0.14$
+- (Probability of sucesse for a random initial state) p = 0.14
 - Average number of moves to terminate per trial:
-	- $4$ when succeeding
-	- $3$ when getting stuck
+	- 4 when succeeding
+	- 3 when getting stuck
 - Expected total number of moves for an instance:
-	- $3\frac{(1-p)}{p} + 4 \approx 22$ moves needs
+	- <img src='latex1.png' style="width:3cm" align="center"> moves needs
 
-![8queen](8-queene-problem.png)
+<p align="center"><img src=8-queene-problem.png></p>
 
 #### 2.1.1 Hill Climbing Pros and Cons
 This greedy algorithm is simple enough to implement, it just consists of a loop and a search to find best neighbor. Also it doesn't require any special data structure cause in each state we just need current state and its neighbores. But this simplisity comes with costs. Unfortunately *'hill climbing'* will not work well in the following situations:
 
-- **Local Maxima**: First of all, by using this algorithm we might stuck in local maxima! A local maxima is an state which has higher value than all of its neighbors. If algorithm starts from near this states, it will stuck in this points and will not find global maxima. so this version of 'hill climbing' is *incomplete*.(Figure-2)
-- **Ridges**: Ridges are situations that there exist some local maxima but they are not connected directly to each other and its hard for algorithm to choise where to go when reachs this points. (Figure-2)
+- **Local Maxima**: First of all, by using this algorithm we might stuck in local maxima! A local maxima is an state which has higher value than all of its neighbors. If algorithm starts from near this states, it will stuck in this points and will not find global maxima. so this version of 'hill climbing' is *incomplete*.(Below Figure)
+- **Ridges**: Ridges are situations that there exist some local maxima but they are not connected directly to each other and its hard for algorithm to choise where to go when reachs this points. (Below Figure)
 - **Plateaus**: This is a situation that there exist a flat area or flat maxima in space. In case of flat maxima again we stuck in local maxima, and in case of flat area (shoulders) algorithm will terminate cause current value is equal to or greather than all other its neighbors, but it hasn't find any maximal point.
- 
-![image](hc.png)
+
+<p align=center><img src=hc.png></p>
 
 To solve above problme of *'hill climbing'*, different versions of this algorithm have been developed. In the next section we are going to briefly talk about this versions.
 #### 2.1.2 Versions of Hill Climbing
@@ -86,42 +87,45 @@ This version has been invented to solve *'Plateaus'* problem. The only different
 ###### Example 2.1.2 (8-queens)
 If we run 'hill climbing with sideway moves' on 8-queens problem, the results get much better but it comes with a cost. The number of moves for algorithm increase.
 
-- (Probability of success) $p = 0.94$
+- (Probability of success) p = 0.94
 - Average number of moves to terminate per trial:
 	- 21 when succeeding
 	- 65 when getting stuck
 - Expected total number of moves for an instance:
-	- $65\frac{(1-p)}{p} + 21 \approx 25$ moves needs
+	- <img src='latex2.png' style="width:3cm" align=center> moves needs
 
 ##### 2.1.2.2 Stochastic hill climbing
-This version has been developed to solve *'incompletness*' of hill climbing, but does not completely solve this problem. It only helps to have chance to escape from local maximas. The different of this version and original *'hill climbing*', comes from 'choosing neighbors' step. This algorithm doesn't always choose the best neighbor, however with probability $p$ does so, and with probability $1-p$ choose a random neighbor. This stochastic neighbor selection helps algorithm to be able to escape from getting stuck in local maxials. But as said before, this approach doesn't completely solve *'incompleteness'* problem of *'hill climbing'*
+This version has been developed to solve *'incompletness*' of hill climbing, but does not completely solve this problem. It only helps to have chance to escape from local maximas. The different of this version and original *'hill climbing*', comes from 'choosing neighbors' step. This algorithm doesn't always choose the best neighbor, however with probability p does so, and with probability 1-p choose a random neighbor. This stochastic neighbor selection helps algorithm to be able to escape from getting stuck in local maximals. But as said before, this approach doesn't completely solve *'incompleteness'* problem of *'hill climbing'*
 
 ##### 2.1.2.3 Random-restart hill climbing
-This version has been developed to solve *'local maxima'* problem. In this version we don't change the core of 'hill climbing', but we just run the original algorithm many times till we find the optimal goal. This version of *'hill climbing'* is complete with probability approaching 1, cause it will eventually generate a goal state as the initial state. If each run of *'hill climbing'* success with probabilty $p$,  then the expected number of restarts we need will be $\frac{1}{p}$.
+This version has been developed to solve *'local maxima'* problem. In this version we don't change the core of 'hill climbing', but we just run the original algorithm many times till we find the optimal goal. This version of *'hill climbing'* is complete with probability approaching 1, cause it will eventually generate a goal state as the initial state. If each run of *'hill climbing'* success with probabilty p,  then the expected number of restarts we need will be 1/p.
 
 ###### Example 2.1.3 (8-queens)
 Running 8-queens problem with this algorithm results as follow:
-- Without sideway moves: ($p = 0.14$)
-	- Expected number of iterations: $\frac{1}{p} \approx 7$
-- With sideway moves: ($p = 0.94$)
-	- Expected number of iterations: $\frac{1}{0.94} \approx 1.04$
+- Without sideway moves: (p = 0.14)
+	- Expected number of iterations: <img src='latex3.png' style="height:0.75cm" align="center">
+- With sideway moves: (p = 0.94)
+	- Expected number of iterations: <img src='latex4.png' style="height:0.75cm" align="center">
 
 ### 2.2 Tabu Search <a name="tabuSearch"></a>
 This algorithm is similar to *'hill climbing'* but uses a trick to prevent from stucking in local maxima. This is actualy a meta-heuristic algorithm that means it helps to guide and control actual heuristic. But how this strategy helps us to find global optimal?
+
 First of all, it has a list called 'tabu list' which has some states. Like hill climbing, from each state we are going to find its neighbors and choose one of them. But here we are not allowed to choose those states that are in tabu list, they are taboo. Also we don't stop if the best neighbor is not as good as current state, if it was so, we update best solution and move to that state and if it wasn't, we just move to the new state. The termination creteria can be a limitation on number of iterations. Below you can find a flowchart of this algorithm steps. 
 
-![tabu search](tabu.png)
+<p align="center"><img src="tabu.png"></p>
 
 Here we suppose to have a strategy to determine which states should be added to tabu list and which should take out of this list.
 
 ### 2.3 Local Beam Search <a name="localBeamSearch"></a>
 Imagine you are living on Kepler-442b (which is an Earth-like exoplanet) and you've found a wide plain that consists of treasure. But you don't know where the treasure is, and you just know how probable is a cell of this field to have treasure beneath it. What strategy do you adopt to find the most probable cell to have treasure?
 
-![beam search](local-beam.jpg)
+<p align="center"><img src="local-beam.jpg"></p>
 
 Ofcourse using *'hill climbing'* will be one of the answers but it might find local maxiam while you want to find global maxima. What about calling your friends and searching the field together? (and may or may not divide treasure with them)
-This will be a good strategy to search the field together (you and $k-1$ of your friends), in a way that each of you broadcasts the list of neighbors of his current cell to others, and you all have a shared list which consists of all neighbors all of you currently see. Then choose the best $k$ neighbors and each of you visit one of these neighbors and again broadcast new neighbors and $\cdots$ . Continue this approach till the best of $k$ neighbors you choose is less than or equal probable to the best of your current cells.
-The strategy you adopt to find treasure is called *'Beam Search'*. The different of this algorithm and $k$ run of parallel *'hill climbing'* is clear. In this algorithm you might continue searching by one of your friends neighbor cell but, in parallel *'hill climbing'* you just follow your path and starts from different part of the field.
+
+This will be a good strategy to search the field together (you and k-1 of your friends), in a way that each of you broadcasts the list of neighbors of his current cell to others, and you all have a shared list which consists of all neighbors all of you currently see. Then choose the best k neighbors and each of you visit one of these neighbors and again broadcast new neighbors and ... . Continue this approach till the best of k neighbors you choose is less than or equal probable to the best of your current cells.
+
+The strategy you adopt to find treasure is called *'Beam Search'*. The different of this algorithm and k run of parallel *'hill climbing'* is clear. In this algorithm you might continue searching by one of your friends neighbor cell but, in parallel *'hill climbing'* you just follow your path and starts from different part of the field.
 
 ```
 function Local-Beam-Search(problem) return state
