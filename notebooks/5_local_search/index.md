@@ -19,11 +19,11 @@
 
 ### 1.1. What is Local Search?
 
-Local Search is a heuristic method for solving computationally hard contraint satisfaction or optimization problems. The family of local search methods are typically used is search problems where the search space is either very huge or infinite. In such Problems classical search algorithms do not work efficiently. 
+Local Search is a heuristic method for solving computationally hard constraint satisfaction or optimization problems. The family of local search methods is typically used in search problems where the search space is either very huge or infinite. In such Problems, classical search algorithms do not work efficiently. 
 
-Usually local search is used for problems which have a state as its solution, and for many problems the path to the final solution is irrelevent. The procedure of this method is quite simple, at first the algorithm starts from a solution which may not be optimal, or may not satisfy all the constraints, and by every step or iteration, the algorithm tries to find a slightly better solution. This gradual improvement of the solution is done by examining different neighbors of the current state, and chosing the best neighbor as the next state of the search. 
+Usually, local search is used for problems that have a state as its solution, and for many problems the path to the final solution is irrelevant. The procedure of this method is quite simple, at first the algorithm starts from a solution that may not be optimal, or may not satisfy all the constraints, and by every step or iteration, the algorithm tries to find a slightly better solution. This gradual improvement of the solution is done by examining different neighbors of the current state and choosing the best neighbor as the next state of the search. 
 
-An example of the applications of local search is solving the TSP problem. In each step we may try to replace two edges by two other edges which may result in a shorter cycle in the graph.
+An example of the application of local search is solving the TSP problem. In each step, we may try to replace two edges with two other edges which may result in a shorter cycle in the graph.
 
 ![Imgae of TSP problem solved by local search](https://www.researchgate.net/publication/281412705/figure/fig3/AS:668978481475599@1536508307852/Local-search-2-opt-and-Or-opt.png )
 
@@ -450,9 +450,9 @@ We continue the second step until we reach a good enough penalty and the return 
 - [Scheduling problems](https://www.quinyx.com/blog/scheduling-problems) ([Relation to LNS](http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1530574&dswid=9745))
 
 ## 3. Summary
-As mentioned before, local search methods can be used widely in search problems with very big search spaces. In such spaces classic search algoritms cannot work efficiently due to their exponential usage of either memory or time. In contrast, local search methods have a very low memory usage of O(1) which is becuase of the unrelevence of the path to the current solution, and also the time complexity of these methods are O(T) which T is the number of iterations. 
+As mentioned before, local search methods can be used widely in search problems with very big search spaces. In such spaces, classic search algorithms cannot work efficiently due to their exponential usage of either memory or time. In contrast, local search methods have a very low memory usage of O(1) which is because of the irrelevance of the path to the current solution, and also the time complexity of these methods is O(T) which T is the number of iterations. 
 
-Many local search algorithms have been introduced above, and many have been proved to be very efficient for optimization problems, Hill climing for instance was a method to solve such problems. An important challenge for these optimization algorithms was the possibilty of getting stuck in a local optimum, other methods like Simulated Annealing was proposed to face this chalenge and have been shown to be effective.
+Many local search algorithms have been introduced above, and many have been proved to be very efficient for optimization problems, Hill climbing for instance was a method to solve such problems. An important challenge for these optimization algorithms was the possibility of getting stuck in a local optimum, other methods like Simulated Annealing was proposed to face this challenge and have been shown to be effective.
 
 ## 4. References
 
