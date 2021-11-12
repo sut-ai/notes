@@ -9,38 +9,22 @@ Search in Continuous Space
   * [Constrained optimization and Unconstrained optimization](#constrained-optimization-and-unconstrained-optimization)
   * [Differentiable optimization and Non-differentiable optimization](#differentiable-optimization-and-non-differentiable-optimization)
     + [Cost functions](#cost-functions)
-
-[Convexity	](#_Toc87638552)
-
-[Convex versus non-Convex Optimization Problems	](#_Toc87638553)
-
-[Local and global optimization:	](#_Toc87638554)
-
-[Local optimization	 ](#_Toc87638555)
-
-[Global optimization	](#_Toc87638556)
-
-[Locally optimal for a convex optimization problem	 ](#_Toc87638557)
-
-[Hessian being positive semi-definite iff convexity (Theorem one: One dimensional)	 ](#_Toc87638558)
-
-[Hessian being positive semi-definite iff convexity (Theorem two: Multi-dimensional)	](#_Toc87638559)
-
-[Examples of Convex Functions:	](#_Toc87638560)
-
-[Gradient	 ](#_Toc87638561)
-
-[Gradient Descent	](#_Toc87638562)
-
-[Challenges with gradient descent](#_Toc87638563)
-
-[Local minima and saddle points	 ](#_Toc87638564)
-
-[Vanishing and Exploding Gradients	 ](#_Toc87638565)
-
-[Conclusion	](#_Toc87638566)
-
-[References	](#_Toc87638567)
+- [Convexity](#convexity)
+  * [Convex versus non-Convex Optimization Problems](#convex-versus-non-convex-optimization-problems)
+  * [Local and global optimization](#local-and-global-optimization)
+    + [Local optimization](#local-optimization)
+    + [Global optimization](#global-optimization)
+  * [Locally optimal for a convex optimization problem](#locally-optimal-for-a-convex-optimization-problem)
+  * [Hessian being positive semi-definite iff convexity (Theorem one: One dimensional)](#hessian-being-positive-semi-definite-iff-convexity--theorem-one--one-dimensional-)
+  * [Hessian being positive semi-definite iff convexity (Theorem two: Multi-dimensional)](#hessian-being-positive-semi-definite-iff-convexity--theorem-two--multi-dimensional-)
+  * [Examples of Convex Functions](#examples-of-convex-functions)
+- [Gradient](#gradient)
+  * [Gradient Descent](#gradient-descent)
+  * [Challenges with gradient descent](#challenges-with-gradient-descent)
+    + [Local minima and saddle points](#local-minima-and-saddle-points)
+    + [Vanishing and Exploding Gradients](#vanishing-and-exploding-gradients)
+- [Conclusion](#conclusion)
+- [References](#references)
 
 
 #
