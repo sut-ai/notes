@@ -163,6 +163,7 @@ Consider h as the answer and h' as our heuristic
  
 h' = min(S'), h = min(S) &and; S &SubsetEqual; S' &and; &forall; s, s': if s &SubsetEqual; s' &#8658; min(s') &le; min(s) &#8658; h' &le; h
 
+As you may have understood, S is a subset of S'. Therefore S' is a bigger Space than S that contains all elements of S. So, if you wanna calculate the minimum element of S', besides checking S elements, you should check more elements that aren't in S. So it's probable that you visit an element in S' which is less than the minimum of S. Therefore we can say min(S') is less than or equal to min(S).
  
  ***Example***
 
@@ -172,7 +173,7 @@ h' = min(S'), h = min(S) &and; S &SubsetEqual; S' &and; &forall; s, s': if s &Su
 <img src="pic/hamilton path.png" alt="hamilton path" width="500" height="300"/>
 </p>
 
-Hamiltonian path is a tree which every its inner node have exactly one leaf. Hence, the problem is converting above graph to a 1-array tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-array tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in n<sup>2</sup> time complexity.
+Hamiltonian path is a tree which every its inner has have exactly one son. Hence, the problem is converting the above graph to a 1-ary tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-ary tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in n<sup>2</sup> time complexity.
 
 <hr style="border:2px solid gray"> </hr>
 
@@ -187,7 +188,7 @@ for further information watch this video: [watch](https://www.youtube.com/watch?
 
 ### Combining Pattern DB
 
-We can act further and use couple of patterns and choose couple of constraints' subsets. Therefore we have couple of heuristic functions. This helps dominancy of our heuristic function. First thing to do finding the dominant heuristic function is to choose the maximum function of the obtained heuristic functions. Since every heuristic is always less than the real answer, maximum of these functions is a lower bound of the real answer and for every set of obtained heuristic functions we can implement this method to find a dominant heuristic function.
+We can go further and use couple of patterns and choose couple of constraints' subsets. Therefore we have couple of heuristic functions. This helps dominancy of our heuristic function. First thing to do finding the dominant heuristic function is to choose the maximum function of the obtained heuristic functions. Since every heuristic is always less than the real answer, maximum of these functions is a lower bound of the real answer and for every set of obtained heuristic functions we can implement this method to find a dominant heuristic function.
 
 <hr style="border:2px solid gray"> </hr>
 
@@ -203,12 +204,12 @@ One solution for solving this drawback is Disjoint Pattern DB. In this method we
 <img src="pic/pattern.png" alt="pattern" width="500" height="300"/>
 </p>
 
-As you can see in this problem we have an undirected graph, which each of its nodes is a florist shop and has some flower breeds. Two brothers should march from start_node towards goal_node in a way that has the least cost and they met every existing flower breeds. In this case we choose a subset of flower breeds S that reach goal_node by a specific pattern and set goal_state as satisfying path with the least cost and meeting every existing flower breeds of set S. Hitherto we used pure Pattern DB.
+As you can see in this problem we have an undirected graph, which each of its nodes is a florist shop and has some flower breeds. Two brothers should march from their home towards their mother's place in a way that has the least cost and they met every existing flower breeds. In this case we choose a subset of flower breeds S that reach the goal_node(mother's place) by a specific pattern and set goal_state as satisfying path with the least cost and meeting every existing flower breeds of set S. Hitherto we used pure Pattern DB.
 
 Now we can have couple of flower breeds subset and combine obtained answers by them. For example if we have K flower breeds, we can solve the problem for each flower breed and calculate its heuristic function and then choose maximum of the functions. So we used Combining Pattern DB to achieve a better heuristic function.
 
 ## Conclusion
-So far we've introduced some efficient ways to make our heuristic closer to the real answer. some of them were to make our heuristic monotonic and Dominant, or to make a dominant heuristic based on some heuristics we had. some advanced ways were even for more basic problem, namely how to create a heuristic function for a problem. these included Relaxing problems and Patternal DBs. We Entered deeply into the Patternal DBs And introduced ways to improve them a lot. despite all these ways, there are so many problems that aren't solvable by even these ways, and there are so many ways ahead of us that you have to learn & use further. thanks for reading all of these concepts and we wish you have a great future. a bid farewell.
+At first we were facing with problems and previous Uninformed methods, which solved those problems with exponential time and space complexity. Therefore we introduced some new methods, namely Informed Methods, which used a heuristic function to solve those problems more efficient. Later we introduced some efficient ways to make our heuristic closer to the real answer. some of them were to make our heuristic monotonic and Dominant, or to make a dominant heuristic based on some heuristics we had. Some advanced ways were even for more basic problem, namely how to create a heuristic function for a problem. these included Relaxing problems and Patternal DBs. We then Entered into the Patternal DBs And introduced ways to improve them a lot. despite all these ways, there are so many problems that aren't solvable by even these ways, and there are so many ways ahead of us that you have to learn & use further. thanks for reading all of these concepts and we wish you have a great future. a bid farewell.
 
 ## References
 https://machinelearningmastery.com/distance-measures-for-machine-learning/
