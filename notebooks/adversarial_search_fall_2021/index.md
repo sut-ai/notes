@@ -12,14 +12,15 @@
   ### [The concept of adversarial search and an introduction to Game Theory](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#the-concept-of-adversarial-search-and-an-introduction-to-game-theory-1)
     </font>
     
-  - <font size = 3 color=green>
-    <b>Game Theory Explanation and Deterministic Games</b>
+  ### <font size = 3 color=green>
+  ### [Game Theory Explanation and Deterministic Games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games)
     </font>
 
-  - <font size = 3 color=green>
-    <b>Different catergories of games</b>
+  ### <font size = 3 color=green>
+  ### [Different catergories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games)
     </font>
-  
+    
+    
 + ### <font size = 4.5 color=Orange>
   ### Different Types of Trees for games
   </font>
