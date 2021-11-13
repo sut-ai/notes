@@ -351,14 +351,16 @@ This algorithm is called _iterative-deepening search_.
 <br>
 
 <font size = 3 color=#FF7500>
-<b>Houston, We have a problem!</b>
+
+### <b>Houston, We have a problem!</b>
 </font>
 <br>
 
 So far, we have seen some imporvements upon our original Adversarial Search algorithm. But the problem with minimax search is that the number of game states it has to examine is **exponential** in the depth of the tree. The logical way to tackle this problem is to cut off some nodes and not to see them at all. This brings us to the idea of "Pruning" which we use a lot when we can in AI algorithms. In the following chapter, we see two ways to prune our tree so we can solve our problem in less time.
 
 <font size = 3 color=#FF7500>
-<b>Minimax Pruning</b>
+
+### <b>Minimax Pruning</b>
 </font>
 <br>
 
@@ -398,7 +400,8 @@ Now, let's ask ourselves: _Is it necessary that we explore the rightmost node?_.
 This idea helps us finding a general and systematic algorithm to predict the _bad branches_ and stop exploring them, which is called $\alpha-\beta $ _pruning_.
 
 <font size = 3 color=#FF7500>
-<b>Alpha-Beta Pruning</b>
+
+### <b>Alpha-Beta Pruning</b>
 </font>
 <br>
 
