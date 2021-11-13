@@ -95,11 +95,12 @@
   </font>
   
 + ### <font size = 4.5 color=Orange>
-  ### Other Types of Games
+  ### [Other types of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#other-types-of-games-1)
   </font>
   
-  - <font size = 3 color=green>
-    <b>Multi-Agent Utilities</b>
+
+  ### <font size = 3 color=green>
+  ### [Multi-Agent Utilities](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#multi-agent-utilities-1)
     </font>
 
 + ### <font size = 4.5 color=Orange>
