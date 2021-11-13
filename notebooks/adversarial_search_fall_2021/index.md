@@ -106,8 +106,13 @@
 + ### <font size = 4.5 color=Orange>
   ### [Conclusion](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#conclusion-1)
   </font>
+  
 + ### <font size = 4.5 color=Orange>
-  ### [Reference](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#reference-1)
+  ### [Useful Linkes](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#useful-links)
+  </font>
+  
++ ### <font size = 4.5 color=Orange>
+  ### [Reference](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#references)
   </font>
 
 ## <font size = 5 color=red>
