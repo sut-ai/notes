@@ -44,11 +44,11 @@
   
 
   ### <font size = 3 color=green>
-  ### [Pseudocode of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pseudocode-of-minimax-strategy)
+  ### [Pseudocode of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pseudocode-of-minimax-strategy-1)
     </font>
 
   ### <font size = 3 color=green>
-  ### [Properties of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#properties-of-minimax-strategy)
+  ### [Properties of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#properties-of-minimax-strategy-1)
     </font>
     
     
