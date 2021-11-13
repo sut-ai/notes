@@ -27,14 +27,17 @@
   ### [Different Types of trees for games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#differnt-types-of-trees-for-games)
   </font>
   
-  - <font size = 3 color=green>
-    <b>Single-Agent Trees</b>
+
+  ### <font size = 3 color=green>
+  ### [Single-Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees)
     </font>
 
-  - <font size = 3 color=green>
-    <b>Adverserial Agent Trees</b>
+  ### <font size = 3 color=green>
+  ### [Adversarial Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees)
     </font>
-
+    
+    
+   
 + ### <font size = 4.5 color=Orange>
   ### Minimax Strategy
   </font>
