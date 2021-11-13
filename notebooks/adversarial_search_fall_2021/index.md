@@ -29,7 +29,7 @@
   
 
   ### <font size = 3 color=green>
-  ### [Single-Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees)
+  ### [Single-Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees-1)
     </font>
 
   ### <font size = 3 color=green>
@@ -59,7 +59,7 @@
   
 
   ### <font size = 3 color=green>
-  ### [Depth-limited Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#depth-limited-search)
+  ### [Depth-limited Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#depth-limited-search-1)
     </font>
 
   ### <font size = 3 color=green>
