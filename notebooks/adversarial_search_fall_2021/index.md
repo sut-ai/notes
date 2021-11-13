@@ -33,7 +33,7 @@
     </font>
 
   ### <font size = 3 color=green>
-  ### [Adversarial Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees)
+  ### [Adversarial Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#adversarial-agent-trees-1)
     </font>
     
     
