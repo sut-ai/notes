@@ -298,7 +298,8 @@ Although the minimax algorithm would be proper for problems with relatively smal
 Consider a _reasonable_ chess game with $b \approx 35$ and $m \approx 100$ . Due to the time complexity of this algorithm which is $O(b^m)$, solving the game is not possible at all. We'll discuss some ideas to solve the problem in details below.
 
 <font size = 3 color=#FF7500>
-<b>Depth-limited search</b>
+  
+### <b>Depth-limited search</b>
 </font>
 <br>
 One idea might be running the algorithm up to a specified depth instead of searching the whole tree, which we call <b>depth-limited search</b> .
@@ -311,7 +312,8 @@ Recall how we find the minimax value of each node in the original form. We conti
 Now to deal with this issue, we'll introduce _*Evaluation function*_.
 
 <font size = 3 color=#FF7500>
-<b>Evaluation Functions</b>
+  
+### <b>Evaluation Functions</b>
 </font>
 <br>
 The goal of an evaluation function is to answer to the question: <b>How good is the current position?</b> Or <b>How probable is it to reach to winning terminal state from this position?</b>
@@ -330,7 +332,8 @@ Ideally, evaluation function returns exactly the minimax value of the current st
 
 
 <font size = 3 color=#FF7500>
-<b>Iterative Deepening Search</b>
+  
+### <b>Iterative Deepening Search</b>
 </font>
 <br>
 The accuracy of the evaluation function is critical in shallower states. And the deeper in the tree we search, the less the quality of the evaluation function matters.
