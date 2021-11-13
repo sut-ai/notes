@@ -187,6 +187,7 @@ Before we discuss types of games, we need to define a concept named **Utility Fu
 <br>
 
 <font size = 3 color=#FF7500>
+  
 ### <b>Single Agent Trees</b>
 </font>
 <br>
