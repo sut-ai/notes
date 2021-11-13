@@ -187,14 +187,14 @@ Before we discuss types of games, we need to define a concept named **Utility Fu
 <br>
 
 <font size = 3 color=#FF7500>
-<b>Single Agent Trees</b>
+### <b>Single Agent Trees</b>
 </font>
 <br>
 
 Consider the game Pacman which has only an agent playing the game. Starting from an initial state, our agent can either move to left or right. based on this, and its following moves, we can form a tree called **Single Agent Tree**. Each node of this tree indicates an state of the game and the utility function has an specific value in every one of them. We call the leaves of the tree **The Terminal Nodes**. In these terminal nodes, the game is finshed and the utility values are defined. The main question is how can we obtain the utility value of a node? According on what's been said, we have the utility values of the leaves. Recursively, to get the utility value of a node N, we calculate the utility value of every successor of N and we choose the maximum of those numbers as the utility value of the node N.
 <br>
 <font size = 3 color=#FF7500>
-<b>Adversarial Agent Trees</b>
+### <b>Adversarial Agent Trees</b>
 </font>
 <br>
 Like the previous Example, we explain this concept with the game Pacman but this time, the game has another agent called the adversarial agent or specific to this game, **The Ghost**.
