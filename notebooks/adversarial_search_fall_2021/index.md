@@ -17,7 +17,7 @@
     </font>
 
   ### <font size = 3 color=green>
-  ### [Different catergories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games)
+  ### [Different catergories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#different-catergories-of-games-1)
     </font>
     
     
