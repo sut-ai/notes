@@ -5,7 +5,7 @@
 
 
 + ### <font size = 4.5 color=Orange>
-  ### Introduction
+  ### [Introduction](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#introduction-1)
   </font>
   
   - <font size = 3 color=green>
