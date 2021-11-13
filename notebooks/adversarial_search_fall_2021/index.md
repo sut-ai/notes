@@ -54,20 +54,22 @@
     
 
 + ### <font size = 4.5 color=Orange>
-  ### Resource Limit
+  ### [Resource limit](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#resource-limits)
   </font>
   
-  - <font size = 3 color=green>
-    <b>Depth-limited Search</b>
+
+  ### <font size = 3 color=green>
+  ### [Depth-limited Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#depth-limited-search)
     </font>
 
-  - <font size = 3 color=green>
-    <b>Evaluation Functions</b>
+  ### <font size = 3 color=green>
+  ### [Evaluation Function](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#evaluation-functions)
     </font>
-
-  - <font size = 3 color=green>
-    <b>Iterative Deepening Search</b>
+    
+  ### <font size = 3 color=green>
+  ### [Iterative Deepening Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#iterative-deepening-search)
     </font>
+    
   
 + ### <font size = 4.5 color=Orange>
   ### Pruning
