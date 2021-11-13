@@ -548,7 +548,8 @@ As the deepness increases, the probability to reach a goal state gets smaller an
 Td-Gammon is a computer backgammon program developed in 1992. It uses a 2-depth search, a very good evaluation function plus reinforcement learning and what we get, is a champion-class player! TD-Gammon was the first AI world champion in any game!
 
 <font size = 3 color=#FF7500>
-<b>Multi-Agent Utilities</b>
+
+### <b>Multi-Agent Utilities</b>
 </font>
 <br>
 In games with multiple players, terminal states have utility in form of tuple values and each player tries to maximize its own part. This idea can raise the cooperation and competetion strategies dynamically.
