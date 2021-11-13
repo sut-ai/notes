@@ -9,15 +9,15 @@
   </font>
   
   ### <font size = 3 color=green>
-  ### [The concept of adversarial search and an introduction to Game Theory](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#the-concept-of-adversarial-search-and-an-introduction-to-game-theory-1)
+  - ### [The concept of adversarial search and an introduction to Game Theory](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#the-concept-of-adversarial-search-and-an-introduction-to-game-theory-1)
     </font>
     
   ### <font size = 3 color=green>
-  ### [Game Theory Explanation and Deterministic Games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games-1)
+  - ### [Game Theory Explanation and Deterministic Games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games-1)
     </font>
 
   ### <font size = 3 color=green>
-  ### [Different catergories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#different-catergories-of-games-1)
+  - ### [Different catergories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#different-catergories-of-games-1)
     </font>
     
     
@@ -29,11 +29,11 @@
   
 
   ### <font size = 3 color=green>
-  ### [Single-Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees-1)
+  - ### [Single-Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees-1)
     </font>
 
   ### <font size = 3 color=green>
-  ### [Adversarial Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#adversarial-agent-trees-1)
+  - ### [Adversarial Agent Trees](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#adversarial-agent-trees-1)
     </font>
     
     
@@ -44,11 +44,11 @@
   
 
   ### <font size = 3 color=green>
-  ### [Pseudocode of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pseudocode-of-minimax-strategy-1)
+  - ### [Pseudocode of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pseudocode-of-minimax-strategy-1)
     </font>
 
   ### <font size = 3 color=green>
-  ### [Properties of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#properties-of-minimax-strategy-1)
+  - ### [Properties of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#properties-of-minimax-strategy-1)
     </font>
     
     
@@ -59,15 +59,15 @@
   
 
   ### <font size = 3 color=green>
-  ### [Depth-limited Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#depth-limited-search-1)
+  - ### [Depth-limited Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#depth-limited-search-1)
     </font>
 
   ### <font size = 3 color=green>
-  ### [Evaluation Function](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#evaluation-functions)
+  - ### [Evaluation Function](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#evaluation-functions)
     </font>
     
   ### <font size = 3 color=green>
-  ### [Iterative Deepening Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#iterative-deepening-search-1)
+  - ### [Iterative Deepening Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#iterative-deepening-search-1)
     </font>
     
   
@@ -79,15 +79,15 @@
   
 
   ### <font size = 3 color=green>
-  ### [Houston, We Have A Problem!](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#houston-we-have-a-problem-1)
+  - ### [Houston, We Have A Problem!](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#houston-we-have-a-problem-1)
     </font>
 
   ### <font size = 3 color=green>
-  ### [Minimax Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#minimax-pruning-1)
+  - ### [Minimax Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#minimax-pruning-1)
     </font>
     
   ### <font size = 3 color=green>
-  ### [Alpha-Beta Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#alpha-beta-pruning-1)
+  - ### [Alpha-Beta Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#alpha-beta-pruning-1)
     </font>
   
 + ### <font size = 4.5 color=Orange>
@@ -100,7 +100,7 @@
   
 
   ### <font size = 3 color=green>
-  ### [Multi-Agent Utilities](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#multi-agent-utilities-1)
+  - ### [Multi-Agent Utilities](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#multi-agent-utilities-1)
     </font>
 
 + ### <font size = 4.5 color=Orange>
