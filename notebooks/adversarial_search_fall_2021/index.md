@@ -104,10 +104,10 @@
     </font>
 
 + ### <font size = 4.5 color=Orange>
-  ### Conclusion
+  ### [Conclusion](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#conclusion-1)
   </font>
 + ### <font size = 4.5 color=Orange>
-  ### Reference
+  ### [Reference](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#reference-1)
   </font>
 
 ## <font size = 5 color=red>
