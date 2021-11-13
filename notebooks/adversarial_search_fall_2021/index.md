@@ -13,7 +13,7 @@
     </font>
     
   ### <font size = 3 color=green>
-  ### [Game Theory Explanation and Deterministic Games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games)
+  ### [Game Theory Explanation and Deterministic Games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games-1)
     </font>
 
   ### <font size = 3 color=green>
@@ -67,7 +67,7 @@
     </font>
     
   ### <font size = 3 color=green>
-  ### [Iterative Deepening Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#iterative-deepening-search)
+  ### [Iterative Deepening Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#iterative-deepening-search-1)
     </font>
     
   
