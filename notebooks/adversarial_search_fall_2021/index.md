@@ -71,20 +71,23 @@
     </font>
     
   
-+ ### <font size = 4.5 color=Orange>
-  ### Pruning
-  </font>
-
-  - <font size = 3 color=green>
-    <b>Houston, We Have A Problem!</b>
-    </font>
   
-  - <font size = 3 color=green>
-    <b>Minimax Pruning</b>
+  
++ ### <font size = 4.5 color=Orange>
+  ### [Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pruning-1)
+  </font>
+  
+
+  ### <font size = 3 color=green>
+  ### [Houston, We Have A Problem!](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#houston-we-have-a-problem)
     </font>
 
-  - <font size = 3 color=green>
-    <b>Alpha-Beta Pruning</b>
+  ### <font size = 3 color=green>
+  ### [Minimax Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#minimax-pruning)
+    </font>
+    
+  ### <font size = 3 color=green>
+  ### [Alpha-Beta Pruning](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#alpha-beta-pruning)
     </font>
   
 + ### <font size = 4.5 color=Orange>
