@@ -39,16 +39,19 @@
     
    
 + ### <font size = 4.5 color=Orange>
-  ### Minimax Strategy
+  ### [Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#minimax-strategy-1)
   </font>
   
-  - <font size = 3 color=green>
-    <b>Pseudocode of Minimax Strategy</b>
+
+  ### <font size = 3 color=green>
+  ### [Pseudocode of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pseudocode-of-minimax-strategy)
     </font>
 
-  - <font size = 3 color=green>
-    <b>Properties of Minimax Strategy</b>
+  ### <font size = 3 color=green>
+  ### [Properties of Minimax Strategy](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#properties-of-minimax-strategy)
     </font>
+    
+    
 
 + ### <font size = 4.5 color=Orange>
   ### Resource Limit
