@@ -8,7 +8,7 @@
   ### [Introduction](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#introduction-1)
   </font>
   
-  - <font size = 3 color=green>
+  - ### <font size = 3 color=green>
   ### [The concept of adversarial search and an introduction to Game Theory](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#the-concept-of-adversarial-search-and-an-introduction-to-game-theory-1)
     </font>
 
