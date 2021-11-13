@@ -223,7 +223,8 @@ As a conclusion of what's said before, we can say that the utility value that we
 
 
 <font size = 3 color=#FF7500>
-<b>Pseudocode of Minimax Strategy</b>
+
+### <b>Pseudocode of Minimax Strategy</b>
 </font>
 <br>
 
@@ -245,7 +246,8 @@ def min_value(state):
 ```
 
 <font size = 3 color=#FF7500>
-<b>Properties of Minimax Strategy</b>
+  
+### <b>Properties of Minimax Strategy</b>
 </font>
 <br>
 <br>
