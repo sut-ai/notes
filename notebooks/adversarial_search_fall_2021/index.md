@@ -91,12 +91,8 @@
     </font>
   
 + ### <font size = 4.5 color=Orange>
-  ### Expectimax Search
+  ### [Expectimax Search](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#expectimax-search-1)
   </font>
-  
-  - <font size = 3 color=green>
-    <b>Node Values in Expectimax Search</b>
-    </font>
   
 + ### <font size = 4.5 color=Orange>
   ### Other Types of Games
