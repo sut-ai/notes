@@ -21,8 +21,10 @@
     </font>
     
     
+    
+    
 + ### <font size = 4.5 color=Orange>
-  ### Different Types of Trees for games
+  ### [Different Types of trees for games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#differnt-types-of-trees-for-games)
   </font>
   
   - <font size = 3 color=green>
