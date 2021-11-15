@@ -31,7 +31,7 @@ We will focus on classification trees in this lecture.
 
 __Example:__
 
-![decision tree figure](./resources/decision_tree_diagram.png)
+![decision tree figure](./pictures/decision_tree_diagram.png)
 
 The above figure is an example of a decision tree. on every node, we move to the right edge in case of a true condition. suppose we want to perform a cardial checkup for some patients with the data presented to us in the table below:
 
@@ -172,18 +172,18 @@ This case argues that since zero information gain from attributes indicates thei
 
 $y$'s value can be indicated as `a XOR b`. If we calculate the information gain of the two attributes, we see that the value is zero for both of them. If we consider the third case in our algorithm, It would stop right at the first level without a decent output, while we could achieve the tree below:
 
-![xor example](./resources/xor_decision_tree.png)
+![xor example](./pictures/xor_decision_tree.png)
 
 ## Overfitting
 
 Overfitting is a phenomenon in which our learning system, the decision tree in this case, strongly fits our training sample. This might sound like a good think at first, but the stronger the system fits the training set, the less it is generalizable and in conclusion, it will not have a desirable result on other sets.
 The below picture is an example of overfitting. The black line shows a suitable classification with a small amount of error, and the green line is the production of overfitting, with zero amount of error.
 
-![overfitting](./resources/overfitting_example.png)
+![overfitting](./pictures/overfitting_example.png)
 
 Greedy algorithm doesn't necessarily output the simples tree. and a complex decision tree with too many nodes is likely to face overfitting.
 
-![decision tree accuracy](./resources/decision_tree_accuracy.png)
+![decision tree accuracy](./pictures/decision_tree_accuracy.png)
 
 ### Inductive Bias And Variance Balance
 
@@ -191,11 +191,11 @@ Inductive bias (or learning bias) is the set of all the assumptions a learning a
 
 Take the example below suppose that you're given this training dataset of some classified animals.
 
-![traning set](./resources/bias_training_set.png)
+![traning set](./pictures/bias_training_set.png)
 
 Now, how would you classify the animals given in the test data below?
 
-![test dataset](./resources/bias_test_data.png)
+![test dataset](./pictures/bias_test_data.png)
 
 You might make your decision on the question that "do they fly or not?" or "are they feathered or not?".
 
