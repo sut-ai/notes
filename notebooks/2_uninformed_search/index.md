@@ -21,7 +21,7 @@ Every problem around us should be modeled and formulated in the first step if we
 
 [Conclusion](#Conclusion)
 
-[Refrences](#Refrences)
+[References](#References)
 
 
 ## Introduction
@@ -262,7 +262,7 @@ The algorithms discussed above are the most used and practical algorithms that a
 ![](https://github.com/mohsenosl99/notes/blob/master/notebooks/2_uninformed_search/images/Conclusion.jpg)
 
 
-## Refrences
+## References
 
 -Artificial Intelligence, A modern approach, Russel & Norvig (Third Edition)
 
