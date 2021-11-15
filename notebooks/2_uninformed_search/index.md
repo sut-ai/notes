@@ -21,6 +21,9 @@ Every problem around us should be modeled and formulated in the first step if we
 
 [Conclusion](#Conclusion)
 
+[Refrences](#Refrences)
+
+
 ## Introduction
 As the name suggests, Uninformed search and algorithms try to reach the goal state blindly which means they don't have and save extra and additional information about search space. They operate in a brute force way and use no domain knowlege for operating and they just search and move forward, whether it is a right way and route or not until they reach the goal state.
 
@@ -259,7 +262,7 @@ The algorithms discussed above are the most used and practical algorithms that a
 ![](https://github.com/mohsenosl99/notes/blob/master/notebooks/2_uninformed_search/images/Conclusion.jpg)
 
 
-The refrences that were used are as follow.
+## Refrences
 
 -Artificial Intelligence, A modern approach, Russel & Norvig (Third Edition)
 
