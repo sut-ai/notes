@@ -208,7 +208,7 @@ We can go further and use couple of patterns and choose couple of constraints' s
 
 One of the main flaws of choosing maximum of the obtained heuristic functions is that in many cases, there is an upper bound for these functions. Therefore even by expanding subset of chosen constraints, we will not cross the upper bound.
 
-One solution for solving this drawback is Disjoint Pattern DB. In this method we apport set of constraints and define independent actions for the general problem. Now we can sum the obtained heuristic function to achieve a greater heuristic function, which improves the time complexity. It is proven that the sum of obtained heuristic functions is still a lower bound of real answer of the probelm.
+One solution for solving this drawback is Disjoint Pattern DB. In this method we split set of constraints into some disjoint subsets of constraints, and define independent actions for the general problem. Now we can sum the obtained heuristic function to achieve a greater heuristic function, which improves the time complexity. It is proven that the sum of obtained heuristic functions is still a lower bound of real answer of the problem.
 
 **Example**
 
