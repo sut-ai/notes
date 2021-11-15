@@ -12,9 +12,11 @@
   - [ID3 Algorithm](#id3-algorithm)
 - Hypothesis Space
 - [Overfitting](#overfitting)
-  - [Inductive Bias And Variance Balance](#inductive-bias-and-variance-balance)
-  - [Occam's Razor](#occam&apos;s-razor)
-- Pruning
+  - [Inductive Bias & Variance Balance](#inductive-bias-variance-balance)
+  - [Occam's Razor](#occams-razor)
+  - [Pruning](#pruning)
+    - [Error reduced pruning](#error-reduced-pruning)
+    - [Chi-squared Testing](chi-squared-testing)
 - C4.5 Algorithm
 - Reference
 
@@ -118,7 +120,7 @@ which means that there's no reduction in label $Y$ entropy by choosing the attri
 
 When mutual learning is applied to a decision tree, it is also called __*information gain*__, since the amount of reduction in the label's entropy shows how much new information has been gained by the attribute. e.g., we previously saw that an attribute indepentant from the label won't reduce the entropy, meaning it doesn't give the label any new information.
 
-__Example:__ Consider the problem of cardial disease patients. 
+__Example:__ Consider the problem of cardial disease patients.
 
 ## Learning Decision Tree
 
@@ -155,7 +157,7 @@ function ID3(samples, attribute_set, parent_samples) returns a tree
 The recursion is broken in two cases:
 
 1. All samples in the subset have the same label value.
-2. All samples in the subset have the same set of attribtues. In this case, all attributes can only create a single child and the label is assigned even if the sample subset contains multiple label values. Such case might happen due to noise or error. 
+2. All samples in the subset have the same set of attribtues. In this case, all attributes can only create a single child and the label is assigned even if the sample subset contains multiple label values. Such case might happen due to noise or error.
 
 there's also another case that's sometimes proposed for terminating the algorithm:
 
@@ -163,7 +165,7 @@ there's also another case that's sometimes proposed for terminating the algorith
 
 This case argues that since zero information gain from attributes indicates their independency from the target label, then there's no need to go through them anymore. But in fact, this case causes some problems. Our learning algorithm is of the greedy type in the way that it examines each attribute, one by one. But there are cases where the combination of those attributes will lead us to a result. Take this example:
 
-| $a$ | $b$ | $y$ |
+|  a  |  b  |  y  |
 |:---:|:---:|:---:|
 |  0  |  0  |  0  |
 |  0  |  1  |  1  |
@@ -185,7 +187,7 @@ Greedy algorithm doesn't necessarily output the simples tree. and a complex deci
 
 ![decision tree accuracy](./pictures/decision_tree_accuracy.png)
 
-### Inductive Bias And Variance Balance
+### Inductive Bias & Variance Balance
 
 Inductive bias (or learning bias) is the set of all the assumptions a learning algorithm takes in order to put restrictions in its output and hypothesis space.
 
@@ -220,3 +222,7 @@ There are two main approaches in making a tree smaller and simpler:
   another example would be the base case 3, which as previously stated, isn't practicaly optimal
 
 - Prune after growing the full tree
+
+#### Error Reduced Pruning
+
+#### Chi-square ،esting
