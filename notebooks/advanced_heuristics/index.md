@@ -160,7 +160,7 @@ Discussing more specifically, original problem has a set of constraints. Noe we 
 ***Proof that Relaxing works***
 
 Consider Our problem as P. To calculate heuristics in relaxing way, we omit some Constraints and turn P into a more general Problem called P'.
-then, Consider S as the set of answers that are valid for P, and S' as the set of answers that are valid for P'. then, if you consider h as our answer and h' as our heuristic function, we can say:
+then, Consider S as the set of answers that are valid for P, and S' as the set of answers that are valid for P'. so, if you consider h as our answer and h' as our heuristic function, we can say:
  
 h' = min(S'), h = min(S) &and; S &SubsetEqual; S'
 
