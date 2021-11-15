@@ -158,12 +158,15 @@ So one of the most common ways to find efficient heuristic function is that we c
 Discussing more specifically, original problem has a set of constraints. Noe we **ignore some constraints** and solve the expanded problem. Since number of constraints have decreased, we have more goal states and our state space expands.
  
 ***Proof that Relaxing works***
- 
-Consider h as the answer and h' as our heuristic
- 
-h' = min(S'), h = min(S) &and; S &SubsetEqual; S' &and; &forall; s, s': if s &SubsetEqual; s' &#8658; min(s') &le; min(s) &#8658; h' &le; h
 
-As you may have understood, S is a subset of S'. Therefore S' is a bigger Space than S that contains all elements of S. So, if you wanna calculate the minimum element of S', besides checking S elements, you should check more elements that aren't in S. So it's probable that you visit an element in S' which is less than the minimum of S. Therefore we can say min(S') is less than or equal to min(S).
+Consider Our problem as P. To calculate heuristics in relaxing way, we omit some Constraints and turn P into a more general Problem called P'.
+then, Consider S as the set of answers that are valid for P, and S' as the set of answers that are valid for P'. then, if you consider h as our answer and h' as our heuristic function, we can say:
+ 
+h' = min(S'), h = min(S) &and; S &SubsetEqual; S'
+
+And as you know that: &forall; s, s': if s &SubsetEqual; s' &#8658; min(s') &le; min(s)
+
+We can conclude that: h' &le; h
  
  ***Example***
 
@@ -173,7 +176,7 @@ As you may have understood, S is a subset of S'. Therefore S' is a bigger Space 
 <img src="pic/hamilton path.png" alt="hamilton path" width="500" height="300"/>
 </p>
 
-Hamiltonian path is a tree which every its inner has have exactly one son. Hence, the problem is converting the above graph to a 1-ary tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-ary tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in n<sup>2</sup> time complexity.
+Hamiltonian path is a rooted tree which every its inner has have exactly one son. Hence, the problem is converting the above graph to a 1-ary tree, which covers all nodes of the graph with existing edges and minimum sum of edges' weight. Now we ignore being 1-ary tree constraint to convert original problem to a more general one. Accordingly our problem is now a Minimum Spaning Tree problem which is soluable in n<sup>2</sup> time complexity.
 
 <hr style="border:2px solid gray"> </hr>
 
