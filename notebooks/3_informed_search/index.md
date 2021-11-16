@@ -1,20 +1,20 @@
 # Informed Search
 
 ## Table of Contents
-1. [Introduction](#Introduction)
-2. [Hueristic](#Hueristic)
-3. [Greedy Search](#Greedy_Search)
-4. [How it may go wrong](#wrong)
-5. [Properties of Greedy Search](#prop1)
-6. [A* Search ](#A*)
-7. [Optimality of A*](#opt1)
-8. [Examples](#examples)
-9. [Obtaining admissible heuristics using relaxed problems](#relaxed)
-10. [Iterative-Deepening A*](#IDA)
-11. [Properties of IDA*](#prop2)
-12. [Conclusion](#Conclusion)
-13. [Other Useful Links](#useful)
-14. [References](#References)
+* [Introduction](#Introduction)
+* [Hueristic](#Hueristic)
+* [Greedy Search](#Greedy_Search)
+* [How it may go wrong](#wrong)
+* [Properties of Greedy Search](#prop1)
+* [A* Search ](#A*)
+* [Optimality of A*](#opt1)
+* [Examples](#examples)
+* [Obtaining admissible heuristics using relaxed problems](#relaxed)
+* [Iterative-Deepening A*](#IDA)
+* [Properties of IDA*](#prop2)
+* [Conclusion](#Conclusion)
+* [Other Useful Links](#useful)
+* [References](#References)
 
 
 ## Introduction <a name="Introduction"></a>
