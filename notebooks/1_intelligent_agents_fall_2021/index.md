@@ -33,7 +33,7 @@ Table of contents
 - [Properties of task environments](#Properties-of-task-environments)
     - [Types of environment](#Types-of-environment)
     - [Types of environment example](#Types-of-environment-example)
-- [Type of agents](#Type-of-agents)
+- [Types of agents](#Types-of-agents)
     - [Reflex agents](#Reflex-agents)
     - [Goal-based agents](#Goal-based-agents)
     - [Utility-based agents](#Utility-based-agents)
@@ -42,14 +42,14 @@ Table of contents
 - [References](#References)
 
 # Introduction
-In this notebook, we will discuss the nature of intelligent agents.  The concepts that are introduced here will give you some insight about agents and environments. You will also be introduced to a few of the most common agent architectures.
+In this notebook, we will discuss the nature of intelligent agents.  The concepts that are introduced here will give you some insight into agents and environments. You will also be introduced to a few of the most common agent architectures.
 
 
 # Intelligent agents
 An <b>intelligent agent</b> is anything that perceives its environment through sensors and acts upon that environment through its actuators.  
     We will use the term <b>percept</b> to refer to the agent's perceptual inputs at any given moment.
 We can describe an agent's behavior by the agent function.  
-<b>Agent function</b> maps any given percepts sequence to an action. But how does the agent know what sequence it must choose? we will try to answer this question using a simple example.
+<b>Agent function</b> maps any given percept sequence to an action. But how does the agent know what sequence it must choose? we will try to answer this question using a simple example.
 
 
 
@@ -150,7 +150,7 @@ Here are a few examples of Identifying an environment's different dimensions.
 
 
 
-# Type of agents
+# Types of agents
 In this section we will introduce three basic kinds of basic agent programs.(The agent program is simply a program which implements the agent function.)
 <ul>
   <li>Simple reflex agents</li>
