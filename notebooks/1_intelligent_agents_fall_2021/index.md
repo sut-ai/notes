@@ -66,7 +66,7 @@ A <b>rational</b> agent chooses the set of action in order to maximize its perfo
 
 
 #### Rationality vs perfection
-Keep in mind that rationality is distinct from omniscience. An omniscient agent knows the actual outcome of its actions but in reality, an agent only knows the expected outcome of its action. For example, imagine your trying to cross the street and no cars are on the street Naturally, you will cross the street to reach your goal. now imagine as you are passing the street a meteorite falls on you. Can anyone blame you for being irrational and not expecting a meteorite to flatten you? 
+Keep in mind that rationality is distinct from omniscience. An omniscient agent knows the actual outcome of its actions but in reality, an agent only knows the expected outcome of its action. For example, imagine you're trying to cross the street and no cars are on the street naturally, you will cross the street to reach your goal. Now imagine as you are passing the street a meteorite falls on you. Can anyone blame you for being irrational and not expecting a meteorite to flatten you? 
 
 #### Autonomy
 A rational agent should be autonomous meaning it mustn't only rely on the prior knowledge of its designer and must learn to compensate for partial or incorrect prior knowledge. In other words, rational agents should learn from experience. For example, in the vacuum world our agent could start to learn when the rooms usually get dirty based on its experience.
@@ -88,10 +88,10 @@ Here are a few examples of specifying PEAS for different agents.
 # Properties of task environments
 
 #### Types of environment
-we can categorize an environment in many ways, you will find some of the most important ones listed below.
+We can categorize an environment in many ways, you will find some of the most important ones listed below.
 
 <ul>
-  <li><b>Fully observable or partially observable</b> (Do the agent sensors give access to the complete state of the environment at each time?)</li>  
+  <li><b>Fully observable or partially observable</b> (Do the agent sensor's give access to the complete state of the environment at each time?)</li>  
     <ul> 
         <li>We say an environment is fully observable if an agent has access to the complete state of the environment at each time.</li>
         <li>If an agent doesn't know the complete state of the environment we say the environment is partially observable.</li>
@@ -101,12 +101,12 @@ we can categorize an environment in many ways, you will find some of the most im
     </ul>
     <br>    
           
-  <li><b>Single agent or multiagent</b> (Are there more than one agent in the environment?)</li>
+  <li><b>Single-agent or multi-agent</b> (Are there more than one agent in the environment?)</li>
     <ul>
-        <li>We say an environment is a multiagent environment if there is more than one agent operating in it otherwise we say the environment is sigle agent.</li>
-        <li>In some cases, we can model our environment both as a single agent and multiagent environment. For example, imagine an automatic taxi agent. Should this agent treat the other cars as objects or as another agent? It's  better to model our environment as a multiagent environment if the behavior of the other entities can be modeled as an agent seeking to maximize its performance measure which is somehow affected by our agent.</li>
-        <li>a multiagent environment could be competitive or cooperative or even a mix of both.</li>
-        <li><b>examples</b>: chess and automatic driving are multiagent environments. solving a crossword puzzle is a single agent environment.</li>
+        <li>We say an environment is a multi-agent environment if there is more than one agent operating in it otherwise we say the environment is single agent.</li>
+        <li>In some cases, we can model our environment both as a single-agent and multi-agent environment. For example, imagine an automatic taxi agent. Should this agent treat the other cars as objects or as another agent? It's  better to model our environment as a multi-agent environment if the behavior of the other entities can be modeled as an agent seeking to maximize its performance measure which is somehow affected by our agent.</li>
+        <li>a multi-agent environment could be competitive or cooperative or even a mix of both.</li>
+        <li><b>examples</b>: Chess and automatic driving are multi-agent environments. Solving a crossword puzzle is a single-agent environment.</li>
     </ul>
     <br>  
 
@@ -117,31 +117,31 @@ we can categorize an environment in many ways, you will find some of the most im
     </ul>  
     <br>
    
-  <li><b>Episodic or sequential</b> (Is the agent's experience divided into atomic "episodes“ where the choice of action in each episode depends only on the episode itself?)</li>
+  <li><b>Episodic or sequential</b> (Is the agent's experience divided into atomic "episodes" where the choice of action in each episode depends only on the episode itself?)</li>
     <ul>
-        <li>We say an environment is episodic if the agent experience can be divided into atomic "episodes" In a way that the action taken in an episode is independent of the previous episodes actions.</li>
+        <li>We say an environment is episodic if the agent's experience can be divided into atomic "episodes" in a way that the action taken in an episode is independent of the previous episodes actions.</li>
         <li>We say an environment is sequential if the current decision could affect all future decisions. </li>
-        <li><b>examples</b>: Chess and automatic driving are sequential. a part picking robot is episodic.</li>
+        <li><b>examples</b>: Chess and automatic driving are sequential. A part picking robot is episodic.</li>
     </ul>
     <br>
     <li><b>Static or dynamic</b> (Is the environment unchanged while an agent is deliberating?)</li>  
     <ul>
         <li>We say an environment is dynamic if it can change while the agent is deliberating.</li>
-        <li>There is a special case that the environment doesn't change but the performance score has a time penalty we call these environments semi-dynamic.</li>
+        <li>There is a special case that the environment doesn't change but the performance score has a time penalty. We call these environments semi-dynamic.</li>
         <li><b>examples</b>: Automatic driving is dynamic. Chess without a clock is static.</li>
     </ul>
     <br>
   <li><b>Discrete or continuous</b> (Are there a limited number of distinct, clearly defined states, percepts, and actions?)</li>  
     <ul>
-        <li>We say an environment's state is discrete if there are a finite number of distinct states otherwise we say the environment's state in continuous.</li>
+        <li>We say an environment's state is discrete if there are a finite number of distinct states otherwise we say the environment's state is continuous.</li>
          <li><b>examples</b>: Chess is discrete. Automatic driving is continuous.</li>
     </ul>
 </ul>
 
 #### Types of environment example
-Here are a few examples of Identifying an environment's different dimensions.
+Here are a few examples of identifying an environment's different dimensions.
 
-| environment| Fully observable? | Deterministic? |  Episodic? | Static? | Discrete?|Single agent?|
+| Environment| Fully observable? | Deterministic? |  Episodic? | Static? | Discrete?|Single-agent?|
 | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- | ----------- |
 | Solitaire | No | Yes |  Yes | Yes | Yes | Yes |
 | Backgammon | Yes | No |  No | Yes | Yes | No |
@@ -159,31 +159,31 @@ In this section we will introduce three basic kinds of basic agent programs.(The
 </ul>
 
 ## Reflex agents
-This is the simplest kind of agent. They choose their next action only based on their current percept. In other words, they do not consider the future consequences of their actions and only consider <b>how the world IS.</b>  
-As an example look at this Pacman agent below, at each turn the agent look at its surrounding and chooses the direction that has a point in it and stops when there are no points around it.
+This is the simplest kind of agents. They choose their next action only based on their current percept. In other words, they do not consider the future consequences of their actions and only consider <b>how the world IS.</b>  
+As an example look at this Pacman agent below, at each turn the agent looks at its surrounding and chooses the direction that has a point in it and stops when there are no points around it.
 
 <img src="./images/reflex_agent.gif" width="500" style="margin-left: auto;margin-right: auto;"/>
 
 ## Goal-based agents
 This kind of agent has a specific goal and it tries to reach that goal efficiently. They have a model of how the world evolves in response to actions, and they make decisions based on (hypothesized) consequences of actions to reach their goal state. Search and Planning are two subfields that are closely tied with these kinds of agents. In other words, these kinds of agents act on <b>how the world WOULD BE.</b>  
-as an example look at this Pacman agent below. the goal is to collect every point.
+as an example look at this Pacman agent below. The goal is to collect every point.
 
 <img src="./images/goal_based_agent.gif" width="500" style="margin-left: auto;margin-right: auto;"/>
 
 
 ## Utility-based agents
-This kind of agent like goal-based agents has a goal. But they also have a Utility function they seek to reach their goal in a way that maximizes the utility function. For example, think about an automated car agent. They are many ways for this agent to get from point A to point B. But some of them are quicker, safer, cheaper. The utility function allows the agent to compare different states with each other and ask the question how happy am I in this state. 
-In other words, this kind of agent act on <b>how the world will LIKELY be.</b>  
+This kind of agent like goal-based agents has a goal. But they also have a utility function. They seek to reach their goal in a way that maximizes the utility function. For example, think about an automated car agent. They are many ways for this agent to get from point A to point B. But some of them are quicker, safer, cheaper. The utility function allows the agent to compare different states with each other and ask the question how happy am I in this state. 
+In other words, this kind of agent acts on <b>how the world will LIKELY be.</b>  
 
 
 ## Learning agents
-This kind of agent usually has 4 parts. the most important two are "the learning element", which is responsible for making improvements, and the "performance element", which is responsible for selecting external actions. The learning element uses feedback from a "critic" on how the agent is doing and determines how the performance element, or "actor", should be modified to do better in the future.   
+This kind of agent usually has 4 parts. The most important two are "the learning element", which is responsible for making improvements, and the "performance element", which is responsible for selecting external actions. The learning element uses feedback from a "critic" on how the agent is doing and determines how the performance element, or "actor", should be modified to do better in the future.   
 The last part of these agents is the "problem generator" which is responsible for suggesting actions that will lead to new unexplored states.   
-These agents try to do their best by both exploring the environment and using the gathered information to decide rationally. one of the advantages of Learning agents is that they can be deployed in an environment that they don't have a lot of prior knowledge on. they will gain this knowledge over time by exploring that environment.
+These agents try to do their best by both exploring the environment and using the gathered information to decide rationally. One of the advantages of Learning agents is that they can be deployed in an environment that they don't have a lot of prior knowledge on. They will gain this knowledge over time by exploring that environment.
 
 # Conclusion
 We discussed the concept of an intelligent agent and the difference between a rational agent and a perfect agent. 
-then we talked about specifying the task environment for an agent and how can we categorize some main concepts of an environment. We also talked about some agent architectures that are commonly used.
+then we talked about specifying the task environment for an agent and how we can categorize some main concepts of an environment. We also talked about some agent architectures that are commonly used.
 
 
 # References
