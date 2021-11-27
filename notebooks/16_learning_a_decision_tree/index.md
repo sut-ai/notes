@@ -65,32 +65,32 @@ Some questions might arrise here on how was this decision tree constructed. How 
 
 Entropy is a measurement for the disorder, or impurity, in a group of observations. Consider having a random variable with $N$ class of answers. the Entropy  of this random variable will be calculated by the formula below:
 
-$
-H(x)=-\sum_{i=1}^{N}p_i\log_{2}p_i
-$
+![Entropy formula](https://render.githubusercontent.com/render/math?math=H(x)=-\sum_{i=1}^{N}p_i\log_{2}p_i)
 
 where $p_i$ is the probability of the class $i$.
 
 Let's consider a boolean variable. If all of our data is in one class, the Entropy would be $0$.
 
-> $H(x)=-(1\log_{2}1)=0$
+![zero entropy](https://render.githubusercontent.com/render/math?math=H(x)=-(1\log_{2}1)=0)
 
 this case would not be useful for learning. on the other hand, if the data is evenly distributed in the two classes, the Entropy would be:
 
-> $H(x)=-(0.5\log_{2}0.5 + 0.5\log_{2}0.5) = 1$
+![one entropy](https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1)
 
 the best kind we could use.
 
 ### Conditional Entropy
 
-$H(Y|X)$ is the conditional Entropy, defining the expected entropy of target label $Y$ if data is splitted by attribute $X$.
+![conditional entropy](https://render.githubusercontent.com/render/math?math=H(Y|X)) is the conditional Entropy, defining the expected entropy of target label ![target variable](https://render.githubusercontent.com/render/math?math=Y) if data is splitted by attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-$
+
+![conditional entropy](./pictures/conditional_entropy_formula.png?width=20)
+<!-- $
 \begin{aligned}
 H(Y|X) & = \sum_{x \in X}P(X=x)H(Y|X=x)\\
 & = -\sum_{x \in X}P(X=x)\sum_{y \in Y}P(Y=y|X=x)\log_{2} P(Y=y|X=x)
 \end{aligned}
-$
+$ -->
 
 $H(Y|X=x)$ is called the *specific conditional entropy*, the exact entropy of $Y$ knowing the value of attribute $X$. Basically, for calculating the conditional entropy, you take the entropy of label $Y$ for each value $x$ of attribute $X$ and sum them up together.
 
@@ -225,4 +225,4 @@ There are two main approaches in making a tree smaller and simpler:
 
 #### Error Reduced Pruning
 
-#### Chi-square ،esting
+#### Chi-square testing
