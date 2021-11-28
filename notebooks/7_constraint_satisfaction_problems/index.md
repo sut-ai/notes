@@ -73,7 +73,7 @@ Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we 
 
 **Variablex:** <img src="https://render.githubusercontent.com/render/math?math=X_{ij}"> which represents a queen in row i and column j.
 
-**Domains:** $\{0, 1\}$
+**Domains:** \{0, 1\}
 
 **Constraint:**
 
@@ -256,7 +256,7 @@ Constraint Propagation method can detect failure when in a higher height. In ord
 
 By making every edge consistent (if possible), Constraint Propagation causes many of non-allowed states (which violate constraints) not to appear in search.
 
-Consider coloring example. Suppose in allowed domain of X, Y, which are neighbors, remains {g, b, r},{g} respectively. In this situation, <img src="https://render.githubusercontent.com/render/math?math=X \rightarrow Y">  edge is not consistent because if we attribute value g to X, there remains no allowed option for Y. However If we **delete** g from domain of X, we can make this edge consistent. But we have to note that all edges which $X$ exists as the destination, may become inconsistent. So for example if <img src="https://render.githubusercontent.com/render/math?math=Z \rightarrow X"> become inconsistent, one or more member of Domain of Z will be deleted and by continuing this process (spreading consistency over all edges) we can have a new *equivalent problem* which there exists *less members* in Domain of the variables and by deleting many states, we can save time.
+Consider coloring example. Suppose in allowed domain of X, Y, which are neighbors, remains {g, b, r},{g} respectively. In this situation, <img src="https://render.githubusercontent.com/render/math?math=X \rightarrow Y">  edge is not consistent because if we attribute value g to X, there remains no allowed option for Y. However If we **delete** g from domain of X, we can make this edge consistent. But we have to note that all edges which X exists as the destination, may become inconsistent. So for example if <img src="https://render.githubusercontent.com/render/math?math=Z \rightarrow X"> become inconsistent, one or more member of Domain of Z will be deleted and by continuing this process (spreading consistency over all edges) we can have a new *equivalent problem* which there exists *less members* in Domain of the variables and by deleting many states, we can save time.
 
 ## Arc consistency (AC3) <div id='AC3'/>
 
@@ -298,7 +298,7 @@ Includes 1-Consistency, …, k-Consistency.
 
 We must note that one **can’t** achieve (k-1)-Consistency from k-Consistency. That’s due to the fact that in order to have k-Consistency, it’s necessary to have k-1 consistent nodes (to expand to k) and if there is no k-1 consistent nodes, due to vacuous truth (in logic), we will have k-Consistency and obviously it’s possible that we don’t have (k-1)-Consistency.
 
-However, checking Strong k-Consistency **is not** an easy job(!) and has a high complexity. To the extent that Strong n-Consistency is equal to solving the problem without backtracking. That’s because we can choose any assignment to a variable and by 2-Consistency get to 2 variables. Then by 3-Consistency get to 3 variables and all the way up to $n$ variables which is equivalent to finding the solution.
+However, checking Strong k-Consistency **is not** an easy job(!) and has a high complexity. To the extent that Strong n-Consistency is equal to solving the problem without backtracking. That’s because we can choose any assignment to a variable and by 2-Consistency get to 2 variables. Then by 3-Consistency get to 3 variables and all the way up to n variables which is equivalent to finding the solution.
 
 ## Using problem structure <div id='PS'/>
 
@@ -317,7 +317,7 @@ Another way to use the problem structure is to see whether constraint graph is i
 
 ![connected component](images/sorted.png?raw=true)
 
-Then we delete all inconsistent values from node $n$ to node 2. (In AC-3 language, we call Remove-Inconsistent function for node $n$ to node 2). Because all edges are consistent, we can assign a value to <img src="https://render.githubusercontent.com/render/math?math=X_1"> (root) and then for each <img src="https://render.githubusercontent.com/render/math?math=X_i"> we will assign a value in order not to become inconsistent with respect to just its father. *Due to Arc-Consistency*, that’s possible.
+Then we delete all inconsistent values from node n to node 2. (In AC-3 language, we call Remove-Inconsistent function for node n to node 2). Because all edges are consistent, we can assign a value to <img src="https://render.githubusercontent.com/render/math?math=X_1"> (root) and then for each <img src="https://render.githubusercontent.com/render/math?math=X_i"> we will assign a value in order not to become inconsistent with respect to just its father. *Due to Arc-Consistency*, that’s possible.
 
 In cases which are almost tree form, there is a minimum cutset which includes a few members. In these cases, we can use *Conditioning method*. In this method, we first assign values to variables of the cutset in different ways. Then we solve the problem for other variables (which form a tree). If we consider c as the size of the cutset, this method includes <img src="https://render.githubusercontent.com/render/math?math=d^c"> value assignments and then solving problem for the remaining tree which we know it has <img src="https://render.githubusercontent.com/render/math?math=O((n-c)d^2)"> time complexity. Hence, this method has 
 <img src="https://render.githubusercontent.com/render/math?math=O(d^c.(n-c)d^2)"> time complexity which is good for small c. 
