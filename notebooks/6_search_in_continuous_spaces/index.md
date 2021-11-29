@@ -46,7 +46,7 @@ where K \* denotes convolution with a blurring filter.
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.003.jpeg)
 
-*Figure  SEQ Figure \\* ARABIC 1. reconstructed image after solving the optimization*
+*Figure1. reconstructed image after solving the optimization*
 
 # Types of optimization techniques
 An essential step to optimization technique is to categorize the optimization model since the algorithms used for solving optimization problems are customized as per the nature of the problem. Various optimization problem types are: 
@@ -65,7 +65,7 @@ We denote the set of points for which all the constraints are satisfied as C, an
 
 In unconstrained optimization problems the answers are constrained into being subject of set C as the picture bellow shows: 
 
-*Figure  SEQ Figure \\* ARABIC 2. constrained vs unconstrained optimization*
+*Figure2. constrained vs unconstrained optimization*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.005.png)
 
@@ -75,7 +75,7 @@ In unconstrained optimization problems the answers are constrained into being s
 ## Differentiable optimization and Non-differentiable optimization
 Non-differentiable optimization is a category of optimization that deals with objective that for a variety of reasons is non-differentiable and thus non-convex. The functions in this class of optimization are generally non-smooth. These functions although continuous often contain sharp points or corners that do not allow for the solution of a tangent and are thus non-differentiable. In practice non-differentiable optimization encompasses a large variety of problems and a single one-size fits all solution is not applicable however solution is often reached through implementation of the sub gradient method. Non-differentiable functions often arise in real world applications and commonly in the field of economics where cost functions often include sharp points.
 
-*Figure  SEQ Figure \\* ARABIC 3. Non-differentiable function*
+*Figure3. Non-differentiable function*
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.006.png)
 ### Cost functions
 In many cases, particularly economics the cost function which is the objective function of an optimization problem is non-differentiable. These non-smooth cost functions may include discontinuities and discontinuous gradients and are often seen in discontinuous physical processes. Optimal solution of these cost functions is a matter of importance to economists but presents a variety of issues when using numerical methods thus leading to the need for special solution methods.
@@ -97,14 +97,14 @@ for all α∈ [0,1],  i.e., the line segment between (x, f(x)) and (y, f(y))* , 
 
 
 
-*Figure  SEQ Figure \\* ARABIC 4. In convex function f, for every two point x,y∈domainf, the line segment between them lies above the graph of f.*
+*Figure4. In convex function f, for every two point x,y∈domainf, the line segment between them lies above the graph of f.*
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.008.png)
 
 For an affine function we always have equality in (\*), so all affine (and therefore also linear) functions are both convex and concave. Conversely, any function that is convex and concave is affine.
 
 A function is convex if and only if it is convex when restricted to any line that intersects its domain. In other words, f is convex if and only if for all x ∈ domain (f) and all v, the function g(t) = f(x + tv)  is convex (on its domain, {t| x + tv ∈ domain(f) }* ). This property is very useful, since it allows us to check whether a function is convex by restricting it to a line.
 
-*Figure  SEQ Figure \\* ARABIC 5. A Non-convex function vs a Convex function*
+*Figure5. A Non-convex function vs a Convex function*
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.009.png)
 
 Some examples of convex functions are:
@@ -117,7 +117,7 @@ Some examples of convex functions are:
 A convex optimization *problem* is a problem where all of the constraints are convex functions, and the objective is a convex function if minimizing, or a concave function if maximizing. In a convex optimization problem, the feasible region is a convex region, as pictured below.
 
 
-*Figure  SEQ Figure \\* ARABIC 6. convex region*
+*Figure6. convex region*
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.010.png)
 
 
@@ -126,7 +126,7 @@ With a convex objective and a convex feasible region, there can be only one opti
 
 A *non-convex optimization problem* is any problem where the objective or any of the constraints are non-convex, as pictured below.
 
-*Figure  SEQ Figure \\* ARABIC 7. Non-convex region*
+*Figure7. Non-convex region*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.011.png)
 
@@ -148,7 +148,7 @@ So, to summarize, A maximum or minimum is said to be local if it is the larges
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.012.png)
 
-*Figure  SEQ Figure \\* ARABIC 8. local and global maximum and minimum*
+*Figure8. local and global maximum and minimum*
 ##
 ## Locally optimal for a convex optimization problem 
 A fundamental property of convex optimization problems is that any locally optimal point is also (globally) optimal. To see this, suppose that x is locally optimal for a convex optimization problem, i.e., x is feasible and
@@ -227,13 +227,13 @@ A gradient simply measures the change in all weights with regard to the change i
 ## Gradient Descent
 Gradient descent is an optimization algorithm used for training a machine learning model. It works on a convex function and changes the function’s parameters iteratively to find the local minimum (Since the function is convex, by finding local minimum we also find the global minimum).
 
-*Figure  SEQ Figure \\* ARABIC 9. The gradient field of function f = x2 – 4x + y2 + 2y*
+*Figure9. The gradient field of function f = x2 – 4x + y2 + 2y*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.026.png)
 
 To find the local minimum, we must take steps proportional to the negative of the gradient (move away from the gradient) of the function at the current point. If we take steps proportional to the positive of the gradient, we will approach a local maximum of the function, and the procedure is called Gradient Ascent.
 
-*Figure  SEQ Figure \\* ARABIC 10. The way Gradient Descent works*
+*Figure10. The way Gradient Descent works*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.027.png)
 
@@ -250,7 +250,7 @@ Here Alpha is called Learning rate and determines the length of the steps. For
 
 Note: While moving towards the local minima, both gradient and the size of the step decreases. So, the learning rate can be constant over the optimization.
 
-*Figure  SEQ Figure \\* ARABIC 11. The effect of learning in Gradient Descent*
+*Figure11. The effect of learning in Gradient Descent*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.029.png)
 
@@ -266,7 +266,7 @@ c) Learning rate is higher than the optimal value, it overshoots but converges (
 d) Learning rate is very large, it overshoots and diverges, moves away from the minima, performance **decreases on learning**
 
 
-*Figure  SEQ Figure \\* ARABIC 12. Four different learning rates working on function f*
+*Figure12. Four different learning rates working on function f*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.030.png)
 
@@ -278,7 +278,7 @@ In nonconvex problems, gradient descent can have difficulties in finding the glo
 
 In the previous section we mentioned that when the slope of the cost function is at or close to zero, the model stops learning. Other than global minimum, local minima and saddle points can also reach this slope. Local minima have the same shape as the global minimum, where the slope of the cost function increases on either side of the current point. Saddle points, have negative gradient on one side and a non-negative gradient on the other side, causing them to reaching a local maximum on one side and a local minimum on the other. We can use noisy gradients to escape local minimums and saddle points.
 
-*Figure  SEQ Figure \\* ARABIC 13. Local minima and Saddle point can face problems using Gradient Descent*
+*Figure13. Local minima and Saddle point can face problems using Gradient Descent*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.031.png)
 
