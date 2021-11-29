@@ -4,25 +4,25 @@ Search in Continuous Space
 # **Table of Contents**
 - [Introduction](#introduction)
 - [Types of optimization techniques](#types-of-optimization-techniques)
-  * [Linear programming (LP) and Nonlinear programming (NLP)](#linear-programming--lp--and-nonlinear-programming--nlp-)
-  * [Continuous optimization and Integer programming (IP)](#continuous-optimization-and-integer-programming--ip-)
-  * [Constrained optimization and Unconstrained optimization](#constrained-optimization-and-unconstrained-optimization)
-  * [Differentiable optimization and Non-differentiable optimization](#differentiable-optimization-and-non-differentiable-optimization)
+  * [Linear programming (LP) and nonlinear programming (NLP)](#linear-programming--lp--and-nonlinear-programming--nlp-)
+  * [Continuous optimization and integer programming (IP)](#continuous-optimization-and-integer-programming--ip-)
+  * [Constrained optimization and unconstrained optimization](#constrained-optimization-and-unconstrained-optimization)
+  * [Differentiable optimization and non-differentiable optimization](#differentiable-optimization-and-non-differentiable-optimization)
     + [Cost functions](#cost-functions)
 - [Convexity](#convexity)
-  * [Convex versus non-Convex Optimization Problems](#convex-versus-non-convex-optimization-problems)
+  * [Convex versus non-convex optimization problems](#convex-versus-non-convex-optimization-problems)
   * [Local and global optimization](#local-and-global-optimization)
     + [Local optimization](#local-optimization)
     + [Global optimization](#global-optimization)
   * [Locally optimal for a convex optimization problem](#locally-optimal-for-a-convex-optimization-problem)
-  * [Hessian being positive semi-definite iff convexity (Theorem one: One dimensional)](#hessian-being-positive-semi-definite-iff-convexity--theorem-one--one-dimensional-)
-  * [Hessian being positive semi-definite iff convexity (Theorem two: Multi-dimensional)](#hessian-being-positive-semi-definite-iff-convexity--theorem-two--multi-dimensional-)
-  * [Examples of Convex Functions](#examples-of-convex-functions)
+  * [Hessian being positive semi-definite iff convexity (theorem one: one dimensional)](#hessian-being-positive-semi-definite-iff-convexity--theorem-one--one-dimensional-)
+  * [Hessian being positive semi-definite iff convexity (theorem two: multi-dimensional)](#hessian-being-positive-semi-definite-iff-convexity--theorem-two--multi-dimensional-)
+  * [Examples of convex functions](#examples-of-convex-functions)
 - [Gradient](#gradient)
-  * [Gradient Descent](#gradient-descent)
+  * [Gradient descent](#gradient-descent)
   * [Challenges with gradient descent](#challenges-with-gradient-descent)
     + [Local minima and saddle points](#local-minima-and-saddle-points)
-    + [Vanishing and Exploding Gradients](#vanishing-and-exploding-gradients)
+    + [Vanishing and exploding gradients](#vanishing-and-exploding-gradients)
 - [Conclusion](#conclusion)
 - [References](#references)
 
@@ -52,9 +52,9 @@ where K \* denotes convolution with a blurring filter.
 An essential step to optimization technique is to categorize the optimization model since the algorithms used for solving optimization problems are customized as per the nature of the problem. Various optimization problem types are: 
 ## Linear programming (LP) and Nonlinear programming (NLP)
 Linear programming is a method to achieve the best outcome in a mathematical model whose requirements are represented by linear relationships whereas nonlinear programming is a process of solving an optimization problem where the constraints or the objective functions are nonlinear. Thus, this is the main difference between linear and nonlinear programming.
-## Continuous optimization and Integer programming (IP)
+## Continuous optimization and integer programming (IP)
 In order to conceptualize the difference, linear programming can solve problems about minimizing (or maximizing) an objective function by continuous variables. For instance, maybe the optimal solution for a problem to be x1=5,46 and x2=2,65. But in integer programming we can only use integers as variables and we can’t have fractional numbers.
-## Constrained optimization and Unconstrained optimization 
+## Constrained optimization and unconstrained optimization 
 A constrained optimization problem is the problem of optimizing an objective function subject to constraints on the variables. In general terms,
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.004.png)
@@ -72,7 +72,7 @@ In unconstrained optimization problems the answers are constrained into being s
 
 
 ##
-## Differentiable optimization and Non-differentiable optimization
+## Differentiable optimization and non-differentiable optimization
 Non-differentiable optimization is a category of optimization that deals with objective that for a variety of reasons is non-differentiable and thus non-convex. The functions in this class of optimization are generally non-smooth. These functions although continuous often contain sharp points or corners that do not allow for the solution of a tangent and are thus non-differentiable. In practice non-differentiable optimization encompasses a large variety of problems and a single one-size fits all solution is not applicable however solution is often reached through implementation of the sub gradient method. Non-differentiable functions often arise in real world applications and commonly in the field of economics where cost functions often include sharp points.
 
 *Figure3. Non-differentiable function*
@@ -113,7 +113,7 @@ Some examples of convex functions are:
 - Negative logarithm: f(x) = -log(x), x > 0
 - Euclidean norm: f(x) = ||x||2
 
-## Convex versus non-Convex Optimization Problems
+## Convex versus non-convex optimization problems
 A convex optimization *problem* is a problem where all of the constraints are convex functions, and the objective is a convex function if minimizing, or a concave function if maximizing. In a convex optimization problem, the feasible region is a convex region, as pictured below.
 
 
@@ -164,7 +164,7 @@ Then we have ||z – x|| = R/2 < R, and by convexity of the feasible set, z is f
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.015.png)
 
 which contradicts (@). Hence there exists no feasible y with f0(y) < f0(x), i.e., x is globally optimal.
-## Hessian being positive semi-definite iff convexity (Theorem one: One dimensional) 
+## Hessian being positive semi-definite iff convexity (theorem one: one dimensional) 
 One way of checking a function’s convexity is by checking its Hessian matrix. let Ø ≠ M ⊆ Rn be a convex set and let f(x) be a function differentiable on an open superset of M then f(x) is convex on M if and only if for every x1,x2 ∈ M
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.016.png)
@@ -182,7 +182,7 @@ By the limit transition λ ⟶0 we get (\*) utilizing the chain rule for the der
 Multiply the first inequality by λ1, the one by λ2 and summing up we get 
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.019.png)
-## Hessian being positive semi-definite iff convexity (Theorem two: Multi-dimensional) 
+## Hessian being positive semi-definite iff convexity (theorem two: multi-dimensional) 
 Now we prove the same property for n-dimensional functions. let Ø ≠ M ⊆ Rn be an open convex set of dimension n, and suppose that a function f: M→R is twice continuously differentiable on M. Then f(x) is convex on M if and only the Hessian ∇2f(x) is positive semi-definite for every x∈M.
 
 Proof:let x\* ∈ M be arbitrary. Due to continuity of the second partial derivatives we have that for every λ∈R and y ∈ Rn, x\* + λy ∈ M, there is θ∈ (0,1) such that
@@ -207,7 +207,7 @@ which shows the convexity of f(x) in the view of Theorem one.
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.024.png)
 
-## Examples of Convex Functions:
+## Examples of convex functions:
 In this section we check the convexity of two functions using the theorems we learned.
 
 - f(x) = 2x3 – 18x2 : 
@@ -224,7 +224,7 @@ The leading principal minors of the Hessian are 2 > 0, 4 > 0, and 8 > 0. Therefo
 # Gradient 
 A gradient simply measures the change in all weights with regard to the change in error. We can also think of a gradient as the slope of a function that has more than one input variable. The higher the gradient, the steeper the slope and the faster a model can learn. But if the slope is zero, the model stops learning. 
 
-## Gradient Descent
+## Gradient descent
 Gradient descent is an optimization algorithm used for training a machine learning model. It works on a convex function and changes the function’s parameters iteratively to find the local minimum (Since the function is convex, by finding local minimum we also find the global minimum).
 
 *Figure9. The gradient field of function f = x2 – 4x + y2 + 2y*
@@ -282,7 +282,7 @@ In the previous section we mentioned that when the slope of the cost function is
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.031.png)
 
-### Vanishing and Exploding Gradients
+### Vanishing and exploding gradients
 In deeper neural networks we can also encounter two other problems:
 
 Vanishing gradients: This occurs when the gradient is too small. As we move backwards during backpropagation, the gradient continues to become smaller, so the earlier layers in the network learn more slowly than later layers. When this happens, the weight parameters update until they become insignificant and the algorithm stops learning.
