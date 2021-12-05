@@ -67,9 +67,9 @@ Entropy is a measurement for the disorder, or impurity, in a group of observatio
 
 ![Entropy formula](https://render.githubusercontent.com/render/math?math=H(x)=-\sum_{i=1}^{N}p_i\log_{2}p_i)
 
-where $p_i$ is the probability of the class $i$.
+where ![attribute](https://render.githubusercontent.com/render/math?math=p_i) is the probability of the class ![attribute](https://render.githubusercontent.com/render/math?math=i).
 
-Let's consider a boolean variable. If all of our data is in one class, the Entropy would be $0$.
+Let's consider a boolean variable. If all of our data is in one class, the Entropy would be 0.
 
 ![zero entropy](https://render.githubusercontent.com/render/math?math=H(x)=-(1\log_{2}1)=0)
 
@@ -93,7 +93,7 @@ Previously, we learned how to calculate the entropy of our target label ![attrib
 
 <img src="https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24">
 
-This is called the __*mutual information*__ between $Y$ and $X$. It can be percieved from the equation that mutual information is symmetric.
+This is called the __*mutual information*__ between ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=Y). It can be percieved from the equation that mutual information is symmetric.
 
 ![symmetry](https://render.githubusercontent.com/render/math?math=I(Y%3BX)%3DI(X%3BY))
 
@@ -161,7 +161,7 @@ This case argues that since zero information gain from attributes indicates thei
 |  1  |  0  |  1  |
 |  1  |  1  |  0  |
 
-$y$'s value can be indicated as `a XOR b`. If we calculate the information gain of the two attributes, we see that the value is zero for both of them. If we consider the third case in our algorithm, It would stop right at the first level without a decent output, while we could achieve the tree below:
+![attribute](https://render.githubusercontent.com/render/math?math=y)'s value can be indicated as `a XOR b`. If we calculate the information gain of the two attributes, we see that the value is zero for both of them. If we consider the third case in our algorithm, It would stop right at the first level without a decent output, while we could achieve the tree below:
 
 ![xor example](./pictures/xor_decision_tree.png)
 
