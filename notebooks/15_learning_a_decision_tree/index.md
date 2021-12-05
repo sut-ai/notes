@@ -315,10 +315,10 @@ Soleymani, M. (2021) _Decision tree_ [PDF]. Sharif University of Technology
 
 Rohban, M. (2020) _Classification (decision tree)_ [PDF]. Sharif University of Technology
 
-(2017, September 7), _Decision Trees for Classification: A Machine Learning Algorithm._ Xiorant. https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves.
+(2017, September 7), _Decision Trees for Classification: A Machine Learning Algorithm._ Xiorant. <https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves>.
 
-Gupta, P. (2017, May 17), _Decision Trees in Machine Learning._ Towards data science. https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052
+Gupta, P. (2017, May 17), _Decision Trees in Machine Learning._ Towards data science. <https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052>
 
-T, S. (2019, January 11), _Entropy: How Decision Trees Make Decisions._ Towards data science. https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8
+T, S. (2019, January 11), _Entropy: How Decision Trees Make Decisions._ Towards data science. <https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8>
 
-ِDuignan, B. (1998, July 1998), _Occam's razor._ Britannica. https://www.britannica.com/topic/Occams-razor
+ِDuignan, B. (1998, July 1998), _Occam's razor._ Britannica. <https://www.britannica.com/topic/Occams-razor>
