@@ -154,7 +154,7 @@ function ID3(samples, attribute_set, parent_samples) returns a tree
 
 `best_attribute` function returns the attribute with the best information gain.
 
-> best_attribute = $argmax_{i} \space IG(Y, X_i)$
+best_attribute = ![symmetry](https://render.githubusercontent.com/render/math?math=argmax_{i}IG(Y,X_i))
 
 The recursion is broken in two cases:
 
