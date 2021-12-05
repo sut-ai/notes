@@ -1,6 +1,6 @@
 # Learning a decision trees (classification)
 
-## Table of contents
+## Table of Content
 
 - [Introduction](#introduction)
 - [Decision Tree](#decision-tree)
@@ -16,9 +16,9 @@
   - [Occam's Razor](#occams-razor)
   - [Pruning](#pruning)
     - [Reduced Error Pruning](#reduced-error-pruning)
-    - [Chi-squared Testing](#chisquared-testing)
+    - [Chi-squared Pruning](#chi-squared-pruning)
 - [Conclusion](#conclusion)
-- Reference
+- [References](#references)
 
 ## Introduction
 
@@ -88,7 +88,7 @@ Let's consider a boolean variable. If all of our data is in one class, the Entro
 
 this case would not be useful for learning. on the other hand, if the data is evenly distributed in the two classes, the Entropy would be:
 
-<img src="https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1">
+![even distribution](https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1)
 
 the best kind we could use.
 
@@ -96,7 +96,7 @@ the best kind we could use.
 
 ![conditional entropy](https://render.githubusercontent.com/render/math?math=H(Y|X)) is the conditional Entropy, defining the expected entropy of target label ![target variable](https://render.githubusercontent.com/render/math?math=Y) if data is splitted by attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5CinX%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5CinX%7DP(X%3Dx)%5Csum_%7By%5CinY%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D">
+![conditional entropy](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5CinX%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5CinX%7DP(X%3Dx)%5Csum_%7By%5CinY%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D)
 
 ![specific entropy](https://render.githubusercontent.com/render/math?math=H(Y|X=x)) is called the *specific conditional entropy*, the exact entropy of ![target](https://render.githubusercontent.com/render/math?math=Y) knowing the value of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X). Basically, for calculating the conditional entropy, you take the entropy of label ![attribute](https://render.githubusercontent.com/render/math?math=Y) for each value ![attribute](https://render.githubusercontent.com/render/math?math=x) of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) and sum them up together.
 
@@ -104,7 +104,7 @@ the best kind we could use.
 
 Previously, we learned how to calculate the entropy of our target label ![attribute](https://render.githubusercontent.com/render/math?math=Y) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y)), and also it's entropy conditional to the value of an attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y|X)). using both definitions, we can calculate the reduction in entropy of target attribute ![attribute](https://render.githubusercontent.com/render/math?math=Y) after learning ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-<img src="https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24">
+![mutual information](https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24)
 
 This is called the __*mutual information*__ between ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=Y). It can be percieved from the equation that mutual information is symmetric.
 
@@ -116,7 +116,7 @@ if ![equal values](https://render.githubusercontent.com/render/math?math=Y=X), t
 
 and if ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X) are independent:
 
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26I(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D">
+![independent attribute and label](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26I(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D)
 
 which means that there's no reduction in label ![attribute](https://render.githubusercontent.com/render/math?math=Y) entropy by choosing the attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
@@ -226,7 +226,7 @@ Decision trees don't have any biases by themselves, and they're able to create a
 
 ### Occam's Razor
 
-"entities should not be multiplied beyond necessity", such says __Occam's razor__. It can also be rephrased as "the simples solution is usually the best one". The theory makes sense. when a few hypothesis can explain a principle, we gain nothing by putting in more assumptions and making our proof more complicated. As a matter of fact, leaving the hypotheses short and simple and putting aside the unsignificant data helps us to have a more accurate view on the true nature of the problem, and thus, makes it more probably the correct theory.
+"Entities should not be multiplied beyond necessity", such says __Occam's razor__. It can also be rephrased as "the simples solution is usually the best one". The theory makes sense. when a few hypothesis can explain a principle, we gain nothing by putting in more assumptions and making our proof more complicated. As a matter of fact, leaving the hypotheses short and simple and putting aside the unsignificant data helps us to have a more accurate view on the true nature of the problem, and thus, makes it more probably the correct theory.
 
 Extending this to learning algorithms, shorter hypothses in a problem are usually preferred over longer ones. The longer the hypothesis is, the higher the possibility it would be overfitted. Currently, Occam's Razor has been one of most common inductive biases for learning algorithms and decision trees.
 
@@ -236,9 +236,9 @@ There are two main approaches in making a tree smaller and simpler:
 
 - Stop growing the tree before overfitting
   
-  for example we could bound the depth or the number of leaves in our tree. The problem that arrises in this case is to how to label a leaf when it contains impure data.
+  For example we could bound the depth or the number of leaves in our tree. The problem that arrises in this case is to how to label a leaf when it contains impure data.
 
-  another example would be the base case 3, which as previously stated, isn't practicaly optimal
+  Another example would be the base case 3, which as previously stated, isn't practicaly optimal
 
 - Prune after growing the full tree
 
@@ -246,7 +246,7 @@ There are two main approaches in making a tree smaller and simpler:
 
 How exactly might we use a validation set to prevent overfitting? One approach,
 called reduced-error pruning, is to consider each of the decision
-nodes in the tree to be candidates for pruning. Pruning a decision node consists of removing the subtree rooted at that node, making it a leaf node. and assigning it the most common classification of the training examples affiliated with that node.
+nodes in the tree to be candidates for pruning. Pruning a decision node consists of removing the subtree rooted at that node, making it a leaf node, and assigning it the most common classification of the training examples affiliated with that node.
 
 Nodes are removed only if the resulting pruned tree performs no worse than the
 original over the validation set. This has the effect that any leaf node added due to coincidental regularities in the training set is likely to be pruned because these same coincidences are unlikely to occur in the validation set. Nodes are pruned iteratively, always choosing the node whose removal most increases the decision
@@ -263,6 +263,7 @@ pruning begins, the tree is at its maximum size and lowest accuracy over the tes
 
 Using a separate set of data to guide pruning is an effective approach provided a large amount of data is available. The major drawback of this approach
 is that when data is limited, withholding part of it for the validation set reduces even further the number of examples available for training.
+
 #### Chi-Squared Pruning
 
 The most popular tests for independence are based on the fact that some test statistics have approximately a chi-squared distribution with (I − 1)(J − 1) degrees of freedom if the null hypothesis is correct. The classic test statistic with this property is the chi-squared statistic.
@@ -307,3 +308,17 @@ training examples while decreasing performance on other instances outside
 this set. Methods for post-pruning the decision tree are therefore important
 to avoid overfitting in decision tree learning (and other inductive inference
 methods that employ a preference bias).
+
+## References
+
+Soleymani, M. (2021) _Decision tree_ [PDF]. Sharif University of Technology
+
+Rohban, M. (2020) _Classification (decision tree)_ [PDF]. Sharif University of Technology
+
+(2017, September 7), _Decision Trees for Classification: A Machine Learning Algorithm._ Xiorant. https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves.
+
+Gupta, P. (2017, May 17), _Decision Trees in Machine Learning._ Towards data science. https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052
+
+T, S. (2019, January 11), _Entropy: How Decision Trees Make Decisions._ Towards data science. https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8
+
+ِDuignan, B. (1998, July 1998), _Occam's razor._ Britannica. https://www.britannica.com/topic/Occams-razor
