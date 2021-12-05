@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-- Preface
+- [Introduction](#introduction)
 - [Decision Tree](#decision-tree)
 - [Information Gain](#information-gain)
   - [Entropy](#entropy)
@@ -10,15 +10,28 @@
   - [Mutual Information And Information Gain](#mutual-information-and-information-gain)
 - [Learning Decision Tree](#learning-decision-tree)
   - [ID3 Algorithm](#id3-algorithm)
-- Hypothesis Space
+- [Hypothesis Space](#hypothesis-space)
 - [Overfitting](#overfitting)
   - [Inductive Bias & Variance Balance](#inductive-bias-variance-balance)
   - [Occam's Razor](#occams-razor)
   - [Pruning](#pruning)
-    - [Error reduced pruning](#error-reduced-pruning)
-    - [Chi-squared Testing](chi-squared-testing)
-- C4.5 Algorithm
+    - [Reduced Error Pruning](#reduced-error-pruning)
+    - [Chi-squared Testing](#chisquared-testing)
+- [Conclusion](#conclusion)
 - Reference
+
+## Introduction
+
+Let's start with a story. Imagine you own a small business and you need to acquire some new clients and because your business is not big enough you have a limited budget. You want to make sure that, in advertising, you focus on clients that are most likely to purchase a product from you.
+
+How do you figure out who these people are? You need a classification algorithm that can recognize these types of clients and one of the possible classification algorithms is the __decision tree__ algorithm.
+
+The idea behind the decision tree is to divide the data set into smaller data sets based on characteristic features until you reach a small enough set that contains data points that fall under one single label.
+Each feature of the data set becomes a root node, and the leaf nodes represent the outcomes.
+
+Decision tree learning is a method for approximating discrete-valued target functions, in which the learned function is represented by a decision tree. Learned trees can also be re-represented as sets of if-then rules to improve human readability.
+
+These learning methods are among the most popular of inductive inference algorithms and have been successfully applied to a broad range of tasks from learning to diagnose medical cases to learning to assess credit risk of loan applicants.
 
 ## Decision Tree
 
@@ -165,6 +178,23 @@ This case argues that since zero information gain from attributes indicates thei
 
 ![xor example](./pictures/xor_decision_tree.png)
 
+## Hypothesis Space
+
+As with other inductive learning methods. ID3 can be characterized as searching a space of hypothesis for one that fits the training examples. The hypothesis space searched by ID3 is the set of possible decision trees. ID3 performs a simple-to-complex, hill-climbing search through this hypothesis space. beginning with the empty tree, then considering progressively more elaborate hypotheses in search of a decision tree that correctly classifies the training data. The evaluation function that guides this hill-climbing search is the information gain measure.
+
+By viewing ID3 in terms of its search space and search strategy, we can get some insight into its capabilities and limitations.
+
+- ID3's hypothesis space of all decision trees is a complete space of finite
+discrete-valued functions, relative to the available attributes. Because every finite discrete-valued function can be represented by some decision tree. ID3 avoids one of the major risks of methods that search incomplete hypothesis spaces: that the hypothesis space might not contain the target function.
+
+- ID3 maintains only a single current hypothesis as it searches through the
+space of decision trees. This contrasts. By determining only a single hypothesis. ID3 loses the capabilities that follow from explicitly representing all consistent hypotheses. For example, it does not have the ability to determine how many alternative decision trees are consistent with the available training data, or to pose new instance queries that optimally resolve among these competing hypotheses.
+
+- ID3 in its pure form performs no backtracking in its search. Once it selects an attribute to test at a particular level in the tree, it never backtracks to reconsider this choice. Therefore, it is susceptible to the usual risks of
+hill-climbing search without backtracking: converging to locally optimal solutions that are not globally optimal. In the case of ID3, a locally optimal solution corresponds to the decision tree it selects along the single search path it explores. However, this locally optimal solution may be less desirable than trees that would have been encountered along a different branch of the search.
+
+- ID3 uses all training examples at each step in the search to make statistically based decisions regarding how to refine its current hypothesis. This contrasts with methods that make decisions incrementally, based on individual training examples. One advantage of using statistical properties of all the examples (e.g., information gain) is that the resulting search is much less sensitive to errors in individual training examples. ID3 can be easily extended to handle noisy training data by modifying its termination criterion to accept hypotheses that imperfectly fit the training data.
+
 ## Overfitting
 
 Overfitting is a phenomenon in which our learning system, the decision tree in this case, strongly fits our training sample. This might sound like a good think at first, but the stronger the system fits the training set, the less it is generalizable and in conclusion, it will not have a desirable result on other sets.
@@ -212,6 +242,68 @@ There are two main approaches in making a tree smaller and simpler:
 
 - Prune after growing the full tree
 
-#### Error Reduced Pruning
+#### Reduced Error Pruning
 
-#### Chi-square testing
+How exactly might we use a validation set to prevent overfitting? One approach,
+called reduced-error pruning, is to consider each of the decision
+nodes in the tree to be candidates for pruning. Pruning a decision node consists of removing the subtree rooted at that node, making it a leaf node. and assigning it the most common classification of the training examples affiliated with that node.
+
+Nodes are removed only if the resulting pruned tree performs no worse than the
+original over the validation set. This has the effect that any leaf node added due to coincidental regularities in the training set is likely to be pruned because these same coincidences are unlikely to occur in the validation set. Nodes are pruned iteratively, always choosing the node whose removal most increases the decision
+tree accuracy over the validation set. Pruning of nodes continues until further
+pruning is harmful.
+
+![test with prunin](./pictures/data_accuracy_with_pruning.jpg)
+
+The impact of reduced-error pruning on the accuracy of the decision tree
+is illustrated in the figure below, the accuracy of the tree is shown
+measured over both training examples and test examples. The additional line in
+this figure shows accuracy over the test examples as the tree is pruned. When
+pruning begins, the tree is at its maximum size and lowest accuracy over the test set. As for pruning proceeds, the number of nodes is reduced and accuracy over the test set increases. Here, the available data has been split into three subsets: _the training examples_, _the validation examples_ used for pruning the tree, and a _set of test examples used to provide an unbiased estimate of accuracy over future unseen examples_. The plot shows accuracy over the training and lest sets. Accuracy over the validation set used for pruning is not shown.
+
+Using a separate set of data to guide pruning is an effective approach provided a large amount of data is available. The major drawback of this approach
+is that when data is limited, withholding part of it for the validation set reduces even further the number of examples available for training.
+#### Chi-Squared Pruning
+
+The most popular tests for independence are based on the fact that some test statistics have approximately a chi-squared distribution with (I − 1)(J − 1) degrees of freedom if the null hypothesis is correct. The classic test statistic with this property is the chi-squared statistic.
+
+![chi-squared formula](https://render.githubusercontent.com/render/math?math={\chi}^2=\sum_{i}\sum_{j}\frac{(n_{ij}-e_{ij})^2}{e_{ij}})
+
+where ![attribute](https://render.githubusercontent.com/render/math?math=e_{ij}) are the expected cell counts under the null hypothesis, calculated according to
+
+![null hypothesis](https://render.githubusercontent.com/render/math?math=e_{ij}=N_{\hat{p}_{i}\hat{p}_{j}}=N\frac{N_{i+}}{N}\frac{N_{+j}}{N}=\frac{N_{i+}N_{+j}}{N})
+
+where ![attribute](https://render.githubusercontent.com/render/math?math=\hat{p}_{i}) is the estimated probability that a particular observation will fall into row ![attribute](https://render.githubusercontent.com/render/math?math=i), and ![attribute](https://render.githubusercontent.com/render/math?math=\hat{p}_{j}) is the corresponding probability for column ![attribute](https://render.githubusercontent.com/render/math?math=j). Because these two probabilities are independent under the null hypothesis, their product constitutes the probability that an observation will fall into ![attribute](https://render.githubusercontent.com/render/math?math=cell(i,j)).
+
+A disadvantage of tests based on the chi-squared distribution is that they are statistically invalid when the sample size is small. The chi-squared distribution is an approximation to the test statistics’ true sampling distribution under the null hypothesis, and this approximation is only accurate when the sample is large. Unfortunately, there is no single rule that can be used to determine when the approximation is valid.
+
+## Conclusion
+
+Decision trees are the single most popular data mining tool out there. These are the most important reason that makes it so.
+
+- Easy to understand
+- Easy to implement
+- Easy to use
+- Asymptotically Fast
+
+The main points about decision trees include:
+
+- Decision tree learning provides a practical method for concept learning and
+for learning other discrete-valued functions. The ID3 family of algorithms
+infers decision trees by growing them from the root downward, greedily
+selecting the next best attribute for each new decision branch added to the
+tree.
+
+- ID3 searches a complete hypothesis space (i.e., the space of decision trees
+can represent any discrete-valued function defined over discrete-valued in-
+stances). It thereby avoids the major difficulty associated with approaches
+that consider only restricted sets of hypotheses: that the target function might
+not be present in the hypothesis space.
+
+- Overfitting the training data is an important issue in decision tree learning.
+Because the training examples are only a sample of all possible instances.
+it is possible to add branches to the tree that improve performance on the
+training examples while decreasing performance on other instances outside
+this set. Methods for post-pruning the decision tree are therefore important
+to avoid overfitting in decision tree learning (and other inductive inference
+methods that employ a preference bias).
