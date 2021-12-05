@@ -68,7 +68,12 @@ Consider the example of picking random colored cubes from a large bag of them. T
 
 </center>
 
-In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed and determine the sample based on that. As shown in the figure below, the unit length segment is partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_i$s represent the probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words, we have indexed the values that the random variable $C$ can take and defined the probabilities based on them. Here, we have $c_1 = green$, $c_2 = red$ and $c_3 = blue$.
+In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
+and determine the sample based on that. As shown in the figure below, the unit length segment is 
+partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_i$s represent the 
+probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words, we have indexed the 
+values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
+$c_1 = green$, $c_2 = red$ and $c_3 = blue$.
 
 ![Partition of the Unit Length Segment](Images/Unit_Length_Segment_Partition.png "Partition of the Unit Length Segment")
 
@@ -77,8 +82,45 @@ We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_
 Thus, using uniform distributions in this manner, we can generate samples from a given distribution having the same corresponding probabilities.
 
 # Prior Sampling
+Now we're ready to tackle the sampling problem! Suppose we want to sample from the joint distribution 
+of the Bayes' Net, $Pr(x_1,...,x_n)$.
+
+Consider the following process:
+
+1.&nbsp; For i = 1 to n
+
+2.&emsp;&emsp; Sample $x_i$ from $Pr(x_i | parents(x_i))$
+
+3.&nbsp; Return $(x_1,...,x_n)$
+
+This process generates a sample $X=(x_1,...,x_n)$ with the following probability:
+$$
+S_{PS}(x_1,...,x_n) = \prod_{i=1}^{n}Pr(x_i|parents(x_i)) = Pr(x_1,...,x_n),
+$$
+which is the Bayes' Net's joint probability.
+
+Now we need to prove that the samples are realizations of I.I.D (Independent, Identically Distributed) random variables. 
+1. Since we choose a new random number for every sample, thus samples are independent from each other. 
+2. It has been also shown that they are identically distributed because of the formula above.
+
+Suppose we have drawn $N$ samples from the joint distribution. Let the number of samples of an event be 
+$N_{PS}(x_1,...,x_n)$.
+
+So based on the law of large numbers, we have:
+$$
+lim_{N\to\infty}\hat{Pr}(x_1,...,x_n) = lim_{N\to\infty} \frac{N_{PS}(x_1,...,x_n)}{N}
+$$
+$$
+= S_{PS}(x_1,...,x_n) = Pr(x_1,...,x_n),
+$$
+
+hence, the sampling procedure is consistent with the joint distribution.
+
+It is apparent that this algorithm is faster than its exact counter-parts. Since we have the joint distribution, we can calculate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
 
 # Rejection Sampling
+
+
 
 # Likelihood Weighting
 
