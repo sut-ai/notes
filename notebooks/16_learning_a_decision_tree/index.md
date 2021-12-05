@@ -256,7 +256,7 @@ pruning is harmful.
 ![test with prunin](./pictures/data_accuracy_with_pruning.jpg)
 
 The impact of reduced-error pruning on the accuracy of the decision tree
-is illustrated in the figure below, the accuracy of the tree is shown
+is illustrated in the figure above, the accuracy of the tree is shown
 measured over both training examples and test examples. The additional line in
 this figure shows accuracy over the test examples as the tree is pruned. When
 pruning begins, the tree is at its maximum size and lowest accuracy over the test set. As for pruning proceeds, the number of nodes is reduced and accuracy over the test set increases. Here, the available data has been split into three subsets: _the training examples_, _the validation examples_ used for pruning the tree, and a _set of test examples used to provide an unbiased estimate of accuracy over future unseen examples_. The plot shows accuracy over the training and lest sets. Accuracy over the validation set used for pruning is not shown.
