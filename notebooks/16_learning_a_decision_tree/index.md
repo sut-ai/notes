@@ -22,7 +22,7 @@
 
 ## Decision Tree
 
-Decision \\(e_{ij}\\) trees are a type of machine learning algorithm used for making decisions on the value of a target variable based on the other attributes of our data. As an analogy of a tree, decision trees are consisted of a root, some branches(edges) and leaves. Every internal node in the tree presents us with a condition, and the branch is splitted in correspond to the different answers to the condition.
+Decision trees are a type of machine learning algorithm used for making decisions on the value of a target variable based on the other attributes of our data. As an analogy of a tree, decision trees are consisted of a root, some branches(edges) and leaves. Every internal node in the tree presents us with a condition, and the branch is splitted in correspond to the different answers to the condition.
 
 There are two kinds of decision trees:
 
