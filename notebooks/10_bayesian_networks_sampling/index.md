@@ -39,7 +39,11 @@ problem. The natural approach now would be to try
 and approximate the posterior probability. There are
 several approximation methods for this problem, of
 which we will discuss the ones based on randomized
-sampling.
+sampling. The rest of the note is layed out as follows:
+- We give intuition about the basic idea behind sampling.
+- We describe the building block of every sampling algorithm, namely, sampling from a given distribution.
+- We explain four standard methods of sampling in Bayes' Nets.
+
 
 # Basic Idea
 
