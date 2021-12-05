@@ -22,7 +22,7 @@
 
 ## Decision Tree
 
-Decision trees are a type of machine learning algorithm used for making decisions on the value of a target variable based on the other attributes of our data. As an analogy of a tree, decision trees are consisted of a root, some branches(edges) and leaves. Every internal node in the tree presents us with a condition, and the branch is splitted in correspond to the different answers to the condition.
+Decision \\(e_{ij}\\) trees are a type of machine learning algorithm used for making decisions on the value of a target variable based on the other attributes of our data. As an analogy of a tree, decision trees are consisted of a root, some branches(edges) and leaves. Every internal node in the tree presents us with a condition, and the branch is splitted in correspond to the different answers to the condition.
 
 There are two kinds of decision trees:
 
@@ -63,7 +63,7 @@ Some questions might arrise here on how was this decision tree constructed. How 
 
 ### Entropy
 
-Entropy is a measurement for the disorder, or impurity, in a group of observations. Consider having a random variable with $N$ class of answers. the Entropy  of this random variable will be calculated by the formula below:
+Entropy is a measurement for the disorder, or impurity, in a group of observations. Consider having a random variable with  class of answers. the Entropy  of this random variable will be calculated by the formula below:
 
 ![Entropy formula](https://render.githubusercontent.com/render/math?math=H(x)=-\sum_{i=1}^{N}p_i\log_{2}p_i)
 
@@ -75,7 +75,7 @@ Let's consider a boolean variable. If all of our data is in one class, the Entro
 
 this case would not be useful for learning. on the other hand, if the data is evenly distributed in the two classes, the Entropy would be:
 
-![one entropy](https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1)
+<img src="https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1">
 
 the best kind we could use.
 
@@ -85,31 +85,27 @@ the best kind we could use.
 
 <img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5CinX%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5CinX%7DP(X%3Dx)%5Csum_%7By%5CinY%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D">
 
-$H(Y|X=x)$ is called the *specific conditional entropy*, the exact entropy of $Y$ knowing the value of attribute $X$. Basically, for calculating the conditional entropy, you take the entropy of label $Y$ for each value $x$ of attribute $X$ and sum them up together.
+![specific entropy](https://render.githubusercontent.com/render/math?math=H(Y|X=x)) is called the *specific conditional entropy*, the exact entropy of ![target](https://render.githubusercontent.com/render/math?math=Y) knowing the value of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X). Basically, for calculating the conditional entropy, you take the entropy of label ![attribute](https://render.githubusercontent.com/render/math?math=Y) for each value ![attribute](https://render.githubusercontent.com/render/math?math=x) of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) and sum them up together.
 
 ### Mutual Information And Information Gain
 
-Previously, we learned how to calculate the entropy of our target label $Y$ as $H(Y)$, an.... using both definitions, we can calculate the reduction in entropy of target attribute $Y$ after learning $X$.
+Previously, we learned how to calculate the entropy of our target label ![attribute](https://render.githubusercontent.com/render/math?math=Y) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y)), and also it's entropy conditional to the value of an attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y|X)). using both definitions, we can calculate the reduction in entropy of target attribute ![attribute](https://render.githubusercontent.com/render/math?math=Y) after learning ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-$
-\begin{aligned}
-I(Y;X) & = H(Y) - H(Y|X) = -\sum_{x, y}P(x, y)\log_{2}\frac{P_{X,Y}(x, y)}{P_X(x)P_Y(y)}
-\end{aligned}
-$
+<img src="https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24">
 
 This is called the __*mutual information*__ between $Y$ and $X$. It can be percieved from the equation that mutual information is symmetric.
 
-> $ I(Y;X)=I(X;Y)$
+![symmetry](https://render.githubusercontent.com/render/math?math=I(Y%3BX)%3DI(X%3BY))
 
-if $Y=X$, then:
+if ![equal values](https://render.githubusercontent.com/render/math?math=Y=X), then:
 
-> $I(X;X) = H(X)-H(X|X)=H(X)$
+![no drop](https://render.githubusercontent.com/render/math?math=I(X%3bX)=H(X)-H(X|X)=H(X))
 
-and if $Y$ and $X$ are independent:
+and if ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X) are independent:
 
-> $P_{X, Y}(x, y) = P_X(x)P_Y(y) \\ I(Y;X)=-\sum_{x, y}P(x, y)\log_{2}1=0$
+<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26I(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D">
 
-which means that there's no reduction in label $Y$ entropy by choosing the attribute $X$.
+which means that there's no reduction in label ![attribute](https://render.githubusercontent.com/render/math?math=Y) entropy by choosing the attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
 When mutual learning is applied to a decision tree, it is also called __*information gain*__, since the amount of reduction in the label's entropy shows how much new information has been gained by the attribute. e.g., we previously saw that an attribute indepentant from the label won't reduce the entropy, meaning it doesn't give the label any new information.
 
