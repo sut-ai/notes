@@ -46,7 +46,9 @@ We will focus on classification trees in this lecture.
 
 __Example:__
 
-![decision tree figure](./pictures/decision_tree_diagram.png)
+<span align='center'>
+<img src="./pictures/decision_tree_diagram.png" />
+</span>
 
 The above figure is an example of a decision tree. on every node, we move to the right edge in case of a true condition. suppose we want to perform a cardial checkup for some patients with the data presented to us in the table below:
 
@@ -176,7 +178,9 @@ This case argues that since zero information gain from attributes indicates thei
 
 ![attribute](https://render.githubusercontent.com/render/math?math=y)'s value can be indicated as `a XOR b`. If we calculate the information gain of the two attributes, we see that the value is zero for both of them. If we consider the third case in our algorithm, It would stop right at the first level without a decent output, while we could achieve the tree below:
 
-![xor example](./pictures/xor_decision_tree.png)
+<span align='center'>
+<img src="./pictures/xor_decision_tree.png" />
+</span>
 
 ## Hypothesis Space
 
@@ -200,11 +204,15 @@ hill-climbing search without backtracking: converging to locally optimal solutio
 Overfitting is a phenomenon in which our learning system, the decision tree in this case, strongly fits our training sample. This might sound like a good think at first, but the stronger the system fits the training set, the less it is generalizable and in conclusion, it will not have a desirable result on other sets.
 The below picture is an example of overfitting. The black line shows a suitable classification with a small amount of error, and the green line is the production of overfitting, with zero amount of error.
 
-![overfitting](./pictures/overfitting_example.png)
+<span align='center'>
+<img src="./pictures/overfitting_example.png" />
+</span>
 
 Greedy algorithm doesn't necessarily output the simples tree. and a complex decision tree with too many nodes is likely to face overfitting.
 
-![decision tree accuracy](./pictures/decision_tree_accuracy.png)
+<span align='center'>
+<img src="./pictures/decision_tree_accuracy.png" />
+</span>
 
 ### Inductive Bias & Variance Balance
 
@@ -212,11 +220,15 @@ Inductive bias (or learning bias) is the set of all the assumptions a learning a
 
 Take the example below suppose that you're given this training dataset of some classified animals.
 
-![traning set](./pictures/bias_training_set.png)
+<span align='center'>
+<img src="./pictures/bias_training_set.png" />
+</span>
 
 Now, how would you classify the animals given in the test data below?
 
-![test dataset](./pictures/bias_test_data.png)
+<span align='center'>
+<img src="./pictures/bias_test_data.png" />
+</span>
 
 You might make your decision on the question that "do they fly or not?" or "are they feathered or not?".
 
@@ -234,13 +246,15 @@ Extending this to learning algorithms, shorter hypothses in a problem are usuall
 
 There are two main approaches in making a tree smaller and simpler:
 
-- Stop growing the tree before overfitting
+- Stop growing the tree before overfitting (pre-pruning)
   
-  For example we could bound the depth or the number of leaves in our tree. The problem that arrises in this case is to how to label a leaf when it contains impure data.
+  For example we could bound the depth or the number of leaves in our tree, or maybe the minimum number of samples produced from a leaf. this heuristic is also known as *early stopping*. Although a fast approach, pre-pruning can lead to underfittnes of data if the growth is stopped too early. This might happen in cases that a split seems to be of little benefit to the tree, while subsequent splits could've optimized it significantly. An example would be the base case 3, which as previously stated, isn't practicaly optimal.
 
-  Another example would be the base case 3, which as previously stated, isn't practicaly optimal
+- Prune after growing the full tree (post-pruning)
 
-- Prune after growing the full tree
+  Another alternative approach to pruning a decision tree, also known as backward pruing. In this method, certain nodes and branches and nodes will be removed from the tree, decreasing the size of the tree and increasing its accurasy on the data set.
+
+  Two of the most common strategies which are discussed here are __reduced error pruning__ and __chi-squared pruning__.
 
 #### Reduced Error Pruning
 
@@ -253,20 +267,22 @@ original over the validation set. This has the effect that any leaf node added d
 tree accuracy over the validation set. Pruning of nodes continues until further
 pruning is harmful.
 
-![test with prunin](./pictures/data_accuracy_with_pruning.jpg)
+<span align='center'>
+<img src="./pictures/data_accuracy_with_pruning.jpg" />
+</span>
 
 The impact of reduced-error pruning on the accuracy of the decision tree
 is illustrated in the figure above, the accuracy of the tree is shown
 measured over both training examples and test examples. The additional line in
 this figure shows accuracy over the test examples as the tree is pruned. When
-pruning begins, the tree is at its maximum size and lowest accuracy over the test set. As for pruning proceeds, the number of nodes is reduced and accuracy over the test set increases. Here, the available data has been split into three subsets: _the training examples_, _the validation examples_ used for pruning the tree, and a _set of test examples used to provide an unbiased estimate of accuracy over future unseen examples_. The plot shows accuracy over the training and lest sets. Accuracy over the validation set used for pruning is not shown.
+pruning begins, the tree is at its maximum size and lowest accuracy over the test set. As for pruning proceeds, the number of nodes is reduced and accuracy over the test set increases. Here, the available data has been split into three subsets: *the training examples*, *the validation examples* used for pruning the tree, and a *set of test examples used to provide an unbiased estimate of accuracy over future unseen examples*. The plot shows accuracy over the training and lest sets. Accuracy over the validation set used for pruning is not shown.
 
 Using a separate set of data to guide pruning is an effective approach provided a large amount of data is available. The major drawback of this approach
 is that when data is limited, withholding part of it for the validation set reduces even further the number of examples available for training.
 
 #### Chi-Squared Pruning
 
-The most popular tests for independence are based on the fact that some test statistics have approximately a chi-squared distribution with (I − 1)(J − 1) degrees of freedom if the null hypothesis is correct. The classic test statistic with this property is the chi-squared statistic.
+The most popular tests for independence are based on the fact that some test statistics have approximately a chi-squared distribution with ![attribute](https://render.githubusercontent.com/render/math?math=(I-1)(J-1)) degrees of freedom if the null hypothesis is correct. The classic test statistic with this property is the chi-squared statistic.
 
 ![chi-squared formula](https://render.githubusercontent.com/render/math?math={\chi}^2=\sum_{i}\sum_{j}\frac{(n_{ij}-e_{ij})^2}{e_{ij}})
 
@@ -291,7 +307,7 @@ The main points about decision trees include:
 
 - Decision tree learning provides a practical method for concept learning and
 for learning other discrete-valued functions. The ID3 family of algorithms
-infers decision trees by growing them from the root downward, greedily
+infer decision trees by growing them from the root downward, greedily
 selecting the next best attribute for each new decision branch added to the
 tree.
 
@@ -311,14 +327,14 @@ methods that employ a preference bias).
 
 ## References
 
-Soleymani, M. (2021) _Decision tree_ [PDF]. Sharif University of Technology
+Soleymani, M. (2021) *Decision tree* [PDF]. Sharif University of Technology
 
-Rohban, M. (2020) _Classification (decision tree)_ [PDF]. Sharif University of Technology
+Rohban, M. (2020) *Classification (decision tree)* [PDF]. Sharif University of Technology
 
-(2017, September 7), _Decision Trees for Classification: A Machine Learning Algorithm._ Xiorant. <https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves>.
+(2017, September 7), *Decision Trees for Classification: A Machine Learning Algorithm.* Xiorant. <https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves>.
 
-Gupta, P. (2017, May 17), _Decision Trees in Machine Learning._ Towards data science. <https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052>
+Gupta, P. (2017, May 17), *Decision Trees in Machine Learning.* Towards data science. <https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052>
 
-T, S. (2019, January 11), _Entropy: How Decision Trees Make Decisions._ Towards data science. <https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8>
+T, S. (2019, January 11), *Entropy: How Decision Trees Make Decisions.* Towards data science. <https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8>
 
-ِDuignan, B. (1998, July 1998), _Occam's razor._ Britannica. <https://www.britannica.com/topic/Occams-razor>
+ِDuignan, B. (1998, July 1998), *Occam's razor.* Britannica. <https://www.britannica.com/topic/Occams-razor>
