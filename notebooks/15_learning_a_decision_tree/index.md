@@ -1,4 +1,4 @@
-# Learning a decision trees (classification)
+# Learning a Decision Tree (Classification)
 
 ## Table of Content
 
