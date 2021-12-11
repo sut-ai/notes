@@ -108,7 +108,7 @@ Previously, we learned how to calculate the entropy of our target label ![attrib
 
 ![mutual information](https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24)
 
-This is called the __*mutual information*__ between ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=Y). It can be percieved from the equation that mutual information is symmetric.
+This is called the __*mutual information*__ between ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X). It can be percieved from the equation that mutual information is symmetric.
 
 ![symmetry](https://render.githubusercontent.com/render/math?math=I(Y%3BX)%3DI(X%3BY))
 
@@ -123,8 +123,6 @@ and if ![attribute](https://render.githubusercontent.com/render/math?math=Y) and
 which means that there's no reduction in label ![attribute](https://render.githubusercontent.com/render/math?math=Y) entropy by choosing the attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
 When mutual learning is applied to a decision tree, it is also called __*information gain*__, since the amount of reduction in the label's entropy shows how much new information has been gained by the attribute. e.g., we previously saw that an attribute indepentant from the label won't reduce the entropy, meaning it doesn't give the label any new information.
-
-__Example:__ Consider the problem of cardial disease patients.
 
 ## Learning Decision Tree
 
