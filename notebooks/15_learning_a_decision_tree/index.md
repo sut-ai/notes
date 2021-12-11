@@ -46,9 +46,9 @@ We will focus on classification trees in this lecture.
 
 __Example:__
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/decision_tree_diagram.png" />
-</span>
+</p>
 
 The above figure is an example of a decision tree. on every node, we move to the right edge in case of a true condition. suppose we want to perform a cardial checkup for some patients with the data presented to us in the table below:
 
@@ -72,7 +72,7 @@ Starting from the root of the tree, the value of the attribute "has chest pain" 
 |5   |no              |yes     |good                |39   |-              |
 |6   |yes             |yes     |bad                 |41   |+              |
 
-Some questions might arrise here on how was this decision tree constructed. How should we correctly choose the beginning node? What features and conditions should be used for splitting to get an optimal decision tree? when should we stop the process? Before going through the answer to these questions, there is a definition, Entropy, which we should understand first.
+Some questions might arrise here on how was this decision tree constructed. How should we correctly choose the beginning node? What features and conditions should be used for splitting to get an optimal decision tree? when should we stop the process? Constructing a decision tree with the lowest error rate is a greedy search problem. Our tree should split the data into homogeneous subsets by each plit as we go down. This purpose can be achieved using a concept called __Entropy__.
 
 ## Information Gain
 
@@ -178,9 +178,9 @@ This case argues that since zero information gain from attributes indicates thei
 
 ![attribute](https://render.githubusercontent.com/render/math?math=y)'s value can be indicated as `a XOR b`. If we calculate the information gain of the two attributes, we see that the value is zero for both of them. If we consider the third case in our algorithm, It would stop right at the first level without a decent output, while we could achieve the tree below:
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/xor_decision_tree.png" />
-</span>
+</p>
 
 ## Hypothesis Space
 
@@ -204,15 +204,15 @@ hill-climbing search without backtracking: converging to locally optimal solutio
 Overfitting is a phenomenon in which our learning system, the decision tree in this case, strongly fits our training sample. This might sound like a good think at first, but the stronger the system fits the training set, the less it is generalizable and in conclusion, it will not have a desirable result on other sets.
 The below picture is an example of overfitting. The black line shows a suitable classification with a small amount of error, and the green line is the production of overfitting, with zero amount of error.
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/overfitting_example.png" />
-</span>
+</p>
 
 Greedy algorithm doesn't necessarily output the simples tree. and a complex decision tree with too many nodes is likely to face overfitting.
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/decision_tree_accuracy.png" />
-</span>
+</p>
 
 ### Inductive Bias & Variance Balance
 
@@ -220,15 +220,15 @@ Inductive bias (or learning bias) is the set of all the assumptions a learning a
 
 Take the example below suppose that you're given this training dataset of some classified animals.
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/bias_training_set.png" />
-</span>
+</p>
 
 Now, how would you classify the animals given in the test data below?
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/bias_test_data.png" />
-</span>
+</p>
 
 You might make your decision on the question that "do they fly or not?" or "are they feathered or not?".
 
@@ -267,9 +267,9 @@ original over the validation set. This has the effect that any leaf node added d
 tree accuracy over the validation set. Pruning of nodes continues until further
 pruning is harmful.
 
-<span align='center'>
+<p align='center'>
 <img src="./pictures/data_accuracy_with_pruning.jpg" />
-</span>
+</p>
 
 The impact of reduced-error pruning on the accuracy of the decision tree
 is illustrated in the figure above, the accuracy of the tree is shown
