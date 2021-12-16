@@ -30,6 +30,8 @@ Table of Contents
 - [Rejection Sampling](#rejection-sampling)
 - [Likelihood Weighting](#likelihood-weighting)
 - [Gibbs Sampling](#gibbs-sampling)
+- [Conclusion](#conclusion)
+- [References and Further Reading](#references-and-further-reading)
 
 # Introduction
 
@@ -40,9 +42,9 @@ and approximate the posterior probability. There are
 several approximation methods for this problem, of
 which we will discuss the ones based on randomized
 sampling. The rest of the note is layed out as follows:
-- We give intuition about the basic idea behind sampling.
+- We give intuition about the basic idea behind sampling, and why it is an attractive solution concept.
 - We describe the building block of every sampling algorithm, namely, sampling from a given distribution.
-- We explain four standard methods of sampling in Bayes' Nets.
+- We explain four standard methods of sampling in Bayes' Nets, stating their pros and cons.
 
 
 # Basic Idea
@@ -116,7 +118,7 @@ $$
 
 hence, the sampling procedure is consistent with the joint distribution.
 
-It is apparent that this algorithm is faster than its exact counter-parts. Since we have the joint distribution, we can calculate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
+It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
 
 # Rejection Sampling
 
@@ -125,11 +127,50 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 # Likelihood Weighting
 
 # Gibbs Sampling
-The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is special case of the Metropolis-Hastings algorithm.
+The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm.
 
 Suppose we want to draw a sample $X = (x_1, ..., x_n)$ from the distribution $Pr(X_{Query} | X_{Evidence} = Observations)$, where $X_{Query}$ and $X_{Evidence}$ are the query and evidence variables, respectively. The algorithm operates as follows:
 
-- Start from an arbitrary sample $X^{(1)} = (x_1^{(1)}, ..., x_n^{(1)})$, satisfying the $X_{Evidence} = Observations$ equality.
-- Assume the last sample generated was $X^{(t)}$. We want to calculate the next sample, namely, $X^{(t+1)}$. Sample one **non-evidence variable** $x_i^{(t+1)}$ at a time, conditioned on all the others being $x_j^{(t+1)} = x_j^{(t)}$. In other words, we sample $x_i^{(t+1)}$ from $Pr(x_i | x_1^{(t)}, ..., x_{i-1}^{(t)}, x_{i+1}^{(t)}, ..., x_n^{(t)})$.
+1. Start from an arbitrary sample $X^{(1)} = (x_1^{(1)}, ..., x_n^{(1)})$, satisfying the $X_{Evidence} = Observations$ equality.
+2. Assume that the last sample generated in out sample chain was $X^{(t)}$. We want to calculate the next sample, namely, $X^{(t+1)}$. Sample one **non-evidence variable** $x_i^{(t+1)}$ at a time, conditioned on all the others being $x_j^{(t+1)} = x_j^{(t)}$. In other words, we sample $x_i^{(t+1)}$ from $Pr(x_i | x_1^{(t)}, ..., x_{i-1}^{(t)}, x_{i+1}^{(t)}, ..., x_n^{(t)})$.
 
-It can be shown that as $t$ becomes larger, $X^{(t)}$ approximates the distribution of $Pr(X_{Query} | X_{Evidence} = Observations)$. 
+The main idea of Gibbs sampling is the second step of the algorithm. It turns out that the specified probability can be calculated easily, since we have
+
+$$
+Pr(x_i | x_1^{(t)}, ..., x_{i-1}^{(t)}, x_{i+1}^{(t)}, ..., x_n^{(t)})
+$$
+
+$$
+ = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{j \neq i}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x Pr(x_1^{(t)}, ..., x_{i-1}^{(t)}, x, x_{i+1}^{(t)}, ..., x_n^{(t)})}  
+$$
+
+$$
+ = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{j \neq i}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x [Pr(x_i=x|parents(x_i^{(t)})) \times \prod_{j \neq i}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))]} 
+$$
+
+$$
+ = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{x_j \in children(x_i)}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x [Pr(x_i=x|parents(x_i^{(t)})) \times \prod_{x_j \in children(x_i)}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))]}. 
+$$
+
+Here, $parents'$ represents the values of the parents of the variables in $X^{(t)}$, replacing $x_i^{(t)}$ with the current relevant value of $x_i$. For example, this relevant value in the numerator is $x_i$ itself, while the value in denominator is the $x$ in the summation. As it is shown in the equation, the clauses corresponding to CPTs not including $x_i$ all cancel out.
+
+This cancellation will only leave the CPTs mentioning $x_i$, namely, the CPT of $x_i$ itself and the CPTs of its children. These CPTs are often referred to as the **Markov blanket** of $x_i$.
+
+Since the denominator is only a normalization factor, we can simply calculate the numerator by using a join operation on the Markov blanket of $x_i$! Note that the CPTs of the children of $x_i$ are all fully conditioned except for $x_i$, which we are calculating the distribution for. This means that the size of the pruned CPTs are small. (equal to $|D_i|$) As was shown in the equations, to calculate the probabilities, we only need to multiply the corresponding entries. This means that the join process of the CPTs won't introduce a large CPT and can be done efficiently. For an example of this process, refer to [the 67th slide here](http://ce.sharif.edu/courses/99-00/1/ce417-2/resources/root/Slides/PDF/Session%2013_14.pdf).
+
+It can be shown that as $t$ approaches infinity, $X^{(t)}$ approximates the distribution of $Pr(X_{Query} | X_{Evidence} = Observations)$. The proof is based on the fact that Gibbs sampling is actually simulating a Markov chain, therefore coverging to the steady state of the chain. However, it must be proven that the steady state probability distribution of this Markov chain is actually the same as the probability distribution $Pr(X_{Query} | X_{Evidence} = Observations)$. For a detailed proof, please refer to [this lecture note](https://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/MIT14_384F13_lec26.pdf).
+
+This updating procedure takes into account both upstream and downstream evidences in the Bayes' net, since each update conditions on every variable. This property fixes the problem of Likelihood Weighting, i.e., only conditioning on upstream variables. Thus, Gibbs sampling has better sampling efficiency (sum of the weights of the samples is larger, therefore generating more effective samples), creating more useful data to be used in approximation.
+
+In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent the desired distribution. Furthermore, they may not be independent of the other samples $X'$ generated with the Gibbs method, because of the arbitrary choice of $X^{(1)}$. This begining of the chain is referred to as the **burn-in period**, and the samples generated here are generally not used as the desired $X$. So, $X$ is usually selected from the $X^{(t)}$ outside this period. However, this creates a time overhead, since the burn-in period could be somewhat large.
+
+In a more general sense, Gibbs Sampling and Metropolis-Hastings are classified as *Markov Chain Monte Carlo* algorithms. Monte Carlo algorithms are basically the same as sampling. For more information, please refer to this [lecture note](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf).
+
+# Conclusion
+In this lecture note, we studied (randomized) approximation algorithms for inference in Bayes' nets. The main idea behind these methods was sampling, which enables fast approximation of event distributions. After describing the building block of sampling algorithms, four prominent methods of this type were studied, namely, Prior sampling, Rejection sampling, Likelihood Weighting and Gibbs sampling. The pros and cons of these methods were discussed, giving a somewhat complete picture as to what method performs the best in certain situations.
+
+# References and Further Reading
+- Artificial Intelligence, Sharif University of Technology, CE417-1, By Dr. Rohban. (Specifically, this [lecture note](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf))
+- Artificial Intelligence: A Mordern Approach (3rd Ed.), By Stuart Russel & Peter Norvig.
+- Time Series Analysis, Massachusetts Institute of Technology, By Prof. Mikusheva. (Specifically, this [lecture note on Gibbs Sampling](https://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/MIT14_384F13_lec26.pdf))
+- Statistics, University of Minnesota, 8931m By Prof. Geyer. (Specifically, this [lecture note on MCMCs](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf))
