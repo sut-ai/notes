@@ -30,8 +30,6 @@ Table of Contents
 - [Rejection Sampling](#rejection-sampling)
 - [Likelihood Weighting](#likelihood-weighting)
 - [Gibbs Sampling](#gibbs-sampling)
-- [Conclusion](#conclusion)
-- [References and Further Reading](#references-and-further-reading)
 
 # Introduction
 
@@ -42,9 +40,9 @@ and approximate the posterior probability. There are
 several approximation methods for this problem, of
 which we will discuss the ones based on randomized
 sampling. The rest of the note is layed out as follows:
-- We give intuition about the basic idea behind sampling, and why it is an attractive solution concept.
+- We give intuition about the basic idea behind sampling.
 - We describe the building block of every sampling algorithm, namely, sampling from a given distribution.
-- We explain four standard methods of sampling in Bayes' Nets, stating their pros and cons.
+- We explain four standard methods of sampling in Bayes' Nets.
 
 
 # Basic Idea
@@ -118,13 +116,72 @@ $$
 
 hence, the sampling procedure is consistent with the joint distribution.
 
-It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
+It is apparent that this algorithm is faster than its exact counter-parts. Since we have the joint distribution, we can calculate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
 
 # Rejection Sampling
 
+One minor problem with Prior Sampling is that we keep samples which are not consistent with evidence and since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
+A simple idea is to reject incosistent samples whilst samling, to achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
 
+Consider the following process:
+
+1.&nbsp; For i = 1 to n
+
+2.&emsp;&emsp; Sample $x_i$ from $Pr(x_i | parents(x_i))$
+
+3.&emsp;&emsp; if $x_i$ not consistent with evidence:
+
+4.&emsp;&emsp;&emsp;return (no sample is generated in this cycle)
+
+5.&nbsp; Return $(x_1,...,x_n)$
+
+It is also consistent for conditional probabilities.
 
 # Likelihood Weighting
+
+If we look closer to the problem with Prior Sampling, which lead us to Rejection Sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating sampling process many times to achieve the desired sample size. This problem brings us to Likelihood Weighting. The idea is to fix the evidence variables and sample the rest, But it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
+
+As previous method, we start with topological sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (if not evidence) and for evidence variables, we just assign evidence value to it and multiply weight by $P(x_i|parents(x_i))$. At the end, we need to calculate sum of weight of consistent samples with query divided by sum of weight of all samples to calculate $P(Query|Evidence)$.
+
+1.&nbsp; w = 1.0
+
+2.&nbsp; For i = 1 to n
+
+3.&emsp;&emsp; if $X_i$ is an evidence variable
+
+4.&emsp;&emsp;&emsp;$X_i$ = observation $x_i$ for $X_i$
+
+5.&emsp;&emsp;&emsp;Set w = w * $P(x_i|parents(x_i))$
+
+6.&emsp;&emsp; else
+
+7.&emsp;&emsp; Sample $x_i$ from $Pr(x_i | parents(x_i))$
+
+8.&nbsp; Return $(x_1,...,x_n)$, w
+
+To prove consistency:
+
+For each Sample with Query $Q_1, ..., Q_n$ and evidence $E_1, ..., E_n$ we have:
+
+This process generates a sample $X=(q_1,...,q_n,e_1,...,e_n)$ with the following probability:
+$$
+S_{WS}(q_1,...,q_n,e_1,...,e_n) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i))
+$$
+
+And the weight for each sample is:
+
+$$
+w(q_1,...,q_n,e_1,...,e_n) = \prod_{i=1}^{n}Pr(e_i|parents(E_i))
+$$
+
+Together, weighted sampling distribution is consistent:
+
+$$
+S_{WS}(q_1,...,q_n,e_1,...,e_n) * w(q_1,...,q_n,e_1,...,e_n) 
+$$
+$$
+=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{n}Pr(q_i|parents(Q_i)) = P(q_1,...,q_n,e_1,...,e_n)
+$$
 
 # Gibbs Sampling
 The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm.
