@@ -151,7 +151,7 @@ As previous method, we start with topological sorted nodes, and a weight variabl
 
 4.&emsp;&emsp;&emsp;$X_i$ = observation $x_i$ for $X_i$
 
-5.&emsp;&emsp;&emsp;Set w = w * $P(x_i|parents(x_i))$
+5.&emsp;&emsp;&emsp;Set w = w * $Pr(x_i|parents(x_i))$
 
 6.&emsp;&emsp; else
 
@@ -180,7 +180,7 @@ $$
 S_{WS}(q_1,...,q_n,e_1,...,e_n) * w(q_1,...,q_n,e_1,...,e_n) 
 $$
 $$
-=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{n}Pr(q_i|parents(Q_i)) = P(q_1,...,q_n,e_1,...,e_n)
+=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{n}Pr(q_i|parents(Q_i)) = Pr(q_1,...,q_n,e_1,...,e_n)
 $$
 
 # Gibbs Sampling
