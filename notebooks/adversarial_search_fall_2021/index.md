@@ -134,17 +134,17 @@ To gather more information about the concept of adversarial search, visit <a hre
 Briefly, Game Theory is designing the strategies and the steps of our player to interact in the best way, according to the rival's steps and strategies. In other words, Game theory is the study of mathematical models of strategic interactions among rational decision-makers.
 To achieve this goal, we need to express our game and its rules and actions in a mathematical form. The common model used to represent games is the model below:
 
-1. States of the game: $S_i$, starting with $S_0$\
+1. States of the game: <img src="https://render.githubusercontent.com/render/math?math=S_i">, starting with <img src="https://render.githubusercontent.com/render/math?math=S_0">\
     Which means how the game will look after each action of competitors.
     <br>
 <br>
 
-2. Players: $P = ${$1,2,...,n$}\
+2. Players: <img src="https://render.githubusercontent.com/render/math?math=P = {1,2,...,n}">
     represents the agents playing the game where the index varies from 1 to n.
     <br>
 <br>
 
-3. Actions: $A_i$\
+3. Actions: <img src="https://render.githubusercontent.com/render/math?math=A_i">\
     In every state, each player has a set of legitimate moves to change that state to another state by playing its turn.
     <br>
 <br>
@@ -284,7 +284,7 @@ Yes, It is optimal if the opponent acts optimally not naivly. otherwise, we will
 </font>
 <br>
 
-$O(b^m)$, as it's obvious, it's dependant on the branching factor and the level the tree goes down. So on a game like chess with $b$ = $35$ and $m$ = $100$, we can't use this strategy because the time complexity will be huge.
+<img src="https://render.githubusercontent.com/render/math?math=O(b^m)">, as it's obvious, it's dependant on the branching factor and the level the tree goes down. So on a game like chess with <img src="https://render.githubusercontent.com/render/math?math=b = 35"> and<img src="https://render.githubusercontent.com/render/math?math=m = 100">, we can't use this strategy because the time complexity will be huge.
 <br>
 
 <font size = 2 color=#green>
@@ -292,7 +292,7 @@ $O(b^m)$, as it's obvious, it's dependant on the branching factor and the level 
 </font>
 <br>
 
-$O(bm)$, because it's like DFS and only stores the nodes on the current path.
+<img src="https://render.githubusercontent.com/render/math?math=O(b^m)">, because it's like DFS and only stores the nodes on the current path.
 
 
 
@@ -302,7 +302,7 @@ $O(bm)$, because it's like DFS and only stores the nodes on the current path.
 <br>
 Although the minimax algorithm would be proper for problems with relatively small state space, it isn't an efficient and feasible one for problems with more complicated and larger state space. Since the number of game states it has to examine, is exponential in relation to the depth of the tree.
 
-Consider a _reasonable_ chess game with $b \approx 35$ and $m \approx 100$ . Due to the time complexity of this algorithm which is $O(b^m)$, solving the game is not possible at all. We'll discuss some ideas to solve the problem in details below.
+Consider a _reasonable_ chess game with <img src="https://render.githubusercontent.com/render/math?math=b \approx 35"> and <img src="https://render.githubusercontent.com/render/math?math=m \approx 100"> . Due to the time complexity of this algorithm which is <img src="https://render.githubusercontent.com/render/math?math=O(b^m)">, solving the game is not possible at all. We'll discuss some ideas to solve the problem in details below.
 
 <font size = 3 color=#FF7500>
   
@@ -314,7 +314,7 @@ One idea might be running the algorithm up to a specified depth instead of searc
 ![depth-limited](./images/depth-limited.jpg)
 
 But using this technique is not much satisfying because it leads to another issue: _How can we find the minimax value while there is no solution at a limited depth?_
-Recall how we find the minimax value of each node in the original form. We continue searching until we reach a final state and then use recursion to calculate the parents' values. But in the _limited_ format, there are no goal states at depth $k < m$.
+Recall how we find the minimax value of each node in the original form. We continue searching until we reach a final state and then use recursion to calculate the parents' values. But in the _limited_ format, there are no goal states at depth <img src="https://render.githubusercontent.com/render/math?math=k < m">.
 
 Now to deal with this issue, we'll introduce _*Evaluation function*_.
 
@@ -331,9 +331,9 @@ Obviously, defining an appropriate and precise evaluation function is strongly e
 
 Most evaluation functions calculate the value of the position by using a _weighted sum of features_:
 
-$Eval(s) = w_1f_1(s) + w_2f_2(s) + ... + w_nf_n(s)$
+<img src="https://render.githubusercontent.com/render/math?math=Eval(s) = w_1f_1(s) + w_2f_2(s) + ... + w_nf_n(s)">
 
-Each of the $f_i s$  is calculating a specific _feature_ of the state _s_.For instance, in chess, we would have features for the number of white pawns, black pawns, white queens, black queens, and etc. To differentiate the effect of each feature better, we multiply them by _weights_.
+Each of the <img src="https://render.githubusercontent.com/render/math?math=f_i s">  is calculating a specific _feature_ of the state _s_.For instance, in chess, we would have features for the number of white pawns, black pawns, white queens, black queens, and etc. To differentiate the effect of each feature better, we multiply them by _weights_.
 
 Ideally, evaluation function returns exactly the minimax value of the current state.
 
@@ -346,7 +346,7 @@ Ideally, evaluation function returns exactly the minimax value of the current st
 The accuracy of the evaluation function is critical in shallower states. And the deeper in the tree we search, the less the quality of the evaluation function matters.
 So a good idea is to maximize the depth of our search as much as possible, considering the limits that we have. In other words, we are looking for an algorithm that can return an acceptable solution whenever we ask. This kind of algorithms are called _anytime algorithms_. These algorithms are expected to find better and better solutions the longer they keep running.
 
-So simply instead of running the depth-limited-search once, we start running the algorithm with an initial depth limit ($k$). Then after we found s policy, increase the depth limit ($k' > k$) and run the algorithm again with this new limit to find a better and more accurate solution. We continue the iteration until the program reaches the time limit.
+So simply instead of running the depth-limited-search once, we start running the algorithm with an initial depth limit (k). Then after we found s policy, increase the depth limit (k' > k) and run the algorithm again with this new limit to find a better and more accurate solution. We continue the iteration until the program reaches the time limit.
 This algorithm is called _iterative-deepening search_.
 
 
@@ -402,7 +402,7 @@ Now, let's ask ourselves: _Is it necessary that we explore the rightmost node?_.
     <img src="./images/5.png" alt="prunning5" width="50%" height="50%"/>
 </div>
 
-This idea helps us finding a general and systematic algorithm to predict the _bad branches_ and stop exploring them, which is called $\alpha-\beta $ _pruning_.
+This idea helps us finding a general and systematic algorithm to predict the _bad branches_ and stop exploring them, which is called <img src="https://render.githubusercontent.com/render/math?math=\alpha-\beta"> _pruning_.
 
 <font size = 3 color=#FF7500>
 
@@ -415,16 +415,16 @@ As we are trying to improve our algorithm even more, there is another approach t
 
 The approach we are trying to explain here as you can see in the title is called Alpha-Beta Pruning.
 
-The main idea here is that if a node (e.g. $m$) has a better choice than another node (e.g. $n$) or its parents, then that another node ($n$) will never be wanted to expanded. So we can prune it and never check its successor nodes.
+The main idea here is that if a node (e.g. m) has a better choice than another node (e.g. n) or its parents, then that another node (n) will never be wanted to expanded. So we can prune it and never check its successor nodes.
 
 ![depth-limited](./images/Alpha_Beta_Intro.png)</br>
-*As $m$ can give the root node a higher value, $n$ will be pruned.* 
+*As m can give the root node a higher value, n will be pruned.* 
 
 
 We do this by keeping track of two parameters:
 
-+  $\alpha$: The value of best choice (i.e. highest value) we have found so far for a Maximizing Node (i.e. our player).
-+  $\beta$: The value of best choice  (i.e. lowest value) we have found so far for a Minimizing Node (i.e opponent player).
++  <img src="https://render.githubusercontent.com/render/math?math=\alpha">: The value of best choice (i.e. highest value) we have found so far for a Maximizing Node (i.e. our player).
++  <img src="https://render.githubusercontent.com/render/math?math=\beta">: The value of best choice  (i.e. lowest value) we have found so far for a Minimizing Node (i.e opponent player).
 
 ### Sample Code:
 
@@ -458,7 +458,7 @@ def alpha_beta_pruning(position, depth, alpha, beta, maximizing_player):
 ```     
 
 
-So to initialize this function, first we need to give alpha the worst value for our player, which is $-inf$, and give beta the worst value for the opponent, which is $+inf$.
+So to initialize this function, first we need to give alpha the worst value for our player, which is <img src="https://render.githubusercontent.com/render/math?math=-inf">, and give beta the worst value for the opponent, which is <img src="https://render.githubusercontent.com/render/math?math=+inf">.
 
 ```python
     #initialization
@@ -502,7 +502,7 @@ Let's look at this with a example from the epic, legendary game, Snakes And Ladd
     <em>This games is played by two or more players. Each can throw a dice at its turn and should move as many as the dice number.</em></br>
 </p>
 
-So in this game, there is an element of chance. if the opponent rolls the dice on 1, it can move one square, if it rolls the dice on 2, it can move two squares, and so on. So the main point here is that the action the opponent can make depends on a random number from dice which its probability is $1/6$ at a time.
+So in this game, there is an element of chance. if the opponent rolls the dice on 1, it can move one square, if it rolls the dice on 2, it can move two squares, and so on. So the main point here is that the action the opponent can make depends on a random number from dice which its probability is <img src="https://render.githubusercontent.com/render/math?math=1/6"> at a time.
 
 So the new game tree will be something like this:
 
@@ -524,7 +524,7 @@ Terminal nodes and MAX and MIN nodes (for which the dice roll is known) work exa
 For every chance node, the value is calculated from the expected value of its childer. 
 For example the value of every chance node in Snake ladder will be:
 
-$1/6 * 1 + 1/6 * 2 + 1/6 * 3 + 1/6 * 4 + 1/6 * 5 + 1/6 * 6$
+<img src="https://render.githubusercontent.com/render/math?math=1/6 * 1 + 1/6 * 2 + 1/6 * 3 + 1/6 * 4 + 1/6 * 5 + 1/6 * 6">
 
 So the general formula for values will be as follows:
 
@@ -533,7 +533,7 @@ So the general formula for values will be as follows:
 | UTILITY(s) | s = terminal node |
 |max EXPECTIMAX(Eval(s, a)) | PLAYER(s) = MAX|
 |min EXPECTIMAX(Eval(s, a)) | PLAYER(s) = MIN|
-| $\sum_{r}$ P(r)EXPECTIMAX(RESULT(s,r)) | PLAYER(s)= CHANCE|
+| <img src="https://render.githubusercontent.com/render/math?math=\sum_{r}"> P(r)EXPECTIMAX(RESULT(s,r)) | PLAYER(s)= CHANCE|
 
 ## <font size = 5 color=red>
 ## Other types of games 
@@ -543,11 +543,11 @@ On top of what's been discussed before, we can count another type of game called
 
 To do some calculations about the depth of the game tree, we can state:
 
-$b$ = $21$ because 21 dintinct states are created as an outcome of rolling 2 dices.
+b = 1 because 21 dintinct states are created as an outcome of rolling 2 dices.
 
-$legal moves \approx 20$ 
+<img src="https://render.githubusercontent.com/render/math?math=legal moves \approx 20">
 
-So if we want to build the tree till the depth of 2, we will have $20 * (21 * 20) ^ 3$ leaves and termainal states. As we go deeper in tree, this number increases.
+So if we want to build the tree till the depth of 2, we will have <img src="https://render.githubusercontent.com/render/math?math=20 * (21 * 20) ^ 3"> leaves and termainal states. As we go deeper in tree, this number increases.
 
 As the deepness increases, the probability to reach a goal state gets smaller and limiting the depth gets less damaging. So the usefulness of search will be threatened and pruning becomes trickier. 
 
