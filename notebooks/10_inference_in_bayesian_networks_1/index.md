@@ -13,6 +13,8 @@
     - [Algorithm Steps](#algorithm-steps-1)
     - [Algorithm Pseudocode](#algorithm-pseudocode-1)
     - [Algorithm Time Complexity](#algorithm-time-complexity-1)
+    - [Ordering Polytree Variables for VE](#ordering-polytree-variables-for-ve)
+    - [Cut-set Conditioning](#cut-set-conditioning)
     - [Algorithm Example](#algorithm-example-1)
 - [Conclusions](#conclusions)
 - [References](#references)
