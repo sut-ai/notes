@@ -20,7 +20,7 @@
 - [Conclusions](#conclusions)
 - [References](#references)
 
-<div align="center"><img src="./assets/intro.png" /></div>
+<div style="margin: auto; width: 50%;"><img src="./assets/intro.png" /></div>
 
 ## Introduction
 
@@ -173,7 +173,7 @@ Know if we eliminate variables with this order, we would never get a factor larg
 
 We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree. You can see an example of this below.
 
-<div align="center"><img src="./assets/conditioning-example.png" /></div>
+<div style="margin: auto; width: 70%;"><img src="./assets/conditioning-example.png" /></div>
 
 ### Algorithm Example
 
