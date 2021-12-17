@@ -108,6 +108,9 @@ Join is used to combine two factors. For example, if we have two factors $F_1$ a
 
 Elimate is used to eliminate a variable from a factor. For example, if we have a factor $F$ and we want to eliminate $X$ from $F$, we can group rows by non-$X$ values and sum probabilities. This is exactly marginalization.
 
+> - Join is exactly like SQL join.
+> - Eliminate is like a group by and SUM aggregation function in SQL.
+
 ### Algorithm Explanation
 
 This algorithm, like previous one, takes a variable X and returns a distribution over X, given some evidence e. First it initializes the list of factors; prior to any simplification, this is just the conditional probability tables for each variable given the evidence e. Then, it joins each factors with it. The summing-out process takes all the factors that depend on a given variable and replaces them with a single new factor that does not depend on that variable (by summing over all possible values of the variable). By the end of the loop, all the variables have been summed out except the query variable X, so then we can just multiply the factors together and normalize to get the distribution.
@@ -145,9 +148,23 @@ def elimination_ask(X, e, bn):
 
 ### Algorithm Time Complexity
 
-In worst case, this algorithm has exponential complexity too. But variable elimination ordering can greatly affect efficiency.
+The computational and space complexity of variable elimination is determined by the largest factor. In worst case, this algorithm has exponential complexity like the enumeration algorithm. But variable elimination ordering can greatly affect the largest factor. There is no general oredering that provides only small factors.
 
 ### Ordering Polytree Variables for VE
+
+Polytree is a directed graph which has no undirected cycles. In this special kind of graph we can introduce an algorithm for ordering nodes in order to achieve small factors, and efficiently compute the joint distribution of the variables. 
+
+1. Drop edge directions
+2. Pick an arbitrary node as the root
+3. Do depth first search from the root
+4. Sort the resulting nodes in topological order
+5. Reverse the order
+
+Know if we eliminate variables with this order, we would never get a factor larger than the original factors. This makes the VE algorithm linear time complexity.
+
+### Cut-set Conditioning
+
+We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree.
 
 ### Algorithm Example
 
@@ -158,6 +175,8 @@ In worst case, this algorithm has exponential complexity too. But variable elimi
 We reviewed two major exact inference algorithms, the enumeration algorithm and the variable elimination algorithm. The enumeration algorithm is a simple algorithm that is easy to understand and implement, but it is not very efficient. On the other hand, the variable elimination algorithm is a more complex algorithm that is more efficient, but it is also harder to understand and implement. For both introduced algorithms, the worst-case time complexity is exponential. So in practice, using sampling is usually a better choice, which you will learn more about in the next lecture.
 
 ## References
+
 - [Visualizing Inference in Bayesian Networks](http://www.kbs.twi.tudelft.nl/Publications/MSc/2006-JRKoiter-Msc.html)
 - [Exact Inference in Bayes Nets](http://courses.csail.mit.edu/6.034s/handouts/spring12/bayesnets-pseudocode.pdf)
 - [Variable Elimination](https://ermongroup.github.io/cs228-notes/inference/ve/)
+- [Bayesian Networks - Inference (Part II)](https://ccc.inaoep.mx/~esucar/Clases-mgp/Notes/c7-bninf-p2.pdf)
