@@ -42,7 +42,7 @@ So far, we have learned how to deal with probabilistic reasoning in static world
 Let' start with an example of a static problem:
 >Imagine that your car has broken down. You may guess that the problem is related to the engine, batteries, or other car parts. You may take the vehicle to a car repair shop to diagnose the problem and fix it. You know that during the diagnosis process, the broken part remains broken, so the state of the car doesn't change.
 <center>
-<img src="resources/sFAP5bQ.jpg" alt="car repair" width="350"/>
+<img src="resources/sFAP5bQ.jpeg" alt="car repair" width="350"/>
 </center>
 
 
@@ -51,7 +51,7 @@ But our problems aren't always static. Consider the below example:
 
 
 <center>
-<img src="resources/wvnlp2L.jpg" alt="diabetes" width="350"/>
+<img src="resources/wvnlp2L.jpeg" alt="diabetes" width="350"/>
 </center>
 
 
@@ -269,7 +269,7 @@ Now, we get the time involved in our problem. Suppose that if today is sunny, to
 
 Consider the figure below to get a better understanding of the problem discussed above:
 <center>
-<img src="resources/YOld6zJ.jpg" alt="Bayes Net of Markov Model" width=600/>
+<img src="resources/YOld6zJ.jpeg" alt="Bayes Net of Markov Model" width=600/>
 </center>
 
 Now, we formulate the problem formally:
@@ -367,7 +367,7 @@ Hidden Markov Models (HMM) are applied to interoceptive data acquired by a movin
 In Robot tracking HMMs, observations are sensors' continuous perceptions and corresponding states are positions in the map.
 
 <center>
-<img src="https://kapernikov.com/wp-content/uploads/2019/09/kapernikov_robot_localization_tutorial_illustration_v3-02-3000x1351.jpg" alt="machine translation" width=400/>
+<img src="https://kapernikov.com/wp-content/uploads/2019/09/kapernikov_robot_localization_tutorial_illustration_v3-02-3000x1351.jpeg" alt="machine translation" width=400/>
 </center> 
 
 ## Conclusion
