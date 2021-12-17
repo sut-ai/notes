@@ -1,5 +1,7 @@
+# Adversarial Search
 
-# Table of Contents
+
+## Table of Contents
 
 ---
 
@@ -125,7 +127,8 @@
 </font>
 
 In previous lectures, we discussed situations in which we had only a single agent. We didn't consider other parameters affecting our environment but in this chapter, a new type of search called **Adversarial Search** is introduced. In adversarial search, we define our problem in a multi-agent context. For instance, while playing a game, our agent has to consider the other agent's moves (adversarial moves) to play in an efficient way. Even in some games we can define a winning stategy which means we can guarantee that in every state of our game, no matter how bad it is, our agent is able to win the game.
-To gather more information about the concept of adversarial search, visit <a href="https://www.techslang.com/definition/what-is-adversarial-search/">this link</a>.
+To gather more 
+ormation about the concept of adversarial search, visit <a href="https://www.techslang.com/definition/what-is-adversarial-search/">this link</a>.
 
 ### <font size = 3 color=#FF7500>
 ### Game Theory Explanation and Deterministic Games
@@ -458,7 +461,7 @@ def alpha_beta_pruning(position, depth, alpha, beta, maximizing_player):
 ```     
 
 
-So to initialize this function, first we need to give alpha the worst value for our player, which is <img src="https://render.githubusercontent.com/render/math?math=-inf">, and give beta the worst value for the opponent, which is <img src="https://render.githubusercontent.com/render/math?math=+inf">.
+So to initialize this function, first we need to give alpha the worst value for our player, which is <img src="https://render.githubusercontent.com/render/math?math=-inf">, and give beta the worst value for the opponent, which is +inf.
 
 ```python
     #initialization
