@@ -1,5 +1,5 @@
 ﻿
-<font size="10">Search in Continuous Space</font> 
+# **<font size="20">Search in Continuous Space</font>**
 #
 # **Table of Contents**
 - [Introduction](#introduction)
