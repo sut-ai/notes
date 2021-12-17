@@ -42,7 +42,11 @@ So far, we have learned how to deal with probabilistic reasoning in static world
 Let' start with an example of a static problem:
 >Imagine that your car has broken down. You may guess that the problem is related to the engine, batteries, or other car parts. You may take the vehicle to a car repair shop to diagnose the problem and fix it. You know that during the diagnosis process, the broken part remains broken, so the state of the car doesn't change.
 <center>
+<<<<<<< HEAD
 <img src="resources/sFAP5bQ.jpg" alt="car repair" width="350"/>
+=======
+<img src="resources/sFAP5bQ.jpeg" alt="car repair" width="350"/>
+>>>>>>> 62945d3c53841b83ca4a968833319d274fcbb349
 </center>
 
 
@@ -51,7 +55,11 @@ But our problems aren't always static. Consider the below example:
 
 
 <center>
+<<<<<<< HEAD
 <img src="resources/wvnlp2L.jpg" alt="diabetes" width="350"/>
+=======
+<img src="resources/wvnlp2L.jpeg" alt="diabetes" width="350"/>
+>>>>>>> 62945d3c53841b83ca4a968833319d274fcbb349
 </center>
 
 
@@ -67,7 +75,7 @@ Retake variables of the diabetes example. We know that these variables can chang
 
 ><span style="color:DarkSlateGray">_**Hence we can model the diabetes status of a patient using a Temporal Probability Model.**_</span>
 
-There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as ${E}_t$ at time $t$.
+There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as <img src="https://render.githubusercontent.com/render/math?math={E}_t"> at time $t$.
 
 On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time $t$, we use ${X}_t$ to denote them.
 In a nutshell, we have:
@@ -269,7 +277,11 @@ Now, we get the time involved in our problem. Suppose that if today is sunny, to
 
 Consider the figure below to get a better understanding of the problem discussed above:
 <center>
+<<<<<<< HEAD
 <img src="resources/YOld6zJ.jpg" alt="Bayes Net of Markov Model" width=600/>
+=======
+<img src="resources/YOld6zJ.jpeg" alt="Bayes Net of Markov Model" width=600/>
+>>>>>>> 62945d3c53841b83ca4a968833319d274fcbb349
 </center>
 
 Now, we formulate the problem formally:
@@ -387,4 +399,8 @@ of observations. Finally, we introduced some of the HMM's well-known application
 * [Paulo E. Santos (FEI - Sao Paulo) Slides](https://fei.edu.br/~psantos/slidesIA/CAP15-DBN.pdf)
 * [CS 188: Artificial Intelligence Lecture Slides, Dan Klein, Spring 2006](https://inst.eecs.berkeley.edu/~cs188/sp06/slides/cs188%20lecture%2018%20--%20HMMs%20(2pp).pdf)
 
+<<<<<<< HEAD
 _\*Some conceptual pictures used in this note are under courtesy of [VectorStock Media](https://vectorstock.com)_
+=======
+_\*Some conceptual pictures used in this note are under courtesy of [VectorStock Media](https://vectorstock.com)_
+>>>>>>> 62945d3c53841b83ca4a968833319d274fcbb349

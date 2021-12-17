@@ -1,19 +1,23 @@
-title: <change this> # shown on browser tab
+title: Temporal Probability Models # shown on browser tab
 
 header:
-    title: <change this> # title of your notebook
-    description: <change this> # short description of your notebook
+    title: Temporal Probability Models (up to filter/monitor) # title of your notebook
+    description: Temporal Probability Models and Hidden Markov Models and their Applications # short description of your notebook
 
 authors:
     label: 
         position: top
     content:
     # list of notebook authors
-    - name: <change this> # name of author
+    - name: Arshan Dalili, Soroush Jahanzad, Mohammad Hejri # name of author
       role: Author # change this if you want
       contact:
       # list of contact information
-      - link: https://github.com/<your_github_username>
+      - link: https://github.com/arshandalili
+        icon: fab fa-github
+      - link: https://github.com/SJahanzad
+        icon: fab fa-github
+      - link: https://github.com/https://github.com/MohammadHejri
         icon: fab fa-github
       # optionally add other contact information like  
       # - link: <change this> # contact link
