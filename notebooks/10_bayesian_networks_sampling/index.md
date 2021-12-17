@@ -60,7 +60,7 @@ The primitive element in any sampling algorithm is the generation of samples fro
 Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.
 <center>
 
-|   C   	| P(C) 	|
+|   C   	| Pr(C) 	|
 |:-----:	|:----:	|
 |  green  	|  0.6 	|
 |   red 	|  0.1 	|
