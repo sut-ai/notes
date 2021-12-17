@@ -1,6 +1,21 @@
-﻿# Filtering
+﻿# Temporal Probability Models
+
+## Contents
+- [Filtering](#filtering)
+	- [An Example](#an-example)
+- [Prediction](#prediction)
+- [Smoothing](#smoothing)
+	- [An Example](#an-example-1)
+- [Most likely explanation](#most-likely-explanation)
+	- [Recall: The Hidden Markov Model](#recall-the-hidden-markov-model)
+	- [Likelihood Computation: The Forward Algorithm](#likelihood-computation-the-forward-algorithm)
+	- [Decoding: The Viterbi Algorithm](#decoding-the-viterbi-algorithm)
+	- [HMM Training: The Forward-Backward Algorithm](#hmm-training-the-forward-backward-algorithm)
+- [Resources](#resources)
+
+## Filtering
 Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation. We wish to compute $P(X_t | e_{1:t})$. 
-| ![Umbrella Example](umb-ex.jpg) | 
+| ![Umbrella Example](./assets/umb-ex.jpg) | 
 |:--:| 
 | *Bayesian network structure and conditional distributions describing the umbrella world.* |
 In the umbrella example, this would mean computing the probability of rain today, given all the observations of the umbrella carrier made so far. Filtering is what a rational agent does to keep track of the current state so that rational decisions can be made. It turns out that an almost identical calculation provides the likelihood of the evidence sequence, $P(e_{1:t})$.
@@ -31,7 +46,7 @@ f_{1:t+1} = \alpha \text{FORWARD}(f_{1:t}, e_{t+1}) ,
 $$
 where FORWARD implements the update described in previous equation and the process begins with $f_{1:0} = P(X_0)$. When all the state variables are discrete, the time for each update is constant (i.e., independent of t), and the space required is also constant.
 
-## An Example
+### An Example
 Let us illustrate the filtering process for two steps in the basic umbrella example. That is, we will compute $P(R_2 | u_{1:2})$ as follows:
 
 - On day 0, we have no observations, only the security guard’s prior beliefs; let’s assume that consists of $P(R_0) = <0.5, 0.5>$.
@@ -73,7 +88,7 @@ P(X_{t+k+1} | e_{1:t}) = \sum_{x_{t+k}} P(X_{t+k+1} | x_{t+k})P(x_{t+k} | e_{1:t
 $$
 Naturally, this computation involves only the transition model and not the sensor model. It is interesting to consider what happens as we try to predict further and further into the future. It can be shown that the predicted distribution for rain converges to a fixed point $<0.5, 0.5>$, after which it remains constant for all time. This is the **stationary distribution** of the Markov process defined by the transition model.
 
-# Smoothing
+## Smoothing
 This is the task of computing the posterior distribution over a past state, given all evidence up to the present. That is, we wish to compute $P(X_k | e_{1:t})$ for some $k$ such that $0 \leq k < t$. In the umbrella example, it might mean computing the probability that it rained last Wednesday, given all the observations of the umbrella carrier made up to today. Smoothing provides a better estimate of the state than was available at the time, because it incorporates more evidence.
 In anticipation of another recursive message-passing approach, we can split the computation into two parts—the evidence up to $k$ and the evidence from $k +1$ to $t$,
 $$
@@ -100,7 +115,7 @@ b_{k+1:t} = \text{BACKWARD}(b_{k+2:t}, e_{k+1}) ,
 $$
 where BACKWARD implements the update described in previous equation. As with the forward recursion, the time and space needed for each update are constant and thus independent of $t$.
 
-## An Example
+### An Example
 Let us now apply this algorithm to the umbrella example, computing the smoothed estimate for the probability of rain at time $k=1$, given the umbrella observations on days 1 and 2. This is given by
 $$
 P(R_1 | u_1, u_2) = \alpha P(R_1 | u_1) P(u_2 |R_1) .
@@ -119,13 +134,13 @@ $$
 Thus, the smoothed estimate for rain on day 1 is higher than the filtered estimate (0.818) in this case. This is because the umbrella on day 2 makes it more likely to have rained on day 2; in turn, because rain tends to persist, that makes it more likely to have rained on day 1.
 
 
-# Most likely explanation
+## Most likely explanation
 Given a sequence of observations, we might wish to find the sequence of states that is most likely to have generated those observations.
-## Recall: The Hidden Markov Model
+### Recall: The Hidden Markov Model
 A Markov chain is useful when we need to compute a probability for a sequence of observable events. In many cases, however, the events we are interested in are **hidden**: we don’t observe them directly.
 A hidden Markov model (HMM) allows us to talk about both observed events Hidden Markov model (like words that we see in the input) and hidden events (like part-of-speech tags) that we think of as causal factors in our probabilistic model.
 
-| ![HMM](hmm.jpg) | 
+| ![HMM](./assets/hmm.jpg) | 
 |:--:| 
 | *A hidden Markov model for relating numbers of ice creams eaten (the **observations**) to the weather (H or C, the **hidden variables**).* |
 
@@ -135,7 +150,7 @@ Hidden Markov models should be characterized by **three fundamental problems**:
  2. **Decoding**: Given an observation sequence $O$ and an **HMM** $\lambda = (A,B)$, discover the best hidden state sequence $Q.$
  3. **Learning**: Given an observation sequence $O$ and the set of states in the **HMM**, learn the HMM parameters $A$ and $B$.
  
-## Likelihood Computation: The Forward Algorithm
+### Likelihood Computation: The Forward Algorithm
 The first problem is to compute the likelihood of a particular observation sequence. For example, given the ice-cream eating HMM, what is the probability of the sequence *3 1 3*? More formally:
 ***Computing Likelihood**: Given an HMM $\lambda = (A,B)$ and an observation sequence $O$, determine the likelihood $P(O|\lambda)$.*
 
@@ -201,7 +216,7 @@ function FORWARD(observations of len T, state-graph of len N) returns forward-pr
 	forwardprob = sum(forward[s,T] for s=1 to N)	; termination step
 	return forwardprob
 ```
-## Decoding: The Viterbi Algorithm
+### Decoding: The Viterbi Algorithm
 For any model, such as an HMM, that contains hidden variables, the task of determining which sequence of variables is the underlying source of some sequence of observations is called the **decoding** task. In the ice-cream domain, given a sequence of ice-cream observations *3 1 3* and an HMM, the task of the decoder is to find the best hidden weather sequence (*H H H*). More formally,
 ***Decoding**: Given as input an HMM $\lambda = (A,B)$ and a sequence of observations $O = o_1,o_2,...,o_T$ , find the most probable sequence of states $Q = q_1q_2q_3 ...q_T$.*
 
@@ -240,7 +255,7 @@ function VITERBI(observations of len T,state-graph of len N) returns best-path, 
 ```
 Note that the Viterbi algorithm is identical to the forward algorithm except that it takes the **max** over the previous path probabilities whereas the forward algorithm takes the **sum**.
 
-## HMM Training: The Forward-Backward Algorithm
+### HMM Training: The Forward-Backward Algorithm
 We turn to the third problem for HMMs: learning the parameters of an HMM, that is, the $A$ and $B$ matrices. Formally,
 ***Learning**: Given an observation sequence $O$ and the set of possible states in the HMM, learn the HMM parameters $A$ and $B$.*
 
@@ -283,7 +298,7 @@ function FORWARD-BACKWARD(ev, prior) returns a vector of probability distributio
 	return sv
 ```
 
-# Resources
+## Resources
 [1] Stuart Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th ed. Pearson Education, Inc
 [2] Speech and Language Processing. Daniel Jurafsky & James H. Martin. https://web.stanford.edu/~jurafsky/slp3/A.pdf (Visited: 12/4/2021)
 
