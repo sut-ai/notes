@@ -382,7 +382,7 @@ We start searching with respect to the assumption that we visit leftmost nodes f
     <img src="./images/2.png" alt="prunning2" width="50%" height="50%"/>
 </div>
 
-At this point, this information doesn't help us a lot. So let's continue searching. When we visit the terminal node with utility 3, we find that the value for the parent is also 3. An important observation here is that we can _predict_ that the value of the root _is more than or equal to 3_. That's because the root is a * Max * node.
+At this point, this information doesn't help us a lot. So let's continue searching. When we visit the terminal node with utility 3, we find that the value for the parent is also 3. An important observation here is that we can _predict_ that the value of the root _is more than or equal to 3_. That's because the root is a *Max* node.
 
 
 <div width="50%" height="50%">
