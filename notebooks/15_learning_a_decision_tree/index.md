@@ -106,19 +106,19 @@ the best kind we could use.
 
 Previously, we learned how to calculate the entropy of our target label ![attribute](https://render.githubusercontent.com/render/math?math=Y) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y)), and also it's entropy conditional to the value of an attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y|X)). using both definitions, we can calculate the reduction in entropy of target attribute ![attribute](https://render.githubusercontent.com/render/math?math=Y) after learning ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-![mutual information](https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24)
+![mutual information](https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AMI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24)
 
 This is called the __*mutual information*__ between ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X). It can be percieved from the equation that mutual information is symmetric.
 
-![symmetry](https://render.githubusercontent.com/render/math?math=I(Y%3BX)%3DI(X%3BY))
+![symmetry](https://render.githubusercontent.com/render/math?math=MI(Y%3BX)%3DMI(X%3BY))
 
 if ![equal values](https://render.githubusercontent.com/render/math?math=Y=X), then:
 
-![no drop](https://render.githubusercontent.com/render/math?math=I(X%3bX)=H(X)-H(X|X)=H(X))
+![no drop](https://render.githubusercontent.com/render/math?math=MI(X%3bX)=H(X)-H(X|X)=H(X))
 
 and if ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X) are independent:
 
-![independent attribute and label](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26I(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D)
+![independent attribute and label](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26MI(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D)
 
 which means that there's no reduction in label ![attribute](https://render.githubusercontent.com/render/math?math=Y) entropy by choosing the attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
