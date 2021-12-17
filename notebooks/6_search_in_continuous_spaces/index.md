@@ -77,7 +77,7 @@ Non-differentiable optimization is a category of optimization that deals with ob
 
 *Figure3. Non-differentiable function*
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.006.png)
-### Cost functions
+### **Cost functions**
 In many cases, particularly economics the cost function which is the objective function of an optimization problem is non-differentiable. These non-smooth cost functions may include discontinuities and discontinuous gradients and are often seen in discontinuous physical processes. Optimal solution of these cost functions is a matter of importance to economists but presents a variety of issues when using numerical methods thus leading to the need for special solution methods.
 
 In this lecture we don’t discuss non-differential optimization and non-smooth functions and the text above was for introduction and further information on this topic. If you want to know more about it, see these links: [nondifferentiable optimization via approximation](https://www.mit.edu/~dimitrib/Nondiff_Approx.pdf) and [non-convex optimization](https://www.cs.cornell.edu/courses/cs6787/2017fa/Lecture7.pdf).
@@ -164,7 +164,7 @@ Then we have ||z – x|| = R/2 < R, and by convexity of the feasible set, z is f
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.015.png)
 
 which contradicts (@). Hence there exists no feasible y with f0(y) < f0(x), i.e., x is globally optimal.
-## Hessian being positive semi-definite iff convexity (theorem one: one dimensional) 
+## **Hessian being positive semi-definite iff convexity (theorem one: one dimensional)** 
 One way of checking a function’s convexity is by checking its Hessian matrix. let Ø ≠ M ⊆ Rn be a convex set and let f(x) be a function differentiable on an open superset of M then f(x) is convex on M if and only if for every x1,x2 ∈ M
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.016.png)
@@ -182,7 +182,7 @@ By the limit transition λ ⟶0 we get (\*) utilizing the chain rule for the der
 Multiply the first inequality by λ1, the one by λ2 and summing up we get 
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.019.png)
-## Hessian being positive semi-definite iff convexity (theorem two: multi-dimensional) 
+## **Hessian being positive semi-definite iff convexity (theorem two: multi-dimensional)**
 Now we prove the same property for n-dimensional functions. let Ø ≠ M ⊆ Rn be an open convex set of dimension n, and suppose that a function f: M→R is twice continuously differentiable on M. Then f(x) is convex on M if and only the Hessian ∇2f(x) is positive semi-definite for every x∈M.
 
 Proof:let x\* ∈ M be arbitrary. Due to continuity of the second partial derivatives we have that for every λ∈R and y ∈ Rn, x\* + λy ∈ M, there is θ∈ (0,1) such that
@@ -207,7 +207,7 @@ which shows the convexity of f(x) in the view of Theorem one.
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.024.png)
 
-## Examples of convex functions:
+## **Examples of convex functions:**
 In this section we check the convexity of two functions using the theorems we learned.
 
 - f(x) = 2x3 – 18x2 : 
