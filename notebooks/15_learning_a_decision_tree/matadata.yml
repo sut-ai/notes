@@ -1,0 +1,33 @@
+title: Learning a Decision Tree
+
+header:
+    title: Learning a Decision Tree
+    description: Decision trees and how to train them
+
+authors:
+    label: 
+        position: top
+    content:
+    - name: Negar Nobakhti
+      role: Author
+      contact:
+      - link: https://github.com/Negarnbkhti42
+        icon: fab fa-github
+
+    - name: Ali Rashidi
+      role: Author
+      contact:
+      - link: https://github.com/Alirm96
+        icon: fab fa-github
+
+    - name: Mohammad Jafari
+      role: Author
+      contact:
+      - link: https://github.com/Mohammadjafari80
+        icon: fab fa-github
+
+
+comments:
+
+    label: false
+    kind: comments
