@@ -157,7 +157,14 @@ def elimination_ask(X, e, bn):
 
 ### Algorithm Time Complexity
 
-The computational and space complexity of variable elimination is determined by the largest factor. In the worst case, this algorithm has exponential complexity, like the enumeration algorithm. But variable elimination ordering can greatly affect the largest factor. There is no general ordering that provides only small factors.
+The computational and space complexity of variable elimination is determined by the largest factor. In the worst case, this algorithm has exponential complexity, like the enumeration algorithm. But variable elimination ordering can greatly affect the largest factor. For example, in the following Bayes net, assuming the query is $P(X_n | Y_1, …, Y_n)$, the largest factor for following orders are different:
+
+- $Z, X_1, …, X_n \rightarrow 2^{n+1}$
+- $X_1, …, X_n, Z \rightarrow 2^{2}$ 
+
+<div style="margin: auto; width: 40%;"><img src="./assets/ve-ordering.png" /></div>
+
+There is no general ordering that provides only small factors.
 
 ### Ordering Polytree Variables for VE
 
