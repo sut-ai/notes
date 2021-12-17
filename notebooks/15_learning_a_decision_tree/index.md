@@ -98,7 +98,7 @@ the best kind we could use.
 
 ![conditional entropy](https://render.githubusercontent.com/render/math?math=H(Y|X)) is the conditional Entropy, defining the expected entropy of target label ![target variable](https://render.githubusercontent.com/render/math?math=Y) if data is splitted by attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-![conditional entropy](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5CinX%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5CinX%7DP(X%3Dx)%5Csum_%7By%5CinY%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D)
+![conditional entropy](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5Cin%20X%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5Cin%20X%7DP(X%3Dx)%5Csum_%7By%5Cin%20Y%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D)
 
 ![specific entropy](https://render.githubusercontent.com/render/math?math=H(Y|X=x)) is called the *specific conditional entropy*, the exact entropy of ![target](https://render.githubusercontent.com/render/math?math=Y) knowing the value of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X). Basically, for calculating the conditional entropy, you take the entropy of label ![attribute](https://render.githubusercontent.com/render/math?math=Y) for each value ![attribute](https://render.githubusercontent.com/render/math?math=x) of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) and sum them up together.
 
