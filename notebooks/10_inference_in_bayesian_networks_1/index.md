@@ -194,6 +194,7 @@ We reviewed two major exact inference algorithms, the enumeration algorithm and 
 
 ## References
 
+- [Class Presentation](http://ce.sharif.edu/courses/99-00/1/ce417-2/resources/root/Slides/PDF/Session%2013_14.pdf)
 - [Visualizing Inference in Bayesian Networks](http://www.kbs.twi.tudelft.nl/Publications/MSc/2006-JRKoiter-Msc.html)
 - [Exact Inference in Bayes Nets](http://courses.csail.mit.edu/6.034s/handouts/spring12/bayesnets-pseudocode.pdf)
 - [Variable Elimination](https://ermongroup.github.io/cs228-notes/inference/ve/)
