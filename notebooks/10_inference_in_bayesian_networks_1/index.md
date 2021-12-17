@@ -95,9 +95,11 @@ In worst case, we have no evidence, so we have to for loop through all possible 
 
 ## Inference by Enumeration is Slow
 
-In enumeration, first we find the whole joint distribution and then we marginalize out the hidden variables. Hence it is too slow because of the big joint distributio we need to compute.
+In enumeration, first we find the whole joint distribution and then we marginalize out the hidden variables. Hence it is too slow because of the big joint distribution we need to compute.
 
 If we marginalize out the hidden variables in partial joint distribution, we can get a much faster algorithm. This method is called Infrence by Variable Elimination.
+
+<div style="margin: auto; width: 100%;"><img src="./assets/comparison.png" /></div>
 
 ## Inference by Variable Elimination (Marginalizing Early)
 
