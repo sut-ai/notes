@@ -20,7 +20,7 @@ Members: Arshan Dalili, Soroush Jahanzad, Mohammad Hejri
 
 [Stationary Distribution](#Stationary-Distribution)
 
-[Most Likely Explanation: Mini-Viterbi Algorithm](#Most-Likely-Explanation:-Mini-Viterbi-Algorithm)
+[Most Likely Explanation: Mini-Viterbi Algorithm](#Most-Likely-Explanation-Mini-Viterbi-Algorithm)
 
 [Hidden Markov Model](#Hidden-Markov-Model)
 * [Chain Rule and Joint Distribution of Hidden Markov Model](#Chain-Rule-and-Joint-Distribution-of-Hidden-Markov-Model)
@@ -71,8 +71,11 @@ Retake variables of the diabetes example. We know that these variables can chang
 
 There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as <img src="https://render.githubusercontent.com/render/math?math=E_t"> at time <img src="https://render.githubusercontent.com/render/math?math=t">.
 On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time <img src="https://render.githubusercontent.com/render/math?math=E_t">, we use <img src="https://render.githubusercontent.com/render/math?math=t"> to denote them.
+
 In a nutshell, we have:
+
 <img src="https://render.githubusercontent.com/render/math?math=E_t ="> Observable Variable At Time t
+
 <img src="https://render.githubusercontent.com/render/math?math=X_t ="> Non-Observable Variable At Time t
 
 
@@ -85,23 +88,20 @@ Let's define a random variable <img src="https://render.githubusercontent.com/re
 
 In a Markov chain, we can write the Morkov assumption as:
 <center>
-<img src="https://render.githubusercontent.com/render/math?math=
-P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x_n|X_{n - 1}=x_{n - 1})
-" width=500>
+<img src="https://i.imgur.com/H103XY7.png" width=500>
 </center>
 
 *Note:* We also define <img src="https://render.githubusercontent.com/render/math?math=X_{a:b}"> to denote a set of variables from <img src="https://render.githubusercontent.com/render/math?math=X_a"> to <img src="https://render.githubusercontent.com/render/math?math=X_b">.
+
 <center>
-<img src="https://render.githubusercontent.com/render/math?math=
-X_{a:b} = X_a, X_{a+1}, \cdots, X_{b-1}, X_b" width=300>
+<img src="https://i.imgur.com/gm6qgk0.png" width=300>
 </center>
 
 
 In a similar way, we can use **_ith-order Markov Models_** to model situations in which the future state of <img src="https://render.githubusercontent.com/render/math?math=X"> depends only on <img src="https://render.githubusercontent.com/render/math?math=i"> recent states and not on states that had occrred before. In this case we have:
 
 <center>
-<img src="https://render.githubusercontent.com/render/math?math=
-P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x|X_{n - i:n - 1}=x_{n - i : n - 1})" width = 550>
+<img src="https://i.imgur.com/ZA2Wszd.png" width = 550>
 </center>
 
 ### Joint Distributions of Markov Models
@@ -270,7 +270,7 @@ Consider the figure below to get a better understanding of the problem discussed
 
 Now, we formulate the problem formally:
 <center>
-<img src="resources/ruzjAcI.png" alt="equation" width=500/>
+<img src="https://i.imgur.com/ruzjAcI.png" alt="equation" width=500/>
 </center> 
 So, the question is, how can Alice infer the weather’s condition (state) regarding Bob’s mood (observation)?
 
@@ -303,20 +303,20 @@ We are going to calculate joint distribution of HMM.
 From the Chain Rule, every joint distribution over <img src="https://render.githubusercontent.com/render/math?math=$X_{t:1}, E_{t:1}$"> can be written as:
 
 <center>
-<img src="resources/x2fsViH.png" alt="equation" width=800/>
+<img src="https://i.imgur.com/x2fsViH.png" alt="equation" width=800/>
 </center> 
 
 Regarding the HMM's structure, we can assume that:
 
 <center>
-<img src="resources/TwkFmB1.png" alt="equation" width=600/>
+<img src="https://i.imgur.com/TwkFmB1.png" alt="equation" width=600/>
 </center> 
 
 Recall that every node given its parents is independent of its non-descendants.
 
 Using the properties above, we get:
 <center>
-<img src="resources/Pj0cugq.png" alt="equation" width=500/>
+<img src="https://i.imgur.com/Pj0cugq.png" alt="equation" width=500/>
 </center> 
 
 
