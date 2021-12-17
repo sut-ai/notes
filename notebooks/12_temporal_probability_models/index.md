@@ -216,11 +216,11 @@ Finally, let's take a look at the state of weather with initial observation of r
 
 An interesting question to ask in problems modeled using Markov chains is about the state as we continue simulating for a long time. As we simulate further into the future, the Moarkov chain becomes longer and uncertainty is accumulated. 
 
-In the general case, we cannot say what the state will be in the far future. However, for most Markov chains, we will eventually end up in the same distribution no matter what the initial distribution is. In other words, the distribution we end up in is independent of the initial distribution. In such cases, the distribution we end up with is called the **stationary distribution** of the chain. This distribution is denoted by $P_\infty$ and satisfies the condition below.
+In the general case, we cannot say what the state will be in the far future. However, for most Markov chains, we will eventually end up in the same distribution no matter what the initial distribution is. In other words, the distribution we end up in is independent of the initial distribution. In such cases, the distribution we end up with is called the **stationary distribution** of the chain. This distribution is denoted by <img src="https://render.githubusercontent.com/render/math?math=P_\infty"> and satisfies the condition below.
 
-\begin{equation}
-    P_{\infty}(X) = P_{\infty + 1}(X) = \sum_{x} P(X|x) P_{\infty}(x)
-\end{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P_{\infty}(X) = P_{\infty + 1}(X) = \sum_{x} P(X|x) P_{\infty}(x)" width=300>
+</center>
 
 In the weather example we mentioned earlier, the stationary distribution denotes the probability that each day will be sunny or rainy in general.
 
@@ -237,12 +237,13 @@ Again, a slow answer would be to enumerate all possible combinations and calcula
 
 In the Mini-Viterbi algorithm, we define $m_t[x]$ and $a_t[x]$ as:
 
-\begin{equation}
-    m_t[x] = \max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
-\end{equation}
-\begin{equation}
-    a_t[x] = arg\!\max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
-\end{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=m_t[x] = \max_{x_{1:t - 1}} P(x_{1:t - 1}, x)" width=300>
+</center>
+<br>
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=a_t[x] = arg\!\max_{x_{1:t - 1}} P(x_{1:t - 1}, x)" width=300>
+</center>
 
 The equation above can be rewritten to:
 \begin{equation}
@@ -273,7 +274,6 @@ Consider the figure below to get a better understanding of the problem discussed
 </center>
 
 Now, we formulate the problem formally:
-<span style="color:DarkSlateGray">
 \begin{equation}
 {E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in \{happy, grumpy\}\\
 {X}_t: Weather's\;condition\;at\;time\;t\;(State) \in \{sunny, rainy\}
