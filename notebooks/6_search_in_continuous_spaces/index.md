@@ -1,5 +1,5 @@
 ﻿
-Search in Continuous Space
+**Search in Continuous Space**
 #
 # **Table of Contents**
 - [Introduction](#introduction)
@@ -31,7 +31,7 @@ Search in Continuous Space
 #
 
 
-# Introduction
+# **Introduction**
 In real life optimization problems, we mostly face continuous environments which are made of continuous variables such as time and location. Thus, in this lecture note we will discuss some useful search methods in continuous spaces. The typical problems are linear programming (LP) and diverse kinds of nonlinear programming (such as convex programming, quadratic programming or semidefinite programming). In this lecture note we will discuss different types of optimization techniques in continuous spaces, the differences between different types of optimization techniques, how convexity will help us solve optimization problems easier, difference between local and global optimization, gradient descent method and the challenges with finding the best learning rate.
 
 **Example.1** (Weber Point) Given a collection of cities (assume on 2D plane) how can we find the location that minimizes the sum of distances to all cities? We model this problem by denoting the locations of the cities as y(1), …,y(m)  and write the optimization problem as:
@@ -48,11 +48,11 @@ where K \* denotes convolution with a blurring filter.
 
 *Figure1. reconstructed image after solving the optimization*
 
-# Types of optimization techniques
+# **Types of optimization techniques**
 An essential step to optimization technique is to categorize the optimization model since the algorithms used for solving optimization problems are customized as per the nature of the problem. Various optimization problem types are: 
 ## Linear programming (LP) and Nonlinear programming (NLP)
 Linear programming is a method to achieve the best outcome in a mathematical model whose requirements are represented by linear relationships whereas nonlinear programming is a process of solving an optimization problem where the constraints or the objective functions are nonlinear. Thus, this is the main difference between linear and nonlinear programming.
-## Continuous optimization and integer programming (IP)
+## **Continuous optimization and integer programming (IP)**
 In order to conceptualize the difference, linear programming can solve problems about minimizing (or maximizing) an objective function by continuous variables. For instance, maybe the optimal solution for a problem to be x1=5,46 and x2=2,65. But in integer programming we can only use integers as variables and we can’t have fractional numbers.
 ## Constrained optimization and unconstrained optimization 
 A constrained optimization problem is the problem of optimizing an objective function subject to constraints on the variables. In general terms,
@@ -72,7 +72,7 @@ In unconstrained optimization problems the answers are constrained into being s
 
 
 ##
-## Differentiable optimization and non-differentiable optimization
+## **Differentiable optimization and non-differentiable optimization**
 Non-differentiable optimization is a category of optimization that deals with objective that for a variety of reasons is non-differentiable and thus non-convex. The functions in this class of optimization are generally non-smooth. These functions although continuous often contain sharp points or corners that do not allow for the solution of a tangent and are thus non-differentiable. In practice non-differentiable optimization encompasses a large variety of problems and a single one-size fits all solution is not applicable however solution is often reached through implementation of the sub gradient method. Non-differentiable functions often arise in real world applications and commonly in the field of economics where cost functions often include sharp points.
 
 *Figure3. Non-differentiable function*
@@ -82,7 +82,7 @@ In many cases, particularly economics the cost function which is the objective f
 
 In this lecture we don’t discuss non-differential optimization and non-smooth functions and the text above was for introduction and further information on this topic. If you want to know more about it, see these links: [nondifferentiable optimization via approximation](https://www.mit.edu/~dimitrib/Nondiff_Approx.pdf) and [non-convex optimization](https://www.cs.cornell.edu/courses/cs6787/2017fa/Lecture7.pdf).
 
-# Convexity
+# **Convexity**
 A set C is convex if for any two points  x,y ∈C , αx + (1 – α)y ∈ C  for all α∈ [0,1], i.e., all points on the line between x and y also lie in C. Some examples of convex sets are:
 
 - All points C = Rn  where n is a non-negative integer
@@ -113,7 +113,7 @@ Some examples of convex functions are:
 - Negative logarithm: f(x) = -log(x), x > 0
 - Euclidean norm: f(x) = ||x||2
 
-## Convex versus non-convex optimization problems
+## **Convex versus non-convex optimization problems**
 A convex optimization *problem* is a problem where all of the constraints are convex functions, and the objective is a convex function if minimizing, or a concave function if maximizing. In a convex optimization problem, the feasible region is a convex region, as pictured below.
 
 
@@ -132,14 +132,14 @@ A *non-convex optimization problem* is any problem where the objective or any 
 
 Such a problem may have multiple feasible regions and multiple locally optimal points within each region.  It can take time exponential in the number of variables and constraints to determine that a non-convex problem is infeasible, that the objective function is unbounded, or that an optimal solution is the "global optimum" across all feasible regions.
 ##
-## Local and global optimization:
-### Local optimization 
+## **Local and global optimization:**
+### **Local optimization**
 In local optimization, the compromise is to give up seeking the optimal x, which minimizes the objective over all feasible points. Instead we seek a point that is only locally optimal, which means that it minimizes the objective function among feasible points that are near it, but is not guaranteed to have a lower objective value than all other feasible points. 
 
 Local optimization methods can be fast, can handle large-scale problems, and are widely applicable, since they only require differentiability of the objective and constraint functions.
 
 There are several disadvantages of local optimization methods, beyond (possibly) not finding the true, globally optimal solution. The methods require an initial guess for the optimization variable. This initial guess or starting point is critical, and can greatly affect the objective value of the local solution obtained.
-### Global optimization
+### **Global optimization**
 In global optimization, the true global solution of the optimization problem is found; the compromise is efficiency. The worst-case complexity of global optimization methods grows exponentially with the problem size. 
 
 The hope is that in practice, for the particular problem instances encountered, the method is far faster. While this favorable situation does occur, it is not typical. Even small problems, with a few tens of variables, can take a very long time (e.g., hours or days) to solve. Global optimization is used for problems with a small number of variables, where computing time is not critical, and the value of finding the true global solution is very high.
@@ -150,7 +150,7 @@ So, to summarize, A maximum or minimum is said to be local if it is the larges
 
 *Figure8. local and global maximum and minimum*
 ##
-## Locally optimal for a convex optimization problem 
+## **Locally optimal for a convex optimization problem**
 A fundamental property of convex optimization problems is that any locally optimal point is also (globally) optimal. To see this, suppose that x is locally optimal for a convex optimization problem, i.e., x is feasible and
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.013.png)
@@ -221,10 +221,10 @@ The Hessian is:
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.025.png)
 
 The leading principal minors of the Hessian are 2 > 0, 4 > 0, and 8 > 0. Therefore the Hessian is positive semi-definite and the function is convex.
-# Gradient 
+# **Gradient**
 A gradient simply measures the change in all weights with regard to the change in error. We can also think of a gradient as the slope of a function that has more than one input variable. The higher the gradient, the steeper the slope and the faster a model can learn. But if the slope is zero, the model stops learning. 
 
-## Gradient descent
+## **Gradient descent**
 Gradient descent is an optimization algorithm used for training a machine learning model. It works on a convex function and changes the function’s parameters iteratively to find the local minimum (Since the function is convex, by finding local minimum we also find the global minimum).
 
 *Figure9. The gradient field of function f = x2 – 4x + y2 + 2y*
@@ -271,7 +271,7 @@ d) Learning rate is very large, it overshoots and diverges, moves away from the 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.030.png)
 
 
-## Challenges with gradient descent
+## **Challenges with gradient descent**
 Although gradient descent is the most common approach for optimization problems, it has its own challenges. Some of them include:
 ### Local minima and saddle points
 In nonconvex problems, gradient descent can have difficulties in finding the global minimum.
@@ -282,21 +282,21 @@ In the previous section we mentioned that when the slope of the cost function is
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.031.png)
 
-### Vanishing and exploding gradients
+### **Vanishing and exploding gradients**
 In deeper neural networks we can also encounter two other problems:
 
 Vanishing gradients: This occurs when the gradient is too small. As we move backwards during backpropagation, the gradient continues to become smaller, so the earlier layers in the network learn more slowly than later layers. When this happens, the weight parameters update until they become insignificant and the algorithm stops learning.
 
 Exploding gradients: This happens when the gradient is too large and creates an unstable model. In this case, the model weights will grow too large, and they will eventually be represented as NaN.
 
-# Conclusion
+# **Conclusion**
 In this lecture we talked about the different types of optimizations in continuous spaces. It has been proven that finding an epsilon-optimal minimizer that has the following relationship with the optimal solution x\*
 
 ![](Aspose.Words.153ba005-881a-4c4b-97e3-6ea90eff943d.032.png)
 
 is impossible. However, we introduced a feature called convexity which can help us solve some of these problems. We proved that if a function’s Hessian matrix is positive semi-definitive, it is convex and vice versa. Now if a function is convex, its local minimums are also global. So, by using a decent iterative algorithm, like Gradient Descent, we can find its solutions. But keep in mind that this algorithm can face problems if used on non-convex functions or deeper neural networks
 
-# References
+# **References**
 [1] Vandenberghe. <https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf>
 
 [2] Vandenberghe. <https://web.stanford.edu/class/ee364a/lectures/problems.pdf>
