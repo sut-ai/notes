@@ -1,5 +1,5 @@
 ﻿
-%**Search in Continuous Space**
+% **Search in Continuous Space**
 #
 # **Table of Contents**
 - [Introduction](#introduction)
