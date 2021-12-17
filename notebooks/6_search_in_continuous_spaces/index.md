@@ -1,6 +1,4 @@
-﻿
-# **<font size="20">Search in Continuous Space</font>**
-#
+# ** <span style="font-size:larger;">Search in Continuous Space</span>
 # **Table of Contents**
 - [Introduction](#introduction)
 - [Types of optimization techniques](#types-of-optimization-techniques)
