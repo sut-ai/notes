@@ -269,7 +269,7 @@ Now, we get the time involved in our problem. Suppose that if today is sunny, to
 
 Consider the figure below to get a better understanding of the problem discussed above:
 <center>
-<img src="resources/YOld6zJ.jpg" alt="Bayes Net of Markov Model" width=600/>
+<img src="resources/YOld6zJ.jpeg" alt="Bayes Net of Markov Model" width=600/>
 </center>
 
 Now, we formulate the problem formally:
