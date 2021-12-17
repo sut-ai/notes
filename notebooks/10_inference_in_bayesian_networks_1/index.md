@@ -1,6 +1,7 @@
 # Inference in Bayes Nets 1
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Inference by Enumeration](#inference-by-enumeration)
     - [Algorithm Explanation](#algorithm-explanation)
@@ -22,6 +23,7 @@
 <div align="center"><img src="./assets/intro.png" /></div>
 
 ## Introduction
+
 The basic task of a Bayesian network is to compute the posterior probability distributions for a set of query variables, given an observation of a set of evidence variables. This process is known as inference, but is also called Bayesian updating, belief updating or reasoning. There are two ways to approach this, either exact or approximate. Both approaches are worst-case NP-hard. An exact method obviously gives an exact result, while an approximate method tries to approach the correct outcome as close as possible. In this lecture, we discuss the exact inference method. Approximate (Sampling) method will be discussed in the next lecture. 
 
 ## Inference by Enumeration
@@ -47,6 +49,7 @@ We can summurize the explained algorithm in the following steps:
 3. Normalize the distribution to get the distribution of query variables.
 
 ### Algorithm Pseudocode
+
 ```python
 def enumeration_ask(X, e, bn):
     """
@@ -100,7 +103,9 @@ If we marginalize out the hidden variables in partial joint distribution, we can
 
 The point of the variable-elimination algorithm is that it is more bottom-up than top-down. Instead of figuring out the probabilities we need to compute and then computing all the other probabilities that each one depends on, we try to compute probabilities and then compute the other terms that depend on them, and repeatedly simplify the expression until we have something that is in terms of only the variable we’re looking for.
 
-The variable-elimination algorithm uses things called factors. A factor is basically a CPT, except that the entries are not necessarily probabilities (but they would be if you normalized them). You can think of a factor as a matrix with a dimension for each variable, where $Factor[VAL1][VAL2][...]$ is (proportional to) a probability such as $$P(VAR1=VAL1, VAR2=VAL2, ...)$$ or you can think of it as a table with one row for each possible combination of assignments of values to the variables.
+The variable-elimination algorithm uses things called factors. A factor is basically a CPT, except that the entries are not necessarily probabilities (but they would be if you normalized them). You can think of a factor as a matrix with a dimension for each variable, where $Factor[VAL1][VAL2][...]$ is (proportional to) a probability such as 
+$$P(VAR1=VAL1, VAR2=VAL2, ...)$$ 
+or you can think of it as a table with one row for each possible combination of assignments of values to the variables.
 
 We also define two operations on factors:
 1. Join
@@ -166,7 +171,9 @@ Know if we eliminate variables with this order, we would never get a factor larg
 
 ### Cut-set Conditioning
 
-We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree.
+We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree. You can see an example of this below.
+
+<div align="center"><img src="./assets/conditioning-example.png" /></div>
 
 ### Algorithm Example
 
