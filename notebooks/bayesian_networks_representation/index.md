@@ -46,15 +46,15 @@ We use probabilistic models to reason about unknown variables, given evidences. 
 
 Two variables are *independent* if:
 
-![formula1](/assets/T_Formula1.PNG)
+![formula1](assets/T_Formula1.PNG)
 
 If two variables are independent, their joint distribution is the product of their distributions. This can also be shown in another way:
 
-![formula2](/assets/T_Formula2.PNG)
+![formula2](assets/T_Formula2.PNG)
 
 We show independency as:
 
-![formula3](/assets/T_Formula3.PNG)
+![formula3](assets/T_Formula3.PNG)
 
 Note that real life joint distributions are at best close to independent. Independence is a *modelling assumption*. We'll get back to assumptions later.
 
@@ -64,15 +64,15 @@ Unconditional (absolute) independence is very rare to come by, because the varia
 
 X is conditionally independent of Y given Z
 
-![formula4](/assets/T_Formula4.PNG)
+![formula4](assets/T_Formula4.PNG)
 
 if and only if
 
-![formula5](/assets/T_Formula5.PNG)
+![formula5](assets/T_Formula5.PNG)
 
 or equivalently, if and only if
 
-![formula6](/assets/T_Formula6.PNG)
+![formula6](assets/T_Formula6.PNG)
 
 ### Chain Rule
 
