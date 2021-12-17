@@ -1,6 +1,7 @@
 ﻿# Temporal Probability Models
 
 ## Contents
+- [Introduction](#introduction)
 - [Filtering](#filtering)
 	- [An Example](#an-example)
 - [Prediction](#prediction)
@@ -11,9 +12,24 @@
 	- [Likelihood Computation: The Forward Algorithm](#likelihood-computation-the-forward-algorithm)
 	- [Decoding: The Viterbi Algorithm](#decoding-the-viterbi-algorithm)
 	- [HMM Training: The Forward-Backward Algorithm](#hmm-training-the-forward-backward-algorithm)
+- [Particle Filtering](#particle-filtering)
+	- [FAQ!](#faq)
+	- [Steps](#steps)
+	- [Example](#example)
+	- [Pseudo Code](#pseudo-code-3)
+	- [Useful links](#useful-links)
+- [Robot Localization](#robot-localization)
+- [Kalman filtering](#kalman-filtering)
+- [Dynamic Bayes Nets](#dynamic-bayes-nets)
+	- [DBN particle filtering](#dbn-particle-filtering)
+- [Conclusion](#conclusion)
 - [Resources](#resources)
 
-## Filtering
+# Introduction
+Hidden Markov Models can be applied to part of speech tagging. Part of speech tagging is a fully-supervised learning task, because we have a corpus of words labeled with the correct part-of-speech tag. But many applications don’t have labeled data. So in this note, we introduce some of the algorithms for HMMs, including the key unsupervised learning algorithm for HMM, the Forward-Backward algorithm.
+
+
+# Filtering
 Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation. We wish to compute $P(X_t | e_{1:t})$. 
 | ![Umbrella Example](./assets/umb-ex.jpg) | 
 |:--:| 
@@ -134,9 +150,9 @@ $$
 Thus, the smoothed estimate for rain on day 1 is higher than the filtered estimate (0.818) in this case. This is because the umbrella on day 2 makes it more likely to have rained on day 2; in turn, because rain tends to persist, that makes it more likely to have rained on day 1.
 
 
-## Most likely explanation
+# Most likely explanation
 Given a sequence of observations, we might wish to find the sequence of states that is most likely to have generated those observations.
-### Recall: The Hidden Markov Model
+## Recall: The Hidden Markov Model
 A Markov chain is useful when we need to compute a probability for a sequence of observable events. In many cases, however, the events we are interested in are **hidden**: we don’t observe them directly.
 A hidden Markov model (HMM) allows us to talk about both observed events Hidden Markov model (like words that we see in the input) and hidden events (like part-of-speech tags) that we think of as causal factors in our probabilistic model.
 
@@ -204,6 +220,7 @@ $$
 P(O|\lambda) =\sum_{i=1}^{N} \alpha_T (i)
 $$
 
+### Pseudo Code
 The pseudocode of the forward algorithm:
 ``` java
 function FORWARD(observations of len T, state-graph of len N) returns forward-prob
@@ -216,7 +233,7 @@ function FORWARD(observations of len T, state-graph of len N) returns forward-pr
 	forwardprob = sum(forward[s,T] for s=1 to N)	; termination step
 	return forwardprob
 ```
-### Decoding: The Viterbi Algorithm
+## Decoding: The Viterbi Algorithm
 For any model, such as an HMM, that contains hidden variables, the task of determining which sequence of variables is the underlying source of some sequence of observations is called the **decoding** task. In the ice-cream domain, given a sequence of ice-cream observations *3 1 3* and an HMM, the task of the decoder is to find the best hidden weather sequence (*H H H*). More formally,
 ***Decoding**: Given as input an HMM $\lambda = (A,B)$ and a sequence of observations $O = o_1,o_2,...,o_T$ , find the most probable sequence of states $Q = q_1q_2q_3 ...q_T$.*
 
@@ -237,6 +254,7 @@ The three factors that are multiplied in this equation for extending the previou
 - $a_{i j}$: the **transition probability** from previous state $q-i$ to current state $q_j$
 - $b_j(o_t)$: the **state observation likelihood** of the observation symbol $o_t$ given the current state $j$
 
+### Pseudo Code
 The pseudocode of the viterbi algorithm:
 ``` java
 function VITERBI(observations of len T,state-graph of len N) returns best-path, path-prob
@@ -255,7 +273,7 @@ function VITERBI(observations of len T,state-graph of len N) returns best-path, 
 ```
 Note that the Viterbi algorithm is identical to the forward algorithm except that it takes the **max** over the previous path probabilities whereas the forward algorithm takes the **sum**.
 
-### HMM Training: The Forward-Backward Algorithm
+## HMM Training: The Forward-Backward Algorithm
 We turn to the third problem for HMMs: learning the parameters of an HMM, that is, the $A$ and $B$ matrices. Formally,
 ***Learning**: Given an observation sequence $O$ and the set of possible states in the HMM, learn the HMM parameters $A$ and $B$.*
 
@@ -281,9 +299,11 @@ $$
 $$
 P(O|\lambda) =\sum_{j=1}^{N} \pi_j b_j(o_1) β_1(j)
 $$
+
+### Pseudo Code
 Here is the pseudocode of this algorithm:
 ``` java
-function FORWARD-BACKWARD(ev, prior) returns a vector of probability distributions
+function FORWARD_BACKWARD(ev, prior) returns a vector of probability distributions
 	inputs: ev, a vector of evidence values for steps 1,...,t
 			prior, the prior distribution on the initial state, P(X0)
 	local variables: fv, a vector of forward messages for steps 0,...,t
@@ -298,7 +318,196 @@ function FORWARD-BACKWARD(ev, prior) returns a vector of probability distributio
 	return sv
 ```
 
-## Resources
+# Particle Filtering
+Forward algorithm gives us a definite inference of the HMM. Similar to bayesian networks, we can have approximate inference too. Particle filtering is a sampling method to model and find an approximate inference of HMMs.
+
+## FAQ!
+ 
+### What's wrong with Forward algorithm?
+
+Consider robot local localization problem. Assume that the map is $m \times m$ and m is a very large number.  Range of the belief vector would be $\mathbb{R}^{m\times m}$. So, when we have a gigantic map (not to mention it could be continuous!), there is a gigantic belief vector that working with it may take a lot of time and resources. Apart of that, when we are working with a belief vector, after some steps and passage of time, it becomes extremely sparse (Lots of elements in the vector become very close to zero). This phenomenon will cause useless computations that ends up to zero every time. This is where a sampling method (e.a. Particle Sampling) comes handy.
+
+### What does "Particle" mean?
+
+Consider robot localization problem. Let's say we have $N$ particles. Each particle is a guess and hypothesis about where robot could be in that specific time. In fact, each particle is a sampled value of the stated of the problem (in this case $x,y$ of the robot in the map).
+
+##  Steps
+This approach has three major steps: elapsing time, observing and resampling. These steps could be mapped to the Passage of time, observation and Normalization steps in  forward algorithm respectively. The main idea of the algorithm is to  keep $N$ hypothesis about in which state we are (in case of robot localization  where the robot is) and update these hypothesis by passage of time and new observations, so, our guesses remain valid and strong about in which state we are. For better intuition, consider robot localization problem for the steps below.
+
+### Initializations
+At the very beginning of the algorithm that we have no clue about the problem, we should (could) initial our particles to be uniformly spreaded in steps (robot could be everywhere with equal chances).
+
+### Elapse Time
+At first, Similar to forward algorithm, we move our samples to new states by sampling over transition probabilities. The intuition about this step is that for each guess about the place of the robot, we guess another one about where it could be in the next step and use sampling over transition probability of that point on the map to create a new sample (particle) corresponding to the previous state (for each particle of course). Note that this transition could be deterministic too. At the end of this step, we have another set of guesses based on previous ones which is one step (in time) ahead of the previous ones. For each particle $x$ we do ($X'$ is the next state e.a. place in the map):
+
+$$ x' = \text{sample}(P(X' \mid x)) $$ 
+
+and $x'$ will be our new particle in the set.
+
+### Observe
+Now the robot has new observations. We score every guess produced in the last steps by the new observation (give them weight) based on emission probability, which we have in HMMs, so, we know that how strong they are after new observation (similar to likelihood weighting). We give a weight to each particle by observing evidence $e$:
+
+$$ w(x) =  P(e \mid x)$$ 
+
+Be aware that we dont sample anything here and particles are fixed. Also note that the probabilities won't sum to one, as we are down-weighing almost every particle (some maybe very consistent with the evidence, and based on the approach of calculating the weight the can be one). 
+
+### Resample
+
+Working with weights can be frustrating for our little robot (!) and some can converge to zero after some iterations, so, based on how probable and strong our particles were, we generate a new set of particles. This work is done be sampling over the weights of the particles $N$ times (so the size of the particle set remain the same). The stronger a particle is, the more probable it is to be sampled and be in the new particle set. After this step we have a new set of particle which are distributed by the strength of the particles, which were calculated in observation step, that keep the frequency of the samples strong and valid. And we will go back to the "Elapse Time" step.
+
+### Recap
+That's all folks! First we have a set of particles. ‌Based on where they are each, we guess where they would be in the next step ahead in time. An observation is done by the robot. We score (weight) the guesses to know how probabil after the observation. And resample based on weights, to normalize particles. and we repeat this steps again and again till we converge.
+
+## Example
+
+| ![Particle Filtering ](./assets/particle-filter-example.jpg) | 
+|:--:| 
+| *An example of a full particle filtering process.* |
+
+## Pseudo Code
+
+```java
+function PARTICLE_FILTERING(e, N, dbn) returns a set of samples for the next time step
+	 inputs: e, the new incoming evidence
+	     N, the number of samples to be maintained
+	     dbn, a DBN with prior P(X0), transition model P(X1 | X0), sensor model P(E1 | X1)
+	 persistent: S, a vector of samples of size N, initially generated from P(X0)
+	 local variables: W, a vector of weights of size N
+
+	 for i = 1 to N do
+	   S[i] ← sample from P(X1 | X0 = S[i]) /* step 1 */
+	   W[i] ← P(e | X1 = S[i])       /* step 2 */
+	 S ← WEIGHTED_SAMPLE_WITH_REPLACEMENT(N, S, W)  /* step 3 */
+	 return S
+```
+
+## Useful links
+Here are two YouTube videos that explained the subject very well:
+- [Cyrill Stachniss Youtube Channel](https://www.youtube.com/watch?v=YBeVDxTHiYM)
+- [Andreas Svensson Youtube Channel](https://www.youtube.com/watch?v=aUkBa1zMKv4)
+
+
+# Robot Localization
+Robot localization is the process of determining where a mobile robot is located with respect to its environment. Localization is one of the most fundamental competencies required by an autonomous robot as the knowledge of the robot's own location is an essential precursor to making decisions about future actions. In a typical robot localization scenario, a map of the environment is available and the robot is equipped with sensors that observe the environment as well as monitor its own motion. The localization problem then becomes one of estimating the robot position and orientation within the map using information gathered from these sensors. Robot localization techniques need to be able to deal with noisy observations and generate not only an estimate of the robot location but also a measure of the uncertainty of the location estimate.
+
+Robot localization provides an answer to the question: Where is the robot now? A reliable solution to this question is required for performing useful tasks, as the knowledge of current location is essential for deciding what to do next. The problem then becomes one of estimating the robot pose (position and orientation) relative to the coordinate frame in which the map is defined. Typically, the information available for computing the robot location is gathered using onboard sensors, while the robot uses these sensors to observe its environment and its own motion. Given the space limitations, alternative scenarios where sensors such as surveillance cameras are placed in the environment to observe the robot or the robot is equipped with a receiver that provides an estimate of its location based on information from an external source (e.g., a Global Positioning System (GPS) that uses satellites orbiting the earth) are excluded from the following discussion.
+
+A mobile robot equipped with sensors to monitor its own motion (e.g., wheel encoders and inertial sensors) can compute an estimate of its location relative to where it started if a mathematical model of the motion is available. This is known as odometry or dead reckoning. The errors present in the sensor measurements and the motion model make robot location estimates obtained from dead reckoning more and more unreliable as the robot navigates in its environment. Errors in dead reckoning estimates can be corrected when the robot can observe its environment using sensors and is able to correlate the information gathered by these sensors with the information contained in a map.
+
+The formulation of the robot localization problem depends on the type of the map available as well as on the characteristics of the sensors used to observe its environment. In one possible formulation, the map contains locations of some prominent landmarks or features present in the environment and the robot is able to measure the range and/or bearing to these features relative to the robot. Alternatively, the map could be in the form of an occupancy grid that provides the occupied and free regions of an environment and the sensors on board the robot measures the distance to the nearest occupied region in a given direction. As the information from sensors is usually corrupted by noise, it is necessary to estimate not only the robot location but also the measure of the uncertainty associated with the location estimate. Knowledge of the reliability of the location estimate plays an important role in the decision-making processes used in mobile robots as catastrophic consequences may follow if decisions are made assuming that the location estimates are perfect when they are uncertain. Bayesian filtering is a powerful technique that could be applied to obtain an estimate of the robot location and the associated uncertainty.
+
+# Kalman filtering
+The localization problem in a landmark-based map is to find the robot pose at time $k + 1$ as
+$$
+x_{k+1}=(x^r_{k+1},y^r_{k+1},\varphi^r{k+1})^T
+$$
+given the map, the sequence of robot actions  $v_i,w_i(i=0,…,k)$ , and sensor observations from time 1 to time $k + 1$.
+In its most fundamental form, the problem is to estimate the robot poses $x_i (i = 0, …, k + 1)$ that best agree with all robot actions and all sensor observations. This can be formulated as a nonlinear least-squares problem using the motion and observation models derived in Section 2. The solution to the resulting optimization problem can then be calculated using an iterative scheme such as Gauss–Newton to obtain the robot trajectory and as a consequence the current robot pose. Appendix Appendix and Appendix Appendix provide the details on how both linear and nonlinear least-squares problems can be solved, and how the localization problem can be formulated as a nonlinear least-squares problem. The dimensionality of the problem is $3(k + 1)$ for two-dimensional motion, and given the sampling rate of modern sensors are on the order of tens of hertz, this strategy quickly becomes computationally intractable.
+
+If the noises associated with the sensor measurements can be approximated using Gaussian distributions, and an initial estimate for the robot location at time 0, described using a Gaussian distribution $x_0 \sim  N( \hat{x_0},P_0)$  with known $\hat{x}_0$, $P_0$  is available (in this article,  $\hat{x}$  is used to denote the estimated value of $x$), an approximate solution to this nonlinear least-squares problem can be obtained using an EKF. EKF effectively summarizes all the measurements obtained in the past in the estimate of the current robot location and its covariance matrix. When a new observation from the sensor becomes available, the current robot location estimate and its covariance are updated to reflect the new information gathered. Essential steps of the EKF-based localization algorithm are described in the following:
+$$
+u_k=(v_k,w_k)^T,w_k=(\delta_v,\delta_w)^T.
+$$
+Then the nonlinear process model (from time k to time $k + 1$) as stated in equation 2 can be written in a compact form as
+$$
+x_k+1=f(x_k,u_k,w_k)
+$$
+where $f$ is the system transition function, uk is the control, and $w_k$ is the zero-mean Gaussian process noise $w_k \sim N(0, Q)$.
+Consider the general case where more than one landmark is observed. Representing all the observations  $r^i_{k+1},\theta^i_{k+1}$  together as a single vector $z_{k+1}$, and all the noises  $w_r,w_\theta$  together as a single vector $v_{k+1}$, the observation model at time $k + 1$ as stated in equation 3 can also be written in a compact form as
+$$
+z_{k+1}=h(x_{k+1})+v_{k+1}
+$$
+where $h$ is the observation function obtained from equation 3 and $v_{k+1}$ is the zero-mean Gaussian observation noise $v_{k+1} \sim N(0, R)$.
+Let the best estimate of $x_k$ at time $k$ be
+$$
+x_k \sim N(  \hat{x}_k,P_k)
+$$
+Then the localization problem becomes one of estimating $x_{k+1}$ at time $k + 1$:
+$$
+x_{k+1} \sim N( \hat{x}_{k+1},P_{k+1})
+$$
+where  $\hat{x}_{k+1},P_{k+1}$  are updated using the information gathered using the sensors. EKF framework achieves this as follows. To maintain clarity, only the basic equations are presented in the following, while Appendix Appendix provides a more detailed explanation.
+Predict using process model:
+$$
+\bar{x}_{k+1}=f(\hat{x}_k,u_k,0) 
+$$
+$$
+\bar{P}_{k+1}=J_{f_x}( \hat{x}_k,u_k,0)P_kJ^T_{f_x}( \hat{x}_k,u_k,0)+J_{f_w}( \hat{x}_k,u_k,0)QJ^T_{f_w}( \hat{x}_k,u_k,0)
+$$
+where $J_{f_x}(\hat{x}_k,u_k,0)$  is the Jacobian of function $f$ with respect to $x$,  $J_{f_w}(\hat{x}_k,u_k,0)$  is the Jacobian of function f with respect to $w$, both evaluated at  $(\hat{x}_k,u_k,0)$ .
+Update using observation:
+$$
+\hat{x}_{k+1}=\bar{x}_{k+1}+K(z_{k+1}−h(\bar{x}_{k+1}))
+$$
+$$
+P_{k+1}=\bar{P}_{k+1}−KSK^T
+$$
+where the innovation covariance $S$ (here  $z_{k+1}−h(\bar{x}_{k+1})$  is called innovation) and the Kalman gain $K$ are given by
+$$
+S=J_h(\bar{x}_{k+1})\bar{P}_{k+1}J^T_h(\bar{x}_{k+1})+R
+$$
+$$
+K=\bar{P}_{k+1}J^T_h(\bar{x}_{k+1})S^{−1}
+$$
+where  $J_h(\bar{x}_k+1)$  is the Jacobian of function h with respect to x evaluated at  $\bar{x}_{k+1}$ .
+Recursive application of the above equations every instant a new observation is gathered yields an updated estimate for the current robot location and its uncertainty. This recursive nature makes EKF the most computationally efficient algorithm available for robot localization.
+An important prerequisite for EKF-based localization is the ability to associate measurements obtained with specific landmarks present in the environment. Landmarks may be artificial, for example, laser reflectors, or natural geometric features present in the environment such as line segments, corners, or planes. In many cases, the observation itself does not contain any information as to which particular landmark is being observed. Data association is the process in which a decision is made as to the correspondence between an observation from the sensor and a particular landmark. Data association is critical to the operation of an EKF-based localizer, as catastrophic failure may result if data association decisions are incorrect.
+EKF relies on approximating the nonlinear motion and observation models using linear equations and that the sensor noises can be approximated using Gaussian distributions. These are reasonable assumptions under many practical conditions and therefore EKF is the obvious choice for solving the robot localization problem when the map of the environment consists of clearly identifiable landmarks.
+
+Figure 2 shows the result of EKF localization for the simple problem given in Figure 1. The ground truth of the robot poses and the estimated robot poses are shown in red and blue, respectively. The 95% confidence ellipses obtained from the covariance matrices in the EKF estimation process are also shown in the figure.
+| ![Figure 1](https://onlinelibrary.wiley.com/cms/asset/7c427b65-cce0-4158-be66-717b00a419ac/nfg002.gif) | 
+|:--:| 
+| *Figure 1* |
+
+![Figure 2](https://onlinelibrary.wiley.com/cms/asset/beb02148-6fb8-4080-b76e-6770ad04f8ff/nfg004.gif) | 
+|:--:| 
+| *Figure 2* |
+
+# Dynamic Bayes Nets
+A Bayesian network is a snapshot of the system at a given time and is used to model systems that are in some kind of equilibrium state. Unfortunately, most systems in the world change over time and sometimes we are interested in how these systems evolve over time more than we are interested in their equilibrium states. Whenever the focus of our reasoning is change of a system over time, we need a tool that is capable of modeling dynamic systems.
+
+A dynamic Bayesian network (DBN) is a Bayesian network extended with additional mechanisms that are capable of modeling influences over time. The temporal extension of Bayesian networks does not mean that the network structure or parameters changes dynamically, but that a dynamic system is modeled. In other words, the underlying process, modeled by a DBN, is stationary. A DBN is a model of a stochastic process.
+
+## DBN particle filtering
+**Basic idea:** ensure that the population of samples (“particles”) tracks the high-likelihood regions of the state-space Replicate particles proportional to likelihood for $e_t$
+
+![Figure 1](https://s4.uupload.ir/files/fig2_m8pf.jpg) | 
+|:--:| 
+| *DBN Particle Filtering* |
+Widely used for tracking nonlinear systems, esp. in **vision**. Also used for simultaneous localization and mapping in mobile robots $10^{-5}$ dimensional state space. 
+Assume consistent at time $t: \frac{N(x_t|e_{1:t})}{N}=P(x_t|e_{1:t})$.
+**Propagate forward**: populations of $x_{t+1}$ are
+$$
+N(x_t|e_{1:t})=\sum_{x_t} P(x_{t+1}|x_t)N(x_t|e_{1:t})
+$$
+**Weight** samples by their likelihood for $e_{t+1}$:
+$$
+W(x_{t+1}|e_{1:t+1})= P(e_{t+1}|x_t)N(x_t|e_{1:t})
+$$
+**Resample** to obtain populations proportional to $W$:
+$$
+\begin{align*}
+\frac{N(x_{t+1}|e_{1:t+1})}{N} &=\alpha W(x_{t+1}|e_{1:t+1}) = \alpha P(e_{t+1}|x_{t+1})N(x_{t+1}|e_{1:t}) \\
+&=\alpha P(e_{t+1}|x_{t+1})\sum_{x_t} P(x_{t+1}|x_t)N(x_t|e_{1:t}) \\
+& = \alpha' P(e_{t+1}|x_{t+1})\sum_{x_t} P(x_{t+1}|x_t)P(x_t|e_{1:t}) \\
+& = P(x_{t+1}|e_{1:t+1})
+\end{align*}
+$$
+Approximation error of particle filtering remains bounded over time, at least empirically—theoretical analysis is difficult.
+| ![error of particle filtering](https://s4.uupload.ir/files/fig1_llkv.jpg) | 
+|:--:| 
+| *Error of DBN particle filtering.* |
+
+# Conclusion
+This note reviewed the key concepts of hidden Markov model for probabilistic sequence classification.
+- Hidden Markov models (HMMs) are a way of relating a sequence of **observations** to a sequence of **hidden classes** or hidden states that explain the observations.
+- The process of discovering the sequence of hidden states, given the sequence of observations, is known as decoding or inference. The **Viterbi** algorithm is commonly used for decoding.
+- The parameters of an HMM are the A transition probability matrix and the B observation likelihood matrix. Both can be trained with the **forward-backward** algorithm.
+
+# Resources
 [1] Stuart Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th ed. Pearson Education, Inc
 [2] Speech and Language Processing. Daniel Jurafsky & James H. Martin. https://web.stanford.edu/~jurafsky/slp3/A.pdf (Visited: 12/4/2021)
+[3] [Science Direct Topics](https://www.sciencedirect.com/topics/engineering/particle-filter) (Visited: 12/17/2021)
+[4] [Cyrill Stachniss Youtube Channel](https://www.youtube.com/watch?v=YBeVDxTHiYM) (Visited: 17/4/2021)
+[5] [Andreas Svensson Youtube Channel](https://www.youtube.com/watch?v=aUkBa1zMKv4) (Visited: 17/4/2021)
 
