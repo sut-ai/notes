@@ -211,7 +211,7 @@ Consider the game Pacman which has only an agent playing the game. Starting from
 ### <b>Adversarial Agent Trees</b>
 </font>
 <br>
-Like the previous Example, we explain this concept with the game Pacman but this time, the game has another agent called the adversarial agent or specific to this game, **The Ghost**.
+Like the previous Example, we explain this concept with the game Pacman but this time, the game has another agent called the adversarial agent or specific to this game, <b>The Ghost</b>.
 Like Single Agent Trees, we can form a tree to express the moves of the agents, but the difference is that at each level of the tree, only one agent can play. For example if we start with the player P1 at the root of the tree, based on its move, we gain 2 successors and we go to the first level of the tree. At this level of tree, only the other player called P2 can move and each of the 2 nodes will have 2 successors based on P2's move. So we have 4 nodes in the second level and the game will continue this way till the end. In this Configuration, how can we calculate the utility value of nodes? This will be our next topic.  
 
 ## <font size = 5 color=red>
