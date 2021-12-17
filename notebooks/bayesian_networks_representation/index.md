@@ -184,9 +184,9 @@ is X is guaranteed to be independent of Z given Y?
 
 #### V-Structure
 
-last configuration is "common effect" and sometimes called V-Structure.
+the last configuration is "common effect" and is sometimes called V-Structure.
 
-- in this configuration one variable is affected by another two variables.
+- in this configuration, one variable is affected by another two variables.
 
 - P(x, y, z) = P(x) P(y) P(z|x, y)
 
@@ -198,7 +198,7 @@ in following BN, both ballgame and raining cause traffic.
 
 is X is guaranteed to be independent of Y?
 
-- the answer, unlike previous versions, is Yes. ballgame and raining do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
+- the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
 
 ![ch_formula1](assets/ch12.PNG)
 
@@ -206,19 +206,19 @@ is X is guaranteed to be independent of Y?
 
 is X is guaranteed to be independent of Y given z?
 
-- the answer is NO. with an example we describe the situation. consider X and Y have random value and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
+- the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
 
 - P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1    P(+z|-x,-y)=0
 
-- From problem description, We can conclude that P(+x|+z,-y)=1  and P(+x|-y)=0.5. So, P(X|Z,Y) is not equal to P(X|Y).
+- From the problem description, We can conclude that P(+x|+z,-y)=1  and P(+x|-y)=0.5. So, P(X|Z,Y) is not equal to P(X|Y).
 
-- So, with observation of Z, X and Y are not independent. this means Observing an effect, activates influence between possible causes.
+- So, with the observation of Z, X and Y are not independent. this means Observing an effect, activating influence between possible causes.
 
 ### Reachability
 
-Now, we want to use these three cases to check conditional dependency in any arbitrary graph. generally, the problem is checking dependency between two random variables in a BN in which some (or any) variables are observed. for this goal we break the graph into triples which we learned above and do some checking on them. In the following these steps are described.
+Now, we want to use these three cases to check conditional dependency in any arbitrary graph. generally, the problem is checking dependency between two random variables in a BN in which some (or any) variables are observed. for this goal, we break the graph into triples which we learned above, and do some checking on them. In the following, these steps are described.
 
-in the first step, we should shade evidence nodes, nodes that are observed in the problem. then looking for undirected path between determined random variables. the first idea is that if two nodes are connected by a path that is blocked by a shaded node, two random variables are independent. But there are drawbacks to this rule. when we have several paths between two RVs or there is V-structure triple that its bottom node is shaded, our method is wrong. So, we describe next step to correct these problems.
+in the first step, we should shade evidence nodes, nodes that are observed in the problem. then looking for undirected paths between determined random variables. the first idea is that if two nodes are connected by a path that is blocked by a shaded node, two random variables are independent. But there are drawbacks to this rule. when we have several paths between two RVs or there is a V-structure triple that its bottom node is shaded, our method is wrong. So, we describe the next step to correct these problems.
 
 ### Active/Inactive Paths
 
@@ -226,7 +226,7 @@ Question: are X and Y conditionally independent given evidence variables {Z}?
 
 - Yes, if x and y “d-separated” by z.
 
-to describe "d-separated" concept, we first need to understand the concept of active/inactive path.
+to describe the "d-separated" concept, we first need to understand the concept of active/inactive path.
 
 a path is active if each triple of it is active. a triple is active if:
 
@@ -240,34 +240,34 @@ in the figure below, examples of active and inactive triples are shown.
 
 ![dsepr](assets/ch4.jpg)
 
-note that a single inactive triple makes a path inactive. but two RVs are independent if all paths between related nodes are inactive. So, if some paths were active, independency is not guaranteed.
+note that a single inactive triple makes a path inactive. but two RVs are independent if all paths between related nodes are inactive. So, if some paths were active, independence is not guaranteed.
 
 Example:
 
-- a. we want to check conditionally independency between R and B variables with different evidence.
+- a. we want to check conditionally independence between R and B variables with different evidence.
 
 ![exp1](assets/ch5.jpg)
 
 - **without evidence:** there is only one path between R and B that is a “common effect” triple. it is inactive so R and B are independent.
-- **evidence=T:** there is a “common effect” triple that is active. So, independency of R and B aren’t guaranteed.
+- **evidence=T:** there is a “common effect” triple that is active. So, the independence of R and B isn’t guaranteed.
 - **evidence=T’:** this situation is similar to previous evidence.
 
-- b. we want to check conditionally independency between L and B variables with different evidence.
+- b. we want to check conditionally independence between L and B variables with different evidence.
 
 ![exp2](assets/ch6.jpg)
 
 - **without evidence:** there is only one path between L and B that has two triples. L->R->T is active but R->T<-B is inactive. So, this pass is inactive. So, L and B are independent.
-- **evidence = T:** similar to previous segment there is only one path that has two triples. both are active. So, L and B aren't guaranteed to be independent given T.
-- **evidence = T':** it is similar to similar to segment. 
-- **evidence = T, R:** similar to 2’nd segment the R->T<-B triple is active but L->R->T is inactive. So, L and B are independent given T and R.
+- **evidence = T:** similar to the previous segment there is only one path that has two triples. both are active. So, L and B aren't guaranteed to be independent given T.
+- **evidence = T':** it is similar to segment. 
+- **evidence = T, R:** similar to the 2’nd segment the R->T<-B triple is active but L->R->T is inactive. So, L and B are independent given T and R.
 
-- c. we want to check conditionally independency between T and D variables with different evidence.
+- c. we want to check conditionally independence between T and D variables with different evidence.
 
 ![exp3](assets/ch7.jpg)
 
-- **without evidence:** There are two paths between T and D. upper path is an active “common cause” and lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
-- **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and lower path is an inactive “common effect”.  So, L and T are independent given R.
-- **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
+- **without evidence:** There are two paths between T and D. upper path is an active “common cause” and the lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
+- **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an inactive “common effect”.  So, L and T are independent given R.
+- **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
 
 ### Structure Implications
 
