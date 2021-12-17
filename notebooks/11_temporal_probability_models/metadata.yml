@@ -1,38 +1,37 @@
-title: LN | Temporal Probability Models
+title: Temporal Probability Models
 
 header:
-  title: Temporal Probability Models (Markov Models and Particle Filtering)
+  title: Temporal Probability Models (from filter/monitor till the end)
+  description: A comprehensive look at Temporal Probability Models and its applications
 
 authors:
   label:
     position: top
     text: Authors
-  kind: people
   content:
-    - name: Ali Mirzaei Saghezchi
+    - name: Mohammadreza Mofayezi
       role: Author
       contact:
         - icon: fab fa-github
-          link: https://github.com/mehrdad7008
+          link: https://github.com/ckoorosh
         - icon: fas fa-envelope
-          link: mailto:mehrdad7008@gmail.com
+          link: mailto:mofayezi.m@gmail.com
 
-    - name: Arman Mohammadi
-      role: Author
-      contact:
-        - icon: fas fa-envelope
-          link: mailto:rman.mo2000@gmail.com
-
-    - name: Arman Babaei
+    - name: Ali Hatami
       role: Author
       contact:
         - icon: fab fa-github
-          link: https://github.com/arman17babaei
+          link: https://github.com/alihatamitajik
         - icon: fas fa-envelope
-          link: mailto:292.arma@gmail.com
+          link: mailto:a.hatam008@gmail.com
 
-    - name: Mahdi Ghaznavi
-      role: Supervisor
+    - name: Pouria Momtaz
+      role: Author
       contact:
+        - icon: fab fa-github
+          link: https://github.com/pourya-momtaz
         - icon: fas fa-envelope
-          link: mailto:ghaznavi.mahdi@gmail.com
+          link: mailto:pouryamz19@gmail.com
+comments:
+    label: false
+    kind: comments
