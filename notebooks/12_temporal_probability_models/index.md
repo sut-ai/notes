@@ -42,7 +42,7 @@ So far, we have learned how to deal with probabilistic reasoning in static world
 Let' start with an example of a static problem:
 >Imagine that your car has broken down. You may guess that the problem is related to the engine, batteries, or other car parts. You may take the vehicle to a car repair shop to diagnose the problem and fix it. You know that during the diagnosis process, the broken part remains broken, so the state of the car doesn't change.
 <center>
-<img src="resources/sFAP5bQ.jpg" alt="car repair" width="350"/>
+<img src="resources/sFAP5bQ.jpeg" alt="car repair" width="350"/>
 </center>
 
 
@@ -51,7 +51,7 @@ But our problems aren't always static. Consider the below example:
 
 
 <center>
-<img src="resources/wvnlp2L.jpg" alt="diabetes" width="350"/>
+<img src="resources/wvnlp2L.jpeg" alt="diabetes" width="350"/>
 </center>
 
 
