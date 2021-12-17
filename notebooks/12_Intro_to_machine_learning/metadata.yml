@@ -1,0 +1,40 @@
+title: LN | introduction to machine learning (key concepts)
+
+header:
+  title: Intro to machine learning
+
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+    - name: Alireza Eiji
+      role: Author
+      contact:
+        - icon: fas fa-envelope
+          link: mailto:alirezaeiji151379@gmail.com
+        - icon: fas fa-github
+          link: https://github.com/AlirezaEiji191379
+
+    - name: Mohammad Ali Khodabandeloo
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/MohammadAli-Khodabandelou
+        - icon: fas fa-envelope
+          link: mailto:mohammadali.khodabandelou@gmail.com
+
+    - name: Ahmad Reza Hamzei
+      role: Author
+      contact:
+        - icon: fas fa-envelope
+          link: mailto:hamzei@ce.sharif.edu
+        - icon: fas fa-github
+          link: https://github.com/ARH80
+
+    - name: Sepehr Amini Afshar
+      role: Supervisor
+      contact:
+        - icon: fas fa-envelope
+          link: mailto:sepehramini83@gmail.com
