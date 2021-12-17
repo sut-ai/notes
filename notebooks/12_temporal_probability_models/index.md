@@ -20,6 +20,8 @@ Members: Arshan Dalili, Soroush Jahanzad, Mohammad Hejri
 
 [Stationary Distribution](#Stationary-Distribution)
 
+[Most Likely Explanation: Mini-Viterbi Algorithm](#Most-Likely-Explanation:-Mini-Viterbi-Algorithm)
+
 [Hidden Markov Model](#Hidden-Markov-Model)
 * [Chain Rule and Joint Distribution of Hidden Markov Model](#Chain-Rule-and-Joint-Distribution-of-Hidden-Markov-Model)
 * [Hidden Markov Models Applications](#Hidden-Markov-Model-Applications)
@@ -67,136 +69,129 @@ Retake variables of the diabetes example. We know that these variables can chang
 
 ><span style="color:DarkSlateGray">_**Hence we can model the diabetes status of a patient using a Temporal Probability Model.**_</span>
 
-There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as ![{E}_t](doc/teximg/tex_img_0_39OCG.png) at time ![t](doc/teximg/tex_img_1_YYV34.png).
-
-On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time ![t](doc/teximg/tex_img_2_GQ4EP.png), we use ![{X}_t](doc/teximg/tex_img_3_VET8W.png) to denote them.
+There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as <img src="https://render.githubusercontent.com/render/math?math=E_t"> at time <img src="https://render.githubusercontent.com/render/math?math=t">.
+On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time <img src="https://render.githubusercontent.com/render/math?math=E_t">, we use <img src="https://render.githubusercontent.com/render/math?math=t"> to denote them.
 In a nutshell, we have:
-<span style="color:DarkSlateGray">
-\begin{equation}
-{E}_t = Observable\;Variable\;at\;time\;t\\
-{X}_t = NonObservable\;Variable\;at\;time\;t
-\end{equation}
-</span>
+<img src="https://render.githubusercontent.com/render/math?math=E_t ="> Observable Variable At Time t
+<img src="https://render.githubusercontent.com/render/math?math=X_t ="> Non-Observable Variable At Time t
+
 
 
 ### Markov Models
-Let's define a random variable ![X](doc/teximg/tex_img_4_8A5SX.png) and call its value at a given time ![t](doc/teximg/tex_img_5_S26DU.png) the state of ![X](doc/teximg/tex_img_6_FQ2GJ.png) and denote it as ![X_t](doc/teximg/tex_img_7_79OU6.png). If in our model the future state of ![X](doc/teximg/tex_img_8_MYNF4.png) depends only on the current state of ![X](doc/teximg/tex_img_9_X5BQ6.png) and not on states that had occurred before, we call it a **_First-order Markov Model_**, or simply a **_Markov Model_**. Bayesian network of this model looks like the below network and is referred to as a **_Markov Chain_**:
+Let's define a random variable <img src="https://render.githubusercontent.com/render/math?math=X"> and call its value at a given time <img src="https://render.githubusercontent.com/render/math?math=t"> the state of <img src="https://render.githubusercontent.com/render/math?math=X"> and denote it as <img src="https://render.githubusercontent.com/render/math?math=X_t">. If in our model the future state of <img src="https://render.githubusercontent.com/render/math?math=X"> depends only on the current state of <img src="https://render.githubusercontent.com/render/math?math=X"> and not on states that had occurred before, we call it a **_First-order Markov Model_**, or simply a **_Markov Model_**. Bayesian network of this model looks like the below network and is referred to as a **_Markov Chain_**:
 <center>
 <img src="resources/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
 In a Markov chain, we can write the Morkov assumption as:
-
-\begin{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=
 P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x_n|X_{n - 1}=x_{n - 1})
-\end{equation}
+" width=500>
+</center>
 
-*Note:* We also define ![X_{a:b}](doc/teximg/tex_img_10_AYRJS.png) to denote a set of variables from ![X_a](doc/teximg/tex_img_11_BRTR9.png) to ![X_b](doc/teximg/tex_img_12_80OWW.png).
-<span style="color:DarkSlateGray">
-\begin{equation}
-X_{a:b} = X_a, X_{a+1}, \cdots, X_{b-1}, X_b
-\end{equation}
-</span>
+*Note:* We also define <img src="https://render.githubusercontent.com/render/math?math=X_{a:b}"> to denote a set of variables from <img src="https://render.githubusercontent.com/render/math?math=X_a"> to <img src="https://render.githubusercontent.com/render/math?math=X_b">.
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=
+X_{a:b} = X_a, X_{a+1}, \cdots, X_{b-1}, X_b" width=300>
+</center>
 
-In a similar way, we can use **_![i](doc/teximg/tex_img_13_0CF2J.png)th-order Markov Models_** to model situations in which the future state of ![X](doc/teximg/tex_img_14_9E376.png) depends only on ![i](doc/teximg/tex_img_15_P34IE.png) recent states and not on states that had occrred before. In this case we have:
 
-\begin{equation}
-P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x|X_{n - i:n - 1}=x_{n - i : n - 1})
-\end{equation}
+In a similar way, we can use **_ith-order Markov Models_** to model situations in which the future state of <img src="https://render.githubusercontent.com/render/math?math=X"> depends only on <img src="https://render.githubusercontent.com/render/math?math=i"> recent states and not on states that had occrred before. In this case we have:
+
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=
+P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x|X_{n - i:n - 1}=x_{n - i : n - 1})" width = 550>
+</center>
 
 ### Joint Distributions of Markov Models
 
-Take ![X](doc/teximg/tex_img_16_XZRN9.png) as a Markov Model and consider its Bayesian network (depicted below).
+Take <img src="https://render.githubusercontent.com/render/math?math=X"> as a Markov Model and consider its Bayesian network (depicted below).
 <center>
 <img src="resources/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
-We can quickly notice that for every ![1 \lt i \leq n](doc/teximg/tex_img_17_HALC6.png) , if we are given ![X_{i-1}](doc/teximg/tex_img_18_Q8NV3.png), then **![X_i](doc/teximg/tex_img_19_5IG3C.png) is independent of ![X_1, X_2, \cdots, X_{i-2}](doc/teximg/tex_img_20_D73OR.png)** since there is only one inactive path between each of them and ![X_i](doc/teximg/tex_img_21_FOUL8.png). (Regarding the fact that ![X_{i-1}](doc/teximg/tex_img_22_ABEBF.png) is given)
+We can quickly notice that for every <img src="https://render.githubusercontent.com/render/math?math=1\lt i \leq n"> , if we are given <img src="https://render.githubusercontent.com/render/math?math=X_{i-1}">, then <img src="https://render.githubusercontent.com/render/math?math=X_i"> **is independent of** <img src="https://render.githubusercontent.com/render/math?math=X_1, X_2, \cdots, X_{i-2}"> since there is only one inactive path between each of them and <img src="https://render.githubusercontent.com/render/math?math=X_i">. (Regarding the fact that <img src="https://render.githubusercontent.com/render/math?math=X_{i-1}"> is given)
 So we have:
-<span style="color:DarkSlateGray">
-\begin{equation}
-    X_i \perp \!\!\! \perp X_1, X_2, \cdots, X_{i-2} \vert X_{i-1}
-\end{equation}
-</span>
+
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=X_i \perp \!\  X_1, X_2, \cdots, X_{i-2} \vert X_{i-1}" width = 300>
+</center>
+
+
 We define two parameters here:
 * **Transition Probabilities**:
-    <span style="color:DarkSlateGray">
-    \begin{equation}
-    P(X_t \vert X_{t-1})
-    \end{equation}
-    </span>
-    It shows how each state is related to its previous state and how states develop.
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_t \vert X_{t-1})" width = 100>
+</center>
+    
+It shows how each state is related to its previous state and how states develop.
     The **_Stationary assumption_** in Markov models ensures that transition probabilities don't change over time.
 * **Initial State Probability**:
-    <span style="color:DarkSlateGray">
-    \begin{equation}
-    P(X_1)
-    \end{equation}
-    </span>
-    It is the probability of the initial state (![X_1](doc/teximg/tex_img_23_13HCZ.png)), and we usually know its value.
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_1)" width = 50>
+</center>
+
+It is the probability of the initial state (<img src="https://render.githubusercontent.com/render/math?math=X_1">), and we usually know its value.
     
-    We can find the joint distribution of X regarding the Bayesian network and the parameters we defined. If we consider ![X_1](doc/teximg/tex_img_24_FG02S.png) to ![X_n](doc/teximg/tex_img_25_LCZQB.png), then we have:
-    <span style="color:DarkSlateGray">
-    \begin{equation}
-    P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1})\\ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
-    \end{equation}
-    </span>
+We can find the joint distribution of <img src="https://render.githubusercontent.com/render/math?math=X"> regarding the Bayesian network and the parameters we defined. If we consider <img src="https://render.githubusercontent.com/render/math?math=X_1"> to <img src="https://render.githubusercontent.com/render/math?math=X_n">, then we have:
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1})\\ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})" width = 1000>
+</center>
+    
 In the next section, we will prove this joint distribution using Chain Rule and independence.
 
 
 
 
 ### Chain Rule
-Take ![X](doc/teximg/tex_img_26_16ZCN.png) as a Markov Model and consider its Bayesian network (depicted below).
+Take <img src="https://render.githubusercontent.com/render/math?math=X"> as a Markov Model and consider its Bayesian network (depicted below).
 <center>
 <img src="resources/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
-We know that from Chain Rule, every joint distribution of ![X_1](doc/teximg/tex_img_27_P67XU.png) to ![X_n](doc/teximg/tex_img_28_UIG2L.png) can be written as:
-<span style="color:DarkSlateGray">
-    \begin{equation}
-    P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})
-    \end{equation}
-    </span>
+We know that from Chain Rule, every joint distribution of <img src="https://render.githubusercontent.com/render/math?math=X_1"> to <img src="https://render.githubusercontent.com/render/math?math=X_n"> can be written as:
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})" width = 900>
+</center>
+
 Now, due to the independence we saw earlier, we can assume:
-<span style="color:DarkSlateGray">
-\begin{equation}
-    X_3 \perp \!\!\! \perp X_1\vert X_2, X_4\perp \!\!\! \perp X_1,X_2\vert X_3, \cdots, X_{n}\perp \!\!\! \perp X_1,X_2\cdots X_{n-2}\vert X_{n-1}
-\end{equation}
-</span>
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=X_3 \perp \!\ X_1\vert X_2, X_4\perp \!\ X_1,X_2\vert X_3, \cdots, X_{n}\perp \!\ X_1,X_2\cdots X_{n-2}\vert X_{n-1}" width = 600>
+</center>
+
 So, after applying independence to Chain Rule, we have:
-<span style="color:DarkSlateGray">
-    \begin{equation}
-    P(X_1, X_2, \cdots, X_{n-1}, X_n)= P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})\\=P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n}\vert X_{n-1})\\=P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
-    \end{equation}
-    </span>
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_1, X_2, \cdots, X_{n-1}, X_n)= P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})\\=P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n}\vert X_{n-1})\\=P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})" width = 1000>
+</center>
+
 which is the same result we get from the previous section.
 
 ## Mini-Forward Algorithm
 
-Imagine you want to go on a trip with your friends. Your friends think that trips in sunny days are more fun, so they ask you to schedule the trip for a sunny day. You know that you cannot be completely certain whether the ![n](doc/teximg/tex_img_29_Z8H25.png)th day after today is going to be sunny or rainy, so what will you do?
+Imagine you want to go on a trip with your friends. Your friends think that trips in sunny days are more fun, so they ask you to schedule the trip for a sunny day. You know that you cannot be completely certain whether the <img src="https://render.githubusercontent.com/render/math?math=n">th day after today is going to be sunny or rainy, so what will you do?
 
-We can solve this problem easily if we assume a Markov model. Suppose that we have measured the transition probabilities for this model and know that if some day is sunny, the next day will be sunny with probability ![P(X_{n + 1} = sunny | X_{n} = sunny) = 0.9](doc/teximg/tex_img_30_VIR8P.png) and will be rainy otherwise. Similarly, if some day is rainy, the next day will be rainy with probability ![P(X_{n + 1} = rainy | X_{n} = rainy) = 0.7](doc/teximg/tex_img_31_GOEIM.png) and will be sunny otherwise. We also know the initial probability because we know today's weather.
+We can solve this problem easily if we assume a Markov model. Suppose that we have measured the transition probabilities for this model and know that if some day is sunny, the next day will be sunny with probability <img src="https://render.githubusercontent.com/render/math?math=P(X_{n + 1} = sunny | X_{n} = sunny) = 0.9"> and will be rainy otherwise. Similarly, if some day is rainy, the next day will be rainy with probability <img src="https://render.githubusercontent.com/render/math?math=P(X_{n + 1} = rainy | X_{n} = rainy) = 0.7"> and will be sunny otherwise. We also know the initial probability because we know today's weather.
 
-Now that we have a good model, we need an efficient approach to find the probability of each outcome in the ![n](doc/teximg/tex_img_32_HP3H9.png)th day after today. A naive approach would be to enumerate all possible sequences of length ![n](doc/teximg/tex_img_33_GATCE.png) which end in each outcome and then add up their probabilities. This will do the work, but it will require a lot of time and effort and is too slow. A better approach is to store our incremental *belief* about the weather and to update it as we consider proceed twords the ![n](doc/teximg/tex_img_34_8ZF17.png)th day in our calculations. This approach is called the **Mini-Forward Algorithm**.
+Now that we have a good model, we need an efficient approach to find the probability of each outcome in the <img src="https://render.githubusercontent.com/render/math?math=n">th day after today. A naive approach would be to enumerate all possible sequences of length <img src="https://render.githubusercontent.com/render/math?math=n"> which end in each outcome and then add up their probabilities. This will do the work, but it will require a lot of time and effort and is too slow. A better approach is to store our incremental *belief* about the weather and to update it as we consider proceed twords the <img src="https://render.githubusercontent.com/render/math?math=n">th day in our calculations. This approach is called the **Mini-Forward Algorithm**.
 
-In the Mini-Forward algorithm, we use the probabilities for the initial state and forward simulation to calculate the probabilities in the future states. The probability of outcome ![x_i](doc/teximg/tex_img_35_VWLYY.png) in the state ![X_n](doc/teximg/tex_img_36_NEICT.png) using this algorithm is:
+In the Mini-Forward algorithm, we use the probabilities for the initial state and forward simulation to calculate the probabilities in the future states. The probability of outcome <img src="https://render.githubusercontent.com/render/math?math=x_i"> in the state <img src="https://render.githubusercontent.com/render/math?math=X_n"> using this algorithm is:
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_n = x_i) = \sum_{x_j} P(X_n = x_i | X_{n - 1} = x_j) P(X_{n - 1} = x_j)" width = 500>
+</center>
 
-\begin{equation}
-    P(X_n = x_i) = \sum_{x_j} P(X_n = x_i | X_{n - 1} = x_j) P(X_{n - 1} = x_j)
-\end{equation}
 
-This can be easily computed for each state because we know the initial probability ![P(X_1 = x_k)](doc/teximg/tex_img_37_QDJSL.png) for every ![k](doc/teximg/tex_img_38_JJ2GB.png) and the transition probabilities for each state can also be calculated using this algorothm.
+This can be easily computed for each state because we know the initial probability <img src="https://render.githubusercontent.com/render/math?math=P(X_1 = x_k)"> for every <img src="https://render.githubusercontent.com/render/math?math=k"> and the transition probabilities for each state can also be calculated using this algorothm.
 
-Now that we have this solution, we can say that the probability that the ![n](doc/teximg/tex_img_39_UJGWV.png)th day after today will be sunny in our example is:
+Now that we have this solution, we can say that the probability that the <img src="https://render.githubusercontent.com/render/math?math=n">th day after today will be sunny in our example is:
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P(X_{n + 1} = sunny) = \sum_{x_j \in \{sunny, rainy\}} P(X_n = sunny | X_{n - 1} = x_j) P(X_{n - 1} = x_j)" width = 600>
+</center>
 
-\begin{equation}
-    P(X_{n + 1} = sunny) = \sum_{x_j \in \{sunny, rainy\}} P(X_n = sunny | X_{n - 1} = x_j) P(X_{n - 1} = x_j)
-\end{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=\Rightarrow P(X_{n + 1} = sunny) = 0.9 \times P(X_n = sunny | X_{n - 1} = sunny) + 0.3 \times P(X_n = sunny | X_{n - 1} = rainy)" width = 700>
+</center>
 
-\begin{equation}
-    \Rightarrow P(X_{n + 1} = sunny) = 0.9 \times P(X_n = sunny | X_{n - 1} = sunny) + 0.3 \times P(X_n = sunny | X_{n - 1} = rainy)
-\end{equation}
 
 Now, let's take a look at the state of weather with initial observation of sun:
 <center>
@@ -216,18 +211,18 @@ Finally, let's take a look at the state of weather with initial observation of r
 
 An interesting question to ask in problems modeled using Markov chains is about the state as we continue simulating for a long time. As we simulate further into the future, the Moarkov chain becomes longer and uncertainty is accumulated. 
 
-In the general case, we cannot say what the state will be in the far future. However, for most Markov chains, we will eventually end up in the same distribution no matter what the initial distribution is. In other words, the distribution we end up in is independent of the initial distribution. In such cases, the distribution we end up with is called the **stationary distribution** of the chain. This distribution is denoted by ![P_\infty](doc/teximg/tex_img_40_9PSGY.png) and satisfies the condition below.
+In the general case, we cannot say what the state will be in the far future. However, for most Markov chains, we will eventually end up in the same distribution no matter what the initial distribution is. In other words, the distribution we end up in is independent of the initial distribution. In such cases, the distribution we end up with is called the **stationary distribution** of the chain. This distribution is denoted by <img src="https://render.githubusercontent.com/render/math?math=P_\infty"> and satisfies the condition below.
 
-\begin{equation}
-    P_{\infty}(X) = P_{\infty + 1}(X) = \sum_{x} P(X|x) P_{\infty}(x)
-\end{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=P_{\infty}(X) = P_{\infty + 1}(X) = \sum_{x} P(X|x) P_{\infty}(x)" width=300>
+</center>
 
 In the weather example we mentioned earlier, the stationary distribution denotes the probability that each day will be sunny or rainy in general.
 
 
 ## Most Likely Explanation: Mini-Viterbi Algorithm
 
-Sometimes we would like to find out what happened in the past using the knowledge that we have in present. Consider the trip we discussed earlier as an example. Imagine that you and your friends want to go outside, but some of your friends warn you that everything might be wet if it had rained in the past ![n](doc/teximg/tex_img_41_SD0PW.png) days. Since your destination is too far, you do not know about its past, so we need to reason about the most likely sequence of your destination's weather in the past ![n](doc/teximg/tex_img_42_R5HHO.png) days. The course of this problem can be shown using the following figure.
+Sometimes we would like to find out what happened in the past using the knowledge that we have in present. Consider the trip we discussed earlier as an example. Imagine that you and your friends want to go outside, but some of your friends warn you that everything might be wet if it had rained in the past <img src="https://render.githubusercontent.com/render/math?math=n">  days. Since your destination is too far, you do not know about its past, so we need to reason about the most likely sequence of your destination's weather in the past <img src="https://render.githubusercontent.com/render/math?math=n"> days. The course of this problem can be shown using the following figure.
 
 <center>
 <img src="resources/N6fC8TW.png" alt="Weather CPT" width=400/>
@@ -235,26 +230,27 @@ Sometimes we would like to find out what happened in the past using the knowledg
 
 Again, a slow answer would be to enumerate all possible combinations and calculate the probabilities. However, we can calculate the most likely sequence inductively, remember the incremental probabilities, and update the most likely sequence as we proceed. This approach is called the **Mini-Viterbi Algorithm**.
 
-In the Mini-Viterbi algorithm, we define ![m_t[x]](doc/teximg/tex_img_43_2ID9V.png) and ![a_t[x]](doc/teximg/tex_img_44_24HEH.png) as:
+In the Mini-Viterbi algorithm, we define <img src="https://render.githubusercontent.com/render/math?math=m_t[x]"> and <img src="https://render.githubusercontent.com/render/math?math=a_t[x]"> as:
 
-\begin{equation}
-    m_t[x] = \max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
-\end{equation}
-\begin{equation}
-    a_t[x] = arg\!\max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
-\end{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=m_t[x] = \max_{x_{1:t - 1}} P(x_{1:t - 1}, x)" width=300>
+</center>
+<br>
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=a_t[x] = arg\!\max_{x_{1:t - 1}} P(x_{1:t - 1}, x)" width=300>
+</center>
 
 The equation above can be rewritten to:
-\begin{equation}
-    m_1[x] = P(X_1 = x1)
-\end{equation}
-\begin{equation}
-    m_t[x] = \max_{x_{1:t - 1}} P(x_t | x_{t - 1}) m_{t - 1}[x]
-\end{equation}
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=m_1[x] = P(X_1 = x1)" width=200>
+</center>
+<center>
+<img src="https://render.githubusercontent.com/render/math?math=m_t[x] = \max_{x_{1:t - 1}} P(x_t | x_{t - 1}) m_{t - 1}[x]" width=400>
+</center>
 
-Using this method, the most likely sequence in the past ![t - 1](doc/teximg/tex_img_45_BUT19.png) states, also known as the most likely explanation, will be available in ![a_t[x]](doc/teximg/tex_img_46_RF4UD.png).
+Using this method, the most likely sequence in the past <img src="https://render.githubusercontent.com/render/math?math=t - 1"> states, also known as the most likely explanation, will be available in <img src="https://render.githubusercontent.com/render/math?math=a_t[x]">.
 
-In our example, we can use the Mini-Viterbi algorithm starting from ![x_1 = The\ weather\ n\ days\ ago](doc/teximg/tex_img_47_C2ALI.png), and the most likely sequence would be available in ![a_{n + 1}[x_{today}]](doc/teximg/tex_img_48_CW388.png).
+In our example, we can use the Mini-Viterbi algorithm starting from <img src="https://render.githubusercontent.com/render/math?math=x_1 = The\ Weather\ 'n'\ Days\ Ago">, and the most likely sequence would be available in <img src="https://render.githubusercontent.com/render/math?math=a_{n + 1}[x_{today}]">.
 
 ## Hidden Markov Model
 Let's start with the following scenario:
@@ -273,11 +269,9 @@ Consider the figure below to get a better understanding of the problem discussed
 </center>
 
 Now, we formulate the problem formally:
-<span style="color:DarkSlateGray">
-\begin{equation}
-{E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in \{happy, grumpy\}\\
-{X}_t: Weather's\;condition\;at\;time\;t\;(State) \in \{sunny, rainy\}
-\end{equation} </span>
+<center>
+<img src="resources/ruzjAcI.png" alt="equation" width=500/>
+</center> 
 So, the question is, how can Alice infer the weather’s condition (state) regarding Bob’s mood (observation)?
 
 The problem discussed above is an example of the Hidden Markov Model (HMM). It is not possible to model the problem as a Markov Chain in many problems. So, how can we model these problems?
@@ -292,36 +286,40 @@ Take a closer look at the figure below to find out HMM's structure:
 <center>
 <img src="resources/9tlhpJ9.png" alt="Bayes Net of Markov Model" width=400/>
 </center> 
-</br>
+<br>
 
 Regarding the structure above, an HMM is defined by:
-- ![P(X_1)](doc/teximg/tex_img_49_VS8EU.png) as initial distribution
-- ![P(X_t \mid X_{t-1})](doc/teximg/tex_img_50_33EWV.png) as transitions distribution
-- ![P(E_t \mid X_t)](doc/teximg/tex_img_51_45OZK.png) as emissions distribution
+- <img src="https://render.githubusercontent.com/render/math?math=P(X_1)"> as initial distribution
+- <img src="https://render.githubusercontent.com/render/math?math=P(X_t \mid X_{t-1})"> as transitions distribution
+- <img src="https://render.githubusercontent.com/render/math?math=P(E_t \mid X_t)"> as emissions distribution
 
 We will dive into more mathematics in the next part.
 
 ### Chain Rule and Joint Distribution of Hidden Markov Model
-Let's denote ![X_t,X_{t-1},\cdots,X_2,X_1](doc/teximg/tex_img_52_C1ZZ2.png) by ![X_{t:1}](doc/teximg/tex_img_53_OJDUH.png). Similarly, denote ![E_t,E_{t-1},\cdots,E_2,E_1](doc/teximg/tex_img_54_I236P.png) by ![E_{t:1}](doc/teximg/tex_img_55_RBJQS.png).
+Let's denote <img src="https://render.githubusercontent.com/render/math?math=X_t,X_{t-1},\cdots,X_2,X_1"> by <img src="https://render.githubusercontent.com/render/math?math=X_{t:1}">. Similarly, denote <img src="https://render.githubusercontent.com/render/math?math=E_t,E_{t-1},\cdots,E_2,E_1"> by <img src="https://render.githubusercontent.com/render/math?math=E_{t:1}">.
 
 We are going to calculate joint distribution of HMM.
 
-From the Chain Rule, every joint distribution over ![X_{t:1}, E_{t:1}](doc/teximg/tex_img_56_DVVKF.png) can be written as:
-<span style="color:DarkSlateGray">
-\begin{equation}
-P(X_{t:1}, E_{t:1})=P(X_1)P(E_1 \mid X_1)P(X_2\mid X_1,E_1)P(E_2\mid X_{2:1},E_1)\cdots P(X_t\mid X_{t-1:1},E_{t-1:1})P(E_t\mid X_{t:1},E_{t-1:1})
-\end{equation} </span> 
+From the Chain Rule, every joint distribution over <img src="https://render.githubusercontent.com/render/math?math=$X_{t:1}, E_{t:1}$"> can be written as:
+
+<center>
+<img src="resources/x2fsViH.png" alt="equation" width=800/>
+</center> 
+
 Regarding the HMM's structure, we can assume that:
-<span style="color:DarkSlateGray">
-\begin{equation}
-\forall t>1:\;\;\;X_t \perp \!\!\! \perp X_{t-2:1},E_{t-1:1} \mid X_{t-1}\;\;\;and\;\;\;E_t \perp \!\!\! \perp X_{t-1:1},E_{t-1:1} \mid X_{t}
-\end{equation} </span> 
+
+<center>
+<img src="resources/TwkFmB1.png" alt="equation" width=600/>
+</center> 
+
 Recall that every node given its parents is independent of its non-descendants.
 
-Using the properties above, we get: <span style="color:DarkSlateGray">
-\begin{equation}
-P(X_{t:1}, E_{t:1})=P(X_1)P(E_1 \mid X_1)\prod_{i = 2}^{t} P(X_i \mid X_{i-1})P(E_i \mid X_i)
-\end{equation} </span> 
+Using the properties above, we get:
+<center>
+<img src="resources/Pj0cugq.png" alt="equation" width=500/>
+</center> 
+
+
 
 ### Hidden Markov Model Applications
 Hidden Markov models are known for their applications in various fields, such as:
@@ -367,7 +365,7 @@ Hidden Markov Models (HMM) are applied to interoceptive data acquired by a movin
 In Robot tracking HMMs, observations are sensors' continuous perceptions and corresponding states are positions in the map.
 
 <center>
-<img src="resources/kapernikov_robot_localization_tutorial_illustration_v3-02-3000x1351.jpeg" alt="machine translation" width=400/>
+<img src="https://kapernikov.com/wp-content/uploads/2019/09/kapernikov_robot_localization_tutorial_illustration_v3-02-3000x1351.jpg" alt="machine translation" width=400/>
 </center> 
 
 ## Conclusion
