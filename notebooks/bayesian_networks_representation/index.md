@@ -270,7 +270,17 @@ Example:
 - **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
 
 ### Structure Implications
+- As you can see, with the help of this algorithm, we can examine the conditional independence of two random variables. So, if we test the algorithm on all modes, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.
+-but in some cases, “d-separation” algorithm can find all dependencies. For example, in the figure below;
 
+![stIm](assets/sim.jpg)
+### Topology Limits Distributions
+-In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.
+-For example, in the figure below, different kind of dependence for triples is mentioned.
+![TLD](assets/tld.jpg)
+-- Green color: triples in which every pair of RVs are independent.
+-- Red color: triples in which two RVs are independent given the 3rd one.
+-- Blue color: triples in which no independence is found.
 ## Conclusion
 
 ## References
