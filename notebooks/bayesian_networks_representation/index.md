@@ -365,5 +365,5 @@ Up until now, we saw how to build a bayes' net and how to find the independencie
 
 ## References
 
-<http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx>
+<http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx> <br/>
 <https://en.wikipedia.org/wiki/Bayesian_network>
