@@ -275,12 +275,13 @@ Example:
 
 ![stIm](assets/sim.jpg)
 ### Topology Limits Distributions
--In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.
+- In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.
 -For example, in the figure below, different kind of dependence for triples is mentioned.
 ![TLD](assets/tld.jpg)
--- Green color: triples in which every pair of RVs are independent.
--- Red color: triples in which two RVs are independent given the 3rd one.
--- Blue color: triples in which no independence is found.
+
+- Green color: triples in which every pair of RVs are independent.
+- Red color: triples in which two RVs are independent given the 3rd one.
+- Blue color: triples in which no independence is found.
 ## Conclusion
 
 ## References
