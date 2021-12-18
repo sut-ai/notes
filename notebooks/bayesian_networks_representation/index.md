@@ -265,9 +265,9 @@ Example:
 
 ![exp3](assets/ch7.jpg)
 
-- **without evidence:** There are two paths between T and D. upper path is an active “common cause” and the lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
-- **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an inactive “common effect”.  So, L and T are independent given R.
-- **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
+> **without evidence:** There are two paths between T and D. upper path is an active “common cause” and the lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
+> **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an inactive “common effect”.  So, L and T are independent given R.
+> **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
 
 ### Structure Implications
 - As you can see, with the help of this algorithm, we can examine the conditional independence of two random variables. So, if we test the algorithm on all modes, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.
