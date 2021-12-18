@@ -99,27 +99,52 @@ These independencies can be derived from bayes' nets. This will come in handy wh
 
 ### Problems with joint distribution tables
 
-There are two problems with using full joint distribution tables as our probabilistic models:
-1. Unless there are only a few variables, the joint is WAY too  big to represent explicitly.
-2. Hard to learn (estimate) anything empirically about more than a few variables at a time.
-
-Bayes nets is a technique for describing complex joint distributions or models using simple and local distributions.
-
 ### Graphical Notation
-
-- There are some nodes related to variables (with domains). This nodes can be assigned (observed) or unassigned (unobserved)
-- There are some arcs equales to interactions. This nodes are similar to CSP constraints and indicate direct influence between variables. And there are formally, it means the ares encode conditional independence.
-
-![image](https://user-images.githubusercontent.com/44923177/146651162-96c91d1f-9f38-4825-9d6f-983f36aca273.png)
-
 
 ### Semantics
 
 ### Probabilities in Bayes' Nets
+ in BNs, join distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
+![joint](assets/joint.PNG)
+ in the following, we will prove the correctness of this method.<br/>
+ Note first the chain rule that applies to each distribution:
+![chain](assets/chain.PNG)
+ Now with respect to conditional independence, we can claim that:
+![conditionaldep](assets/conditionaldep.PNG)
+ because xi is conditional independent of other nodes, given its parents. <br>
+ So, we can conclude that:
+![joint](assets/joint.PNG)
+ Note that not every BN can produce every distribution, but the BN topology determines what conditional independence can be produced.<br/>
+ 
+ The following are some examples of BN distribution.<br/>
+ 
+ a. coin flips <br/>
+ In this case, a coin is tossed n times, the probability of a head or tail being equal in each toss. If these actions are independent of each other, then it is as follows.
+![coin](assets/coin.PNG)
+ for example P(H, T, T, H) = P(H)P(T)P(T)P(H) <br/>
+ Note that only distributions whose variables are absolutely independent can be represented by a Bayes’ net with no arcs.<br/>
+
+ b. traffic <br/>
+ In this example, R stands for rain and T stands for traffic. It is also considered that rain causes traffic.
+![traffic](assets/traffic.PNG)
+ for example P(+r, -t) = P(+r)P(-t|+r) <br/>
+
+ c. alarm network <br/>
+ In this case, it is assumed that the house alarm is sounded by an earthquake or burglary. John and Mary may also call us if the alarm sounds.
+ ![alarm](assets/alarm.PNG)
+
+For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
 
 ### Causality in Bayes' Nets
-
+ If in a Bayes' net the arrows show the real causes, it can be better investigated and the probabilities found. The network also becomes simpler. Because the number of parents is less. <br/>
+ Sometimes arrows do not show causal relationships. Or even in a network, none of the arrows have a causal relationship. For example, when some important variables are not available in the network. In such cases, the arrows show correlation and not causation.<br/>
+ 
+ Therefore, we do not need to know the exact causal structure between the variables.
 ### Space Efficiency
+ The CPT size of a node if it has m different value and has k parents, each of which also has m different value, is equal to m^(k+1). <br/>
+ Therefore, in a Bayes' net with N Boolean variables, if each node has a maximum of k parents, the size of the whole net is of the order of O(N*2^(k+1)). Whereas if we want to store their joint distribution, it is the size of 2^N. <br/>
+ 
+ So, we conclude that if we use this method, it usually requires less memory. It is also easier and faster to use local CPTs.
 
 ## Independence in Bayes' Nets
 
@@ -331,4 +356,3 @@ Up until now, we saw how to build a bayes' net and how to find the independencie
 ## References
 
 <http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx>
-<https://en.wikipedia.org/wiki/Bayesian_network>
