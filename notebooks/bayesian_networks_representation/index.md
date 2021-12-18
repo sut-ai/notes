@@ -102,20 +102,20 @@ In previous sections we used conditional dependencies. But in a big graph, findi
 
 Outline:
 
-In this method, first we check conditional dependency for triples (3 nodes that connected) and specify several rules to find dependencies in triples. then we use these rules to find conditional dependencies in general cases that have big graph. in another word, in big graphs we find triples and apply some processing on these sub-graphs.
-in the following, we will examine the different situations for triples:
+In this method, first we check conditional dependency for ***triples*** (3 nodes that are connected) and specify several rules to find whether the last and first variables are dependent or not. Then we use these rules to find conditional dependencies in general cases on bigger graph. In another words, in big graphs we do some processing on each triple in the path between the two desired nodes to find if they are independent.
+In the following section, we will examine three different situations for triples:
 
 #### Causal Chain
 
-first configuration is “casual chain”
+The first configuration is “casual chain”
 
-- in this configuration middle node transmits the effect of the previous node to the next one.
+- In this configuration, middle node transmits the effect of the previous node to the next one.
 
 Example:
 
 ![causal_ex](assets/ch1.png)
 
-in this BN, low pressure causes rain and rain causes traffic. in another word rain transmits the effect of low pressure to traffic.
+In this BN, low pressure causes rain and rain causes traffic. in another word rain transmits the effect of low pressure to traffic.
 
 is X is guaranteed to be independent of Z?
 
