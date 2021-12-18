@@ -175,6 +175,7 @@ In this configuration, middle node transmits the effect of the previous node to 
 Example:
 
 ![causal_ex](assets/ch1.png)
+- P(X, Y, Z) = P(X) P(Y|X) P(Z|Y) <br/>
 
 In this BN, low pressure causes rain and rain causes traffic. in another word rain transmits the effect of low pressure to traffic. <br/>
 
@@ -301,7 +302,7 @@ in the figure below, examples of active and inactive triples are shown.
 
 note that a single inactive triple makes a path inactive. but two RVs are independent if all paths between related nodes are inactive. So, if some paths were active, independence is not guaranteed.
 
-Example:
+Examples:
 
  a. we want to check conditionally independence between R and B variables with different evidence.
 
