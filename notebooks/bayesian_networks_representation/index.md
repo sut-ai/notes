@@ -192,7 +192,7 @@ P(+y|-x)=0  P(+y|+x)=1  <br/>
 
 Also, traffic is completely dependent on rainfall. if it rains, traffic will occur and otherwise there isn’t any traffic. <br/>
 
-P(+z|+x)=1 P(-z|+x)= 0  P(+z|-x)= 0  P(-z|-x)= 1 <br/>
+P(+z|+x)=1  P(-z|-x)= 1 <br/>
 
 now we should compare P(Z) and P(Z|X) to find dependency.  for example low pressure and traffic occurred. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5 <br/>
 
