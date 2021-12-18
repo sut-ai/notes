@@ -215,7 +215,7 @@ in this configuration one variable effect on another two variables. but child no
 Example:
 
 ![common_cause_ex](assets/ch2.jpg)
-- P(x, y, z) = P(y) P(x|y) P(z|y) <br/>
+- P(X, Y, Z) = P(Y) P(X|Y) P(Z|Y) <br/>
 
 in this BN, project due causes lab full and forums busy. <br/>
 
@@ -252,7 +252,7 @@ in this configuration, one variable is affected by another two variables. <br/>
 Example:
 
 ![common_effect_ex](assets/ch3.jpg)
-- P(x, y, z) = P(x) P(y) P(z|x, y) <br/>
+- P(X, Y, Z) = P(X) P(Y) P(Z|X, Y) <br/>
 
 in following BN, both ballgame and raining cause traffic. <br/>
 
