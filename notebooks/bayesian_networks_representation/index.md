@@ -99,7 +99,19 @@ These independencies can be derived from bayes' nets. This will come in handy wh
 
 ### Problems with joint distribution tables
 
+There are two problems with using full joint distribution tables as our probabilistic models:
+1. Unless there are only a few variables, the joint is WAY too  big to represent explicitly.
+2. Hard to learn (estimate) anything empirically about more than a few variables at a time.
+
+Bayes nets is a technique for describing complex joint distributions or models using simple and local distributions.
+
 ### Graphical Notation
+
+- There are some nodes related to variables (with domains). This nodes can be assigned (observed) or unassigned (unobserved)
+- There are some arcs equales to interactions. This nodes are similar to CSP constraints and indicate direct influence between variables. And there are formally, it means the ares encode conditional independence.
+
+![image](https://user-images.githubusercontent.com/44923177/146651162-96c91d1f-9f38-4825-9d6f-983f36aca273.png)
+
 
 ### Semantics
 
@@ -319,3 +331,4 @@ Up until now, we saw how to build a bayes' net and how to find the independencie
 ## References
 
 <http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx>
+<https://en.wikipedia.org/wiki/Bayesian_network>
