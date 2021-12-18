@@ -14,7 +14,6 @@
 	- [Causality in Bayes' Nets](#Causality-in-Bayes'-Nets)
 	- [Space Efficiency](#Space-Efficiency)
 - [Independence in Bayes' Nets](#Independence-in-Bayes'-Nets)
-	- [Independency Assumptions](#Independency-Assumptions)
 	- [D-separation](#D-separation)
 		- [Outline](#Outline)
 		- [Causal Chain](#Causal-Chain)
@@ -117,31 +116,31 @@ Bayes nets is a technique for describing complex joint distributions or models u
 ### Probabilities in Bayes' Nets
  in BNs, join distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
 ![joint](assets/joint.png) <br/>
- in the following, we will prove the correctness of this method.<br/>
- Note first the chain rule that applies to each distribution:
+ in the following part, we will prove this method is correct.<br/>
+ First note the chain rule applied to each distribution:
 ![chain](assets/chain.png) <br/>
  Now with respect to conditional independence, we can claim that:
 ![conditionaldep](assets/conditionaldep.png) <br/>
- because xi is conditional independent of other nodes, given its parents. <br>
+ Which is true because xi is conditionally independent of other nodes, given its parents. <br>
  So, we can conclude that:
 ![joint](assets/joint.png) <br/>
  Note that not every BN can produce every distribution, but the BN topology determines what conditional independence can be produced.<br/>
  
- The following are some examples of BN distribution.<br/>
+ See the following examples of BN distribution.<br/>
  
  a. coin flips <br/>
- In this case, a coin is tossed n times, the probability of a head or tail being equal in each toss. If these actions are independent of each other, then it is as follows.
+ In this case, a coin is tossed n times, the probability of a head or tail being equal in each toss. If these actions are independent of each other, then the graph is as shown in the image.
 ![coin](assets/coin.png) <br/>
- for example P(H, T, T, H) = P(H)P(T)P(T)P(H) <br/>
+ For example P(H, T, T, H) = P(H)P(T)P(T)P(H) <br/>
  Note that only distributions whose variables are absolutely independent can be represented by a Bayes’ net with no arcs.<br/>
 
  b. traffic <br/>
- In this example, R stands for rain and T stands for traffic. It is also considered that rain causes traffic.
+ In this example, R stands for rain and T stands for traffic. It is also assumed that rain causes traffic.
 ![traffic](assets/traffic.png) <br/>
- for example P(+r, -t) = P(+r)P(-t|+r) <br/>
+ For example P(+r, -t) = P(+r)P(-t|+r) <br/>
 
  c. alarm network <br/>
- In this case, it is assumed that the house alarm is sounded by an earthquake or burglary. John and Mary may also call us if the alarm sounds.
+ In this case, it is assumed that the house alarm goes off by an earthquake or burglary. John and Mary may also call us if the alarm is ringing.
  ![alarm](assets/alarm.png) <br/>
 For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
 
@@ -157,8 +156,6 @@ For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
  So, we conclude that if we use this method, it usually requires less memory. It is also easier and faster to use local CPTs.
 
 ## Independence in Bayes' Nets
-
-### Independency Assumptions
 
 ### D-separation
 
