@@ -98,11 +98,11 @@ or equivalently, if and only if
 
 ### D-separation
 
-in previous sections we used conditional dependencies. but in big graph, find dependencies with algebraic methods is so difficult and complex. in this section we present an algorithm called D-separation to find different conditional dependencies.
+In previous sections we used conditional dependencies. But in a big graph, finding dependencies with algebraic methods is so difficult and complex. In this section we present an algorithm called D-separation to find different conditional dependencies.
 
-outline:
+Outline:
 
-in this method, first we check conditional dependency for triples (3 nodes that connected) and specify several rules to find dependencies in triples. then we use these rules to find conditional dependencies in general cases that have big graph. in another word, in big graphs we find triples and apply some processing on these sub-graphs.
+In this method, first we check conditional dependency for triples (3 nodes that connected) and specify several rules to find dependencies in triples. then we use these rules to find conditional dependencies in general cases that have big graph. in another word, in big graphs we find triples and apply some processing on these sub-graphs.
 in the following, we will examine the different situations for triples:
 
 #### Causal Chain
@@ -136,7 +136,7 @@ is X is guaranteed to be independent of Z given Y?
 
 - the answer is YES. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
 
-- $$P( z | x, y ) = \frac{P( x, y, z )}{P( x, y )} = \frac{P(x)P( y | x )P( z | y )}{P(x)P( y | x )} = P( z | y )$$
+![ch_formula1](assets/ch10.PNG)
 
 - we conclude that with condition on Y, X and Z are independent.
 
@@ -175,7 +175,7 @@ is X is guaranteed to be independent of Z given Y?
 
 - the answer is Yes. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
 
-- $$P( z | x, y ) = \frac{P( x, y, z )}{P( x, y )} = \frac{P(y)P( x | y )P( z | y )}{P(y)P( x | y )} = P( z | y )$$
+![ch_formula2](assets/ch11.PNG)
 
 - we conclude that with condition on Y, X and Z are independent.
 
@@ -200,7 +200,7 @@ is X is guaranteed to be independent of Y?
 
 - the answer, unlike previous versions, is Yes. ballgame and raining do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
 
-- $$P(X, Y) = \sum_{z \in Z} P(X, Y, z) = \sum_{z \in Z} P(X)P(Y)P(z|X, Y) = P(X)P(Y) \sum_{z \in Z} P(z|X, Y) = P(X)P(Y)$$
+![ch_formula1](assets/ch12.PNG)
 
 - So we show P(X,Y) = P(X)P(Y) and conclude X and Y are independent.
 
@@ -248,26 +248,26 @@ Example:
 
 ![exp1](assets/ch5.jpg)
 
-	- **without evidence:** there is only one path between R and B that is a “common effect” triple. it is inactive so R and B are independent.
-	- **evidence=T:** there is a “common effect” triple that is active. So, independency of R and B aren’t guaranteed.
-	- **evidence=T’:** this situation is similar to previous evidence.
+- **without evidence:** there is only one path between R and B that is a “common effect” triple. it is inactive so R and B are independent.
+- **evidence=T:** there is a “common effect” triple that is active. So, independency of R and B aren’t guaranteed.
+- **evidence=T’:** this situation is similar to previous evidence.
 
 - b. we want to check conditionally independency between L and B variables with different evidence.
 
 ![exp2](assets/ch6.jpg)
 
-	- **without evidence:** there is only one path between L and B that has two triples. L->R->T is active but R->T<-B is inactive. So, this pass is inactive. So, L and B are independent.
-	- **evidence = T:** similar to previous segment there is only one path that has two triples. both are active. So, L and B aren't guaranteed to be independent given T.
-	- **evidence = T':** it is similar to similar to segment. 
-	- **evidence = T, R:** similar to 2’nd segment the R->T<-B triple is active but L->R->T is inactive. So, L and B are independent given T and R.
+- **without evidence:** there is only one path between L and B that has two triples. L->R->T is active but R->T<-B is inactive. So, this pass is inactive. So, L and B are independent.
+- **evidence = T:** similar to previous segment there is only one path that has two triples. both are active. So, L and B aren't guaranteed to be independent given T.
+- **evidence = T':** it is similar to similar to segment. 
+- **evidence = T, R:** similar to 2’nd segment the R->T<-B triple is active but L->R->T is inactive. So, L and B are independent given T and R.
 
 - c. we want to check conditionally independency between T and D variables with different evidence.
 
 ![exp3](assets/ch7.jpg)
 
-	- **without evidence:** There are two paths between T and D. upper path is an active “common cause” and lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
-	- **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and lower path is an inactive “common effect”.  So, L and T are independent given R.
-	- **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
+- **without evidence:** There are two paths between T and D. upper path is an active “common cause” and lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
+- **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and lower path is an inactive “common effect”.  So, L and T are independent given R.
+- **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
 
 ### Structure Implications
 
