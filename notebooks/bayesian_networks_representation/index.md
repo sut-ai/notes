@@ -113,6 +113,10 @@ Bayes nets is a technique for describing complex joint distributions or models u
 
 ### Semantics
 
+![image](https://user-images.githubusercontent.com/44923177/146654189-38c25839-e446-420f-af85-473900274dfb.png)
+
+In this picture there are a set of nodes, one per variable X. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
+
 ### Probabilities in Bayes' Nets
  in BNs, join distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
 ![joint](assets/joint.png) <br/>
