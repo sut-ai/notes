@@ -16,6 +16,7 @@
 - [Independence in Bayes' Nets](#Independence-in-Bayes'-Nets)
 	- [Independency Assumptions](#Independency-Assumptions)
 	- [D-separation](#D-separation)
+		- [Outline] (#Outline)
 		- [Causal Chain](#Causal-Chain)
 		- [Common Cause](#Common-Cause)
 		- [V-Structure](#V-Structure)
@@ -101,85 +102,85 @@ or equivalently, if and only if
 
 In previous sections we used conditional dependencies. But in a big graph, finding dependencies with algebraic methods is so difficult and complex. In this section we present an algorithm called D-separation to find different conditional dependencies.
 
-Outline:
+#### Outline:
 
-In this method, first we check conditional dependency for ***triples*** (3 nodes that are connected) and specify several rules to find whether the last and first variables are dependent or not. Then we use these rules to find conditional dependencies in general cases on bigger graph. In another words, in big graphs we do some processing on each triple in the path between the two desired nodes to find if they are independent.
+In this method, first we check conditional dependency for ***triples*** (3 nodes that are connected) and specify several rules to find whether the last and first variables are dependent or not. Then we use these rules to find conditional dependencies in general cases on bigger graph. In another words, in big graphs we do some processing on each triple in the path between the two desired nodes to find if they are independent. <br/>
 In the following section, we will examine three different situations for triples:
 
 #### Causal Chain
 
-The first configuration is “casual chain”
+The first configuration is “casual chain”. <br/>
 
-- In this configuration, middle node transmits the effect of the previous node to the next one.
+In this configuration, middle node transmits the effect of the previous node to the next one.
 
 Example:
 
 ![causal_ex](assets/ch1.png)
 
-In this BN, low pressure causes rain and rain causes traffic. in another word rain transmits the effect of low pressure to traffic.
+In this BN, low pressure causes rain and rain causes traffic. in another word rain transmits the effect of low pressure to traffic. <br/>
 
-is X is guaranteed to be independent of Z?
+is X is guaranteed to be independent of Z? <br/>
 
-- the answer is NO. To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5
+the answer is NO. To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5  <br/>
 
-- rainfall is completely dependent on low pressure and if low pressure occurs, rainfall is definite. and if high pressure occurs, rainfall is impossible.
-P(+y|-x)=0 P(-y|-x)=1 P(+y|+x)=1  P(-y|+x)=0
+rainfall is completely dependent on low pressure and if low pressure occurs, rainfall is definite. and if high pressure occurs, rainfall is impossible. <br/>
+P(+y|-x)=0  P(+y|+x)=1  <br/>
 
-- Also, traffic is completely dependent on rainfall. if it rains, traffic will occur and otherwise there isn’t any traffic.
+Also, traffic is completely dependent on rainfall. if it rains, traffic will occur and otherwise there isn’t any traffic. <br/>
 
-- P(+z|+x)=1 P(-z|+x)= 0  P(+z|-x)= 0  P(-z|-x)= 1
+P(+z|+x)=1 P(-z|+x)= 0  P(+z|-x)= 0  P(-z|-x)= 1 <br/>
 
-- now we should compare P(Z) and P(Z|X) to find dependency.  for example low pressure and traffic occurred. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5
+now we should compare P(Z) and P(Z|X) to find dependency.  for example low pressure and traffic occurred. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5 <br/>
 
-- As a result, the two variables are not independent.
+As a result, the two variables are not independent. <br/>
 
-is X is guaranteed to be independent of Z given Y?
+is X is guaranteed to be independent of Z given Y? <br/>
 
-- the answer is YES. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
+the answer is YES. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
 
 ![ch_formula1](assets/ch10.PNG)
 
-- we conclude that with condition on Y, X and Z are independent.
+we conclude that with condition on Y, X and Z are independent. <br/>
 
-- So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of X to Z is not direct, if value of Y be known, change in X’ value causes no effect on Z’ value. in another word, if we have value of Y, value of X does not give any additional information about Z.
+So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of X to Z is not direct, if value of Y be known, change in X’ value causes no effect on Z’ value. in another word, if we have value of Y, value of X does not give any additional information about Z. <br/>
 
-- So, evidence along the chain “blocks” the influence.
+So, evidence along the chain “blocks” the influence.
 
 #### Common Cause
 
-second configuration is “common cause”:
+second configuration is “common cause”: <br/>
 
-- in this configuration one variable effect on another two variables. but child nodes are not related directly.
+in this configuration one variable effect on another two variables. but child nodes are not related directly. <br/>
 
 Example:
 
 ![common_cause_ex](assets/ch2.jpg)
 - P(x, y, z) = P(y) P(x|y) P(z|y) <br/>
-in this BN, project due causes lab full and forums busy.
+in this BN, project due causes lab full and forums busy. <br/>
 
-is X is guaranteed to be independent of Z?
+is X is guaranteed to be independent of Z? <br/>
 
-- the answer is NO. it is enough to give an example set of CPTs that X and Z are dependent. suppose that Y is random, and the probability of being close to project deadline (P(+y)) and otherwise (P(-y)) are equal to 0.5. P(+y)=P(-y)=0.5
+the answer is NO. it is enough to give an example set of CPTs that X and Z are dependent. suppose that Y is random, and the probability of being close to project deadline (P(+y)) and otherwise (P(-y)) are equal to 0.5. P(+y)=P(-y)=0.5 <br/>
 
-- laboratory fullness is completely dependent on project deadline and if deadline is near, laboratory is full. and if project deadline is not near, laboratory is not full.
-P(+z|+y)=1  P(+z|-y)=0
+laboratory fullness is completely dependent on project deadline and if deadline is near, laboratory is full. and if project deadline is not near, laboratory is not full. <br/>
+P(+z|+y)=1  P(+z|-y)=0 <br/>
 
-- Also, forums are related to project deadline. if deadline is near, forums get busy.
-P(+x|+y)=1  P(+x|-y)=0
+Also, forums are related to project deadline. if deadline is near, forums get busy.<br/>
+P(+x|+y)=1  P(+x|-y)=0 <br/>
 
-- now we should compare P(Z) and P(Z|X) to find dependency.  for example, lab is full and forums are busy. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5
-As a result, the two child variables in common cause triples are not independent in general case.
+now we should compare P(Z) and P(Z|X) to find dependency.  for example, lab is full and forums are busy. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5
+As a result, the two child variables in common cause triples are not independent in general case. <br/>
 
-is X is guaranteed to be independent of Z given Y?
+is X is guaranteed to be independent of Z given Y? <br/>
 
-- the answer is Yes. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
+the answer is Yes. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
 
 ![ch_formula2](assets/ch11.PNG)
 
-- we conclude that with condition on Y, X and Z are independent.
+we conclude that with condition on Y, X and Z are independent. <br/>
 
-- So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of X to Z is not direct, if value of Y be known, change in X’ value causes no effect on Z’ value. in another word, if we have value of Y, value of X does not give any additional information about Z.
-- So, observing the cause blocks influence between effects.
+So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of X to Z is not direct, if value of Y be known, change in X’ value causes no effect on Z’ value. in another word, if we have value of Y, value of X does not give any additional information about Z. <br/>
+So, observing the cause blocks influence between effects.
 
 #### V-Structure
 
@@ -196,15 +197,15 @@ in following BN, both ballgame and raining cause traffic. <br/>
 
 is X is guaranteed to be independent of Y?<br/>
 
-	the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
+the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
 
 ![ch_formula1](assets/ch12.PNG)
 
-- So we show P(X,Y) = P(X)P(Y) and conclude X and Y are independent.
+So we show P(X,Y) = P(X)P(Y) and conclude X and Y are independent. <br/>
 
 is X is guaranteed to be independent of Y given z?<br/>
 
- the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
+the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
 
 - P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1    P(+z|-x,-y)=0 <br/>
 
@@ -222,7 +223,7 @@ in the first step, we should shade evidence nodes, nodes that are observed in th
 
 Question: are X and Y conditionally independent given evidence variables {Z}?<br/>
 
-	Yes, if x and y “d-separated” by z.
+Yes, if x and y “d-separated” by z.
 
 to describe the "d-separated" concept, we first need to understand the concept of active/inactive path.<br/>
 
