@@ -20,6 +20,7 @@
 		- [Common Cause](#Common-Cause)
 		- [V-Structure](#V-Structure)
 	- [Reachability](#Reachability)
+	- [Topology Limits Distributions](#Topology-Limits-Distributions)
 	- [Active/Inactive Paths](#Active/Inactive-Paths)
 	- [Structure Implications](#Structure-Implications)
 - [Conclusion](#Conclusion)
@@ -275,8 +276,8 @@ Example:
 
 ![stIm](assets/sim.jpg)
 ### Topology Limits Distributions
-- In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.
--For example, in the figure below, different kind of dependence for triples is mentioned.
+In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.
+For example, in the figure below, different kind of dependence for triples is mentioned.
 ![TLD](assets/tld.jpg)
 
 - Green color: triples in which every pair of RVs are independent.
