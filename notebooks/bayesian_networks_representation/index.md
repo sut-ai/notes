@@ -156,6 +156,7 @@ Example:
 
 ![common_cause_ex](assets/ch2.jpg)
 - P(x, y, z) = P(y) P(x|y) P(z|y) <br/>
+
 in this BN, project due causes lab full and forums busy. <br/>
 
 is X is guaranteed to be independent of Z? <br/>
