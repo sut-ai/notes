@@ -20,9 +20,9 @@
 		- [Common Cause](#Common-Cause)
 		- [V-Structure](#V-Structure)
 	- [Reachability](#Reachability)
-	- [Topology Limits Distributions](#Topology-Limits-Distributions)
 	- [Active/Inactive Paths](#Active/Inactive-Paths)
 	- [Structure Implications](#Structure-Implications)
+	- [Topology Limits Distributions](#Topology-Limits-Distributions)
 - [Conclusion](#Conclusion)
 - [References](#References)
 
@@ -151,12 +151,10 @@ second configuration is “common cause”:
 
 - in this configuration one variable effect on another two variables. but child nodes are not related directly.
 
-- P(x, y, z) = P(y) P(x|y) P(z|y)
-
 Example:
 
 ![common_cause_ex](assets/ch2.jpg)
-
+- P(x, y, z) = P(y) P(x|y) P(z|y) <br/>
 in this BN, project due causes lab full and forums busy.
 
 is X is guaranteed to be independent of Z?
@@ -185,49 +183,48 @@ is X is guaranteed to be independent of Z given Y?
 
 #### V-Structure
 
-the last configuration is "common effect" and is sometimes called V-Structure.
+the last configuration is "common effect" and is sometimes called V-Structure. <br/>
 
-- in this configuration, one variable is affected by another two variables.
-
-- P(x, y, z) = P(x) P(y) P(z|x, y)
+in this configuration, one variable is affected by another two variables. <br/>
 
 Example:
 
 ![common_effect_ex](assets/ch3.jpg)
+- P(x, y, z) = P(x) P(y) P(z|x, y) <br/>
 
-in following BN, both ballgame and raining cause traffic.
+in following BN, both ballgame and raining cause traffic. <br/>
 
-is X is guaranteed to be independent of Y?
+is X is guaranteed to be independent of Y?<br/>
 
-- the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
+	the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
 
 ![ch_formula1](assets/ch12.PNG)
 
 - So we show P(X,Y) = P(X)P(Y) and conclude X and Y are independent.
 
-is X is guaranteed to be independent of Y given z?
+is X is guaranteed to be independent of Y given z?<br/>
 
-- the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
+ the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
 
-- P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1    P(+z|-x,-y)=0
+- P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1    P(+z|-x,-y)=0 <br/>
 
-- From the problem description, We can conclude that P(+x|+z,-y)=1  and P(+x|-y)=0.5. So, P(X|Z,Y) is not equal to P(X|Y).
+From the problem description, We can conclude that P(+x|+z,-y)=1  and P(+x|-y)=0.5. So, P(X|Z,Y) is not equal to P(X|Y).<br/>
 
-- So, with the observation of Z, X and Y are not independent. this means Observing an effect, activating influence between possible causes.
+So, with the observation of Z, X and Y are not independent. this means Observing an effect, activating influence between possible causes.
 
 ### Reachability
 
-Now, we want to use these three cases to check conditional dependency in any arbitrary graph. generally, the problem is checking dependency between two random variables in a BN in which some (or any) variables are observed. for this goal, we break the graph into triples which we learned above, and do some checking on them. In the following, these steps are described.
+Now, we want to use these three cases to check conditional dependency in any arbitrary graph. generally, the problem is checking dependency between two random variables in a BN in which some (or any) variables are observed. for this goal, we break the graph into triples which we learned above, and do some checking on them. In the following, these steps are described.<br/>
 
 in the first step, we should shade evidence nodes, nodes that are observed in the problem. then looking for undirected paths between determined random variables. the first idea is that if two nodes are connected by a path that is blocked by a shaded node, two random variables are independent. But there are drawbacks to this rule. when we have several paths between two RVs or there is a V-structure triple that its bottom node is shaded, our method is wrong. So, we describe the next step to correct these problems.
 
 ### Active/Inactive Paths
 
-Question: are X and Y conditionally independent given evidence variables {Z}?
+Question: are X and Y conditionally independent given evidence variables {Z}?<br/>
 
-- Yes, if x and y “d-separated” by z.
+	Yes, if x and y “d-separated” by z.
 
-to describe the "d-separated" concept, we first need to understand the concept of active/inactive path.
+to describe the "d-separated" concept, we first need to understand the concept of active/inactive path.<br/>
 
 a path is active if each triple of it is active. a triple is active if:
 
@@ -235,7 +232,7 @@ a path is active if each triple of it is active. a triple is active if:
 - Common cause A <- B -> C where B is unobserved
 - Common effect (aka v-structure) A -> B <- C where B or one of its descendants is observed
 
-Now we consider all undirected paths from X to Y after shading evidence variables, if none of these paths aren’t active paths, we can say X and Y are d-separated by Z.
+Now we consider all undirected paths from X to Y after shading evidence variables, if none of these paths aren’t active paths, we can say X and Y are d-separated by Z.<br/>
 
 in the figure below, examples of active and inactive triples are shown.
 
@@ -245,7 +242,7 @@ note that a single inactive triple makes a path inactive. but two RVs are indepe
 
 Example:
 
-- a. we want to check conditionally independence between R and B variables with different evidence.
+ a. we want to check conditionally independence between R and B variables with different evidence.
 
 ![exp1](assets/ch5.jpg)
 
@@ -253,7 +250,7 @@ Example:
 - **evidence=T:** there is a “common effect” triple that is active. So, the independence of R and B isn’t guaranteed.
 - **evidence=T’:** this situation is similar to previous evidence.
 
-- b. we want to check conditionally independence between L and B variables with different evidence.
+ b. we want to check conditionally independence between L and B variables with different evidence.
 
 ![exp2](assets/ch6.jpg)
 
@@ -271,12 +268,12 @@ Example:
 - **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
 
 ### Structure Implications
-- As you can see, with the help of this algorithm, we can examine the conditional independence of two random variables. So, if we test the algorithm on all modes, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.
--but in some cases, “d-separation” algorithm can find all dependencies. For example, in the figure below;
+ As you can see, with the help of this algorithm, we can examine the conditional independence of two random variables. So, if we test the algorithm on all modes, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.<br/>
+but in some cases, “d-separation” algorithm can find all dependencies. For example, in the figure below;
 
 ![stIm](assets/sim.jpg)
 ### Topology Limits Distributions
-In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.
+In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.<br/>
 For example, in the figure below, different kind of dependence for triples is mentioned.
 ![TLD](assets/tld.jpg)
 
