@@ -16,7 +16,7 @@
 - [Independence in Bayes' Nets](#Independence-in-Bayes'-Nets)
 	- [Independency Assumptions](#Independency-Assumptions)
 	- [D-separation](#D-separation)
-		- [Outline] (#Outline)
+		- [Outline](#Outline)
 		- [Causal Chain](#Causal-Chain)
 		- [Common Cause](#Common-Cause)
 		- [V-Structure](#V-Structure)
