@@ -105,34 +105,33 @@ These independencies can be derived from bayes' nets. This will come in handy wh
 
 ### Probabilities in Bayes' Nets
  in BNs, join distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
-![joint](assets/joint.png)
+![joint](assets/joint.png) <br/>
  in the following, we will prove the correctness of this method.<br/>
  Note first the chain rule that applies to each distribution:
-![chain](assets/chain.png)
+![chain](assets/chain.png) <br/>
  Now with respect to conditional independence, we can claim that:
-![conditionaldep](assets/conditionaldep.PNG)
+![conditionaldep](assets/conditionaldep.png) <br/>
  because xi is conditional independent of other nodes, given its parents. <br>
  So, we can conclude that:
-![joint](assets/joint.png)
+![joint](assets/joint.png) <br/>
  Note that not every BN can produce every distribution, but the BN topology determines what conditional independence can be produced.<br/>
  
  The following are some examples of BN distribution.<br/>
  
  a. coin flips <br/>
  In this case, a coin is tossed n times, the probability of a head or tail being equal in each toss. If these actions are independent of each other, then it is as follows.
-![coin](assets/coin.png)
+![coin](assets/coin.png) <br/>
  for example P(H, T, T, H) = P(H)P(T)P(T)P(H) <br/>
  Note that only distributions whose variables are absolutely independent can be represented by a Bayes’ net with no arcs.<br/>
 
  b. traffic <br/>
  In this example, R stands for rain and T stands for traffic. It is also considered that rain causes traffic.
-![traffic](assets/traffic.png)
+![traffic](assets/traffic.png) <br/>
  for example P(+r, -t) = P(+r)P(-t|+r) <br/>
 
  c. alarm network <br/>
  In this case, it is assumed that the house alarm is sounded by an earthquake or burglary. John and Mary may also call us if the alarm sounds.
- ![alarm](assets/alarm.png)
-
+ ![alarm](assets/alarm.png) <br/>
 For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
 
 ### Causality in Bayes' Nets
