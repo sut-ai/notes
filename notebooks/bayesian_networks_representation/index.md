@@ -79,6 +79,20 @@ or equivalently, if and only if
 
 ### Chain Rule
 
+We all know the basic form of chain rule:
+
+![formula7](assets/T2_Formula7.PNG)
+
+Imagine we want P(X, Y, Z). Using the chain rule, we can write:
+
+- P(X,Y,Z) = P(X)P(Y|X)P(Z|X,Y)
+
+But if we know that Z and Y are independent, we can instead write:
+
+- P(X,Y,Z) = P(X)P(Y|X)P(Z|X)
+
+These independencies can be derived from bayes' nets. This will come in handy when we want to infer probabilities from bayes nets.
+
 ## Bayes' Nets
 
 ![fridge](assets/Fridge_net.PNG)
