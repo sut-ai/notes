@@ -25,6 +25,7 @@
 	- [Structure Implications](#Structure-Implications)
 	- [Topology Limits Distributions](#Topology-Limits-Distributions)
 - [Conclusion](#Conclusion)
+	- [What comes next](#What-comes-next)
 - [References](#References)
 
 ## Intoduction
@@ -270,18 +271,37 @@ Example:
 - **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
 
 ### Structure Implications
+
  As you can see, with the help of this algorithm, we can examine the conditional independence of two random variables. So, if we test the algorithm on all modes, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.<br/>
 but in some cases, “d-separation” algorithm can find all dependencies. For example, in the figure below;
 
 ![stIm](assets/sim.jpg)
+
 ### Topology Limits Distributions
+
 In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.<br/>
 For example, in the figure below, different kind of dependence for triples is mentioned.
+
 ![TLD](assets/tld.jpg)
 
 - Green color: triples in which every pair of RVs are independent.
 - Red color: triples in which two RVs are independent given the 3rd one.
 - Blue color: triples in which no independence is found.
+
 ## Conclusion
 
+Through this lecture note, we saw that:
+
+- Joint distributions can be encoded efficiently using bayes' nets which simplifies calculations a lot compared to the classic joint distribution tables method.
+
+- Guaranteed independencies of distributions can be deducted from the bayesian net graph structure which weren't apparent at first. Moreover, using d-separation gives us precise conditional independence guarantees from the graph alone.
+
+- Even that isn't all. There may as well be more (conditional) independencies that are not detectable until we inspect the specific distributions.
+
+### What comes next
+
+Up until now, we saw how to build a bayes' net and how to find the independencies. The next step is to put these bayes' nets to use and infer probabilities from it. It's basically done by multiplying probabilities taken from every node on the path from top to the desired node. Read the next lecture note to learn all the details.
+
 ## References
+
+<http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx>
