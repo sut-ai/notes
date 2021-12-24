@@ -22,7 +22,6 @@
 Table of Contents
 ==============
 
-- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Basic Idea](#basic-idea)
 - [Sampling from Given Distribution](#sampling-from-given-distribution)
