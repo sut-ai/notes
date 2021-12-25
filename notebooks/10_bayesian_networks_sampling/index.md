@@ -112,7 +112,7 @@ Now we need to prove that the samples are realizations of I.I.D (Independent, Id
 Suppose we have drawn $N$ samples from the joint distribution. Let the number of samples of an event be 
 $N_{PS}(x_1,...,x_n)$.
 
-So based on the law of large numbers, we have:
+So based on [the law of large numbers](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiJsZWq0__0AhU6iv0HHagPClYQFnoECAcQAQ&url=https%3A%2F%2Fwww.lakeheadu.ca%2Fsites%2Fdefault%2Ffiles%2Fuploads%2F77%2Fimages%2FSedor%2520Kelly.pdf&usg=AOvVaw1xaHZqZNyROrouGHyLduDl), we have:
 $$
 lim_{N\to\infty}\hat{Pr}(x_1,...,x_n) = lim_{N\to\infty} \frac{N_{PS}(x_1,...,x_n)}{N}
 $$
