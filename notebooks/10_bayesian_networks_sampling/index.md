@@ -42,9 +42,9 @@ and approximate the posterior probability. There are
 several approximation methods for this problem, of
 which we will discuss the ones based on randomized
 sampling. The rest of the note is layed out as follows:
-- We give intuition about the basic idea behind sampling.
+- We give intuition about the basic idea behind sampling, and why it is an attractive solution concept.
 - We describe the building block of every sampling algorithm, namely, sampling from a given distribution.
-- We explain four standard methods of sampling in Bayes' Nets.
+- We explain four standard methods of sampling in Bayes' Nets, stating their pros and cons.
 
 
 # Basic Idea
@@ -122,7 +122,7 @@ $$
 
 hence, the sampling procedure is consistent with the joint distribution.
 
-It is apparent that this algorithm is faster than its exact counter-parts. Since we have the joint distribution, we can calculate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
+It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
 
 ## Rejection Sampling
 
