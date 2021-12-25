@@ -126,8 +126,8 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 
 ## Rejection Sampling
 
-One minor problem with Prior Sampling is that we keep samples which are not consistent with evidence and since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
-A simple idea is to reject incosistent samples whilst sampling, to achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
+One minor problem with prior sampling is that we keep samples which are not consistent with evidence and since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
+A simple idea is to reject incosistent samples whilst sampling; To achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
 
 Consider the following process:
 
@@ -137,17 +137,17 @@ Consider the following process:
 
 3.&emsp;&emsp; if $x_i$ not consistent with evidence:
 
-4.&emsp;&emsp;&emsp;return (no sample is generated in this cycle)
+4.&emsp;&emsp;&emsp;Return (no sample is generated in this cycle)
 
 5.&nbsp; Return $(x_1,...,x_n)$
 
-It is also consistent for conditional probabilities.
+It is also consistent with conditional probabilities.
 
 ## Likelihood Weighting
 
-If we look closer to the problem with Prior Sampling, which led us to Rejection Sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating sampling process many times to achieve the desired sample size. This problem brings us to Likelihood Weighting. The idea is to fix the evidence variables and sample the rest, But it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
+If we look closer to the problem with prior sampling, which led us to rejection sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating the sampling process many times to achieve the desired sample size. This problem brings us to likelihood weighting. The idea is to fix the evidence variables and sample the rest, but it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
 
-Same as the previous method, we start with topological sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (if not evidence) and for evidence variables, we just assign evidence value to it and multiply weight by $P(x_i|parents(x_i))$. At the end, we need to calculate sum of consistent samples' weights with query divided by sum of all samples' weights to calculate $P(Query|Evidence)$.
+Same as the previous method, we start with topological sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (non-evidence) and for evidence variables, we just assign the evidence value to it and multiply weight by $P(x_i|parents(x_i))$. In the end, we need to calculate the sum of consistent samples' weights with query divided by the sum of all samples' weights to calculate $P(Query|Evidence)$.
 
 1.&nbsp; w = 1.0
 
@@ -167,26 +167,26 @@ Same as the previous method, we start with topological sorted nodes, and a weigh
 
 To prove consistency:
 
-For each Sample with Query $Q_1, ..., Q_n$ and evidence $E_1, ..., E_n$ we have:
+For each sample with query $Q_1, ..., Q_n$ and evidence $E_1, ..., E_m$ we have:
 
-This process generates a sample $X=(q_1,...,q_n,e_1,...,e_n)$ with the following probability:
+This process generates a sample $X=(q_1,...,q_n,e_1,...,e_m)$ with the following probability:
 $$
-S_{WS}(q_1,...,q_n,e_1,...,e_n) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i))
+S_{WS}(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i))
 $$
 
 And the weight for each sample is:
 
 $$
-w(q_1,...,q_n,e_1,...,e_n) = \prod_{i=1}^{n}Pr(e_i|parents(E_i))
+w(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{m}Pr(e_i|parents(E_i))
 $$
 
 Together, weighted sampling distribution is consistent:
 
 $$
-S_{WS}(q_1,...,q_n,e_1,...,e_n) * w(q_1,...,q_n,e_1,...,e_n) 
+S_{WS}(q_1,...,q_n,e_1,...,e_m) * w(q_1,...,q_n,e_1,...,e_m) 
 $$
 $$
-=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{n}Pr(q_i|parents(Q_i)) = Pr(q_1,...,q_n,e_1,...,e_n)
+=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{m}Pr(e_i|parents(E_i)) = Pr(q_1,...,q_n,e_1,...,e_m)
 $$
 
 ## Gibbs Sampling
