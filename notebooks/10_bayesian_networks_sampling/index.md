@@ -35,7 +35,7 @@ Table of Contents
 
 # Introduction
 
-In the past lecture note, it was shown that Inference
+In the previous lecture note, it was shown that Inference
 in Bayesian Networks, in general, is an intractable
 problem. The natural approach now would be to try
 and approximate the posterior probability. There are
