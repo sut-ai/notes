@@ -127,7 +127,7 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 ## Rejection Sampling
 
 One minor problem with Prior Sampling is that we keep samples which are not consistent with evidence and since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
-A simple idea is to reject incosistent samples whilst samling, to achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
+A simple idea is to reject incosistent samples whilst sampling, to achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
 
 Consider the following process:
 
