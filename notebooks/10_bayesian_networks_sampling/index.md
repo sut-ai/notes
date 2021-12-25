@@ -30,6 +30,8 @@ Table of Contents
   - [Rejection Sampling](#rejection-sampling)
   - [Likelihood Weighting](#likelihood-weighting)
   - [Gibbs Sampling](#gibbs-sampling)
+- [Conclusion](#conclusion)
+- [References and Further Reading](#references-and-further-reading)
 
 # Introduction
 
@@ -70,7 +72,7 @@ Consider the example of picking random colored cubes from a large bag of them. T
 
 In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
 and determine the sample based on that. As shown in the figure below, the unit length segment is 
-partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_i$s represent the 
+partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_i$ s represent the 
 probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words, we have indexed the 
 values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
 $c_1 = green$, $c_2 = red$ and $c_3 = blue$.
