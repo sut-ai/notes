@@ -215,7 +215,7 @@ $$
  = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{x_j \in children(x_i)}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x [Pr(x_i=x|parents(x_i^{(t)})) \times \prod_{x_j \in children(x_i)}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))]}. 
 $$
 
-Here, $parents'$ represents the values of the parents of the variables in $X^{(t)}$, replacing $x_i^{(t)}$ with the current relevant value of $x_i$. For example, this relevant value in the numerator is $x_i$ itself, while the value in denominator is the $x$ in the summation. As it is shown in the equation, the clauses corresponding to CPTs not including $x_i$ all cancel out.
+Here, $parents'$ represents the values of the parents of the variables in $X^{(t)}$, replacing $x_i^{(t)}$ with the current relevant value of $x_i$. For example, this relevant value in the numerator is $x_i$ itself, while the value in denominator is the $x$ in the summation. As it is shown in the equation, the clauses corresponding to Conditional Probability Tables (CPTs) not including $x_i$ all cancel out.
 
 This cancellation will only leave the CPTs mentioning $x_i$, namely, the CPT of $x_i$ itself and the CPTs of its children. These CPTs are often referred to as the **Markov blanket** of $x_i$.
 
