@@ -190,7 +190,7 @@ $$
 $$
 
 ## Gibbs Sampling
-The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm.
+The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm (See Page 62 of this [lecture note](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf)).
 
 Suppose we want to draw a sample $X = (x_1, ..., x_n)$ from the distribution $Pr(X_{Query} | X_{Evidence} = Observations)$, where $X_{Query}$ and $X_{Evidence}$ are the query and evidence variables, respectively. The algorithm operates as follows:
 
