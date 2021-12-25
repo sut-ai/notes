@@ -25,10 +25,11 @@ Table of Contents
 - [Introduction](#introduction)
 - [Basic Idea](#basic-idea)
 - [Sampling from Given Distribution](#sampling-from-given-distribution)
-- [Prior Sampling](#prior-sampling)
-- [Rejection Sampling](#rejection-sampling)
-- [Likelihood Weighting](#likelihood-weighting)
-- [Gibbs Sampling](#gibbs-sampling)
+- [Sampling in Bayes' Nets](#sampling-in-bayes-nets)
+  - [Prior Sampling](#prior-sampling)
+  - [Rejection Sampling](#rejection-sampling)
+  - [Likelihood Weighting](#likelihood-weighting)
+  - [Gibbs Sampling](#gibbs-sampling)
 
 # Introduction
 
@@ -80,7 +81,11 @@ We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_
 
 Thus, using uniform distributions in this manner, we can generate samples from a given distribution having the same corresponding probabilities.
 
-# Prior Sampling
+# Sampling in Bayes' Nets
+
+We now explain the four standard methods of sampling in Bayes' Nets, namely, Prior Sampling, Rejection Sampling, Likelihood Weighting, & Gibbs Sampling.
+
+## Prior Sampling
 Now we're ready to tackle the sampling problem! Suppose we want to sample from the joint distribution 
 of the Bayes' Net, $Pr(x_1,...,x_n)$.
 
@@ -117,7 +122,7 @@ hence, the sampling procedure is consistent with the joint distribution.
 
 It is apparent that this algorithm is faster than its exact counter-parts. Since we have the joint distribution, we can calculate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
 
-# Rejection Sampling
+## Rejection Sampling
 
 One minor problem with Prior Sampling is that we keep samples which are not consistent with evidence and since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
 A simple idea is to reject incosistent samples whilst samling, to achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
@@ -136,7 +141,7 @@ Consider the following process:
 
 It is also consistent for conditional probabilities.
 
-# Likelihood Weighting
+## Likelihood Weighting
 
 If we look closer to the problem with Prior Sampling, which lead us to Rejection Sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating sampling process many times to achieve the desired sample size. This problem brings us to Likelihood Weighting. The idea is to fix the evidence variables and sample the rest, But it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
 
@@ -182,7 +187,7 @@ $$
 =\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{n}Pr(q_i|parents(Q_i)) = Pr(q_1,...,q_n,e_1,...,e_n)
 $$
 
-# Gibbs Sampling
+## Gibbs Sampling
 The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm.
 
 Suppose we want to draw a sample $X = (x_1, ..., x_n)$ from the distribution $Pr(X_{Query} | X_{Evidence} = Observations)$, where $X_{Query}$ and $X_{Evidence}$ are the query and evidence variables, respectively. The algorithm operates as follows:
