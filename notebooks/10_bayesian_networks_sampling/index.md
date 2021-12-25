@@ -145,7 +145,7 @@ It is also consistent for conditional probabilities.
 
 ## Likelihood Weighting
 
-If we look closer to the problem with Prior Sampling, which lead us to Rejection Sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating sampling process many times to achieve the desired sample size. This problem brings us to Likelihood Weighting. The idea is to fix the evidence variables and sample the rest, But it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
+If we look closer to the problem with Prior Sampling, which led us to Rejection Sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating sampling process many times to achieve the desired sample size. This problem brings us to Likelihood Weighting. The idea is to fix the evidence variables and sample the rest, But it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
 
 Same as the previous method, we start with topological sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (if not evidence) and for evidence variables, we just assign evidence value to it and multiply weight by $P(x_i|parents(x_i))$. At the end, we need to calculate sum of consistent samples' weights with query divided by sum of all samples' weights to calculate $P(Query|Evidence)$.
 
