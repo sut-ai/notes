@@ -1,3 +1,4 @@
+<div align="justify">
 # Inference in Bayes Nets 1
 
 ## Table of Contents
@@ -20,7 +21,7 @@
 - [Conclusions](#conclusions)
 - [References](#references)
 
-<div style="margin: auto; width: 50%;"><img src="./assets/intro.png" /></div>
+<p align="center"><img src="./assets/intro.png" width="40%" /></p>
 
 ## Introduction
 
@@ -99,7 +100,7 @@ In enumeration, first we find the whole joint distribution, and then we marginal
 
 If we marginalize out the hidden variables in the partial joint distribution, we can get a much faster algorithm. This method is called Inference by Variable Elimination.
 
-<div style="margin: auto; width: 100%;"><img src="./assets/comparison.png" /></div>
+<p align="center"><img src="./assets/comparison.png" width="100%" /></p>
 
 ## Inference by Variable Elimination (Marginalizing Early)
 
@@ -162,7 +163,7 @@ The computational and space complexity of variable elimination is determined by 
 - $Z, X_1, …, X_n \rightarrow 2^{n+1}$
 - $X_1, …, X_n, Z \rightarrow 2^{2}$ 
 
-<div style="margin: auto; width: 40%;"><img src="./assets/ve-ordering.png" /></div>
+<p align="center"><img src="./assets/ve-ordering.png" width="30%" /></p>
 
 There is no general ordering that provides only small factors.
 
@@ -182,7 +183,7 @@ Now, if we eliminate variables with this order, we would never get a factor larg
 
 We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree. You can see an example of this below.
 
-<div style="margin: auto; width: 70%;"><img src="./assets/conditioning-example.png" /></div>
+<p align="center"><img src="./assets/conditioning-example.png" width="70%" /></p>
 
 ### Algorithm Example
 
@@ -199,3 +200,4 @@ We reviewed two major exact inference algorithms, the enumeration algorithm and 
 - [Exact Inference in Bayes Nets](http://courses.csail.mit.edu/6.034s/handouts/spring12/bayesnets-pseudocode.pdf)
 - [Variable Elimination](https://ermongroup.github.io/cs228-notes/inference/ve/)
 - [Bayesian Networks - Inference (Part II)](https://ccc.inaoep.mx/~esucar/Clases-mgp/Notes/c7-bninf-p2.pdf)
+</div>
