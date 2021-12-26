@@ -52,29 +52,33 @@ __Example:__
 
 The above figure is an example of a decision tree. on every node, we move to the right edge in case of a true condition. suppose we want to perform a cardial checkup for some patients with the data presented to us in the table below:
 
-<center>
+<p align="center">
+<img src="./pictures/data_table.png" width="450">
+</p>
 
-| ID | has chest pain | smokes | physical condition | age |
+<!-- | ID | has chest pain | smokes | physical condition | age |
 |:--:|:--------------:|:------:|:------------------:|:---:|
 |1   |yes             |yes     |good                |35   |
 |2   |no              |no      |bad                 |50   |
 |3   |no              |yes     |bad                 |42   |
 |4   |yes             |yes     |good                |45   |
 |5   |no              |yes     |good                |39   |
-|6   |yes             |yes     |bad                 |41   |
-
-</center>
+|6   |yes             |yes     |bad                 |41   | -->
 
 Starting from the root of the tree, the value of the attribute "has chest pain" should be checked for every sample. We then move to the next node based on the answer. If a patient has chest pain, we then check his physical test. If his physical condition is not good, we conclude that this patient might probably have a heart disease. The same process goes on for every branch. The decision tree leads us to the below classification of the sample:
 
-| ID | has chest pain | smokes | physical condition | age |cardial disease|
+<p align="center">
+<img src="./pictures/data_table_with_classification.png" width="570">
+</p>
+
+<!-- | ID | has chest pain | smokes | physical condition | age |cardial disease|
 |:--:|:--------------:|:------:|:------------------:|:---:|:-------------:|
 |1   |yes             |yes     |good                |35   |-              |
 |2   |no              |no      |bad                 |50   |-              |
 |3   |no              |yes     |bad                 |42   |+              |
 |4   |yes             |yes     |good                |45   |+              |
 |5   |no              |yes     |good                |39   |-              |
-|6   |yes             |yes     |bad                 |41   |+              |
+|6   |yes             |yes     |bad                 |41   |+              | -->
 
 Some questions might arrise here on how was this decision tree constructed. How should we correctly choose the beginning node? What features and conditions should be used for splitting to get an optimal decision tree? when should we stop the process? Constructing a decision tree with the lowest error rate is a greedy search problem. Our tree should split the data into homogeneous subsets by each plit as we go down. This purpose can be achieved using a concept called __Entropy__.
 
@@ -187,12 +191,16 @@ there's also another case that's sometimes proposed for terminating the algorith
 
 This case argues that since zero information gain from attributes indicates their independency from the target label, then there's no need to go through them anymore. But in fact, this case causes some problems. Our learning algorithm is of the greedy type in the way that it examines each attribute, one by one. But there are cases where the combination of those attributes will lead us to a result. Take this example:
 
-|  a  |  b  |  y  |
+<p align="center">
+<img src="./pictures/xor_table.png" width="120">
+</p>
+
+<!-- |  a  |  b  |  y  |
 |:---:|:---:|:---:|
 |  0  |  0  |  0  |
 |  0  |  1  |  1  |
 |  1  |  0  |  1  |
-|  1  |  1  |  0  |
+|  1  |  1  |  0  | -->
 
 ![attribute](https://render.githubusercontent.com/render/math?math=y)'s value can be indicated as `a XOR b`. If we calculate the information gain of the two attributes, we see that the value is zero for both of them. If we consider the third case in our algorithm, It would stop right at the first level without a decent output, while we could achieve the tree below:
 
