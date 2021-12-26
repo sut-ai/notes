@@ -52,6 +52,8 @@ __Example:__
 
 The above figure is an example of a decision tree. on every node, we move to the right edge in case of a true condition. suppose we want to perform a cardial checkup for some patients with the data presented to us in the table below:
 
+<center>
+
 | ID | has chest pain | smokes | physical condition | age |
 |:--:|:--------------:|:------:|:------------------:|:---:|
 |1   |yes             |yes     |good                |35   |
@@ -60,6 +62,8 @@ The above figure is an example of a decision tree. on every node, we move to the
 |4   |yes             |yes     |good                |45   |
 |5   |no              |yes     |good                |39   |
 |6   |yes             |yes     |bad                 |41   |
+
+</center>
 
 Starting from the root of the tree, the value of the attribute "has chest pain" should be checked for every sample. We then move to the next node based on the answer. If a patient has chest pain, we then check his physical test. If his physical condition is not good, we conclude that this patient might probably have a heart disease. The same process goes on for every branch. The decision tree leads us to the below classification of the sample:
 
@@ -80,17 +84,23 @@ Some questions might arrise here on how was this decision tree constructed. How 
 
 Entropy is a measurement for the disorder, or impurity, in a group of observations. Consider having a random variable with  class of answers. the Entropy  of this random variable will be calculated by the formula below:
 
-![Entropy formula](https://render.githubusercontent.com/render/math?math=H(x)=-\sum_{i=1}^{N}p_i\log_{2}p_i)
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=H(x)=-\sum_{i=1}^{N}p_i\log_{2}p_i" />
+</p>
 
 where ![attribute](https://render.githubusercontent.com/render/math?math=p_i) is the probability of the class ![attribute](https://render.githubusercontent.com/render/math?math=i).
 
 Let's consider a boolean variable. If all of our data is in one class, the Entropy would be 0.
 
-![zero entropy](https://render.githubusercontent.com/render/math?math=H(x)=-(1\log_{2}1)=0)
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=H(x)=-(1\log_{2}1)=0" />
+</p>
 
 this case would not be useful for learning. on the other hand, if the data is evenly distributed in the two classes, the Entropy would be:
 
-![even distribution](https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1)
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1" />
+</p>
 
 the best kind we could use.
 
@@ -98,7 +108,9 @@ the best kind we could use.
 
 ![conditional entropy](https://render.githubusercontent.com/render/math?math=H(Y|X)) is the conditional Entropy, defining the expected entropy of target label ![target variable](https://render.githubusercontent.com/render/math?math=Y) if data is splitted by attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-![conditional entropy](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5Cin%20X%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5Cin%20X%7DP(X%3Dx)%5Csum_%7By%5Cin%20Y%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D)
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0AH(Y%7CX)%26%3D%5Csum_%7Bx%5Cin%20X%7DP(X%3Dx)H(Y%7CX%3Dx)%5C%5C%0A%26%3D-%5Csum_%7Bx%5Cin%20X%7DP(X%3Dx)%5Csum_%7By%5Cin%20Y%7DP(Y%3Dy%7CX%3Dx)%5Clog_%7B2%7DP(Y%3Dy%7CX%3Dx)%0A%5Cend%7Baligned%7D" />
+</p>
 
 ![specific entropy](https://render.githubusercontent.com/render/math?math=H(Y|X=x)) is called the *specific conditional entropy*, the exact entropy of ![target](https://render.githubusercontent.com/render/math?math=Y) knowing the value of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X). Basically, for calculating the conditional entropy, you take the entropy of label ![attribute](https://render.githubusercontent.com/render/math?math=Y) for each value ![attribute](https://render.githubusercontent.com/render/math?math=x) of attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) and sum them up together.
 
@@ -106,19 +118,27 @@ the best kind we could use.
 
 Previously, we learned how to calculate the entropy of our target label ![attribute](https://render.githubusercontent.com/render/math?math=Y) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y)), and also it's entropy conditional to the value of an attribute ![attribute](https://render.githubusercontent.com/render/math?math=X) as ![attribute](https://render.githubusercontent.com/render/math?math=H(Y|X)). using both definitions, we can calculate the reduction in entropy of target attribute ![attribute](https://render.githubusercontent.com/render/math?math=Y) after learning ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
-![mutual information](https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AMI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24)
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=%24%0A%5Cbegin%7Baligned%7D%0AMI(Y%3BX)%20%26%20%3D%20H(Y)%20-%20H(Y%7CX)%20%3D%20-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D%5Cfrac%7BP_%7BX%2CY%7D(x%2C%20y)%7D%7BP_X(x)P_Y(y)%7D%0A%5Cend%7Baligned%7D%0A%24" />
+</p>
 
 This is called the __*mutual information*__ between ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X). It can be percieved from the equation that mutual information is symmetric.
 
-![symmetry](https://render.githubusercontent.com/render/math?math=MI(Y%3BX)%3DMI(X%3BY))
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=MI(Y%3BX)%3DMI(X%3BY)" />
+</p>
 
 if ![equal values](https://render.githubusercontent.com/render/math?math=Y=X), then:
 
-![no drop](https://render.githubusercontent.com/render/math?math=MI(X%3bX)=H(X)-H(X|X)=H(X))
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=MI(X%3bX)=H(X)-H(X|X)=H(X)" />
+</p>
 
 and if ![attribute](https://render.githubusercontent.com/render/math?math=Y) and ![attribute](https://render.githubusercontent.com/render/math?math=X) are independent:
 
-![independent attribute and label](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26MI(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D)
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%0A%26P_%7BX%2CY%7D(x%2Cy)%3DP_X(x)P_Y(y)%20%5C%5C%0A%26MI(Y%3BX)%3D-%5Csum_%7Bx%2C%20y%7DP(x%2C%20y)%5Clog_%7B2%7D1%3D0%0A%5Cend%7Baligned%7D" />
+</p>
 
 which means that there's no reduction in label ![attribute](https://render.githubusercontent.com/render/math?math=Y) entropy by choosing the attribute ![attribute](https://render.githubusercontent.com/render/math?math=X).
 
@@ -282,11 +302,15 @@ is that when data is limited, withholding part of it for the validation set redu
 
 The most popular tests for independence are based on the fact that some test statistics have approximately a chi-squared distribution with ![attribute](https://render.githubusercontent.com/render/math?math=(I-1)(J-1)) degrees of freedom if the null hypothesis is correct. The classic test statistic with this property is the chi-squared statistic.
 
-![chi-squared formula](https://render.githubusercontent.com/render/math?math={\chi}^2=\sum_{i}\sum_{j}\frac{(n_{ij}-e_{ij})^2}{e_{ij}})
+<p align='center'>
+<img src="https://render.githubusercontent.com/render/math?math={\chi}^2=\sum_{i}\sum_{j}\frac{(n_{ij}-e_{ij})^2}{e_{ij}}" />
+</p>
 
 where ![attribute](https://render.githubusercontent.com/render/math?math=e_{ij}) are the expected cell counts under the null hypothesis, calculated according to
 
-![null hypothesis](https://render.githubusercontent.com/render/math?math=e_{ij}=N_{\hat{p}_{i}\hat{p}_{j}}=N\frac{N_{i+}}{N}\frac{N_{+j}}{N}=\frac{N_{i+}N_{+j}}{N})
+<p align='center'>
+<img src="https://render.githubusercontent.com/render/math?math=e_{ij}=N_{\hat{p}_{i}\hat{p}_{j}}=N\frac{N_{i+}}{N}\frac{N_{+j}}{N}=\frac{N_{i+}N_{+j}}{N}" />
+</p>
 
 where ![attribute](https://render.githubusercontent.com/render/math?math=\hat{p}_{i}) is the estimated probability that a particular observation will fall into row ![attribute](https://render.githubusercontent.com/render/math?math=i), and ![attribute](https://render.githubusercontent.com/render/math?math=\hat{p}_{j}) is the corresponding probability for column ![attribute](https://render.githubusercontent.com/render/math?math=j). Because these two probabilities are independent under the null hypothesis, their product constitutes the probability that an observation will fall into ![attribute](https://render.githubusercontent.com/render/math?math=cell(i,j)).
 
@@ -329,10 +353,10 @@ Soleymani, M. (2021) *Decision tree* [PDF]. Sharif University of Technology
 
 Rohban, M. (2020) *Classification (decision tree)* [PDF]. Sharif University of Technology
 
-(2017, September 7), *Decision Trees for Classification: A Machine Learning Algorithm.* Xiorant. <https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves>.
+(2017, September 7), *[Decision Trees for Classification: A Machine Learning Algorithm](https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves).* Xiorant.
 
-Gupta, P. (2017, May 17), *Decision Trees in Machine Learning.* Towards data science. <https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052>
+Gupta, P. (2017, May 17), *[Decision Trees in Machine Learning](https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052).* Towards data science.
 
-T, S. (2019, January 11), *Entropy: How Decision Trees Make Decisions.* Towards data science. <https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8>
+T, S. (2019, January 11), *[Entropy: How Decision Trees Make Decisions](https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8).* Towards data science.
 
-ِDuignan, B. (1998, July 1998), *Occam's razor.* Britannica. <https://www.britannica.com/topic/Occams-razor>
+ِDuignan, B. (1998, July 1998), *[Occam's razor](https://www.britannica.com/topic/Occams-razor).* Britannica.
