@@ -127,8 +127,8 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 
 ## Rejection Sampling
 
-One minor problem with prior sampling is that we keep samples which are not consistent with evidence and since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
-A simple idea is to reject incosistent samples whilst sampling; To achieve this goal, whenever an incosistent sample observed, we will ignore (reject) that sample.
+The problem with prior sampling is that we keep samples which are not consistent with the evidence. Since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
+A simple idea is to reject incosistent samples whilst sampling. To achieve this goal, as soon as an incosistency in the sample is observed, we will ignore (reject) that sample.
 
 Consider the following process:
 
@@ -142,15 +142,15 @@ Consider the following process:
 
 5.&nbsp; Return $(x_1,...,x_n)$
 
-It is also consistent with conditional probabilities.
+This algorithm is also consistent with the conditional probabilities.
 
 ## Likelihood Weighting
 
-If we take a close look at the problem with prior sampling, which led us to the rejection sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating the sampling process many times to achieve the desired sample size. This problem brings us to likelihood weighting. The idea is to fix the evidence variables and sample the rest, but it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
+If we take a close look at the problem with prior sampling, which led us to the rejection sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating the sampling process many times to achieve the desired sample size. This problem brings us to likelihood weighting. The idea is to fix the evidence variables and sample the rest. However, this might cause an inconsistency with the distribution. The solution is to use a weight variable indicating the probability of the evidence given their parents.
 
-Same as the previous method, we start with topologically sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (non-evidence) and for evidence variables, we just assign the evidence value to it and multiply the weight by $P(x_i|parents(x_i))$. In the end, we need to calculate the sum of consistent samples' weights with query divided by the sum of all samples' weights to calculate $P(Query|Evidence)$.
+The algorithm is as follows. We start with topologically sorted nodes, and a weight variable $w$ equal to 1. At each step, we sample non-evidence variables and for evidence variables, we just assign the evidence value to it and multiply $w$ by $P(x_i|parents(x_i))$. In the end, we need to calculate the sum of consistent samples' weights with query divided by the sum of all samples' weights to calculate $P(Query|Evidence)$.
 
-1.&nbsp; w = 1.0
+1.&nbsp; $w$ = 1.0
 
 2.&nbsp; For i = 1 to n
 
@@ -158,16 +158,16 @@ Same as the previous method, we start with topologically sorted nodes, and a wei
 
 4.&emsp;&emsp;&emsp;$X_i$ = observation $x_i$ for $X_i$
 
-5.&emsp;&emsp;&emsp;Set w = w * $Pr(x_i|parents(x_i))$
+5.&emsp;&emsp;&emsp;Set $w$ = $w$ * $Pr(x_i|parents(x_i))$
 
 6.&emsp;&emsp; else
 
 7.&emsp;&emsp;&emsp; Sample $x_i$ from $Pr(x_i | parents(x_i))$
 
-8.&nbsp; Return $(x_1,...,x_n)$, w
+8.&nbsp; Return $(x_1,...,x_n), w$
 
 The consistency of the algorithm is proven as follows.
-For each sample with query variables $Q_1, ..., Q_n$ and evidence $E_1, ..., E_m$,
+For each sample with query or hidden variables $Q_1, ..., Q_n$ and evidence $E_1, ..., E_m$,
 the process generates a sample $X=(q_1,...,q_n,e_1,...,e_m)$ with the following probability:
 $$
 S_{WS}(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i)).
