@@ -189,7 +189,9 @@ $$
 $$
 
 Take the following Bayes' net as an example.
+
 ![Likelihood Weighting Bayes' Net Example](Images/Likelihood_Example_BN.png "Example Bayes' Net")
+
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
 Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. The, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will we sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
@@ -235,9 +237,13 @@ This updating procedure takes into account both upstream and downstream evidence
 In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent the desired distribution. Furthermore, they may not be independent of the other samples $X'$ generated with the Gibbs method, because of the arbitrary choice of $X^{(1)}$. This begining of the chain is referred to as the **burn-in period**, and the samples generated here are generally not used as the desired $X$. So, $X$ is usually selected from the $X^{(t)}$ outside this period. However, this creates a time overhead, since the burn-in period could be somewhat large.
 
 Take the following Bayes' net as an example.
+
 ![Gibbs Sampling Bayes' Net Example](Images/Gibbs_Example_BN.png "Example Bayes' Net")
+
 Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown, in green, variables set to false in red and variables selected for resampling in yellow.
+
 ![Gibbs Sampling Procedure](Images/Gibbs_Example_Procedure.png "Example Gibbs Sampling Procedure")
+
 As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
 $$
 Pr(+b|+a, +e, +c, -d)
