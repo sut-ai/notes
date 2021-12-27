@@ -22,6 +22,7 @@
 Table of Contents
 ==============
 
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Basic Idea](#basic-idea)
 - [Sampling from Given Distribution](#sampling-from-given-distribution)
@@ -145,9 +146,9 @@ It is also consistent with conditional probabilities.
 
 ## Likelihood Weighting
 
-If we look closer to the problem with prior sampling, which led us to rejection sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating the sampling process many times to achieve the desired sample size. This problem brings us to likelihood weighting. The idea is to fix the evidence variables and sample the rest, but it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
+If we take a close look at the problem with prior sampling, which led us to the rejection sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating the sampling process many times to achieve the desired sample size. This problem brings us to likelihood weighting. The idea is to fix the evidence variables and sample the rest, but it will cause inconsistency with the distribution. The solution is to use a weight variable indicating the probability of evidences given their parents.
 
-Same as the previous method, we start with topological sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (non-evidence) and for evidence variables, we just assign the evidence value to it and multiply weight by $P(x_i|parents(x_i))$. In the end, we need to calculate the sum of consistent samples' weights with query divided by the sum of all samples' weights to calculate $P(Query|Evidence)$.
+Same as the previous method, we start with topologically sorted nodes, and a weight variable equal to 1. At each step, we sample a variable (non-evidence) and for evidence variables, we just assign the evidence value to it and multiply the weight by $P(x_i|parents(x_i))$. In the end, we need to calculate the sum of consistent samples' weights with query divided by the sum of all samples' weights to calculate $P(Query|Evidence)$.
 
 1.&nbsp; w = 1.0
 
@@ -161,33 +162,39 @@ Same as the previous method, we start with topological sorted nodes, and a weigh
 
 6.&emsp;&emsp; else
 
-7.&emsp;&emsp; Sample $x_i$ from $Pr(x_i | parents(x_i))$
+7.&emsp;&emsp;&emsp; Sample $x_i$ from $Pr(x_i | parents(x_i))$
 
 8.&nbsp; Return $(x_1,...,x_n)$, w
 
-To prove consistency:
-
-For each sample with query $Q_1, ..., Q_n$ and evidence $E_1, ..., E_m$ we have:
-
-This process generates a sample $X=(q_1,...,q_n,e_1,...,e_m)$ with the following probability:
+The consistency of the algorithm is proven as follows.
+For each sample with query variables $Q_1, ..., Q_n$ and evidence $E_1, ..., E_m$,
+the process generates a sample $X=(q_1,...,q_n,e_1,...,e_m)$ with the following probability:
 $$
-S_{WS}(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i))
+S_{WS}(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i)).
 $$
 
-And the weight for each sample is:
+Furthermore, the weight for each sample is:
 
 $$
-w(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{m}Pr(e_i|parents(E_i))
+w(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{m}Pr(e_i|parents(E_i)).
 $$
 
-Together, weighted sampling distribution is consistent:
+Together, the weighted sampling distribution is consistent:
 
 $$
 S_{WS}(q_1,...,q_n,e_1,...,e_m) * w(q_1,...,q_n,e_1,...,e_m) 
 $$
 $$
-=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{m}Pr(e_i|parents(E_i)) = Pr(q_1,...,q_n,e_1,...,e_m)
+=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{m}Pr(e_i|parents(E_i)) = Pr(q_1,...,q_n,e_1,...,e_m).
 $$
+
+Take the following Bayes' net as an example.
+![Likelihood Weighting Bayes' Net Example](Images/Likelihood_Example_BN.png "Example Bayes' Net")
+Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
+
+Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. The, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will we sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
+
+By repeating this procedure and calculating a weigth for each sample, we will eventually find a collection of weighted samples. Then we could use the calculated weights to approximate the probability in question. This is done by summing the weights of the samples consistent with the query, and dividing by the sum of all weights generated.
 
 ## Gibbs Sampling
 The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm (See Page 62 of this [lecture note](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf)).
@@ -226,6 +233,22 @@ It can be shown that as $t$ approaches infinity, $X^{(t)}$ approximates the dist
 This updating procedure takes into account both upstream and downstream evidences in the Bayes' net, since each update conditions on every variable. This property fixes the problem of Likelihood Weighting, i.e., only conditioning on upstream variables. Thus, Gibbs sampling has better sampling efficiency (sum of the samples' weights is larger, therefore generating more effective samples), creating more useful data to be used in approximation.
 
 In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent the desired distribution. Furthermore, they may not be independent of the other samples $X'$ generated with the Gibbs method, because of the arbitrary choice of $X^{(1)}$. This begining of the chain is referred to as the **burn-in period**, and the samples generated here are generally not used as the desired $X$. So, $X$ is usually selected from the $X^{(t)}$ outside this period. However, this creates a time overhead, since the burn-in period could be somewhat large.
+
+Take the following Bayes' net as an example.
+![Gibbs Sampling Bayes' Net Example](Images/Gibbs_Example_BN.png "Example Bayes' Net")
+Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown, in green, variables set to false in red and variables selected for resampling in yellow.
+![Gibbs Sampling Procedure](Images/Gibbs_Example_Procedure.png "Example Gibbs Sampling Procedure")
+As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
+$$
+Pr(+b|+a, +e, +c, -d)
+$$
+$$
+ = \frac{Pr(+b | +a)Pr(-d | +b, +c)}{Pr(+b | +a)Pr(-d | +b, +c) + Pr(-b | +a)Pr(-d | -b, +c)} 
+$$
+$$
+= \frac{0.8 \times 0.5}{0.8 \times 0.5 + 0.2 \times 0.9} = \frac{0.4}{0.58} \approx 0.689.
+$$
+As it is shown, we only need to consider the terms in $B$'s Markov blanket. This is why the numerator is these terms for $+b$, while the denominator is the sum of these terms for $+b$ and $-b$. (Basically, the normalizing factor) Thus, based on the calculations, we can see that $B$ is resampled from the distribution $Pr(B | +a, +e, +c, -d)$, where $Pr(+b | +a, +e, +c, -d) \approx 0.689$. By repeating this procedure for other non-evidence variables for a number of iterations, namely, the burn-in value, we will eventually reach a sample from the distribution of the original Bayes' net. Finally, we repeat this sampling procedure to procure a healthy number of samples, and approximate the probability of the query by counting the number of consistent samples and dividing by the total number of samples.
 
 In a more general sense, Gibbs Sampling and Metropolis-Hastings are classified as *Markov Chain Monte Carlo* algorithms. Monte Carlo algorithms are basically the same as sampling. For more information, please refer to this [lecture note](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf).
 
