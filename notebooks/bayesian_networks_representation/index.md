@@ -185,8 +185,7 @@ In this BN, low pressure causes rain and rain causes traffic. in another word ra
 
 is X is guaranteed to be independent of Z? <br/>
 
-the answer is NO. <br/>
-To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5  <br/>
+the answer is NO. To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5  <br/>
 
 rainfall is completely dependent on low pressure and if low pressure occurs, rainfall is definite. and if high pressure occurs, rainfall is impossible. <br/>
 P(+y|-x)=0  P(+y|+x)=1  <br/>
