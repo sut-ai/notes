@@ -118,14 +118,14 @@ Bayes nets is a technique for describing complex joint distributions or models u
 In this picture there are a set of nodes, one per variable X. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
 
 ### Probabilities in Bayes' Nets
- in BNs, join distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
+ in BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
 ![joint](assets/joint.png) <br/>
  in the following part, we will prove this method is correct.<br/>
  First note the chain rule applied to each distribution:
 ![chain](assets/chain.png) <br/>
  Now with respect to conditional independence, we can claim that:
 ![conditionaldep](assets/conditionaldep.png) <br/>
- Which is true because xi is conditionally independent of other nodes, given its parents. <br>
+ Which is true because xi is conditionally independent of other nodes, given its parents. In other words, by knowing the values of all the parents, the other nodes no longer give us new information, and it does not matter to us whether we know them or not. <br>
  So, we can conclude that:
 ![joint](assets/joint.png) <br/>
  Note that not every BN can produce every distribution, but the BN topology determines what conditional independence can be produced.<br/>
@@ -149,12 +149,12 @@ In this picture there are a set of nodes, one per variable X. And we have a dire
 For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
 
 ### Causality in Bayes' Nets
- If in a Bayes' net the arrows show the real causes, it can be better investigated and the probabilities found. The network also becomes simpler. Because the number of parents is less. <br/>
- Sometimes arrows do not show causal relationships. Or even in a network, none of the arrows have a causal relationship. For example, when some important variables are not available in the network. In such cases, the arrows show correlation and not causation.<br/>
+ If in a Bayes' net the arrows represent the real causes, it can be better investigated and the probabilities are easier to find. The network also becomes simpler. Because the number of parents is fewer. <br/>
+ Sometimes arrows do not represent causal relationships. Or even in some networks, none of the arrows have a causal relationship. For example, when some important variables are not available in the network. In such cases, the arrows show correlation and not causation.<br/>
  
  Therefore, we do not need to know the exact causal structure between the variables.
 ### Space Efficiency
- The CPT size of a node if it has m different value and has k parents, each of which also has m different value, is equal to m^(k+1). <br/>
+ The CPT size of a node depends on it's domain and parents. if a node has k parents and each of which has m different value, the CPT size is equal to m^(k+1). <br/>
  Therefore, in a Bayes' net with N Boolean variables, if each node has a maximum of k parents, the size of the whole net is of the order of O(N*2^(k+1)). Whereas if we want to store their joint distribution, it is the size of 2^N. <br/>
  
  So, we conclude that if we use this method, it usually requires less memory. It is also easier and faster to use local CPTs.
@@ -185,7 +185,8 @@ In this BN, low pressure causes rain and rain causes traffic. in another word ra
 
 is X is guaranteed to be independent of Z? <br/>
 
-the answer is NO. To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5  <br/>
+the answer is NO. <br/>
+To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5  <br/>
 
 rainfall is completely dependent on low pressure and if low pressure occurs, rainfall is definite. and if high pressure occurs, rainfall is impossible. <br/>
 P(+y|-x)=0  P(+y|+x)=1  <br/>
@@ -206,7 +207,7 @@ the answer is YES. to prove this claim, we use algebraic operations. we should s
 
 we conclude that with condition on Y, X and Z are independent. <br/>
 
-So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of X to Z is not direct, if value of Y be known, change in X’ value causes no effect on Z’ value. in another word, if we have value of Y, value of X does not give any additional information about Z. <br/>
+So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of X to Z is not direct, if the value of Y is known, changes in X value causes no effect on Z’ value. in other word if we know value of Y, value of X doesn't give any additional information about Z. <br/>
 
 So, evidence along the chain “blocks” the influence.
 
@@ -233,7 +234,7 @@ P(+z|+y)=1  P(+z|-y)=0 <br/>
 Also, forums are related to project deadline. if deadline is near, forums get busy.<br/>
 P(+x|+y)=1  P(+x|-y)=0 <br/>
 
-now we should compare P(Z) and P(Z|X) to find dependency.  for example, lab is full and forums are busy. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5
+now we should compare P(Z) and P(Z|X) to find dependency.  for example, lab is full and forums are busy. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5. because value of Z and X are exactly equal to the value of Y. <br/>
 As a result, the two child variables in common cause triples are not independent in general case. <br/>
 
 is X is guaranteed to be independent of Z given Y? <br/>
@@ -244,7 +245,7 @@ the answer is Yes. to prove this claim, we use algebraic operations. we should s
 
 we conclude that with condition on Y, X and Z are independent. <br/>
 
-So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of X to Z is not direct, if value of Y be known, change in X’ value causes no effect on Z’ value. in another word, if we have value of Y, value of X does not give any additional information about Z. <br/>
+So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of X to Z is not direct, if value of Y is known, changes in X value causes no effect on Z’ value. in other word if we know value of Y, value of X doesn't give any additional information about Z. <br/>
 So, observing the cause blocks influence between effects.
 
 #### V-Structure
@@ -270,7 +271,7 @@ So we show P(X,Y) = P(X)P(Y) and conclude X and Y are independent. <br/>
 
 is X is guaranteed to be independent of Y given z?<br/>
 
-the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
+the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence of each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
 
 - P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1    P(+z|-x,-y)=0 <br/>
 
