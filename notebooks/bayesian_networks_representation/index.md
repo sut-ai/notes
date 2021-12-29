@@ -277,7 +277,8 @@ the answer is NO. with an example we describe the situation. consider X and Y ha
 
 From the problem description, We can conclude that P(+x|+z,-y)=1  and P(+x|-y)=0.5. So, P(X|Z,Y) is not equal to P(X|Y).<br/>
 
-So, with the observation of Z, X and Y are not independent. this means Observing an effect, activating influence between possible causes.
+So, with the observation of Z, X and Y are not independent. this means Observing an effect, activating influence between possible causes. <br/>
+In the same way, it can be shown that if one of Z descendants is also observed, the independence of X and Y is no longer guaranteed. To prove this from the previous issue, it is enough to add the condition that the occurrence or non-occurrence of each of Z descendants is always the same as its parent.
 
 ### Reachability
 
@@ -336,14 +337,14 @@ Examples:
 
 ### Structure Implications
 
- As you can see, with the help of this algorithm, we can examine the conditional independence of two random variables. So, if we test the algorithm on all modes, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.<br/>
+ As you can see, With the help of this algorithm, sometimes it is possible to check the conditional independence of two random variables more easily. So, if we test the algorithm on all models, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.<br/>
 but in some cases, “d-separation” algorithm can find all dependencies. For example, in the figure below;
 
 ![stIm](assets/sim.jpg)
 
 ### Topology Limits Distributions
 
-In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). Adding arcs, increase the dependence of variables.<br/>
+In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). As the number of arcs increases, the probability that there is at least one active path between the two variables increases. Thus the independence of the variables decreases. <br/>
 For example, in the figure below, different kind of dependence for triples is mentioned.
 
 ![TLD](assets/tld.jpg)
@@ -369,4 +370,7 @@ Up until now, we saw how to build a bayes' net and how to find the independencie
 ## References
 
 <http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx> <br/>
-<https://en.wikipedia.org/wiki/Bayesian_network>
+<https://en.wikipedia.org/wiki/Bayesian_network> <br/>
+<https://www.bu.edu/sph/files/2014/05/bayesian-networks-final.pdf> <br/>
+<https://web.stanford.edu/class/archive/cs/cs221/cs221.1196/lectures/bayes1.pdf> <br/>
+<https://www.cs.cmu.edu/~./awm/tutorials/bayesnet09.pdf>
