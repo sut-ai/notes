@@ -264,7 +264,9 @@ Decision trees don't have any biases by themselves, and they're able to create a
 
 ### Occam's Razor
 
-"Entities should not be multiplied beyond necessity", says __Occam's razor__. It can also be rephrased as "the simplest solution is usually the best one". The theory makes sense. when a few hypotheses can explain a principle, we gain nothing by putting in more assumptions and making our proof more complicated. Leaving the hypotheses short and simple and putting aside the insignificant data helps us to have a more accurate view on the true nature of the problem, and thus, makes it more probably the correct theory.
+> Entities should not be multiplied beyond necessity
+
+says __Occam's razor__. This can also be rephrased as "the simplest solution is usually the best one". The theory makes sense. when a few hypotheses can explain a principle, we gain nothing by putting in more assumptions and making our proof more complicated. Leaving the hypotheses short and simple and putting aside the insignificant data helps us to have a more accurate view on the true nature of the problem, and thus, makes it more probably the correct theory.
 
 Extending this to learning algorithms, shorter hypotheses in a problem are usually preferred over longer ones. The longer the hypothesis is, the higher the possibility it would be overfitted. Currently, Occam's Razor has been one of the most common inductive biases for learning algorithms and decision trees.
 
