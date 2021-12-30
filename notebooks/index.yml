@@ -56,4 +56,4 @@ notebooks:
     - notebook: notebooks/18_reinforcement_learning/
       kind: S2021, LN, Notebook
     - notebook: notebooks/12_temporal_probability_models/
-      kind: S2021, LN, Notebook
+      kind: F2021, LN, markdown
