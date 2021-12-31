@@ -120,9 +120,19 @@ $$
 = S_{PS}(x_1,...,x_n) = Pr(x_1,...,x_n),
 $$
 
-hence, the sampling procedure is consistent with the joint distribution.
+Hence, the sampling procedure is consistent with the joint distribution.
 
 It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.
+
+Take the following Bayes' net as an example.
+
+![Prior Sampling Bayes' Net Example](Images/General_Example_BN.png "Example Bayes' Net")
+
+Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
+
+Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose the result of this sampling is $-c$. We continue our sampling algorithm with $B$. Suppose that after this sampling, the result is $-b$. The last variable to sample is $D$ with the result of $+d$. We return the resulting sample $(+a,-c,-b,+d)$.
+
+After the sampling algorithm has finished, to determine $Pr(query|evidence)$, first, we need to filter out samples inconsistent with our evidence list. We will set the count of samples in this list as our denominator, and the count of samples in this list consistent with our query as our numerator.
 
 ## Rejection Sampling
 
@@ -142,6 +152,19 @@ Consider the following process:
 5.&nbsp; Return $(x_1,...,x_n)$
 
 This algorithm is also consistent with the conditional probabilities.
+
+Take the following Bayes' net as an example.
+
+![Rejection Sampling Bayes' Net Example](Images/General_Example_BN.png "Example Bayes' Net")
+
+Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
+
+Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose that after sampling $C$, the result is $+c$. Since $-c$ is one of our evidences, we should reject this sample; which is achieved by returning None and adding no sample to our sample list.
+
+Otherwise, in case of $-c$ for the sampling result of C, we continue our sampling algorithm with $B$. Suppose that after sampling $B$, the result is $-b$. The last variable to sample is $D$ and since it is an evidence variable, we should repeat the same procedure we performed for $C$. If the result of sampling $D$ is $-d$, we reject this sample and return None; Otherwise, we return the resulting sample $(+a,-c,-b,+d)$.
+
+After the sampling algorithm has finished, to determine $Pr(query|evidence)$, we only need to count samples which are consistent with the query to form our numerator and the count of all samples we returned (which are not None), as our denominator. Notice that we didn't have to filter samples to make them consistent with the evidence list, since we rejected inconsistent samples.
+
 
 ## Likelihood Weighting
 
@@ -189,11 +212,11 @@ $$
 
 Take the following Bayes' net as an example.
 
-![Likelihood Weighting Bayes' Net Example](Images/Likelihood_Example_BN.png "Example Bayes' Net")
+![Likelihood Weighting Bayes' Net Example](Images/General_Example_BN.png "Example Bayes' Net")
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
-Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. The, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will we sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
+Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. Then, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will we sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
 
 By repeating this procedure and calculating a weigth for each sample, we will eventually find a collection of weighted samples. Then we could use the calculated weights to approximate the probability in question. This is done by summing the weights of the samples consistent with the query, and dividing by the sum of all weights generated.
 
