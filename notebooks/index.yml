@@ -55,5 +55,5 @@ notebooks:
     #- notebook: notebooks/17_markov_decision_processes/
     - notebook: notebooks/18_reinforcement_learning/
       kind: S2021, LN, Notebook
-    - notebook: notebooks/10_inference_in_bayesian_networks_1/
+    - md: notebooks/10_inference_in_bayesian_networks_1/index.md
       kind: S2021, LN, Notebook
