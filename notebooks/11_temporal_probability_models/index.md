@@ -1,20 +1,32 @@
 ﻿# Temporal Probability Models
 
 ## Contents
+- [Temporal Probability Models](#temporal-probability-models)
+	- [Contents](#contents)
 - [Introduction](#introduction)
 - [Filtering](#filtering)
-	- [An Example](#an-example)
-- [Prediction](#prediction)
-- [Smoothing](#smoothing)
-	- [An Example](#an-example-1)
+		- [An Example](#an-example)
+	- [Prediction](#prediction)
+	- [Smoothing](#smoothing)
+		- [An Example](#an-example-1)
 - [Most likely explanation](#most-likely-explanation)
 	- [Recall: The Hidden Markov Model](#recall-the-hidden-markov-model)
-	- [Likelihood Computation: The Forward Algorithm](#likelihood-computation-the-forward-algorithm)
+		- [Likelihood Computation: The Forward Algorithm](#likelihood-computation-the-forward-algorithm)
+		- [Pseudo Code](#pseudo-code)
 	- [Decoding: The Viterbi Algorithm](#decoding-the-viterbi-algorithm)
+		- [Pseudo Code](#pseudo-code-1)
 	- [HMM Training: The Forward-Backward Algorithm](#hmm-training-the-forward-backward-algorithm)
+		- [Pseudo Code](#pseudo-code-2)
 - [Particle Filtering](#particle-filtering)
 	- [FAQ!](#faq)
+		- [What's wrong with Forward algorithm?](#whats-wrong-with-forward-algorithm)
+		- [What does "Particle" mean?](#what-does-particle-mean)
 	- [Steps](#steps)
+		- [Initializations](#initializations)
+		- [Elapse Time](#elapse-time)
+		- [Observe](#observe)
+		- [Resample](#resample)
+		- [Recap](#recap)
 	- [Example](#example)
 	- [Pseudo Code](#pseudo-code-3)
 	- [Useful links](#useful-links)
@@ -28,10 +40,11 @@
 # Introduction
 Hidden Markov Models can be applied to part of speech tagging. Part of speech tagging is a fully-supervised learning task, because we have a corpus of words labeled with the correct part-of-speech tag. But many applications don’t have labeled data. So in this note, we introduce some of the algorithms for HMMs, including the key unsupervised learning algorithm for HMM, the Forward-Backward algorithm.
 
+Then we will discuss a sampling method, Particle Filtering, that gives us an approximation of forward algorithm, which is more applicable in practical tasks such as robot localization.
 
 # Filtering
-Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation [1]. We wish to compute $P(X_t | e_{1:t})$. 
-| ![Umbrella Example](./assets/umb-ex.jpg) | 
+Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation. We wish to compute $P(X_t | e_{1:t})$. 
+| ![Umbrella Example](https://s4.uupload.ir/files/umb-ex_4juc.jpg) | 
 |:--:| 
 | *Bayesian network structure and conditional distributions describing the umbrella world.* |
 
@@ -187,7 +200,7 @@ Given a sequence of observations, we might wish to find the sequence of states t
 A Markov chain is useful when we need to compute a probability for a sequence of observable events. In many cases, however, the events we are interested in are **hidden**: we don’t observe them directly.
 A hidden Markov model (HMM) allows us to talk about both observed events Hidden Markov model (like words that we see in the input) and hidden events (like part-of-speech tags) that we think of as causal factors in our probabilistic model [2].
 
-| ![HMM](./assets/hmm.jpg) | 
+| ![HMM](https://s4.uupload.ir/files/hmm_y61y.jpg) | 
 |:--:| 
 | *A hidden Markov model for relating numbers of ice creams eaten (the **observations**) to the weather (H or C, the **hidden variables**).* |
 
@@ -407,36 +420,39 @@ Now the robot has new observations. We score every guess produced in the last st
 
 $$ w(x) =  P(e \mid x)$$ 
 
-Be aware that we dont sample anything here and particles are fixed. Also note that the probabilities won't sum to one, as we are down-weighing almost every particle (some maybe very consistent with the evidence, and based on the approach of calculating the weight the can be one). 
+Be aware that we don't sample anything here and particles are fixed. Also note that the probabilities won't sum to one, as we are down-weighing almost every particle (some maybe very consistent with the evidence, and based on the approach of calculating the weight the can be one). 
 
 ### Resample
 
 Working with weights can be frustrating for our little robot (!) and some can converge to zero after some iterations, so, based on how probable and strong our particles were, we generate a new set of particles. This work is done be sampling over the weights of the particles $N$ times (so the size of the particle set remain the same). The stronger a particle is, the more probable it is to be sampled and be in the new particle set. After this step we have a new set of particle which are distributed by the strength of the particles, which were calculated in observation step, that keep the frequency of the samples strong and valid. And we will go back to the "Elapse Time" step.
 
 ### Recap
-That's all folks! First we have a set of particles. ‌Based on where they are each, we guess where they would be in the next step ahead in time. An observation is done by the robot. We score (weight) the guesses to know how probabil after the observation. And resample based on weights, to normalize particles. and we repeat this steps again and again till we converge.
+So, this method contains three major steps. First we have a set of particles. Based on where they are each, we guess where they would be in the next step ahead in time. An observation is done by the robot. We score (weight) the guesses to know how probable they are after the observation. And finally resample based on weights, to normalize particles. And we repeat this steps again and again until we converge.
 
 ## Example
 
-| ![Particle Filtering ](./assets/particle-filter-example.jpg) | 
+| ![Particle Filtering ](https://s4.uupload.ir/files/particle-filter-example_pekq.jpg) | 
 |:--:| 
 | *An example of a full particle filtering process.* |
 
 ## Pseudo Code
 
-```java
-function PARTICLE_FILTERING(e, N, dbn) returns a set of samples for the next time step
-	 inputs: e, the new incoming evidence
-	     N, the number of samples to be maintained
-	     dbn, a DBN with prior P(X0), transition model P(X1 | X0), sensor model P(E1 | X1)
-	 persistent: S, a vector of samples of size N, initially generated from P(X0)
-	 local variables: W, a vector of weights of size N
+```python
+def PARTICLE_FILTERING(e, N, dbn):
+	""" 
+	returns a set of samples for the next time step
+	inputs: 
+		e, the new incoming evidence
+		N, the number of samples to be maintained
+		dbn, a DBN with prior P(X0), transition model P(X1 | X0), sensor model P(E1 | X1)
+	persistent: S, a vector of samples of size N, initially generated from P(X0)
+	local variables: W, a vector of weights of size N
+	"""
 
-	 for i = 1 to N do
-	   S[i] ← sample from P(X1 | X0 = S[i]) /* step 1 */
-	   W[i] ← P(e | X1 = S[i])       /* step 2 */
-	 S ← WEIGHTED_SAMPLE_WITH_REPLACEMENT(N, S, W)  /* step 3 */
-	 return S
+	S = sample(dbn, S)	# step 1 - Elapse Time
+	W = score_samples(S,e,dbn)	# Observe
+	S = resample(N, S, W)	# Resample
+	return S
 ```
 
 ## Useful links
@@ -593,15 +609,16 @@ This note reviewed the key concepts of hidden Markov model for probabilistic seq
 - Hidden Markov models (HMMs) are a way of relating a sequence of **observations** to a sequence of **hidden classes** or hidden states that explain the observations.
 - The process of discovering the sequence of hidden states, given the sequence of observations, is known as decoding or inference. The **Viterbi** algorithm is commonly used for decoding.
 - The parameters of an HMM are the A transition probability matrix and the B observation likelihood matrix. Both can be trained with the **forward-backward** algorithm.
+- In forward algorithm, the behavior vector is very probable to become sparse and cause useless computational overhead. Approximation, in this case sampling, puzzles out the problem. **Particle Filtering** can be used as an approximation of the forward algorithm. Each **Particle** is a guess about the current state. The algorithm updates these guesses with every observation till they converge.
+
 
 # Resources
 [1] Stuart Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th ed. Pearson Education, Inc
 
 [2] Speech and Language Processing. Daniel Jurafsky & James H. Martin. https://web.stanford.edu/~jurafsky/slp3/A.pdf (Visited: 12/4/2021)
 
-[3] [Science Direct Topics](https://www.sciencedirect.com/topics/engineering/particle-filter) (Visited: 12/17/2021)
+[3] [Science Direct Topics - Particle Filter](https://www.sciencedirect.com/topics/engineering/particle-filter) (Visited: 12/17/2021)
 
 [4] [Cyrill Stachniss Youtube Channel](https://www.youtube.com/watch?v=YBeVDxTHiYM) (Visited: 17/4/2021)
 
 [5] [Andreas Svensson Youtube Channel](https://www.youtube.com/watch?v=aUkBa1zMKv4) (Visited: 17/4/2021)
-
