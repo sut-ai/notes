@@ -610,7 +610,7 @@ This note reviewed the key concepts of hidden Markov model for probabilistic seq
 - The process of discovering the sequence of hidden states, given the sequence of observations, is known as decoding or inference. The **Viterbi** algorithm is commonly used for decoding.
 - The parameters of an HMM are the A transition probability matrix and the B observation likelihood matrix. Both can be trained with the **forward-backward** algorithm.
 - In forward algorithm, the behavior vector is very probable to become sparse and cause useless computational overhead. Approximation, in this case sampling, puzzles out the problem. **Particle Filtering** can be used as an approximation of the forward algorithm. Each **Particle** is a guess about the current state. The algorithm updates these guesses with every observation till they converge.
-
+We discussed kalman filtering, which is used for the localization problem in a landmark-based map and then we reviewed DBN particle filtering for tracking nonlinear systems
 
 # Resources
 [1] Stuart Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th ed. Pearson Education, Inc
