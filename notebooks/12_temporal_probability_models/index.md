@@ -366,7 +366,7 @@ Hidden Markov Models (HMM) are applied to interoceptive data acquired by a movin
 In Robot tracking HMMs, observations are sensors' continuous perceptions and corresponding states are positions in the map.
 
 <center>
-<img src="resources/kapernikov_robot_localization_tutorial_illustration_v3_02_3000x1351.jpg" alt="machine translation" width=400/>
+<img src="resources/localization.jpeg" alt="robot localization" width=400/>
 </center> 
 
 ## Conclusion
