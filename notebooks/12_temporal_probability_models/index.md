@@ -44,14 +44,14 @@ So far, we have learned how to deal with probabilistic reasoning in static world
 Let' start with an example of a static problem:
 >Imagine that your car has broken down. You may guess that the problem is related to the engine, batteries, or other car parts. You may take the vehicle to a car repair shop to diagnose the problem and fix it. You know that during the diagnosis process, the broken part remains broken, so the state of the car doesn't change.
 <center>
-<img src="resources/sFAP5bQ.jpeg" alt="car repair" width="350"/>
+<img src="resources/car_repair.jpeg" alt="car repair" width="350"/>
 </center>
 
 But our problems aren't always static. Consider the below example:
 >Take diabetes management of a patient as our problem. We know that, for instance, the patient's blood sugar isn't constant and will vary over time, so there is a dynamic in the variables used to describe the patient's state (such as the blood sugar and insulin).
 
 <center>
-<img src="resources/wvnlp2L.jpeg" alt="diabetes" width="350"/>
+<img src="resources/diabetes.jpeg" alt="diabetes" width="350"/>
 </center>
 
 
@@ -81,7 +81,7 @@ In a nutshell, we have:
 ### Markov Models
 Let's define a random variable $X$ and call its value at a given time $t$ the state of $X$ and denote it as $X_t$. If in our model the future state of $X$ depends only on the current state of $X$ and not on states that had occurred before, we call it a **_First-order Markov Model_**, or simply a **_Markov Model_**. Bayesian network of this model looks like the below network and is referred to as a **_Markov Chain_**:
 <center>
-<img src="resources/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
+<img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
 In a Markov chain, we can write the Morkov assumption as:
@@ -107,7 +107,7 @@ P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x|X_{n - i:n - 1}=x_{n - i : n - 1})
 
 Take $X$ as a Markov Model and consider its Bayesian network (depicted below).
 <center>
-<img src="resources/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
+<img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
 We can quickly notice that for every $1\lt i\le n$ , if we are given $X_{i-1}$, then **$X_i$ is independent of $X_1, X_2, \cdots, X_{i-2}$** since there is only one inactive path between each of them and $X_i$. (Regarding the fact that $X_{i-1}$ is given)
@@ -148,7 +148,7 @@ In the next section, we will prove this joint distribution using Chain Rule and 
 ### Chain Rule
 Take $X$ as a Markov Model and consider its Bayesian network (depicted below).
 <center>
-<img src="resources/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
+<img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
 We know that from Chain Rule, every joint distribution of $X_1$ to $X_n$ can be written as:
@@ -199,14 +199,14 @@ Now that we have this solution, we can say that the probability that the $n$th d
 
 Now, let's take a look at the state of weather with initial observation of sun:
 <center>
-<img src="resources/lnpogDU.png" alt="Initial Sunny Day" width="600"/>
+<img src="resources/sunny_initial.png" alt="Initial Sunny Day" width="600"/>
 </center>
 <br />
 
 Finally, let's take a look at the state of weather with initial observation of rain:
 
 <center>
-<img src="resources/WmoLVeV.png" alt="Initial Sunny Day" width="600"/>
+<img src="resources/weather_state.png" alt="Weather State" width="600"/>
 </center>
 
 
@@ -229,7 +229,7 @@ In the weather example we mentioned earlier, the stationary distribution denotes
 Sometimes we would like to find out what happened in the past using the knowledge that we have in present. Consider the trip we discussed earlier as an example. Imagine that you and your friends want to go outside, but some of your friends warn you that everything might be wet if it had rained in the past $n$ days. Since your destination is too far, you do not know about its past, so we need to reason about the most likely sequence of your destination's weather in the past $n$ days. The course of this problem can be shown using the following figure.
 
 <center>
-<img src="resources/N6fC8TW.png" alt="Weather CPT" width=400/>
+<img src="resources/weather_cpt.png" alt="Weather CPT" width=400/>
 </center> 
 
 Again, a slow answer would be to enumerate all possible combinations and calculate the probabilities. However, we can calculate the most likely sequence inductively, remember the incremental probabilities, and update the most likely sequence as we proceed. This approach is called the **Mini-Viterbi Algorithm**.
@@ -268,7 +268,7 @@ Now, we get the time involved in our problem. Suppose that if today is sunny, to
 
 Consider the figure below to get a better understanding of the problem discussed above:
 <center>
-<img src="resources/YOld6zJ.jpeg" alt="Bayes Net of Markov Model" width=600/>
+<img src="resources/weather_mood_cpt_diagram.jpeg" alt="CPT Diagram of Weather and Mood" width=600/>
 </center>
 
 Now, we formulate the problem formally:
@@ -289,7 +289,7 @@ Let’s get into HMM’s structure. We start with a simple Markov chain. At each
 
 Take a closer look at the figure below to find out HMM's structure:
 <center>
-<img src="resources/9tlhpJ9.png" alt="Bayes Net of Markov Model" width=400/>
+<img src="resources/hmm_structure.png" alt="HMM Structure" width=400/>
 </center> 
 </br>
 
@@ -344,7 +344,7 @@ The main core of HMM-based speech recognition systems is the Viterbi algorithm w
 In speech recognition HMMs, the continuous-valued acoustic signals are our observations. States are particular positions in specific words.
 
 <center>
-<img src="https://developer-blogs.nvidia.com/wp-content/uploads/2019/12/automatic-speech-recognition_updated.png" alt="speech recognition" width=400/>
+<img src="resources/automatic-speech-recognition_updated.png" alt="speech recognition" width=400/>
 </center> 
 
 
@@ -357,7 +357,7 @@ Better results can be achieved using attention-based neural machine translation 
 In machine translation HMMs, observations are millions of words and corresponding states are translation options.
 
 <center>
-<img src="https://memoq-com.azureedge.net/wp-content/uploads/2019/07/textra.png" alt="machine translation" width=400/>
+<img src="resources/textra.png" alt="machine translation" width=400/>
 </center> 
 
 #### Robot tracking HMMs
@@ -366,7 +366,7 @@ Hidden Markov Models (HMM) are applied to interoceptive data acquired by a movin
 In Robot tracking HMMs, observations are sensors' continuous perceptions and corresponding states are positions in the map.
 
 <center>
-<img src="https://kapernikov.com/wp-content/uploads/2019/09/kapernikov_robot_localization_tutorial_illustration_v3-02-3000x1351.jpg" alt="machine translation" width=400/>
+<img src="resources/kapernikov_robot_localization_tutorial_illustration_v3_02_3000x1351.jpg" alt="machine translation" width=400/>
 </center> 
 
 ## Conclusion
