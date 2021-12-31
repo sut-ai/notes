@@ -8,7 +8,7 @@
         2. [Naïve Bayes Classifier Algorithm](#naïve-bayes-Classifier-algorithm)
     2. [Unsupervised Learning](#unsupervised-learning)
 3. [Bias and Variance](#bias-and-variance)
-    1. [What is Bias?](#what-is-Bbas?)
+    1. [What is Bias?](#what-is-bias?)
     2. [What is variance?](#what-is-variance?)
     3. [Bias and Variance Trade-Off](#bias-and-variance-trade-off)
 4. [OverFitting and Underfitting](#overFitting-and-underfitting)
