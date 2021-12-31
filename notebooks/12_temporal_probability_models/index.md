@@ -143,12 +143,10 @@ We define two parameters here:
 In the next section, we will prove this joint distribution using Chain Rule and independence.
 
 
-
-
 ### Chain Rule
 Take $X$ as a Markov Model and consider its Bayesian network (depicted below).
 <center>
-<img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
+<img src="https://i.imgur.com/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
 We know that from Chain Rule, every joint distribution of $X_1$ to $X_n$ can be written as:
@@ -170,6 +168,18 @@ So, after applying independence to Chain Rule, we have:
     $$
     </span>
 which is the same result we get from the previous section.
+
+To better grasp the idea, think of a situation in which you want to invest in the stock market. To evaluate your chances of profiting in the short term, you can model the market using a Markov chain where each state $X_t$ can indicate that your investment is "profitable," "indifferent," or "loss-making" in time $t$ compared to $t - 1$.
+
+While this model can be inaccurate, it can give a preliminary estimate and help you decide better. It can have a quite acceptable performance if we have good estimations of the transition probabilities. Now that we have modeled the situation with a Markov chain, we can use the chain rule to estimate the probability of the investment being profitable in the next $n$ days. This probability can be written as follows. Note that the state of the first day, or $X_0$, is known at the time of investment.
+
+<span style="color:DarkSlateGray">
+$$
+P(X_0=x_0, X_1 = profitable, X_2 = profitable, \cdots, X_n = profitable) 
+$$
+$$= P(X_0 = x_0) P(X_1 = profitable | X_0 = x_0) \prod_{t=2}^{n}P(X_t = profitable\vert X_{t-1} = profitable)
+$$
+</span>
 
 ## Mini-Forward Algorithm
 
@@ -367,6 +377,17 @@ In Robot tracking HMMs, observations are sensors' continuous perceptions and cor
 
 <center>
 <img src="resources/localization.jpeg" alt="robot localization" width=400/>
+</center> 
+
+#### Characterizing facial expressions
+Facial Action Coding Systems (FACS) prescribes one of the most comprehensive means to characterize facial expressions.
+
+Now, you may wonder what is the role of HMM in these systems?
+
+We model this problem as an HMM where observations are the feature vectors extracted from face videos, and corresponding states are the hidden emotional state of the individual.
+
+<center>
+<img src="resources/facial_expressions.jpg" alt="Facial Expressions" width=400/>
 </center> 
 
 ## Conclusion
