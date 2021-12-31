@@ -326,7 +326,7 @@ we use bayes formula for calculating posterior distribution.
 
 One of the most important concepts in machine learning is to handle unseen events. To clarify, consider the following example.  
 
-Consider the vector $X=[x_1,x_2,x_3,x_4,x_5]$ and the following data as training dataset.  
+Consider the vector $ X=[x_1,x_2,x_3,x_4,x_5] $ and the following data as training dataset.  
 
 
 |    data     |    label    |
@@ -349,10 +349,10 @@ We want to predict the label of $[1, 1, 0, 0, 1]$ using a simple naïve Bayes mo
 Now, we calculate the probability of each label based on the created naïve Bayes model.  
 
 
-$P(label=a)\propto\frac{2}{5}\times\frac{2}{5}    \times0\times1\times\frac{2}{5}=0$  
+$P(label=a)\propto \frac{2}{5}\times \frac{2}{5}\times 0\times 1\times \frac{2}{5}=0$  
 
 
-$P(label=b)\propto0\times\frac{3}{5}\times\frac{3}{5}\times\frac{2}{5}\times1=0$
+$P(label=b)\propto \times \frac{3}{5}\times \frac{3}{5}\times \frac{2}{5}\times 1=0$
 
 
 If you look at the naïve bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  
