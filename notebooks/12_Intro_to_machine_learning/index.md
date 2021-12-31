@@ -150,102 +150,100 @@ In this method our training dataset doesn’t contain labels and they have not b
 *   **Association**
 # Bias and Variance
 
-<p>
-if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors causes small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions</p>
-<p> On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.</p>
+
+if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors causes small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions.  
+On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.
 
 ## What is Bias?
-<p>
+
 In general, a machine learning model analyzes the data, find patterns in it and make predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
-<b>While the model is making prediction about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors</b>
-It can be defined as an inability of ML algorithms such as polynomial Regression to capture the true relationship between the data points. Each algorithm in ML  has some amount of bias because bias occurs from assumptions in the model, which makes the target function simple to learn. A model has either:
-<ul>
-<li><b>High Bias:</b> A model with a high bias has more assumptions, and the model can not capture the important features of our dataset. the model with high biased has good performance on training data but not test data.</li>
-<li><b>Low Bias:</b> A low bias model will make fewer assumptions about the form of the target function.</li>
-</ul>
+**While the model is making prediction about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors**  
+It can be defined as an inability of ML algorithms such as polynomial Regression to capture the true relationship between the data points. Each algorithm in ML  has some amount of bias because bias occurs from assumptions in the model, which makes the target function simple to learn. A model has either:  
+
+- **High Bias:** A model with a high bias has more assumptions, and the model can not capture the important features of our dataset. the model with high biased has good performance on training data but not test data.  
+- **Low Bias:** A low bias model will make fewer assumptions about the form of the target function.
+
 linear algorithms have a high bias, as they learn fast. The simpler the algorithm, the higher the bias it has! but a nonlinear algorithm often has low bias.
-</p>
 
-<h4>Machine learning algorithm with low bias:</h4>
-<ul> 
-<li>Decision Trees</li>
-<li>k-Nearest Neighbours</li>
-</ul>
 
-<h4>Machine learning algorithm with high bias:</h4>
-<ul> 
-<li>Linear Regression</li>
-<li>Logistic Regression</li>
-</ul>
+#### Machine learning algorithm with low bias:####
+ 
+- Decision Trees
+- k-Nearest Neighbours
 
-## What is variance?
 
-<p>The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models has <b>low variance</b> but some of them has <b>high variance. </b></p>
+#### Machine learning algorithm with high bias:
+- Linear Regression
+- Logistic Regression
 
-<p> <b>low varince </b> means that we have small variation in the changes of training data with prediction in target function!
-<b>high variance means there is a high variation in the prediction of the target function with changes in the training dataset</b> <p>
 
-<p>a model that has high variance performs well on training data but can not generalize unseen dataset as well.
-high variance leads to overfitting and increases model complexities!
-</p>
+## What is variance?  
+  
+The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models has **low variance** but some of them has **high variance.**  
 
-<h4>machine learning algorithms with low variance:</h4>
-<ul>
-<li>Linear Regression</li>
-<li>Logistic Regression</li>
-</ul>
+**low varince** means that we have small variation in the changes of training data with prediction in target function!
+**high variance means there is a high variation in the prediction of the target function with changes in the training dataset**  
 
-<h4>machine learning algorithms with high variance:</h4>
-<ul>
-<li>decision tree</li>
-<li>K-nearest neighbours</li>
-</ul>
+a model that has high variance performs well on training data but can not generalize unseen dataset as well.
+high variance leads to overfitting and increases model complexities!  
+
+
+#### machine learning algorithms with low variance:
+- Linear Regression
+- Logistic Regression
+
+
+#### machine learning algorithms with high variance:
+
+- decision tree
+- K-nearest neighbours
+
 
 in general variance shows us how much our model is dependent to our dataset!
 
-<p>in the following image you can see the impact of bias and variance in machine learning model:</p>
+in the following image you can see the impact of bias and variance in machine learning model:  
 <img src= "./images/bias-and-variance-in-machine-learning4.png"></img>
 
 ## Bias and Variance Trade-Off
-<p>the best and ideal model has low bias and low variance but it can not be acheived and is not possible practically!
+the best and ideal model has low bias and low variance but it can not be acheived and is not possible practically!
 low-bias and high-variance leads to overfitting, high-bias and low-variance leads to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
-in simple words bias and variance are related to each other and we can not reduce both of them simultanously!</p>
+in simple words bias and variance are related to each other and we can not reduce both of them simultanously!  
 <img src="./images/bias-and-variance-in-machine-learning6.png"></img>
 
 
 
 # OverFitting and Underfitting
-<p>Supervised machine learning is best understood as approximating a target function (f) that maps input variables (X) to an output variable (Y). f(X) = Y</p>
+Supervised machine learning is best understood as approximating a target function (f) that maps input variables (X) to an output variable (Y). f(X) = Y 
 
-<p>An important consideration in learning the target function from the training data is how well the model generalizes to new data. Generalization is important because the data we collect is only a sample, it is incomplete and noisy</p>
-<ul>
-<li><b>Generalization:</b> It shows how well a model is trained to predict unseen data.</p></li>
-<li><b>Noise: </b> Noise is meaningless or irrelevant data present in the dataset. It affects the performance of the model if it is not removed.</li>
-</ul>
+An important consideration in learning the target function from the training data is how well the model generalizes to new data. Generalization is important because the data we collect is only a sample, it is incomplete and noisy  
 
-<p>The goal of a good machine learning model is to generalize well from the training data to any data from the problem domain. This allows us to make predictions in the future on data the model has never seen.</p>
+- **Generalization:** It shows how well a model is trained to predict unseen data.
+- **Noise:** </b> Noise is meaningless or irrelevant data present in the dataset. It affects the performance of the model if it is not removed.  
 
-<p>There is a terminology used in machine learning when we talk about how well a machine learning model learns and generalizes to new data, namely overfitting and underfitting.</p>
 
-<p>Overfitting and underfitting are the two biggest causes for poor performance of machine learning algorithms.</p>
+The goal of a good machine learning model is to generalize well from the training data to any data from the problem domain. This allows us to make predictions in the future on data the model has never seen.  
+
+There is a terminology used in machine learning when we talk about how well a machine learning model learns and generalizes to new data, namely overfitting and underfitting.  
+
+Overfitting and underfitting are the two biggest causes for poor performance of machine learning algorithms.  
 
 ## So what is overfitting?
-<p>when the ml model predicts training data very well but it can not predict unseen data as well as training data we face overfitting in our ml algorithm! </br>
-This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the models ability to generalize.
-<b><i>An overfitted model is said to have low bias and high variance.</i></b>
-</p>
-<p>To detect overfitting we must split our dataset.about 80% of our data set is goinig to be trained and 20% of dataset is going to be tested!Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example if the error is 2.5% in training data and 20% in test data we have overfitting</p>
+when the ml model predicts training data very well but it can not predict unseen data as well as training data we face overfitting in our ml algorithm!  
+This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the models ability to generalize.  
+***An overfitted model is said to have low bias and high variance.***  
+
+To detect overfitting we must split our dataset.about 80% of our data set is goinig to be trained and 20% of dataset is going to be tested!Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example if the error is 2.5% in training data and 20% in test data we have overfitting  
 
 ## What is underfiting?
-<p>Underfitting refers to a model that can neither model the training data nor generalize to new data.
-An underfit machine learning model is not a suitable model and will be obvious as it will have poor performance on the training data.</p>
+Underfitting refers to a model that can neither model the training data nor generalize to new data.
+An underfit machine learning model is not a suitable model and will be obvious as it will have poor performance on the training data.  
 
 ## and how to prevent overfitting?
-<ul>
-<li><b>cross validation: </b>In the general k-fold cross-validation technique, we divided the dataset into k-equal-sized subsets of data; these subsets are known as folds.</li>
-<li><b>regularization: </b>in this technique we reduce our model features and simplify it with our tools! it may increase bias but reduce the variance of the model. in many cases we add penalizing term to our objective function. as an example in linear regression we use l2 regularization and add sum penalizing term to the MSE function</li>
-<li>...</li>
-</ul>
+
+- **cross validation:** In the general k-fold cross-validation technique, we divided the dataset into k-equal-sized subsets of data; these subsets are known as folds.
+- **regularization:** in this technique we reduce our model features and simplify it with our tools! it may increase bias but reduce the variance of the model. in many cases we add penalizing term to our objective function. as an example in linear regression we use l2 regularization and add sum penalizing term to the MSE function
+- ...
+
 
 
 <img src="./images/overfitting-in-machine-learning.png"></img>
@@ -257,10 +255,10 @@ An underfit machine learning model is not a suitable model and will be obvious a
 
 ## What is MLE?
 
-<p>The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.</p>
+The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.  
 
-<p>We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)</p>
-<p>Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ (In general, θ might be a vector, <math xmlns="http://www.w3.org/1998/Math/MathML">
+We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)  
+Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ (In general, θ might be a vector, <math xmlns="http://www.w3.org/1998/Math/MathML">
   <mrow class="MJX-TeXAtom-ORD">
     <mi>&#x03B8;<!-- θ --></mi>
   </mrow>
@@ -283,8 +281,9 @@ An underfit machine learning model is not a suitable model and will be obvious a
     <mi>k</mi>
   </msub>
   <mo stretchy="false">)</mo>
-</math>. Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2, X3, ..., Xn. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of θ:<br>
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+</math> Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2, X3, ..., Xn. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of θ:
+
+**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
     <mtr>
       <mtd>
@@ -394,15 +393,14 @@ An underfit machine learning model is not a suitable model and will be obvious a
         <mo>;</mo>
         <mi>&#x03B8;<!-- θ --></mi>
         <mo stretchy="false">)</mo>
-        <mo>.</mo>
       </mtd>
     </mtr>
   </mtable>
-</math>
+</math>**
 
-<ol>
-<li>If Xi's are discrete, then the likelihood function is defined as
-<b><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+
+- If Xi's are discrete, then the likelihood function is defined as
+**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
     <mtr>
       <mtd>
@@ -470,10 +468,10 @@ An underfit machine learning model is not a suitable model and will be obvious a
       </mtd>
     </mtr>
   </mtable>
-</math></b>. </li>
+</math>**.
 
-<li>If Xi's are jointly continuous, then the likelihood function is defined as
-<b><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+- If Xi's are jointly continuous, then the likelihood function is defined as
+**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
     <mtr>
       <mtd>
@@ -541,12 +539,13 @@ An underfit machine learning model is not a suitable model and will be obvious a
       </mtd>
     </mtr>
   </mtable>
-</math></b>.</li>
-</ol>
-</p>
+</math>**  
 
-<p>In some problems, it is easier to work with the log likelihood function given by
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+
+
+In some problems, it is easier to work with the log likelihood function given by
+
+**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
     <mtr>
       <mtd>
@@ -577,10 +576,10 @@ An underfit machine learning model is not a suitable model and will be obvious a
       </mtd>
     </mtr>
   </mtable>
-</math>.</p>
+</math>.** 
 
-<p>Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ. Suppose that we have observed X1=x1 , X2=x2 , ⋯ , Xn=xn . The maximum likelihood estimate of θ is the value that maximizes the likelihood function:
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ. Suppose that we have observed X1=x1 , X2=x2 , ⋯ , Xn=xn . The maximum likelihood estimate of θ is the value that maximizes the likelihood function:
+**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
     <mtr>
       <mtd>
@@ -605,27 +604,26 @@ An underfit machine learning model is not a suitable model and will be obvious a
         <mo>;</mo>
         <mi>&#x03B8;<!-- θ --></mi>
         <mo stretchy="false">)</mo>
-        <mo>.</mo>
       </mtd>
     </mtr>
   </mtable>
-</math>.
-</p>
+</math>**  
 
-<p>Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable</p>
+
+Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable  
 
 ## Waht is MAP?
 
-<p> we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, Θ, as a random variable. we assume that we have some initial guess about the distribution of Θ. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.</p>
+we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, Θ, as a random variable. we assume that we have some initial guess about the distribution of Θ. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
 
-<p>in this approach our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with prior distribution.<br>
+in this approach our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with prior distribution.  
 After observing the value of the random variable Y, we find the posterior distribution of X. This is the conditional PDF (or PMF) of X given Y=y,
-we use bayes formula for calculating posterior distribution.
-</p>
+we use bayes formula for calculating posterior distribution.  
+
 
 ![](./images/formula.PNG)
 
-<p>in the above image we have 
+in the above image we have 
 <math xmlns="http://www.w3.org/1998/Math/MathML">
   <msub>
     <mi>f</mi>
@@ -655,8 +653,8 @@ we use bayes formula for calculating posterior distribution.
   <mo stretchy="false">(</mo>
   <mi>x</mi>
   <mo stretchy="false">)</mo>
-</math> as priror distribution. in many problems 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
+</math> as priror distribution. in many problems
+**<math xmlns="http://www.w3.org/1998/Math/MathML">
   <msub>
     <mi>f</mi>
     <mrow class="MJX-TeXAtom-ORD">
@@ -674,10 +672,10 @@ we use bayes formula for calculating posterior distribution.
   </mrow>
   <mi>x</mi>
   <mo stretchy="false">)</mo>
-</math> is MLE function that we explained it!</p>
+</math>** is MLE function that we explained it!  
 
-<p>The posterior distribution, 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
+The posterior distribution, 
+**<math xmlns="http://www.w3.org/1998/Math/MathML">
   <msub>
     <mi>f</mi>
     <mrow class="MJX-TeXAtom-ORD">
@@ -695,9 +693,9 @@ we use bayes formula for calculating posterior distribution.
   </mrow>
   <mi>y</mi>
   <mo stretchy="false">)</mo>
-</math>, contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posteriori (MAP) estimation</p>
+</math>**, contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posteriori (MAP) estimation  
 
-<p>Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
+Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
   <msub>
     <mi>f</mi>
     <mrow class="MJX-TeXAtom-ORD">
@@ -709,10 +707,10 @@ we use bayes formula for calculating posterior distribution.
   <mo stretchy="false">)</mo>
 </math>
  does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:<br>
-<img src="./images/formula1.png"></img>
-</p>
+<img src="./images/formula1.png"></img>  
 
-<p><br>in many cases we choose alpha-beta distribution for prior distribution</br></p>
+
+***in many cases we choose alpha-beta distribution for prior distribution***
 
 
 
