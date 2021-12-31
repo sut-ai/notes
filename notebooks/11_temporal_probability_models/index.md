@@ -43,7 +43,7 @@ Hidden Markov Models can be applied to part of speech tagging. Part of speech ta
 Then we will discuss a sampling method, Particle Filtering, that gives us an approximation of forward algorithm, which is more applicable in practical tasks such as robot localization.
 
 # Filtering
-Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation. We wish to compute $P(X_t | e_{1:t})$. 
+Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation [1]. We wish to compute $P(X_t | e_{1:t})$. 
 | ![Umbrella Example](https://s4.uupload.ir/files/umb-ex_4juc.jpg) | 
 |:--:| 
 | *Bayesian network structure and conditional distributions describing the umbrella world.* |
