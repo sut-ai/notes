@@ -1,5 +1,7 @@
 # **Bayesian Networks Representation**
 
+$\frac{n!}{k!(n-k)!}$
+
 ## **Table of contents:**
 - [Intoduction](#Intoduction)
 	- [Probabilistic Models](#Probabilistic-Models)
