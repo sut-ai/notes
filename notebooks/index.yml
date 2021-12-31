@@ -30,6 +30,10 @@ notebooks:
       kind: S2021, LN, Notebook
       metadata: notebooks/9_bayesian_networks/metadata.yml
       text: Baysian Networks - Part 3
+    - notebook: notebooks/10_bayesian_networks_sampling/index.md
+      kind: S2021, LN, Notebook
+      metadata: notebooks/10_bayesian_networks_sampling/metadata.yml
+      text: Baysian Networks - Sampling
     - notebook: notebooks/11_temporal_probability_models/index1.ipynb
       kind: S2021, LN, Notebook
       metadata: notebooks/11_temporal_probability_models/metadata.yml
