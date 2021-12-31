@@ -202,14 +202,14 @@ high variance leads to overfitting and increases model complexities!
 in general variance shows us how much our model is dependent to our dataset!
 
 in the following image you can see the impact of bias and variance in machine learning model:  
-<img src= "./images/bias-and-variance-in-machine-learning4.png"></img>
-
+<!-- <img src= "./images/bias-and-variance-in-machine-learning4.png"></img> -->
+![](./images/bias-and-variance-in-machine-learning4.png)
 ## Bias and Variance Trade-Off
 the best and ideal model has low bias and low variance but it can not be acheived and is not possible practically!
 low-bias and high-variance leads to overfitting, high-bias and low-variance leads to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
 in simple words bias and variance are related to each other and we can not reduce both of them simultanously!  
-<img src="./images/bias-and-variance-in-machine-learning6.png"></img>
-
+<!-- <img src="./images/bias-and-variance-in-machine-learning6.png"></img> -->
+![](./images/bias-and-variance-in-machine-learning6.png)
 
 
 # OverFitting and Underfitting
@@ -246,8 +246,8 @@ An underfit machine learning model is not a suitable model and will be obvious a
 
 
 
-<img src="./images/overfitting-in-machine-learning.png"></img>
-
+<!-- <img src="./images/overfitting-in-machine-learning.png"></img> -->
+![](./images/overfitting-in-machine-learning.png)
 
 
 
@@ -707,8 +707,8 @@ Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
   <mo stretchy="false">)</mo>
 </math>
  does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:<br>
-<img src="./images/formula1.png"></img>  
-
+<!-- <img src="./images/formula1.png"></img>   -->
+![](./images/formula1.png)
 
 ***in many cases we choose alpha-beta distribution for prior distribution***
 
