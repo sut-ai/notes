@@ -10,9 +10,9 @@ Members: Arshan Dalili, Soroush Jahanzad, Mohammad Hejri
 ## Table of Contents
 [Introduction](#Introduction)
 
-[Reasoning over time or space](#Reasoning-over-time-or-space)
-* [What is a Temporal Probability Model?](#What-is-a-Temporal-Probability-Model)
-* [Markov Models](#Markov-Models)
+[What is a Temporal Probability Model?](#What-is-a-Temporal-Probability-Model)
+
+[Markov Models](#Markov-Models)
 * [Joint Distributions of Markov Models](#Joint-Distributions-of-Markov-Models)
 * [Chain Rule](#Chain-Rule)
 
@@ -37,8 +37,6 @@ Members: Arshan Dalili, Soroush Jahanzad, Mohammad Hejri
 ## Introduction
 In this lecture note, we are going to talk about **_Temporal Probability Models_**. We will discuss what they are and how they can help us model problems that are subject to change over time.
 
-
-## Reasoning over time or space
 So far, we have learned how to deal with probabilistic reasoning in static worlds. That means each random variable has a fixed value and doesn't change over time. However, most of our problems don't have this static behavior, and the state varies over time (or space).
 
 Let' start with an example of a static problem:
@@ -47,8 +45,10 @@ Let' start with an example of a static problem:
 <img src="resources/car_repair.jpeg" alt="car repair" width="350"/>
 </center>
 
+
 But our problems aren't always static. Consider the below example:
 >Take diabetes management of a patient as our problem. We know that, for instance, the patient's blood sugar isn't constant and will vary over time, so there is a dynamic in the variables used to describe the patient's state (such as the blood sugar and insulin).
+
 
 <center>
 <img src="resources/diabetes.jpeg" alt="diabetes" width="350"/>
@@ -60,12 +60,13 @@ As you can see, the patient's status varies over time, and our approaches in sta
 Temporal Probability Models can make it easier for us to model and solve these types of problems.
 
 
-### What is a Temporal Probability Model?
+## What is a Temporal Probability Model?
 
 As the diabetes example above shows, we need to introduce **time** (or space) for our models.
 Retake variables of the diabetes example. We know that these variables can change over time, so to manage the diabetes of the patient, we slice time at specific points and keep track of this evidence to evaluate the current state and predict the future diabetic condition of the patient.
 
 ><span style="color:DarkSlateGray">_**Hence we can model the diabetes status of a patient using a Temporal Probability Model.**_</span>
+
 There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as ${E}_t$ at time $t$.
 
 On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time $t$, we use ${X}_t$ to denote them.
@@ -78,8 +79,8 @@ $$
 </span>
 
 
-### Markov Models
-Let's define a random variable $X$ and call its value at a given time $t$ the state of $X$ and denote it as $X_t$. If in our model the future state of $X$ depends only on the current state of $X$ and not on states that had occurred before, we call it a **_First-order Markov Model_**, or simply a **_Markov Model_**. Bayesian network of this model looks like the below network and is referred to as a **_Markov Chain_**:
+## Markov Models
+Let's define a random variable $X$ and call its value at a given time $t$ the _**state of $X$**_ and denote it as $X_t$. If in our model, the future state of $X$ depends only on the current state of $X$ and not on states that had occurred before, we call it a **_First-order Markov Model_**, or simply a **_Markov Model_**. Bayesian network of this model looks like the below network and is referred to as a **_Markov Chain_**:
 <center>
 <img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
@@ -110,7 +111,7 @@ Take $X$ as a Markov Model and consider its Bayesian network (depicted below).
 <img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
-We can quickly notice that for every $1\lt i\le n$ , if we are given $X_{i-1}$, then **$X_i$ is independent of $X_1, X_2, \cdots, X_{i-2}$** since there is only one inactive path between each of them and $X_i$. (Regarding the fact that $X_{i-1}$ is given)
+We can quickly notice that for every $1 \lt i \leq n$ , if we are given $X_{i-1}$, then **$X_i$ is independent of $X_1, X_2, \cdots, X_{i-2}$** since there is only one inactive path between each of them and $X_i$. (Regarding the fact that $X_{i-1}$ is given)
 So we have:
 <span style="color:DarkSlateGray">
 $$
@@ -134,19 +135,21 @@ We define two parameters here:
     </span>
     It is the probability of the initial state ($X_1$), and we usually know its value.
     
-    We can find the joint distribution of X regarding the Bayesian network and the parameters we defined. If we consider $X_1$ to $X_n$, then we have:
+We can find the joint distribution of X regarding the Bayesian network and the parameters we defined. If we consider $X_1$ to $X_n$, then we have:
     <span style="color:DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1})\\ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
     </span>
+    
 In the next section, we will prove this joint distribution using Chain Rule and independence.
+
 
 
 ### Chain Rule
 Take $X$ as a Markov Model and consider its Bayesian network (depicted below).
 <center>
-<img src="https://i.imgur.com/k4JYqIC.png" alt="Bayes Net of Markov Model" width="400"/>
+<img src="resources/markov_bayesnet.png" alt="Bayes Net of Markov Model" width="400"/>
 </center>
 
 We know that from Chain Rule, every joint distribution of $X_1$ to $X_n$ can be written as:
@@ -173,13 +176,12 @@ To better grasp the idea, think of a situation in which you want to invest in th
 
 While this model can be inaccurate, it can give a preliminary estimate and help you decide better. It can have a quite acceptable performance if we have good estimations of the transition probabilities. Now that we have modeled the situation with a Markov chain, we can use the chain rule to estimate the probability of the investment being profitable in the next $n$ days. This probability can be written as follows. Note that the state of the first day, or $X_0$, is known at the time of investment.
 
-<span style="color:DarkSlateGray">
 $$
 P(X_0=x_0, X_1 = profitable, X_2 = profitable, \cdots, X_n = profitable) 
 $$
 $$= P(X_0 = x_0) P(X_1 = profitable | X_0 = x_0) \prod_{t=2}^{n}P(X_t = profitable\vert X_{t-1} = profitable)
 $$
-</span>
+
 
 ## Mini-Forward Algorithm
 
@@ -255,7 +257,7 @@ $$
 
 The equation above can be rewritten to:
 $$
-    m_1[x] = P(X_1 = x1)
+    m_1[x] = P(X_1 = x_1)
 $$
 $$
     m_t[x] = \max_{x_{1:t - 1}} P(x_t | x_{t - 1}) m_{t - 1}[x]
@@ -379,6 +381,7 @@ In Robot tracking HMMs, observations are sensors' continuous perceptions and cor
 <img src="resources/localization.jpeg" alt="robot localization" width=400/>
 </center> 
 
+
 #### Characterizing facial expressions
 Facial Action Coding Systems (FACS) prescribes one of the most comprehensive means to characterize facial expressions.
 
@@ -400,11 +403,11 @@ of observations. Finally, we introduced some of the HMM's well-known application
 
 ## References
 * [Artificial Intelligence: A Modern Approach, 4th Edition](http://aima.cs.berkeley.edu/)
-* [CE417 Lecture Slides, Prof. Rohabn, Sharif University of Technology](http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PDF/Session%2015_16.pdf)
-* [CSC545 Lecture Slides, University of Miami](https://www.cs.miami.edu/home/visser/csc545-files/ProbabilisticReasoningOverTime.pdf)
+* [CE-417 Lecture Slides, Prof. Rohabn, Sharif University of Technology](http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PDF/Session%2015_16.pdf)
+* [CSC-545 Lecture Slides, University of Miami](https://www.cs.miami.edu/home/visser/csc545-files/ProbabilisticReasoningOverTime.pdf)
 * [Speech and Language Processing. Daniel Jurafsky & James H. Martin, Stanford University](https://web.stanford.edu/~jurafsky/slp3/A.pdf)
 * [University of Tennesee Lecture Slides](https://nanopdf.com/download/chapter-15-probabilistic-reasoning-over-time_pdf)
 * [Paulo E. Santos (FEI - Sao Paulo) Slides](https://fei.edu.br/~psantos/slidesIA/CAP15-DBN.pdf)
-* [CS 188: Artificial Intelligence Lecture Slides, Dan Klein, Spring 2006](https://inst.eecs.berkeley.edu/~cs188/sp06/slides/cs188%20lecture%2018%20--%20HMMs%20(2pp).pdf)
+* [CS-188: Artificial Intelligence Lecture Slides, Dan Klein, UC Berkeley, Spring 2006](https://inst.eecs.berkeley.edu/~cs188/sp06/slides/cs188%20lecture%2018%20--%20HMMs%20(2pp).pdf)
 
 _\*Some conceptual pictures used in this note are under courtesy of [VectorStock Media](https://vectorstock.com)_
