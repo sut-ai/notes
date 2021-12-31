@@ -148,15 +148,13 @@ In this method our training dataset doesn’t contain labels and they have not b
 
 *   **Clustering**
 *   **Association**
-<a name="Bias"></a>
-<h1>Bias and Variance</h1>
+# Bias and Variance
 
 <p>
 if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors causes small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions</p>
 <p> On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.</p>
 
-<a name="What"></a>
-<h2>What is Bias?</h2>
+## What is Bias?
 <p>
 In general, a machine learning model analyzes the data, find patterns in it and make predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
 <b>While the model is making prediction about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors</b>
@@ -180,8 +178,7 @@ linear algorithms have a high bias, as they learn fast. The simpler the algorith
 <li>Logistic Regression</li>
 </ul>
 
-<a name="variance"></a>
-<h2>What is variance?</h2>
+## What is variance?
 
 <p>The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models has <b>low variance</b> but some of them has <b>high variance. </b></p>
 
@@ -209,8 +206,7 @@ in general variance shows us how much our model is dependent to our dataset!
 <p>in the following image you can see the impact of bias and variance in machine learning model:</p>
 <img src= "./images/bias-and-variance-in-machine-learning4.png"></img>
 
-<a name="Trade"></a>
-<h3>Bias and Variance Trade-Off</h3>
+## Bias and Variance Trade-Off
 <p>the best and ideal model has low bias and low variance but it can not be acheived and is not possible practically!
 low-bias and high-variance leads to overfitting, high-bias and low-variance leads to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
 in simple words bias and variance are related to each other and we can not reduce both of them simultanously!</p>
@@ -218,8 +214,7 @@ in simple words bias and variance are related to each other and we can not reduc
 
 
 
-<a name="and"></a>
-<h1>OverFitting and Underfitting</h1>
+# OverFitting and Underfitting
 <p>Supervised machine learning is best understood as approximating a target function (f) that maps input variables (X) to an output variable (Y). f(X) = Y</p>
 
 <p>An important consideration in learning the target function from the training data is how well the model generalizes to new data. Generalization is important because the data we collect is only a sample, it is incomplete and noisy</p>
@@ -234,21 +229,18 @@ in simple words bias and variance are related to each other and we can not reduc
 
 <p>Overfitting and underfitting are the two biggest causes for poor performance of machine learning algorithms.</p>
 
-<a name="overfitting"></a>
-<h2>So what is overfitting?</h2>
+## So what is overfitting?
 <p>when the ml model predicts training data very well but it can not predict unseen data as well as training data we face overfitting in our ml algorithm! </br>
 This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the models ability to generalize.
 <b><i>An overfitted model is said to have low bias and high variance.</i></b>
 </p>
 <p>To detect overfitting we must split our dataset.about 80% of our data set is goinig to be trained and 20% of dataset is going to be tested!Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example if the error is 2.5% in training data and 20% in test data we have overfitting</p>
 
-<a name="underfiting"></a>
-<h2>What is underfiting?</h2>
+## What is underfiting?
 <p>Underfitting refers to a model that can neither model the training data nor generalize to new data.
 An underfit machine learning model is not a suitable model and will be obvious as it will have poor performance on the training data.</p>
 
-<a name="prevent"></a>
-<h3>and how to prevent overfitting?</h3>
+## and how to prevent overfitting?
 <ul>
 <li><b>cross validation: </b>In the general k-fold cross-validation technique, we divided the dataset into k-equal-sized subsets of data; these subsets are known as folds.</li>
 <li><b>regularization: </b>in this technique we reduce our model features and simplify it with our tools! it may increase bias but reduce the variance of the model. in many cases we add penalizing term to our objective function. as an example in linear regression we use l2 regularization and add sum penalizing term to the MSE function</li>
@@ -261,11 +253,9 @@ An underfit machine learning model is not a suitable model and will be obvious a
 
 
 
-<a name="Estiamtion"></a>
-<h1>Parameter Estiamtion</h1>
+# Parameter Estiamtion
 
-<a name="MLE"></a>
-<h2>What is MLE?</h2>
+## What is MLE?
 
 <p>The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.</p>
 
@@ -624,8 +614,7 @@ An underfit machine learning model is not a suitable model and will be obvious a
 
 <p>Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable</p>
 
-<a name="MAP"></a>
-<h2>Waht is MAP?</h2>
+## Waht is MAP?
 
 <p> we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, Θ, as a random variable. we assume that we have some initial guess about the distribution of Θ. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.</p>
 
