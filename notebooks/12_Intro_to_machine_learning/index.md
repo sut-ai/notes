@@ -8,7 +8,7 @@
         2. [Naïve Bayes Classifier Algorithm](#naïve-bayes-Classifier-algorithm)
     2. [Unsupervised Learning](#unsupervised-learning)
 3. [Bias and Variance](#bias-and-variance)
-    1. [What is Bias?](#what-is-Bbas?)
+    1. [What is Bias?](#what-is-bias?)
     2. [What is variance?](#what-is-variance?)
     3. [Bias and Variance Trade-Off](#bias-and-variance-trade-off)
 4. [OverFitting and Underfitting](#overFitting-and-underfitting)
@@ -738,7 +738,7 @@ we use bayes formula for calculating posterior distribution.
 
 One of the most important concepts in machine learning is to handle unseen events. To clarify, consider the following example.  
 
-Consider the vector $X=[x_1,x_2,x_3,x_4,x_5]$ and the following data as training dataset.  
+Consider the vector $ X=[x_1,x_2,x_3,x_4,x_5] $ and the following data as training dataset.  
 
 
 |    data     |    label    |
@@ -761,10 +761,10 @@ We want to predict the label of $[1, 1, 0, 0, 1]$ using a simple naïve Bayes mo
 Now, we calculate the probability of each label based on the created naïve Bayes model.  
 
 
-$P(label=a)\propto\frac{2}{5}\times\frac{2}{5}    \times0\times1\times\frac{2}{5}=0$  
+$P(label=a)\propto \frac{2}{5} \times \frac{2}{5} \times 0 \times 1 \times \frac{2}{5} = 0$  
 
 
-$P(label=b)\propto0\times\frac{3}{5}\times\frac{3}{5}\times\frac{2}{5}\times1=0$
+$P(label=b)\propto 0 \times \frac{3}{5} \times \frac{3}{5} \times \frac{2}{5} \times 1 = 0$
 
 
 If you look at the naïve bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  
@@ -813,10 +813,10 @@ Now, back to the label prediction example. We use Laplace smoothing with $k=1$ a
 
 ![](./images/naive_model_2.png)
 
-$P(label=a)\propto\frac{3}{7}\times\frac{3}{7}\times\frac{1}{7}\times\frac{6}{7}\times\frac{3}{7}=\frac{162}{16807}$  
+$P(label=a)\propto \frac{3}{7} \times \frac{3}{7} \times \frac{1}{7} \times \frac{6}{7} \times \frac{3}{7} = \frac{162}{16807}$  
 
 
-$P(label=b)\propto\frac{1}{7}\times\frac{4}{7}\times\frac{4}{7}\times\frac{3}{7}\times\frac{6}{7}=\frac{288}{16807}$  
+$P(label=b)\propto \frac{1}{7} \times \frac{4}{7} \times \frac{4}{7} \times \frac{3}{7} \times \frac{6}{7} = \frac{288}{16807}$  
 
 
 ## Linear interpolation
@@ -849,14 +849,14 @@ We introduce three datasets:
 The actual dataset that we use to train the model (weights and biases in the case of a Neural Network). The model sees and learns from this data.  
 
 ## Validation Dataset
-**The sample of data used to provide an unbiased evaluation of a model fit on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as skill on the validation dataset is incorporated into the model configuration.**  
+**The sample of data used to provide an unbiased evaluation of a trained model on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as skill on the validation dataset is incorporated into the model configuration.**  
 The validation set is used to evaluate a given model, but this is for frequent evaluation. We, as machine learning engineers, use this data to fine-tune the model hyperparameters. Hence the model occasionally sees this data but never does it “Learn” from this. We use the validation set results and update higher-level hyperparameters. So, the validation set affects a model, but only indirectly. The validation set is also known as the Dev set or the Development set. This makes sense since this dataset helps during the “development” stage of the model. We use this dataset to calculate $\alpha$ and $k$.  
 
 ![](./images/diagram.png)  
 
 ## Test Dataset
 
-**The sample of data used to provide an unbiased evaluation of a final model fit on the training dataset.**  
+**The sample of data used to provide an unbiased evaluation of final trained model on the training dataset.**  
 
 The Test dataset provides the gold standard used to evaluate the model. It is only used once a model is completely trained(using the train and validation sets). The test set is generally what is used to evaluate competing models (For example on many Kaggle competitions, the validation set is released initially along with the training set, and the actual test set is only released when the competition is about to close, and it is the result of the model on the Test set that decides the winner). Many times the validation set is used as the test set, but it is not good practice. The test set is generally well-curated. It contains carefully sampled data that spans the various classes that the model would face when used in the real world.  
 
