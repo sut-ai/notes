@@ -255,460 +255,71 @@ An underfit machine learning model is not a suitable model and will be obvious a
 
 ## What is MLE?
 
-The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.  
+The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity $ \theta $ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.  
 
 We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)  
-Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ (In general, θ might be a vector, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>&#x03B8;<!-- θ --></mi>
-  </mrow>
-  <mo>=</mo>
-  <mo stretchy="false">(</mo>
-  <msub>
-    <mi>&#x03B8;<!-- θ --></mi>
-    <mn>1</mn>
-  </msub>
-  <mo>,</mo>
-  <msub>
-    <mi>&#x03B8;<!-- θ --></mi>
-    <mn>2</mn>
-  </msub>
-  <mo>,</mo>
-  <mo>&#x22EF;<!-- ⋯ --></mo>
-  <mo>,</mo>
-  <msub>
-    <mi>&#x03B8;<!-- θ --></mi>
-    <mi>k</mi>
-  </msub>
-  <mo stretchy="false">)</mo>
-</math> Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2, X3, ..., Xn. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of θ:
+Let $ X_1,X_2,X_3, ... ,X_n $ be a random sample from a distribution with a parameter $ \theta $ (In general, θ might be a vector, ${\theta}=(\theta_1, \theta_2, \cdots, \theta_k)$ Suppose that $ x_1,x_2,x_3, ... ,x_n $ are the observed values of $ X_1,X_2,X_3, ... ,X_n $. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of $ \theta $:
 
-**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-    <mtr>
-      <mtd>
-        <mi>L</mi>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mi></mi>
-        <mo>=</mo>
-        <mi>P</mi>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>X</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>=</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>X</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>=</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>X</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>=</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd />
-      <mtd>
-        <mi></mi>
-        <mo>=</mo>
-        <msub>
-          <mi>P</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <msub>
-              <mi>X</mi>
-              <mn>1</mn>
-            </msub>
-            <msub>
-              <mi>X</mi>
-              <mn>2</mn>
-            </msub>
-            <mo>&#x22EF;<!-- ⋯ --></mo>
-            <msub>
-              <mi>X</mi>
-              <mi>n</mi>
-            </msub>
-          </mrow>
-        </msub>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>**
+$\begin{align}
+ L(x_1, x_2, \cdots, x_n; \theta)&=P(X_1=x_1, X_2=x_2, \cdots, X_n=x_n; \theta)
+&=P_{X_1 X_2 \cdots X_n}(x_1, x_2, \cdots, x_n; \theta).
+\end{align}$
 
 
 - If Xi's are discrete, then the likelihood function is defined as
-**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-    <mtr>
-      <mtd>
-        <mi>L</mi>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-        <mo>=</mo>
-        <msub>
-          <mi>P</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <msub>
-              <mi>X</mi>
-              <mn>1</mn>
-            </msub>
-            <msub>
-              <mi>X</mi>
-              <mn>2</mn>
-            </msub>
-            <mo>&#x22EF;<!-- ⋯ --></mo>
-            <msub>
-              <mi>X</mi>
-              <mi>n</mi>
-            </msub>
-          </mrow>
-        </msub>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>**.
+$\begin{align}
+ L(x_1, x_2, \cdots, x_n; \theta)=P_{X_1 X_2 \cdots X_n}(x_1, x_2, \cdots, x_n; \theta).
+\end{align}$
 
 - If Xi's are jointly continuous, then the likelihood function is defined as
-**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-    <mtr>
-      <mtd>
-        <mi>L</mi>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-        <mo>=</mo>
-        <msub>
-          <mi>f</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <msub>
-              <mi>X</mi>
-              <mn>1</mn>
-            </msub>
-            <msub>
-              <mi>X</mi>
-              <mn>2</mn>
-            </msub>
-            <mo>&#x22EF;<!-- ⋯ --></mo>
-            <msub>
-              <mi>X</mi>
-              <mi>n</mi>
-            </msub>
-          </mrow>
-        </msub>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>**  
+$\begin{align}
+L(x_1, x_2, \cdots, x_n; \theta)=f_{X_1 X_2 \cdots X_n}(x_1, x_2, \cdots, x_n; \theta).
+\end{align}$
 
 
 
 In some problems, it is easier to work with the log likelihood function given by
+$\begin{align}
+ \ln L(x_1, x_2, \cdots, x_n; \theta).
+\end{align}$ 
 
-**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-    <mtr>
-      <mtd>
-        <mi>ln</mi>
-        <mo>&#x2061;<!-- ⁡ --></mo>
-        <mi>L</mi>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>.** 
-
-Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ. Suppose that we have observed X1=x1 , X2=x2 , ⋯ , Xn=xn . The maximum likelihood estimate of θ is the value that maximizes the likelihood function:
-**<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-    <mtr>
-      <mtd>
-        <mi>L</mi>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <mo>&#x22EF;<!-- ⋯ --></mo>
-        <mo>,</mo>
-        <msub>
-          <mi>x</mi>
-          <mi>n</mi>
-        </msub>
-        <mo>;</mo>
-        <mi>&#x03B8;<!-- θ --></mi>
-        <mo stretchy="false">)</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>**  
+Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter $ \theta $. Suppose that we have observed X1=x1 , X2=x2 , ⋯ , Xn=xn . The maximum likelihood estimate of $ \theta $ is the value that maximizes the likelihood function:
+$\begin{align}
+ L(x_1, x_2, \cdots, x_n; \theta).
+\end{align}$
 
 
 Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable  
 
 ## Waht is MAP?
 
-we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, Θ, as a random variable. we assume that we have some initial guess about the distribution of Θ. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
+we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
 
 in this approach our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with prior distribution.  
 After observing the value of the random variable Y, we find the posterior distribution of X. This is the conditional PDF (or PMF) of X given Y=y,
 we use bayes formula for calculating posterior distribution.  
 
+$\begin{align}
+f_{X|Y}(x|y)=\frac{f_{Y|X}(y|x)f_{X}(x)}{f_{Y}(y)}.
+\end{align}$
 
-![](./images/formula.PNG)
+<!-- ![](./images/formula.PNG) -->
 
 in the above image we have 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>f</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>X</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mo stretchy="false">|</mo>
-      </mrow>
-      <mi>Y</mi>
-    </mrow>
-  </msub>
-  <mo stretchy="false">(</mo>
-  <mi>x</mi>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">|</mo>
-  </mrow>
-  <mi>y</mi>
-  <mo stretchy="false">)</mo>
-</math> as postrior distribution and 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>f</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>X</mi>
-    </mrow>
-  </msub>
-  <mo stretchy="false">(</mo>
-  <mi>x</mi>
-  <mo stretchy="false">)</mo>
-</math> as priror distribution. in many problems
-**<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>f</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>Y</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mo stretchy="false">|</mo>
-      </mrow>
-      <mi>X</mi>
-    </mrow>
-  </msub>
-  <mo stretchy="false">(</mo>
-  <mi>y</mi>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">|</mo>
-  </mrow>
-  <mi>x</mi>
-  <mo stretchy="false">)</mo>
-</math>** is MLE function that we explained it!  
+$f_{X|Y}(x|y)$ as postrior distribution and 
+$f_{X}(x)$ as priror distribution. in many problems
+$f_{Y|X}(y|x)$ is MLE function that we explained it!  
 
 The posterior distribution, 
-**<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>f</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>X</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mo stretchy="false">|</mo>
-      </mrow>
-      <mi>Y</mi>
-    </mrow>
-  </msub>
-  <mo stretchy="false">(</mo>
-  <mi>x</mi>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">|</mo>
-  </mrow>
-  <mi>y</mi>
-  <mo stretchy="false">)</mo>
-</math>**, contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posteriori (MAP) estimation  
+$f_{X|Y}(x|y)$ , contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posterior (MAP) estimation . 
 
-Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>f</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>Y</mi>
-    </mrow>
-  </msub>
-  <mo stretchy="false">(</mo>
-  <mi>y</mi>
-  <mo stretchy="false">)</mo>
-</math>
- does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:<br>
+Note that 
+$f_{Y}(y)$ does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:
+$\begin{align}
+f_{Y|X}(y|x)f_{X}(x).
+\end{align}$
 <!-- <img src="./images/formula1.png"></img>   -->
-![](./images/formula1.png)
+<!-- ![](./images/formula1.png) -->
 
 ***in many cases we choose alpha-beta distribution for prior distribution***
 
