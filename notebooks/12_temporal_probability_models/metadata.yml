@@ -19,6 +19,8 @@ authors:
       contact:
       - link: https://github.com/SJahanzad
         icon: fab fa-github
+      - link: mailto:SoroushJahanzad@gmail.com
+        icon: fas fa-envelope
     - name: Mohammad Hejri
       role: Author
       contact:

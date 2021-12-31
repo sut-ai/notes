@@ -57,4 +57,5 @@ notebooks:
       kind: S2021, LN, Notebook
     - md: notebooks/12_temporal_probability_models/
       kind: F2021, LN, Markdown
+      metadata: notebooks/12_temporal_probability_models/metadata.yml
       text: Temporal Probability Models - Part 1
