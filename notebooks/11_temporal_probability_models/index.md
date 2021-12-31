@@ -30,7 +30,7 @@ Hidden Markov Models can be applied to part of speech tagging. Part of speech ta
 
 
 # Filtering
-Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation. We wish to compute $P(X_t | e_{1:t})$. 
+Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation [1]. We wish to compute $P(X_t | e_{1:t})$. 
 | ![Umbrella Example](./assets/umb-ex.jpg) | 
 |:--:| 
 | *Bayesian network structure and conditional distributions describing the umbrella world.* |
@@ -114,7 +114,7 @@ $$
 Intuitively, the probability of rain increases from day 1 to day 2 because rain persists.
 
 ## Prediction
-This is the task of computing the posterior distribution over the future state, given all evidence to date. That is, we wish to compute $P(X_{t+k} | e_{1:t})$ for some $k > 0$. In the umbrella example, this might mean computing the probability of rain three days from now, given all the observations to date. Prediction is useful for evaluating possible courses of action based on their expected outcomes.
+This is the task of computing the posterior distribution over the future state, given all evidence to date. That is, we wish to compute $P(X_{t+k} | e_{1:t})$ for some $k > 0$. In the umbrella example, this might mean computing the probability of rain three days from now, given all the observations to date. Prediction is useful for evaluating possible courses of action based on their expected outcomes [1].
 The task of prediction can be seen simply as filtering without the addition of new evidence. In fact, the filtering process already incorporates a one-step prediction, and it is easy to derive the following recursive computation for predicting the state at $t + k + 1$ from a prediction for $t + k$:
 
 $$
@@ -124,7 +124,7 @@ $$
 Naturally, this computation involves only the transition model and not the sensor model. It is interesting to consider what happens as we try to predict further and further into the future. It can be shown that the predicted distribution for rain converges to a fixed point $<0.5, 0.5>$, after which it remains constant for all time. This is the **stationary distribution** of the Markov process defined by the transition model.
 
 ## Smoothing
-This is the task of computing the posterior distribution over a past state, given all evidence up to the present. That is, we wish to compute $P(X_k | e_{1:t})$ for some $k$ such that $0 \leq k < t$. In the umbrella example, it might mean computing the probability that it rained last Wednesday, given all the observations of the umbrella carrier made up to today. Smoothing provides a better estimate of the state than was available at the time, because it incorporates more evidence.
+This is the task of computing the posterior distribution over a past state, given all evidence up to the present. That is, we wish to compute $P(X_k | e_{1:t})$ for some $k$ such that $0 \leq k < t$. In the umbrella example, it might mean computing the probability that it rained last Wednesday, given all the observations of the umbrella carrier made up to today. Smoothing provides a better estimate of the state than was available at the time, because it incorporates more evidence [1].
 In anticipation of another recursive message-passing approach, we can split the computation into two parts—the evidence up to $k$ and the evidence from $k +1$ to $t$,
 
 $$
@@ -185,7 +185,7 @@ Thus, the smoothed estimate for rain on day 1 is higher than the filtered estima
 Given a sequence of observations, we might wish to find the sequence of states that is most likely to have generated those observations.
 ## Recall: The Hidden Markov Model
 A Markov chain is useful when we need to compute a probability for a sequence of observable events. In many cases, however, the events we are interested in are **hidden**: we don’t observe them directly.
-A hidden Markov model (HMM) allows us to talk about both observed events Hidden Markov model (like words that we see in the input) and hidden events (like part-of-speech tags) that we think of as causal factors in our probabilistic model.
+A hidden Markov model (HMM) allows us to talk about both observed events Hidden Markov model (like words that we see in the input) and hidden events (like part-of-speech tags) that we think of as causal factors in our probabilistic model [2].
 
 | ![HMM](./assets/hmm.jpg) | 
 |:--:| 
@@ -198,7 +198,7 @@ Hidden Markov models should be characterized by **three fundamental problems**:
  3. **Learning**: Given an observation sequence $O$ and the set of states in the **HMM**, learn the HMM parameters $A$ and $B$.
  
 ### Likelihood Computation: The Forward Algorithm
-The first problem is to compute the likelihood of a particular observation sequence. For example, given the ice-cream eating HMM, what is the probability of the sequence *3 1 3*? More formally:
+The first problem is to compute the likelihood of a particular observation sequence [2]. For example, given the ice-cream eating HMM, what is the probability of the sequence *3 1 3*? More formally:
 ***Computing Likelihood**: Given an HMM $\lambda = (A,B)$ and an observation sequence $O$, determine the likelihood $P(O|\lambda)$.*
 
 Let’s start with a slightly simpler situation. Suppose we already knew the weather and wanted to predict how much ice cream Jason would eat. This is a useful part of many HMM tasks. For a given hidden state sequence (e.g., *hot hot cold*), we can easily compute the output likelihood of *3 1 3*.
@@ -282,7 +282,7 @@ function FORWARD(observations of len T, state-graph of len N) returns forward-pr
 	return forwardprob
 ```
 ## Decoding: The Viterbi Algorithm
-For any model, such as an HMM, that contains hidden variables, the task of determining which sequence of variables is the underlying source of some sequence of observations is called the **decoding** task. In the ice-cream domain, given a sequence of ice-cream observations *3 1 3* and an HMM, the task of the decoder is to find the best hidden weather sequence (*H H H*). More formally,
+For any model, such as an HMM, that contains hidden variables, the task of determining which sequence of variables is the underlying source of some sequence of observations is called the **decoding** task [2]. In the ice-cream domain, given a sequence of ice-cream observations *3 1 3* and an HMM, the task of the decoder is to find the best hidden weather sequence (*H H H*). More formally,
 ***Decoding**: Given as input an HMM $\lambda = (A,B)$ and a sequence of observations $O = o_1,o_2,...,o_T$ , find the most probable sequence of states $Q = q_1q_2q_3 ...q_T$.*
 
 The most common decoding algorithms for HMMs is the **Viterbi** algorithm. Like the forward algorithm, Viterbi is a kind of **dynamic programming** Viterbi algorithm that makes uses of a dynamic programming trellis.
@@ -325,7 +325,7 @@ function VITERBI(observations of len T,state-graph of len N) returns best-path, 
 Note that the Viterbi algorithm is identical to the forward algorithm except that it takes the **max** over the previous path probabilities whereas the forward algorithm takes the **sum**.
 
 ## HMM Training: The Forward-Backward Algorithm
-We turn to the third problem for HMMs: learning the parameters of an HMM, that is, the $A$ and $B$ matrices. Formally,
+We turn to the third problem for HMMs: learning the parameters of an HMM, that is, the $A$ and $B$ matrices [2]. Formally,
 ***Learning**: Given an observation sequence $O$ and the set of possible states in the HMM, learn the HMM parameters $A$ and $B$.*
 
 The input to such a learning algorithm would be an unlabeled sequence of observations $O$ and a vocabulary of potential hidden states $Q$. Thus, for the ice cream task, we would start with a sequence of observations $O = \{1,3,2,...\}$ and the set of hidden states $H$ and $C$.
@@ -377,7 +377,7 @@ function FORWARD_BACKWARD(ev, prior) returns a vector of probability distributio
 ```
 
 # Particle Filtering
-Forward algorithm gives us a definite inference of the HMM. Similar to bayesian networks, we can have approximate inference too. Particle filtering is a sampling method to model and find an approximate inference of HMMs.
+Forward algorithm gives us a definite inference of the HMM. Similar to bayesian networks, we can have approximate inference too. Particle filtering is a sampling method to model and find an approximate inference of HMMs [3].
 
 ## FAQ!
  
@@ -390,7 +390,7 @@ Consider robot local localization problem. Assume that the map is $m \times m$ a
 Consider robot localization problem. Let's say we have $N$ particles. Each particle is a guess and hypothesis about where robot could be in that specific time. In fact, each particle is a sampled value of the stated of the problem (in this case $x,y$ of the robot in the map).
 
 ##  Steps
-This approach has three major steps: elapsing time, observing and resampling. These steps could be mapped to the Passage of time, observation and Normalization steps in  forward algorithm respectively. The main idea of the algorithm is to  keep $N$ hypothesis about in which state we are (in case of robot localization  where the robot is) and update these hypothesis by passage of time and new observations, so, our guesses remain valid and strong about in which state we are. For better intuition, consider robot localization problem for the steps below.
+This approach has three major steps: elapsing time, observing and resampling. These steps could be mapped to the Passage of time, observation and Normalization steps in  forward algorithm respectively. The main idea of the algorithm is to  keep $N$ hypothesis about in which state we are (in case of robot localization  where the robot is) and update these hypothesis by passage of time and new observations, so, our guesses remain valid and strong about in which state we are [3]. For better intuition, consider robot localization problem for the steps below.
 
 ### Initializations
 At the very beginning of the algorithm that we have no clue about the problem, we should (could) initial our particles to be uniformly spreaded in steps (robot could be everywhere with equal chances).
@@ -440,7 +440,7 @@ function PARTICLE_FILTERING(e, N, dbn) returns a set of samples for the next tim
 ```
 
 ## Useful links
-Here are two YouTube videos that explained the subject very well:
+Here are two YouTube videos that explained the subject very well [4],[5]:
 - [Cyrill Stachniss Youtube Channel](https://www.youtube.com/watch?v=YBeVDxTHiYM)
 - [Andreas Svensson Youtube Channel](https://www.youtube.com/watch?v=aUkBa1zMKv4)
 
