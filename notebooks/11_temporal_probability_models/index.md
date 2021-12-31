@@ -546,38 +546,6 @@ Figure 2 shows the result of EKF localization for the simple problem given in Fi
 |:--:| 
 | *Figure 2* |
 
-# Particle Filter
-There are two important situations where EKF is not the method of choice for robot localization. The first is when the environment is represented by an occupancy grid. Sensor model for occupancy grid maps described in Section 2.3 is not an analytic model but based on the numerical process of ray casting and as such is unsuitable for use with an EKF. The other situation is when initial robot location is completely unknown, usually known as the global localization problem. In this case, the location of the robot needs to be described using an arbitrary probability distribution; thus, the Gaussian assumption that is the basis of the EKF formulation is violated. In general, manipulating arbitrary probability distributions is computationally intractable. One possible strategy is to discretize the space of possible robot locations and thus deal with manipulating discrete probability distribution. This method is known as Markov localization. The computation burden associated with Markov localization is proportional to the size of the environment and the resolution of the discretization, making this strategy unsuitable in many situations. Markov localization is described in Appendix Appendix .
-In the particle filter localization (also known as Monte Carlo localization), rather than discretizing the space of robot locations, a weighted set of robot location estimates, termed as particles, is used to describe the probability distribution of the robot location. As the computations are focused on particles and more particles are placed at more probable robot locations, the particle filters provide a more efficient alternative to Markov localization. Number of particles used determines the accuracy of the representation. However, increasing the number of particles to obtain a higher accuracy leads to a more costly estimation process.
-In the particle filter, each particle in effect provides a guess as to the location of the robot. Thus, each particle is represented by three variables (x, y (position), $\phi$ (orientation)) for a robot operating in a two-dimensional plane. Each particle i has a weight  𝑤𝑖  that indicates the contribution of that particular particle to the probability distribution. The sum of the weights of all particles is set to 1, it means,  $\sum_{i=1}^{n}w_i=1$ , where n is the total number of particles used. A collection of such guesses describes the best knowledge available, usually termed the belief, as to the true location of the robot. In the case of global localization, the initial robot location is completely unknown; therefore, all locations of the environment are equally likely to contain the robot. Thus, a set of equally weighted particles uniformly distributed in the environment is used to represent the belief of the robot location. During the localization process, this belief is updated as more and more information is acquired from the sensors.
-In the particle filter, every time information from the sensors is gathered, the current belief is updated. The process is as follows:
-**1.Prediction:** When the robot is commanded to move, the new belief is obtained by moving each particle according to the motion model equation 2 with randomly generated  $\delta_{v_k},\delta_{w_k}$ .
-**2.Update:** When a new sensor observation is received, the belief is updated using an observation model. In this step, the weights of the particles are changed to reflect the likelihood that the true robot location coincides with the corresponding particle. In the case of jth observation from a laser range finder, ray casting from each particle is used to obtain an expected measurement  $\hat{d}_j$ . If the actual measurement is given by $d_j$ and if the sensor noise is assumed to be zero mean with a variance  $\sigma^2_d$ , the likelihood can be computed using a Gaussian distribution based on
-
-$$
-\frac{1}{\sigma_d\sqrt{2\pi}}exp{−\frac{(\hat{d_j}−d_j)^2}{2\sigma^2_d}}
-$$
-
-As at a given instance multiple independent range observations are acquired from the sensor, likelihood of obtaining a sequence of observations is computed by multiplying together all the likelihood. Once likelihoods of all the particles are computed, these are normalized to obtain the weight of each of the particles.
-**3.Resampling:** This is performed to avoid the situation where a small number of particles with large weights dominate the representation of the belief. One common strategy used for resampling is as follows:
-a.Compute an estimate of the effective number of particles as
-
-$$
-n_{eff}=\frac{1}{\sum_{i=1}^{n} w^2_i}
-$$
-
-b.If $n_{eff}$ is less than a threshold, then draw n particles from the current particle set with probabilities proportional to their weights. Replace the current particle set with this new one. Set the weights of each particle to be 1/n.
-**4.Resulting set of particles represents the updated belief of the robot location.**
-This process is repeated as new control actions are taken and new observations become available. The mean or the mode of the corresponding probability distribution can be used if a numerical value for the best estimate of the robot location is desired.
-Figure 4 shows the result of particle filter localization for the simple problem given in Figure 3. The particles, the best estimate of the robot location, and the ground truth robot location at the last step are shown in green, blue, and red, respectively.
-
-![Figure 3](https://onlinelibrary.wiley.com/cms/asset/68028ff9-b840-4d28-8ef2-dc77332c94a6/nfg003.gif) | 
-|:--:| 
-|*Figure 3*|
-
-![Figure 4](https://onlinelibrary.wiley.com/cms/asset/8d65afb2-92c8-4a18-a8be-3821f80f2525/nfg005.gif) | 
-|:--:| 
-|*Figure 4*|
 
 # Dynamic Bayes Nets
 A Bayesian network is a snapshot of the system at a given time and is used to model systems in some kind of equilibrium state. Unfortunately, most systems in the world change over time, and mostly we are more interested in the evolution of a system than in their equilibrium states. Therefore, we have to use techniques and tools capable of modeling dynamic systems.	
