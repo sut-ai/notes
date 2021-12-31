@@ -270,23 +270,356 @@ An underfit machine learning model is not a suitable model and will be obvious a
 <p>The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.</p>
 
 <p>We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)</p>
-<p>Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ (In general, θ might be a vector, θ=(θ1,θ2,⋯,θk).) Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2, X3, ..., Xn. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of θ:<br>
-L(x1,x2,⋯,xn;θ) = P(X1=x1,X2=x2,⋯,Xn=xn;θ)
+<p>Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ (In general, θ might be a vector, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow class="MJX-TeXAtom-ORD">
+    <mi>&#x03B8;<!-- θ --></mi>
+  </mrow>
+  <mo>=</mo>
+  <mo stretchy="false">(</mo>
+  <msub>
+    <mi>&#x03B8;<!-- θ --></mi>
+    <mn>1</mn>
+  </msub>
+  <mo>,</mo>
+  <msub>
+    <mi>&#x03B8;<!-- θ --></mi>
+    <mn>2</mn>
+  </msub>
+  <mo>,</mo>
+  <mo>&#x22EF;<!-- ⋯ --></mo>
+  <mo>,</mo>
+  <msub>
+    <mi>&#x03B8;<!-- θ --></mi>
+    <mi>k</mi>
+  </msub>
+  <mo stretchy="false">)</mo>
+</math>. Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2, X3, ..., Xn. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of θ:<br>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+    <mtr>
+      <mtd>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+      </mtd>
+      <mtd>
+        <mi></mi>
+        <mo>=</mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>X</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>X</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>X</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd />
+      <mtd>
+        <mi></mi>
+        <mo>=</mo>
+        <msub>
+          <mi>P</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>X</mi>
+              <mn>1</mn>
+            </msub>
+            <msub>
+              <mi>X</mi>
+              <mn>2</mn>
+            </msub>
+            <mo>&#x22EF;<!-- ⋯ --></mo>
+            <msub>
+              <mi>X</mi>
+              <mi>n</mi>
+            </msub>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>
 
 <ol>
 <li>If Xi's are discrete, then the likelihood function is defined as
-<b>L(x1,x2,⋯,xn;θ) = PX1X2⋯Xn(x1,x2,⋯,xn;θ)</b>. </li>
+<b><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+    <mtr>
+      <mtd>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>P</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>X</mi>
+              <mn>1</mn>
+            </msub>
+            <msub>
+              <mi>X</mi>
+              <mn>2</mn>
+            </msub>
+            <mo>&#x22EF;<!-- ⋯ --></mo>
+            <msub>
+              <mi>X</mi>
+              <mi>n</mi>
+            </msub>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mtd>
+    </mtr>
+  </mtable>
+</math></b>. </li>
 
 <li>If Xi's are jointly continuous, then the likelihood function is defined as
-<b>L(x1,x2,⋯,xn;θ)=fX1X2⋯Xn(x1,x2,⋯,xn;θ)</b>.</li>
+<b><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+    <mtr>
+      <mtd>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>X</mi>
+              <mn>1</mn>
+            </msub>
+            <msub>
+              <mi>X</mi>
+              <mn>2</mn>
+            </msub>
+            <mo>&#x22EF;<!-- ⋯ --></mo>
+            <msub>
+              <mi>X</mi>
+              <mi>n</mi>
+            </msub>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mtd>
+    </mtr>
+  </mtable>
+</math></b>.</li>
 </ol>
 </p>
 
 <p>In some problems, it is easier to work with the log likelihood function given by
-ln L(x1,x2,⋯,xn;θ).</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+    <mtr>
+      <mtd>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>.</p>
 
-<p>Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ. Suppose that we have observed X1=x1, X2=x2, ⋯, Xn=xn. The maximum likelihood estimate of θ, shown by θ^ML is the value that maximizes the likelihood function
-L(x1,x2,⋯,xn;θ).
+<p>Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ. Suppose that we have observed X1=x1 , X2=x2 , ⋯ , Xn=xn . The maximum likelihood estimate of θ is the value that maximizes the likelihood function:
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+    <mtr>
+      <mtd>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mn>2</mn>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>n</mi>
+        </msub>
+        <mo>;</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>.
 </p>
 
 <p>Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable</p>
@@ -303,12 +636,91 @@ we use bayes formula for calculating posterior distribution.
 
 ![](./images/formula.PNG)
 
-<p>in the above image we have Fx|y(x|y) as postrior distribution and fx(X) as priror distribution. in many problems Fy|x(y|x) is MLE function that we will explain it later!</p>
+<p>in the above image we have 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>f</mi>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>X</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>Y</mi>
+    </mrow>
+  </msub>
+  <mo stretchy="false">(</mo>
+  <mi>x</mi>
+  <mrow class="MJX-TeXAtom-ORD">
+    <mo stretchy="false">|</mo>
+  </mrow>
+  <mi>y</mi>
+  <mo stretchy="false">)</mo>
+</math> as postrior distribution and 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>f</mi>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>X</mi>
+    </mrow>
+  </msub>
+  <mo stretchy="false">(</mo>
+  <mi>x</mi>
+  <mo stretchy="false">)</mo>
+</math> as priror distribution. in many problems 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>f</mi>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>Y</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>X</mi>
+    </mrow>
+  </msub>
+  <mo stretchy="false">(</mo>
+  <mi>y</mi>
+  <mrow class="MJX-TeXAtom-ORD">
+    <mo stretchy="false">|</mo>
+  </mrow>
+  <mi>x</mi>
+  <mo stretchy="false">)</mo>
+</math> is MLE function that we explained it!</p>
 
-<p>The posterior distribution, fX|Y(x|y), contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posteriori (MAP) estimation</p>
+<p>The posterior distribution, 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>f</mi>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>X</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>Y</mi>
+    </mrow>
+  </msub>
+  <mo stretchy="false">(</mo>
+  <mi>x</mi>
+  <mrow class="MJX-TeXAtom-ORD">
+    <mo stretchy="false">|</mo>
+  </mrow>
+  <mi>y</mi>
+  <mo stretchy="false">)</mo>
+</math>, contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posteriori (MAP) estimation</p>
 
-<p>Note that fY(y) does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:
-    <br>fY|X(y|x)fX(x)</br>
+<p>Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>f</mi>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>Y</mi>
+    </mrow>
+  </msub>
+  <mo stretchy="false">(</mo>
+  <mi>y</mi>
+  <mo stretchy="false">)</mo>
+</math>
+ does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:<br>
+<img src="./images/formula1.png"></img>
 </p>
 
 <p><br>in many cases we choose alpha-beta distribution for prior distribution</br></p>
