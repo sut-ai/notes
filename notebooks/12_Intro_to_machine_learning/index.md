@@ -158,12 +158,12 @@ if the model in machine learning  is not accurate, it will make errors and these
 <a name="What"></a>
 <h2>What is Bias?</h2>
 <p>
-In general, a machine learning model analyses the data, find patterns in it and make predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
-<b>While the model in making prediction about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors</b>
-It can be defined as an inability of ml algorithms such as polynomial Regression to capture the true relationship between the data points. Each algorithm in ml  has some amount of bias because bias occurs from assumptions in the model, which makes the target function simple to learn. A model has either:
+In general, a machine learning model analyzes the data, find patterns in it and make predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
+<b>While the model is making prediction about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors</b>
+It can be defined as an inability of ML algorithms such as polynomial Regression to capture the true relationship between the data points. Each algorithm in ML  has some amount of bias because bias occurs from assumptions in the model, which makes the target function simple to learn. A model has either:
 <ul>
 <li><b>High Bias:</b> A model with a high bias has more assumptions, and the model can not capture the important features of our dataset. the model with high biased has good performance on training data but not test data.</li>
-<li><b>Low Bias:</b> A low bias model has fewer assumptions about the form of the function of dataset.</li>
+<li><b>Low Bias:</b> A low bias model will make fewer assumptions about the form of the target function.</li>
 </ul>
 linear algorithms have a high bias, as they learn fast. The simpler the algorithm, the higher the bias it has! but a nonlinear algorithm often has low bias.
 </p>
@@ -185,10 +185,10 @@ linear algorithms have a high bias, as they learn fast. The simpler the algorith
 
 <p>The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models has <b>low variance</b> but some of them has <b>high variance. </b></p>
 
-<p> <b>low varince</b> means that we have small variation in the changes of training data with prediction in target function!
+<p> <b>low varince </b> means that we have small variation in the changes of training data with prediction in target function!
 <b>high variance means there is a high variation in the prediction of the target function with changes in the training dataset</b> <p>
 
-<p>a model that has high variance is well-performed with training data but can not generalize unseen dataset as well.
+<p>a model that has high variance performs well on training data but can not generalize unseen dataset as well.
 high variance leads to overfitting and increases model complexities!
 </p>
 
@@ -212,7 +212,7 @@ in general variance shows us how much our model is dependent to our dataset!
 <a name="Trade"></a>
 <h3>Bias and Variance Trade-Off</h3>
 <p>the best and ideal model has low bias and low variance but it can not be acheived and is not possible practically!
-low-bias and high-variance leads to overfitting, high-bias and low-variance leads to unferfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
+low-bias and high-variance leads to overfitting, high-bias and low-variance leads to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
 in simple words bias and variance are related to each other and we can not reduce both of them simultanously!</p>
 <img src="./images/bias-and-variance-in-machine-learning6.png"></img>
 
@@ -267,7 +267,7 @@ An underfit machine learning model is not a suitable model and will be obvious a
 <a name="MLE"></a>
 <h2>What is MLE?</h2>
 
-<p>The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data. From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.</p>
+<p>The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity θ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.</p>
 
 <p>We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)</p>
 <p>Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter θ (In general, θ might be a vector, θ=(θ1,θ2,⋯,θk).) Suppose that x1, x2, x3, ..., xn are the observed values of X1, X2, X3, ..., Xn. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of θ:<br>
@@ -300,9 +300,10 @@ L(x1,x2,⋯,xn;θ).
 After observing the value of the random variable Y, we find the posterior distribution of X. This is the conditional PDF (or PMF) of X given Y=y,
 we use bayes formula for calculating posterior distribution.
 </p>
-<img src='./images/formula.png'></img>
 
-<p>in the above image we have Fx|y(x|y) as postrior distribution and fx(X) as priror distribution. in many problems Fy|x(y|x) is MLE function that we explained it later!</p>
+![](./images/formula.PNG)
+
+<p>in the above image we have Fx|y(x|y) as postrior distribution and fx(X) as priror distribution. in many problems Fy|x(y|x) is MLE function that we will explain it later!</p>
 
 <p>The posterior distribution, fX|Y(x|y), contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posteriori (MAP) estimation</p>
 
