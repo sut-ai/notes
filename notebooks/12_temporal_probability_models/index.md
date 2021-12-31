@@ -1,7 +1,4 @@
 # Temporal Probability Models
-## Group Info:
-Group Number: 12
-Members: Arshan Dalili, Soroush Jahanzad, Mohammad Hejri
 
 
 
