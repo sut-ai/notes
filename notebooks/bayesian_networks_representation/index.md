@@ -120,16 +120,16 @@ Bayesian net's graphical notation consists of a graph, and one conditional proba
 In this picture there are a set of nodes, one per variable X. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
 
 ### Probabilities in Bayes' Nets
- In BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
-![joint](assets/joint.png) <br/>
+ In BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities. <br/>
+ $$P(x_1, x_2,... , x_n)=\prod_{i=1}^{n}P(x_i|Parents(x_i))$$ <br/>
  In the following part, we will prove this method is correct.<br/>
- First note the chain rule applied to each distribution:
-![chain](assets/chain.png) <br/>
- Now with respect to conditional independence, we can claim that:
-![conditionaldep](assets/conditionaldep.png) <br/>
+ First note the chain rule applied to each distribution: <br/>
+ $$P(x_1, x_2,... , x_n)=\prod_{i=1}^{n}P(x_i|x_1,x_2,...,x_{i-1})$$ <br/>
+ Now with respect to conditional independence, we can claim that: <br/>
+ $$P(x_i|x_1,x_2,...,x_{i-1})= P(x_i|Parents(X_i))$$ <br/>
  Which is true because xi is conditionally independent of other nodes, given its parents. In other words, by knowing the values of all the parents, the other nodes no longer give us new information, and it does not matter to us whether we know them or not. <br>
- So, we can conclude that:
-![joint](assets/joint.png) <br/>
+ So, we can conclude that: <br/>
+ $$P(x_1, x_2,... , x_n)=\prod_{i=1}^{n}P(x_i|Parents(x_i))$$ <br/>
  Note that not every BN can produce every distribution, but the BN topology determines what conditional independence can be produced.<br/>
  
  See the following examples of BN distribution.<br/>
@@ -137,18 +137,18 @@ In this picture there are a set of nodes, one per variable X. And we have a dire
  a. coin flips <br/>
  In this case, a coin is tossed n times, the probability of a head or tail being equal in each toss. If these actions are independent of each other, then the graph is as shown in the image.
 ![coin](assets/coin.png) <br/>
- For example P(H, T, T, H) = P(H)P(T)P(T)P(H) <br/>
+ For example $P(H, T, T, H) = P(H)P(T)P(T)P(H)$ <br/>
  Note that only distributions whose variables are absolutely independent can be represented by a Bayes’ net with no arcs.<br/>
 
  b. traffic <br/>
  In this example, R stands for rain and T stands for traffic. It is also assumed that rain causes traffic.
 ![traffic](assets/traffic.png) <br/>
- For example P(+r, -t) = P(+r)P(-t|+r) <br/>
+ For example $P(+r, -t) = P(+r)P(-t|+r)$ <br/>
 
  c. alarm network <br/>
  In this case, it is assumed that the house alarm goes off by an earthquake or burglary. John and Mary may also call us if the alarm is ringing.
  ![alarm](assets/alarm.png) <br/>
-For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
+For example $P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)$
 
 ### Causality in Bayes' Nets
  If in a Bayes' net the arrows represent the real causes, it can be better investigated and the probabilities are easier to find. The network also becomes simpler. Because the number of parents is fewer. <br/>
@@ -156,8 +156,8 @@ For example P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)
  
  Therefore, we do not need to know the exact causal structure between the variables.
 ### Space Efficiency
- The CPT size of a node depends on it's domain and parents. if a node has k parents and each of which has m different value, the CPT size is equal to m^(k+1). <br/>
- Therefore, in a Bayes' net with N Boolean variables, if each node has a maximum of k parents, the size of the whole net is of the order of O(N*2^(k+1)). Whereas if we want to store their joint distribution, it is the size of 2^N. <br/>
+ The CPT size of a node depends on it's domain and parents. if a node has $k$ parents and each of which has $m$ different value, the CPT size is equal to $m^{k+1}$. <br/>
+ Therefore, in a Bayes' net with $N$ Boolean variables, if each node has a maximum of $k$ parents, the size of the whole net is of the order of $O(N\times 2^{k+1})$. Whereas if we want to store their joint distribution, it is the size of $2^N$. <br/>
  
  So, we conclude that if we use this method, it usually requires less memory. It is also easier and faster to use local CPTs.
 
@@ -181,34 +181,34 @@ In this configuration, middle node transmits the effect of the previous node to 
 Example:
 
 ![causal_ex](assets/ch1.png)
-- P(X, Y, Z) = P(X) P(Y|X) P(Z|Y) <br/>
+- $$P(X, Y, Z) = P(X) P(Y|X) P(Z|Y)$$ <br/>
 
 In this BN, low pressure causes rain and rain causes traffic. in another word rain transmits the effect of low pressure to traffic. <br/>
 
-is X is guaranteed to be independent of Z? <br/>
+is $X$ is guaranteed to be independent of $Z$? <br/>
 
-the answer is NO. To prove this claim, it is enough to give an example that X and Z are dependent. suppose that X is random, and probability of low pressure (P(+x)) and high pressure(P(-x)) are equal to 0.5. P(+x)=P(-x)=0.5  <br/>
+the answer is NO. To prove this claim, it is enough to give an example that $X$ and $Z$ are dependent. suppose that $X$ is random, and probability of low pressure $(P(+x))$ and high pressure $(P(-x))$ are equal to 0.5. $P(+x)=P(-x)=0.5$  <br/>
 
 rainfall is completely dependent on low pressure and if low pressure occurs, rainfall is definite. and if high pressure occurs, rainfall is impossible. <br/>
-P(+y|-x)=0  P(+y|+x)=1  <br/>
+$$P(+y|-x)=0 , P(+y|+x)=1$$  <br/>
 
 Also, traffic is completely dependent on rainfall. if it rains, traffic will occur and otherwise there isn’t any traffic. <br/>
 
-P(+z|+x)=1  P(-z|-x)= 1 <br/>
+$$P(+z|+x)=1 , P(-z|-x)=1$$ <br/>
 
-now we should compare P(Z) and P(Z|X) to find dependency.  for example low pressure and traffic occurred. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5 <br/>
+now we should compare $P(Z)$ and $P(Z|X)$ to find dependency. for example low pressure and traffic occurred. $(X=+x and Z=+z)$ we know $P(+z|+x)=1$ but $P(+z)=0.5$ <br/>
 
 As a result, the two variables are not independent. <br/>
 
-is X is guaranteed to be independent of Z given Y? <br/>
+is $X$ is guaranteed to be independent of $Z$ given $Y$? <br/>
 
-the answer is YES. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
+the answer is YES. to prove this claim, we use algebraic operations. we should show equality of $P(Z|Y)$ and $P(Z|Y,X)$. <br/>
 
-![ch_formula1](assets/ch10.PNG)
+$$P(Z|X,Y)=\frac{P(X,Y,Z)}{P(X,Y)}=\frac{P(X)P(Y|X)P(Z|Y)}{P(X)P(Y|X)}=P(Z|Y)$$ <br/>
 
-we conclude that with condition on Y, X and Z are independent. <br/>
+we conclude that with condition on $Y$, $X$ and $Z$ are independent. <br/>
 
-So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of X to Z is not direct, if the value of Y is known, changes in X value causes no effect on Z’ value. in other word if we know value of Y, value of X doesn't give any additional information about Z. <br/>
+So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of $X$ to $Z$ is not direct, if the value of $Y$ is known, changes in $X$ value causes no effect on Z’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
 
 So, evidence along the chain “blocks” the influence.
 
@@ -221,32 +221,32 @@ in this configuration one variable effect on another two variables. but child no
 Example:
 
 ![common_cause_ex](assets/ch2.jpg)
-- P(X, Y, Z) = P(Y) P(X|Y) P(Z|Y) <br/>
+- $$P(X, Y, Z) = P(Y) P(X|Y) P(Z|Y)$$ <br/>
 
 in this BN, project due causes lab full and forums busy. <br/>
 
-is X is guaranteed to be independent of Z? <br/>
+is $X$ is guaranteed to be independent of $Z$? <br/>
 
-the answer is NO. it is enough to give an example set of CPTs that X and Z are dependent. suppose that Y is random, and the probability of being close to project deadline (P(+y)) and otherwise (P(-y)) are equal to 0.5. P(+y)=P(-y)=0.5 <br/>
+the answer is NO. it is enough to give an example set of CPTs that $X$ and $Z$ are dependent. suppose that $Y$ is random, and the probability of being close to project deadline $(P(+y))$ and otherwise $(P(-y))$ are equal to 0.5. $P(+y)=P(-y)=0.5$ <br/>
 
 laboratory fullness is completely dependent on project deadline and if deadline is near, laboratory is full. and if project deadline is not near, laboratory is not full. <br/>
-P(+z|+y)=1  P(+z|-y)=0 <br/>
+$P(+z|+y)=1 , P(+z|-y)=0$ <br/>
 
 Also, forums are related to project deadline. if deadline is near, forums get busy.<br/>
-P(+x|+y)=1  P(+x|-y)=0 <br/>
+$P(+x|+y)=1 , P(+x|-y)=0$ <br/>
 
-now we should compare P(Z) and P(Z|X) to find dependency.  for example, lab is full and forums are busy. (X=+x and Z=+z) we know P(+z|+x)=1 but P(+z)=0.5. because value of Z and X are exactly equal to the value of Y. <br/>
+now we should compare $P(Z)$ and $P(Z|X)$ to find dependency.  for example, lab is full and forums are busy. $(X=+x and Z=+z)$ we know $P(+z|+x)=1$ but $P(+z)=0.5$. because value of $Z$ and $X$ are exactly equal to the value of $Y$. <br/>
 As a result, the two child variables in common cause triples are not independent in general case. <br/>
 
-is X is guaranteed to be independent of Z given Y? <br/>
+is $X$ is guaranteed to be independent of $Z$ given $Y$? <br/>
 
-the answer is Yes. to prove this claim, we use algebraic operations. we should show equality of P(Z|Y) and P(Z|Y,X).
+the answer is Yes. to prove this claim, we use algebraic operations. we should show equality of $P(Z|Y)$ and $P(Z|X,Y)$. <br/>
 
-![ch_formula2](assets/ch11.PNG)
+$$P(Z|X,Y)=\frac{P(X,Y,Z)}{P(X,Y)}=\frac{P(X)P(Y|X)P(Z|Y)}{P(X)P(Y|X)}=P(Z|Y)$$ <br/>
 
-we conclude that with condition on Y, X and Z are independent. <br/>
+we conclude that with condition on $Y$, $X$ and $Z$ are independent. <br/>
 
-So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of X to Z is not direct, if value of Y is known, changes in X value causes no effect on Z’ value. in other word if we know value of Y, value of X doesn't give any additional information about Z. <br/>
+So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of $X$ to $Z$ is not direct, if value of $Y$ is known, changes in $X$ value causes no effect on $Z$’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
 So, observing the cause blocks influence between effects.
 
 #### V-Structure
@@ -258,28 +258,28 @@ in this configuration, one variable is affected by another two variables. <br/>
 Example:
 
 ![common_effect_ex](assets/ch3.jpg)
-- P(X, Y, Z) = P(X) P(Y) P(Z|X, Y) <br/>
+- $$P(X, Y, Z) = P(X) P(Y) P(Z|X, Y)$$ <br/>
 
 in following BN, both ballgame and raining cause traffic. <br/>
 
-is X is guaranteed to be independent of Y?<br/>
+is $X$ is guaranteed to be independent of $Y$?<br/>
 
-the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again:
+the answer, unlike previous versions, is Yes. ballgame and rain do not get effect from each other or a common cause. to prove this claim, use algebraic operation again: <br/>
 
-![ch_formula1](assets/ch12.PNG)
+$$P(X,Y)=\sum_{z}^{}P(X,Y,z)=\sum_{z}^{}P(X)P(Y)P(z|X,Y)=P(X)P(Y)\sum_{z}^{}P(z|X,Y)=P(X)P(Y)$$ <br/>
 
-So we show P(X,Y) = P(X)P(Y) and conclude X and Y are independent. <br/>
+So we show $P(X,Y) = P(X)P(Y)$ and conclude $X$ and $Y$ are independent. <br/>
 
-is X is guaranteed to be independent of Y given z?<br/>
+is $X$ is guaranteed to be independent of $Y$ given $Z$?<br/>
 
-the answer is NO. with an example we describe the situation. consider X and Y have random values and probability of occurrence of each one is 0.5. (P(+x)=P(+y)=0.5) and traffic will occur when ballgame or raining occurs.
+the answer is NO. with an example we describe the situation. consider $X$ and $Y$ have random values and probability of occurrence of each one is 0.5. $(P(+x)=P(+y)=0.5)$ and traffic will occur when ballgame or raining occurs. <br/>
 
-- P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1    P(+z|-x,-y)=0 <br/>
+$P(+z|+x,+y)=P(+z|+x,-y)=P(+z|-x,+y)=1  ,  P(+z|-x,-y)=0$ <br/>
 
-From the problem description, We can conclude that P(+x|+z,-y)=1  and P(+x|-y)=0.5. So, P(X|Z,Y) is not equal to P(X|Y).<br/>
+From the problem description, We can conclude that $P(+x|+z,-y)=1$ and $P(+x|-y)=0.5$. So, $P(X|Z,Y)$ is not equal to $P(X|Y)$.<br/>
 
-So, with the observation of Z, X and Y are not independent. this means Observing an effect, activating influence between possible causes. <br/>
-In the same way, it can be shown that if one of Z descendants is also observed, the independence of X and Y is no longer guaranteed. To prove this from the previous issue, it is enough to add the condition that the occurrence or non-occurrence of each of Z descendants is always the same as its parent.
+So, with the observation of $Z$, $X$ and $Y$ are not independent. this means Observing an effect, activating influence between possible causes. <br/>
+In the same way, it can be shown that if one of $Z$ descendants is also observed, the independence of $X$ and $Y$ is no longer guaranteed. To prove this from the previous issue, it is enough to add the condition that the occurrence or non-occurrence of each of $Z$ descendants is always the same as its parent.
 
 ### Reachability
 
@@ -289,19 +289,19 @@ in the first step, we should shade evidence nodes, nodes that are observed in th
 
 ### Active/Inactive Paths
 
-Question: are X and Y conditionally independent given evidence variables {Z}?<br/>
+Question: are $X$ and $Y$ conditionally independent given evidence variables $Z$?<br/>
 
-Yes, if x and y “d-separated” by z.
+Yes, if $X$ and $Y$ “d-separated” by $Z$.
 
 to describe the "d-separated" concept, we first need to understand the concept of active/inactive path.<br/>
 
 a path is active if each triple of it is active. a triple is active if:
 
-- Causal chain A -> B -> C where B is unobserved (either direction)
-- Common cause A <- B -> C where B is unobserved
-- Common effect (aka v-structure) A -> B <- C where B or one of its descendants is observed
+- Causal chain $A \rightarrow  B \rightarrow C$ where $B$ is unobserved (either direction)
+- Common cause $A \leftarrow  B \rightarrow C$ where $B$ is unobserved
+- Common effect (aka v-structure) $A \rightarrow  B \leftarrow C$ where $B$ or one of its descendants is observed
 
-Now we consider all undirected paths from X to Y after shading evidence variables, if none of these paths aren’t active paths, we can say X and Y are d-separated by Z.<br/>
+Now we consider all undirected paths from $X$ to $Y$ after shading evidence variables, if none of these paths aren’t active paths, we can say $X$ and $Y$ are d-separated by $Z$.<br/>
 
 in the figure below, examples of active and inactive triples are shown.
 
@@ -311,30 +311,30 @@ note that a single inactive triple makes a path inactive. but two RVs are indepe
 
 Examples:
 
- a. we want to check conditionally independence between R and B variables with different evidence.
+ a. we want to check conditionally independence between $R$ and $B$ variables with different evidence.
 
 ![exp1](assets/ch5.jpg)
 
-- **without evidence:** there is only one path between R and B that is a “common effect” triple. it is inactive so R and B are independent.
-- **evidence=T:** there is a “common effect” triple that is active. So, the independence of R and B isn’t guaranteed.
+- **without evidence:** there is only one path between $R$ and $B$ that is a “common effect” triple. it is inactive so $R$ and $B$ are independent.
+- **evidence=T:** there is a “common effect” triple that is active. So, the independence of $R$ and $B$ isn’t guaranteed.
 - **evidence=T’:** this situation is similar to previous evidence.
 
- b. we want to check conditionally independence between L and B variables with different evidence.
+ b. we want to check conditionally independence between $L$ and $B$ variables with different evidence.
 
 ![exp2](assets/ch6.jpg)
 
-- **without evidence:** there is only one path between L and B that has two triples. L->R->T is active but R->T<-B is inactive. So, this pass is inactive. So, L and B are independent.
-- **evidence = T:** similar to the previous segment there is only one path that has two triples. both are active. So, L and B aren't guaranteed to be independent given T.
+- **without evidence:** there is only one path between $L$ and $B$ that has two triples. $L \rightarrow  R \rightarrow T$ is active but $R \rightarrow  T \leftarrow B$ is inactive. So, this pass is inactive. So, $L$ and $B$ are independent.
+- **evidence = T:** similar to the previous segment there is only one path that has two triples. both are active. So, $L$ and $B$ aren't guaranteed to be independent given $T$.
 - **evidence = T':** it is similar to segment. 
-- **evidence = T, R:** similar to the 2’nd segment the R->T<-B triple is active but L->R->T is inactive. So, L and B are independent given T and R.
+- **evidence = T, R:** similar to the 2’nd segment the $R \rightarrow  T \leftarrow B$ triple is active but $L \rightarrow  R \rightarrow T$ is inactive. So, $L$ and $B$ are independent given $T$ and $R$.
 
- c. we want to check conditionally independence between T and D variables with different evidence.
+ c. we want to check conditionally independence between $T$ and $D$ variables with different evidence.
 
 ![exp3](assets/ch7.jpg)
 
-- **without evidence:** There are two paths between T and D. upper path is an active “common cause” and the lower path is an inactive “common effect”. So, L and T aren't guaranteed to be independent.
-- **evidence = R:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an inactive “common effect”.  So, L and T are independent given R.
-- **evidence = R, S:** There are two paths between T and D. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, L and T aren't guaranteed to be independent.
+- **without evidence:** There are two paths between $T$ and $D$. upper path is an active “common cause” and the lower path is an inactive “common effect”. So, $L$ and $T$ aren't guaranteed to be independent.
+- **evidence = R:** There are two paths between $T$ and $D$. upper path is an inactive “common cause” and the lower path is an inactive “common effect”.  So, $L$ and $T$ are independent given $R$.
+- **evidence = R, S:** There are two paths between $T$ and $D$. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, $L$ and $T$ aren't guaranteed to be independent.
 
 ### Structure Implications
 
