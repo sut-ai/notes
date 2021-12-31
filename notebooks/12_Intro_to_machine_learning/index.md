@@ -349,10 +349,10 @@ We want to predict the label of $[1, 1, 0, 0, 1]$ using a simple naïve Bayes mo
 Now, we calculate the probability of each label based on the created naïve Bayes model.  
 
 
-$P(label=a)\propto \frac{2}{5}\times \frac{2}{5}\times 0\times 1\times \frac{2}{5}=0$  
+$P(label=a)\propto \frac{2}{5} \times \frac{2}{5} \times 0 \times 1 \times \frac{2}{5} = 0$  
 
 
-$P(label=b)\propto \times \frac{3}{5}\times \frac{3}{5}\times \frac{2}{5}\times 1=0$
+$P(label=b)\propto 0 \times \frac{3}{5} \times \frac{3}{5} \times \frac{2}{5} \times 1 = 0$
 
 
 If you look at the naïve bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  
@@ -401,10 +401,10 @@ Now, back to the label prediction example. We use Laplace smoothing with $k=1$ a
 
 ![](./images/naive_model_2.png)
 
-$P(label=a)\propto\frac{3}{7}\times\frac{3}{7}\times\frac{1}{7}\times\frac{6}{7}\times\frac{3}{7}=\frac{162}{16807}$  
+$P(label=a)\propto \frac{3}{7} \times \frac{3}{7} \times \frac{1}{7} \times \frac{6}{7} \times \frac{3}{7} = \frac{162}{16807}$  
 
 
-$P(label=b)\propto\frac{1}{7}\times\frac{4}{7}\times\frac{4}{7}\times\frac{3}{7}\times\frac{6}{7}=\frac{288}{16807}$  
+$P(label=b)\propto \frac{1}{7} \times \frac{4}{7} \times \frac{4}{7} \times \frac{3}{7} \times \frac{6}{7} = \frac{288}{16807}$  
 
 
 ## Linear interpolation
