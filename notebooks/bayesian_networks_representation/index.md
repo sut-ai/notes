@@ -48,15 +48,15 @@ We use probabilistic models to reason about unknown variables, given evidences. 
 
 Two variables are *independent* if:
 
-![formula1](assets/T_Formula1.PNG)
+$$\forall x, y : P(x, y)=P(x)P(y)$$
 
 If two variables are independent, their joint distribution is the product of their distributions. This can also be shown in another way:
 
-![formula2](assets/T_Formula2.PNG)
+$$\forall x, y : P(x\mid y)=P(x)$$
 
 We show independency as:
 
-![formula3](assets/T_Formula3.PNG)
+$$X\perp Y$$
 
 Note that real life joint distributions are at best close to independent. Independence is a *modelling assumption*. We'll get back to assumptions later.
 
@@ -66,21 +66,21 @@ Unconditional (absolute) independence is very rare to come by, because the varia
 
 X is conditionally independent of Y given Z
 
-![formula4](assets/T_Formula4.PNG)
+$$X\perp Y\mid Z$$
 
 if and only if
 
-![formula5](assets/T_Formula5.PNG)
+$$\forall x,y,z:P(x,y\mid z)=P(x\mid z)P(y\mid z)$$
 
 or equivalently, if and only if
 
-![formula6](assets/T_Formula6.PNG)
+$$\forall x,y,z:P(x\mid z,y)=P(x\mid z)$$
 
 ### Chain Rule
 
 We all know the basic form of chain rule:
 
-![formula7](assets/T2_Formula7.PNG)
+$$P(X_1,X_2,...,X_n)=P(X_1)P(X_2\mid X_1)P(X_3\mid X_1,X_2)...$$
 
 Imagine we want P(X, Y, Z). Using the chain rule, we can write:
 
