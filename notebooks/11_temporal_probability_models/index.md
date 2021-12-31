@@ -39,9 +39,12 @@
 
 # Introduction
 Hidden Markov Models can be applied to part of speech tagging. Part of speech tagging is a fully-supervised learning task, because we have a corpus of words labeled with the correct part-of-speech tag. But many applications don’t have labeled data. So in this note, we introduce some of the algorithms for HMMs, including the key unsupervised learning algorithm for HMM, the Forward-Backward algorithm.
-HMMs also can be used to model a famous problem, called "Robot localization". Robot localization is the process of determining where a mobile robot is located with respect to its environment. Localization is one of the most fundamental competencies required by an autonomous robot as the knowledge of the robot's own location is an essential precursor to making decisions about future actions. The most typical robot localization scenario is “Map-based localization”, in which the robot estimates its position using perceived information and a map. The robot is equipped with sensors that observe the environment and perceive required information. In this scenario, the map might be known (localization) or might be built in parallel (SLAM). As the measurements and the map are error prone, robot localization techniques need to be able to deal with noisy observations and generate not only an estimation of the robot location but also a measure of the uncertainty of the estimated location.
 
-Then we will discuss a sampling method, Particle Filtering, that gives us an approximation of forward algorithm, which is more applicable in practical tasks such as robot localization.
+Then we will discuss a sampling method, Particle Filtering, that gives us an approximation of forward algorithm, which is more applicable in practical tasks such as robot localization. HMMs also can be used to model a famous problem, called "Robot localization". 
+
+Robot localization is the process of determining where a mobile robot is located with respect to its environment. Localization is one of the most fundamental competencies required by an autonomous robot as the knowledge of the robot's own location is an essential precursor to making decisions about future actions. The most typical robot localization scenario is “Map-based localization”, in which the robot estimates its position using perceived information and a map. 
+
+The robot is equipped with sensors that observe the environment and perceive required information. In this scenario, the map might be known (localization) or might be built in parallel (SLAM). As the measurements and the map are error prone, robot localization techniques need to be able to deal with noisy observations and generate not only an estimation of the robot location but also a measure of the uncertainty of the estimated location.
 
 # Filtering
 Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation [1]. We wish to compute $P(X_t | e_{1:t})$. 
@@ -610,7 +613,7 @@ This note reviewed the key concepts of hidden Markov model for probabilistic seq
 - The process of discovering the sequence of hidden states, given the sequence of observations, is known as decoding or inference. The **Viterbi** algorithm is commonly used for decoding.
 - The parameters of an HMM are the A transition probability matrix and the B observation likelihood matrix. Both can be trained with the **forward-backward** algorithm.
 - In forward algorithm, the behavior vector is very probable to become sparse and cause useless computational overhead. Approximation, in this case sampling, puzzles out the problem. **Particle Filtering** can be used as an approximation of the forward algorithm. Each **Particle** is a guess about the current state. The algorithm updates these guesses with every observation till they converge.
-We discussed kalman filtering, which is used for the localization problem in a landmark-based map and then we reviewed DBN particle filtering for tracking nonlinear systems
+- We discussed kalman filtering, which is used for the localization problem in a landmark-based map and then we reviewed DBN particle filtering for tracking nonlinear systems
 
 # Resources
 [1] Stuart Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th ed. Pearson Education, Inc
