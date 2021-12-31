@@ -64,7 +64,7 @@ Note that real life joint distributions are at best close to independent. Indepe
 
 Unconditional (absolute) independence is very rare to come by, because the variables in a problem are usually all correlated. Conditional independence is our most basic and robust form of knowledge about uncertain environments. 
 
-X is conditionally independent of Y given Z
+$X$ is conditionally independent of $Y$ given $Z$,
 
 $$X\perp Y\mid Z$$
 
@@ -82,13 +82,13 @@ We all know the basic form of chain rule:
 
 $$P(X_1,X_2,...,X_n)=P(X_1)P(X_2\mid X_1)P(X_3\mid X_1,X_2)...$$
 
-Imagine we want P(X, Y, Z). Using the chain rule, we can write:
+Imagine we want $P(X, Y, Z)$. Using the chain rule, we can write:
 
-- P(X,Y,Z) = P(X)P(Y|X)P(Z|X,Y)
+- $$P(X,Y,Z) = P(X)P(Y|X)P(Z|X,Y)$$
 
-But if we know that Z and Y are independent, we can instead write:
+But if we know that $Z$ and $Y$ are independent, we can instead write:
 
-- P(X,Y,Z) = P(X)P(Y|X)P(Z|X)
+- $$P(X,Y,Z) = P(X)P(Y|X)P(Z|X)$$
 
 These independencies can be derived from bayes' nets. This will come in handy when we want to infer probabilities from bayes nets.
 
@@ -100,7 +100,7 @@ These independencies can be derived from bayes' nets. This will come in handy wh
 
 There are two problems with using full joint distribution tables as our probabilistic models:
 1. Unless there are only a few variables, the joint is WAY too  big to represent explicitly (With 2 to the power of n rows from n variables).
-2. Hard to learn (estimate) anything empirically about more than a few variables at a time. For example, to find the probability of two variables being true at the same time, we would have to calculate a sum over n/4 rows which can be an unreasonably big calculation.
+2. Hard to learn (estimate) anything empirically about more than a few variables at a time. For example, to find the probability of two variables being true at the same time, we would have to calculate a sum over $\frac{n}{4}$ rows which can be an unreasonably big calculation.
 
 Bayes nets is a technique for describing complex joint distributions or models using simple and local distributions.
 
@@ -117,7 +117,7 @@ Bayesian net's graphical notation consists of a graph, and one conditional proba
 
 ![image](https://user-images.githubusercontent.com/44923177/146654189-38c25839-e446-420f-af85-473900274dfb.png)
 
-In this picture there are a set of nodes, one per variable X. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
+In this picture there are a set of nodes, one per variable $X$. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
 
 ### Probabilities in Bayes' Nets
  In BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities. <br/>
