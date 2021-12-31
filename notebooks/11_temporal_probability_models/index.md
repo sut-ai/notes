@@ -1,20 +1,32 @@
 ﻿# Temporal Probability Models
 
 ## Contents
+- [Temporal Probability Models](#temporal-probability-models)
+	- [Contents](#contents)
 - [Introduction](#introduction)
 - [Filtering](#filtering)
-	- [An Example](#an-example)
-- [Prediction](#prediction)
-- [Smoothing](#smoothing)
-	- [An Example](#an-example-1)
+		- [An Example](#an-example)
+	- [Prediction](#prediction)
+	- [Smoothing](#smoothing)
+		- [An Example](#an-example-1)
 - [Most likely explanation](#most-likely-explanation)
 	- [Recall: The Hidden Markov Model](#recall-the-hidden-markov-model)
-	- [Likelihood Computation: The Forward Algorithm](#likelihood-computation-the-forward-algorithm)
+		- [Likelihood Computation: The Forward Algorithm](#likelihood-computation-the-forward-algorithm)
+		- [Pseudo Code](#pseudo-code)
 	- [Decoding: The Viterbi Algorithm](#decoding-the-viterbi-algorithm)
+		- [Pseudo Code](#pseudo-code-1)
 	- [HMM Training: The Forward-Backward Algorithm](#hmm-training-the-forward-backward-algorithm)
+		- [Pseudo Code](#pseudo-code-2)
 - [Particle Filtering](#particle-filtering)
 	- [FAQ!](#faq)
+		- [What's wrong with Forward algorithm?](#whats-wrong-with-forward-algorithm)
+		- [What does "Particle" mean?](#what-does-particle-mean)
 	- [Steps](#steps)
+		- [Initializations](#initializations)
+		- [Elapse Time](#elapse-time)
+		- [Observe](#observe)
+		- [Resample](#resample)
+		- [Recap](#recap)
 	- [Example](#example)
 	- [Pseudo Code](#pseudo-code-3)
 	- [Useful links](#useful-links)
@@ -28,10 +40,9 @@
 # Introduction
 Hidden Markov Models can be applied to part of speech tagging. Part of speech tagging is a fully-supervised learning task, because we have a corpus of words labeled with the correct part-of-speech tag. But many applications don’t have labeled data. So in this note, we introduce some of the algorithms for HMMs, including the key unsupervised learning algorithm for HMM, the Forward-Backward algorithm.
 
-
 # Filtering
 Filtering is the task of computing the **belief state** which is the posterior distribution over the most recent state, given all evidence to date. Filtering is also called state estimation. We wish to compute $P(X_t | e_{1:t})$. 
-| ![Umbrella Example](./assets/umb-ex.jpg) | 
+| ![Umbrella Example](https://s4.uupload.ir/files/umb-ex_4juc.jpg) | 
 |:--:| 
 | *Bayesian network structure and conditional distributions describing the umbrella world.* |
 
@@ -187,7 +198,7 @@ Given a sequence of observations, we might wish to find the sequence of states t
 A Markov chain is useful when we need to compute a probability for a sequence of observable events. In many cases, however, the events we are interested in are **hidden**: we don’t observe them directly.
 A hidden Markov model (HMM) allows us to talk about both observed events Hidden Markov model (like words that we see in the input) and hidden events (like part-of-speech tags) that we think of as causal factors in our probabilistic model.
 
-| ![HMM](./assets/hmm.jpg) | 
+| ![HMM](https://s4.uupload.ir/files/hmm_y61y.jpg) | 
 |:--:| 
 | *A hidden Markov model for relating numbers of ice creams eaten (the **observations**) to the weather (H or C, the **hidden variables**).* |
 
@@ -418,7 +429,7 @@ That's all folks! First we have a set of particles. ‌Based on where they are e
 
 ## Example
 
-| ![Particle Filtering ](./assets/particle-filter-example.jpg) | 
+| ![Particle Filtering ](https://s4.uupload.ir/files/particle-filter-example_pekq.jpg) | 
 |:--:| 
 | *An example of a full particle filtering process.* |
 
@@ -600,4 +611,3 @@ This note reviewed the key concepts of hidden Markov model for probabilistic seq
 [4] [Cyrill Stachniss Youtube Channel](https://www.youtube.com/watch?v=YBeVDxTHiYM) (Visited: 17/4/2021)
 
 [5] [Andreas Svensson Youtube Channel](https://www.youtube.com/watch?v=aUkBa1zMKv4) (Visited: 17/4/2021)
-
