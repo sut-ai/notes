@@ -192,7 +192,13 @@ Take the following Bayes' net as an example.
 
 ![Likelihood Weighting Bayes' Net Example](Images/Likelihood_Example_BN.png "Example Bayes' Net")
 
+
+<html>
+
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
+
+</html>
+
 
 Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. The, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will we sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
 
