@@ -1,121 +1,158 @@
 # Table of contents
-1. [Introduction](#Introduction)
-    1. [History](#History)
-    2. [ML Applications](#Applications)
-2. [Types of Machine Learning](#Types)
-    1. [Supervised Learning](#Supervised)
-        1. [Classification](#Classification)
-        2. [Naïve Bayes Classifier Algorithm](#Naïve)
-    2. [Unsupervised Learning](#Unsupervised)
-3. [Bias and Variance](#Bias)
-    1. [What is Bias?](#What)
-    2. [What is variance?](#variance)
-    3. [Bias and Variance Trade-Off](#Trade)
-4. [OverFitting and Underfitting](#and)
-    1. [So what is overfitting?](#overfitting)
-    2. [What is underfiting?](#underfiting)
-    3. [and how to prevent overfitting?](#prevent)
-5. [Parameter Estiamtion](#Estiamtion)
-    1. [What is MLE?](#MLE)
-    2. [Waht is MAP?](#MAP)
-6. [Handle unseen events](#Handle)
-    1. [Laplace Smoothing](#Laplace)
-    2. [Linear interpolation](#Linear)
-7. [More about dataset](#More)
-    1. [Training Dataset](#Training)
-    2. [Validation Dataset](#Validation)
-    3. [Test Dataset](#Test)
-    4. [About the dataset split ratio](#ratio)
-8. [Conclusion](#Conclusion)
-9. [References](#References)
+1. [Introduction](#introduction)
+    1. [History](#history)
+    2. [ML Applications](#ml-applications)
+2. [Types of Machine Learning](#types-of-machine-learning)
+    1. [Supervised Learning](#supervised-learning)
+        1. [Classification](#classification)
+        2. [Naïve Bayes Classifier Algorithm](#naïve-bayes-Classifier-algorithm)
+    2. [Unsupervised Learning](#unsupervised-learning)
+3. [Bias and Variance](#bias-and-variance)
+    1. [What is Bias?](#what-is-Bbas?)
+    2. [What is variance?](#what-is-variance?)
+    3. [Bias and Variance Trade-Off](#bias-and-variance-trade-off)
+4. [OverFitting and Underfitting](#overFitting-and-underfitting)
+    1. [So what is overfitting?](#so-what-is-overfitting?)
+    2. [What is underfiting?](#what-is-underfiting?)
+    3. [and how to prevent overfitting?](#and-how-to-prevent-overfitting?)
+5. [Parameter Estiamtion](#parameter-estiamtion)
+    1. [What is MLE?](#what-is-mle?)
+    2. [Waht is MAP?](#waht-is-map?)
+6. [Handle unseen events](#handle-unseen-events)
+    1. [Laplace Smoothing](#laplace-smoothing)
+    2. [Linear interpolation](#linear-interpolation)
+7. [More about dataset](#more-about-dataset)
+    1. [Training Dataset](#training-dataset)
+    2. [Validation Dataset](#validation-dataset)
+    3. [Test Dataset](#test-Dataset)
+    4. [About the dataset split ratio](#about-the-dataset-split-ratio)
+8. [Conclusion](#conclusion)
+9. [References](#references)
 
-<a name="Introduction"></a>
-<h1>Introduction</h1>
-<p>Humans are capable of learning by experiencing, but how about computers? Can they learn from past data and make correct decisions for future situations?</p>
-<img src= "./images/intro_pic_1.png"></img>
-<p>Machine learning technics allow computers to automatically learn from a historical dataset and improve its performance from experiences and enables them to predict things in a new situation without being explicitly programmed. Machine learning algorithms bring computer science and statistics together to build mathematical models from our past dataset that is known as training data and use these models for future decision. The diagram below shows the ML algorithm:</p>
-<img src= "./images/intro_pic_2.png"></img>
-<a name="History"></a>
-<h2>History</h2>
-<p>The base idea behind machine learning has a long history, But the term of machine learning was first used by Arthur Samuel in 1959. Below we can see a timeline of ML in brief:</p>
-<li><b>1834:</b> Charles Babbage made the first computer that could be programmed by punched cards and all modern computers followed its logical structure.</li>
-<li><b>1936:</b> Alan Turing gave a theory about how machines can execute a set of instructions.</li>
-<li><b>1940:</b> First manually operated computer named "ENIAC" was invented.</li>
-<li><b>1943:</b> The first model of human neural network was modeled with electronic circuits.</li>
-<li><b>1950:</b> "Computer Machinery and Intelligence," was published by Alan Turing on the topic of AI with this question, "Can machines think?".</li>
-<li><b>1952:</b> Arthur Samuel created a program to play checkers for an IBM computer that could play better by playing more.</li>
-<li><b>1959:</b> Arthur Samuel first used the term of “Machine Learning” and popularized it. In this year, the first neural network was used to solve a real-world problem to remove echoes over phone lines using an adaptive filter.</li>
-<li><b>1974 to 1980:</b> These years are known as AI winter that lots of people lost their interest from AI and governmental funding reduced.</li>
-<li><b>1985:</b> A neural network was developed named NETtalk that was able to correctly pronounce 20000 words in a week.</li>
-<li><b>1997:</b> The IBM’s computer named Deep Blue won a chess game against human chess expert Garry Kasparov.</li>
-<li><b>2006:</b> Geoffrey Hinton has first used name of "deep learning" instead of neural net research. </li>
-<li><b>2012:</b> Google developed a deep neural network system to distinguish cat and human images in a YouTube video.</li>
-<li><b>2016:</b> AlphaGo won a Go game against number one and number second player of Go.</li>
-<a name="Applications"></a>
-<h2>ML Applications</h2>
-<p>The machine learning concepts are growing every day and we can see its usages everywhere. Some of the real-world applications of ML are:</p>
-<li><b>Image recognition:</b><p>One example can be Facebook friends tagging suggestion that when we upload a photo with our Facebook friends, then we can see some labels suggestions with their names. This project is called Deep Face which uses face detection and recognition algorithms.</p></li>
-<li><b>Speech Recognition:</b><p>This project converts your voice to text and is also known as "Computer speech recognition." Some examples of this technology are Google assistant, Siri, Cortana, and Alexa.</p></li>
-<li><b>Traffic prediction:</b><p>Google Maps gathers data from all its users and sends them to its database and uses ML algorithms and technics to provide the shortest routes with the least traffic to its users.</p></li>
-<li><b>Product recommendations:</b><p>Amazon and Netflix use ML for their product recommendation systems. Every time a user opens an amazon page is able to see most relevant suggestion according to its last searches or other features that are used in dataset.</p></li>
-<a name="Types"></a>
-<h1>Types of Machine Learning</h1>
-<p>There are three major recognized categories for ML:</p>
-<img src= "./images/types_learning_1.png"></img>
-<a name="Supervised"></a>
-<h2>Supervised Learning</h2>
-<p>In this method computer is provided by a set of labeled (tagged) data which is called training data and tries to create a mathematical model according to it and learn to approximate the exact nature of the relationship between examples and their labels. By the time this process of training finished the supervised learning algorithm will be able to observe a new, never-before-seen example and predict a good label for it. Then we provide another set of data called sample data to test if the predictions are exact or not.  One example of supervised learning is Face Recognition that we have a system that takes a photo, finds faces, and guesses who that is in the photo (suggesting a tag) is a supervised process. It has multiple layers to it, finding faces and then identifying them, but is still supervised nonetheless.
-The supervised algorithms are grouped in two main categories:
-</p>
-<ul>
-    <li><b>Classification</b></li>
-    <li><b>Regression</b></li>
-</ul>
-<a name="Classification"></a>
-<h3>Classification</h3>
-<p>In this algorithm machine learns from given training data and identifies the category of input data and classifies it into number of groups or classes. The main difference of this method and regression is that the output of classification algorithm is a label or category, but the output of a regression algorithm is a value. The classifiers can be binary that means we have only two possible outcomes, or multi-class that means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:</p>
-<li><b>Lazy Learners:</b><ul><p>These learners find the most related data that is stored in our training dataset. First they store the training data and start the next phase when the test dataset arrives. In this method we reduce the training time but prediction time increases.  Some algorithms of this method are:</p>
-<li>K-NN algorithm</li>
-<li>b.	Case-based reasoning</li>
-</ul>    
-</li>
-<li><b>Eager Learners: </b><ul><p>In this method the learner creates a model according to the training dataset, so the training time is more than lazy learners but prediction is faster. Some algorithms of this method are:</p>
-<li>Decision Trees</li>
-<li>Naïve Bayes</li>
-<li>ANN</li>
-</ul>    
-</li>
-<a name="Naïve"></a>
-<h3>Naïve Bayes Classifier Algorithm</h3>
-<p>Naïve Bayes algorithm is a probabilistic classifier based on Bayes theorem and is used to solve classification problems. It is called naïve because it assumes that occurrence of a certain feature is independent of the occurrence of other features. It is also called Bayes because it depends on the principle of Bayes' Theorem.</p>
-<ul>
-<h4>Advantages of Naïve Bayes Classifier</h4>
-<ul>
-    <li>It is fast and not that much complicated.</li>
-    <li>It can be used for Binary as well as Multi-class Classifications.</li>
-    <li>It is the most popular choice for text classification problems.</li>
-</ul>
-<h4>Disadvantages of Naïve Bayes Classifier</h4>
-<ul>
-    <li>Naive Bayes assumes that all features are independent or unrelated, so it cannot learn the relationship between features. It can be helpful in some cases to consider features independent, but sometimes the results are not exact.</li>
-</ul>    
-</ul>    
-<a name="Unsupervised"></a>
-<h2>Unsupervised Learning</h2>
-<p>In this method our training dataset doesn’t contain labels and they have not been categorized. Instead, our algorithm would be fed a lot of data and given the tools to understand the properties of the data. In this case machine learns to group, cluster the data such that a human (or other intelligent algorithm) can come in and make sense of the newly organized data. In another word the goal of unsupervised learning is to find the underlying structure of dataset, group that data according to similarities, and represent that dataset in a compressed format.
-The supervised algorithms are grouped in two main categories:
-</p>
-<ul>
-    <li><b>Clustering</b></li>
-    <li><b>Association</b></li>
-</ul>    
+# Introduction
+Humans are capable of learning by experiencing, but how about computers? Can they learn from past data and make correct decisions for future situations?
+
+![](./images/intro_pic_1.png)
+
+Machine learning techniques allow computers to automatically learn from a dataset and improve its performance from experiences and enables them to predict things in a new situation without being explicitly programmed. Machine learning algorithms bring computer science and statistics together to build mathematical models from our dataset that is known as training data and use these models for future decision. The diagram below shows the ML algorithm:
+
+![](./images/intro_pic_2.png)
+
+## History
+The base idea behind machine learning has a long history, But the term of machine learning was first used by Arthur Samuel in 1959. Below we can see a timeline of ML in brief:
+
+*   **1834:** Charles Babbage made the first computer that could be programmed by punched cards and all modern computers followed its logical structure.
+*   **1936:** Alan Turing gave a theory about how machines can execute a set of instructions.
+*   **1940:** First manually operated computer named "ENIAC" was invented.
+*   **1943:** The first model of human neural network was modeled with electronic circuits.
+*   **1950:** "Computer Machinery and Intelligence," was published by Alan Turing on the topic of AI with this question, "Can machines think?".
+*   **1952:** Arthur Samuel created a program to play checkers for an IBM computer that could play better by playing more.
+*   **1959:** Arthur Samuel first used the term of “Machine Learning” and popularized it. In this year, the first neural network was used to solve a real-world problem to remove echoes over phone lines using an adaptive filter.
+*   **1974 to 1980:** These years are known as AI winter that lots of people lost their interest from AI and governmental funding reduced.
+*   **1985:** A neural network was developed named NETtalk that was able to correctly pronounce 20000 words in a week.
+*   **1997:** The IBM’s computer named Deep Blue won a chess game against human chess expert Garry Kasparov.
+*   **2006:** Geoffrey Hinton has first used name of "deep learning" instead of neural net research.
+*   **2012:** Google developed a deep neural network system to distinguish cat and human images in a YouTube video.
+*   **2016:** AlphaGo won a Go game against number one and number second player of Go.
+
+## ML Applications
 
 
+![](./images/intro_pic_3.png)
+
+The machine learning concepts are growing every day and we can see its usages everywhere. Some of the real-world applications of ML are:
+
+*   **Image recognition:**
+    
+    One example can be Facebook friends tagging suggestion that when we upload a photo with our Facebook friends, then we can see some labels suggestions with their names. This project is called Deep Face which uses face detection and recognition algorithms.
+    
+![](./images/intro_pic_4.png)
+*   **Speech Recognition:**
+    
+    This project converts your voice to text and is also known as "Computer speech recognition." Some examples of this technology are Google assistant, Siri, Cortana, and Alexa.
+    
+![](./images/intro_pic_5.png)
+*   **Traffic prediction:**
+    
+    Google Maps gathers data from all its users and sends them to its database and uses ML algorithms and technics to provide the shortest routes with the least traffic to its users.
+    
+![](./images/intro_pic_6.png)
+*   **Product recommendations:**
+    
+    Amazon and Netflix use ML for their product recommendation systems. Every time a user opens an amazon page is able to see most relevant suggestion according to its previous searches or other features that are used in dataset.
+    
+![](./images/intro_pic_7.png)
+
+# Types of Machine Learning
+
+
+There are three major recognized categories for ML:
+
+![](./images/types_learning_1.png)
+
+## Supervised Learning
+
+
+In this method computer is provided by a set of labeled (tagged) data which is called training data and tries to create a mathematical model according to it and learn to approximate the exact nature of the relationship between examples and their labels. By the time this process of training finished, the supervised learning algorithm will be able to observe a new, never-before-seen example and predict a good label for it. Then we provide another set of data called sample data to test if the predictions are exact or not. One example of supervised learning is Face Recognition that we have a system that takes a photo, finds faces, and guesses who that is in the photo (suggesting a tag) is a supervised process. It has multiple layers to it, finding faces and then identifying them, but is still supervised nonetheless. The supervised algorithms are grouped in two main categories:
+
+*   **Classification**
+*   **Regression**
+
+### Classification
+
+In this algorithm machine learns from given training data and identifies the category of input data and classifies it into number of groups or classes. The main difference of this method and regression is that classification is a process of finding a function which helps in dividing the dataset into classes based on different parameters, but regression is a process of finding the correlations between dependent and independent variables. The classifiers can be binary that means we have only two possible outcomes, or multi-class that means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:
+
+*   **Lazy Learners:**
+    
+    Lazy learning methods simply store the data and generalizing beyond these data is postponed until an explicit request is made. In this case we just store dataset without learning from it and start classifying data when test data is received. These learners find the most related data that is stored in our training dataset. First they store the training data and start the next phase when the test dataset arrives. In this method we reduce the training time but prediction time increases. Some algorithms of this method are:
+    
+    *   K-Nearest Neighbours algorithm
+    *   Case-based reasoning
+*   **Eager Learners:**
+    
+    Eager learning methods construct general (one-fits-all), explicit (input independent) description of the target function based on the provided training examples. In this method the learner creates a model according to the training dataset, so the training time is more than lazy learners but prediction is faster. Some algorithms of this method are:
+    
+    *   Decision Trees
+    *   Naïve Bayes
+    *   ANN
+
+### Naïve Bayes Classifier Algorithm
+
+Naïve Bayes algorithm is a probabilistic classifier based on Bayes theorem and is used to solve classification problems. It is called naïve because it assumes that occurrence of a certain feature is independent of the occurrence of other features. It is also called Bayes because it depends on the principle of Bayes' Theorem.
+
+A general naïve bayes model has the form below that Y is our label variable and F is our feature set:
+
+![](./images/bayes_net.png)
+
+As a result of bayes net above and bayes theorem we can say that:
+
+$P\\left(Y, F\_1, F\_2, ..., F\_n\\right) = P\\left(Y\\right)\\prod\_{i}P(F\_i|Y)$
+
+As we can use this equation for computing posterior distribution over label variable Y first by calculating joint probibility of evidence and label for each label using equation above second sum to get probability of evidence and then divide the first by second to calculate $P\\left(Y| F\_1, F\_2, ..., F\_n\\right)$ .
+The process can be seen in figure below:
+
+![](./images/naive_bayes_inference.png)
+
+#### Advantages of Naïve Bayes Classifier
+
+*   It is fast and not that much complicated.
+*   It can be used for Binary as well as Multi-class Classifications.
+*   It is the most popular choice for text classification problems.
+
+#### Disadvantages of Naïve Bayes Classifier
+
+*   Naive Bayes assumes that all features are independent or unrelated, so it cannot learn the relationship between features. It can be helpful in some cases to consider features independent, but sometimes the results are not exact.
+
+## Unsupervised Learning
+In this method our training dataset doesn’t contain labels and they have not been categorized. Instead, our algorithm would be fed a lot of data and given the tools to understand the properties of the data. In this case machine learns to group, cluster the data such that a human (or other intelligent algorithm) can come in and make sense of the newly organized data. In another word the goal of unsupervised learning is to find the underlying structure of dataset, group that data according to similarities, and represent that dataset in a compressed format. The unsupervised algorithms are grouped in two main categories:
+
+*   **Clustering**
+*   **Association**
 <a name="Bias"></a>
 <h1>Bias and Variance</h1>
 
 <p>
-if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors shows small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions</p>
+if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors causes small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions</p>
 <p> On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.</p>
 
 <a name="What"></a>
@@ -275,19 +312,21 @@ we use bayes formula for calculating posterior distribution.
 
 <p><br>in many cases we choose alpha-beta distribution for prior distribution</br></p>
 
-<a name="Handle"></a>
-<h1>Handle unseen events</h1>
 
-<p>One of the most important concepts in machine learning is to handle unseen events. To clarify, consider the following example.
-</p>
 
-<br>
 
-<p>
 
-Consider the vector $X=[x_1,x_2,x_3,x_4,x_5]$ and the following data as training dataset.</p>
 
-</br>
+
+
+
+
+# Handle unseen events
+
+One of the most important concepts in machine learning is to handle unseen events. To clarify, consider the following example.  
+
+Consider the vector $X=[x_1,x_2,x_3,x_4,x_5]$ and the following data as training dataset.  
+
 
 |    data     |    label    |
 | :-----------: | :-----------: |
@@ -302,68 +341,55 @@ Consider the vector $X=[x_1,x_2,x_3,x_4,x_5]$ and the following data as training
 |[0, 1, 1, 1, 1]|    b    |
 |[0, 0, 0, 1, 1]|    b    |
 
-<p>
-
-We want to predict the label of $[1, 1, 0, 0, 1]$ using a simple naïve Bayes model. First, we create a naïve Bayes model based on the training dataset.<p>
+We want to predict the label of $[1, 1, 0, 0, 1]$ using a simple naïve Bayes model. First, we create a naïve Bayes model based on the training dataset.  
     
-<img src='./images/naive_model_1.png'></img>
+![](./images/naive_model_1.png)
 
-<p>Now, we calculate the probability of each label based on the created naïve Bayes model.</p>
-
-</br>
-
-$P\left(label=a\right)\propto\frac{2}{5}\times\frac{2}{5}\times0\times1\times\frac{2}{5}=0$
-
-</br>
-
-$P\left(label=b\right)\propto0\times\frac{3}{5}\times\frac{3}{5}\times\frac{2}{5}\times1=0$
-
-<p>
-
-If you look at the naïve bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.</p>
-
-</br>
-
-<b>So, what would we do to handle this situation?</b>
-
-<a name="Laplace"></a>
-<h2>Laplace Smoothing</h2>
-<p>One of the most common methods to solve the above problem is using Laplace smoothing. Consider a bag of green and yellow balls. Suppose there are three green balls and no yellow balls in the bag. So, the probability of each color is:
-</p>
-<img src='./images/balls_1.png', width=200></img>
-
-$P\left(color=green\right)=1$
-
-</br>
-
-$P\left(color=yellow\right)=0$
-<p>Using Laplace smoothing, we pretend that we saw every outcome extra time. For the above example, by using Laplace smoothing with, the probabilities for each color are as follows:</p>
-<img src='./images/balls_2.png', width=350></img>
-
-$P\left(color=green\right)=\frac{4}{5}$
-
-</br>
-
-$P\left(color=yellow\right)=\frac{1}{5}$
-
-<p>In general:</p>
-
-$P_{LAP,k}\left(x\right)=\frac{c\left(x\right)+k}{N+k\left|X\right|}$
-
-</br>
-
-<p>And for conditional probabilities:</p>
-
-$P_{LAP,k}\left(x|y\right)=\frac{c\left(x,y\right)+k}{c\left(y\right)+k\left|X\right|}$
-
-<b>Using Laplace smoothing with large k is not appropriate as it ignores the prior belief.</b>
+Now, we calculate the probability of each label based on the created naïve Bayes model.  
 
 
-&nbsp;
+$P(label=a)\propto\frac{2}{5}\times\frac{2}{5}    \times0\times1\times\frac{2}{5}=0$  
 
-<p>
 
-Now, back to the label prediction example. We use Laplace smoothing with $k=1$ and calculate label probabilities again. We consider the following extra data:</p>
+$P(label=b)\propto0\times\frac{3}{5}\times\frac{3}{5}\times\frac{2}{5}\times1=0$
+
+
+If you look at the naïve bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  
+
+
+**So, what would we do to handle this situation?**
+
+## Laplace Smoothing
+
+One of the most common methods to solve the above problem is using Laplace smoothing. Consider a bag of green and yellow balls. Suppose there are three green balls and no yellow balls in the bag. So, the probability of each color is:  
+
+![](./images/balls_1.png)
+
+$P(color=green)=1$  
+
+$P(color=yellow)=0$  
+
+Using Laplace smoothing, we pretend that we saw every outcome extra time. For the above example, by using Laplace smoothing with, the probabilities for each color are as follows:  
+
+![](./images/balls_2.png)
+
+$P(color=green)=\frac{4}{5}$  
+
+
+$P(color=yellow)=\frac{1}{5}$  
+
+In general:  
+
+$P_{LAP,k}(x)=\frac{c(x)+k}{N+k|X|}$  
+
+And for conditional probabilities:  
+
+$P_{LAP,k}(x|y)=\frac{c(x,y)+k}{c(y)+k|X|}$  
+
+**Using Laplace smoothing with large k is not appropriate as it ignores the prior belief.**  
+
+
+Now, back to the label prediction example. We use Laplace smoothing with $k=1$ and calculate label probabilities again. We consider the following extra data:  
 
 |    data     |    label    |
 | :-----------: | :-----------: |
@@ -372,112 +398,78 @@ Now, back to the label prediction example. We use Laplace smoothing with $k=1$ a
 |[0, 0, 0, 0, 0]|    a    |
 |[0, 0, 0, 0, 0]|    b    |
 
-<img src='./images/naive_model_2.png'></img>
+![](./images/naive_model_2.png)
 
-$P\left(label=a\right)\propto\frac{3}{7}\times\frac{3}{7}\times\frac{1}{7}\times\frac{6}{7}\times\frac{3}{7}=\frac{162}{16807}$
-
-</br>
-
-$P\left(label=b\right)\propto\frac{1}{7}\times\frac{4}{7}\times\frac{4}{7}\times\frac{3}{7}\times\frac{6}{7}=\frac{288}{16807}$
+$P(label=a)\propto\frac{3}{7}\times\frac{3}{7}\times\frac{1}{7}\times\frac{6}{7}\times\frac{3}{7}=\frac{162}{16807}$  
 
 
-<a name="Linear"></a>
-<h2>Linear interpolation</h2>
+$P(label=b)\propto\frac{1}{7}\times\frac{4}{7}\times\frac{4}{7}\times\frac{3}{7}\times\frac{6}{7}=\frac{288}{16807}$  
 
 
-<p>
+## Linear interpolation
 
-In practice, Laplace smoothing often performs poorly for $P(X|Y)$ When $X$ or $Y$ is very large.
-
-</p>
+In practice, Laplace smoothing often performs poorly for $P(X|Y)$ When $X$ or $Y$ is very large.  
 
 
 
-<p>
-
-Another useful method is <b>linear interpolation</b>. Linear interpolation (also known as <b>Lerp</b>) is a method to find unknown values between two known points. The unknown values are approximated through Linear interpolation by connecting these two known points with a straight line.</p>
-
-<p>
-
-In this method, we consider both $p(x|y)$ and $p(x)$ to calculate the $p(x|y)$
-
-</p>
-
-</br>
-<p>In general:</p>
-
-$P_{LIN}\left(x\middle|\ y\right)=\alpha P\left(x\middle|\ y\right)+\left(1-\alpha\right)P\left(x\right),\ 0<\alpha<1$
-
-<p>By choosing an appropriate value for $\alpha$, we can handle unseen events.</p>
+Another useful method is **linear interpolation**. Linear interpolation (also known as **Lerp**) is a method to find unknown values between two known points. The unknown values are approximated through Linear interpolation by connecting these two known points with a straight line.  
 
 
-<a name="More"></a>
-<h1>More about dataset</h1>    
+In this method, we consider both $p(x|y)$ and $p(x)$ to calculate the $p(x|y)$  
 
-<p>
+In general:  
 
-In the last section, we learned about Laplace smoothing and linear interpolation. But how can we calculate appropriate values for $\alpha$ and k?</p>
+$P_{LIN}(x|y)=\alpha P(x|y)+(1-\alpha)P(x), 0<\alpha<1$  
 
-</br>
-
-<p>We introduce three datasets:</p>
-
-<a name="Training"></a>
-<h2>Training Dataset</h2>
-<b>The sample of data used to fit the model.</b>
-<p>The actual dataset that we use to train the model (weights and biases in the case of a Neural Network). The model sees and learns from this data.</p>
-
-<a name="Validation"></a>
-<h2>Validation Dataset</h2>
-<b>The sample of data used to provide an unbiased evaluation of a model fit on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as skill on the validation dataset is incorporated into the model configuration.</b>
-<p>The validation set is used to evaluate a given model, but this is for frequent evaluation. We, as machine learning engineers, use this data to fine-tune the model hyperparameters. Hence the model occasionally sees this data but never does it “Learn” from this. We use the validation set results and update higher-level hyperparameters. So, the validation set affects a model, but only indirectly. The validation set is also known as the Dev set or the Development set. This makes sense since this dataset helps during the “development” stage of the model. We use this dataset to calculate $\alpha$ and $k$.</p>
-
-</br>
-
-<img src='./images/diagram.png' style="width:400px;"/>
-
-</br>
-
-<a name="Test"></a>
-<h2>Test Dataset</h2>
-<b>The sample of data used to provide an unbiased evaluation of a final model fit on the training dataset.</b>
-<p>The Test dataset provides the gold standard used to evaluate the model. It is only used once a model is completely trained(using the train and validation sets). The test set is generally what is used to evaluate competing models (For example on many Kaggle competitions, the validation set is released initially along with the training set, and the actual test set is only released when the competition is about to close, and it is the result of the model on the Test set that decides the winner). Many times the validation set is used as the test set, but it is not good practice. The test set is generally well-curated. It contains carefully sampled data that spans the various classes that the model would face when used in the real world.</p>
-
-<a name="ratio"></a>
-<h2>About the dataset split ratio</h2>
-<p>Now that you know what these datasets do, you might be looking for recommendations on how to split your dataset into Train, Validation and Test sets.</p></br>
-<p>This mainly depends on 2 things. First, the total number of samples in your data and second, on the actual model you are training.</p></br>
-<p>Some models need substantial data to train upon, so in this case, you would optimize for the larger training sets. Models with very few hyperparameters will be easy to validate and tune, so you can probably reduce the size of your validation set, but if your model has many hyperparameters, you would want to have a large validation set as well(although you should also consider cross-validation). Also, if you happen to have a model with no hyperparameters or ones that cannot be easily tuned, you probably don’t need a validation set too!</p>
-
-<img src='./images/ratio.png' />
+By choosing an appropriate value for $\alpha$, we can handle unseen events.  
 
 
-<a name="Conclusion"></a>
-<h1>Conclusion</h1>
-<p>so in this chapter, we introduced key concepts of machine learning.
+# More about dataset
+
+In the last section, we learned about Laplace smoothing and linear interpolation. But how can we calculate appropriate values for $\alpha$ and k?  
+
+We introduce three datasets:  
+
+## Training Dataset
+
+**The sample of data used to fit the model.**
+The actual dataset that we use to train the model (weights and biases in the case of a Neural Network). The model sees and learns from this data.  
+
+## Validation Dataset
+**The sample of data used to provide an unbiased evaluation of a model fit on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as skill on the validation dataset is incorporated into the model configuration.**  
+The validation set is used to evaluate a given model, but this is for frequent evaluation. We, as machine learning engineers, use this data to fine-tune the model hyperparameters. Hence the model occasionally sees this data but never does it “Learn” from this. We use the validation set results and update higher-level hyperparameters. So, the validation set affects a model, but only indirectly. The validation set is also known as the Dev set or the Development set. This makes sense since this dataset helps during the “development” stage of the model. We use this dataset to calculate $\alpha$ and $k$.  
+
+![](./images/diagram.png)  
+
+## Test Dataset
+
+**The sample of data used to provide an unbiased evaluation of a final model fit on the training dataset.**  
+
+The Test dataset provides the gold standard used to evaluate the model. It is only used once a model is completely trained(using the train and validation sets). The test set is generally what is used to evaluate competing models (For example on many Kaggle competitions, the validation set is released initially along with the training set, and the actual test set is only released when the competition is about to close, and it is the result of the model on the Test set that decides the winner). Many times the validation set is used as the test set, but it is not good practice. The test set is generally well-curated. It contains carefully sampled data that spans the various classes that the model would face when used in the real world.  
+
+## About the dataset split ratio
+Now that you know what these datasets do, you might be looking for recommendations on how to split your dataset into Train, Validation and Test sets.  
+This mainly depends on 2 things. First, the total number of samples in your data and second, on the actual model you are training.  
+Some models need substantial data to train upon, so in this case, you would optimize for the larger training sets. Models with very few hyperparameters will be easy to validate and tune, so you can probably reduce the size of your validation set, but if your model has many hyperparameters, you would want to have a large validation set as well(although you should also consider cross-validation). Also, if you happen to have a model with no hyperparameters or ones that cannot be easily tuned, you probably don’t need a validation set too!  
+
+![](./images/ratio.png)
+
+
+# Conclusion
+so in this chapter, we introduced key concepts of machine learning.
 we learned about the applications of ML, supervised and unsupervised in ML, and some algorithms like naive Bayes.
 after these primary concepts, we learned about some problems like bias and variance and their relations to overfitting and underfitting.
 for parameter estimation, we learned two statistical approaches like Bayesian and frequentist approach and after that, we used these two frameworks and some formulas like Laplace and linear interpolation which are based on MLE and MAP.
-we also learned about how to work with datasets in machine learning</p>
+we also learned about how to work with datasets in machine learning.  
 
-<a name="References"></a>
-<h1>References</h1>
+# References
 
-[Gentle Introduction to the Bias-Variance Trade-Off in Machine Learning](https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/).
+[Gentle Introduction to the Bias-Variance Trade-Off in Machine Learning](https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/).  
 
-</br>
+[Understanding the Bias-Variance Tradeoff](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229).  
 
-[Understanding the Bias-Variance Tradeoff](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229).
+[Underfitting and Overfitting](https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/).  
 
-</br>
+[Probability concepts explained: Maximum likelihood estimation](https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1).  
 
-[Underfitting and Overfitting](https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/).
-
-</br>
-
-[Probability concepts explained: Maximum likelihood estimation](https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1).
-
-</br>
-
-[A Gentle Introduction to Maximum Likelihood Estimation and Maximum A Posteriori Estimation](https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-and-maximum-a-posteriori-estimation-d7c318f9d22d#:~:text=estimated%20with%20MLE.-,Maximum%20A%20Posteriori%20Estimation,when%20you%20have%20enough%20data.&text=For%20example%2C%20if%20Liverpool%20only,is%202%2F2%20%3D%201).
-
+[A Gentle Introduction to Maximum Likelihood Estimation and Maximum A Posteriori Estimation](https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-and-maximum-a-posteriori-estimation-d7c318f9d22d#:~:text=estimated%20with%20MLE.-,Maximum%20A%20Posteriori%20Estimation,when%20you%20have%20enough%20data.&text=For%20example%2C%20if%20Liverpool%20only,is%202%2F2%20%3D%201).  
