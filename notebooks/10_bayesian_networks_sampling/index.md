@@ -77,7 +77,7 @@ probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words,
 values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
 $c_1 = green$, $c_2 = red$ and $c_3 = blue$.
 
-![Partition of the Unit Length Segment](Images/Unit_Length_Segment_Partition.png "Partition of the Unit Length Segment")
+![Partition of the Unit Length Segment](./Images/Unit_Length_Segment_Partition.png "Partition of the Unit Length Segment")
 
 We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_i$. Since we chose the seed from a uniform distribution, it can be shown that the probability of the sample being equal to $c_i$ is $Pr(C=c_i)$.
 
@@ -126,7 +126,7 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 
 Take the following Bayes' net as an example.
 
-![Prior Sampling Bayes' Net Example](Images/General_Example_BN.png "Example Bayes' Net")
+![Prior Sampling Bayes' Net Example](./Images/General_Example_BN.png "Example Bayes' Net")
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -155,7 +155,7 @@ This algorithm is also consistent with the conditional probabilities.
 
 Take the following Bayes' net as an example.
 
-![Rejection Sampling Bayes' Net Example](Images/General_Example_BN.png "Example Bayes' Net")
+![Rejection Sampling Bayes' Net Example](./Images/General_Example_BN.png "Example Bayes' Net")
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -212,7 +212,7 @@ $$
 
 Take the following Bayes' net as an example.
 
-![Likelihood Weighting Bayes' Net Example](Images/General_Example_BN.png "Example Bayes' Net")
+![Likelihood Weighting Bayes' Net Example](./Images/General_Example_BN.png "Example Bayes' Net")
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -260,11 +260,11 @@ In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent t
 
 Take the following Bayes' net as an example.
 
-![Gibbs Sampling Bayes' Net Example](Images/Gibbs_Example_BN.png "Example Bayes' Net")
+![Gibbs Sampling Bayes' Net Example](./Images/Gibbs_Example_BN.png "Example Bayes' Net")
 
 Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown, in green, variables set to false in red and variables selected for resampling in yellow.
 
-![Gibbs Sampling Procedure](Images/Gibbs_Example_Procedure.png "Example Gibbs Sampling Procedure")
+![Gibbs Sampling Procedure](./Images/Gibbs_Example_Procedure.png "Example Gibbs Sampling Procedure")
 
 As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
 $$
