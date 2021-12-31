@@ -109,7 +109,7 @@ Bayes nets is a technique for describing complex joint distributions or models u
 Bayesian net's graphical notation consists of a graph, and one conditional probability table for each dependency.
 
 - Each graph node represents a variable . Each variable can be either assigned (observed) or unassigned (unobserved). Note that being observed or not has nothing to do with the variable's domain being binary or not.
-- Each graph arc represents an interaction. These arcs are pretty similar to what we saw in previous lecture notes about CSP constraints which indicate direct influence between variables. And there are formally, it means the arcs encode conditional independence.
+- Each graph arc represents an interaction. These arcs are pretty similar to what we saw in previous lecture notes about CSP constraints which indicate direct influence between variables. Formally, the arcs encode conditional dependence.
 
 ![image](https://user-images.githubusercontent.com/44923177/146651162-96c91d1f-9f38-4825-9d6f-983f36aca273.png)
 
