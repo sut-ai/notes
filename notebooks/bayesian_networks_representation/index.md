@@ -36,7 +36,7 @@ Imagine this scenario. You want to know if the food in your fridge is going to s
 
 ### Probabilistic Models
 
-So, what is a probabilistic model? A model is a simplification of the real world; it describes how portions of the world work. Since models are simplifications, they do not contain all the details and may not account for every variable or interaction between variables. As George E. P. Box, a British statistician one said: "All models are wrong; but some are useful."
+So, what is a probabilistic model? A model is a simplification of the real world; it describes how portions of the world work. Since models are simplifications, they do not contain all the details and may not account for every variable or interaction between variables. As George E. P. Box, a British statistician once said: "All models are wrong; but some are useful."
 
 We use probabilistic models to reason about unknown variables, given evidences. This can be done in three ways:
 
