@@ -106,8 +106,10 @@ Bayes nets is a technique for describing complex joint distributions or models u
 
 ### Graphical Notation
 
-- There are some nodes related to variables (with domains). This nodes can be assigned (observed) or unassigned (unobserved)
-- There are some arcs equales to interactions. This nodes are similar to CSP constraints and indicate direct influence between variables. And there are formally, it means the ares encode conditional independence.
+Bayesian net's graphical notation consists of a graph, and one conditional probability table for each dependency.
+
+- Each graph node represents a variable . Each variable can be either assigned (observed) or unassigned (unobserved). Note that being observed or not has nothing to do with the variable's domain being binary or not.
+- Each graph arc represents an interaction. These arcs are pretty similar to what we saw in previous lecture notes about CSP constraints which indicate direct influence between variables. And there are formally, it means the arcs encode conditional independence.
 
 ![image](https://user-images.githubusercontent.com/44923177/146651162-96c91d1f-9f38-4825-9d6f-983f36aca273.png)
 
@@ -118,9 +120,9 @@ Bayes nets is a technique for describing complex joint distributions or models u
 In this picture there are a set of nodes, one per variable X. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
 
 ### Probabilities in Bayes' Nets
- in BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
+ In BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities.
 ![joint](assets/joint.png) <br/>
- in the following part, we will prove this method is correct.<br/>
+ In the following part, we will prove this method is correct.<br/>
  First note the chain rule applied to each distribution:
 ![chain](assets/chain.png) <br/>
  Now with respect to conditional independence, we can claim that:
