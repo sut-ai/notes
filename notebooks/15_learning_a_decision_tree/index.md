@@ -1,3 +1,5 @@
+<div align="justify">
+
 # Learning a Decision Tree (Classification)
 
 ## Table of Content
@@ -363,3 +365,5 @@ methods that employ a preference bias).
 - T, S. (2019, January 11), *[Entropy: How Decision Trees Make Decisions](https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8).* Towards data science.
 
 - Duignan, B. (1998, July 1998), *[Occam's razor](https://www.britannica.com/topic/Occams-razor).* Britannica.
+
+</div>
