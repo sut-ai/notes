@@ -99,7 +99,7 @@ These independencies can be derived from bayes' nets. This will come in handy wh
 ### Problems with joint distribution tables
 
 There are two problems with using full joint distribution tables as our probabilistic models:
-1. Unless there are only a few variables, the joint is WAY too  big to represent explicitly.
+1. Unless there are only a few variables, the joint is WAY too  big to represent explicitly (With 2 to the power of n rows from n variables).
 2. Hard to learn (estimate) anything empirically about more than a few variables at a time.
 
 Bayes nets is a technique for describing complex joint distributions or models using simple and local distributions.
