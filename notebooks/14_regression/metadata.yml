@@ -1,0 +1,40 @@
+title: Regression
+
+header:
+  title: Regression
+
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+    - name: Mehrshad Mirmohammadi
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/Helium-5
+        - icon: fas fa-envelope
+          link: mailto:mehrshad.mirmohammadi@gmail.com
+
+    - name: Nazanin Azarian
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/Nazhixx
+        - icon: fas fa-envelope
+          link: mailto:badi.mojgan@gmail.com
+          
+    - name: Pouya Esmaili
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/PouyaEsmaili
+        - icon: fas fa-envelope
+          link: mailto:poesmaili@gmail.com
+
+    - name: Nima Jamali
+      role: Supervisor
+      contact:
+        - icon: fas fa-envelope
+          link: mailto:nimxj4141@gmail.com
