@@ -1,6 +1,33 @@
 # Regression
 
-# Contents
+# Table of Contents
+
+- [Regression](#regression)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [1 - What is regression ?](#1---what-is-regression-)
+  - [Problem definition](#problem-definition)
+- [2 - Linear Regression](#2---linear-regression)
+  - [Loss Function](#loss-function)
+    - [Mean Squared Error (MSE)](#mean-squared-error-mse)
+  - [Finding $\hat{w}$](#finding-hatw)
+    - [Gradient Descent](#gradient-descent)
+    - [Normal Equation](#normal-equation)
+- [3 - Learning Curves Using Polynomials](#3---learning-curves-using-polynomials)
+  - [Reduction to Linear Regression](#reduction-to-linear-regression)
+  - [Overfitting](#overfitting)
+    - [Using Validation Set (Held-Out Data)](#using-validation-set-held-out-data)
+    - [Regularization](#regularization)
+- [4 - Regularization](#4---regularization)
+  - [ridge (OPTIONAL)](#ridge-optional)
+  - [lasso (OPTIONAL)](#lasso-optional)
+  - [elastic (OPTIONAL)](#elastic-optional)
+- [5 - Logistic Regression](#5---logistic-regression)
+  - [How to calculate probabilities:](#how-to-calculate-probabilities)
+  - [defining line _l_ and cost function $J(\theta)$:](#defining-line-l-and-cost-function-jtheta)
+  - [Training:](#training)
+- [Conclusion](#conclusion)
+- [Refrences](#refrences)
 
 # Introduction
 We have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial which fits our training data perfectly. But the problem is that, interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.
