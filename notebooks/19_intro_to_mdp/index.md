@@ -41,19 +41,19 @@ A representation of the environment's features at a specific time is called stat
 
 As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated} .Notice that overheated is a terminal state.
 
-<center>
+<p align="center">
 <image src="./cool.jpg">
 <image src="./warm.jpg">
 <image src="./overheated.jpg">
-</center>
+</p>
 
 ### Actions
 
 Actions are set of operations an agent is allowed to do in the given environment. The set of actions is usually shown with $A$. In the robot car example, the machine can increase or decrease its speed. So the actions' set would be {slow, fast}
 
-<center>
+<p align="center">
 <image src="./action.jpg">
-</center>
+</p>
 
 ### Transition Model
 
@@ -67,9 +67,9 @@ Environments can be divided to two types according to their transition models.
 In the machine robot example, we assume that the environment is stochastic. The probability of transitions is determined based on the current state, action, and next state.
 One of the possible transitions is shown in the figure below.
 
-<center>
+<p align="center">
 <image src="./transition.jpg">
-</center>
+</p>
 
 ### Rewards
 
@@ -82,9 +82,9 @@ Usually the performance of the agent, which is also called *utility*, is measure
 
 In the robot car example, the robot must reach its destination as quickly as possible, so the high-speed reward must be considered more than the low-speed, e.g. +2 and +1 may be considered. But reward should be assigned in a way to prevent the robot from going to overheated state. So -10 is assigned to entering the overheated state.
 
-<center>
+<p align="center">
 <image src="./reward.jpg">
-</center>
+</p>
 
 ### Formalization
 
@@ -117,9 +117,9 @@ In expectimax tree the path which leads to the most reward is desired. MDP probl
 
 In the robot car example, the search is as shown below.
 
-<center>
+<p align="center">
 <image src="./tree.png">
-</center>
+</p>
 
 ## Utilities of Sequences
 
