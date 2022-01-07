@@ -36,7 +36,7 @@ In this lecture, we are going to talk about two different methods for solving MD
 
 <div id='value_iteration'><h1> Value Iteration </h1></div>
 
-<img src='./images/value_iteration.png' width='400'/>
+<center><img src='images/value_iteration.png' width='400'/></center>
 
 The Bellman equation is the basis of the **value iteration** algorithm for solving MDPs. We would like to solve these simultaneous equations to find the utilities. One thing to try is an iterative approach. We start with arbitrary initial values for the utilities, calculate the right-hand side of the equation, and plug it into the left-hand side. Thereby updating the utility of each state from the utilities of its neighbors. We repeat this until we reach an equilibrium.
 
@@ -187,7 +187,7 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
 
 <div id='pe'><h2>Policy Evaluation</h2></div>
 
-<img src='./images/policy_evaluation.png' width='300'/>
+<img src='images/policy_evaluation.png' width='300'/>
 
 > <div id='fp'><h3>Fixed Policy</h3></div>
 
@@ -198,7 +198,7 @@ Back to expectimax tree, there was different actions for node s, so we had diffe
     $V^{\pi}(s) \leftarrow \Sigma_{s'} {T(s,\pi(s),s')} \Big [R(s,\pi(s),s') + {\gamma}V^{\pi}_{k}(s') \Big]$
 </center>
 
-<img src='./images/fixed_policy2.png' width='600'/>
+<img src='images/fixed_policy2.png' width='600'/>
 
 **Idea:** Calculate values for the fixed policy:
 
@@ -210,7 +210,7 @@ $V_{K+1}^{\pi}(s) \leftarrow \Sigma_{s'} {T(s,\pi(s),s')} \Big [R(s,\pi(s),s') +
 
 <div id='pe'><h2>Policy Extraction (Improvement)</h2></div>
 
-<img src='./images/policy_extraction.png' width='300'/>
+<img src='images/policy_extraction.png' width='300'/>
 
 > <div id='pi_cafv'><h3>Computing Actions from Values</h3></div>
 
@@ -242,7 +242,7 @@ for each state we compute all the calcaulations and take max on different action
 
 <div id='pis'><h2>Policy Iteration Summary</h2></div>
 
-<img src='./images/policy_iteration.png' width='300'/>
+<img src='images/policy_iteration.png' width='300'/>
 
 The policy iteration algorithm alternates the following two steps, beginning from some initial policy $\pi_0$
 
