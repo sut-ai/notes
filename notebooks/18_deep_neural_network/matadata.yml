@@ -7,24 +7,31 @@ header:
 authors:
     label: 
         position: top
+    kind: people
     content:
     # list of notebook authors
      - name: Parham Chavoshian # name of author
-     role: Author
-     - name: Amirhossein Javadi # name of author
-     role: Author
-     - name: Dariush Amiri # name of author
-      role: Author # change this if you want
-      contact:
+       role: Author
+       contact:
       # list of contact information
-      - link: https://github.com/parhampch
-      - link: https://github.com/Amirhosein-javadi
-      - link: https://github.com/dariusamiri
-        icon: fab fa-github
-      # optionally add other contact information like  
+       - link: https://github.com/parhampch
        - link: parhampch@gmail.com # contact link
+         icon: fab fa-github
+     - name: Amirhossein Javadi # name of author
+       role: Author
+       contact:
+      # list of contact information
+       - link: https://github.com/Amirhosein-javadi
        - link: javadiamirhosein.2000@gmail.com # contact link
+         icon: fab fa-github
+     - name: Dariush Amiri # name of author
+       role: Author # change this if you want
+       contact:
+      # list of contact information
+       - link: https://github.com/dariusamiri
        - link: dariush_amiri7@yahoo.com # contact link
+         icon: fab fa-github
+      # optionally add other contact information like  
       #   icon: <change this> # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
 
 comments:
