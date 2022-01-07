@@ -1,0 +1,43 @@
+title: LN | Deep Neural Networks
+header:
+  title: <p>Deep Neural Networks (CNNs,...)</p>
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+  - name: Mahdi Salmani
+    role: Author
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:m10.salmani@gmail.com
+    kind: person
+  - name: Parsa Hosseini
+    role: Author
+    image: /notes/assets/parsa_hosseini.jpg
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/sudoparsa
+    - icon: fas fa-envelope
+      link: mailto:sp.hoseiny@gmail.com
+    kind: person
+  - name: Alireza Dehghanpour Farashah
+    role: Author
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:alirezafarashah@gmail.com
+    kind: person
+  - name: Ali J. Alaee
+    role: Supervisor
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/aliash98
+    - icon: fas fa-envelope
+      link: mailto:alialaee98@gmail.com
+    kind: person
+    image: https://github.com/aliash98.png
+kind: Content
+search:
+  content: true
+  links: false

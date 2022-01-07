@@ -1,0 +1,45 @@
+title: LN | Uninformed Search
+header:
+  title: <p>Uninformed Search</p>
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+  - name: Fatemeh Khashei
+    role: Author
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/fatteme
+    - icon: fas fa-envelope
+      link: mailto:fatt3me@gmail.com
+    kind: person
+    image: https://github.com/fatteme.png
+  - name: Hossein Sobhi
+    role: Author
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:hoseinsobhi@gmail.com
+    kind: person
+  - name: Ali Asghar Ghanati
+    role: Author
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:a.a.ghanati@gmail.com
+    kind: person
+  - name: Zeinab Sadat Saghi
+    role: Supervisor
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/atenasadat
+    - icon: fab fa-linkedin
+      link: https://www.linkedin.com/in/atena-saghi/
+    - icon: fas fa-envelope
+      link: mailto:atenasaghi@ce.sharif.edu
+    kind: person
+    image: https://github.com/atenasadat.png
+kind: Content
+search:
+  content: true
+  links: false

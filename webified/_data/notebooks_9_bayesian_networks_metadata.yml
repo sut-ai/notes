@@ -1,0 +1,46 @@
+title: LN | Bayesian Networks
+header:
+  title: <p>Bayesian Networks Representation</p>
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+  - name: Mohammad Mahdi Behnasr
+    role: Author
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/mbehnasr
+    - icon: fas fa-envelope
+      link: mailto:sm.m.behnasr.2000@gmail.com
+    kind: person
+    image: https://github.com/mbehnasr.png
+  - name: Amin Meghrazi
+    role: Author
+    image: /notes/assets/amin_meghrazi.jpg
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/aminmgh
+    - icon: fas fa-envelope
+      link: mailto:aminmeghrazi7899@gmail.com
+    kind: person
+  - name: Reza Abdollahzadeh
+    role: Author
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/re0078
+    - icon: fas fa-envelope
+      link: mailto:reza.abdollahzadeh12@gmail.com
+    kind: person
+    image: https://github.com/re0078.png
+  - name: Mahdi Ghaznavi
+    role: Supervisor
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:ghaznavi.mahdi@gmail.com
+    kind: person
+kind: Content
+search:
+  content: true
+  links: false

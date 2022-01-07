@@ -1,0 +1,38 @@
+title: LN | Reinforcement Learning
+header:
+  title: <p>Reinforcement Learning</p>
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+  - name: Mohammad Ali Seif Kashani
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:seifkashani14@gmail.com
+    kind: person
+  - name: Ali Shirmohammadi
+    role: Author
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:ali.shirmohammadi2000@gmail.com
+    kind: person
+  - name: Mohammad Hossein Gheysariyeh
+    role: Author
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:mgheysariyeh@gmail.com
+    kind: person
+  - name: Sepehr Amini Afshar
+    role: Supervisor
+    contact:
+    - icon: fas fa-envelope
+      link: mailto:sepehramini83@gmail.com
+    - icon: fab fa-linkedin
+      link: https://www.linkedin.com/in/sepehr-amini-afshar-2201381b8/
+    kind: person
+kind: Content
+search:
+  content: true
+  links: false

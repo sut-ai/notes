@@ -1,0 +1,49 @@
+title: LN | Neural Networks & MLPs
+header:
+  title: <p>Neural Networks &amp; MLPs</p>
+authors:
+  label:
+    position: top
+    text: Authors
+  kind: people
+  content:
+  - name: Mahya Qorbani
+    role: Author
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/mahyaqorbani
+    - icon: fas fa-envelope
+      link: mailto:Mahya.qorbani29@gmail.com
+    kind: person
+    image: https://github.com/mahyaqorbani.png
+  - name: Pouyan Sajadi
+    role: Author
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/pouyan-sajadi
+    - icon: fas fa-envelope
+      link: mailto:pouyan.sajadi@gmail.com
+    kind: person
+    image: https://github.com/pouyan-sajadi.png
+  - name: Mohammad Hossein Shahmoradi
+    role: Author
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/mohammad444t
+    - icon: fas fa-envelope
+      link: mailto:mohammad444t@gmail.com
+    kind: person
+    image: https://github.com/mohammad444t.png
+  - name: Nima Jamali
+    role: Supervisor
+    contact:
+    - icon: fab fa-github
+      link: https://github.com/nimajam41
+    - icon: fas fa-envelope
+      link: mailto:nimxj4141@gmail.com
+    kind: person
+    image: https://github.com/nimajam41.png
+kind: Content
+search:
+  content: true
+  links: false
