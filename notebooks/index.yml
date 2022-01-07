@@ -55,5 +55,7 @@ notebooks:
     #- notebook: notebooks/17_markov_decision_processes/
     - notebook: notebooks/18_reinforcement_learning/
       kind: S2021, LN, Notebook
-    - notebook: notebooks/22_reinforcement_learning_from_q_value_till_the_end/
+    - md: notebooks/22_reinforcement_learning_from_q_value_till_the_end/index.md
       kind: F2021, LN, Notebook
+      metadata: notebooks/22_reinforcement_learning_from_q_value_till_the_end/metadata.yml
+      text: Reinforcement Learning (from Q-Value till the End)
