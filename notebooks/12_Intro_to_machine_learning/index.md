@@ -17,7 +17,7 @@
     3. [and how to prevent overfitting?](#and-how-to-prevent-overfitting)
 5. [Parameter Estiamtion](#parameter-estiamtion)
     1. [What is MLE?](#what-is-mle)
-    2. [Waht is MAP?](#waht-is-map)
+    2. [What is MAP?](#what-is-map)
 6. [Handle unseen events](#handle-unseen-events)
     1. [Laplace Smoothing](#laplace-smoothing)
     2. [Linear interpolation](#linear-interpolation)
@@ -74,7 +74,7 @@ The machine learning concepts are growing every day and we can see its usages ev
 ![](./images/intro_pic_5.png)
 *   **Traffic prediction:**
     
-    Google Maps gathers data from all its users and sends them to its database and uses ML algorithms and technics to provide the shortest routes with the least traffic to its users.
+    Google Maps gathers data from all its users and sends them to its database and uses ML algorithms and techniques to provide the shortest routes with the least traffic to its users.
     
 ![](./images/intro_pic_6.png)
 *   **Product recommendations:**
@@ -126,9 +126,9 @@ A general naïve bayes model has the form below that Y is our label variable and
 
 As a result of bayes net above and bayes theorem we can say that:
 
-$P\\left(Y, F\_1, F\_2, ..., F\_n\\right) = P\\left(Y\\right)\\prod\_{i}P(F\_i|Y)$
+$P(Y, F_1, F_2, ..., F_n) = P(Y)\prod_{i}P(F_i|Y)$
 
-As we can use this equation for computing posterior distribution over label variable Y first by calculating joint probibility of evidence and label for each label using equation above second sum to get probability of evidence and then divide the first by second to calculate $P\\left(Y| F\_1, F\_2, ..., F\_n\\right)$ .
+As we can use this equation for computing posterior distribution over label variable Y first by calculating joint probibility of evidence and label for each label using equation above second sum to get probability of evidence and then divide the first by second to calculate $P(Y| F_1, F_2, ..., F_n)$ .
 The process can be seen in figure below:
 
 ![](./images/naive_bayes_inference.png)
@@ -151,7 +151,7 @@ In this method our training dataset doesn’t contain labels and they have not b
 # Bias and Variance
 
 
-if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors causes small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions.  
+if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two error cause small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions.  
 On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.
 
 ## What is Bias?
@@ -291,7 +291,7 @@ $\begin{align}
 
 Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable  
 
-## Waht is MAP?
+## What is MAP?
 
 we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
 
@@ -482,4 +482,4 @@ we also learned about how to work with datasets in machine learning.
 
 [Probability concepts explained: Maximum likelihood estimation](https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1).  
 
-[A Gentle Introduction to Maximum Likelihood Estimation and Maximum A Posteriori Estimation](https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-and-maximum-a-posteriori-estimation-d7c318f9d22d#:~:text=estimated%20with%20MLE.-,Maximum%20A%20Posteriori%20Estimation,when%20you%20have%20enough%20data.&text=For%20example%2C%20if%20Liverpool%20only,is%202%2F2%20%3D%201).  
+[A Gentle Introduction to Maximum Likelihood Estimation and Maximum A Posteriori Estimation](https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-and-maximum-a-posteriori-estimation-d7c318f9d22d#:~:text=estimated%20with%20MLE.-,Maximum%20A%20Posteriori%20Estimation,when%20you%20have%20enough%20data.&text=For%20example%2C%20if%20Liverpool%20only,is%202%2F2%20%3D%201).
