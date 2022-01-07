@@ -5,7 +5,12 @@
 # Introduction
 We have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial which fits our training data perfectly. But the problem is that, interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.
 
-# Linear Regression
+# 1 - What is regression ?
+
+## Problem definition
+
+# 2 - Linear Regression
+
 Here, we want to assign $f(x)$ to each data point $x$. In linear regression, we assume $f$ is a linear function. We can define $f$ as
 
 $$
@@ -44,6 +49,8 @@ $$
 The main reason for using this function is that we can calculate gradient easily. So we can use gradient descent to find $\hat{w}$.
 
 ## Finding $\hat{w}$
+
+### Gradient Descent
 We want to use gradient descent to find $\hat{w}$. First, we need to calculate $\nabla_w L(y_w, \hat{y})$ because it's used in the gradient descent method. The partial derivitives for MSE are:
 
 $$
@@ -66,23 +73,20 @@ $$
 
 where $\eta$ is the learning rate.
 
-# N'th Order Polynomial
+### Normal Equation
+If we define
 
-# --------------------------------------------------------------------------
+$$
+    X = \begin{bmatrix}
+        x^{(1)} \\ \vdots \\ x^{(m)}
+    \end{bmatrix}
+$$
 
-# Logistic Regression
-
-# 1 - What is regression ?
-
-## Problem definition
-
-# 2 - Linear Regression
-
-## definitions
-
-## closed form equation
-
-## Solving using GD
+and solve the equation $\nabla_w MSE = 0$, we get the normal equation. It's defined as
+$$
+    \hat{w} = (X^TX)^{-1} X^T \hat{y}.
+$$
+However, for using this equation, our features must be linearly independent. Otherwise, $(X^TX)^{-1}$ is not defined. In that case we can use pseudo inverse of $X^TX$ instead of the $(X^TX)^{-1}$. Since the calculation of inverse is computationaly inefficient, we usually prefer using gradient descent. 
 
 # 3 - Learning Curves using Polynomials
 
