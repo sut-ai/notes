@@ -104,9 +104,9 @@ By combining the concepts which were explained above the complete formulation fo
 
 The policy is a function that takes the state as an input and outputs the action to be taken. Policy $\pi : S \rightarrow A$ is a set of commands that the agent follows.
 
-The policy which maximizes the expected utility among all the possible policies is called optimal policy and shown with $\pi\star$.
+The policy which maximizes the expected utility among all the possible policies is called optimal policy and shown with $\pi^\star$.
 
-Finding $\pi\star$ is usually referred to as solving the MDP. There are different algorithms which attempt to find $\pi\star$ such as value iteration and policy evaluation.
+Finding $\pi^\star$ is usually referred to as solving the MDP. There are different algorithms which attempt to find $\pi^\star$ such as value iteration and policy evaluation.
 
 ## MDP Search Trees
 
@@ -151,17 +151,17 @@ This means that if a sequence is preferred to another, it is also preferred afte
 Due to previous discussions, now objective is to find policy that maximizes expected discounted utility.
 $$ max_\pi E \Bigg[ \sum_{i=0}^\infty \gamma^ir_i \Bigg] $$
 
-Consider $V\star(s)$ as expected utility starting from state $s$ and act according to $\pi\star$, the optimal policy.
+Consider $V^\star(s)$ as expected utility starting from state $s$ and act according to $\pi^\star$, the optimal policy.
 
-$Q\star(s, a)$ is the expected utility starting from state $s$ then performing action $a$ and after that acting according to $\pi\star$.
+$Q^\star(s, a)$ is the expected utility starting from state $s$ then performing action $a$ and after that acting according to $\pi^\star$.
 
-By considering all forward steps and choosing the step which maximizes the utility, $V\star$ can be formulated as
-$$ V\star(s) = max_a Q\star(s, a) . $$
-Then by calculating expectation on earned utility by marginalizing on all possible next states which can be succeeded after action $a$ in state $s$, $Q\star$ will be written as
-$$ Q^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V\star(s') \big].$$
+By considering all forward steps and choosing the step which maximizes the utility, $V^\star$ can be formulated as
+$$ V^\star(s) = max_a Q^\star(s, a) . $$
+Then by calculating expectation on earned utility by marginalizing on all possible next states which can be succeeded after action $a$ in state $s$, $Q^\star$ will be written as
+$$ Q^^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big].$$
 
-Since $V\star$ and $Q\star$ are jointly recursive, It is possible to replace $Q\star$ with $V\star$.
-$$ V\star(s) = max_a \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V\star(s') \big] $$
+Since $V^\star$ and $Q^\star$ are jointly recursive, It is possible to replace $Q^\star$ with $V^\star$.
+$$ V^\star(s) = max_a \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big] $$
 
 Equation above is called as *bellman equation*.
 
@@ -176,9 +176,9 @@ Solving bellman equation via tree has two major problems:
 
 An approach to solve this problem is to try solving the problem in $k$ steps which converge to final answer instead of one-shot solving.
 
-Instead of $V\star(s)$, Consider $V_k(s)$ which is the expected utility starting from state $s$ and acting according to $\pi\star$ with consideration that the process will be terminated after $k$ steps. The idea is that with the growth of $k$, $V_k$ will converge to $V\star$ so an approximate solution to the equations system can be obtained.
+Instead of $V^\star(s)$, Consider $V_k(s)$ which is the expected utility starting from state $s$ and acting according to $\pi^\star$ with consideration that the process will be terminated after $k$ steps. The idea is that with the growth of $k$, $V_k$ will converge to $V^\star$ so an approximate solution to the equations system can be obtained.
 
-Equations below are the limited form of what was discussed about $V\star$ and $Q\star$ above.
+Equations below are the limited form of what was discussed about $V^\star$ and $Q^\star$ above.
 $$ V_{k+1}(s) = max_a Q_k(s, a) $$
 $$ Q_k(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V_k(s') \big]$$
 
