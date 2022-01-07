@@ -5,7 +5,13 @@
     </font>
     </div>
 
+<br/>
+
+<br/>
+
 <h1> Table of Contents </h1>
+
+<br/>
 
 - [Introduction](#introduction)
 - [Value Iteration](#value_iteration)
@@ -28,16 +34,22 @@
 
 ---
 
+<br/>
+
 <div id='introduction'><h1> Introduction </h1></div>
+
+<br/>
 
 In the previous lecture, you became familiar with what MDP is. As you know, MDP can be remembered as a mathematical framework used for modeling decision-making problems. Usually, an agent can do some actions, but the outcomes are stochastic and not entirely controllable. The goal is to decide the best action to select based on his current state. It’s better to know MDP before Reinforcement Learning.
 
 In this lecture, we are going to talk about two different methods for solving MDPs. These two methods are value iteration and policy iteration. Stay with us.
 
 
----
+<br/>
 
 <div id='value_iteration'><h1> Value Iteration </h1></div>
+
+<br/>
 
 <center><img src='images/value_iteration.png' width='400'/></center>
 
@@ -50,8 +62,12 @@ U_{i+1}(s) = \max_{a \in A(s)} \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\pr
 $$     
 where the update is assumed to be applied simultaneously to all the states at each iteration. If we apply the Bellman update infinitely often, we are guaranteed to reach an equilibrium, In fact, they are also the unique solutions, and the corresponding policy is optimal.
 
+<br/>
+
 <div id='vi_convergence' style="color:#33013d;"><h2> Convergence of Value Iteration </h2></div>
 
+
+<br/>
 
 Suppose we view the Bellman update as an operator $B:\mathbb{R}^{\lvert S\lvert}\rightarrow \mathbb{R}^{\lvert S\lvert}$ that maps functions to functions. Then as a result of Bellman equation $U^{*} = B U^{*}$ that $U^{*}$ is the optimal utility function and the Bellman update equation can be written as $U_{i+1} = B U_{i}$.
 
@@ -129,7 +145,11 @@ $$
 $$
 Thus, if $\delta \leq \frac{1 - \gamma}{\gamma} \epsilon$, then $\Vert U_{i+1} - U^* \Vert \leq \epsilon$.
 
+<br/>
+
 <div id='vi_code' style="color:#33013d;"><h2> Value Iteration pseudocode </h2></div>
+
+<br/>
 
 **function** Value-Iteration(MDP,$\epsilon$) returns a utility function     
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
@@ -182,9 +202,11 @@ Figure shows how $N$ varies with $\gamma$, for different values of the ratio $c 
 
 Time complexity of each iteration of value iteration is $O(\lvert S\rvert^{2} \lvert A\rvert)$. Thus, time complexity of value iteration is $O \Big (\lvert S\rvert^{2} \lvert A\rvert \Big \lceil \frac{\log{(\frac{R_{max}}{\epsilon (1-\gamma)})}}{\log{(\frac{1}{\gamma})}} \Big \rceil \Big )$
 
----
+<br/>
 
 <div id='pi'><h1>Policy Iteration</h1></div>
+
+<br/>
 
 In the previous section, we observed that it is possible to get an optimal policy even when the utility function estimate is inaccurate.
 If one action is clearly better than all others, then the exact magnitude of the utilities on the states involved need not be precise. 
@@ -197,7 +219,11 @@ Once a policy, $\pi_0$ (could be initialized random), has been improved using $U
 
 Each policy is guaranteed to be a strict improvement over the previous one (unless it is already optimal). Because a finite MDP has only a finite number of policies, this process must converge to an optimal policy and optimal value function in a finite number of iterations.
 
+<br/>
+
 <div id='pe' style="color:#33013d;"><h2>Policy Evaluation</h2></div>
+
+<br/>
 
 <center><img src='./images/policy_evaluation.png' width='300'/></center>
 
@@ -220,7 +246,11 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
 
 **Efficiency:** for each state we compute all the calculation which is the above equation. Thus order is $O(\lvert S\rvert^{2})$ per interation.
 
+<br/>
+
 <div id='pex' style="color:#33013d;"><h2>Policy Extraction (Improvement)</h2></div>
+
+<br/>
 
 <center><img src='./images/policy_extraction.png' width='300'/></center>
 
@@ -252,7 +282,11 @@ actions are easier to select from q-values than values.
 **Efficiency:**
 for each state we compute all the calcaulations and take max on different actions. so order is $O(\lvert S\rvert^{2} \lvert A\rvert)$ in one-step.
 
+<br/>
+
 <div id='pis' style="color:#33013d;"><h2>Policy Iteration Summary</h2></div>
+
+<br/>
 
 <center><img src='./images/policy_iteration.png' width='300'/></center>
 
@@ -296,7 +330,7 @@ When algorithm stops changing utility, because we know that the utility function
 
 <div id='pi_code' style="color:#33013d;"><h2> Policy-Iteration pseudocode </h2></div>
 
----
+<br/>
 
 **function** Q-Value(MDP, $s, a, U$) **returns** a utility value <br/>
 &emsp; $\Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{*}(s') \Big]$
@@ -344,9 +378,10 @@ Can converge mush faster under some condition
 $O(\lvert S\rvert^{2} \lvert A\rvert)=O(\lvert S\rvert^{2})+O(\lvert S\rvert^{2} \lvert A\rvert)$ which are orders of policy evaluation and policy improvement. 
 
 <br/>
-<br/>
 
 <div id="conclusion"><h1> Conclusion </h1></div>
+
+<br/>
 
 These two methods are compared and summarized in this section. In general, both are kinds of dynamic programming algorithms and guarantee convergence. As you see, in both you must use Bellman equations.
 
@@ -363,7 +398,6 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 
 <center><img src='images/MDP_vs_RL2.jpg' width='800'/></center>
 
-<br/>
 <br/>
 
 <div id='references'><h1> References </h1></div>
