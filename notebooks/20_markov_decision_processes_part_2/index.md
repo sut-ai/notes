@@ -235,10 +235,9 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
 
 Back to expectimax tree, there was different actions for node s, so we had different choices; but if the policy is fixed ($\pi(s)$), there is only one fixed action for the node s. This cause an important change in Bellman equation: there will be no need to take maximum in the equation.
 
-   
-<center> 
-    $U_{k}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(s),s') + {\gamma}U^{\pi}_{k}(s') \Big]$
-</center>
+$U_{k}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(s),s') + {\gamma}U^{\pi}_{k}(s') \Big]$
+
+<br/>
 
 <center><img src='./images/fixed_policy2.png' width='600'/></center>
 
