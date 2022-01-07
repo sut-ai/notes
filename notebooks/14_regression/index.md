@@ -68,8 +68,39 @@ where $\eta$ is the learning rate.
 
 # N'th Order Polynomial
 
+# --------------------------------------------------------------------------
 
 # Logistic Regression
+
+# 1 - What is regression ?
+
+## Problem definition
+
+# 2 - Linear Regression
+
+## definitions
+
+## closed form equation
+
+## Solving using GD
+
+# 3 - Learning Curves using Polynomials
+
+reduction to Linear regression
+
+## overfitting
+
+# 4 - Regularization
+
+## ridge (OPTIONAL)
+
+## lasso (OPTIONAL)
+
+## elastic (OPTIONAL)
+
+# 5 - Logistic Regression
+
+
 
 # Conclusion
 
