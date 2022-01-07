@@ -55,5 +55,5 @@ notebooks:
     #- notebook: notebooks/17_markov_decision_processes/
     - notebook: notebooks/18_reinforcement_learning/
       kind: S2021, LN, Notebook
-    - notebook: notebooks/21_reinforcement_learning/
-      kind: S2022, LN, Notebook
+    - md: notebooks/21_reinforcement_learning/
+      kind: 2021, LN
