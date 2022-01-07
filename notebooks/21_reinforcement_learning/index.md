@@ -378,6 +378,7 @@ $$x_{n} = (1-\alpha) . x_{n-1} + \alpha . x_{n}$$
 **Example**
 
 Consider the following grid with $\gamma = 1$ and $\alpha = 1/2$. We have the initial $V^{\pi}(x_i)$ in State 1. We want to calculate $V^{\pi}(B)$ and $V^{\pi}(C)$ after sampling and two moves.
+<br>
 <img src="resources/1.png" style="width:200px;"/>
 
 State 1 |Move 1(B, east, C, -2)|State 2|Move 2 (C, east, D, -2)|State 3                |      
