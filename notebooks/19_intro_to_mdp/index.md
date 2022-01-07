@@ -158,7 +158,7 @@ $Q^\star(s, a)$ is the expected utility starting from state $s$ then performing 
 By considering all forward steps and choosing the step which maximizes the utility, $V^\star$ can be formulated as
 $$ V^\star(s) = max_a Q^\star(s, a) . $$
 Then by calculating expectation on earned utility by marginalizing on all possible next states which can be succeeded after action $a$ in state $s$, $Q^\star$ will be written as
-$$ Q^^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big].$$
+$$ Q^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big].$$
 
 Since $V^\star$ and $Q^\star$ are jointly recursive, It is possible to replace $Q^\star$ with $V^\star$.
 $$ V^\star(s) = max_a \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big] $$
