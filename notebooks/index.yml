@@ -14,6 +14,8 @@ notebooks:
       kind: S2021, LN, Notebook
     - notebook: notebooks/6_search_in_continuous_space/
       kind: S2021, LN, Notebook
+    - md: notebooks/7_constraint_satisfaction_problems/
+      kind: S2021, LN, Notebook
     - pdf: notebooks/7_CSP/index.pdf
       kind: S2021, LN, PDF
     - notebook: notebooks/8_adversarial_search/

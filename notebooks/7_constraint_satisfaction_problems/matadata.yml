@@ -1,0 +1,35 @@
+title: CSP # shown on browser tab
+
+header:
+    title: Constraint Satisfaction Problems # title of your notebook
+    description: Problems with constraints # short description of your notebook
+
+authors:
+    label: 
+        position: top
+    content:
+    # list of notebook authors
+    - name: Maziar Shamsipour # name of author
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/tandalalam
+        icon: fab fa-github
+    - name: Amirreza Bagheri # name of author
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/AmBadAl
+        icon: fab fa-github
+    - name: Pouya Yousefy # name of author
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/pooyay
+        icon: fab fa-github
+
+comments:
+    # enable comments for your post
+    label: false
+    kind: comments
+
