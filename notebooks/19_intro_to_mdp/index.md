@@ -2,16 +2,16 @@
 
 ## Table of Contents
 
-1. [Introduction](.#Introduction)
-2. [Markov Decision Process](..#Markov_Decision_Process)
+1. [Introduction](#Introduction)
+2. [Markov Decision Process](#Markov_Decision_Process)
     1. [States](#States)
     2. [Actions](#Actions)
     3. [Transition Model](#Transition_Model)
     4. [Rewards](#Rewards)
     5. [Formalization](#Formalization)
     6. [Policy](#Policy)
-3. [MDP Search Trees](./#MDP_Search_Trees)
-4. [Utilities of Sequences](../#Utilities_of_Sequences)
+3. [MDP Search Trees](#MDP_Search_Trees)
+4. [Utilities of Sequences](#Utilities_of_Sequences)
    1. [Discounting](#Discounting)
    2. [Finite and infinite horizons](#Finite_and_infinite_horizons)
    3. [Infinite Utilities](#Infinite_Utilities)
