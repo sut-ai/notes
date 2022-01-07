@@ -56,4 +56,4 @@ notebooks:
     - notebook: notebooks/18_reinforcement_learning/
       kind: S2021, LN, Notebook
     - md: notebooks/14_regression
-      text: Regression
+      kind: F2021, LN
