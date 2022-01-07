@@ -212,6 +212,8 @@ $$
 
 # Conclusion
 
+Regression is used in a variaty of AI problems. We can use it to find the best line or curve to predict a function, or to find the best hyperplane dividing 2 classes in a classification problem. In this lecture note, we discussed how to solve these problems and how to prevent overfitting. However, for more complex functions or more classes, you might want to take a look at neural networks.
+
 # Refrences
 - Artificial Inteligence Course at Sharif University of Technology (Fall, 2021)
 - Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2th Edition
