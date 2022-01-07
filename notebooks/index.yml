@@ -57,5 +57,3 @@ notebooks:
       kind: S2021, LN, Notebook
     - md: notebooks/19_intro_to_mdp
       kind: F2021, LN
-      metadata: notebooks/19_intro_to_mdp/metadata.yml
-      text: Introduction to Markov Decision Process
