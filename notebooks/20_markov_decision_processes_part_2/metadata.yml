@@ -1,0 +1,36 @@
+title: Markov Decision Processes - Part 2
+
+header:
+    title: Markov Decision Processes - Part 2
+    description: An Introduction to Markov Decision Processes (From Value Iteration Till The End)
+
+authors:
+    label:
+        position: top
+    content:
+    - name: Mohammad Mahdi Abootorabi
+      role: Author
+      image: authors_images/mohammad_mahdi_abootorabi.jpg
+      contact:
+      - link: https://github.com/aboots
+        icon: fab fa-github
+      - link: mailto:mahdi.abootorabi2@gmail.com
+        icon: fas fa-envelope
+
+    - name: Yalda Shabanzadeh
+      role: Author
+      image: authors_images/yalda_shabanzadeh.jpg
+      contact:
+      - link: https://github.com/yaldashbz
+        icon: fab fa-github
+      - link: mailto:yaldashabanzadeh@gmail.com
+        icon: fas fa-envelope
+
+    - name: Amirreza Soleimanbeigi
+      role: Author
+      image: authors_images/amirreza_soleimanbeigi.jpg
+      contact:
+      - link: https://github.com/invisible0831
+        icon: fab fa-github
+       - link: mailto:amirsoli80@gmail.com
+        icon: fas fa-envelope
