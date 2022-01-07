@@ -11,8 +11,6 @@
 
 <h1> Table of Contents </h1>
 
-<br/>
-
 - [Introduction](#introduction)
 - [Value Iteration](#value_iteration)
     - [Convergence of Value Iteration](#vi_convergence)
@@ -31,8 +29,6 @@
     - [Policy Iteration pseudocode](#pi_code)
 - [Conclusion](#conclusion)
 - [References](#references)
-
----
 
 <br/>
 
@@ -70,6 +66,8 @@ where the update is assumed to be applied simultaneously to all the states at ea
 <br/>
 
 Suppose we view the Bellman update as an operator $B:\mathbb{R}^{\lvert S\lvert}\rightarrow \mathbb{R}^{\lvert S\lvert}$ that maps functions to functions. Then as a result of Bellman equation $U^{*} = B U^{*}$ that $U^{*}$ is the optimal utility function and the Bellman update equation can be written as $U_{i+1} = B U_{i}$.
+
+<br/>
 
 > <div id='vi_cont' style="color:#4d025c;"><h3><i>Contraction</i></h3></div>
 
@@ -128,6 +126,8 @@ $$
 
 That is, the Bellman operator is $\gamma -contraction$ on the space of utility functions. The fixed point of the Bellman operator is $U^*$. Hence, from the properties of contractions in general, it follows that value iteration always converges to $U^*$ whenever $\gamma < 1$.
 
+<br/>
+
 > <div id='vi_error' style="color:#4d025c;"><h3><i>Error Bound</i></h3></div>
 
 We can't have $\infty$ iterations to converges to $U^*$. If we view $\Vert U_{i+1} - U^* \Vert$ as the error, we want to relate a bound for error to a bound for $\Vert U_{i+1} - U_{i} \Vert$. If $\Vert U_{i+1} - U_{i} \Vert \leq \delta$ we have
@@ -164,6 +164,8 @@ Thus, if $\delta \leq \frac{1 - \gamma}{\gamma} \epsilon$, then $\Vert U_{i+1} -
 &emsp; &emsp; &emsp; **if** &nbsp; $\lvert U^{\prime}(s) - U(s)\lvert > \delta$ &nbsp; **then** &nbsp;  $\delta \leftarrow \lvert U^{\prime}(s) - U(s)\lvert$      
 &emsp; **until** $\delta \leq \frac{1 - \gamma}{\gamma} \epsilon$      
 &emsp; **return** $U$
+
+<br/>
 
 > <div id='time_vi' style="color:#4d025c;"><h3><i>Time Complexity</i></h3></div>
 
@@ -213,7 +215,7 @@ If one action is clearly better than all others, then the exact magnitude of the
 This insight suggests an alternative way to find optimal policies.
 Policy iteration is a different approach to find the optimal policy for given states and actions.
 
-<div id='pi_id' style="color:#33013d;"><h3>The idea of policy iteration</h3></div>
+<div id='pi_id' style="color:#33013d;"><h2>The idea of policy iteration</h2></div>
 
 Once a policy, $\pi_0$ (could be initialized random), has been improved using $U^{\pi_0}$ to yield a better policy, $\pi_1$, we can then compute $U^{\pi_1}$ and improve it again to yield an even better $\pi_2$. We can thus obtain a sequence of monotonically improving policies and value functions.
 
@@ -226,6 +228,8 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
 <br/>
 
 <center><img src='./images/policy_evaluation.png' width='300'/></center>
+
+<br/>
 
 > <div id='fp' style="color:#4d025c;"><h3><i>Fixed Policy</i></h3></div>
 
@@ -254,6 +258,8 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
 
 <center><img src='./images/policy_extraction.png' width='300'/></center>
 
+<br/>
+
 > <div id='pi_cafv' style="color:#4d025c;"><h3><i>Computing Actions from Values</i></h3></div>
 
 Assume we have the optimal values $U^*(s)$.
@@ -264,6 +270,8 @@ $$\pi^*(s)=\underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \
 
 This is called policy extraction, since it gets the policy implied by the values
 
+
+<br/>
 
 > <div id='pi_cafq' style="color:#4d025c;"><h3><i>Computing Actions from Q-Values</i></h3></div>
 
