@@ -70,7 +70,7 @@ On the other hand, we have some unmeasurable variables like stomach content and 
 In a nutshell, we have:
 <span style="color:DarkSlateGray">
 $$
-{E}_t = Observable\;Variable\;at\;time\;t\\
+{E}_t = Observable\;Variable\;at\;time\;t$$$$
 {X}_t = NonObservable\;Variable\;at\;time\;t
 $$
 </span>
@@ -135,7 +135,7 @@ We define two parameters here:
 We can find the joint distribution of X regarding the Bayesian network and the parameters we defined. If we consider $X_1$ to $X_n$, then we have:
     <span style="color:DarkSlateGray">
     $$
-    P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1})\\ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
+    P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1}$$$$ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
     </span>
     
@@ -164,7 +164,7 @@ $$
 So, after applying independence to Chain Rule, we have:
 <span style="color:DarkSlateGray">
     $$
-    P(X_1, X_2, \cdots, X_{n-1}, X_n)= P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})\\=P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n}\vert X_{n-1})\\=P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
+    P(X_1, X_2, \cdots, X_{n-1}, X_n)= P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})$$$$=P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n}\vert X_{n-1})$$$$=P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
     </span>
 which is the same result we get from the previous section.
@@ -283,7 +283,7 @@ Consider the figure below to get a better understanding of the problem discussed
 Now, we formulate the problem formally:
 <span style="color:DarkSlateGray">
 $$
-{E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in \{happy, grumpy\}\\
+{E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in \{happy, grumpy\}$$$$
 {X}_t: Weather's\;condition\;at\;time\;t\;(State) \in \{sunny, rainy\}
 $$ </span>
 So, the question is, how can Alice infer the weather’s condition (state) regarding Bob’s mood (observation)?
