@@ -100,7 +100,62 @@ reduction to Linear regression
 
 # 5 - Logistic Regression
 
+There are some regression algorithms that can be used for classifiction (And vise versa). _Logistic Regression_ is one of the these algorithms. It can calculated the probability that an instance belongs to a particular class. we can use this probability for classification : if the probability is higher thatn 0.5 then that instance belongs to the particular class.
 
+## How to calculate probabilities:
+
+Let's start with a simple example. We want to classify flowers that are _Iris Virginica_ from those that are _not Iris Virginica_. This classification is based on Petal Width and Petal Height. Also consider that there is some line _l_(black line in the image below) that seperates these 2 types of flowers.
+
+![image info](./imgs/Logistic%20Regression.jpg)
+
+Now, to calculate the probabilities, we use the intiation that, the further we are from _l_, the heigher is the probability of belonging to that particular class.
+To be more exact, consider we want to find the probability of a given flower being _Iris Virginica_. Let's call the signed distance between the flower and the line, _t_. Signed distance means if we are in the _Iris Virginica_ region, the distance is positive, other wise if we are in the _not Iris Virginica_ region, the distance is negetive. The probability of this flower being _Iris Virginica_ is related to the value of _t_, the heigher the value of _t_, the heigher the probability. So we need a function $\sigma(.)$ that when given the singed distance _t_, it returns the probability _p_. 
+Logistic function is a commen choise for this purpose. It is a sigmoid function (i.e., S-shaped) that outputs a number between 0 and 1.
+
+Logistic function: 
+$$
+\sigma(t) = \frac{1}{1 + \exp(-t)}
+$$
+
+![image info](./imgs/Logistic%20function.jpg)
+
+## defining line _l_ and cost function $J(\theta)$:
+
+Now we know how to calculate the probabilities, the problem is reduced to finding the best line _l_ that seperates 2 classes. For this First, we need to define the line and Second, we need to define a coss function $J(\theta)$ and then we should find the line _l_ such that it minimizes $J(\theta)$.
+
+We define line _l_ with parameters $\theta$ like before. With this definition, the signed distance between x and the _l_ can be calculated as follows:
+$$
+    t_{\theta}(x) = x^{T}\theta
+$$
+Now we can define the probability of a given x with respect to line _l_ with parameters $\theta$:
+
+$$
+    \hat{P} = \sigma(t_{\theta}(x)) = \sigma(x^{T}\theta)
+$$
+
+We consider that our dataset has _N_ data points $X_i$ with the label $y_i \in \{0 , 1\}$.
+The cost function for just a single data point can be defined as:
+
+$$
+    J(\theta) = -log(\hat{P})y -log(1 - \hat{P})(1 - y)
+$$
+where $\hat{P}$ is the probability predicted for this data point given the line _l_ with parameters $\theta$.
+
+And for _N_ data points, we can define cost function as:
+
+$$
+    J(\theta) = -\frac{1}{N}\sum_{i = 1}^{N}log(\hat{P}^{i})y^{i} -log(1 - \hat{P}^{i})(1 - y^{i})
+$$
+where $\hat{P}^{i}$ is the probability predicted and $y^{i}$ is the label for the i-th data point given the line _l_ with parameters $\theta$.
+
+## Training:
+
+Unfortunatly, there is no known closed-form equation to compute the value of $\theta$ that minimizes this cost function. But the good news is that this cost function is convex! So we use Gradient Descent to find the minimum. Because of convexity, Gradient Descent is guaranteed to find the global minimum (with the right learning rate).
+We can compute the partial derivatives for the $j^{th}$ parameter of $\theta$ as follows:
+
+$$
+    \displaystyle \frac{\partial}{\partial\theta_{j}}J(\theta) = -\frac{1}{N}\sum_{i = 1}^{N}(\sigma(\theta^{T}x^{i}) - y^{i})x^{i}_{j}
+$$
 
 # Conclusion
 
