@@ -1,0 +1,29 @@
+title: LN | Reinforcement Learning
+
+header:
+    title: Reforcement Learning
+    description: Explanation and Usages of Passive Reinforcement Learning Algorithms
+
+authors:
+    label: 
+        position: top
+    content:
+    # list of notebook authors
+    - name: Bahar Asadi 
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/baharasadi
+        icon: fab fa-github
+    - name: Neda Taghizadeh
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/nedataghizadeh79
+        icon: fab fa-github
+    - name: Sayeh Jarollahi 
+      role: Author # change this if you want
+      contact:
+      # list of contact information
+      - link: https://github.com/sayehjarollahi
+        icon: fab fa-github	
