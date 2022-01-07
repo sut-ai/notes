@@ -181,7 +181,6 @@ linear algorithms have a high bias, as they learn fast. The simpler the algorith
   
 The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models has **low variance** but some of them has **high variance.**  
 
-**low varince** means that we have small variation in the changes of training data with prediction in target function!
 **high variance means there is a high variation in the prediction of the target function with changes in the training dataset**  
 
 a model that has high variance performs well on training data but can not generalize unseen dataset as well.
