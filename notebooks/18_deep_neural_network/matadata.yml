@@ -1,26 +1,30 @@
-title: <deep neural network> # shown on browser tab
+title: deep neural network # shown on browser tab
 
 header:
-    title: <deep neural network> # title of your notebook
-    description: <change this> # short description of your notebook
+    title: Deep Neural Network # title of your notebook
+    description: This note is about CNN's and their application # short description of your notebook
 
 authors:
     label: 
         position: top
     content:
     # list of notebook authors
-     - name: <Parham Chavoshian> # name of author
+     - name: Parham Chavoshian # name of author
      role: Author
-     - name: <Amirhossein Javadi> # name of author
+     - name: Amirhossein Javadi # name of author
      role: Author
-     - name: <Dariush Amiri> # name of author
+     - name: Dariush Amiri # name of author
       role: Author # change this if you want
       contact:
       # list of contact information
-      - link: https://github.com/<your_github_username>
+      - link: https://github.com/parhampch
+      - link: https://github.com/Amirhosein-javadi
+      - link: https://github.com/dariusamiri
         icon: fab fa-github
       # optionally add other contact information like  
-      # - link: <change this> # contact link
+       - link: parhampch@gmail.com # contact link
+       - link: javadiamirhosein.2000@gmail.com # contact link
+       - link: dariush_amiri7@yahoo.com # contact link
       #   icon: <change this> # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
 
 comments:
