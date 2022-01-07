@@ -4,6 +4,7 @@ header:
     title: Temporal Probability Models (up to filter/monitor)
     description: Temporal Probability Models and Hidden Markov Models and their Applications
 authors:
+    kind: people
     label: 
         position: top
     content:
