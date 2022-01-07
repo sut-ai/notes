@@ -92,9 +92,9 @@ RL systems can be divided into two categories: **model-based** and **model-free*
 
 **Example:** Assume that an agent wants to compute the expected age of students in one class. ($A$ is a random variable that represents the distribution of age) If the agent has the distribution of $A$, it can easily calculate the expectation according to $E[A] = \sum_{a} P(a).a$ . On the other hand, if the agent doesn't have the distribution over $A$, the problem must use Reinforcement Learning that can be solved with model-based or model-free RL. 
 <br>
-* **Model-based approach**: In this algorithm, first we have to estimate $\hat{P}(a)$. The estimation is simple in this special example, but it can be complicated in real-world problems. We start exploring and getting samples and then We set $\hat{P}(a) = \frac{num(a)}{N}$. $num(a)$ is the number of occurrences of the age $a$. Finally, after finding the probability function, we can find the expectation with $E[A] \approx \sum_{a} \hat{P}(a).a$.
+* **Model-based approach:** In this algorithm, first we have to estimate $\hat{P}(a)$. The estimation is simple in this special example, but it can be complicated in real-world problems. We start exploring and getting samples and then We set $\hat{P}(a) = \frac{num(a)}{N}$. $num(a)$ is the number of occurrences of the age $a$. Finally, after finding the probability function, we can find the expectation with $E[A] \approx \sum_{a} \hat{P}(a).a$.
 <br>
-* **Model-free approach**: In this algorithm, there is no need to find $\hat{P}(a)$. After exploring the envirnoment and gathering samples, we can directly calculate the value of $E[A] = \frac{1}{N}\sum_{i} a_i$. Samples appear with accurate frequencies. As a result, we can be sure that this algorithm works efficiently. 
+* **Model-free approach:** In this algorithm, there is no need to find $\hat{P}(a)$. After exploring the envirnoment and gathering samples, we can directly calculate the value of $E[A] = \frac{1}{N}\sum_{i} a_i$. Samples appear with accurate frequencies. As a result, we can be sure that this algorithm works efficiently. 
 
 **Example:** In this example, we are going to estimate $\hat{T}(s,a,s')$ and $\hat{R}(s,a,s')$ using model-based RL. In these kinds of questions, we need to fix the input policy $(\pi)$ and observe episodes to train the model and estimate the parameters. Each episode contains a series of movements with the same length (in this example the length of each episode is 3). After observing, we can estimate the possibility of each transition and the reward function for each movement. 
 
@@ -116,8 +116,9 @@ After sampling, in order to estimate $\hat{T}$ for each $(s,a,s')$, we have to c
 * $T(C, east, D) = \frac{3}{4} = 0.75$
 <br>
 In addition, we can estimate $\hat{R}(s,a,s')$ for each movement in all episodes. We have to get the average of the reward for all tuples of $(s,a,s')$. For example:
-* $R(B, east, C) = \frac{-1-1}{2} = -1$
-* $R(D, exit, x) = \frac{10+10+10}{3} = 10$
+<br>
+* $$R(B, east, C) = \frac{-1-1}{2} = -1$$
+* $$R(D, exit, x) = \frac{10+10+10}{3} = 10$$
 
 **Question:** What is the problem of above model-based algorithm?<br> If the number of states are large, the number of required samples to train the model will be $O((|S|)^2.|A|)$. In other words, we need many episodes to be able to train the model properly. 
 
@@ -140,8 +141,8 @@ Active reinforcement learning is when the policy of the agent is not fixed and c
 
 ## Policy Evaluation
 Policy evaluation computes the value functions for a policy $\pi$ using the Bellman equations.
-$$V^{\pi}_0(s) = 0$$
-$$V^{\pi}_{k+1} \leftarrow \sum_{s'}T(s, \pi(s), s')[R(s, \pi, s') + \gamma V^{\pi}_k(s')$$
+$$ V^{\pi}_0 (s) = 0 $$
+$$ V^{\pi}_{k+1} \leftarrow \sum_{s'}T(s, \pi(s), s')[R(s, \pi, s') + \gamma V^{\pi}_k(s') $$
 In fact, simplified Bellman updates calculate V for a fixed policy:
 * Each round, replace V with a one-step-look-ahead layer over V
 * This approach fully exploited the connections between the states
@@ -171,7 +172,7 @@ The total reward starting at (1,1) is 0.72. We call this a sample of the observe
 
 For (1,2) there are two samples for the observed-reward-to-go (assuming $\gamma$=1):
 
-1. $(1,2) _{-0.04}  \rightarrow (1,3) _{-0.04}  \rightarrow (1,2) _{-0.04}  \rightarrow (1,3) _{-0.04}  \rightarrow (2,3) _{-0.04}  \rightarrow (3,3) _{-0.04}  \rightarrow (4,3) _{+1}     [Total:0.76]$ 
+1.  $(1,2) _{-0.04}\rightarrow (1,3) _{-0.04}\rightarrow (1,2) _{-0.04}  \rightarrow (1,3) _{-0.04}  \rightarrow (2,3) _{-0.04}  \rightarrow (3,3) _{-0.04}  \rightarrow (4,3) _{+1}     [Total:0.76] $ 
 
 2. $(1,2) _{-0.04}  \rightarrow (1,3) _{-0.04}  \rightarrow (2,3) _{-0.04}  \rightarrow (3,3) _{-0.04}  \rightarrow (4,3) _{+1}    [Total:0.84]$
 
