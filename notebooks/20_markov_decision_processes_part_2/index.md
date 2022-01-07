@@ -1,4 +1,3 @@
-
 <div style="direction:ltr;line-height:300%;">
 	<font face="XB Niloofar" size=20>
         Markov Decision (from value iteration)
@@ -65,7 +64,7 @@ where the update is assumed to be applied simultaneously to all the states at ea
 
 <br/>
 
-Suppose we view the Bellman update as an operator $B:\mathbb{R}^{\lvert S\lvert}\rightarrow \mathbb{R}^{\lvert S\lvert}$ that maps functions to functions. Then as a result of Bellman equation $U^{*} = B U^{*}$ that $U^{*}$ is the optimal utility function and the Bellman update equation can be written as $U_{i+1} = B U_{i}$.
+Suppose we view the Bellman update as an operator $B:\mathbb{R}^{\lvert S\lvert}\rightarrow \mathbb{R}^{\lvert S\lvert}$ that maps functions to functions. Then as a result of Bellman equation $U^{\star} = B U^{\star}$ that $U^{\star}$ is the optimal utility function and the Bellman update equation can be written as $U_{i+1} = B U_{i}$.
 
 <br/>
 
