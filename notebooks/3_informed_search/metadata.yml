@@ -1,4 +1,4 @@
-title: LN | Informed Search
+title: Informed Search
 
 header:
   title: Informed Search
@@ -9,32 +9,26 @@ authors:
     text: Authors
   kind: people
   content:
-    - name: Alireza Hosseinpour
-      role: Author
-      contact:
-        - icon: fas fa-envelope
-          link: mailto:alirezzzhp1378@gmail.com
-
-    - name: Mohammad Ali Pashanj
+    - name: Pouria Molahoseini
       role: Author
       contact:
         - icon: fab fa-github
-          link: https://github.com/mohammadalipashanj
+          link: https://github.com/pxouria
         - icon: fas fa-envelope
-          link: mailto:pashanj.mohammadali@gmail.com
+          link: mailto:pouria77up@gmail.com
 
-    - name: Majid Taherkhani
+    - name: Armin Azizi
       role: Author
       contact:
+        - icon: fab fa-github
+          link: https://github.com/seyedarmin-azizi
         - icon: fas fa-envelope
-          link: mailto:majidtaherkhani555@gmail.com
+          link: mailto:armin.az77@yahoo.com
 
-    - name: Zeinab Sadat Saghi
-      role: Supervisor
+    - name: Mohammad Reza Taremi
+      role: Author
       contact:
         - icon: fab fa-github
-          link: https://github.com/atenasadat
-        - icon: fab fa-linkedin
-          link: https://www.linkedin.com/in/atena-saghi/
+          link: https://github.com/themimte
         - icon: fas fa-envelope
-          link: mailto:atenasaghi@ce.sharif.edu
+          link: mailto:mohammadrezataremi77@gmail.com
