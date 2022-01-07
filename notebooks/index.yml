@@ -53,7 +53,7 @@ notebooks:
     - notebook: notebooks/16_deep_neural_networks/
       kind: S2021, LN, Notebook
     - md: notebooks/20_markov_decision_processes_part_2
-      kind: S2021, LN, Notebook
+      kind: F2021, LN
     #- notebook: notebooks/17_markov_decision_processes/
     - notebook: notebooks/18_reinforcement_learning/
       kind: S2021, LN, Notebook

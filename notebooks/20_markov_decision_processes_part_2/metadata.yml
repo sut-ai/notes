@@ -11,7 +11,6 @@ authors:
     content:
     - name: Mohammad Mahdi Abootorabi
       role: Author
-      image: authors_images/mohammad_mahdi_abootorabi.jpg
       contact:
       - link: https://github.com/aboots
         icon: fab fa-github
@@ -20,7 +19,6 @@ authors:
 
     - name: Yalda Shabanzadeh
       role: Author
-      image: authors_images/yalda_shabanzadeh.jpg
       contact:
       - link: https://github.com/yaldashbz
         icon: fab fa-github
@@ -29,7 +27,6 @@ authors:
 
     - name: Amirreza Soleimanbeigi
       role: Author
-      image: authors_images/amirreza_soleimanbeigi.jpg
       contact:
       - link: https://github.com/invisible0831
         icon: fab fa-github
