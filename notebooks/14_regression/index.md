@@ -24,7 +24,7 @@
 - [Refrences](#refrences)
 
 # Introduction
-We have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial which fits our training data perfectly. But the problem is that, interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.
+In regression, we have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial that fits our training data perfectly. But the problem is that interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with a lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.
 
 # 1 - Linear Regression
 
@@ -37,7 +37,7 @@ $$
         1 \\ x_1 \\ \vdots \\ x_n
     \end{bmatrix}.
 $$
-We assumed $x_0 = 1$ in $x$ to have bias in our function. So the data points are in an n-dimentional space.
+We assumed $x_0 = 1$ in $x$ to have bias in our function. So the data points are in an n-dimensional space.
 
 We also define $y$ as
 
@@ -63,12 +63,12 @@ The main loss function we use is mean squared error. It's defined as
 $$
     MSE(y_w, \hat{y}) = \frac{1}{2} \Sigma_{i=1}^m \left[ y_w^{(i)} - \hat{y}^{(i)} \right]^2 .
 $$
-The main reason for using this function is that we can calculate gradient easily. So we can use gradient descent to find $\hat{w}$.
+The main reason for using this function is that we can calculate gradients easily. So we can use gradient descent to find $\hat{w}$.
 
 ## Finding $\hat{w}$
 
 ### Gradient Descent
-We want to use gradient descent to find $\hat{w}$. First, we need to calculate $\nabla_w L(y_w, \hat{y})$ because it's used in the gradient descent method. The partial derivitives for MSE are:
+We want to use gradient descent to find $\hat{w}$. First, we need to calculate $\nabla_w L(y_w, \hat{y})$ because it's used in the gradient descent method. The partial derivatives for MSE are:
 
 $$
     \frac{\partial MSE}{\partial w_j} = - \Sigma_{i = 1}^m x_j^{(i)} \left[ y_w^{(i)} - \hat{y}^{(i)} \right]
@@ -103,7 +103,7 @@ and solve the equation $\nabla_w MSE = 0$, we get the normal equation. It's defi
 $$
     \hat{w} = (X^TX)^{-1} X^T \hat{y}.
 $$
-However, for using this equation, our features must be linearly independent. Otherwise, $(X^TX)^{-1}$ is not defined. In that case we can use pseudo inverse of $X^TX$ instead of the $(X^TX)^{-1}$. Since the calculation of inverse is computationaly inefficient, we usually prefer using gradient descent. 
+However, for using this equation, our features must be linearly independent. Otherwise, $(X^TX)^{-1}$ is not defined. In that case, we can use the pseudo inverse of $X^TX$ instead of the $(X^TX)^{-1}$. Since the calculation of inverse is computationally inefficient, we usually prefer using gradient descent. 
 
 # 2 - Learning Curves Using Polynomials
 
@@ -120,30 +120,30 @@ $$
 then use linear regression to find $f_w(z) = w^T z$. From definition, we know that $P(x) = f_w(z)$. However, if $n$ is too large, overfitting might happen since we are getting closer and closer to interpolation.
 
 ## Overfitting
-To prevent overfitting, we must try to define $n$ optimaly. Since $n$ is a hyperparameter here, we can use validation set.
+To prevent overfitting, we must try to define $n$ optimally. Since $n$ is a hyperparameter here, we can use validation set.
 
-The example below demonstrates how $n$ can change curve we find and when overfitting happens. The green curve is our goal. The red curve is the M'th degree polynomial we using this method.
+The example below demonstrates how $n$ can change the curve we find and when overfitting happens. The green curve is our goal. The red curve is the M'th degree polynomial using this method.
 
 ![M = 1](images/1.png)
 ![M = 3](images/3.png)
 ![M = 9](images/9.png)
 
 ### Using Validation Set (Held-Out Data)
-We split a part of the training data, and don't use it for training. Then, by calculating loss function over this data, we can optimize $n$. Since the model hasn't seen these data points, we can be sure that overfitting will decrease.
+We split a part of the training data, and don't use it for training. Then, by calculating the loss function over this data, we can optimize $n$. Since the model hasn't seen these data points, we can be sure that overfitting will decrease.
 
 We can see in the above examples that $M = 3$ gives us the best curve. If we compare the validation loss for $M=3$ and $M=9$, the loss will be less for $M=3$ since it's closer to the green curve.
 
 ### Regularization
-Although using validation set is a good way to prevent overfitting, We still might be trying to find the curve which best fits the data, not the curve which best matches it. Regularization tries to make $w$ smaller. The intuition is that large coefficients in $w$ happen because it tries to fit the points. It means that the curve will only get closer to each point. However, decreasing coeffiecients will make a better curve which might be further from each point, but does a better job at predicting the unseen data.
+Although using a validation set is a good way to prevent overfitting, We still might be trying to find the curve which best fits the data, not the curve which best matches it. Regularization tries to make $w$ smaller. The intuition is that large coefficients in $w$ happen because it tries to fit the points. It means that the curve will only get closer to each point. However, decreasing coefficients will make a better curve which might be further from each point, but does a better job at predicting the unseen data.
 
 We only define $l_2-\text{regularization}$ since it's easier to derive and understand. The loss function is 
 
 $$
     \tilde{E}(y_w, \hat{y}) = \frac{1}{2} \Sigma_{i=1}^m \left[ y_w^{(i)} - \hat{y}^{(i)} \right]^2 + \frac{\lambda}{2}||w||^2
 $$
-where $\lambda$ is hyperparameter which controls how small the $w$ should be.
+where $\lambda$ is a hyperparameter that controls how small the $w$ should be.
 
-In the following examples, we use regularization with 9'th degree polynomials. We can compare these with the overfitted example above. Also, we can see how imoprtant the choice of $\lambda$ is. So, using validation set might be still usefull to optimize $\lambda$.
+In the following examples, we use regularization with 9'th degree polynomials. We can compare these with the overfitted example above. Also, we can see how important the choice of $\lambda$ is. So, using the validation set might be still useful to optimize $\lambda$.
 
 ![Reguralization 18](images/r18.png)
 ![Reguralization 0](images/r0.png)
@@ -212,7 +212,7 @@ $$
 
 # Conclusion
 
-Regression is used in a variaty of AI problems. We can use it to find the best line or curve to predict a function, or to find the best hyperplane dividing 2 classes in a classification problem. In this lecture note, we discussed how to solve these problems and how to prevent overfitting. However, for more complex functions or more classes, you might want to take a look at neural networks.
+Regression is used in a variety of AI problems. We can use it to find the best line or curve to predict a function, or to find the best hyperplane dividing 2 classes in a classification problem. In this lecture note, we discussed how to solve these problems and how to prevent overfitting. However, for more complex functions or more classes, you might want to take a look at neural networks.
 
 # Refrences
 - Artificial Inteligence Course at Sharif University of Technology (Fall, 2021)
