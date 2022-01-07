@@ -76,9 +76,9 @@ $$
 \forall x,y \in \mathbb{R}^{n}, \quad \Vert f(x)-f(y)\Vert \leq \alpha \Vert x-y \Vert
 $$    
 The **Banach fixed-point** theorem guarantees that if $f$ is a contraction, then $f$ has a unique
-fixed point($x$ is a fixed point of the $f$ if $f(x) = x$) $x^* \in \mathbb{R}^{n}$ satisfying
+fixed point($x$ is a fixed point of the $f$ if $f(x) = x$) $x^\star \in \mathbb{R}^{n}$ satisfying
 $$
-x^* = f(x^*) = lim_{k \to \infty} f^{k}(x) \quad \forall x \in \mathbb{R}^{n}
+x^\star = f(x^\star) = lim_{k \to \infty} f^{k}(x) \quad \forall x \in \mathbb{R}^{n}
 $$      
 where $f^{k+1}(x) = f(f^{k}(x))$ for $k > 0$ and $f^{1}(x) = f(x)$.    
 
