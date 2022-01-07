@@ -1,3 +1,4 @@
+# Reinforcement Learning 
 #  Table of content
 - [Introduction](#introduction) 
 - [Online vs Offline Learning](#OnlinevsOfflineLearning)
@@ -82,6 +83,7 @@ RL systems can be divided into two categories: **model-based** and **model-free*
         
     2. **Solve the learned MDP:** After estimating the missing parameters of the MDP model, the agent can solve the MDP by using various algorithms (e.g. _Value Iteration_) that are mentioned before. 
 <div id='Model-freeRL'/>
+
 * **Model-free RL:** Unlike the previous category, in this type of Reinforcement Learning, the parameters of the traditional MDP are not estimated.  Consequently, the agent directly learns the policy and the evaluation function. This algorithm can be thought of as a _trial and error_ algorithm. 
 
 <br>
@@ -380,7 +382,7 @@ Consider the following grid with $\gamma = 1$ and $\alpha = 1/2$. We have the in
 
 State 1 |Move 1(B, east, C, -2)|State 2|Move 2 (C, east, D, -2)|State 3                |      
 :------------------:|:----------:|:------------------:|:----------:|:------------------:|
-<img src="2.png" style="width:200px;"/>  ||  <img src="3.png" style="width:200px;"/>  ||  <img src="4.png" style="width:200px;"/>|
+<img src="resources/2.png" style="width:200px;"/>  ||  <img src="resources/3.png" style="width:200px;"/>  ||  <img src="resources/4.png" style="width:200px;"/>|
 
 The formula is:
 $$V^\pi_{t} \leftarrow V^\pi_{t} + \alpha \times E_{t} = V^\pi_{t} + \alpha \times( r_{t+1} + \gamma \times V^\pi_{t+1} - V^\pi_{t})$$
