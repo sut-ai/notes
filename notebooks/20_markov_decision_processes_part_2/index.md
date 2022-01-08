@@ -48,29 +48,40 @@ In this lecture, we are going to talk about two different methods for solving MD
 ---
 
 <br/>
-
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 70%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                }
+                .imgbox {
+                    height: 70%;
+                    display: grid;
+                }
+                @media only screen and (max-width: 450px) and (min-width: 0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                    .imgbox {
+                        height: 30%;
+                        display: grid;
+                    }
+                }
     </style>
 </head>
 <body>
-<div class="imgbox">
-    <img class="center-fit" src='./images/value_iteration.png'>
-</div>
+    <div class="imgbox">
+        <img class="center-fit" src='./images/value_iteration.png'>
+    </div>
 </body>
 </html>
 
@@ -228,26 +239,38 @@ $N$ does not depend much on the ratio $\frac{\epsilon}{R_{max}}$ because value i
 
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 70%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                }
+                .imgbox {
+                    height: 70%;
+                    display: grid;
+                }
+                @media only screen and (max-width: 450px) and (min-width: 0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                    .imgbox {
+                        height: 30%;
+                        display: grid;
+                    }
+                }
     </style>
 </head>
 <body>
-<div class="imgbox">
-    <img class="center-fit" src='./images/value_iteration_numbers.png'>
-</div>
+    <div class="imgbox">
+        <img class="center-fit" src='./images/value_iteration_numbers.png'>
+    </div>
 </body>
 </html>
 
@@ -279,29 +302,40 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
 <div id='pe' style="color:#33013d;"><h2>Policy Evaluation</h2></div>
 
 <br/>
-
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 70%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                }
+                .imgbox {
+                    height: 70%;
+                    display: grid;
+                }
+                @media only screen and (max-width: 450px) and (min-width: 0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                    .imgbox {
+                        height: 30%;
+                        display: grid;
+                    }
+                }
     </style>
 </head>
 <body>
-<div class="imgbox">
-    <img class="center-fit" src='./images/policy_evaluation.png'>
-</div>
+    <div class="imgbox">
+        <img class="center-fit" src='./images/policy_evaluation.png'>
+    </div>
 </body>
 </html>
 
@@ -319,28 +353,41 @@ $$
 
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 60%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                }
+                .imgbox {
+                    height: 70%;
+                    display: grid;
+                }
+                @media only screen and (max-width: 450px) and (min-width: 0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                    .imgbox {
+                        height: 30%;
+                        display: grid;
+                    }
+                }
     </style>
 </head>
 <body>
-<div class="imgbox">
-    <img class="center-fit" src='./images/fixed_policy2.png'>
-</div>
+    <div class="imgbox">
+        <img class="center-fit" src='./images/fixed_policy2.png'>
+    </div>
 </body>
 </html>
+
 
 **Idea:** Calculate values for the fixed policy:
 
@@ -358,28 +405,41 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
 
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 60%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                }
+                .imgbox {
+                    height: 70%;
+                    display: grid;
+                }
+                @media only screen and (max-width: 450px) and (min-width: 0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                    .imgbox {
+                        height: 30%;
+                        display: grid;
+                    }
+                }
     </style>
 </head>
 <body>
-<div class="imgbox">
-    <img class="center-fit" src='./images/policy_extraction.png'>
-</div>
+    <div class="imgbox">
+        <img class="center-fit" src='./images/policy_extraction.png'>
+    </div>
 </body>
 </html>
+
 
 <br/>
 
@@ -421,26 +481,38 @@ for each state we compute all the calcaulations and take max on different action
 
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 40%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                }
+                .imgbox {
+                    height: 70%;
+                    display: grid;
+                }
+                @media only screen and (max-width: 450px) and (min-width: 0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                    .imgbox {
+                        height: 30%;
+                        display: grid;
+                    }
+                }
     </style>
 </head>
 <body>
-<div class="imgbox">
-    <img class="center-fit" src='./images/policy_iteration.png'>
-</div>
+    <div class="imgbox">
+        <img class="center-fit" src='./images/policy_iteration.png'>
+    </div>
 </body>
 </html>
 
