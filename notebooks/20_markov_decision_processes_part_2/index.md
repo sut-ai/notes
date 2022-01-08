@@ -99,14 +99,14 @@ $$
 $$     
 To see this, suppose $\max_{x} f(x) > \max_{x} g(x)$ (the other case is symmetric) and let $b = \underset{x}{\operatorname{argmax}} f(x)$. Then    
 
-$$
+\begin{equation}
 \begin{aligned}
 \lvert \max_{x} f(x) - \max_{x} g(x) \lvert & = f(b) - \max_{x} g(x) \\
 & \leq f(b) - g(b) \\
 & \leq \max_x (f(x) - g(x)) = \max_{x} \lvert f(x) - g(x) \lvert\\
 \Rightarrow \lvert \max_{x} f(x) - \max_{x} g(x) \lvert & \leq \max_{x} \lvert f(x) - g(x) \lvert
 \end{aligned}
-$$
+\end{equation}
 
 Let $U_i$ and $U^{\prime}_{i}$ be any two utility functions. Then we have     
 
