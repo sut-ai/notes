@@ -7,6 +7,7 @@ header:
 authors:
     label: 
         position: top
+    kind: people
     content:
     - name: Negar Nobakhti
       role: Author
