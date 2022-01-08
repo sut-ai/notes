@@ -551,6 +551,7 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 
 <html>
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
                 * {
                     margin: 0;
@@ -586,6 +587,7 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 <div id='references'><h1> References </h1></div>
 ---
 <br/>
+
 + AI course teached by Dr. Rohban at Sharif University of Technology, Fall 2021
 + Russell, S. J., Norvig, P., &amp; Davis, E. (4th. Ed). Artificial Intelligence: A modern approach. Pearson Educación. 
 + [Geeks For Geeks](https://www.geeksforgeeks.org)
