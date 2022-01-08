@@ -9,6 +9,7 @@
 <br/>
 
 <h1> Table of Contents </h1>
+---
 
 - [Introduction](#introduction)
 - [Value Iteration](#value_iteration)
@@ -32,6 +33,7 @@
 <br/>
 
 <div id='introduction'><h1> Introduction </h1></div>
+---
 
 <br/>
 
@@ -43,6 +45,7 @@ In this lecture, we are going to talk about two different methods for solving MD
 <br/>
 
 <div id='value_iteration'><h1> Value Iteration </h1></div>
+---
 
 <br/>
 
@@ -393,7 +396,7 @@ $O(\lvert S\rvert^{2} \lvert A\rvert)=O(\lvert S\rvert^{2})+O(\lvert S\rvert^{2}
 <br/>
 
 <div id="conclusion"><h1> Conclusion </h1></div>
-
+---
 <br/>
 
 These two methods are compared and summarized in this section. In general, both are kinds of dynamic programming algorithms and guarantee convergence. As you see, in both you must use Bellman equations.
@@ -414,7 +417,8 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 <br/>
 
 <div id='references'><h1> References </h1></div>
-
+---
+<br/>
 + AI course teached by Dr. Rohban at Sharif University of Technology, Fall 2021
 + Russell, S. J., Norvig, P., &amp; Davis, E. (4th. Ed). Artificial Intelligence: A modern approach. Pearson Educación. 
 + [Geeks For Geeks](https://www.geeksforgeeks.org)
