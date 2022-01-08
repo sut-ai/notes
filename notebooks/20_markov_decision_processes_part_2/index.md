@@ -342,16 +342,16 @@ When algorithm stops changing utility, because we know that the utility function
 
 <br/>
 
-**function** Q-Value(MDP, $s, a, U$) **returns** a utility value <br/>
-&emsp; $\Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{*}(s') \Big]$
+**function** Q-Value($MDP, s, a, U$) **returns** a utility value <br/>
+&emsp; **return** $\Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{*}(s') \Big]$
 
 <br/>
 
 **function** Policy-Evaluation($\pi, U$, MDP) **returns** a utility function <br/>
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
-&emsp; &emsp; &emsp; &emsp; &emsp; rewards $R(s,a,s^{\prime})$, discount $\gamma$     
-&emsp; &emsp; &emsp; &emsp; &emsp; $U$, $U^{\prime}$, utility functions for states in S with policy $\pi$   
-&emsp; &emsp; &emsp; &emsp; &emsp; $\delta$, the maximum relative change in the utility of any state      
+&emsp;&emsp; &emsp; &emsp; rewards $R(s,a,s^{\prime})$, discount $\gamma$     
+&emsp;&emsp; &emsp; &emsp; $U$, $U^{\prime}$, utility functions for states in S with policy $\pi$   
+&emsp;&emsp; &emsp; &emsp; $\delta$, the maximum relative change in the utility of any state      
 &emsp; **repeat**       
 &emsp; &emsp; &emsp; $U \leftarrow U^{\prime}$;$\delta \leftarrow 0$       
 &emsp; &emsp; &emsp;**for each** state s **in** S **do**       
@@ -362,17 +362,17 @@ When algorithm stops changing utility, because we know that the utility function
 
 <br/>
 
-**function** Policy-Iteration(MDP) **returns** a utility function     
+**function** Policy-Iteration($MDP$) **returns** a utility function     
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
 &emsp; &emsp; &emsp; &emsp; $U$ , a vector of utilities for states in $S$, initially zero      
-&emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; $\pi$, a policy vector indexed by state, initially random     
+&emsp; &emsp; &emsp;&emsp; $\pi$, a policy vector indexed by state, initially random     
 &emsp; **repeat**      
 &emsp; &emsp; $U \leftarrow $ Policy-Evaluation($\pi$, $U$, MDP)      
 &emsp; &emsp; $unchanged? \leftarrow$ true     
 &emsp; &emsp; **for each** state s **in** S **do** <br/>
-&emsp; &emsp; &emsp; $a^* \leftarrow \underset{a \in A(s)}{\operatorname{argmax}}$ Q-Value(MDP, $s, a, U$)<br/>
-&emsp; &emsp; &emsp; **if** &nbsp; $\max\limits_{a \in A(s)}$ Q-Value(MDP, $s, a^*, U$) $>$ Q-Value(MDP, $s, \pi[s], U$) &nbsp; **then** &nbsp;  **do**      
-&emsp; &emsp; &emsp; &emsp; $\pi[s] \leftarrow a^*$     
+&emsp; &emsp; &emsp; $a^\star \leftarrow \underset{a \in A(s)}{\operatorname{argmax}}$ Q-Value($MDP, s, a, U$)<br/>
+&emsp; &emsp; &emsp; **if** &nbsp; $\max\limits_{a \in A(s)}$ Q-Value($MDP, s, a^\star, U$) $>$ Q-Value($MDP, s, \pi[s], U$) &nbsp; **then** &nbsp;  **do**      
+&emsp; &emsp; &emsp; &emsp; $\pi[s] \leftarrow a^\star$     
 &emsp; &emsp; &emsp; &emsp; $unchanged? \leftarrow$ false     
 &emsp; **until** $unchanged?$     
 &emsp; **return** $\pi$
