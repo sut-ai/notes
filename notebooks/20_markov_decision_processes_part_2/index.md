@@ -347,7 +347,7 @@ When algorithm stops changing utility, because we know that the utility function
 
 <br/>
 
-**function** Policy-Evaluation($\pi, U$, MDP) **returns** a utility function <br/>
+**function** Policy-Evaluation($\pi, U, MDP$) **returns** a utility function <br/>
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
 &emsp;&emsp; &emsp; &emsp; rewards $R(s,a,s^{\prime})$, discount $\gamma$     
 &emsp;&emsp; &emsp; &emsp; $U$, $U^{\prime}$, utility functions for states in S with policy $\pi$   
