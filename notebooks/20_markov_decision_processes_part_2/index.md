@@ -319,7 +319,7 @@ $$U_{k+1}^{\pi_{i}}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi_{i}(s))} \Big 
     
     For fixed values, get a better policy using policy extraction:
 
-$${\pi}_{i+1}(s)= \underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\pi_{i}}(s') \Big]$$
+$$\pi_{i+1}(s) = \underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\pi_{i}}(s') \Big]$$
 
 
 - **Repeat steps until policy converges**
