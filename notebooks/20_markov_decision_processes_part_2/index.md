@@ -412,7 +412,30 @@ Each of them has its cons and pros. Depending on the situation you can choose ea
 In the next part, you will face reinforcement learning. The biggest change in RL is that we are unaware of R(s,a,s') and P(s'|s,a) and we have to do some actions to find or estimate them.
 
 
-<center><img src='images/MDP_vs_RL2.jpg'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 90%;
+        }
+        .center-fit {
+            max-width: 90%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='images/MDP_vs_RL2.jpg'>
+</div>
+</body>
+</html>
 
 <br/>
 
