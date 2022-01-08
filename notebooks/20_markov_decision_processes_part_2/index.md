@@ -262,11 +262,12 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
 
 > <div id='pi_cafv' style="color:#4d025c;"><h3><i>Computing Actions from Values</i></h3></div>
 
-Assume we have the optimal values $U^*(s)$.
+Assume we have the optimal values $U^\star(s)$.
 
 We need to do a mini-expectimax.
 
-$$\pi^*(s)=\underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{*}(s') \Big]$$
+$$\pi^\star(s)=\underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\star}(s') \Big]$$
+
 
 This is called policy extraction, since it gets the policy implied by the values
 
@@ -281,7 +282,7 @@ This is kind of one-step expectimax with assumption that terminal values $U^\pi_
 
 The action is completely trivial.
 
-$$\pi^*(s)=\underset{a}{\operatorname{argmax}} Q^*(s,a)$$
+$$\pi^\star(s)=\underset{a}{\operatorname{argmax}} Q^\star(s,a)$$
 
 
 **Comparison:**
@@ -319,6 +320,7 @@ $$U_{k+1}^{\pi_{i}}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi_{i}(s))} \Big 
     For fixed values, get a better policy using policy extraction:
 
 $${\pi}_{i+1}(s)= \underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\pi_{i}}(s') \Big]$$
+
 
 - **Repeat steps until policy converges**
     
