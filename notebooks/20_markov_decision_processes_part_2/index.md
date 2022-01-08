@@ -365,7 +365,7 @@ When algorithm stops changing utility, because we know that the utility function
 **function** Policy-Iteration($MDP$) **returns** a utility function     
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
 &emsp; &emsp; &emsp; &emsp; $U$ , a vector of utilities for states in $S$, initially zero      
-&emsp; &emsp; &emsp;&emsp; $\pi$, a policy vector indexed by state, initially random     
+&emsp; &emsp; &emsp; &emsp; $\pi$, a policy vector indexed by state, initially random     
 &emsp; **repeat**      
 &emsp; &emsp; $U \leftarrow $ Policy-Evaluation($\pi$, $U$, MDP)      
 &emsp; &emsp; $unchanged? \leftarrow$ true     
