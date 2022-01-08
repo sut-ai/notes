@@ -49,7 +49,30 @@ In this lecture, we are going to talk about two different methods for solving MD
 
 <br/>
 
-<center><img src='images/value_iteration.png' width='400'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 70%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='./images/value_iteration.png'>
+</div>
+</body>
+</html>
 
 The Bellman equation is the basis of the **value iteration** algorithm for solving MDPs. We would like to solve these simultaneous equations to find the utilities. One thing to try is an iterative approach. We start with arbitrary initial values for the utilities, calculate the right-hand side of the equation, and plug it into the left-hand side. Thereby updating the utility of each state from the utilities of its neighbors. We repeat this until we reach an equilibrium.
 
@@ -203,7 +226,30 @@ $$
 
 $N$ does not depend much on the ratio $\frac{\epsilon}{R_{max}}$ because value iteration converges exponentially fast but $N$ grows rapidly as $\gamma$ becomes close to 1. We can get fast convergence if we make $\gamma$ small.
 
-<center><img src='./images/value_iteration_numbers.png' width='350'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 70%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='./images/value_iteration_numbers.png'>
+</div>
+</body>
+</html>
 
 Figure shows how $N$ varies with $\gamma$, for different values of the ratio $c = \frac{2\epsilon}{R_{max}}$. 
 
@@ -234,7 +280,30 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
 
 <br/>
 
-<center><img src='./images/policy_evaluation.png' width='300'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 70%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='./images/policy_evaluation.png'>
+</div>
+</body>
+</html>
 
 <br/>
 
@@ -248,7 +317,30 @@ $$
 
 <br/>
 
-<center><img src='./images/fixed_policy2.png' width='600'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 60%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='./images/fixed_policy2.png'>
+</div>
+</body>
+</html>
 
 **Idea:** Calculate values for the fixed policy:
 
@@ -264,7 +356,30 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
 
 <br/>
 
-<center><img src='./images/policy_extraction.png' width='300'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 60%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='./images/policy_extraction.png'>
+</div>
+</body>
+</html>
 
 <br/>
 
@@ -304,7 +419,30 @@ for each state we compute all the calcaulations and take max on different action
 
 <br/>
 
-<center><img src='./images/policy_iteration.png' width='300'/></center>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 40%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <img class="center-fit" src='./images/policy_iteration.png'>
+</div>
+</body>
+</html>
 
 The policy iteration algorithm alternates the following two steps, beginning from some initial policy $\pi_0$
 
@@ -411,7 +549,6 @@ Each of them has its cons and pros. Depending on the situation you can choose ea
 
 In the next part, you will face reinforcement learning. The biggest change in RL is that we are unaware of R(s,a,s') and P(s'|s,a) and we have to do some actions to find or estimate them.
 
-
 <html>
 <head>
     <style>
@@ -421,7 +558,7 @@ In the next part, you will face reinforcement learning. The biggest change in RL
         }
         .imgbox {
             display: grid;
-            height: 90%;
+            height: 100%;
         }
         .center-fit {
             max-width: 90%;
