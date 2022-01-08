@@ -84,7 +84,7 @@ Let's consider a boolean variable. If all of our data is in one class, the Entro
 this case wouldn't be useful for learning. on the other hand, if the data is evenly distributed on the two classes, the Entropy would be:
 
 <p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5+0.5\log_{2}0.5)=1" />
+<img src="https://render.githubusercontent.com/render/math?math=H(x)=-(0.5\log_{2}0.5%2B0.5\log_{2}0.5)=1" />
 </p>
 
 the best kind we could use.
@@ -315,7 +315,7 @@ The most popular tests for independence are based on the fact that some test sta
 where ![attribute](https://render.githubusercontent.com/render/math?math=e_{ij}) are the expected cell counts under the null hypothesis, calculated according to
 
 <p align='center'>
-<img src="https://render.githubusercontent.com/render/math?math=e_{ij}=N_{\hat{p}_{i}\hat{p}_{j}}=N\frac{N_{i+}}{N}\frac{N_{+j}}{N}=\frac{N_{i+}N_{+j}}{N}" />
+<img src="https://render.githubusercontent.com/render/math?math=e_{ij}=N_{\hat{p}_{i}\hat{p}_{j}}=N\frac{N_{i%2B}}{N}\frac{N_{%2Bj}}{N}=\frac{N_{i%2B}N_{%2Bj}}{N}" />
 </p>
 
 where ![attribute](https://render.githubusercontent.com/render/math?math=\hat{p}_{i}) is the estimated probability that a particular observation will fall into row ![attribute](https://render.githubusercontent.com/render/math?math=i), and ![attribute](https://render.githubusercontent.com/render/math?math=\hat{p}_{j}) is the corresponding probability for column ![attribute](https://render.githubusercontent.com/render/math?math=j). Because these two probabilities are independent under the null hypothesis, their product constitutes the probability that an observation will fall into ![attribute](https://render.githubusercontent.com/render/math?math=cell(i,j)).
