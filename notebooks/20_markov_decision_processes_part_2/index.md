@@ -217,7 +217,9 @@ If one action is clearly better than all others, then the exact magnitude of the
 This insight suggests an alternative way to find optimal policies.
 Policy iteration is a different approach to find the optimal policy for given states and actions.
 
+<br/>
 <div id='pi_id' style="color:#33013d;"><h2>The idea of policy iteration</h2></div>
+<br/>
 
 Once a policy, $\pi_0$ (could be initialized random), has been improved using $U^{\pi_0}$ to yield a better policy, $\pi_1$, we can then compute $U^{\pi_1}$ and improve it again to yield an even better $\pi_2$. We can thus obtain a sequence of monotonically improving policies and value functions.
 
