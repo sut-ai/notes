@@ -552,19 +552,28 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 <html>
 <head>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 90%;
-            max-height: 100vh;
-            margin: auto;
-        }
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                @media (min-width: 450px) {
+                    .center-fit {
+                        max-width: 300px;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                }
+                @media (max-width: 450px) and min-width(0px) {
+                    .center-fit {
+                        max-width: 100%;
+                        max-height: 100vh;
+                        margin: auto;
+                    }
+                }
+                .imgbox {
+                    height: 100%;
+                    display: grid;
+                }
     </style>
 </head>
 <body>
