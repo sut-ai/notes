@@ -209,7 +209,7 @@ Time complexity of each iteration of value iteration is $O(\lvert S\rvert^{2} \l
 <br/>
 
 <div id='pi'><h1>Policy Iteration</h1></div>
-
+---
 <br/>
 
 In the previous section, we observed that it is possible to get an optimal policy even when the utility function estimate is inaccurate.
