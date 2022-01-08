@@ -62,7 +62,7 @@ In this lecture, we are going to talk about two different methods for solving MD
                         margin: auto;
                 }
                 .imgbox {
-                    height: 50%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -252,7 +252,7 @@ $N$ does not depend much on the ratio $\frac{\epsilon}{R_{max}}$ because value i
                         margin: auto;
                 }
                 .imgbox {
-                    height: 40%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -317,7 +317,7 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
                         margin: auto;
                 }
                 .imgbox {
-                    height: 40%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -366,7 +366,7 @@ $$
                         margin: auto;
                 }
                 .imgbox {
-                    height: 40%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -418,7 +418,7 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
                         margin: auto;
                 }
                 .imgbox {
-                    height: 50%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -494,7 +494,7 @@ for each state we compute all the calcaulations and take max on different action
                         margin: auto;
                 }
                 .imgbox {
-                    height: 50%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -636,7 +636,7 @@ In the next part, you will face reinforcement learning. The biggest change in RL
                         margin: auto;
                 }
                 .imgbox {
-                    height: 50%;
+                    height: 80%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
