@@ -30,6 +30,7 @@ Right now we only accept educational notebooks, if you want to submit your noteb
     authors:
         label: 
             position: top
+        kind: people
         content:
         # list of notebook authors
         - name: <change this> # name of author
