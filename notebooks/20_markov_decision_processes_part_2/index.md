@@ -62,7 +62,7 @@ In this lecture, we are going to talk about two different methods for solving MD
                         margin: auto;
                 }
                 .imgbox {
-                    height: 40%;
+                    height: 50%;
                     display: grid;
                 }
                 @media only screen and (max-width: 450px) and (min-width: 0px) {
@@ -72,7 +72,7 @@ In this lecture, we are going to talk about two different methods for solving MD
                         margin: auto;
                     }
                     .imgbox {
-                        height: 40%;
+                        height: 50%;
                         display: grid;
                     }
                 }
