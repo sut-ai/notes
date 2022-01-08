@@ -558,12 +558,12 @@ In the next part, you will face reinforcement learning. The biggest change in RL
                 }
                 @media (min-width: 450px) {
                     .center-fit {
-                        max-width: 300px;
+                        max-width: 800px;
                         max-height: 100vh;
                         margin: auto;
                     }
                 }
-                @media (max-width: 450px) and min-width(0px) {
+                @media (max-width: 450px) and (min-width: 0px) {
                     .center-fit {
                         max-width: 100%;
                         max-height: 100vh;
@@ -582,8 +582,6 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 </div>
 </body>
 </html>
-
-<br/>
 
 <div id='references'><h1> References </h1></div>
 ---
