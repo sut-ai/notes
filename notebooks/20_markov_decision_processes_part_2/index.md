@@ -414,8 +414,8 @@ In the next part, you will face reinforcement learning. The biggest change in RL
 <div id='references'><h1> References </h1></div>
 
 + AI course teached by Dr. Rohban at Sharif University of Technology, Fall 2021
-+ Russell, S. J., Norvig, P., &amp; Davis, E. (4rd. Ed). Artificial Intelligence: A modern approach. Pearson Educación. 
-+ https://www.geeksforgeeks.org
-+ http://ai.berkeley.edu
-+ https://towardsdatascience.com
-+ https://ai.stanford.edu/~gwthomas/notes/mdps.pdf
++ Russell, S. J., Norvig, P., &amp; Davis, E. (4th. Ed). Artificial Intelligence: A modern approach. Pearson Educación. 
++ [Geeks For Geeks](https://www.geeksforgeeks.org)
++ [Towards Data Science](https://towardsdatascience.com)
++ [ai.stanford.edu](https://ai.stanford.edu/~gwthomas/notes/mdps.pdf)
++ [ai.berkeley.edu](http://ai.berkeley.edu)
