@@ -76,7 +76,8 @@ $$
 \forall x,y \in \mathbb{R}^{n}, \quad \Vert f(x)-f(y)\Vert \leq \alpha \Vert x-y \Vert
 $$    
 The **Banach fixed-point** theorem guarantees that if $f$ is a contraction, then $f$ has a unique
-fixed point($x$ is a fixed point of the $f$ if $f(x) = x$) $x^\star \in \mathbb{R}^{n}$ satisfying
+fixed point($x$ is a fixed point of the $f$ if $f(x) = x$) $x^\star \in \mathbb{R}^{n}$ satisfying    
+
 $$
 x^\star = f(x^\star) = lim_{k \to \infty} f^{k}(x) \quad \forall x \in \mathbb{R}^{n}
 $$      
@@ -100,47 +101,46 @@ $$
 To see this, suppose $\max_{x} f(x) > \max_{x} g(x)$ (the other case is symmetric) and let $b = \underset{x}{\operatorname{argmax}} f(x)$. Then    
 
 $$
-\begin{equation}
 \begin{aligned}
-\lvert \max_{x} f(x) - \max_{x} g(x) \lvert & = f(b) - \max_{x} g(x) \\
-& \leq f(b) - g(b) \\
-& \leq \max_x (f(x) - g(x)) = \max_{x} \lvert f(x) - g(x) \lvert\\
+\lvert \max_{x} f(x) - \max_{x} g(x) \lvert & = f(b) - \max_{x} g(x) \\\\
+& \leq f(b) - g(b) \\\\
+& \leq \max_x (f(x) - g(x)) = \max_{x} \lvert f(x) - g(x) \lvert\\\\
 \Rightarrow \lvert \max_{x} f(x) - \max_{x} g(x) \lvert & \leq \max_{x} \lvert f(x) - g(x) \lvert
 \end{aligned}
-\end{equation}
 $$
 
 Let $U_i$ and $U^{\prime}_{i}$ be any two utility functions. Then we have     
 
 $$
 \begin{aligned}
-\Vert B U_i - B U^{\prime}_{i}\Vert & = \max_{s} \lvert B U_{i}(s) - B U^{\prime}_{i}(s) \lvert \\
-& = \max_{s} \Big \lvert \max_{a \in A(s)} \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U_{i}(s^{\prime})] - \max_{a \in A(s)} \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U^{\prime}_{i}(s^{\prime})] \Big \lvert \\
-& \leq \max_{s} \max_{a \in A(s)} \Big \lvert \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U_{i}(s^{\prime})] - \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U^{\prime}_{i}(s^{\prime})] \Big \lvert & (Lemma)\\
-& = \max_{s} \max_{a \in A(s)} \Big \lvert \gamma \sum_{s^\prime}^{} P(s^{\prime}|s,a)[U_{i}(s^{\prime}) - U^{\prime}_{i}(s^{\prime})] \Big \lvert \\
-& \leq \max_{s} \max_{a \in A(s)} \Big \lvert \gamma \Big (\sum_{s^\prime}^{} (P(s^{\prime}|s,a)\Big ) \max_{s^\prime} \Big ( U_{i}(s^{\prime}) - U^{\prime}_{i}(s^{\prime}) \Big )\Big \lvert \\
-& = \Big \lvert \gamma \max_{s^\prime} \Big ( U_{i}(s^{\prime}) - U^{\prime}_{i}(s^{\prime}) \Big )\Big \lvert \\
-& \leq \gamma \max_{s^\prime} \Big \lvert U_{i}(s^{\prime}) - U^{\prime}_{i}(s^{\prime}) \Big \lvert \\
-\Rightarrow \Vert B U_i - B U^{\prime}_{i}\Vert & \leq \gamma \Big \Vert U_{i} - U^{\prime}_{i}\Big \Vert
+\Vert B U_i - B U_{i}^{\prime}\Vert & = \max_{s} \lvert B U_{i}(s) - B U_{i}^{\prime}(s) \lvert \\\\
+& = \max_{s} \Big \lvert \max_{a \in A(s)} \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U_{i}(s^{\prime})] - \max_{a \in A(s)} \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U_{i}^{\prime}(s^{\prime})] \Big \lvert \\\\
+& \leq \max_{s} \max_{a \in A(s)} \Big \lvert \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U_{i}(s^{\prime})] - \sum_{s^\prime}^{} P(s^{\prime}|s,a)[R(s,a,s^{\prime})+\gamma U_{i}^{\prime}(s^{\prime})] \Big \lvert & (Lemma)\\\\
+& = \max_{s} \max_{a \in A(s)} \Big \lvert \gamma \sum_{s^\prime}^{} P(s^{\prime}|s,a)[U_{i}(s^{\prime}) - U_{i}^{\prime}(s^{\prime})] \Big \lvert \\\\
+& \leq \max_{s} \max_{a \in A(s)} \Big \lvert \gamma \Big (\sum_{s^\prime}^{} (P(s^{\prime}|s,a)\Big ) \max_{s^\prime} \Big ( U_{i}(s^{\prime}) - U_{i}^{\prime}(s^{\prime}) \Big )\Big \lvert \\\\
+& = \Big \lvert \gamma \max_{s^\prime} \Big ( U_{i}(s^{\prime}) - U_{i}^{\prime}(s^{\prime}) \Big )\Big \lvert \\\\
+& \leq \gamma \max_{s^\prime} \Big \lvert U_{i}(s^{\prime}) - U_{i}^{\prime}(s^{\prime}) \Big \lvert \\\\
+\Rightarrow \Vert B U_i - B U_{i}^{\prime}\Vert & \leq \gamma \Big \Vert U_{i} - U_{i}^{\prime}\Big \Vert
 \end{aligned}
 $$
 
-That is, the Bellman operator is $\gamma -contraction$ on the space of utility functions. The fixed point of the Bellman operator is $U^*$. Hence, from the properties of contractions in general, it follows that value iteration always converges to $U^*$ whenever $\gamma < 1$.
+That is, the Bellman operator is $\gamma -contraction$ on the space of utility functions. The fixed point of the Bellman operator is $U^{\star}$. Hence, from the properties of contractions in general, it follows that value iteration always converges to $U^{\star}$ whenever $\gamma < 1$.
 
 <br/>
 
 > <div id='vi_error' style="color:#4d025c;"><h3><i>Error Bound</i></h3></div>
 
-We can't have $\infty$ iterations to converges to $U^*$. If we view $\Vert U_{i+1} - U^* \Vert$ as the error, we want to relate a bound for error to a bound for $\Vert U_{i+1} - U_{i} \Vert$. If $\Vert U_{i+1} - U_{i} \Vert \leq \delta$ we have
+We can't have $\infty$ iterations to converges to $U^{\star}$. If we view $\Vert U_{i+1} - U^{\star} \Vert$ as the error, we want to relate a bound for error to a bound for $\Vert U_{i+1} - U_{i} \Vert$. If $\Vert U_{i+1} - U_{i} \Vert \leq \delta$ we have     
+
 $$
 \begin{aligned}
-\Vert U_{i+1} - U^* \Vert & = \max_{s} \lvert U_{i+1}(s) - U^{*}(s) \lvert \\
-& = \max_{s} \Big \lvert (U_{i+1}(s) - U_{i+2}(s)) + (U_{i+2}(s) - U_{i+3}(s)) + ...\Big \lvert \\
-& \leq \max_{s} \Big ( \lvert U_{i+1}(s) - U_{i+2}(s)\lvert + \lvert U_{i+2}(s) - U_{i+3}(s)\lvert + ...  \Big ) \\
-& \leq \max_{s} \lvert U_{i+1}(s) - U_{i+2}(s)\lvert + \max_{s} \lvert U_{i+2}(s) - U_{i+3}(s)\lvert + ... \\
-& =  \Vert B U_{i} - B U_{i+1}\Vert + \Vert B U_{i+1} - B U_{i+2}\Vert + ... \\
-& \leq \gamma \Vert U_{i} - U_{i+1}\Vert + \gamma^{2} \Vert U_{i} - U_{i+1}\Vert + ... \\
-& = \frac{\gamma}{1 - \gamma} \Vert U_{i} - U_{i+1}\Vert & \text{for } \gamma < 1\\
+\Vert U_{i+1} - U^{\star} \Vert & = \max_{s} \lvert U_{i+1}(s) - U^{\star}(s) \lvert \\\\  
+& = \max_{s} \Big \lvert (U_{i+1}(s) - U_{i+2}(s)) + (U_{i+2}(s) - U_{i+3}(s)) + ...\Big \lvert \\\\
+& \leq \max_{s} \Big ( \lvert U_{i+1}(s) - U_{i+2}(s)\lvert + \lvert U_{i+2}(s) - U_{i+3}(s)\lvert + ...  \Big ) \\\\
+& \leq \max_{s} \lvert U_{i+1}(s) - U_{i+2}(s)\lvert + \max_{s} \lvert U_{i+2}(s) - U_{i+3}(s)\lvert + ... \\\\
+& =  \Vert B U_{i} - B U_{i+1}\Vert + \Vert B U_{i+1} - B U_{i+2}\Vert + ... \\\\
+& \leq \gamma \Vert U_{i} - U_{i+1}\Vert + \gamma^{2} \Vert U_{i} - U_{i+1}\Vert + ... \\\\
+& = \frac{\gamma}{1 - \gamma} \Vert U_{i} - U_{i+1}\Vert & \text{for } \gamma < 1\\\\
 & \leq \frac{\gamma}{1 - \gamma} \delta
 \end{aligned}
 $$
@@ -170,11 +170,12 @@ Thus, if $\delta \leq \frac{1 - \gamma}{\gamma} \epsilon$, then $\Vert U_{i+1} -
 
 > <div id='time_vi' style="color:#4d025c;"><h3><i>Time Complexity</i></h3></div>
 
-We want to calculate the number of iterations required to reach an error of at most $\epsilon$. Suppose that the rewards are bounded by $\pm R_{max}$. if $\gamma < 1$ we have
+We want to calculate the number of iterations required to reach an error of at most $\epsilon$. Suppose that the rewards are bounded by $\pm R_{max}$. if $\gamma < 1$ we have     
+
 $$
 \begin{aligned}
-U(s0,a0,s1,...) & = \sum_{t=0}^{\infty} \gamma^{t} R(s_{t},a_{t},s_{t+1}) \\
-& \leq \sum_{t=0}^{\infty} \gamma^{t} R_{max} \\
+U(s0,a0,s1,...) & = \sum_{t=0}^{\infty} \gamma^{t} R(s_{t},a_{t},s_{t+1}) \\\\
+& \leq \sum_{t=0}^{\infty} \gamma^{t} R_{max} \\\\
 U(s) & \leq \frac{R_{max}}{1-\gamma} 
 \end{aligned}
 $$
@@ -182,17 +183,17 @@ $$
 If we run for $N$ iterations, we have
 $$
 \begin{aligned}
-\Vert U_{N} - U^* \Vert & = \Vert B U_{N-1} - B U^* \Vert \\
-& \leq \gamma \Vert U_{N-1} - U^* \Vert \\
-& = \gamma \Vert B U_{N-2} - B U^* \Vert \\
-& \leq \gamma^{2} \Vert U_{N-2} - U^* \Vert \\
-& \leq \gamma^{N} \Vert U_{0} - U^* \Vert \\
-& = \gamma^{N} \Vert U^* \Vert & \forall s \text{ } U_{0}(s) = 0 \\
+\Vert U_{N} - U^* \Vert & = \Vert B U_{N-1} - B U^{\star} \Vert \\\\
+& \leq \gamma \Vert U_{N-1} - U^{\star} \Vert \\\\
+& = \gamma \Vert B U_{N-2} - B U^{\star} \Vert \\\\
+& \leq \gamma^{2} \Vert U_{N-2} - U^{\star} \Vert \\\\
+& \leq \gamma^{N} \Vert U_{0} - U^{\star} \Vert \\\\
+& = \gamma^{N} \Vert U^{\star} \Vert & \forall s \text{ } U_{0}(s) = 0 \\\\
 & \leq \gamma^{N} \frac{R_{max}}{1-\gamma}
 \end{aligned}
 $$
 
-if $\gamma^{N} \frac{R_{max}}{1-\gamma} \leq \epsilon$, then $\Vert U_{N} - U^* \Vert \leq \epsilon$. Thus
+if $\gamma^{N} \frac{R_{max}}{1-\gamma} \leq \epsilon$, then $\Vert U_{N} - U^{\star} \Vert \leq \epsilon$. Thus
 $$
 N = \Big \lceil \frac{\log{(\frac{R_{max}}{\epsilon (1-\gamma)})}}{\log{(\frac{1}{\gamma})}} \Big \rceil
 $$
@@ -264,12 +265,11 @@ $U_{k+1}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(
 
 > <div id='pi_cafv' style="color:#4d025c;"><h3><i>Computing Actions from Values</i></h3></div>
 
-Assume we have the optimal values $U^\star(s)$.
+Assume we have the optimal values $U^{\star}(s)$.
 
 We need to do a mini-expectimax.
 
-$$\pi^\star(s)=\underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\star}(s') \Big]$$
-
+$$\pi^{\star}(s)=\underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\star}(s') \Big]$$
 
 This is called policy extraction, since it gets the policy implied by the values
 
@@ -284,7 +284,7 @@ This is kind of one-step expectimax with assumption that terminal values $U^\pi_
 
 The action is completely trivial.
 
-$$\pi^\star(s)=\underset{a}{\operatorname{argmax}} Q^\star(s,a)$$
+$$\pi^{\star}(s)=\underset{a}{\operatorname{argmax}} Q^{\star}(s,a)$$
 
 
 **Comparison:**
@@ -321,8 +321,7 @@ $$U_{k+1}^{\pi_{i}}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi_{i}(s))} \Big 
     
     For fixed values, get a better policy using policy extraction:
 
-$$\pi_{i+1}(s) = \underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\pi_{i}}(s') \Big]$$
-
+$$\pi_{i+1}(s)= \underset{a}{\operatorname{argmax}} \Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\pi_{i}}(s') \Big]$$
 
 - **Repeat steps until policy converges**
     
@@ -344,16 +343,16 @@ When algorithm stops changing utility, because we know that the utility function
 
 <br/>
 
-**function** Q-Value($MDP, s, a, U$) **returns** a utility value <br/>
-&emsp; **return** $\Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{*}(s') \Big]$
+**function** Q-Value(MDP, $s, a, U$) **returns** a utility value <br/>
+&emsp; $\Sigma_{s'} {P(s^{\prime}|s,a)} \Big [R(s,a,s') + {\gamma}U^{\star}(s') \Big]$
 
 <br/>
 
-**function** Policy-Evaluation($\pi, U, MDP$) **returns** a utility function <br/>
+**function** Policy-Evaluation($\pi, U$, MDP) **returns** a utility function <br/>
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
-&emsp;&emsp; &emsp; &emsp; rewards $R(s,a,s^{\prime})$, discount $\gamma$     
-&emsp;&emsp; &emsp; &emsp; $U$, $U^{\prime}$, utility functions for states in S with policy $\pi$   
-&emsp;&emsp; &emsp; &emsp; $\delta$, the maximum relative change in the utility of any state      
+&emsp; &emsp; &emsp; &emsp; &emsp; rewards $R(s,a,s^{\prime})$, discount $\gamma$     
+&emsp; &emsp; &emsp; &emsp; &emsp; $U$, $U^{\prime}$, utility functions for states in S with policy $\pi$   
+&emsp; &emsp; &emsp; &emsp; &emsp; $\delta$, the maximum relative change in the utility of any state      
 &emsp; **repeat**       
 &emsp; &emsp; &emsp; $U \leftarrow U^{\prime}$;$\delta \leftarrow 0$       
 &emsp; &emsp; &emsp;**for each** state s **in** S **do**       
@@ -364,17 +363,17 @@ When algorithm stops changing utility, because we know that the utility function
 
 <br/>
 
-**function** Policy-Iteration($MDP$) **returns** a utility function     
+**function** Policy-Iteration(MDP) **returns** a utility function     
 &emsp; **inputs**: MDP, an MDP with states $S$ , actions $A(s)$, transition model $P(s^{\prime}|s,a)$,     
 &emsp; &emsp; &emsp; &emsp; $U$ , a vector of utilities for states in $S$, initially zero      
-&emsp; &emsp; &emsp; &emsp; $\pi$, a policy vector indexed by state, initially random     
+&emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; $\pi$, a policy vector indexed by state, initially random     
 &emsp; **repeat**      
 &emsp; &emsp; $U \leftarrow $ Policy-Evaluation($\pi$, $U$, MDP)      
 &emsp; &emsp; $unchanged? \leftarrow$ true     
 &emsp; &emsp; **for each** state s **in** S **do** <br/>
-&emsp; &emsp; &emsp; $a^\star \leftarrow \underset{a \in A(s)}{\operatorname{argmax}}$ Q-Value($MDP, s, a, U$)<br/>
-&emsp; &emsp; &emsp; **if** &nbsp; $\max\limits_{a \in A(s)}$ Q-Value($MDP, s, a^\star, U$) $>$ Q-Value($MDP, s, \pi[s], U$) &nbsp; **then** &nbsp;  **do**      
-&emsp; &emsp; &emsp; &emsp; $\pi[s] \leftarrow a^\star$     
+&emsp; &emsp; &emsp; $a^{\star} \leftarrow \underset{a \in A(s)}{\operatorname{argmax}}$ Q-Value(MDP, $s, a, U$)<br/>
+&emsp; &emsp; &emsp; **if** &nbsp; $\max\limits_{a \in A(s)}$ Q-Value(MDP, $s, a^{\star}, U$) $>$ Q-Value(MDP, $s, \pi[s], U$) &nbsp; **then** &nbsp;  **do**      
+&emsp; &emsp; &emsp; &emsp; $\pi[s] \leftarrow a^{\star}$     
 &emsp; &emsp; &emsp; &emsp; $unchanged? \leftarrow$ false     
 &emsp; **until** $unchanged?$     
 &emsp; **return** $\pi$
