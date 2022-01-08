@@ -84,6 +84,7 @@ In this lecture, we are going to talk about two different methods for solving MD
     </div>
 </body>
 </html>
+<br/>
 
 The Bellman equation is the basis of the **value iteration** algorithm for solving MDPs. We would like to solve these simultaneous equations to find the utilities. One thing to try is an iterative approach. We start with arbitrary initial values for the utilities, calculate the right-hand side of the equation, and plug it into the left-hand side. Thereby updating the utility of each state from the utilities of its neighbors. We repeat this until we reach an equilibrium.
 
@@ -657,6 +658,7 @@ In the next part, you will face reinforcement learning. The biggest change in RL
     </div>
 </body>
 </html>
+<br/>
 
 <div id='references'><h1> References </h1></div>
 ---
