@@ -1,32 +1,29 @@
-title: Reinforcement Learning (from Q Value) # shown on browser tab
+title: Reinforcement Learning - Part 2
 
 header:
-    title: Reinforcement Learning (from Q Value till the end) # title of your notebook
-    description: Q-learning, Active RL, Epsilon greedy strategy, Approximate Q-Learning # short description of your notebook
+    title: Reinforcement Learning - Part 2
+    description: Q-learning, Active RL, Epsilon greedy strategy, Approximate Q-Learning
 
 authors:
-    label: 
+    label:
         position: top
     kind: people
     content:
-    # list of notebook authors
-    - name: Karaneh Keypour # name of author
-      role: Author # change this if you want
+    - name: Karaneh Keypour
+      role: Author
       contact:
-      - link: https://github.com/karanehk/
+      - link: https://github.com/karanehk
         icon: fab fa-github
-    - name: Fatemeh Asgari # name of author
-      role: Author # change this if you want
+
+    - name: Fatemeh Asgari
+      role: Author
       contact:
       - link: https://github.com/fatemeh-asgari
         icon: fab fa-github
-   - name: Maryam Sadat Razavi Taheri # name of author
-      role: Author # change this if you want
+
+    - name: Maryam Sadat Razavi Taheri
+      role: Author
       contact:
       - link: https://github.com/msrazavi
         icon: fab fa-github
 
-comments:
-    # enable comments for your post
-    label: false
-    kind: comments
