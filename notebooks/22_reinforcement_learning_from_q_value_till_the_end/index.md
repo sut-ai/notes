@@ -42,7 +42,7 @@ Q-learning is a **sample-based** q-value iteration method and in it, you Learn $
 
   $$Q(s,a) \leftarrow (1 - \alpha)Q(s,a) + \alpha(sample)$$
   
- 
+  $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}_\text{old value} + \underbrace{\alpha}_\text{learning rate} . \overbrace{(\underbrace{\underbrace{r_t}_\text{reward} + \underbrace{\gamma}_\text{discount factor} . \underbrace{\max_aQ(s_{t+1},a)}_\text{estimate of optimal future value}}_\text{new value (temporal difference target)} - \underbrace{Q(s_t,a_t)}_\text{old value})}^\text{temporal difference}$$
   
 
 <img src="images/1.png" alt="Q-values" style="width:30%;display: block;margin-left: auto;margin-right: auto;"/>
