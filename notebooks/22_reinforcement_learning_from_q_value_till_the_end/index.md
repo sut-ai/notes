@@ -118,7 +118,7 @@ To read more about reinforcement learning, Q-learning, active and passive RL and
 - [Diving deeper into Reinforcement Learning with Q-Learning](https://medium.com/free-code-camp/diving-deeper-into-reinforcement-learning-with-q-learning-c18d0db58efe)
 - [Introduction to Regret in Reinforcement Learning](https://towardsdatascience.com/introduction-to-regret-in-reinforcement-learning-f5b4a28953cd)
 - [Active Learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
-- 
+
 <div id='references'><h1> References </h1></div>
 
 - _Artificial Intelligence, A modern approach_, Russel & Norvig (Third Edition).
