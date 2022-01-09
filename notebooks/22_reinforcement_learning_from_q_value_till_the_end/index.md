@@ -37,7 +37,7 @@ Q-learning is a **sample-based** q-value iteration method and in it, you Learn $
 - Consider your old estimate: $Q(s_t,a_t)$
 - Consider your new sample estimate:
 
-  $$sample = R(s,a,s') + \gamma max_a'Q(s',a') = r_t + \gamma max_aQ(s_{t+1},a)$$
+  $$sample = R(s,a,s') + \gamma max_{a'}Q(s',a') = r_t + \gamma max_aQ(s_{t+1},a)$$
   
 - Incorporate the new estimate into a running average:
 
@@ -46,7 +46,7 @@ Q-learning is a **sample-based** q-value iteration method and in it, you Learn $
   $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}_\text{old value} + \underbrace{\alpha}_\text{learning rate} . \overbrace{(\underbrace{\underbrace{r_t}_\text{reward} + \underbrace{\gamma}_\text{discount factor} \dot \underbrace{max_aQ(s_{t+1},a)}_\text{estimate of optimal future value}}_\text{new value (temporal difference target)} - \underbrace{Q(s_t,a_t)}_\text{old value})}^\text{temporal difference}$$
   
 
-<img src="images/1.png" alt="Q-values" style="width:300px;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="images/1.png" alt="Q-values" style="width:30%;display: block;margin-left: auto;margin-right: auto;"/>
 
 # Active RL
 
@@ -56,7 +56,7 @@ In active RL, an agent needs to decide what to do as there’s no fixed policy t
 
 Say you go to the same restaurant every day. You are basically exploiting. But on the other hand, if you search for new restaurant every time before going to any one of them, then it’s exploration. Exploration is very important for the search of future rewards which might be higher than the near rewards.
 
-<img src="images/2.png" alt="Exploration vs. Exploitation" style="width:300px;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="images/2.png" alt="Exploration vs. Exploitation" style="width:30%;display: block;margin-left: auto;margin-right: auto;"/>
 
 ## Epsilon greedy strategy
 
