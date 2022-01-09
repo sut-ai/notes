@@ -36,13 +36,13 @@ Q-learning is a **sample-based** q-value iteration method and in it, you Learn $
 - Consider your old estimate: $Q(s_t,a_t)$
 - Consider your new sample estimate:
 
-  $$sample = R(s,a,s^{\prime}) + \gamma \max_{a^{\prime}}Q(s^{prime},a^{\prime}) = r_t + \gamma \max_aQ(s_{t+1},a)$$
+  $$sample = R(s,a,s^{\prime}) + \gamma \max_{a^{\prime}}Q(s^{\prime},a^{\prime}) = r_t + \gamma \max_aQ(s_{t+1},a)$$
   
 - Incorporate the new estimate into a running average:
 
   $$Q(s,a) \leftarrow (1 - \alpha)Q(s,a) + \alpha(sample)$$
   
-  $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}<sub>\text{old value}</sub> + \underbrace{\alpha}<sub>\text{learning rate}</sub> . \overbrace{(\underbrace{\underbrace{r_t}_\text{reward} + \underbrace{\gamma}<sub>\text{discount factor}</sub> . \underbrace{\max_aQ(s_{t+1},a)}<sub>\text{estimate of optimal future value}</sub>}<sub>\text{new value (temporal difference target)}</sub> - \underbrace{Q(s_t,a_t)}<sub>\text{old value}</sub>)}^\text{temporal difference}$$
+  $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}_ {\text{old value}} + \underbrace{\alpha}_ {\text{learning rate}} . \overbrace{(\underbrace{\underbrace{r_t}_ {\text{reward}} + \underbrace{\gamma}_ {\text{discount factor}} . \underbrace{\max_aQ(s_{t+1},a)}_ {\text{estimate of optimal future value}}}_ {\text{new value (temporal difference target)}} - \underbrace{Q(s_t,a_t)}_ {\text{old value}})}^\text{temporal difference}$$
   
 
 <img src="images/1.png" alt="Q-values" style="width:30%;display: block;margin-left: auto;margin-right: auto;"/>
