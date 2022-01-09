@@ -60,8 +60,7 @@ The primitive element in any sampling algorithm is the generation of samples fro
 
 # Sampling from Given Distribution
 Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.
-<p style="text-align:center;">
-<table>
+<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
   <tr>
     <th style="text-align:center"> C </th>
     <th style="text-align:center"> Pr(C) </th>
@@ -79,7 +78,6 @@ Consider the example of picking random colored cubes from a large bag of them. T
     <td style="text-align:center"> 0.3 </td>
   </tr>
 </table>
-</p>
 
 In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
 and determine the sample based on that. As shown in the figure below, the unit length segment is 
@@ -286,7 +284,7 @@ Take the following Bayes' net as an example.
 Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.
 
 <p style="text-align:center;">
-<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" width="auto"/>
+<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" max-width=50%/>
 </p>
 
 As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
