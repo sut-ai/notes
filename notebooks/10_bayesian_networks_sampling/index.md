@@ -53,8 +53,8 @@ To compute an approximate posterior probability, one approach is to simulate the
 
 Sampling has two main advantages:
 
-- Learning: By getting samples from an unknown distribution, we can learn the associated probabilities.
-- Performance: Getting a sample is much faster than  computing the right answer.
+- **Learning**: By getting samples from an unknown distribution, we can learn the associated probabilities.
+- **Performance**: Getting a sample is much faster than  computing the right answer.
 
 The primitive element in any sampling algorithm is the generation of samples from a known probability distribution. So the step-by-step algorithm is described in the following section.
 
@@ -77,7 +77,7 @@ probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words,
 values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
 $c_1 = green$, $c_2 = red$ and $c_3 = blue$.
 
-![Partition of the Unit Length Segment](./Images/Unit_Length_Segment_Partition.png "Partition of the Unit Length Segment")
+<img src="./Images/Unit_Length_Segment_Partition.png" alt="drawing" class="center" width="auto"/>
 
 We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_i$. Since we chose the seed from a uniform distribution, it can be shown that the probability of the sample being equal to $c_i$ is $Pr(C=c_i)$.
 
@@ -126,11 +126,11 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 
 Take the following Bayes' net as an example.
 
-![Prior Sampling Bayes' Net Example](./Images/General_Example_BN.png "Example Bayes' Net")
+<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
-Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose the result of this sampling is $-c$. We continue our sampling algorithm with $B$. Suppose that after this sampling, the result is $-b$. The last variable to sample is $D$ with the result of $+d$. We return the resulting sample $(+a,-c,-b,+d)$.
+Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of the aforementioned operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose the result of this sampling is $-c$. We continue our sampling algorithm with $B$. Suppose that after this sampling, the result is $-b$. The last variable to sample is $D$ with the result of $+d$. We return the resulting sample $(+a,-c,-b,+d)$.
 
 After the sampling algorithm has finished, to determine $Pr(query|evidence)$, first, we need to filter out samples inconsistent with our evidence list. We will set the count of samples in this list as our denominator, and the count of samples in this list consistent with our query as our numerator.
 
@@ -155,7 +155,7 @@ This algorithm is also consistent with the conditional probabilities.
 
 Take the following Bayes' net as an example.
 
-![Rejection Sampling Bayes' Net Example](./Images/General_Example_BN.png "Example Bayes' Net")
+<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -212,13 +212,13 @@ $$
 
 Take the following Bayes' net as an example.
 
-![Likelihood Weighting Bayes' Net Example](./Images/General_Example_BN.png "Example Bayes' Net")
+<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
-Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. Then, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will we sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
+Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. Then, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will be sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.
 
-By repeating this procedure and calculating a weigth for each sample, we will eventually find a collection of weighted samples. Then we could use the calculated weights to approximate the probability in question. This is done by summing the weights of the samples consistent with the query, and dividing by the sum of all weights generated.
+By repeating this procedure and calculating a weight for each sample, we will eventually find a collection of weighted samples. Then we could use the calculated weights to approximate the probability in question. This is done by summing the weights of the samples consistent with the query, and dividing by the sum of all weights generated.
 
 ## Gibbs Sampling
 The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the *Metropolis-Hastings* algorithm (See Page 62 of this [lecture note](https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf)).
@@ -260,11 +260,11 @@ In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent t
 
 Take the following Bayes' net as an example.
 
-![Gibbs Sampling Bayes' Net Example](./Images/Gibbs_Example_BN.png "Example Bayes' Net")
+<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
 
-Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown, in green, variables set to false in red and variables selected for resampling in yellow.
+Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.
 
-![Gibbs Sampling Procedure](./Images/Gibbs_Example_Procedure.png "Example Gibbs Sampling Procedure")
+<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" class="center" width="auto"/>
 
 As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
 $$

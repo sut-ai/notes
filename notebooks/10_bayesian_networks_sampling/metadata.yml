@@ -10,7 +10,7 @@ authors:
     kind: people
     content:
     # list of notebook authors
-    - name: <Alireza Honarvar> # name of author
+    - name: Alireza Honarvar # name of author
       role: Author # change this if you want
       contact:
       # list of contact information
@@ -20,7 +20,7 @@ authors:
       - link: https://t.me/FekKonamAlirezaBezarCheckKonam # contact link
         icon: fab fa-telegram  # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
 
-    - name: <Navid Eslami> # name of author
+    - name: Navid Eslami # name of author
       role: Author # change this if you want
       contact:
       # list of contact information
@@ -30,7 +30,7 @@ authors:
       - link: https://t.me/NavidEsl # contact link
         icon: fab fa-telegram # awsomefont tag for link (check: https://fontawesome.com/v5.15/icons)
 
-    - name: <Ali Najibi> # name of author
+    - name: Ali Najibi # name of author
       role: Author # change this if you want
       contact:
       # list of contact information
