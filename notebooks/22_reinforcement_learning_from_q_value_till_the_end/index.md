@@ -125,6 +125,6 @@ To read more about reinforcement learning, Q-learning, active and passive RL and
 - [Reinforcement Learning slides, CE-417, Sharif Uni of Technology.](http://ce.sharif.edu/courses/99-00/1/ce417-2/resources/root/Slides/PDF/Session%2025_26.pdf)
 - [Towardsdatascience](http://Towardsdatascience.com)
 - [Wikipedia](http://wikipedia.com)
-- [freecodecamp](http://Freecodecamp.org)
+- [Freecodecamp](http://Freecodecamp.org)
 - [Core-Robotics](http://core-robotics.gatech.edu)
 - [GeeksforGeeks](https://www.geeksforgeeks.org)
