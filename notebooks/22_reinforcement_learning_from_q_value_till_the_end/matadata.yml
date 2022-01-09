@@ -7,6 +7,7 @@ header:
 authors:
     label: 
         position: top
+    kind: people
     content:
     # list of notebook authors
     - name: Karaneh Keypour # name of author
