@@ -14,16 +14,22 @@ authors:
       contact:
       - link: https://github.com/karanehk
         icon: fab fa-github
+      - link: mailto:keypoor.karaneh@gmail.com
+        icon: fas fa-envelope
 
     - name: Fatemeh Asgari
       role: Author
       contact:
       - link: https://github.com/fatemeh-asgari
         icon: fab fa-github
+      - link: mailto:f.asgari2001@gmail.com
+        icon: fas fa-envelope        
 
     - name: Maryam Sadat Razavi Taheri
       role: Author
       contact:
       - link: https://github.com/msrazavi
         icon: fab fa-github
+      - link: mailto:razavi.mst@gmail.com
+        icon: fas fa-envelope        
 
