@@ -43,7 +43,7 @@ Q-learning is a **sample-based** q-value iteration method and in it, you Learn $
 
   $$Q(s,a) \leftarrow (1 - \alpha)Q(s,a) + \alpha(sample)$$
   
-  $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}_\text{old value} + \underbrace{\alpha}_\text{learning rate} . \overbrace{(\underbrace{\underbrace{r_t}_\text{reward} + \underbrace{\gamma}_\text{discount factor} . \underbrace{max_aQ(s_{t+1},a)}_\text{estimate of optimal future value}}_\text{new value (temporal difference target)} - \underbrace{Q(s_t,a_t)}_\text{old value})}^\text{temporal difference}$$
+  $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}_\text{old value} + \underbrace{\alpha}_\text{learning rate} . \overbrace{(\underbrace{\underbrace{r_t}_\text{reward} + \underbrace{\gamma}_\text{discount factor} \dot \underbrace{max_aQ(s_{t+1},a)}_\text{estimate of optimal future value}}_\text{new value (temporal difference target)} - \underbrace{Q(s_t,a_t)}_\text{old value})}^\text{temporal difference}$$
   
 
 <img src="images/1.png" alt="Q-values" style="width:300px;display: block;margin-left: auto;margin-right: auto;"/>
@@ -61,13 +61,15 @@ Say you go to the same restaurant every day. You are basically exploiting. But o
 ## Epsilon greedy strategy
 
 The tradeoff between exploration and exploitation is fundamental. the simplest way to force exploration is using **epsilon greedy strategy**. This method does a random action with a small probability of $\epsilon$ (exploration) and with a probability of $(1 - \epsilon)$ does the current policy action (exploitation).
-The problem with random actions is that you do eventually explore the space, but keep thrashing around once learning is done. one solution is to start with a higher ϵ rate and as the agent explores the environment, the ϵ rate decreases and the agent starts to exploit the environment.
+The problem with random actions is that you do eventually explore the space, but keep thrashing around once learning is done. one solution is to start with a higher $\epsilon$ rate and as the agent explores the environment, the ϵ rate decreases and the agent starts to exploit the environment.
 
 ## Exploration functions
 
 Another solution is to use **exploration functions**. For example, this function can take a value estimate u and a visit count n, and return an optimistic utility, e.g. $f(u,n) = v + \frac{k}{n}$ . we are counting how many times we did some random action. if it had yet to reach a fixed amount, we should try it more often and if it doesn't return a good output we should just stop exploring it.
 So we’ll use a modified Q-update:
+
 $$Q(s,a) \leftarrow _\alpha R(s,a,s') + \gamma max_a' f(Q(s',a'),N(s',a'))$$
+
 in above equation k is fixed. Q is the optimistic utility which is given to f as v. and n is the number of times we visited s' after doing action a' starting from s. which means when the n is low we get to try those actions more often.
 
 # Regret
