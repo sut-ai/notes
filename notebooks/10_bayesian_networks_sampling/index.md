@@ -284,7 +284,7 @@ Take the following Bayes' net as an example.
 Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.
 
 <p style="text-align:center;">
-<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" max-width=50%/>
+<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" width=100%/>
 </p>
 
 As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:

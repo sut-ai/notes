@@ -1,8 +1,8 @@
-title: <Inference in Bayesian Networks (Sampling)> # shown on browser tab
+title: Inference in Bayesian Networks (Sampling) # shown on browser tab
 
 header:
-    title: <Inference in Bayesian Networks (Sampling)> # title of your notebook
-    description: <Fast Approximate Inference Methods in Bayesian Networks A.K.A. Sampling> # short description of your notebook
+    title: Inference in Bayesian Networks (Sampling) # title of your notebook
+    description: Fast Approximate Inference Methods in Bayesian Networks A.K.A. Sampling # short description of your notebook
 
 authors:
     label: 
