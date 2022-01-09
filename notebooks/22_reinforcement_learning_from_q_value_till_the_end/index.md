@@ -36,10 +36,15 @@ Q-learning is a **sample-based** q-value iteration method and in it, you Learn $
 - Receive a sample. $(s_{t+1}, s_t, a_t, r_t)$
 - Consider your old estimate: $Q(s_t,a_t)$
 - Consider your new sample estimate:
+
   $$sample = R(s,a,s') + \gamma max_a'Q(s',a') = r_t + \gamma max_aQ(s_{t+1},a)$$
+  
 - Incorporate the new estimate into a running average:
+
   $$Q(s,a) \leftarrow (1 - \alpha)Q(s,a) + [\alpha](sample)$$
+  
   $$\rightarrow Q^{new}(s_t,a_t) \leftarrow \underbrace{Q(s_t,a_t)}_\text{old value} + \underbrace{\alpha}_\text{learning rate} . \overbrace{(\underbrace{\underbrace{r_t}_\text{reward} + \underbrace{\gamma}_\text{discount factor} . \underbrace{max_aQ(s_{t+1},a)}_\text{estimate of optimal future value}}_\text{new value (temporal difference target)} - \underbrace{Q(s_t,a_t)}_\text{old value})}^\text{temporal difference}$$
+  
 
 <img src="images/1.png" alt="Q-values" style="width:300px;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -76,10 +81,15 @@ Basic Q-learning keeps a table of all Q-values but in real world situations, the
 ## Feature-based representation
 
 One way of using this is to use a feature-based representation in which we describe a state using a vector of features. In this method, we respresent a **linear** combination of these features and try to learn wis so that the Q function is near to the main Q-value.
+
 $$V(s) = \omega_1f_1(s) + \omega_2f_2(s) + ... + \omega_nf_n(s)$$
+
 $$Q(s,a) = \omega_1f_1(s,a) + \omega_2f_2(s,a) + ... + \omega_nf_n(s,a)$$
+
 To learn and update wis, we have a method which is similar to the method we had for updating Q-values in basic Q-learning :
+
 $$\omega_m \leftarrow \omega_m + \alpha [r + \gamma max_aQ(s',a') - Q(s,a)] f_m(s,a)$$
+
 
 # Conclusion
 
