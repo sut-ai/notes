@@ -40,3 +40,27 @@ authors:
           link: https://github.com/nimajam41
         - icon: fas fa-envelope
           link: mailto:nimxj4141@gmail.com
+
+    - name: MohammadJavad HosseinPanah
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/PayaHosseinPanah
+        - icon: fas fa-envelope
+          link: mhosseinpanah@yahoo.com
+
+    - name: AmirHossein Farahani
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/far2000
+        - icon: fas fa-envelope
+          link: far4041@gmail.com
+
+    - name: Ali asghar Ghanati
+      role: Author
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/alilordloss
+        - icon: fas fa-envelope
+          link: a.a.ghanati@gmail.com
