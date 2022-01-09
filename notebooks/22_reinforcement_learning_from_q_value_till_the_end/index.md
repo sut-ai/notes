@@ -60,7 +60,7 @@ The problem with random actions is that you do eventually explore the space, but
 
 ## Exploration functions
 
-Another solution is to use **exploration functions**. For example, this function can take a value estimate u and a visit count n, and return an optimistic utility, e.g. f (u, n) = v + k/n. we are counting how many times we did some random action. if it had yet to reach a fixed amount, we should try it more often and if it doesn't return a good output we should just stop exploring it.
+Another solution is to use **exploration functions**. For example, this function can take a value estimate u and a visit count n, and return an optimistic utility, e.g. $f(u,n) = v + \frac{k}{n}$ . we are counting how many times we did some random action. if it had yet to reach a fixed amount, we should try it more often and if it doesn't return a good output we should just stop exploring it.
 So we’ll use a modified Q-update:
 $$Q(s,a) \leftarrow _\alpha R(s,a,s') + \gamma max_a' f(Q(s',a'),N(s',a'))$$
 in above equation k is fixed. Q is the optimistic utility which is given to f as v. and n is the number of times we visited s' after doing action a' starting from s. which means when the n is low we get to try those actions more often.
