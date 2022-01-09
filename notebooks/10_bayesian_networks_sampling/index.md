@@ -60,15 +60,26 @@ The primitive element in any sampling algorithm is the generation of samples fro
 
 # Sampling from Given Distribution
 Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.
-<center>
-
-|   C   	| Pr(C) 	|
-|:-----:	|:----:	|
-|  green  	|  0.6 	|
-|   red 	|  0.1 	|
-|  blue 	|  0.3 	|
-
-</center>
+<p style="text-align:center;">
+<table>
+  <tr>
+    <th style="text-align:center"> C </th>
+    <th style="text-align:center"> Pr(C) </th>
+  </tr>
+  <tr>
+    <td style="text-align:center"> Green </td>
+    <td style="text-align:center"> 0.6 </td>
+  </tr>
+  <tr>
+    <td style="text-align:center"> Red </td>
+    <td style="text-align:center"> 0.1 </td>
+  </tr>
+  <tr>
+    <td style="text-align:center"> Blue </td>
+    <td style="text-align:center"> 0.3 </td>
+  </tr>
+</table>
+</p>
 
 In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
 and determine the sample based on that. As shown in the figure below, the unit length segment is 
@@ -77,7 +88,9 @@ probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words,
 values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
 $c_1 = green$, $c_2 = red$ and $c_3 = blue$.
 
-<img src="./Images/Unit_Length_Segment_Partition.png" alt="drawing" class="center" width="auto"/>
+<p style="text-align:center;">
+<img src="./Images/Unit_Length_Segment_Partition.png" alt="drawing" width="auto"/>
+</p>
 
 We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_i$. Since we chose the seed from a uniform distribution, it can be shown that the probability of the sample being equal to $c_i$ is $Pr(C=c_i)$.
 
@@ -126,7 +139,9 @@ It is apparent that this algorithm is faster than its exact counter-parts. Since
 
 Take the following Bayes' net as an example.
 
-<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
+<p style="text-align:center;">
+<img src="./Images/General_Example_BN.png" alt="drawing" width="auto"/>
+</p>
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -155,7 +170,9 @@ This algorithm is also consistent with the conditional probabilities.
 
 Take the following Bayes' net as an example.
 
-<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
+<p style="text-align:center;">
+<img src="./Images/General_Example_BN.png" alt="drawing" width="auto"/>
+</p>
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -212,7 +229,9 @@ $$
 
 Take the following Bayes' net as an example.
 
-<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
+<p style="text-align:center;">
+<img src="./Images/General_Example_BN.png" alt="drawing" width="auto"/>
+</p>
 
 Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.
 
@@ -260,11 +279,15 @@ In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent t
 
 Take the following Bayes' net as an example.
 
-<img src="./Images/General_Example_BN.png" alt="drawing" class="center" width="auto"/>
+<p style="text-align:center;">
+<img src="./Images/General_Example_BN.png" alt="drawing" width="auto"/>
+</p>
 
 Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.
 
-<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" class="center" width="auto"/>
+<p style="text-align:center;">
+<img src="./Images/Gibbs_Example_Procedure.png" alt="drawing" width="auto"/>
+</p>
 
 As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
 $$
