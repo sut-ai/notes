@@ -6,7 +6,7 @@
 - [Independence](#Independence)
 	- [Conditional Independence](#Conditional-Independence)
 	- [Chain Rule](#Chain-Rule)
-- [Bayes' Nets](#Bayes'-Nets)
+- [Bayes' Nets](#Bayes-Nets)
 	- [Problems with joint distribution tables](#Problems-with-joint-distribution-tables)
 	- [Graphical Notation](#Graphical-Notation)
 	- [Semantics](#Semantics)
@@ -92,7 +92,7 @@ But if we know that $Z$ and $Y$ are independent, we can instead write:
 
 These independencies can be derived from bayes' nets. This will come in handy when we want to infer probabilities from bayes nets.
 
-## Bayes' Nets
+## Bayes' Nets <a name="Bayes Nets"></a>
 
 ![fridge](assets/Fridge_net.PNG)
 
