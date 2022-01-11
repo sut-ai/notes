@@ -208,7 +208,7 @@ $$P(Z|X,Y)=\frac{P(X,Y,Z)}{P(X,Y)}=\frac{P(X)P(Y|X)P(Z|Y)}{P(X)P(Y|X)}=P(Z|Y)$$ 
 
 we conclude that with condition on $Y$, $X$ and $Z$ are independent. <br/>
 
-So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of $X$ to $Z$ is not direct, if the value of $Y$ is known, changes in $X$ value causes no effect on Z’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
+So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of $X$ to $Z$ is not direct, if the value of $Y$ is known, changes in value of $X$ causes no effect on Z’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
 
 So, evidence along the chain “blocks” the influence.
 
@@ -246,7 +246,7 @@ $$P(Z|X,Y)=\frac{P(X,Y,Z)}{P(X,Y)}=\frac{P(X)P(Y|X)P(Z|Y)}{P(X)P(Y|X)}=P(Z|Y)$$ 
 
 we conclude that with condition on $Y$, $X$ and $Z$ are independent. <br/>
 
-So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of $X$ to $Z$ is not direct, if value of $Y$ is known, changes in $X$ value causes no effect on $Z$’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
+So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of $X$ to $Z$ is not direct, if value of $Y$ is known, changes in value of $X$ causes no effect on $Z$’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
 So, observing the cause blocks influence between effects.
 
 #### V-Structure
