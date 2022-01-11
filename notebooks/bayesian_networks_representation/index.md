@@ -6,7 +6,7 @@
 - [Independence](#Independence)
 	- [Conditional Independence](#Conditional-Independence)
 	- [Chain Rule](#Chain-Rule)
-- [Bayes' Nets](Bayes'-Nets)
+- [Bayes' Nets](Bayes-Nets)
 	- [Problems with joint distribution tables](#Problems-with-joint-distribution-tables)
 	- [Graphical Notation](#Graphical-Notation)
 	- [Semantics](#Semantics)
