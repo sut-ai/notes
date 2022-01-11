@@ -1,0 +1,31 @@
+title: LN | Bayesian Networks Representation
+
+header:
+	title: Bayesian Networks Representation
+	description:
+
+authors:
+	label:
+		position: top
+	content:
+		- name: Mohammad Hosein Gheysarieh
+		  role: Author
+		  contact:
+		  - icon: fab fa-github
+		    link: https://github.com/mhgheisarieh
+
+		- name: Mohammad Cheraghi
+		  role: Author
+		  contact:
+		  - icon: fab fa-github
+		    link: https://github.com/mohammadch80
+    
+		- name: Seyyed Mohammad Sadegh Tabaian
+		  role: Author
+		  contact:
+		  - icon: fab fa-github
+		    link: https://github.com/GildedJson
+
+comments:
+	label: false
+	kind: comments
