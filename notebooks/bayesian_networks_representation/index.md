@@ -10,8 +10,8 @@
 	- [Problems with joint distribution tables](#Problems-with-joint-distribution-tables)
 	- [Graphical Notation](#Graphical-Notation)
 	- [Semantics](#Semantics)
-	- [Probabilities in Bayes' Nets](#Probabilities-in-Bayes' Nets)
-	- [Causality in Bayes' Nets](#Causality-in-Bayes'-Nets)
+	- [Probabilities in Bayes' Nets](#Probabilities-in-Bayes-Nets)
+	- [Causality in Bayes' Nets](#Causality-in-Bayes-Nets)
 	- [Space Efficiency](#Space-Efficiency)
 - [Independence in Bayes' Nets](#Independence-in-Bayes'-Nets)
 	- [D-separation](#D-separation)
@@ -119,7 +119,7 @@ Bayesian net's graphical notation consists of a graph, and one conditional proba
 
 In this picture there are a set of nodes, one per variable $X$. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. 
 
-### Probabilities in Bayes' Nets
+### Probabilities in Bayes' Nets <a name="Probabilities-in-Bayes-Nets"></a>
  In BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities. <br/>
  $$P(x_1, x_2,... , x_n)=\prod_{i=1}^{n}P(x_i|Parents(x_i))$$ <br/>
  In the following part, we will prove this method is correct.<br/>
@@ -150,7 +150,7 @@ In this picture there are a set of nodes, one per variable $X$. And we have a di
  ![alarm](assets/alarm.png) <br/>
 For example $P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)$
 
-### Causality in Bayes' Nets
+### Causality in Bayes' Nets <a name="Causality-in-Bayes-Nets"></a>
  If in a Bayes' net the arrows represent the real causes, it can be better investigated and the probabilities are easier to find. The network also becomes simpler. Because the number of parents is fewer. <br/>
  Sometimes arrows do not represent causal relationships. Or even in some networks, none of the arrows have a causal relationship. For example, when some important variables are not available in the network. In such cases, the arrows show correlation and not causation.<br/>
  
