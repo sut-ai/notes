@@ -4,11 +4,11 @@
 
 - [Introduction](#introduction)
 - [CNN Architecture](#CNN-Architecture)
+- [Fully Connected Layer](#Fully-Connected-Layer)
 - [Conv Layer](#Conv-Layer)
 - [Pooling](#Pooling)
 - [Padding](#Padding)
 - [Stride](#Stride)
-- [Fully Connected Layer](#Fully-Connected-Layer)
 - [Activation Function](#Activation-Function)
 - [Loss Functions](#Loss-Functions)
 - [The Output Size of Conv Layer](#The-output-size-of-Conv-Layer)
@@ -20,7 +20,7 @@
 Deep learning is a subfield of machine learning that deals with algorithms inspired by the structure and function of the brain. Deep learning is a subset of machine learning, which is a part of artificial intelligence (AI).
 ![](https://i.imgur.com/qhjJzDb.png)
 
-CNN's are models to solve deep learning problems. Suppose that you have high-dimensional inputs such as images or videos. If we want to use MLPs, 2 (or more) dimensional inputs need to be converted to 1-dimensional vectors. This conversion increases the number of trainable parameters exponentially. Also, one important thing in these data is locality, it means that for example in an image, you can find features in near pixels (for examples corners and edges) but, far pixels can't give you efficient features. The solution for solving these problems is using CNNs.
+CNNs are models to solve deep learning problems. Suppose that you have high-dimensional inputs such as images or videos. If we want to use MLPs, 2 (or more) dimensional inputs need to be converted to 1-dimensional vectors. This conversion increases the number of trainable parameters exponentially. Also, one important thing in these data is locality, it means that for example in an image, you can find features in near pixels (for example corners and edges) but, distant pixels can't give you efficient features. The solution for solving these problems is using CNNs.
 
 ## CNN Architecture
 A CNN architecture is formed by a stack of distinct layers that transform the input volume into an output volume through a differentiable function. A few distinct types of layers are commonly used:
@@ -52,7 +52,7 @@ Fully Connected layers in neural networks are those layers where all the inputs
 ![](https://i.imgur.com/3nItEgk.png)
 
 ## Conv Layer
-This layer is the main difference between CNNs and MLPs. Convolution in the word refers to two operators between two functions. In mathematics convolution define as below:  
+This layer is the main difference between CNNs and MLPs. Convolution in the word refers to two operators between two functions. In mathematics convolution is defined as below:  
 <img src="https://render.githubusercontent.com/render/math?math=(f * g)(t) := \int_{-\infty}^{\infty} f(\tau)g(t - \tau)d\tau">  
 In this image, you can see an example for functions of convolution and two other similar operators.
     
