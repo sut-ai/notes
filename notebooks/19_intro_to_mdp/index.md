@@ -59,7 +59,7 @@ Actions are set of operations an agent is allowed to do in the given environment
 
 At each state, the agent decides which action to perform. The resulting state ($s'$) depends on both the current state ($s$) and the action performed by the agent ($a$). The transition model $T(s, a, s’)$ gives probability $P(s’|s, a)$, that is, the probability of landing up in the new  state $s’$ given that the agent takes an action, $a$, in the given state, $s$.
 
-Environments can be divided to two types according to their transition models.
+Environments can be divided into two types according to their transition models.
 
 - Determined environment: In a determined environment, if a certain action ($a$) is taken, the resulting state is the expected state ($s'$) with probability 1.
 - Stochastic environment: In a stochastic environment, if the same action (a) is taken, with a certain probability ,e.g. $0.8$, the resulting state  will be the expected state and there is $0.2$ probability that the resulting state is not the expected state. Here, for the state $s$, the action $a$ and next state $s'$ the transition model is $T(s’, a, s) = P(s’| s, a) = 0.8$.
