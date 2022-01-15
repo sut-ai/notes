@@ -52,7 +52,7 @@ As an example, consider a robot car that wants to reach its destination as quick
 Actions are set of operations an agent is allowed to do in the given environment. The set of actions is usually shown with $A$. In the robot car example, the machine can increase or decrease its speed. So the actions' set would be {slow, fast}
 
 <p align="center">
-<image src="action.jpg">
+<image src="action.jpg" width="60%">
 </p>
 
 ### Transition Model
