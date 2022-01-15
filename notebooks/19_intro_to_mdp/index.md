@@ -149,19 +149,19 @@ This means that if a sequence is preferred to another, it is also preferred afte
 ## Bellman Equation
 
 Due to previous discussions, now objective is to find policy that maximizes expected discounted utility.
-$$ max_\pi E \Bigg[ \sum_{i=0}^\infty \gamma^ir_i \Bigg] $$
+$$ \max_{\pi} E \Bigg[ \sum_{i=0}^\infty \gamma^ir_i \Bigg] $$
 
 Consider $V^\star(s)$ as expected utility starting from state $s$ and act according to $\pi^\star$, the optimal policy.
 
 $Q^\star(s, a)$ is the expected utility starting from state $s$ then performing action $a$ and after that acting according to $\pi^\star$.
 
 By considering all forward steps and choosing the step which maximizes the utility, $V^\star$ can be formulated as
-$$ V^\star(s) = max_a Q^\star(s, a) . $$
+$$ V^\star(s) = \max_{a} Q^\star(s, a) . $$
 Then by calculating expectation on earned utility by marginalizing on all possible next states which can be succeeded after action $a$ in state $s$, $Q^\star$ will be written as
 $$ Q^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big].$$
 
 Since $V^\star$ and $Q^\star$ are jointly recursive, It is possible to replace $Q^\star$ with $V^\star$.
-$$ V^\star(s) = max_a \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big] $$
+$$ V^\star(s) = \max_{a} \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big] $$
 
 Equation above is called as *bellman equation*.
 
@@ -179,11 +179,11 @@ An approach to solve this problem is to try solving the problem in $k$ steps whi
 Instead of $V^\star(s)$, Consider $V_k(s)$ which is the expected utility starting from state $s$ and acting according to $\pi^\star$ with consideration that the process will be terminated after $k$ steps. The idea is that with the growth of $k$, $V_k$ will converge to $V^\star$ so an approximate solution to the equations system can be obtained.
 
 Equations below are the limited form of what was discussed about $V^\star$ and $Q^\star$ above.
-$$ V_{k+1}(s) = max_a Q_k(s, a) $$
+$$ V_{k+1}(s) = \max_{a} Q_k(s, a) $$
 $$ Q_k(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V_k(s') \big]$$
 
 So $V_{k+1}$ can be calculated by
-$$ V_{k+1}(s) = max_a \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V_k(s') \big] .$$
+$$ V_{k+1}(s) = \max_{a} \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V_k(s') \big] .$$
 
 For each state $s$, $V_{k+1}(s)$ will be calculated by iteration over all states and all actions, which has time complexity $O(|S||A|)$. So the total time complexity for each iteration will  be $O(|S|^2|A|)$.
 
