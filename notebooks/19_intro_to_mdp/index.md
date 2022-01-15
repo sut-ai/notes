@@ -319,11 +319,9 @@ def mdp_iterate(transition_function, reward_function, gamma: float, states: List
             best_actions.append(None)
             continue
         values_action = []
-        for action_index in range(len(actions)):
-            action = actions[action_index]
+        for action in actions:
             values_next = []
-            for next_state_index in range(len(states)):
-                next_state = states[next_state_index]
+            for next_state in states:
                 expected = reward_function(state, action, next_state) + (gamma * v[i])
                 values_next.append(transition_function(state, action, next_state) * expected)
             value_next = sum(values_next)
