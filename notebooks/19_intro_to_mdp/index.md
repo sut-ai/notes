@@ -42,9 +42,9 @@ A representation of the environment's features at a specific time is called stat
 As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated} .Notice that overheated is a terminal state.
 
 <p align="center">
-<image src="cool.jpg">
-<image src="warm.jpg">
-<image src="overheated.jpg">
+<image src="cool.jpg" width="30%">
+<image src="warm.jpg" width="30%">
+<image src="overheated.jpg" width="30%">
 </p>
 
 ### Actions
