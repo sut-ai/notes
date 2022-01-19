@@ -15,18 +15,18 @@
 - [Value Iteration](#value_iteration)
     - [Convergence of Value Iteration](#vi_convergence)
         - [Contraction](#vi_cont)
-        - [Error Bound ](#vi_error)
-    - [Value Iteration pseudocode](#vi_code)
+        - [Error Bound](#vi_error)
+    - [Value Iteration Pseudocode](#vi_code)
         - [Time Complexity](#time_vi)
 - [Policy Iteration](#pi)
-    - [The idea of policy iteration](#pi_id)
+    - [The Idea of Policy Iteration](#pi_id)
     - [Policy Evaluation](#pe)
         - [Fixed Policy](#fp)
     - [Policy Extraction (Improvement)](#pex)
         - [Computing Actions from Values](#pi_cafv)
         - [Computing Actions from Q-Values](#pi_cafq)
     - [Policy Iteration Summary](#pis)
-    - [Policy Iteration pseudocode](#pi_code)
+    - [Policy Iteration Pseudocode](#pi_code)
 - [Conclusion](#conclusion)
 - [References](#references)
 
@@ -37,7 +37,7 @@
 
 <br/>
 
-In the previous lecture, you became familiar with what MDP is. As you know, MDP can be remembered as a mathematical framework used for modeling decision-making problems. Usually, an agent can do some actions, but the outcomes are stochastic and not entirely controllable. The goal is to decide the best action to select based on his current state. It’s better to know MDP before Reinforcement Learning.
+In the previous lecture, you became familiar with what MDP is. As you are aware, MDP can be remembered as a mathematical framework used for modeling decision-making problems. Usually, an agent can do some actions, but the outcomes are stochastic and not entirely controllable. The goal is to decide the best action to select based on its current state. It is better to know MDP before Reinforcement Learning.
 
 In this lecture, we are going to talk about two different methods for solving MDPs. These two methods are value iteration and policy iteration. Stay with us.
 
@@ -186,7 +186,7 @@ Thus, if $\delta \leq \frac{1 - \gamma}{\gamma} \epsilon$, then $\Vert U_{i+1} -
 
 <br/>
 
-<div id='vi_code' style="color:#33013d;"><h2> Value Iteration pseudocode </h2></div>
+<div id='vi_code' style="color:#33013d;"><h2> Value Iteration Pseudocode </h2></div>
 
 <br/>
 
@@ -291,7 +291,7 @@ This insight suggests an alternative way to find optimal policies.
 Policy iteration is a different approach to find the optimal policy for given states and actions.
 
 <br/>
-<div id='pi_id' style="color:#33013d;"><h2>The idea of policy iteration</h2></div>
+<div id='pi_id' style="color:#33013d;"><h2>The Idea of Policy Iteration</h2></div>
 <br/>
 
 Once a policy, $\pi_0$ (could be initialized random), has been improved using $U^{\pi_0}$ to yield a better policy, $\pi_1$, we can then compute $U^{\pi_1}$ and improve it again to yield an even better $\pi_2$. We can thus obtain a sequence of monotonically improving policies and value functions.
@@ -344,8 +344,7 @@ Each policy is guaranteed to be a strict improvement over the previous one (unle
 
 > <div id='fp' style="color:#4d025c;"><h3><i>Fixed Policy</i></h3></div>
 
-Back to expectimax tree, there was different actions for node s, so we had different choices; but if the policy is fixed ($\pi(s)$), there is only one fixed action for the node s. This cause an important change in Bellman equation: there will be no need to take maximum in the equation.
-
+Back to the expectimax tree, there were different actions for node $s$, so we had different choices; but if the policy is fixed ($\pi(s)$), there is only one fixed action for the node $s$. This causes an important change in the Bellman equation: there will be no need to take maximum in the equation.
 $$
 U_{k}^{\pi}(s) \leftarrow \Sigma_{s'} {P(s^{\prime}|s,\pi(s))} \Big [R(s,\pi(s),s') + {\gamma}U^{\pi}_{k}(s') \Big]
 $$
@@ -555,7 +554,7 @@ When algorithm stops changing utility, because we know that the utility function
 
 <br/>
 
-<div id='pi_code' style="color:#33013d;"><h2> Policy-Iteration pseudocode </h2></div>
+<div id='pi_code' style="color:#33013d;"><h2> Policy Iteration Pseudocode </h2></div>
 
 <br/>
 
@@ -610,15 +609,15 @@ $O(\lvert S\rvert^{2} \lvert A\rvert)=O(\lvert S\rvert^{2})+O(\lvert S\rvert^{2}
 ---
 <br/>
 
-These two methods are compared and summarized in this section. In general, both are kinds of dynamic programming algorithms and guarantee convergence. As you see, in both you must use Bellman equations.
+Policy iteration and value iteration methods are compared and summarized in this section. In general, both are kinds of dynamic programming algorithms and guarantee convergence. As you see, in both you must use Bellman equations.
 
-In policy iteration, you start with a random policy, then in several steps, you update utilities with a fixed policy. We called this part policy evaluation. $O(|S|^ 2)$ time required per iteration. Next, you must go to the policy improvement phase. it takes $O(|S|^ 2|A|)$ time. You find a better policy using a one-step look-ahead. If the policy doesn’t change, it means you reach the optimal answer.
+In policy iteration, we start with a random policy, then in several steps, we update utilities with a fixed policy. We called this part policy evaluation. $O(|S|^ 2)$ time required per iteration. Next, we must go to the policy improvement phase. it takes $O(|S|^ 2|A|)$ time. we find a better policy using a one-step look-ahead. If the policy does not change, it means we reach the optimal answer.
 
-In value iteration, you start with a random value function. In each step, you improve the values and (implicitly) the policy together. We don't care much about policy apparently, but taking maximum action will improve it as well.
+In value iteration, we start with a random value function. In each step, we improve the values and (implicitly) the policy together. We don't care much about policy apparently, but taking maximum action will improve it as well.
 
-The value iteration algorithm is more straightforward to understand as you only have to do one thing in each step. On the other hand, in practical terms, often policy iteration algorithm converges within fewer iterations and is much faster. Maximum selection in the value iteration is not here and it has a great impact on this fact. In theory, however, policy iteration must takes the same number of iterations as value iteration in the worst case. They differ only in whether we plug in a fixed policy or max over action
+The value iteration algorithm is more straightforward to understand as we only have to do one thing in each step. On the other hand, in practical terms, often policy iteration algorithm converges within fewer iterations and is much faster. Maximum selection in the value iteration is not here and it has a great impact on this fact. In theory, however, policy iteration must takes the same number of iterations as value iteration in the worst case. They differ only in whether we plug in a fixed policy or max over action
 
-Each of them has its cons and pros. Depending on the situation you can choose each of them, but policy iteration is more commonly used.
+Each of them has its cons and pros. Depending on the situation, we can choose each of them, but policy iteration is more commonly used.
 
 In the next part, you will face reinforcement learning. The biggest change in RL is that we are unaware of R(s,a,s') and P(s'|s,a) and we have to do some actions to find or estimate them.
 
