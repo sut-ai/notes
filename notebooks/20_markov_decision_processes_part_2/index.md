@@ -286,9 +286,9 @@ Time complexity of each iteration of value iteration is $O(\lvert S\rvert^{2} \l
 <br/>
 
 In the previous section, we observed that it is possible to get an optimal policy even when the utility function estimate is inaccurate.
-If one action is clearly better than all others, then the exact magnitude of the utilities on the states involved need not be precise. 
+If one action is clearly better than all others, then the exact magnitude of the utilities on the states involved does not need to be precise. 
 This insight suggests an alternative way to find optimal policies.
-Policy iteration is a different approach to find the optimal policy for given states and actions.
+Policy iteration is a different approach to finding the optimal policy for given states and actions.
 
 <br/>
 <div id='pi_id' style="color:#33013d;"><h2>The Idea of Policy Iteration</h2></div>
