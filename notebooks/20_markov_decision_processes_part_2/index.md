@@ -121,7 +121,7 @@ x^\star = f(x^\star) = lim_{k \to \infty} f^{k}(x) \quad \forall x \in \mathbb{R
 $$      
 where $f^{k+1}(x) = f(f^{k}(x))$ for $k > 0$ and $f^{1}(x) = f(x)$.    
 
-Hence, two important properties of contractions are
+Hence, two important properties of contractions are      
 - A contraction has only one fixed point; if there were two fixed points, they would not get closer together when the function was applied, so it would not be a contraction.
 - When the operator is applied to any argument, the output must get closer to the fixed point (because the fixed point does not move), so repeated application of a contraction always reaches the fixed point in the limit.
 
