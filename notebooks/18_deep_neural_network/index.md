@@ -117,7 +117,7 @@ Different padding modes are:
      
       
 ## Stride
-As we said before, when you're applying a kernel to the image, you have to move the kernel during the image. But sometimes you prefer to not move one pixel every time and move the kernel more than one pixel. This is stride. The stride specifies how many kernels have to move each time.
+As we said before, when you're applying a kernel to the image, you have to move the kernel along the image. But sometimes you prefer not to move one pixel every time and move the kernel more than one pixel. This is stride. The stride specifies how many kernels have to move each time.
         
 <figure>
   <center><img
