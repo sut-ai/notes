@@ -23,7 +23,7 @@
 
 ## Introduction
 
-In nature, learning by trial and error is the most common way of learning. learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating reinforcement learning mathematically. In a typical Reinforcement Learning  problem, there is a learner and a decision maker called agent. The surrounding which agent interacts with is called environment. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with states and agent's possible decisions are modeled by actions. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with stochastic transition models are used. In reinforcement learning, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by reward function in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on Bellman equation, So in order to find the best guideline for the agent Bellman equation should be solved.
+In nature, learning by trial and error is the most common way of learning. learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating reinforcement learning mathematically. In a typical Reinforcement Learning  problem, there is a learner and a decision maker called agent. The surrounding which agent interacts with is called __environment__. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with __states__ and agent's possible decisions are modeled by __actions__. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with __stochastic transition models__ are used. In reinforcement learning, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by __reward function__ in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on __Bellman equation__, So in order to find the best guideline for the agent Bellman equation should be solved.
 
 In this note, first MDP formalization is introduced. Then MDP search trees as a tool for presenting MDPs are explained. At the end Bellman equation is discussed as the way of solving an MDP.
 
@@ -129,7 +129,7 @@ Consider gaining reward $r_i$ in time step $t_i$. In discounting, $\sum \gamma^t
 
 ### Finite and infinite horizons
 
-Decision making problems may be of two types. Some may be *finite horizon* and some *infinite horizon*. Finite horizon means that there is a fixed time N after which nothing matters. In other words what happens after the fixed time is not analysed. To be mathematically shown, $U_h([s_0, s_1,...,s_{N+k}]) = U_h([s_0, s_1,..., s_N ])$
+Decision making problems may be of two types. Some may be __finite horizon__ and some __infinite horizon__. Finite horizon means that there is a fixed time N after which nothing matters. In other words what happens after the fixed time is not analysed. To be mathematically shown, $U_h([s_0, s_1,...,s_{N+k}]) = U_h([s_0, s_1,..., s_N ])$
 for all $k > 0$ . In finite horizon problems, the optimal action in a given state could change over time. That is, when there is little time left, the agent should take risk to gain reward before the deadline is reached. Because of this change in optimal action in a given state over time, the optimal policy for a finite horizon is non stationary. However, with no fixed time limit, there is no reason to behave differently in the same state at different times. Hence, the optimal policy depends only on the current state, and the optimal policy is stationary. Note that infinite horizon does not necessarily mean that all state sequences are infinite, it just means that there is no fixed deadline.
 
 #### Infinite Utilities
@@ -161,7 +161,7 @@ $$ Q^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \bi
 Since $V^\star$ and $Q^\star$ are jointly recursive, It is possible to replace $Q^\star$ with $V^\star$.
 $$ V^\star(s) = \max_{a} \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big] $$
 
-Equation above is called as *bellman equation*.
+Equation above is called as __bellman equation__.
 
 By solving bellman equation for all states, optimal policy will be obtained.
 
