@@ -37,7 +37,7 @@ $S_t$ represents the state at time $t$ . Intuitively, $S_t$ retains all of the i
 
 ### States
 
-A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent’s sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards, return, can be computed.
+A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent’s sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards {which can be also called return} can be computed.
 
 As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated} .Note that overheated is a terminal state.
 
@@ -353,6 +353,7 @@ In conclusion Markov Decision Process is an appropriate tool to represent Reinfo
 ## References
 
 - Russell, Stuart, and Peter Norvig. "Artificial intelligence: a modern approach." (2002).
+- https://inst.eecs.berkeley.edu/~cs188/fa18/assets/notes/n4.pdf
 - <https://towardsdatascience.com/real-world-applications-of-markov-decision-process-mdp-a39685546026>
 - <https://web.mit.edu/6.246/www/notes/L3-notes.pdf>
 - <https://hub.packtpub.com/reinforcement-learning-mdp-markov-decision-process-tutorial/>
