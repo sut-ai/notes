@@ -26,7 +26,7 @@ CNNs are models to solve deep learning problems. Suppose that you have high-dime
 A CNN architecture is formed by a stack of distinct layers that transform the input volume into an output volume through a differentiable function. A few distinct types of layers are commonly used:
 
 * Fully Connected Layer
-* Convolutional layer
+* Convolutional Layer
 * Pooling
 * Activation Function
 * Loss layer
@@ -66,7 +66,7 @@ In this image, you can see an example for functions of convolution and two other
 
 
 Here we’ll not talk about details, but convolutional layers are somehow enabling convolution operator on sub-matrices of the image. These layers have formed from some kernel with the same height, width, and depth. The number of these kernels is equal to the depth of the output. Also, the depth of each kernel must be equal to the depth of input. For example, if you have RGB data, your first convolutional layer kernels depth must be 3.  
-In the context of a convolutional neural network, convolution is a linear operation that involves the multiplication of a set of weights with the input. A convolution layer has formed by 1 or more of these operations that each of them called a kernel. All kernels have the same height, width, and depth. To find the output of the layer, we put the first kernel on the top-right of the input and calculate the output of the kernel, and put it as the first cell of a matrix. After that, we move it to right and calculate again, and put the result in the second cell. When we receive to end of columns, we move the kernel down. we do this until we rich to the end of the image. We do this for all kernels and this is how we make the output of the convolutional layer.
+In the context of a convolutional neural network, convolution is a linear operation that involves the multiplication of a set of weights with the input. A convolution layer has formed by 1 or more of these operations that each of them called a kernel. All kernels have the same height, width, and depth. To find the output of the layer put the first kernel on the top-right of the input, calculate the output of the kernel, and put it as the first cell of a matrix. After that, move it to right, calculate again, and put the result in the second cell. When reaching the last column, move the kernel down. Do this until reaching the end of the image. We do this for all kernels and this is how make the output of the convolutional layer.
     
 <figure>
   <center><img
@@ -85,14 +85,14 @@ In the context of a convolutional neural network, convolution is a linear operat
 
 ## Pooling
 
-Similar to the Convolutional Layer, the Pooling layer is responsible for reducing the spatial size of the Convolved Feature.
-While a lot of information is lost in the pooling layer, it also has a number of benefits to the Convolutional neural network. They help to reduce complexity, improve efficiency, and limit the risk of overfitting.
+Similar to the Convolutional Layer, the Pooling layer is responsible for reducing the spatial size of the convolved feature.
+While a lot of information is lost in the pooling layer, it also has a number of benefits to the Convolutional Neural Network. They help to reduce complexity, improve efficiency, and limit the risk of overfitting.
 This is to decrease the computational power required to process the data by reducing the number of parameters in the input.
 It sweeps a filter across the entire input but that does not have any weights. Instead, the kernel applies an aggregation function to the values within the receptive field, populating the output array.
 There are two types of Pooling:
 
 1. Max Pooling: it  returns the maximum value from the portion of the image covered by the Kernel. and also performs as a Noise Suppressant. It discards the noisy activations altogether and also performs de-noising along with dimensionality reduction.
-2. Average Pooling: it returns the average of all the values from the portion of the image covered by the Kernel. and simply performs dimensionality reduction as a noise suppressing mechanism. 
+2. Average Pooling: it returns the average of all the values from the portion of the image covered by the Kernel, and simply performs dimensionality reduction as a noise suppressing mechanism. 
 Comparing these two, we can say that Max Pooling performs a lot better than Average Pooling.
 In the following, we will see a picture of how these two methods work.
 
@@ -101,8 +101,8 @@ In the following, we will see a picture of how these two methods work.
 
 ## Padding
 
-As you see, after applying convolutional layers, the size of the feature map is always smaller than the input, we have to do something to prevent our feature map from shrinking. This is where we use padding. Layers of zero-value pixels are added to surround the input with zeros so that our feature map will not shrink. By padding, we can control the shrinking of our inputs.
-Different padding mode is:
+As you see, after applying convolutional layers, the size of the feature map is always smaller than the input. We have to do something to prevent our feature map from shrinking. This is where we use padding. Layers of zero-value pixels are added to surround the input with zeros so that our feature map will not shrink. By padding, we can control the shrinking of our inputs.
+Different padding modes are:
 * zeros(Default)
 * reflect
 * replicate or circular
