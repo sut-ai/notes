@@ -23,13 +23,13 @@
 
 ## Introduction
 
-In nature, learning by trial and error is the most common way of learning. learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating reinforcement learning mathematically. In a typical Reinforcement Learning  problem, there is a learner and a decision maker called agent. The surrounding which agent interacts with is called environment. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with states and agent's possible decisions are modeled by actions. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with stochastic transition models are used. In reinforcement learning, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by reward function in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on Bellman equation, So in order to find the best guideline for the agent Bellman equation should be solved.
+In nature, learning by trial and error is the most common way of learning. Learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating RL mathematically. In a typical RL  problem, there is a learner and a decision maker called agent. The surrounding which agent interacts with is called environment. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with states and agent's possible decisions are modeled by actions. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with stochastic transition models are used. In RL, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by reward function in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on Bellman equation, So in order to find the best guideline for the agent Bellman equation should be solved.
 
 In this note, first MDP formalization is introduced. Then MDP search trees as a tool for presenting MDPs are explained. At the end Bellman equation is discussed as the way of solving an MDP.
 
 ## Markov Decision Process
 
-Markov Decision Process is based on Markov chain. A Markov chain is a mathematical system that experiences transitions from one state to another according to certain probabilistic rules. The chain holds the following independence assumption.
+MDP is based on Markov chain. A Markov chain is a mathematical system that experiences transitions from one state to another according to certain probabilistic rules. The chain holds the following independence assumption.
 
 $$ P(S_{t+1}|S_t, ..., S_0)=P(S_{t+1}|S_t) $$
 
@@ -39,7 +39,7 @@ $S_t$ represents the state at time $t$ . Intuitively, $S_t$ retains all of the i
 
 A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent’s sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards, return, can be computed.
 
-As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated} .Note that overheated is a terminal state.
+As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated}. Note that overheated is a terminal state.
 
 <p align="center">
 <image src="cool.jpg" width="30%">
@@ -88,7 +88,7 @@ In the robot car example, the robot must reach its destination as quickly as pos
 
 ### Formalization
 
-By combining the concepts which were explained above the complete formulation for Markov Decision Process is achieved as below.
+By combining the concepts which were explained above the complete formulation for MDP is achieved as below.
 
 - A set of possible states $S$.
 - A set of possible actions $A$.
@@ -348,7 +348,7 @@ By running the code above this result is generated.
 
 ## Conclusion
 
-In conclusion Markov Decision Process is an appropriate tool to represent Reinforcement Learning problems. In order to represent a problem using MDP, states, actions, transition model and rewards should be determined properly. Afterwards finding the optimal policy, i.e. the one with the most utility, is desired. In order to find the optimal utility, bellman equation should be solved. Algorithms such as value iteration and policy iteration attempt to solve the bellman equation feasibly. In the end take into consideration that in real world Reinforcement Learning problems, the transition model and reward function are not known and must be learned.
+In conclusion MDP is an appropriate tool to represent RL problems. In order to represent a problem using MDP, states, actions, transition model and rewards should be determined properly. Afterwards finding the optimal policy, i.e. the one with the most utility, is desired. In order to find the optimal utility, bellman equation should be solved. Algorithms such as value iteration and policy iteration attempt to solve the bellman equation feasibly. In the end take into consideration that in real world RL problems, the transition model and reward function are not known and must be learned.
 
 ## References
 
