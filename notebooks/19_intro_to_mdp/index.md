@@ -26,7 +26,6 @@
 
 ## Introduction
 
-
 In nature, learning by trial and error is the most common way of learning. learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating RL mathematically. In a typical RL problem, there is a learner called agent, which makes decisions. The surrounding which agent interacts with is called __environment__. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with __states__ and agent's possible decisions are modeled by __actions__. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with __stochastic transition models__ are used. In RL, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by __reward function__ in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on __Bellman equation__, So in order to find the best guideline for the agent Bellman equation should be solved.
 
 In this note, first MDP formalization is introduced. Then MDP search trees as a tool for presenting MDPs are explained. At the end Bellman equation is discussed as the way of solving an MDP.
@@ -357,7 +356,7 @@ In conclusion MDP is an appropriate tool to represent RL problems. In order to r
 ## References
 
 - Russell, Stuart, and Peter Norvig. "Artificial intelligence: a modern approach." (2002).
-- https://inst.eecs.berkeley.edu/~cs188/fa18/assets/notes/n4.pdf
+- <https://inst.eecs.berkeley.edu/~cs188/fa18/assets/notes/n4.pdf>
 - <https://towardsdatascience.com/real-world-applications-of-markov-decision-process-mdp-a39685546026>
 - <https://web.mit.edu/6.246/www/notes/L3-notes.pdf>
 - <https://hub.packtpub.com/reinforcement-learning-mdp-markov-decision-process-tutorial/>
