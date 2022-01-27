@@ -40,7 +40,7 @@ $S_t$ represents the state at time $t$ . Intuitively, $S_t$ retains all of the i
 
 ### States
 
-A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent’s sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards {which can be also called return} can be computed.
+A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent's sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards {which can be also called return} can be computed.
 
 As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated}. Note that overheated is a terminal state.
 
@@ -60,12 +60,12 @@ Actions are set of operations an agent is allowed to do in the given environment
 
 ### Transition Model
 
-At each state, the agent decides which action to perform. The resulting state ($s'$) depends on both the current state ($s$) and the action performed by the agent ($a$). The transition model $T(s, a, s’)$ gives probability $P(s’|s, a)$, that is, the probability of landing up in the new  state $s’$ given that the agent takes an action, $a$, in the given state, $s$.
+At each state, the agent decides which action to perform. The resulting state ($s'$) depends on both the current state ($s$) and the action performed by the agent ($a$). The transition model $T(s, a, s')$ gives probability $P(s'|s, a)$, that is, the probability of landing up in the new  state $s'$ given that the agent takes an action, $a$, in the given state, $s$.
 
 Environments can be divided into two types according to their transition models.
 
 - Determined environment: In a determined environment, if a certain action ($a$) is taken, the resulting state is the expected state ($s'$) with probability 1.
-- Stochastic environment: In a stochastic environment, if the same action (a) is taken, with a certain probability ,e.g. $0.8$, the resulting state  will be the expected state and there is $0.2$ probability that the resulting state is not the expected state. Here, for the state $s$, the action $a$ and next state $s'$ the transition model is $T(s’, a, s) = P(s’| s, a) = 0.8$.
+- Stochastic environment: In a stochastic environment, if the same action (a) is taken, with a certain probability ,e.g. $0.8$, the resulting state  will be the expected state and there is $0.2$ probability that the resulting state is not the expected state. Here, for the state $s$, the action $a$ and next state $s'$ the transition model is $T(s', a, s) = P(s'| s, a) = 0.8$.
 
 In the machine robot example, we assume that the environment is stochastic. The probability of transitions is determined based on the current state, action, and next state.
 One of the possible transitions is shown in the figure below.
@@ -95,9 +95,9 @@ By combining the concepts which were explained above the complete formulation fo
 
 - A set of possible states $S$.
 - A set of possible actions $A$.
-- A transition function $T(s, a, s’)$: Probability that taking action $a$ in state $s$ leads to $s'$, i.e., $P(s’| s, a)$
+- A transition function $T(s, a, s')$: Probability that taking action $a$ in state $s$ leads to $s'$, i.e., $P(s'| s, a)$
 - Also called the model or the dynamic.
-- A reward function $R(s, a, s’)$: Sometimes reward only depends on the resulting state or on the resulting state and action. So $R(s, a, s’)$ can be replaced by $R(s’)$ or $R(s', a)$
+- A reward function $R(s, a, s')$: Sometimes reward only depends on the resulting state or on the resulting state and action. So $R(s, a, s')$ can be replaced by $R(s')$ or $R(s', a)$
 - A start state
 - Maybe a terminal state
 
@@ -141,7 +141,7 @@ In infinite horizon problems, calculating an upper bound on the gained utility i
 
 #### Stationary Preference
 
-In infinite horizon only if utility is defined as $\sum r_i$ or $\sum \gamma^t r_i$ the agent’s preferences between state sequences are stationary. Stationarity for preferences means
+In infinite horizon only if utility is defined as $\sum r_i$ or $\sum \gamma^t r_i$ the agent's preferences between state sequences are stationary. Stationarity for preferences means
 
 $[s, s_0, s_1, s_2,  ... ] > [s, s_0', s_1', s_2',  ... ] \iff [s_0, s_1, s_2,  ... ] > [s_0', s_1', s_2',  ... ].$
 
