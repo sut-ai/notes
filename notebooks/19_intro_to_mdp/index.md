@@ -21,6 +21,7 @@
   - [Bellman Equation](#bellman-equation)
   - [Time Limited Values](#time-limited-values)
   - [Implementation](#implementation)
+  - [Real Life Example](#real-life-example)
   - [Conclusion](#conclusion)
   - [References](#references)
 
@@ -295,6 +296,18 @@ def car_reward(state, action, next_state):
                 return 0  # Impossible
 ```
 
+If we ignore the impossible cases, we will find that in this problem the reward is only a function of the action and next state. So we can rewrite reward function as below.
+
+```Python
+def car_reward(state, action, next_state):
+    if action == 'slow':
+        return 1
+    if action == 'fast':
+        if next_state == 'Over':
+            return -10
+        return 2
+```
+
 In order to find the optimal policy, while finding new values using value iteration, the action which maximizes the value should also be stored.
 
 ```Python
@@ -342,7 +355,7 @@ def mdp_solve(transition_function, reward_function, gamma: float, states: List, 
     return {states[i]: p[i] for i in range(len(states))}
 ```
 
-By running the code above this result is generated.
+By running the script below, this result will be generated which is the optimal policy.
 
 ```Python
 >>> mdp_solve(car_transition, car_reward, 0.9, car_states, car_terminals, car_actions, 10)
