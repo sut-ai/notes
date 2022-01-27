@@ -331,17 +331,17 @@ By running the script below, this result will be generated which is the optimal 
 
 ## Real Life Example
 
-In a TV quiz show, there are several levels. At each level, if the participant answers the question correctly, he / she will receive some prize. If the participant's answer is wrong, the participant leaves the competition empty-handed. Before each stage begins, the participant can decide whether to continue or withdraw and leave with reward that he / she already earned.
+In a TV quiz show, there are several levels. At each level, if the participant answers the question correctly, they will receive some prize. If the participant's answer is wrong, they leave the competition empty-handed. Before each stage begins, the participant can decide whether to continue or withdraw and leave the game with the reward which they already earned.
 
-Beside states defined for each level, There are three terminal states of *Win*, *Lost* and *Quit* in the game. Actions in each state are quit and play. The player will go to the quit state with probability of 1 if he / she decide to take action quit. otherwise he / she will pass the level i by probability of `win_ratio[i]` and go to the state which is for the next level.
+Beside states representing each level, There are three terminal states of *Win*, *Lost* and *Quit* in the game. Actions in each state are quit and play. The player will go to the quit state with probability of 1 if they decide to take action quit. otherwise they will pass the level i by probability of `win_ratio[i]` and go to the state which represents the next level.
 
-So we can model the problem of play / quit decision as a MDP as below.
+So the play / quit decision problem can be modeled as an MDP as below.
 
 <p align="center">
 <image src="quiz.png">
 </p>
 
-Considering $100, $200, $300, $400 and $500 as rewards and 0.9, 0.7, 0.6, 0.3, 0.1 as win ratio for levels 0 to 4 respectively, The model can be implemented as below
+Considering $100, $200, $300, $400 and $500 as rewards and 0.9, 0.7, 0.6, 0.3, 0.1 as win ratio for levels 0 to 4 respectively, The model can be implemented as below.
 
 ```Python
 quiz_levels = [f'{i}' for i in range(5)]
@@ -396,7 +396,7 @@ def quiz_reward(state, action, next_state):
             return quiz_win_amount[state_level]
 ```
 
-By running the script below, this result will be generated which is the optimal policy. Consider that is this specific problem, we don't want to discount the reward. So we set gamma equal to one.
+By running the script below, this result will be generated which is the optimal policy. Consider that in this specific problem, we don't want to discount the reward, So we set gamma to one.
 
 ```Python
 >>> mdp_solve(quiz_transition, quiz_reward, 1, quiz_states, quiz_terminals, quiz_actions, 1000)
@@ -410,7 +410,7 @@ By running the script below, this result will be generated which is the optimal 
  'Quit': None}
 ```
 
-By Calculating Expectation of reward earned in each step, It's obvious that in level 0, 1, and 2 the expection is greater than zero so continue playing is optimal policy, but in level 3 and 4, the expectation is less than zero so it's better to quit the game.
+In oreder to check the result acheived by the script above, expectation of reward earned in each step, is calculated. It can be seen that in level 0, 1, and 2 the expection is greater than zero so continuing the game is the optimal action in these states, but in level 3 and 4, the expectation is less than zero so it's better to quit the game.
 
 $
 E_0 = 0.9 \times 100 + 0.1 \times 0 = 90 \\
