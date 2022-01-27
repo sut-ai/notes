@@ -205,47 +205,21 @@ def car_transition(state, action, next_state):
         if action == 'slow':
             if next_state == 'Cool':
                 return 1.0
-            if next_state == 'Warm':
-                return 0.0
-            if next_state == 'Over':
-                return 0.0
         if action == 'fast':
             if next_state == 'Cool':
                 return 0.5
             if next_state == 'Warm':
                 return 0.5
-            if next_state == 'Over':
-                return 0.0
     if state == 'Warm':
         if action == 'slow':
             if next_state == 'Cool':
                 return 0.5
             if next_state == 'Warm':
                 return 0.5
-            if next_state == 'Over':
-                return 0.0
         if action == 'fast':
-            if next_state == 'Cool':
-                return 0.0
-            if next_state == 'Warm':
-                return 0.0
             if next_state == 'Over':
                 return 1.0
-    if state == 'Over':
-        if action == 'slow':
-            if next_state == 'Cool':
-                return 0.0
-            if next_state == 'Warm':
-                return 0.0
-            if next_state == 'Over':
-                return 1.0
-        if action == 'fast':
-            if next_state == 'Cool':
-                return 0.0
-            if next_state == 'Warm':
-                return 0.0
-            if next_state == 'Over':
-                return 1.0
+    return 0
 
 
 def car_reward(state, action, next_state):
@@ -323,7 +297,7 @@ def argmax(l: List) -> int:
     return index_max
 
 
-def mdp_iterate(transition_function, reward_function, gamma: float, states: List, terminals: List,  actions: List, v: List):
+def mdp_iterate(transition_function, reward_function, gamma: float, states: List, terminals: List, actions: List, v: List):
     new_v = []
     best_actions = []
     for i in range(len(states)):
@@ -332,18 +306,11 @@ def mdp_iterate(transition_function, reward_function, gamma: float, states: List
             new_v.append(v[i])
             best_actions.append(None)
             continue
-        values_action = []
+        values_actions = []
         for action in actions:
-            values_next = []
-            for next_state in states:
-                expected = reward_function(state, action, next_state) + (gamma * v[i])
-                values_next.append(transition_function(state, action, next_state) * expected)
-            value_next = sum(values_next)
-            values_action.append(value_next)
-        value_action = max(values_action)
-        new_v.append(value_action)
-        best_action_i = argmax(values_action)
-        best_actions.append(actions[best_action_i])
+            values_actions.append(sum([transition_function(state, action, states[j]) * (reward_function(state, action, states[j]) + gamma * v[j]) for j in range(len(states))]))
+        new_v.append(max(values_actions))
+        best_actions.append(actions[argmax(values_actions)])
     return new_v, best_actions
 
 
@@ -362,6 +329,96 @@ By running the script below, this result will be generated which is the optimal 
 {'Cool': 'fast', 'Warm': 'slow', 'Over': None}
 ```
 
+## Real Life Example
+
+In a TV quiz show, there are several levels. At each level, if the participant answers the question correctly, he / she will receive some prize. If the participant's answer is wrong, the participant leaves the competition empty-handed. Before each stage begins, the participant can decide whether to continue or withdraw and leave with reward that he / she already earned.
+
+Beside states defined for each level, There are three terminal states of *Win*, *Lost* and *Quit* in the game. Actions in each state are quit and play. The player will go to the quit state with probability of 1 if he / she decide to take action quit. otherwise he / she will pass the level i by probability of `win_ratio[i]` and go to the state which is for the next level.
+
+So we can model the problem of play / quit decision as a MDP as below.
+
+<p align="center">
+<image src="quiz.png">
+</p>
+
+Considering $100, $200, $300, $400 and $500 as rewards and 0.9, 0.7, 0.6, 0.3, 0.1 as win ratio for levels 0 to 4 respectively, The model can be implemented as below
+
+```Python
+quiz_levels = [f'{i}' for i in range(5)]
+quiz_terminals = ['Win', 'Lost', 'Quit']
+quiz_states = quiz_levels + quiz_terminals
+quiz_actions = ['play', 'quit']
+
+quiz_win_ratio = [0.9, 0.7, 0.6, 0.3, 0.1]
+quiz_win_amount = [100, 200, 300, 400, 500]
+
+
+def quiz_transition(state, action, next_state):
+    if state in quiz_terminals:
+        return 0
+    else:  # quiz levels
+        state_level = int(state)
+        if action == 'quit':
+            if next_state == 'Quit':
+                return 1
+            else:
+                return 0
+        else:  # play
+            if next_state == 'Win':
+                if state_level == 4:
+                    return quiz_win_ratio[4]
+                else:
+                    return 0
+            elif next_state == 'Lost':
+                return 1 - quiz_win_ratio[state_level]
+            elif next_state == 'Quit':
+                return 0
+            else:
+                next_state_level = int(next_state)
+                if next_state_level == state_level + 1:
+                    return quiz_win_ratio[state_level]
+                else:
+                    return 0
+
+
+def quiz_reward(state, action, next_state):
+    state_level = int(state)
+    if action == 'quit':
+        return 0
+    else:  # play
+        if next_state == 'Win':
+            return quiz_win_amount[4]
+        elif next_state == 'Lost':
+            return -1 * sum(quiz_win_amount[:state_level])
+        elif next_state == 'Quit':
+            return 0
+        else:
+            return quiz_win_amount[state_level]
+```
+
+By running the script below, this result will be generated which is the optimal policy. Consider that is this specific problem, we don't want to discount the reward. So we set gamma equal to one.
+
+```Python
+>>> mdp_solve(quiz_transition, quiz_reward, 1, quiz_states, quiz_terminals, quiz_actions, 1000)
+{'0': 'play',
+ '1': 'play',
+ '2': 'play',
+ '3': 'quit',
+ '4': 'quit',
+ 'Win': None,
+ 'Lost': None,
+ 'Quit': None}
+```
+
+By Calculating Expectation of reward earned in each step, It's obvious that in level 0, 1, and 2 the expection is greater than zero so continue playing is optimal policy, but in level 3 and 4, the expectation is less than zero so it's better to quit the game.
+
+$
+E_0 = 0.9 \times 100 + 0.1 \times 0 = 90 \\
+E_1 = 0.7 \times 200 + 0.3 \times -100 = 110 \\
+E_2 = 0.6 \times 300 + 0.4 \times -300 = 60 \\
+E_3 = 0.3 \times 400 + 0.7 \times -600 = -300 \\
+E_4 = 0.1 \times 500 + 0.9 \times -1000 = -850
+$
 ## Conclusion
 
 In conclusion MDP is an appropriate tool to represent RL problems. In order to represent a problem using MDP, states, actions, transition model and rewards should be determined properly. Afterwards finding the optimal policy, i.e. the one with the most utility, is desired. In order to find the optimal utility, bellman equation should be solved. Algorithms such as value iteration and policy iteration attempt to solve the bellman equation feasibly. In the end take into consideration that in real world RL problems, the transition model and reward function are not known and must be learned.
