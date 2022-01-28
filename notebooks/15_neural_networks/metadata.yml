@@ -41,6 +41,14 @@ authors:
         - icon: fas fa-envelope
           link: mailto:nimxj4141@gmail.com
 
+    - name: Sepehr Ashrafzadeh
+      role: Supervisor
+      contact:
+        - icon: fab fa-github
+          link: https://github.com/SepehrAsh
+        - icon: fas fa-envelope
+          link: sepehrashs@gmail.com
+
     - name: MohammadJavad HosseinPanah
       role: Author
       contact:
