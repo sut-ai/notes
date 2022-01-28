@@ -19,7 +19,7 @@
 
 You’ve probably seen how a dog trainer gives a trait to the dogs after they complete a task successfully. That trait is a reward to the brain, and says “Well done! You are going in the right direction.” So after that, the brain tries to do that again in order to get more rewards. This way the dogs will learn and train themselves.
 This is sort of what happens in Reinforcement Learning(RL).
-Reinforcement learning (RL) is an area of machine learning concerned with how intelligent agents should take actions in an environment in order to maximize the reward by taking a series of actions in response to a dynamic environment. It is the science of making optimal decisions using experiences.
+Reinforcement learning (RL) is an area of machine learning concerned with how intelligent agents should take actions in an environment to maximize the reward by taking a series of actions in response to a dynamic environment. It is the science of making optimal decisions using experiences.
 
 <div id='rl-types-of-algorithms'><h1> RL Types of Algorithms </h1></div>
 
@@ -28,7 +28,7 @@ Q-learning is a model-free reinforcement learning algorithm.
 
 <div id='q-learning'><h1> Q-Learning </h1></div>
 
-Q-learning is a model-free reinforcement learning algorithm to learn the value of an action in a particular state. It is a **values-based** learning algorithm. Value based algorithms update the value function based on an equation.
+Q-learning is a model-free reinforcement learning algorithm to learn the value of an action in a particular state. It is a **values-based** learning algorithm. Values-based algorithms update the value function based on an equation.
 Q-learning is an **off-policy** learner, which means it learns the value of the optimal policy independently of the agent’s actions. In other words, it converges to optimal policy eventually even if you are acting sub-optimally.
 Q-learning is a **sample-based** q-value iteration method and in it, you Learn $Q(s,a)$ values as you go:
 
@@ -53,7 +53,7 @@ In active RL, an agent needs to decide what to do as there’s no fixed policy t
 
 <div id='real-life-example'><h2> Real life example </h2></div>
 
-Say you go to the same restaurant every day. You are basically exploiting. But on the other hand, if you search for new restaurant every time before going to any one of them, then it’s exploration. Exploration is very important for the search of future rewards which might be higher than the near rewards.
+Say you go to the same restaurant every day. You are basically exploiting. But on the other hand, if you search for a new restaurant every time before going to any one of them, then it’s exploration. Exploration is very important for the search for future rewards which might be higher than the near rewards.
 
 <img src="images/2.png" alt="Exploration vs. Exploitation" style="width:30%;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -69,26 +69,26 @@ So we’ll use a modified Q-update:
 
 $$Q(s,a) \leftarrow \alpha R(s,a,s^{\prime}) + \gamma \max_{a^{\prime}} f(Q(s^{\prime},a^{\prime}),N(s^{\prime},a^{\prime}))$$
 
-in above equation k is fixed. Q is the optimistic utility which is given to f as v. and n is the number of times we visited s' after doing action a' starting from s. which means when the n is low we get to try those actions more often.
+in the above equation, k is fixed. Q is the optimistic utility which is given to f as v. and n is the number of times we visited s' after doing action a' starting from s. which means when the n is low we get to try those actions more often.
 
 <div id='regret'><h1> Regret </h1></div>
 
-Even though most of the RL algorithms we discussed reach optimal policy, they still make mistakes along the way. Regret is a measure of the total mistake cost, the difference between rewards, including and optimal rewards.
+Even though most of the RL algorithms we discussed reach optimal policy, they still make mistakes along the way. Regret is a measure of the total mistake cost, the difference between rewards, and optimal rewards.
 Minimizing regret goes beyond learning to be optimal so it requires optimally learning to be optimal!
 
 <div id='approximate-q-learning'><h1> Approximate Q-Learning </h1></div>
 
-Basic Q-learning keeps a table of all Q-values but in real world situations, there are too many states to visit and hold their Q-values. Instead, we can use function approximation, which simply means using any sort of representation for the Q-function other than a lookup table. The representation is viewed as approximate because it might not be the case that the true utility function or Q-function can be represented in the chosen form.
+Basic Q-learning keeps a table of all Q-values but in real-world situations, there are too many states to visit and hold their Q-values. Instead, we can use function approximation, which simply means using any sort of representation for the Q-function other than a lookup table. The representation is viewed as approximate because it might not be the case that the true utility function or Q-function can be represented in the chosen form.
 
 <div id='feature-based-representation'><h2> Feature-based representation </h2></div>
 
-One way of using this is to use a feature-based representation in which we describe a state using a vector of features. In this method, we respresent a **linear** combination of these features and try to learn wis so that the Q function is near to the main Q-value.
+One way of using this is to use a feature-based representation in which we describe a state using a vector of features. In this method, we represent a **linear** combination of these features and try to learn $\omega_i$s so that the Q function is near to the main Q-value.
 
 $$V(s) = \omega_1f_1(s) + \omega_2f_2(s) + ... + \omega_nf_n(s)$$
 
 $$Q(s,a) = \omega_1f_1(s,a) + \omega_2f_2(s,a) + ... + \omega_nf_n(s,a)$$
 
-To learn and update wis, we have a method which is similar to the method we had for updating Q-values in basic Q-learning :
+To learn and update $\omega_i$s, we have a method that is similar to the method we had for updating Q-values in basic Q-learning:
 
 $$\omega_m \leftarrow \omega_m + \alpha [r + \gamma \max_aQ(s^{\prime},a^{\prime}) - Q(s,a)] f_m(s,a)$$
 
@@ -97,17 +97,17 @@ $$\omega_m \leftarrow \omega_m + \alpha [r + \gamma \max_aQ(s^{\prime},a^{\prime
 
 Q-Learning is a basic form of Reinforcement Learning which uses Q-values (action values) to iteratively improve the behavior of the learning agent.
 
-Q-values are defined for states and actions. $Q(s, a)$ is an estimation of how good is it to take the action a at the state s. This estimation of $Q(s, a)$ will be iteratively computed using the temporal difference update.
+Q-values are defined for states and actions. $Q(s, a)$ is an estimation of how good is it to take the action $a$ at the state $s$. This estimation of $Q(s, a)$ will be iteratively computed using the temporal difference update.
 
-This update rule to estimate the value of Q is applied at every time step of the agents interaction with the environment.
+This update rule to estimate the value of Q is applied at every time step of the agent's interaction with the environment.
 
-At every step of transition, the agent from a state takes an action, observes a reward from the environment, and then transits to another state. If at any point of time the agent ends up in one of the terminating states that means there are no further transition possible. This is said to be the completion of an episode.
+At every step of the transition, the agent from a state takes an action, observes a reward from the environment, and then transits to another state. If at any point in time the agent ends up in one of the terminating states that means there is no further transition possible. This is said to be the completion of an episode.
 
 $\epsilon$-greedy policy is a very simple policy of choosing actions using the current Q-value estimations.
 
 Active learning is a special case of machine learning in which a learning algorithm can interactively query a user (or some other information source) to label new data points with the desired outputs.
 
-Unlike passive learning which just executes the policy and learns from experience, here we are using active reinforcement learning in which the agent learns the optimal policy by taking actions in the world and finding out what is happenning, and then improving the policy iteratively.
+Unlike passive learning which just executes the policy and learns from experience, here we are using active reinforcement learning in which the agent learns the optimal policy by taking actions in the world finding out what is happening, and then improving the policy iteratively.
 
 <div id='further-reading'><h1> Further Reading </h1></div>
 
