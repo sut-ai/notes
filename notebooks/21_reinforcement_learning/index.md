@@ -126,7 +126,7 @@ In addition, we can estimate $\hat{R}(s,a,s')$ for each movement in all episodes
 <div id='TypesofReinforcementLearningAccordingtoLearningPolicy'/>
 
 ## Types of Reinforcement Learning According to Learning Policy
-There are two types of RL according to Learning policy: **Passive Reinforcement Learning**, **Active Reinforcement Learning**. In below, we explain both methods.
+According to learning policy, there are two types of RL: **Passive Reinforcement Learning**, **Active Reinforcement Learning**. In below, we explain both methods.
 
 <div id='PassiveReinforcementLearning'/>
 
