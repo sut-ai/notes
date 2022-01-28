@@ -97,7 +97,6 @@ By combining the concepts which were explained above the complete formulation fo
 - A set of possible states $S$.
 - A set of possible actions $A$.
 - A transition function $T(s, a, s')$: Probability that taking action $a$ in state $s$ leads to $s'$, i.e., $P(s'| s, a)$
-- Also called the model or the dynamic.
 - A reward function $R(s, a, s')$: Sometimes reward only depends on the resulting state or on the resulting state and action. So $R(s, a, s')$ can be replaced by $R(s')$ or $R(s', a)$
 - A start state
 - Maybe a terminal state
