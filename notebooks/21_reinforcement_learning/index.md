@@ -23,6 +23,7 @@
     - [an example](#anexample3)
 - [Problem with TD](#ProblemwithTD)
 - [Summery and Conclusion](#Conclusion)
+- [Useful Links](#usefullinks)
 - [References](#resources)
 
 
@@ -489,7 +490,19 @@ Here are applications of Reinforcement Learning:
 * It helps you to create training systems that provide custom instruction and materials according to the requirement of students.
 * Aircraft control and robot motion control
 
+<div id='usefullinks'/>
+
+# Useful Links
+[1] Learning to Run: Example of Reinforcement Learning. https://deepsense.ai/learning-to-run-an-example-of-reinforcement-learning/
+
+[2] Reinforcement Learning Applicants. https://neptune.ai/blog/reinforcement-learning-applications
+
+[3] What is Q-Learning. https://www.simplilearn.com/tutorials/machine-learning-tutorial/what-is-q-learning
+
+[4] Reinforcement Learning and Python. https://www.youtube.com/watch?v=-daMfdwpmAg 
+
 <div id='resources'/>
+
 
 # References
 [1] Passive Reinforcement Learning. https://kcir.pwr.edu.pl/~witold/ai/mle_rl_h.pdf (visited: 2/1/2022)
