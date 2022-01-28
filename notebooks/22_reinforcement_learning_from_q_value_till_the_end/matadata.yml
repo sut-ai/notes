@@ -1,0 +1,39 @@
+title: Reinforcement Learning - Part 2
+
+header:
+  title: Reinforcement Learning - Part 2
+  description: Q-learning, Active RL, Epsilon greedy strategy, Approximate Q-Learning
+
+authors:
+  label:
+    position: top
+  kind: people
+  content:
+  - name: Karaneh Keypour
+    role: Author
+    contact:
+    - link: https://github.com/karanehk
+      icon: fab fa-github
+    - link: mailto:keypoor.karaneh@gmail.com
+      icon: fas fa-envelope
+
+  - name: Fatemeh Asgari
+    role: Author
+    contact:
+    - link: https://github.com/fatemeh-asgari
+      icon: fab fa-github
+    - link: mailto:f.asgari2001@gmail.com
+      icon: fas fa-envelope        
+
+  - name: Maryam Sadat Razavi Taheri
+    role: Author
+    contact:
+    - link: https://github.com/msrazavi
+      icon: fab fa-github
+    - link: mailto:razavi.mst@gmail.com
+      icon: fas fa-envelope    
+
+comments:
+  label: false
+  kind: comments
+
