@@ -53,7 +53,7 @@ In active RL, an agent needs to decide what to do as there’s no fixed policy t
 
 <div id='real-life-example'><h2> Real life example </h2></div>
 
-Say you go to the same restaurant every day. You are basically exploiting. But on the other hand, if you search for a new restaurant every time before going to any one of them, then it’s exploration. Exploration is very important for the search for future rewards which might be higher than the near rewards.
+Say you go to the same restaurant every day. You are exploiting. But on the other hand, if you search for a new restaurant every time before going to any one of them, then it’s exploration. Exploration is very important for the search for future rewards which might be higher than the near rewards.
 
 <img src="images/2.png" alt="Exploration vs. Exploitation" style="width:30%;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -82,7 +82,7 @@ Basic Q-learning keeps a table of all Q-values but in real-world situations, the
 
 <div id='feature-based-representation'><h2> Feature-based representation </h2></div>
 
-One way of using this is to use a feature-based representation in which we describe a state using a vector of features. In this method, we represent a **linear** combination of these features and try to learn $\omega_i$s so that the Q function is near to the main Q-value.
+One way of using this is to use a feature-based representation in which we describe a state using a vector of features. In this method, we represent a **linear** combination of these features and try to learn $\omega_i$s so that the Q function is near the main Q-value.
 
 $$V(s) = \omega_1f_1(s) + \omega_2f_2(s) + ... + \omega_nf_n(s)$$
 
