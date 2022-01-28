@@ -38,6 +38,7 @@
 <br/>
 
 In the previous lecture, we became familiar with what MDP is. As we know, MDP can be remembered as a mathematical framework used for modeling decision-making problems. Usually, an agent can do some actions, but the outcomes are stochastic and not entirely controllable. The goal is to decide the best action to select based on its current state. It is better to know MDP before Reinforcement Learning.   
+
 In this lecture, we will talk about two different methods for solving MDPs. These two methods are value iteration and policy iteration. Stay with us.
 
 
