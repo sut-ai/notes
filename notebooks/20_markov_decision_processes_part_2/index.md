@@ -607,17 +607,17 @@ $O(\lvert S\rvert^{2} \lvert A\rvert)=O(\lvert S\rvert^{2})+O(\lvert S\rvert^{2}
 ---
 <br/>
 
-Policy iteration and value iteration methods are compared and summarized in this section. In general, both are kinds of dynamic programming algorithms and guarantee convergence. As you see, in both you must use Bellman equations.
+Policy iteration and value iteration methods are compared and summarized in this section. In general, both are kinds of dynamic programming algorithms and guarantee convergence. As we saw, in both, we must use Bellman equations.
 
-In policy iteration, we start with a random policy, then in several steps, we update utilities with a fixed policy. We called this part policy evaluation. $O(|S|^ 2)$ time required per iteration. Next, we must go to the policy improvement phase. it takes $O(|S|^ 2|A|)$ time. we find a better policy using a one-step look-ahead. If the policy does not change, it means we reach the optimal answer.
+In policy iteration, we start with a random policy, and then in several steps, we update utilities with a fixed policy. We called this part policy evaluation. $O(|S|^ 2)$ time required per iteration. Next, we must go to the policy improvement phase. it takes $O(|S|^ 2|A|)$ time. We find a better policy using a one-step look-ahead. If the policy does not change, it means we reach the optimal answer.
 
-In value iteration, we start with a random value function. In each step, we improve the values and (implicitly) the policy together. We don't care much about policy apparently, but taking maximum action will improve it as well.
+In value iteration, we start with a random value function. In each step, we improve the values and (implicitly) the policy together. We do not care much about policy, apparently, but taking maximum action will improve it as well.
 
-The value iteration algorithm is more straightforward to understand as we only have to do one thing in each step. On the other hand, in practical terms, often policy iteration algorithm converges within fewer iterations and is much faster. Maximum selection in the value iteration is not here and it has a great impact on this fact. In theory, however, policy iteration must takes the same number of iterations as value iteration in the worst case. They differ only in whether we plug in a fixed policy or max over action
+The value iteration algorithm is more straightforward to understand as we only have to do one thing in each step. On the other hand, in practical terms, often, policy iteration algorithm converges within fewer iterations and is much faster. Maximum selection in the value iteration is not here, and it has a significant impact on this fact. In theory, however, policy iteration must take the same number of iterations as value iteration in the worst case. They differ only in whether we plug in a fixed policy or max over action.
 
-Each of them has its cons and pros. Depending on the situation, we can choose each of them, but policy iteration is more commonly used.
+Each of them has its cons and pros. We can choose each of them depending on the situation, but policy iteration is more commonly used.
 
-In the next part, you will face reinforcement learning. The biggest change in RL is that we are unaware of R(s,a,s') and P(s'|s,a) and we have to do some actions to find or estimate them.
+In the next part, we will face reinforcement learning. The most significant change in RL is that we are unaware of R(s,a,s') and P(s'|s,a), and we have to do some actions to find or estimate them.
 
 <html>
 <head>
