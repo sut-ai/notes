@@ -17,7 +17,7 @@
 
 <div id='introduction'><h1> Introduction </h1></div>
 
-You’ve probably seen how a dog trainer gives a trait to the dogs after they complete a task successfully. That trait is a reward to the brain, and says “Well done! You are going in the right direction.” So after that, the brain tries to do that again in order to get more rewards. This way the dogs will learn and train themselves.
+You’ve probably seen how a dog trainer gives a trait to the dogs after they complete a task successfully. That trait is a reward to the brain, and says “Well done! You are going in the right direction.” So after that, the brain tries to do that again to get more rewards. This way the dogs will learn and train themselves.
 This is sort of what happens in Reinforcement Learning(RL).
 Reinforcement learning (RL) is an area of machine learning concerned with how intelligent agents should take actions in an environment to maximize the reward by taking a series of actions in response to a dynamic environment. It is the science of making optimal decisions using experiences.
 
