@@ -2,8 +2,6 @@
 
 # Table of Contents
 
-- [Regression](#regression)
-- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [1 - Linear Regression](#2---linear-regression)
   - [Loss Function](#loss-function)
@@ -17,11 +15,11 @@
     - [Using Validation Set (Held-Out Data)](#using-validation-set-held-out-data)
     - [Regularization](#regularization)
 - [3 - Logistic Regression](#5---logistic-regression)
-  - [How to calculate probabilities](#how-to-calculate-probabilities)
-  - [defining line _l_ and cost function $J(\theta)$](#defining-line-l-and-cost-function-jtheta)
+  - [How to Calculate Probabilities](#how-to-calculate-probabilities)
+  - [Defining Line _l_ and Cost Function $J(\theta)$](#defining-line-l-and-cost-function-jtheta)
   - [Training](#training)
 - [Conclusion](#conclusion)
-- [Refrences](#refrences)
+- [References](#references)
 
 # Introduction
 In regression, we have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial that fits our training data perfectly. But the problem is that interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with a lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.
@@ -134,7 +132,7 @@ We split a part of the training data, and don't use it for training. Then, by ca
 We can see in the above examples that $M = 3$ gives us the best curve. If we compare the validation loss for $M=3$ and $M=9$, the loss will be less for $M=3$ since it's closer to the green curve.
 
 ### Regularization
-Although using a validation set is a good way to prevent overfitting, We still might be trying to find the curve which best fits the data, not the curve which best matches it. Regularization tries to make $w$ smaller. The intuition is that large coefficients in $w$ happen because it tries to fit the points. It means that the curve will only get closer to each point. However, decreasing coefficients will make a better curve which might be further from each point, but does a better job at predicting the unseen data.
+Although using a validation set is a good way to prevent overfitting, We still might try to find the curve which best fits the data, not the curve which best matches it. Regularization tries to make $w$ smaller. The intuition is that large coefficients in $w$ happen because it tries to fit the points. It means that the curve will only get closer to each point. However, decreasing coefficients will make a better curve which might be further from each point, but does a better job at predicting the unseen data.
 
 We only define $l_2-\text{regularization}$ since it's easier to derive and understand. The loss function is 
 
@@ -150,9 +148,9 @@ In the following examples, we use regularization with 9'th degree polynomials. W
 
 # 3 - Logistic Regression
 
-There are some regression algorithms that can be used for classification (And vise versa). _Logistic Regression_ is one of these algorithms. It can calculate the probability that an instance belongs to a particular class. we can use this probability for classification: if the probability is higher than 0.5 then that instance belongs to the particular class.
+There are some regression algorithms that can be used for classification (And vise versa). _Logistic Regression_ is one of these algorithms. It can calculate the probability that an instance belongs to a particular class. We can use this probability for classification: if the probability is higher than 0.5 then that instance belongs to the particular class.
 
-## How to calculate probabilities
+## How to Calculate Probabilities
 
 Let's start with a simple example. We want to classify flowers that are _Iris Virginica_ from those that are _not Iris Virginica_. This classification is based on Petal Width and Petal Height. Also, consider that there is some line _l_ (black line in the image below) that separates these 2 types of flowers.
 
@@ -172,9 +170,9 @@ Also in the image below, you can see the value of the Logistic function for diff
 
 ![image info](./images/Logistic%20function.jpg)
 
-## defining line _l_ and cost function $J(\theta)$
+## Defining Line _l_ and Cost Function $J(\theta)$
 
-Now we know how to calculate the probabilities, the problem is reduced to finding the best line _l_ that separates 2 classes. For this First, we need to define the line and Second, we need to define a coss function $J(\theta)$ and then we should find the line _l_ such that it minimizes $J(\theta)$.
+Now that we know how to calculate the probabilities, the problem is reduced to finding the best line _l_ that separates 2 classes. For this, first, we need to define the line and second, we need to define a cost function $J(\theta)$ and then we should find the line _l_ such that it minimizes $J(\theta)$.
 
 We define line _l_ with parameters $\theta$ like before. With this definition, the signed distance between x and the _l_ can be calculated as follows:
 $$
@@ -203,7 +201,7 @@ where $\hat{P}^{i}$ is the probability predicted and $y^{i}$ is the label for th
 
 ## Training
 
-Unfortunately, there is no known closed-form equation to compute the value of $\theta$ that minimizes this cost function. But the good news is that this cost function is convex! So we can use Gradient Descent to find the minimum. Because of convexity, Gradient Descent is guaranteed to find the global minimum (with the right learning rate).
+Unfortunately, there is no known closed-form equation to compute the value of $\theta$ that minimizes this cost function. But the good news is that this cost function is convex! So we can use gradient descent to find the minimum. Because of convexity, Gradient Descent is guaranteed to find the global minimum (with the right learning rate).
 We can compute the partial derivatives for the $j^{th}$ parameter of $\theta$ as follows:
 
 $$
@@ -214,7 +212,7 @@ $$
 
 Regression is used in a variety of AI problems. We can use it to find the best line or curve to predict a function, or to find the best hyperplane dividing 2 classes in a classification problem. In this lecture note, we discussed how to solve these problems and how to prevent overfitting. However, for more complex functions or more classes, you might want to take a look at neural networks.
 
-# Refrences
+# References
 - Artificial Inteligence Course at Sharif University of Technology (Fall, 2021)
 - Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2th Edition
 - https://en.wikipedia.org/wiki/Linear_regression
