@@ -22,7 +22,7 @@
     - [Some aspects of TD](#SomeaspectsofTD)
     - [an example](#anexample3)
 - [Problem with TD](#ProblemwithTD)
-- [Conclusion](#Conclusion)
+- [Summery and Conclusion](#Conclusion)
 - [References](#resources)
 
 
@@ -32,8 +32,9 @@
 
 _**"... What we want is a machine that can learn from experience." -Alan Turing, 1947**_
 
+At the beginning of the lecture note, we briefly introduce the RL algorithm. After that, we compare online models to offline models. Additionally, we compare different categories of learning methods based on the model. Then we use Direct Utility Estimation Method to estimate our factor based on sample values. Later, we introduce Temporal Difference Learning Algorithm to understand how the agent can gain experience and learn from the envirnment if it does not have enough knowledge. At the end of the discussion, there is a summary of different topics in RL which we have learned. 
 
-Reinforcement learning is a subcategory of Machine Learning which solves problems that involve learning what to do—how to
+**Reinforcement Learning** is a subcategory of Machine Learning which can solve real-life problems. These problems involve learning what to do—how to
 map situations to actions— to maximize a numerical reward signal. In this learning system, the system's actions influence its later inputs. Moreover, the learner is not told which actions to take but instead must discover
 which actions yield the most reward by trying them out.
 <br>
@@ -125,7 +126,7 @@ In addition, we can estimate $\hat{R}(s,a,s')$ for each movement in all episodes
 <div id='TypesofReinforcementLearningAccordingtoLearningPolicy'/>
 
 ## Types of Reinforcement Learning According to Learning Policy
-Ther are two types of RL according to Learning policy: **Passive Reinforcement Learning**, **Active Reinforcement Learning**. In below, we explain both methods.
+There are two types of RL according to Learning policy: **Passive Reinforcement Learning**, **Active Reinforcement Learning**. In below, we explain both methods.
 
 <div id='PassiveReinforcementLearning'/>
 
@@ -135,7 +136,7 @@ Passive reinforcement learning is when we want an agent to learn about the utili
 <div id='ActiveReinforcementLearning'/>
 
 ## Active Reinforcement Learning
-Active reinforcement learning is when the policy of the agent is not fixed and can change during the time of training. In this method exploration and exploition is done. Exploration refers to trying new actions that are rarely done and checking if they have a bigger reward. Exploitation refers to keep doing the optimal action at each state. _Q-learning_ is one of the active RL algorithms. 
+Active reinforcement learning is when the agent's policy is not fixed and can change during the time of training. In this method exploration and exploition are done. Exploration refers to trying new actions that are rarely done and checking if they have a bigger reward. Exploition refers to keep doing the optimal action at each state. _Q-learning_ is one of the active RL algorithms. 
 
 <div id='PolicyEvaluation'/>
 
@@ -153,7 +154,7 @@ In fact, simplified Bellman updates calculate V for a fixed policy:
 
 <div id='Definition'/>
 
-**Definition:** In this method, the agent executes a sequence of trials or runs (sequences of state-action transitions that continue until the agent reaches the terminal state). Each trial gives a sample value and the agent estimates the utility based on the samples values. This can be calculated as running averages of sample values.
+**Definition:** In this method, the agent executes a sequence of trials. Each trial gives a sample value and the agent estimates the utility based on the samples values. This can be calculated as running averages of sample values.
 
 
 * **Direct utility estimation (model-free)**
@@ -325,7 +326,7 @@ moving average. In this equation reward at time **t** is a combination of discou
 TD agent error:
 
 $$ E_{t} = V^{\pi ^ *}_{t} - V^\pi_{t} $$\
-$$= r_{t+1} + \sum_{k = 1}^{\infty }\gamma ^{k} r_{t + k + 1} - V^\pi_{t} $$\
+$$= r_{t+1} + \sum_{k = 1}^{\infty }\gamma ^{k} r_{t + k + 1} - V^ \pi_{t} $$\
 $$= r_{t+1} + \gamma \times \sum_{k = 1}^{\infty }\gamma ^{k-1} r_{t + k + 1} - V^\pi_{t} $$\
 $$= r_{t+1} + \gamma \times \sum_{k = 0}^{\infty }\gamma ^{k} r_{(t  + 1) + (k + 1)} - V^\pi_{t}$$\
 $$=  r_{t+1} + \gamma \times \sum_{k = 0}^{\infty }\gamma ^{k} r_{(t  + 1) + (k + 1)} - V^\pi_{t}$$\
@@ -451,15 +452,17 @@ https://user-images.githubusercontent.com/62206142/148566163-089a2a3c-4361-4997-
 <div id='ProblemwithTD'/>
 
 ## Problem with TD
-All we want is to find the best policy that suits us. Although TD agent finds the value of each state (A value that converges to the real value during the time), it cannot find the best policy because for finding that and doing one-step expectimax, $T$ and $R$ functions are needed. However, in RL, they are not available. Therefore, a new method is needed which is called **Q-Learning**.
+All we want is to find the best policy that suits us. Although TD agent finds the value of each state (A value that converges to the real value during the time), it cannot find the best policy because for finding that and doing one-step expectimax, $T$ and $R$ functions are needed. However, in RL, they are not available. Therefore, a new method is required, called **Q-Learning**.
 
 <div id='Conclusion'/>
 
-# Conclusion
+# Summery and Conclusion
 
 <div id='SummaryofDiscussedRLMethods'/>
 
-### Summary of Discussed RL Methods
+In this lecture note, we tried to cover some topics of RL. First, we talked about RL itself and gave the definition. Then, we mentioned various types of RL and their differences. In the end, we tried to cover two methods of learning used in RL. There is a summary of these methods and usages of RL in the following.
+
+### Discussed RL Methods
 #### Direct Utility Estimation
 * Simple to implement
 * Each update is fast
