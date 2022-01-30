@@ -1,4 +1,5 @@
 <div align="justify">
+
 # Inference in Bayes Nets 1
 
 ## Table of Contents
