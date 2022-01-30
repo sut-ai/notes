@@ -20,7 +20,7 @@
 Deep learning is a subfield of machine learning that deals with algorithms inspired by the structure and function of the brain. Deep learning is a subset of machine learning, which is a part of artificial intelligence (AI).
 ![](https://i.imgur.com/qhjJzDb.png)
 
-CNNs are models to solve deep learning problems. Suppose that you have high-dimensional inputs such as images or videos. If we want to use MLPs, 2 (or more) dimensional inputs need to be converted to 1-dimensional vectors. This conversion increases the number of trainable parameters exponentially. Also, one important thing in these data is locality, it means that for example in an image, you can find features in near pixels (for example corners and edges) but, distant pixels can't give you efficient features. The solution for solving these problems is using CNNs.
+CNNs are models to solve deep learning problems. Suppose that you have high-dimensional inputs such as images or videos. If we want to use MLPs, 2 (or more) dimensional inputs need to be converted to 1-dimensional vectors. This conversion increases the number of trainable parameters exponentially. Also, one important thing in these data is locality, it means that for example in an image, you can find features in adjacent pixels (for example corners and edges) but, distant pixels can't give you efficient features. The solution for solving these problems is using CNNs.
 
 ## CNN Architecture
 A CNN architecture is formed by a stack of distinct layers that transform the input volume into an output volume through a differentiable function. A few distinct types of layers are commonly used:
@@ -29,7 +29,7 @@ A CNN architecture is formed by a stack of distinct layers that transform the in
 * Convolutional Layer
 * Pooling
 * Activation Function
-* Loss layer
+* Loss Layer
 
 In the following, you can see images of two simple famous CNNs.
 <figure>
