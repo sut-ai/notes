@@ -2,19 +2,21 @@
 
 # Table of Contents
 
+- [Regression](#regression)
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
-- [1 - Linear Regression](#2---linear-regression)
+- [1 - Linear Regression](#1---linear-regression)
   - [Loss Function](#loss-function)
     - [Mean Squared Error (MSE)](#mean-squared-error-mse)
   - [Finding $\hat{w}$](#finding-hatw)
     - [Gradient Descent](#gradient-descent)
     - [Normal Equation](#normal-equation)
-- [2 - Learning Curves Using Polynomials](#3---learning-curves-using-polynomials)
+- [2 - Learning Curves Using Polynomials](#2---learning-curves-using-polynomials)
   - [Reduction to Linear Regression](#reduction-to-linear-regression)
   - [Overfitting](#overfitting)
     - [Using Validation Set (Held-Out Data)](#using-validation-set-held-out-data)
     - [Regularization](#regularization)
-- [3 - Logistic Regression](#5---logistic-regression)
+- [3 - Logistic Regression](#3---logistic-regression)
   - [How to Calculate Probabilities](#how-to-calculate-probabilities)
   - [Defining Line _l_ and Cost Function $J(\theta)$](#defining-line-l-and-cost-function-jtheta)
   - [Training](#training)
@@ -215,6 +217,6 @@ Regression is used in a variety of AI problems. We can use it to find the best l
 # References
 - Artificial Inteligence Course at Sharif University of Technology (Fall, 2021)
 - Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2th Edition
-- https://en.wikipedia.org/wiki/Linear_regression
-- https://math.stackexchange.com/questions/1962877/compute-the-gradient-of-mean-square-error
-- https://towardsdatascience.com/normal-equation-in-python-the-closed-form-solution-for-linear-regression-13df33f9ad71
+- [*Linear Regression* from Wikipedia.org](https://en.wikipedia.org/wiki/Linear_regression)
+- [*Compute the gradient of mean square error* from math.stackexchange.com](https://math.stackexchange.com/questions/1962877/compute-the-gradient-of-mean-square-error)
+- [*Normal Equation in Python: The Closed-Form Solution for Linear Regression* from towardsdatascience.com](https://towardsdatascience.com/normal-equation-in-python-the-closed-form-solution-for-linear-regression-13df33f9ad71)
