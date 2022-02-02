@@ -1,0 +1,32 @@
+title: Local Search
+
+header:
+    title: Local Search
+    
+authors:
+    label: 
+        position: top
+    content:
+    - name: Amirali Ebrahimzadeh
+      role: Author
+      contact:
+      - link: https://github.com/AmiraliE1380
+        icon: fab fa-github
+      
+    - name: Hamidreza Dehbashi
+      role: Author
+      contact:
+      - link: https://github.com/hamiddeboo8
+        icon: fab fa-github
+        
+    - name: Mohamad Javad Hezareh
+      role: Author
+      contact:
+      - link: https://github.com/MJavadHzr
+        icon: fab fa-github
+    
+      
+comments:
+
+    label: false
+    kind: comments
