@@ -1,4 +1,4 @@
-﻿# Temporal Probability Models Part Two
+﻿# Temporal Probability Models - Part Two
 
 ## Contents
 - [Temporal Probability Models](#temporal-probability-models)
