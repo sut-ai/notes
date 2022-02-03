@@ -22,10 +22,12 @@ authors:
       contact:
         - icon: fas fa-envelope
           link: mailto:hoseinsobhi@gmail.com
-          
+
     - name: Ali Asghar Ghanati
       role: Author
       contact:
+        - icon: fab fa-github
+          link: https://github.com/alilordloss
         - icon: fas fa-envelope
           link: mailto:a.a.ghanati@gmail.com
 
