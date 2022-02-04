@@ -1,3 +1,5 @@
+#### Introduction to machine learning key concepts
+
 # Table of contents
 1. [Introduction](#introduction)
     1. [History](#history)
@@ -128,8 +130,8 @@ As a result of bayes net above and bayes theorem we can say that:
 
 $P(Y, F_1, F_2, ..., F_n) = P(Y)\prod_{i}P(F_i|Y)$
 
-As we can use this equation for computing posterior distribution over label variable Y first by calculating joint probibility of evidence and label for each label using equation above second sum to get probability of evidence and then divide the first by second to calculate $P(Y| F_1, F_2, ..., F_n)$ .
-The process can be seen in figure below:
+As we can use this equation for computing posterior distribution over label variable Y first by calculating the joint probability of evidence and label for each label using the equation above the second sum to get the probability of evidence and then divide the first by second to calculate $P(Y| F_1, F_2, ..., F_n)$ .
+The process can be seen in the figure below:
 
 ![](./images/naive_bayes_inference.png)
 
@@ -144,14 +146,14 @@ The process can be seen in figure below:
 *   Naive Bayes assumes that all features are independent or unrelated, so it cannot learn the relationship between features. It can be helpful in some cases to consider features independent, but sometimes the results are not exact.
 
 ## Unsupervised Learning
-In this method our training dataset doesn’t contain labels and they have not been categorized. Instead, our algorithm would be fed a lot of data and given the tools to understand the properties of the data. In this case machine learns to group, cluster the data such that a human (or other intelligent algorithm) can come in and make sense of the newly organized data. In another word the goal of unsupervised learning is to find the underlying structure of dataset, group that data according to similarities, and represent that dataset in a compressed format. The unsupervised algorithms are grouped in two main categories:
+In this method, our training dataset doesn’t contain labels and they have not been categorized. Instead, our algorithm would be fed a lot of data and given the tools to understand the properties of the data. In this case, the machine learns to group, cluster the data such that a human (or other intelligent algorithms) can come in and make sense of the newly organized data. In another word, the goal of unsupervised learning is to find the underlying structure of the dataset, group that data according to similarities, and represent that dataset in a compressed format. The unsupervised algorithms are grouped into two main categories:
 
 *   **Clustering**
 *   **Association**
 # Bias and Variance
 
 
-if the model in machine learning  is not accurate, it will make errors and these errors are known as Bias and Variance. these two error cause small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions.  
+if the model in machine learning is not accurate, it will make errors and these errors are known as Bias and Variance. these two error cause small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions.  
 On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.
 
 ## What is Bias?
@@ -166,13 +168,13 @@ It can be defined as an inability of ML algorithms such as polynomial Regression
 linear algorithms have a high bias, as they learn fast. The simpler the algorithm, the higher the bias it has! but a nonlinear algorithm often has low bias.
 
 
-#### Machine learning algorithm with low bias:####
+#### Machine learning algorithms with low bias:
  
 - Decision Trees
 - k-Nearest Neighbours
 
 
-#### Machine learning algorithm with high bias:
+#### Machine learning algorithms with high bias:
 - Linear Regression
 - Logistic Regression
 
