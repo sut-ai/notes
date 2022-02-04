@@ -1,4 +1,4 @@
-#### Introduction to machine learning key concepts
+# Introduction to machine learning key concepts
 
 # Table of contents
 1. [Introduction](#introduction)
@@ -36,12 +36,12 @@ Humans are capable of learning by experiencing, but how about computers? Can the
 
 ![](./images/intro_pic_1.png)
 
-Machine learning techniques allow computers to automatically learn from a dataset and improve its performance from experiences and enables them to predict things in a new situation without being explicitly programmed. Machine learning algorithms bring computer science and statistics together to build mathematical models from our dataset that is known as training data and use these models for future decision. The diagram below shows the ML algorithm:
+Machine learning techniques allow computers to automatically learn from a dataset and improve their performance from experiences and enable them to predict things in a new situation without being explicitly programmed. Machine learning algorithms bring computer science and statistics together to build mathematical models from our dataset that is known as training data and use these models for future decisions. The diagram below shows the ML algorithm:
 
 ![](./images/intro_pic_2.png)
 
 ## History
-The base idea behind machine learning has a long history, But the term of machine learning was first used by Arthur Samuel in 1959. Below we can see a timeline of ML in brief:
+The base idea behind machine learning has a long history, But the term machine learning was first used by Arthur Samuel in 1959. Below we can see a timeline of ML in brief:
 
 *   **1834:** Charles Babbage made the first computer that could be programmed by punched cards and all modern computers followed its logical structure.
 *   **1936:** Alan Turing gave a theory about how machines can execute a set of instructions.
@@ -49,11 +49,11 @@ The base idea behind machine learning has a long history, But the term of machin
 *   **1943:** The first model of human neural network was modeled with electronic circuits.
 *   **1950:** "Computer Machinery and Intelligence," was published by Alan Turing on the topic of AI with this question, "Can machines think?".
 *   **1952:** Arthur Samuel created a program to play checkers for an IBM computer that could play better by playing more.
-*   **1959:** Arthur Samuel first used the term of “Machine Learning” and popularized it. In this year, the first neural network was used to solve a real-world problem to remove echoes over phone lines using an adaptive filter.
+*   **1959:** Arthur Samuel first used the term “Machine Learning” and popularized it. In this year, the first neural network was used to solve a real-world problem to remove echoes over phone lines using an adaptive filter.
 *   **1974 to 1980:** These years are known as AI winter that lots of people lost their interest from AI and governmental funding reduced.
 *   **1985:** A neural network was developed named NETtalk that was able to correctly pronounce 20000 words in a week.
-*   **1997:** The IBM’s computer named Deep Blue won a chess game against human chess expert Garry Kasparov.
-*   **2006:** Geoffrey Hinton has first used name of "deep learning" instead of neural net research.
+*   **1997:** IBM’s computer named Deep Blue won a chess game against human chess expert Garry Kasparov.
+*   **2006:** Geoffrey Hinton has first used the name "deep learning" instead of neural net research.
 *   **2012:** Google developed a deep neural network system to distinguish cat and human images in a YouTube video.
 *   **2016:** AlphaGo won a Go game against number one and number second player of Go.
 
@@ -62,7 +62,7 @@ The base idea behind machine learning has a long history, But the term of machin
 
 ![](./images/intro_pic_3.png)
 
-The machine learning concepts are growing every day and we can see its usages everywhere. Some of the real-world applications of ML are:
+Machine learning concepts are growing every day and we can see their usages everywhere. Some of the real-world applications of ML are:
 
 *   **Image recognition:**
     
@@ -102,7 +102,7 @@ In this method computer is provided by a set of labeled (tagged) data which is c
 
 ### Classification
 
-In this algorithm machine learns from given training data and identifies the category of input data and classifies it into number of groups or classes. The main difference of this method and regression is that classification is a process of finding a function which helps in dividing the dataset into classes based on different parameters, but regression is a process of finding the correlations between dependent and independent variables. The classifiers can be binary that means we have only two possible outcomes, or multi-class that means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:
+In this algorithm, the machine learns from given training data and identifies the category of input data, and classifies it into some groups or classes. The main difference of this method and regression is that classification is a process of finding a function that helps in dividing the dataset into classes based on different parameters, but regression is a process of finding the correlations between dependent and independent variables. The classifiers can be binary which means we have only two possible outcomes or multi-class which means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:
 
 *   **Lazy Learners:**
     
@@ -112,7 +112,7 @@ In this algorithm machine learns from given training data and identifies the cat
     *   Case-based reasoning
 *   **Eager Learners:**
     
-    Eager learning methods construct general (one-fits-all), explicit (input independent) description of the target function based on the provided training examples. In this method the learner creates a model according to the training dataset, so the training time is more than lazy learners but prediction is faster. Some algorithms of this method are:
+    Eager learning methods construct a general (one-fits-all), explicit (input independent) description of the target function based on the provided training examples. In this method, the learner creates a model according to the training dataset, so the training time is more than lazy learners but the prediction is faster. Some algorithms of this method are:
     
     *   Decision Trees
     *   Naïve Bayes
@@ -120,7 +120,7 @@ In this algorithm machine learns from given training data and identifies the cat
 
 ### Naïve Bayes Classifier Algorithm
 
-Naïve Bayes algorithm is a probabilistic classifier based on Bayes theorem and is used to solve classification problems. It is called naïve because it assumes that occurrence of a certain feature is independent of the occurrence of other features. It is also called Bayes because it depends on the principle of Bayes' Theorem.
+Naïve Bayes algorithm is a probabilistic classifier based on Bayes theorem and is used to solve classification problems. It is called naïve because it assumes that the occurrence of a certain feature is independent of the occurrence of other features. It is also called Bayes because it depends on the principle of Bayes' Theorem.
 
 A general naïve bayes model has the form below that Y is our label variable and F is our feature set:
 
@@ -181,7 +181,7 @@ linear algorithms have a high bias, as they learn fast. The simpler the algorith
 
 ## What is variance?  
   
-The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models has **low variance** but some of them has **high variance.**  
+The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models have **low variance** but some of them have **high variance.**  
 
 **high variance means there is a high variation in the prediction of the target function with changes in the training dataset**  
 
@@ -233,7 +233,7 @@ when the ml model predicts training data very well but it can not predict unseen
 This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the models ability to generalize.  
 ***An overfitted model is said to have low bias and high variance.***  
 
-To detect overfitting we must split our dataset.about 80% of our data set is goinig to be trained and 20% of dataset is going to be tested!Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example if the error is 2.5% in training data and 20% in test data we have overfitting  
+To detect overfitting we must split our dataset.about 80% of our data set is goinig to be trained and 20% of dataset is going to be tested! Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example if the error is 2.5% in training data and 20% in test data we have overfitting  
 
 ## What is underfiting?
 Underfitting refers to a model that can neither model the training data nor generalize to new data.
@@ -294,9 +294,9 @@ Note that the value of the maximum likelihood estimate is a function of the obse
 
 ## What is MAP?
 
-we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inference about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
+we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inferences about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
 
-in this approach our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with prior distribution.  
+in this approach our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with a prior distribution.  
 After observing the value of the random variable Y, we find the posterior distribution of X. This is the conditional PDF (or PMF) of X given Y=y,
 we use bayes formula for calculating posterior distribution.  
 
@@ -447,7 +447,7 @@ We introduce three datasets:
 The actual dataset that we use to train the model (weights and biases in the case of a Neural Network). The model sees and learns from this data.  
 
 ## Validation Dataset
-**The sample of data used to provide an unbiased evaluation of a trained model on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as skill on the validation dataset is incorporated into the model configuration.**  
+**The sample of data used to provide an unbiased evaluation of a trained model on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as a skill on the validation dataset is incorporated into the model configuration.**  
 The validation set is used to evaluate a given model, but this is for frequent evaluation. We, as machine learning engineers, use this data to fine-tune the model hyperparameters. Hence the model occasionally sees this data but never does it “Learn” from this. We use the validation set results and update higher-level hyperparameters. So, the validation set affects a model, but only indirectly. The validation set is also known as the Dev set or the Development set. This makes sense since this dataset helps during the “development” stage of the model. We use this dataset to calculate $\alpha$ and $k$.  
 
 ![](./images/diagram.png)  
