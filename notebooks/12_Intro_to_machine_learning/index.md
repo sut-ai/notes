@@ -45,12 +45,12 @@ The base idea behind machine learning has a long history, But the term machine l
 
 *   **1834:** Charles Babbage made the first computer that could be programmed by punched cards and all modern computers followed its logical structure.
 *   **1936:** Alan Turing gave a theory about how machines can execute a set of instructions.
-*   **1940:** First manually operated computer named "ENIAC" was invented.
+*   **1940:** First manually operated the computer named "ENIAC" was invented.
 *   **1943:** The first model of human neural network was modeled with electronic circuits.
 *   **1950:** "Computer Machinery and Intelligence," was published by Alan Turing on the topic of AI with this question, "Can machines think?".
 *   **1952:** Arthur Samuel created a program to play checkers for an IBM computer that could play better by playing more.
 *   **1959:** Arthur Samuel first used the term “Machine Learning” and popularized it. In this year, the first neural network was used to solve a real-world problem to remove echoes over phone lines using an adaptive filter.
-*   **1974 to 1980:** These years are known as AI winter that lots of people lost their interest from AI and governmental funding reduced.
+*   **1974 to 1980:** These years are known as AI winter that lots of people lost their interest in AI and governmental funding reduced.
 *   **1985:** A neural network was developed named NETtalk that was able to correctly pronounce 20000 words in a week.
 *   **1997:** IBM’s computer named Deep Blue won a chess game against human chess expert Garry Kasparov.
 *   **2006:** Geoffrey Hinton has first used the name "deep learning" instead of neural net research.
@@ -81,7 +81,7 @@ Machine learning concepts are growing every day and we can see their usages ever
 ![](./images/intro_pic_6.png)
 *   **Product recommendations:**
     
-    Amazon and Netflix use ML for their product recommendation systems. Every time a user opens an amazon page is able to see most relevant suggestion according to its previous searches or other features that are used in dataset.
+    Amazon and Netflix use ML for their product recommendation systems. Every time a user opens an amazon page can see the most relevant suggestion according to its previous searches or other features that are used in the dataset.
     
 ![](./images/intro_pic_7.png)
 
@@ -95,18 +95,18 @@ There are three major recognized categories for ML:
 ## Supervised Learning
 
 
-In this method computer is provided by a set of labeled (tagged) data which is called training data and tries to create a mathematical model according to it and learn to approximate the exact nature of the relationship between examples and their labels. By the time this process of training finished, the supervised learning algorithm will be able to observe a new, never-before-seen example and predict a good label for it. Then we provide another set of data called sample data to test if the predictions are exact or not. One example of supervised learning is Face Recognition that we have a system that takes a photo, finds faces, and guesses who that is in the photo (suggesting a tag) is a supervised process. It has multiple layers to it, finding faces and then identifying them, but is still supervised nonetheless. The supervised algorithms are grouped in two main categories:
+In this method, the computer is provided by a set of labeled (tagged) data which is called training data, and tries to create a mathematical model according to it and learn to approximate the exact nature of the relationship between examples and their labels. By the time this process of training is finished, the supervised learning algorithm will be able to observe a new, never-before-seen example and predict a good label for it. Then we provide another set of data called sample data to test if the predictions are exact or not. One example of supervised learning is Face Recognition that we have a system that takes a photo, finds faces, and guesses who is in the photo (suggesting a tag) is supervised process. It has multiple layers to it, finding faces and then identifying them, but is still supervised nonetheless. The supervised algorithms are grouped into two main categories:
 
 *   **Classification**
 *   **Regression**
 
 ### Classification
 
-In this algorithm, the machine learns from given training data and identifies the category of input data, and classifies it into some groups or classes. The main difference of this method and regression is that classification is a process of finding a function that helps in dividing the dataset into classes based on different parameters, but regression is a process of finding the correlations between dependent and independent variables. The classifiers can be binary which means we have only two possible outcomes or multi-class which means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:
+In this algorithm, the machine learns from given training data and identifies the category of input data, and classifies it into some groups or classes. The main difference between this method and regression is that classification is a process of finding a function that helps in dividing the dataset into classes based on different parameters, but regression is a process of finding the correlations between dependent and independent variables. The classifiers can be binary which means we have only two possible outcomes or multi-class which means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:
 
 *   **Lazy Learners:**
     
-    Lazy learning methods simply store the data and generalizing beyond these data is postponed until an explicit request is made. In this case we just store dataset without learning from it and start classifying data when test data is received. These learners find the most related data that is stored in our training dataset. First they store the training data and start the next phase when the test dataset arrives. In this method we reduce the training time but prediction time increases. Some algorithms of this method are:
+    Lazy learning methods simply store the data and generalizing beyond these data is postponed until an explicit request is made. In this case, we just store the dataset without learning from it and start classifying data when test data is received. These learners find the most related data that is stored in our training dataset. First, they store the training data and start the next phase when the test dataset arrives. In this method, we reduce the training time but prediction time increases. Some algorithms of this method are:
     
     *   K-Nearest Neighbours algorithm
     *   Case-based reasoning
@@ -122,7 +122,7 @@ In this algorithm, the machine learns from given training data and identifies th
 
 Naïve Bayes algorithm is a probabilistic classifier based on Bayes theorem and is used to solve classification problems. It is called naïve because it assumes that the occurrence of a certain feature is independent of the occurrence of other features. It is also called Bayes because it depends on the principle of Bayes' Theorem.
 
-A general naïve bayes model has the form below that Y is our label variable and F is our feature set:
+A general naïve Bayes model has the form below that Y is our label variable and F is our feature set:
 
 ![](./images/bayes_net.png)
 
@@ -153,13 +153,13 @@ In this method, our training dataset doesn’t contain labels and they have not 
 # Bias and Variance
 
 
-if the model in machine learning is not accurate, it will make errors and these errors are known as Bias and Variance. these two error cause small difference between predicted and actual value! In machine learning we want to reduce these errors to get more accurate predictions.  
-On the basis of these errors, the machine learning model is selected that can perform best on the particular dataset.
+if the model in machine learning is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors cause a small difference between predicted and actual values! In machine learning, we want to reduce these errors to get more accurate predictions.  
+Based on these errors, the machine learning model is selected that can perform best on the particular dataset.
 
 ## What is Bias?
 
-In general, a machine learning model analyzes the data, find patterns in it and make predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
-**While the model is making prediction about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors**  
+In general, a machine learning model analyzes the data, finds patterns in it, and makes predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
+**While the model is making predictions about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors**  
 It can be defined as an inability of ML algorithms such as polynomial Regression to capture the true relationship between the data points. Each algorithm in ML  has some amount of bias because bias occurs from assumptions in the model, which makes the target function simple to learn. A model has either:  
 
 - **High Bias:** A model with a high bias has more assumptions, and the model can not capture the important features of our dataset. the model with high biased has good performance on training data but not test data.  
@@ -179,13 +179,13 @@ linear algorithms have a high bias, as they learn fast. The simpler the algorith
 - Logistic Regression
 
 
-## What is variance?  
+## What is a variance?  
   
-The variance of model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models have **low variance** but some of them have **high variance.**  
+The variance of the model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models have **low variance** but some of them have **high variance.**  
 
 **high variance means there is a high variation in the prediction of the target function with changes in the training dataset**  
 
-a model that has high variance performs well on training data but can not generalize unseen dataset as well.
+a model that has high variance performs well on training data but can not generalize unseen datasets as well.
 high variance leads to overfitting and increases model complexities!  
 
 
@@ -197,18 +197,18 @@ high variance leads to overfitting and increases model complexities!
 #### machine learning algorithms with high variance:
 
 - decision tree
-- K-nearest neighbours
+- K-nearest neighbors
 
 
-in general variance shows us how much our model is dependent to our dataset!
+in general, variance shows us how much our model is dependent on our dataset!
 
-in the following image you can see the impact of bias and variance in machine learning model:  
+in the following image you can see the impact of bias and variance in the machine learning model:  
 
 ![](./images/bias-and-variance-in-machine-learning4.png)
 ## Bias and Variance Trade-Off
-the best and ideal model has low bias and low variance but it can not be acheived and is not possible practically!
-low-bias and high-variance leads to overfitting, high-bias and low-variance leads to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
-in simple words bias and variance are related to each other and we can not reduce both of them simultanously!  
+the best and ideal model has low bias and low variance but it can not be achieved and is not possible practically!
+low-bias and high-variance lead to overfitting, high-bias, and low-variance lead to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
+in simple words, bias and variance are related to each other and we can not reduce both of them simultaneously!  
 
 ![](./images/bias-and-variance-in-machine-learning6.png)
 
@@ -224,25 +224,25 @@ An important consideration in learning the target function from the training dat
 
 The goal of a good machine learning model is to generalize well from the training data to any data from the problem domain. This allows us to make predictions in the future on data the model has never seen.  
 
-There is a terminology used in machine learning when we talk about how well a machine learning model learns and generalizes to new data, namely overfitting and underfitting.  
+There is terminology used in machine learning when we talk about how well a machine learning model learns and generalizes to new data, namely overfitting and underfitting.  
 
-Overfitting and underfitting are the two biggest causes for poor performance of machine learning algorithms.  
+Overfitting and underfitting are the two biggest causes for the poor performance of machine learning algorithms.  
 
 ## So what is overfitting?
-when the ml model predicts training data very well but it can not predict unseen data as well as training data we face overfitting in our ml algorithm!  
-This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the models ability to generalize.  
+when the ml model predicts training data very well but can not predict unseen data as well as training data we face overfitting in our ml algorithm!  
+This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the model's ability to generalize.  
 ***An overfitted model is said to have low bias and high variance.***  
 
-To detect overfitting we must split our dataset.about 80% of our data set is goinig to be trained and 20% of dataset is going to be tested! Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example if the error is 2.5% in training data and 20% in test data we have overfitting  
+To detect overfitting we must split our dataset. about 80% of our data set is going to be trained and 20% of the dataset is going to be tested! Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example, if the error is 2.5% in training data and 20% in test data we have overfitting  
 
-## What is underfiting?
-Underfitting refers to a model that can neither model the training data nor generalize to new data.
+## What is underfitting?
+Underfitting refers to a model that can neither model the training data nor generalizes to new data.
 An underfit machine learning model is not a suitable model and will be obvious as it will have poor performance on the training data.  
 
 ## and how to prevent overfitting?
 
-- **cross validation:** In the general k-fold cross-validation technique, we divided the dataset into k-equal-sized subsets of data; these subsets are known as folds.
-- **regularization:** in this technique we reduce our model features and simplify it with our tools! it may increase bias but reduce the variance of the model. in many cases we add penalizing term to our objective function. as an example in linear regression we use l2 regularization and add sum penalizing term to the MSE function
+- **cross-validation:** In the general k-fold cross-validation technique, we divided the dataset into k-equal-sized subsets of data; these subsets are known as folds.
+- **regularization:** in this technique we reduce our model features and simplify them with our tools! it may increase bias but reduce the variance of the model. in many cases we add penalizing terms to our objective function. as an example, in linear regression, we use l2 regularization and add sum penalizing term to the MSE function
 - ...
 
 
@@ -252,11 +252,11 @@ An underfit machine learning model is not a suitable model and will be obvious a
 
 
 
-# Parameter Estiamtion
+# Parameter Estimation
 
 ## What is MLE?
 
-The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is frequentist approach to this problem. In this approach, the unknown quantity $ \theta $ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.  
+The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is a frequentist approach to this problem. In this approach, the unknown quantity $ \theta $ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.  
 
 We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)  
 Let $ X_1,X_2,X_3, ... ,X_n $ be a random sample from a distribution with a parameter $ \theta $ (In general, θ might be a vector, ${\theta}=(\theta_1, \theta_2, \cdots, \theta_k)$ Suppose that $ x_1,x_2,x_3, ... ,x_n $ are the observed values of $ X_1,X_2,X_3, ... ,X_n $. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of $ \theta $:
@@ -290,15 +290,15 @@ $\begin{align}
 \end{align}$
 
 
-Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, as any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable  
+Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, like any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable  
 
 ## What is MAP?
 
-we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inferences about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics.That is why this approach is called the Bayesian approach.  
+we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inferences about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics. That is why this approach is called the Bayesian approach.  
 
-in this approach our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with a prior distribution.  
+in this approach, our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with a prior distribution.  
 After observing the value of the random variable Y, we find the posterior distribution of X. This is the conditional PDF (or PMF) of X given Y=y,
-we use bayes formula for calculating posterior distribution.  
+we use the Bayes formula for calculating posterior distribution.  
 
 $\begin{align}
 f_{X|Y}(x|y)=\frac{f_{Y|X}(y|x)f_{X}(x)}{f_{Y}(y)}.
@@ -312,7 +312,7 @@ $f_{X}(x)$ as priror distribution. in many problems
 $f_{Y|X}(y|x)$ is MLE function that we explained it!  
 
 The posterior distribution, 
-$f_{X|Y}(x|y)$ , contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posterior (MAP) estimation . 
+$f_{X|Y}(x|y)$ , contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posterior (MAP) estimation. 
 
 Note that 
 $f_{Y}(y)$ does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:
@@ -321,7 +321,7 @@ f_{Y|X}(y|x)f_{X}(x).
 \end{align}$
 
 
-***in many cases we choose alpha-beta distribution for prior distribution***
+***in many cases we choose an alpha-beta distribution for prior distribution***
 
 
 
@@ -365,7 +365,7 @@ $P(label=a)\propto \frac{2}{5} \times \frac{2}{5} \times 0 \times 1 \times \frac
 $P(label=b)\propto 0 \times \frac{3}{5} \times \frac{3}{5} \times \frac{2}{5} \times 1 = 0$
 
 
-If you look at the naïve bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  
+If you look at the naïve Bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for the label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  
 
 
 **So, what would we do to handle this situation?**
@@ -435,7 +435,7 @@ $P_{LIN}(x|y)=\alpha P(x|y)+(1-\alpha)P(x), 0<\alpha<1$
 By choosing an appropriate value for $\alpha$, we can handle unseen events.  
 
 
-# More about dataset
+# More about the dataset
 
 In the last section, we learned about Laplace smoothing and linear interpolation. But how can we calculate appropriate values for $\alpha$ and k?  
 
@@ -454,13 +454,13 @@ The validation set is used to evaluate a given model, but this is for frequent e
 
 ## Test Dataset
 
-**The sample of data used to provide an unbiased evaluation of final trained model on the training dataset.**  
+**The sample of data used to provide an unbiased evaluation of the final trained model on the training dataset.**  
 
 The Test dataset provides the gold standard used to evaluate the model. It is only used once a model is completely trained(using the train and validation sets). The test set is generally what is used to evaluate competing models (For example on many Kaggle competitions, the validation set is released initially along with the training set, and the actual test set is only released when the competition is about to close, and it is the result of the model on the Test set that decides the winner). Many times the validation set is used as the test set, but it is not good practice. The test set is generally well-curated. It contains carefully sampled data that spans the various classes that the model would face when used in the real world.  
 
 ## About the dataset split ratio
-Now that you know what these datasets do, you might be looking for recommendations on how to split your dataset into Train, Validation and Test sets.  
-This mainly depends on 2 things. First, the total number of samples in your data and second, on the actual model you are training.  
+Now that you know what these datasets do, you might be looking for recommendations on how to split your dataset into Train, Validation, and Test sets.  
+This mainly depends on 2 things. First, the total number of samples in your data, and second, on the actual model you are training.  
 Some models need substantial data to train upon, so in this case, you would optimize for the larger training sets. Models with very few hyperparameters will be easy to validate and tune, so you can probably reduce the size of your validation set, but if your model has many hyperparameters, you would want to have a large validation set as well(although you should also consider cross-validation). Also, if you happen to have a model with no hyperparameters or ones that cannot be easily tuned, you probably don’t need a validation set too!  
 
 ![](./images/ratio.png)
