@@ -1,5 +1,11 @@
 # Deep Neural Networks
 
+## The authors' name
+
+- Parham Chavoshian
+- Amirhossein Javadi
+- Dariush Amiri
+
 ## Table of Content
 
 - [Introduction](#introduction)
@@ -91,8 +97,8 @@ This is to decrease the computational power required to process the data by redu
 It sweeps a filter across the entire input but that does not have any weights. Instead, the kernel applies an aggregation function to the values within the receptive field, populating the output array.
 There are two types of Pooling:
 
-1. Max Pooling: it  returns the maximum value from the portion of the image covered by the Kernel. and also performs as a Noise Suppressant. It discards the noisy activations altogether and also performs de-noising along with dimensionality reduction.
-2. Average Pooling: it returns the average of all the values from the portion of the image covered by the Kernel, and simply performs dimensionality reduction as a noise suppressing mechanism. 
+1. Max Pooling: It  returns the maximum value from the portion of the image covered by the Kernel. And also performs as a Noise Suppressant. It discards the noisy activations altogether and also performs de-noising along with dimensionality reduction.
+2. Average Pooling: It returns the average of all the values from the portion of the image covered by the Kernel, and simply performs dimensionality reduction as a noise suppressing mechanism. 
 Comparing these two, we can say that Max Pooling performs a lot better than Average Pooling.
 In the following, we will see a picture of how these two methods work.
 
