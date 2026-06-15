@@ -58,7 +58,11 @@ a {
 .wf-nav-back {
     align-items: center;
     display: inline-flex;
-    gap: 0.25rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    min-width: 2.25rem;
     color: var(--wf-muted, var(--bs-secondary-color)) !important;
 }
 
@@ -140,6 +144,13 @@ a {
     min-height: 2.5rem;
     text-decoration: none;
     white-space: normal;
+}
+
+.wf-page-navigation-back-icon {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    min-width: 2.5rem;
 }
 
 .wf-page-navigation-previous a {
