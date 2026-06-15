@@ -108,7 +108,9 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>Adversarial Search (minimax, alpha-beta pruning, expectimax)</h1>
+        <h1>Adversarial Search</h1>
+        
+        <p class="mt-3">Minimax, alpha-beta pruning, and expectimax</p>
         
     </div>
 </header>
@@ -223,6 +225,11 @@
 
         
         
+            <a href="/notes/" class="btn nav-item mt-1 wf-nav-back" aria-label="Back">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span>Back</span>
+            </a>
+        
 
         
         
@@ -283,7 +290,7 @@
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
                 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=48a7cbf7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb78fce9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -294,7 +301,7 @@
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c28b6e17">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c51c60f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -305,7 +312,7 @@
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=999bbf26">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af8829e5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -318,7 +325,7 @@ We will have a brief talk about game theory and some famous games and their solu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18131d84">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3a0b744">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -329,7 +336,7 @@ We will have a brief talk about game theory and some famous games and their solu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1f143fe">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c11a69fa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -358,7 +365,7 @@ Finally, the solution returned by our intelligent system is a function named Pol
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=008423d5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7953bc1f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -373,7 +380,7 @@ So based on the utility values for different players, games can be classified in
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce789a14">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d4703ca">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -388,7 +395,7 @@ A possible tree for an adversarial game is shown below:</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a18bf543">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d87d32bb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -401,7 +408,7 @@ You can see the tree of the XO game below, and the score of the root of this tre
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5469ceed">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0cce3420">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -427,7 +434,7 @@ function minimax(node, depth, maximizingPlayer) is
             value := min(value, minimax(child, depth − 1, TRUE))
         return value
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=60c33832">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fe7202a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -442,7 +449,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e38464d1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=951c51dc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -453,7 +460,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d0e23af">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3018906b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -464,7 +471,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d1abda5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=80314c46">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -475,7 +482,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=986f6201">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ced97ea">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -486,7 +493,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10d1e0d1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8aa43272">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -497,7 +504,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7ee913b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ae606c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -508,7 +515,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ca4eafa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f37cc4a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -519,7 +526,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9714b943">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b53f1c9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -530,7 +537,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=901cf5ea">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6606e0e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -541,7 +548,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4ff9941c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ffd7e308">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -552,7 +559,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=016e62b1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3e3ff0a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -563,7 +570,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1aecbec0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21296af3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -574,7 +581,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1fd86b8b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53c3e4c1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -585,7 +592,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=434656de">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b11b1b12">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -596,7 +603,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eaf15449">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba66a893">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -607,7 +614,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ba0a483">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12cab196">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -618,7 +625,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fcfd71d7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c822c10">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -650,7 +657,7 @@ def min-value(state, α, β):
         β = min(β, v)       # new line: updating alpha
     return v
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6198969">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8fa76afd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -663,7 +670,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=157cec6b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0e50dc43">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -674,7 +681,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c7cad38">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9636023e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -685,7 +692,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70ff8faf">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d904821b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -696,7 +703,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfbd4814">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5927f953">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -707,7 +714,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0fd54f1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3cedbe27">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -718,7 +725,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29a4b7b9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c3ad78a6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -729,7 +736,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8f38aa03">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1553ee3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -740,7 +747,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc8715e6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a031f302">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -751,7 +758,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fe645228">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f43767e8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -762,7 +769,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7e5f3cf4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a221cf8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -773,7 +780,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb6ea4d1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c644eae8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -784,7 +791,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=766a9267">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7897025">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -795,7 +802,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ac7133a2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a253a0f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -806,7 +813,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=41a9ab0a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=944954c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -817,7 +824,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1851cc39">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce974359">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -829,7 +836,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1a5b973">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=960ea3cb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -840,7 +847,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a3c3e01">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63ab4d6d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -851,7 +858,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c583ecd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34fd07a7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -866,7 +873,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e15d0de">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b25aa7f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -877,7 +884,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a42521f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0034b520">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -889,7 +896,7 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f9b6f04f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=547335c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -905,7 +912,7 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=35b43cc3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fa0f953a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -916,7 +923,7 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c703c576">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7d0573b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -945,7 +952,7 @@ def exp-value(state):
         p = probability(successor)
         v += p * value(successor)
     return v
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e20c9f3e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c3c1dd8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -956,7 +963,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0c096d6b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e09108dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -967,7 +974,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a4253ec">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fe3f603c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -979,7 +986,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e5f0f621">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bec4c4bc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -990,7 +997,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6cfd106a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4e87e8db">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1001,7 +1008,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ed628757">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=529c1ce0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1012,7 +1019,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0c6a2fc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3f52a841">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1023,7 +1030,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b76d1e4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62ce0b50">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1034,7 +1041,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4237fb7c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5968656">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1045,7 +1052,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=627257c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89e0d683">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1056,7 +1063,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=283cb960">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5389394f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1070,7 +1077,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6fcabca">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ea73b09">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1081,7 +1088,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=441413f0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29036c16">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1092,7 +1099,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a9b8610">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5674b6ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1108,7 +1115,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1347152e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31a22bb6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1121,7 +1128,7 @@ Td-Gammon is a computer backgammon program developed in 1992. It uses a depth 2 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=069ddac4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39d52c44">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1132,7 +1139,7 @@ Td-Gammon is a computer backgammon program developed in 1992. It uses a depth 2 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=791bfb2c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0e83d6b0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1382,28 +1389,47 @@ A complete search is often infeasible in minimax due to resource limits. So we c
     </div>
     
 
+<nav class="wf-page-navigation container-fluid bg-body shadow p-3 mt-2" aria-label="Page navigation">
+    <div class="wf-page-navigation-inner">
+        <div class="wf-page-navigation-slot wf-page-navigation-previous">
+            
+            <a class="btn btn-link p-0" href="notebooks/7_constraint_satisfaction_problems/index.md">
+                <span class="d-block small text-muted">Back</span>
+                <span>Constraint Satisfaction Problems Notes</span>
+            </a>
+            
+        </div>
+        <div class="wf-page-navigation-home text-center">
+            
+            <a class="btn btn-link p-0" href="/notes/">Notes</a>
+            
+        </div>
+        <div class="wf-page-navigation-slot wf-page-navigation-next">
+            
+            <a class="btn btn-link p-0" href="notebooks/adversarial_search_fall_2021/index.md">
+                <span class="d-block small text-muted">Next</span>
+                <span>Adversarial Search Notes</span>
+            </a>
+            
+        </div>
+    </div>
+</nav>
+
 
     
 
 
 
-
-    
 
 
 <footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
         
-        style="min-height: 2vh;
-          background-image: url('images/notes-header.jpg');
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;"
+        style="min-height: 2vh;"
         
 >
     <div
             
-            class="wf-header-panel w-100 p-3 m-auto text-center"
+            class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
         

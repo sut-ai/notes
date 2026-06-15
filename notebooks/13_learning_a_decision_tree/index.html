@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>LN | Learning a Decision Tree</title>
+    <title>LN | Decision Tree Learning</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -108,7 +108,7 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>Learning a Decision Tree (classification)</h1>
+        <h1>Decision Tree Learning</h1>
         
     </div>
 </header>
@@ -223,6 +223,11 @@
 
         
         
+            <a href="/notes/" class="btn nav-item mt-1 wf-nav-back" aria-label="Back">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span>Back</span>
+            </a>
+        
 
         
         
@@ -283,570 +288,316 @@
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
                 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d007d348">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="line-height:300%;">
-<font face="XB Zar" size="5">
-<div align="center">
-<font face="IranNastaliq" size="30">
-<p></p>
-<p></p>
-Decision Tree
-				<p></p>
-</font>
-<font color="#FF7500">
-Sharif University Of technology - Computer Engineering Depatment
-            </font>
-<p></p>
-<font color="blue">
-Artifical Intelligence - Dr. MH Rohban
-            </font>
-<br/>
-<br/>
-Spring 2021
-		</div>
-<hr/>
-<font color="red" size="6">
-<br/>
-<div align="center">
-Decision Tree And Its Application In Classification
-                <br/>
+<h2 id="What-Is-a-Decision-Tree?">What Is a Decision Tree?<a class="anchor-link" href="#What-Is-a-Decision-Tree?">¶</a></h2><p>Decision tree learning is a method commonly used in data mining. The goal is to create a model that predicts the value of a target variable based on several input variables.</p>
+<p>A decision tree is a simple representation for classifying examples. For this section, assume that all input features have finite discrete domains, and there is a single target feature called the classification. Each element of the classification domain is called a class.</p>
+<p>A decision tree, or classification tree, is a tree in which each internal node is labeled with an input feature. The arcs leaving that node are labeled with possible values of that feature, or they lead to another decision node. Each leaf is labeled with a class or a probability distribution over classes, meaning the dataset has been classified into either a specific class or a class distribution.</p>
 </div>
-</font>
-<div align="center">
-<br/>Writers Team<br/>
-<font color="gray" size="6">
-            Amirsadra Abdollahi<br/>
-            Ashkan Khademian<br/>
-            Amirmohammad Isazadeh<br/>
-</font>
 </div>
-<hr/>
-<style scoped="" type="text/css">
-        p{
-        border: 1px solid #a2a9b1;background-color: #f8f9fa;display: inline-block;
-        };
-        </style>
-<div>
-<h3>Contents</h3>
-<ul style="margin-right: 0;">
-<li>
-<a href="#sec_whatisR">
-                        What's Decision Tree
-                    </a>
-</li>
-<li>
-<a href="#sec_installR">
-                        Decision Tree Examples
-                    </a>
-</li>
-<li>
-<a href="#sec_R_packages">
-                      Building A Decision Tree
-                    </a>
-</li>
-<li>
-<a href="#sec_R_Intro">
-                        Entropy And Information Gain
-                    </a>
-</li>
-<li>
-<a href="#sec_statFunc">
-                        Learning Decision Tree
-                    </a>
-</li>
-<li>
-<a href="#sec_R_DSs">
-                        Overfitting in Decision Trees
-                    </a>
-</li>
-<li>
-<a href="#sec_additional">
-                        Additional Content
-                    </a>
-</li>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a2ee10c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p><img alt="Decision tree overview" src="/notes/assets/pictures/overview.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=712a681c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Decision-Tree-Examples">Decision Tree Examples<a class="anchor-link" href="#Decision-Tree-Examples">¶</a></h2><p>Decision trees can describe simple, explainable classification rules.</p>
+<h3 id="Accepting-a-New-Job-Offer">Accepting a New Job Offer<a class="anchor-link" href="#Accepting-a-New-Job-Offer">¶</a></h3><p><img alt="Decision tree for accepting a new job offer" src="/notes/assets/pictures/find-job.png"/></p>
+<h3 id="Predicting-Fuel-Efficiency">Predicting Fuel Efficiency<a class="anchor-link" href="#Predicting-Fuel-Efficiency">¶</a></h3><p><img alt="Decision tree for predicting fuel efficiency" src="/notes/assets/pictures/fuel-efficiency.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=392c1f5a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Building-a-Decision-Tree">Building a Decision Tree<a class="anchor-link" href="#Building-a-Decision-Tree">¶</a></h2><p>Now we build a decision tree for the fuel-efficiency example.</p>
+<p><img alt="Fuel efficiency example" src="/notes/assets/pictures/fuel-efficiency2.png"/></p>
+<h3 id="Starting-Node">Starting Node<a class="anchor-link" href="#Starting-Node">¶</a></h3><p>We can start with an empty tree and improve it at each level. For the fuel-efficiency example, suppose the initial tree returns <code>mpg = bad</code> for all data points. On this dataset, that tree gives 22 correct answers and 18 wrong answers, so there is room to improve it.</p>
+<p><img alt="Starting node" src="/notes/assets/pictures/fuel-efficiency3.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=591be86a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Operators">Operators<a class="anchor-link" href="#Operators">¶</a></h3><p>There are several operators for building a decision tree.</p>
+<h4 id="Improving-the-Tree">Improving the Tree<a class="anchor-link" href="#Improving-the-Tree">¶</a></h4><p>To improve the tree, we can add more nodes, or features, to make better predictions.</p>
+<p><img alt="Improving a tree with one feature" src="/notes/assets/pictures/fuel-efficiency4.png"/></p>
+<h4 id="Recursive-Step">Recursive Step<a class="anchor-link" href="#Recursive-Step">¶</a></h4><p>We can consider each leaf as a root and repeat the same splitting process. Sometimes we reach a node that does not have any data. In that case, we should stop and predict randomly or fall back to a default rule.</p>
+<p><img alt="Recursive decision tree step" src="/notes/assets/pictures/fuel-efficiency5.png"/></p>
+<p>After one level, we get this tree:</p>
+<p><img alt="Tree after one level" src="/notes/assets/pictures/fuel-efficiency6.png"/></p>
+<p>After adding all nodes and features, we get a full tree:</p>
+<p><img alt="Full decision tree" src="/notes/assets/pictures/fuel-efficiency7.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=614b7666">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Two-Questions-for-More-Efficiency">Two Questions for More Efficiency<a class="anchor-link" href="#Two-Questions-for-More-Efficiency">¶</a></h2><p>A basic hill-climbing strategy for decision trees is:</p>
+<ul>
+<li>Start from an empty decision tree.</li>
+<li>Split on the best attribute or feature.</li>
+<li>Recurse on the resulting subsets.</li>
+</ul>
+<p>The important questions are:</p>
+<ul>
+<li>Which attribute gives the best split?</li>
+<li>When should recursion stop?</li>
 </ul>
 </div>
-</font>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=abd33905">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_whatisR" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-What's Decision Tree
-        </font>
-<pre><code>    </code></pre>
-<p>Decision tree learning is a method commonly used in data mining. The goal is to create a model that predicts the value of a target variable based on several input variables.
-A decision tree is a simple representation for classifying examples. For this section, assume that all of the input features have finite discrete domains, and there is a single target feature called the "classification". Each element of the domain of the classification is called a class. A decision tree or a classification tree is a tree in which each internal (non-leaf) node is labeled with an input feature. The arcs coming from a node labeled with an input feature are labeled with each of the possible values of the target feature or the arc leads to a subordinate decision node on a different input feature. Each leaf of the tree is labeled with a class or a probability distribution over the classes, signifying that the data set has been classified by the tree into either a specific class, or into a particular probability distribution(which,if the decision tree is well-constructed, is skewed towards certain subsets of classes).
-</p></font>
+<h3 id="Splitting:-Choosing-a-Good-Attribute">Splitting: Choosing a Good Attribute<a class="anchor-link" href="#Splitting:-Choosing-a-Good-Attribute">¶</a></h3><p>Look at the example below to see the main idea behind splitting.</p>
+<p><img alt="Splitting example" src="/notes/assets/pictures/p10.png"/></p>
+<h4 id="Measuring-Uncertainty">Measuring Uncertainty<a class="anchor-link" href="#Measuring-Uncertainty">¶</a></h4><p>A split is useful when we become more certain about the classification after the split.</p>
+<ul>
+<li>Deterministic splits are good: all true or all false.</li>
+<li>Uniform distributions are bad: the split did not make the outcome clearer.</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=13f0b095">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2>Overview</h2>
-<br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/overview.png"/>
-<br/>
+<h3 id="Which-Attribute-Gives-the-Best-Split?">Which Attribute Gives the Best Split?<a class="anchor-link" href="#Which-Attribute-Gives-the-Best-Split?">¶</a></h3><p>Two common answers are:</p>
+<ul>
+<li>Use the attribute with the highest information gain, defined in terms of entropy.</li>
+<li>Use another objective, such as accuracy, to reduce the misclassification rate.</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4e72cbd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
-<br/>
-<div id="sec_installR" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-Decision Tree Examples
-        </font>
-<br/><br/>
-        1. Accept A New Job Offer
-        <br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/find-job.png"/>
-<br/>
-        2. Predict Fuel Efficiency 
-        <br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency.png"/>
-<br/><br/>
-</font>
+<h2 id="Entropy-and-Information-Gain">Entropy and Information Gain<a class="anchor-link" href="#Entropy-and-Information-Gain">¶</a></h2><h3 id="Entropy">Entropy<a class="anchor-link" href="#Entropy">¶</a></h3><p>Entropy measures uncertainty in a random variable. More uncertainty means more entropy.</p>
+<p><img alt="Entropy definition" src="/notes/assets/pictures/p16.png"/></p>
+<p>In information theory, entropy is the expected number of bits needed to encode a randomly drawn value of a variable under the most efficient code. Diagrammatically, entropy peaks in the middle and falls near deterministic outcomes.</p>
+<p><img alt="Entropy curve" src="/notes/assets/pictures/p17.png"/></p>
+<h4 id="Example-of-Entropy">Example of Entropy<a class="anchor-link" href="#Example-of-Entropy">¶</a></h4><p>If <code>P(Y = t) = 5/6</code> and <code>P(Y = f) = 1/6</code>, the value of <code>H(Y)</code> is:</p>
+<p><img alt="Entropy example" src="/notes/assets/pictures/p18.png"/></p>
+<h3 id="Conditional-Entropy">Conditional Entropy<a class="anchor-link" href="#Conditional-Entropy">¶</a></h3><p>Conditional entropy <code>H(Y | X)</code> measures the uncertainty of a random variable <code>Y</code> after observing another random variable <code>X</code>.</p>
+<p><img alt="Conditional entropy definition" src="/notes/assets/pictures/p19.png"/></p>
+<p>Here is an example of conditional entropy:</p>
+<p><img alt="Conditional entropy example" src="/notes/assets/pictures/p20.png"/></p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8297c7db">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><br/><div id="sec_R_packages" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-Building A Decision Tree
-</font>
-<br/><br/>
-Now we want to build a decision tree for Fuel Efficiency Example
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency2.png"/>
-<h2>Build decision Tree</h2>
-<h3>The Starting Node</h3>
-We can start with an empty tree and improve it at each level. For example, for the second example we have a tree that for all data, it returns mpg=bad. So for our dataset we got 22 correct answers and 18 wrong answers with this tree. but we can improve it!
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency3.png" style="width:200px;height:100px"/></font></div></p>
+<h3 id="Information-Gain">Information Gain<a class="anchor-link" href="#Information-Gain">¶</a></h3><p>Information gain is the amount of information gained about one random variable or signal from observing another random variable.</p>
+<p><img alt="Information gain definition" src="/notes/assets/pictures/p21.png"/></p>
+<p>For the previous example, the information gain is:</p>
+<p><img alt="Information gain example" src="/notes/assets/pictures/p22.png"/></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1f3f6bd5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="line-height:300%;">
-<font face="XB Zar" size="5">
-<h2>Operators</h2>
-        There are several operators for building a decision tree.
-        <h4>Improving the tree</h4>
-        To improve our tree, we can add more nodes(features) to get more correct answer and predict better.
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency4.png"/>
-<h4>Recursive step</h4>
-        We can consider each leaf as a root and do the same for those.Maybe we get to some node that doesn’t have any data. In these situations we should end up and predict randomly.
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency5.png"/>
-        After one level we got this tree ?
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency6.png"/>
-        And after adding all nodes(features) to the tree we got a Full Tree like this:
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/fuel-efficiency7.png"/>
-</font>
+<h2 id="Learning-a-Decision-Tree">Learning a Decision Tree<a class="anchor-link" href="#Learning-a-Decision-Tree">¶</a></h2><p>When learning a decision tree, we need to decide:</p>
+<ul>
+<li>Which node to split.</li>
+<li>How to update the tree after each iteration.</li>
+<li>Which termination condition to use.</li>
+</ul>
+<p>A common learning procedure is:</p>
+<ul>
+<li>Start from an empty decision tree.</li>
+<li>Split on the next best attribute or feature.</li>
+<li>Use information gain, or a related score, to select the attribute.</li>
+<li>Recurse.</li>
+</ul>
+<h3 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h3><p>Suppose we want to predict MPG. First, we inspect the information gains for possible splits:</p>
+<p><img alt="Information gain values" src="/notes/assets/pictures/p23.png"/></p>
+<p>Then we start iterating. For the first iteration we have:</p>
+<p><img alt="First decision tree iteration" src="/notes/assets/pictures/p24.png"/></p>
+<p>Continuing the process gives:</p>
+<p><img alt="Decision tree learning process" src="/notes/assets/pictures/p25.png"/></p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6672ce0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div id="sec_R_Intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="7">
-        Two Questions For More Efficiency
-        </font>
-<p></p>
-<hr/>
-<h3>Hill Climbing Algorithm:</h3>
-<pre><code>  •Start from empty decision tree
-  •Split on the best attribute (feature) – Recurse</code></pre>
-<p>Now the important question is:
-•Which attribute gives the best split?
-•When to stop recursion?</p>
-</font></div>
+<h3 id="Termination-Conditions">Termination Conditions<a class="anchor-link" href="#Termination-Conditions">¶</a></h3><p>Termination conditions tell us when to stop growing the tree.</p>
+<p>Two basic termination rules are:</p>
+<ul>
+<li><strong>Base case one:</strong> If all records in the current data subset have the same output, do not recurse.</li>
+<li><strong>Base case two:</strong> If all records have exactly the same input attributes, do not recurse.</li>
+</ul>
+<h4 id="Base-Case-One">Base Case One<a class="anchor-link" href="#Base-Case-One">¶</a></h4><p><img alt="Base case one" src="/notes/assets/pictures/p26.png"/></p>
+<h4 id="Base-Case-Two">Base Case Two<a class="anchor-link" href="#Base-Case-Two">¶</a></h4><p><img alt="Base case two" src="/notes/assets/pictures/p27.png"/></p>
+<p>A third tempting rule is:</p>
+<ul>
+<li><strong>Base case three:</strong> If all attributes have zero information gain, do not recurse.</li>
+</ul>
+<p>Is that a good idea? Not necessarily. It is greedy: it checks variables alone, but a combination of variables may still contain useful information.</p>
+<p>For <code>Y = a xor b</code>, this rule gives:</p>
+<p><img alt="XOR with zero individual information gain" src="/notes/assets/pictures/p28.png"/></p>
+<p>Without that rule, we can still find the useful structure:</p>
+<p><img alt="XOR with useful split" src="/notes/assets/pictures/p29.png"/></p>
+<p>So this stopping rule may produce a poor result:</p>
+<p><img alt="Poor result from greedy stopping" src="/notes/assets/pictures/p30.png"/></p>
+<p><img alt="Comparison of stopping behavior" src="/notes/assets/pictures/p31.png"/></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=933fe742">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div id="sec_R_Intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<h3>Splitting: choosing a good attribute</h3>
-<pre><code>    </code></pre>
-<p>Look at the example to get the main point of splitting!
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p10.png"/></p>
-<h4>Measuring uncertainty</h4>
-<br/>
-•Good split if we are more certain about classification after split<br/>
-     •Deterministic good (all true or all false)<br/>
-     •Uniform distribution?   BAD<br/>
-</font></div>
+<h2 id="Overfitting-in-Decision-Trees">Overfitting in Decision Trees<a class="anchor-link" href="#Overfitting-in-Decision-Trees">¶</a></h2><p>Decision trees have little learning bias, which can make their variance over the training set significantly high. How can we introduce useful bias to reduce overfitting?</p>
+<h3 id="No-Free-Lunch-Theorem">No Free Lunch Theorem<a class="anchor-link" href="#No-Free-Lunch-Theorem">¶</a></h3><p>Consider the graph below. Suppose we are given a dataset of <code>(x, y)</code> points and want to estimate the function that generated them.</p>
+<p><img alt="No free lunch example" src="/notes/assets/pictures/p11.png"/></p>
+<p>All three functions, red, green, and blue, fit the data. Without prior knowledge, all three have the same probability of being the suggested function.</p>
+<p>The No Free Lunch theorem says that without any sense of which functions are more likely, learning is impossible. For example, if we already knew that a very smooth function generated these points, we would prefer the blue function over the others.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8de3ce55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div id="sec_whatisR" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<h3>Which attribute gives the best split? </h3>
-        • A1: The one with the highest information gain<br/>
-       • Defined in terms of entropy<br/>
- • A2: Actually many alternatives,<br/>
-      • e.g., accuracy. Seeks to reduce the misclassification rate
-
-</font></div>
+<h3 id="Occam's-Razor">Occam's Razor<a class="anchor-link" href="#Occam's-Razor">¶</a></h3><p>Occam's Razor says that among all possible hypotheses for a dataset, we should prefer the shortest or least complex one, because a shorter hypothesis is less likely to overfit.</p>
+<p><img alt="Occam's Razor" src="/notes/assets/pictures/p12.png"/></p>
+<h4 id="Variance-of-a-Model">Variance of a Model<a class="anchor-link" href="#Variance-of-a-Model">¶</a></h4><p>Variance measures how much the result on a validation set changes if we change the training data.</p>
+<h4 id="Bias-of-a-Model">Bias of a Model<a class="anchor-link" href="#Bias-of-a-Model">¶</a></h4><p>Bias measures the deviation introduced from the original training data while training.</p>
+<p>According to Occam's Razor, we would rather build smaller trees with less depth.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ad2a0217">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_R_Intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="7">
-        Entropy And Information Gain
-        </font>
-<p></p>
-<hr/>
-<font color="purple" size="6">Entropy</font><br/>
-        First we start with definition of entropy:<br/>
-      Entropy H(Y) of a random variable Y:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p16.png" style="width:400px"/>
-As it can be figured out, more uncertainty, more entropy!<br/>
-It's interesting to know that in Information Theory interpretation entropy is defined as:<br/>
-    Expected number of bits needed to encode a randomly drawn value of Y (under most efficient code)<br/>
-And for a diagram view of entropy we can say it has a peak in the middle of it, then it falls.
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p17.png" style="height:300px"/>
-<font color="green" size="5.7">Example of Entropy</font><br/>
-If P(Y=t) = 5/6 and P(Y=f) = 1/6 the value of H(Y) would be:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p18.png" style="height:300px"/>
-<font color="purple" size="6">Conditional Entropy</font><br/>
-definition:<br/>
-   Conditional Entropy H(Y|X) of a random variable Y conditioned on a random
-variable X<br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p19.png"/>
-And here an example of conditional entropy:<br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p20.png" style="height:300px"/>
-</font>
+<h3 id="How-to-Build-Small-Trees">How to Build Small Trees<a class="anchor-link" href="#How-to-Build-Small-Trees">¶</a></h3><p>There are two common approaches.</p>
+<h4 id="Stop-Growing-Before-Overfitting">Stop Growing Before Overfitting<a class="anchor-link" href="#Stop-Growing-Before-Overfitting">¶</a></h4><ul>
+<li>Bound the depth or number of leaves.</li>
+<li>Stop growing if the information gain of all remaining features is zero at a depth.</li>
+</ul>
+<h4 id="Grow-the-Full-Tree,-Then-Prune">Grow the Full Tree, Then Prune<a class="anchor-link" href="#Grow-the-Full-Tree,-Then-Prune">¶</a></h4><ul>
+<li>Optimize on a held-out validation set.</li>
+<li>After training, prune any branches that do not reduce validation accuracy below a threshold.</li>
+<li>This usually requires a larger amount of data.</li>
+<li>Statistical significance testing can also help decide what to prune.</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=49e31104">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="purple" size="6.6">Information Gain</font><br/>
-        definition:<br/>
-    The information gain is the amount of information gained about a random variable or signal from observing another random variable and defined by this equation:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p21.png"/>
-And for IG of our last example we have:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p22.png"/>
-<pre><code>&lt;/font&gt;</code></pre>
-</font></div>
+<h3 id="Statistical-Significance-Testing">Statistical Significance Testing<a class="anchor-link" href="#Statistical-Significance-Testing">¶</a></h3><h4 id="Chi-Square-Test-Reminder">Chi-Square Test Reminder<a class="anchor-link" href="#Chi-Square-Test-Reminder">¶</a></h4><p>Suppose we have two features: the first has <code>k</code> classes and the second has <code>n</code> classes. Given people whose classes are known for both features, the null hypothesis states that in a table with <code>k</code> rows and <code>n</code> columns, rows are independent from columns, and vice versa.</p>
+<h4 id="Using-Chi-Square-While-Growing-a-Tree">Using Chi-Square While Growing a Tree<a class="anchor-link" href="#Using-Chi-Square-While-Growing-a-Tree">¶</a></h4><p>For choosing which feature to use at each depth, we used information gain. After the tree is grown, either fully or with a limit on depth and leaves, we can test each feature at each depth and calculate a p-value.</p>
+<p>After setting a threshold called <code>MaxPchance</code>, if the calculated p-value for any feature is greater than <code>MaxPchance</code>, we prune that feature and make the decision based on the previous feature, or parent node.</p>
+<p><img alt="Chi-square pruning" src="/notes/assets/pictures/p13.png"/></p>
+<h4 id="How-to-Find-a-Good-MaxPchance">How to Find a Good MaxPchance<a class="anchor-link" href="#How-to-Find-a-Good-MaxPchance">¶</a></h4><p>We can use local or greedy search on the validation set. Once we reach good validation accuracy, we stop and set that value as <code>MaxPchance</code>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f398ff6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_statFunc" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-        Learning Decision Tree
-        </font><br/>
-		For learning a decision tree we should consider some important things such as:<br/>
-      . Select a node for splitting<br/>
-      . Update tree after an iteration<br/>
-      . Terminating condition<br/>
-<p>Steps of building a tree:<br/>
-      . Start from empty decision tree<br/>
-      . Split on next best attribute (feature)<br/>
-      . Use information gain (or...?) to select attribute:<br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p23.png" style="width:400px"/>
-      . Recurse<br/><br/>
-<font color="green" size="6">Example</font><br/><br/>
-Now we want to build a tree step by step, as an example for figuring out the way to build a DT.<br/>
-Suppose we want to predict MPG; now look at all the information gains in the picture below
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p24.png"/>
-Now we should do our iterations.<br/>
-For first iteration we have:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p25.png"/></p>
-</font>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_statFunc" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="purple" size="6">
-        Termination Conditions
-        </font><br/>
-		We introduce conditions to know when to stop building process.<br/>
-        Two ideas for terminating are:<br/>
-      . Base Case One: If all records in current data subset have the same output then
-don’t recurse.<br/>
-      . Base Case Two: If all records have exactly the same set of input attributes then
-don’t recurse.<br/>
-Base Case One:
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/p26.png"/>
-Base Case Two:
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/p27.png"/>
-<br/>
-Now there is one other idea for termination that we want to discuss:<br/>
-    . Base Case 3: If all attributes have zero information gain then don't recurse.<br/>
-<font color="red" size="5">
-        Is it a good idea??
-        </font><br/>
-    The answer is no!!<br/>
-Because it's kind of a greedy idea!!<br/>
-In this idea we check information gain of our variables alone, but if we check the information we get from combination of variables, there maybe be usefull information.<br/>
-Here an example of this idea's problem:<br/>
-    For Y = a xor b, we use this idea and here the result:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p28.png"/>
-But without this idea:
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p29.png"/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p30.png"/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p31.png"/>
-So as we can see, this idea didn't come up with good results.
-</font>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_R_DSs" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-            Overfitting in Decision Trees
-        </font>
-<h4>How to resolve Overfitting ?</h4>
-<pre><code>    </code></pre>
-<p>Decision trees have no learning bias and in outcome, the variance over the training set is significantly high. How can we introduce some biases to resolve the overfitting?
-<h5>No Free Lunch Theorem</h5>
-Take the facing graph as an example. Suppose we are given a dataset of (x, y)s and we want to estimate the function which caused these points.
-As you might’ve gotten it so far, all the three functions (red, green, and blue) are estimating it right and if we don’t have any prior knowledge, all three functions have the exact probability to be our suggesting function.
-“No Free lunch” states that, in absence of any sense on what functions are more likely, learning is impossible.
-For example, if we already knew that a very smooth function generated these points we are more likely to prefer the blue function to others.
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p11.png" style="width:400px;height:300px"/></p>
-</font>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_whatisR" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#000000" size="5">
-<b>
-<font color="gray" size="6">
-                Occam’s Razor :
-                    </font>
-</b>
-</font>
-<br/>
-        This principle states that from all possible hypotheses on a dataset, choose the shortest (the least complex) one. Because a short hypothesis is less likely to overfit.
-        <img alt="No description has been provided for this image" src="/notes/assets/pictures/p12.png" style="width:700px;height:300px"/>
-<h6>Variance of model</h6>
-        If we change the training data, how much our result on validation set changes
-        <h6>Bias of model</h6>
-        The deviation we took from the original training data while we were training
-        <br/>
-        According to this principle we’d rather make smaller trees with less depth.
-
-<pre><code>    </code></pre>
-</font></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div id="sec_whatisR" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<b>
-<font color="brown" size="6.5">How To Build Small Trees</font>
-</b>
-<br/>
-        There are some approaches as followed:
-        <br/>
-<br/>
-<font color="purple" size="6">Stop growing tree before overfit<br/></font>
-      . Bound depth or #leaves<br/>
-      . Stop growing more depth if in one depth Information Gain (IG) of all<br/>
-      . features on remaining data is zero.<br/>
-<font color="purple" size="6">Grow full tree then prune<br/></font>
-      . Optimize on a held-out (validation set). Meaning after the training is finished prune any branches that do not reduce the accuracy on validation set below a threshold. (Con: requires a larger amount of data)<br/>
-      . Use statistical significance testing<br/>
-</font>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="line-height:300%;">
-<font face="XB Zar" size="5">
-<b>
-<font color="brown" size="6.5">Use statistical significance testing</font>
-</b>
-<pre><code>    </code></pre>
-<p><font color="purple" size="6">Chi-Square Test (remembrance)<br/></font>
-Having two features where the first feature has k classes and the second one has n classes. With people which we know their classes in both features, H0(null hypothesis) states that in a table with k rows and n columns, rows are independent from columns and conversely.
-<br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p13.png"/>
-<font color="purple" size="6">Using Chi-Square in growing tree<br/></font>
-As you know, for choosing what feature to be used in each depth we got help from a concept called IG. after the tree is grown (fully or with a limit on depth and leaves) we test each feature in each depth and calculate the p_value. After setting a threshold calledMaxPchance, if calculate pfor any feature is greater than MaxPchance. We prune that feature and the decision will be based on the previous feature (parent node).
-How to find a good MaxPchance?
-We could use a local or greedy search on the validation set and by reaching a good accuracy on the validation set we would stop and set that MaxPchance.</p>
-</font>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<br/>
-<div id="sec_additional" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="7">
-Additional Content<br/>
-</font>
-<font color="purple" size="6.5">Random Forests<br/></font>
-Idea:<br/> 
-     Decision Trees overfit easily and it's hard to grow them on a big number of features.<br/>
-Approach:<br/> 
-     Use multiple decision trees instead of only one.
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p14.png"/>
-For each tree:<br/>
-<font color="green" size="6">Training Set</font><br/>
-Assume T as the original training set. It’s not usual to divide it into N subsets (N number of decision trees in forest). For  the sake of resolving the overfit, we choose a subset size of $φ1|T|$ then we bootstrap (bagging) T into N subsets of size $φ1|T|$. ($0 &lt; φ1|T| &lt;=1$)<br/>
-<pre><code>    </code></pre>
-<p><font color="green" size="6">Features</font><br/>
-One Problem of a single decision tree was that it was hard to grow it on a lot of features. Then here we choose randomly a subset of features with size $φ2|F|$ and assign it to each tree in the forest. ($0 &lt; φ2|F| &lt;=1$)<br/>
-<font color="green" size="6">Prediction</font><br/>
-There are two methods to report the final prediction of each sample of the test set.<br/>
-<font color="purple" size="5.5">1. Max Method</font><br/>
-In this method we report the class which is predicted the most. for example if 3 out of 5 trees said the class is  𝑌=1 we report  𝑌=1 . properties:<br/>
-      . less F1 score<br/>
-      . more recall<br/>
-      . less precision<br/>
-      . should choose randomly when the number of trees is even<br/>
-<font color="purple" size="5.5">2. Avg Method</font><br/>
-As we know each tree has a probability with its prediction which shows how much does he persist that its answer is true. We calculate a weighted average of each tree's prediction where the weights are the probability reported from each tree alongside its prediction.<br/> properties:<br/>
-      . more F1<br/>
-      . less recall<br/>
-      . more precision<br/>
-      . has a more reasonable answer when the number of trees is even<br/>
-<img alt="No description has been provided for this image" src="/notes/assets/pictures/p15.png"/>
-</p></font>
-</div>
+<h2 id="Additional-Content:-Random-Forests">Additional Content: Random Forests<a class="anchor-link" href="#Additional-Content:-Random-Forests">¶</a></h2><p>Decision trees overfit easily, and it is hard to grow them on a large number of features. Random forests address this by using multiple decision trees instead of only one.</p>
+<h3 id="Training-Set">Training Set<a class="anchor-link" href="#Training-Set">¶</a></h3><p>Assume <code>T</code> is the original training set. It is not usual to divide it into <code>N</code> disjoint subsets, where <code>N</code> is the number of decision trees in the forest. To reduce overfitting, we choose a subset size of <code>phi_1 |T|</code>, then bootstrap, or bag, <code>T</code> into <code>N</code> subsets of size <code>phi_1 |T|</code>, where <code>0 &lt; phi_1 &lt;= 1</code>.</p>
+<h3 id="Features">Features<a class="anchor-link" href="#Features">¶</a></h3><p>One problem with a single decision tree is that it is hard to grow on many features. In a random forest, we randomly choose a subset of features with size <code>phi_2 |F|</code> and assign it to each tree, where <code>0 &lt; phi_2 &lt;= 1</code>.</p>
+<h3 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">¶</a></h3><p>There are two common ways to report the final prediction for each test sample.</p>
+<h4 id="Max-Method">Max Method<a class="anchor-link" href="#Max-Method">¶</a></h4><p>Report the class predicted most often. For example, if 3 out of 5 trees predict <code>Y = 1</code>, report <code>Y = 1</code>.</p>
+<p>Properties:</p>
+<ul>
+<li>Lower F1 score.</li>
+<li>Higher recall.</li>
+<li>Lower precision.</li>
+<li>Needs a random tie-break when the number of trees is even.</li>
+</ul>
+<p><img alt="Max method" src="/notes/assets/pictures/p14.png"/></p>
+<h4 id="Average-Method">Average Method<a class="anchor-link" href="#Average-Method">¶</a></h4><p>Each tree reports a prediction and a confidence probability. We calculate a weighted average of each tree's prediction, using the reported probabilities as weights.</p>
+<p>Properties:</p>
+<ul>
+<li>Higher F1 score.</li>
+<li>Lower recall.</li>
+<li>Higher precision.</li>
+<li>More reasonable behavior when the number of trees is even.</li>
+</ul>
+<p><img alt="Average method" src="/notes/assets/pictures/p15.png"/></p>
 </div>
 </div>
 </div>
@@ -1076,28 +827,47 @@ As we know each tree has a probability with its prediction which shows how much 
     </div>
     
 
+<nav class="wf-page-navigation container-fluid bg-body shadow p-3 mt-2" aria-label="Page navigation">
+    <div class="wf-page-navigation-inner">
+        <div class="wf-page-navigation-slot wf-page-navigation-previous">
+            
+            <a class="btn btn-link p-0" href="notebooks/12_Intro_to_machine_learning/index.md">
+                <span class="d-block small text-muted">Back</span>
+                <span>Introduction to Machine Learning</span>
+            </a>
+            
+        </div>
+        <div class="wf-page-navigation-home text-center">
+            
+            <a class="btn btn-link p-0" href="/notes/">Notes</a>
+            
+        </div>
+        <div class="wf-page-navigation-slot wf-page-navigation-next">
+            
+            <a class="btn btn-link p-0" href="notebooks/14_regression/index.md">
+                <span class="d-block small text-muted">Next</span>
+                <span>Regression</span>
+            </a>
+            
+        </div>
+    </div>
+</nav>
+
 
     
 
 
 
-
-    
 
 
 <footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
         
-        style="min-height: 2vh;
-          background-image: url('images/notes-header.jpg');
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;"
+        style="min-height: 2vh;"
         
 >
     <div
             
-            class="wf-header-panel w-100 p-3 m-auto text-center"
+            class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
         

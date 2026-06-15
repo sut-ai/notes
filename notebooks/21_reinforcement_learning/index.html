@@ -222,6 +222,11 @@
 
         
         
+            <a href="/notes/" class="btn nav-item mt-1 wf-nav-back" aria-label="Back">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span>Back</span>
+            </a>
+        
 
         
         
@@ -276,49 +281,8 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1>Reinforcement Learning</h1>
-<h1>Table of content</h1>
-<ul>
-<li><a href="#introduction">Introduction</a> </li>
-<li><a href="#OnlinevsOfflineLearning">Online vs Offline Learning</a></li>
-<li><a href="#MainElementsofRL">Main Elements of RL</a></li>
-<li><a href="#DifferentMethodsofLearningAccordingtoModel">Different Methods of Learning According to Model</a><ul>
-<li><a href="#Model-basedRL">Model-based RL</a></li>
-<li><a href="#Model-freeRL">Model-free RL</a><ul>
-<li><a href="#anexample1">an example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#TypesofReinforcementLearningAccordingtoLearningPolicy">Types of Reinforcement Learning According to Learning Policy</a><ul>
-<li><a href="#PassiveReinforcementLearning">Passive Reinforcement Learning</a></li>
-<li><a href="#ActiveReinforcementLearning">Active Reinforcement Learning</a></li>
-</ul>
-</li>
-<li><a href="#PolicyEvaluation">Policy Evaluation</a></li>
-<li><a href="#DirectUtilityEstimation">Direct Utility Estimation</a><ul>
-<li><a href="#Definition">Definition</a><ul>
-<li><a href="#anexample2">an example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#AdvantagesofDirectUtilityEstimation">Advantages of Direct Utility Estimation</a></li>
-<li><a href="#DisadvantagesofDirectUtilityEstimation">Disadvantages of Direct Utility Estimation</a></li>
-<li><a href="#TemporalDifference(TD)Learning">Temporal Difference (TD) Learning</a><ul>
-<li><a href="#DefinitionTD">Definition</a></li>
-<li><a href="#pseudocode">pseudocode</a></li>
-<li><a href="#SomeaspectsofTD">Some aspects of TD</a></li>
-<li><a href="#anexample3">an example</a></li>
-</ul>
-</li>
-<li><a href="#ProblemwithTD">Problem with TD</a></li>
-<li><a href="#Conclusion">Summery and Conclusion</a></li>
-<li><a href="#usefullinks">Useful Links</a></li>
-<li><a href="#resources">References</a></li>
-</ul>
-<div id="introduction"></div>
-<h1>Inroduction</h1>
+                <div id="introduction"></div>
+<h1>Introduction</h1>
 <p><em><strong>"... What we want is a machine that can learn from experience." -Alan Turing, 1947</strong></em></p>
 <p>At the beginning of the lecture note, we briefly introduce the RL algorithm. After that, we compare online models to offline models. Additionally, we compare different categories of learning methods based on the model. Then we use Direct Utility Estimation Method to estimate our factor based on sample values. Later, we introduce Temporal Difference Learning Algorithm to understand how the agent can gain experience and learn from the envirnment if it does not have enough knowledge. At the end of the discussion, there is a summary of different topics in RL which we have learned. </p>
 <p><strong>Reinforcement Learning</strong> is a subcategory of Machine Learning which can solve real-life problems. These problems involve learning what to do—how to
@@ -793,28 +757,47 @@ Calculations:</p>
     </div>
     
 
+<nav class="wf-page-navigation container-fluid bg-body shadow p-3 mt-2" aria-label="Page navigation">
+    <div class="wf-page-navigation-inner">
+        <div class="wf-page-navigation-slot wf-page-navigation-previous">
+            
+            <a class="btn btn-link p-0" href="notebooks/19_intro_to_mdp/index.md">
+                <span class="d-block small text-muted">Back</span>
+                <span>Introduction to Markov Decision Processes</span>
+            </a>
+            
+        </div>
+        <div class="wf-page-navigation-home text-center">
+            
+            <a class="btn btn-link p-0" href="/notes/">Notes</a>
+            
+        </div>
+        <div class="wf-page-navigation-slot wf-page-navigation-next">
+            
+            <a class="btn btn-link p-0" href="notebooks/22_reinforcement_learning_from_q_value_till_the_end/index.md">
+                <span class="d-block small text-muted">Next</span>
+                <span>Reinforcement Learning, Part 2</span>
+            </a>
+            
+        </div>
+    </div>
+</nav>
+
 
     
 
 
 
-
-    
 
 
 <footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
         
-        style="min-height: 2vh;
-          background-image: url('images/notes-header.jpg');
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;"
+        style="min-height: 2vh;"
         
 >
     <div
             
-            class="wf-header-panel w-100 p-3 m-auto text-center"
+            class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
         

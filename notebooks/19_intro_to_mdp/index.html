@@ -222,6 +222,11 @@
 
         
         
+            <a href="/notes/" class="btn nav-item mt-1 wf-nav-back" aria-label="Back">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span>Back</span>
+            </a>
+        
 
         
         
@@ -276,37 +281,7 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1>Introduction to Markov Decision Process</h1>
-<h2>Table of Contents</h2>
-<ul>
-<li><a href="#introduction-to-markov-decision-process">Introduction to Markov Decision Process</a></li>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#markov-decision-process">Markov Decision Process</a><ul>
-<li><a href="#states">States</a></li>
-<li><a href="#actions">Actions</a></li>
-<li><a href="#transition-model">Transition Model</a></li>
-<li><a href="#rewards">Rewards</a></li>
-<li><a href="#formalization">Formalization</a></li>
-<li><a href="#policy">Policy</a></li>
-</ul>
-</li>
-<li><a href="#mdp-search-trees">MDP Search Trees</a></li>
-<li><a href="#utilities-of-sequences">Utilities of Sequences</a><ul>
-<li><a href="#discounting">Discounting</a></li>
-<li><a href="#finite-and-infinite-horizons">Finite and infinite horizons</a></li>
-<li><a href="#infinite-utilities">Infinite Utilities</a></li>
-<li><a href="#stationary-preference">Stationary Preference</a></li>
-</ul>
-</li>
-<li><a href="#bellman-equation">Bellman Equation</a></li>
-<li><a href="#time-limited-values">Time Limited Values</a></li>
-<li><a href="#implementation">Implementation</a></li>
-<li><a href="#real-life-example">Real Life Example</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<h2>Introduction</h2>
+                <h2>Introduction</h2>
 <p>In nature, learning by trial and error is the most common way of learning. learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating RL mathematically. In a typical RL problem, there is a learner called agent, which makes decisions. The surrounding which agent interacts with is called <strong>environment</strong>. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with <strong>states</strong> and agent's possible decisions are modeled by <strong>actions</strong>. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with <strong>stochastic transition models</strong> are used. In RL, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by <strong>reward function</strong> in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on <strong>Bellman equation</strong>, So in order to find the best guideline for the agent Bellman equation should be solved.</p>
 <p>In this note, first MDP formalization is introduced. A way to represent MDP is MDP search trees.  MDP search trees are explained in the next part. At the end Bellman equation is discussed as the way of solving an MDP.</p>
 <h2>Markov Decision Process</h2>
@@ -635,28 +610,47 @@ $</p>
     </div>
     
 
+<nav class="wf-page-navigation container-fluid bg-body shadow p-3 mt-2" aria-label="Page navigation">
+    <div class="wf-page-navigation-inner">
+        <div class="wf-page-navigation-slot wf-page-navigation-previous">
+            
+            <a class="btn btn-link p-0" href="notebooks/18_reinforcement_learning/index.ipynb">
+                <span class="d-block small text-muted">Back</span>
+                <span>Reinforcement Learning</span>
+            </a>
+            
+        </div>
+        <div class="wf-page-navigation-home text-center">
+            
+            <a class="btn btn-link p-0" href="/notes/">Notes</a>
+            
+        </div>
+        <div class="wf-page-navigation-slot wf-page-navigation-next">
+            
+            <a class="btn btn-link p-0" href="notebooks/21_reinforcement_learning/index.md">
+                <span class="d-block small text-muted">Next</span>
+                <span>Reinforcement Learning Notes</span>
+            </a>
+            
+        </div>
+    </div>
+</nav>
+
 
     
 
 
 
-
-    
 
 
 <footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
         
-        style="min-height: 2vh;
-          background-image: url('images/notes-header.jpg');
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;"
+        style="min-height: 2vh;"
         
 >
     <div
             
-            class="wf-header-panel w-100 p-3 m-auto text-center"
+            class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
         

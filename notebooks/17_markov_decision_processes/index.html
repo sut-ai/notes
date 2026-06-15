@@ -223,6 +223,11 @@
 
         
         
+            <a href="/notes/" class="btn nav-item mt-1 wf-nav-back" aria-label="Back">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span>Back</span>
+            </a>
+        
 
         
         
@@ -283,28 +288,13 @@
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
                 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=psychological-membership">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-        Markov  Decision Processes(MDPs)
-    </font>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=sonic-suicide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>MDP is a model for describing the environments in which an agent is working and trying to achieve a goal, and a series of actions are done to achieve the goal. Markov's presence indicates it is defined on probabilistic space, and the goal is to find an optimal policy that gives the best action in each state to maximize the total amount of rewards.</p>
+<h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p>MDP is a model for describing the environments in which an agent is working and trying to achieve a goal, and a series of actions are done to achieve the goal. Markov's presence indicates it is defined on probabilistic space, and the goal is to find an optimal policy that gives the best action in each state to maximize the total amount of rewards.</p>
 </div>
 </div>
 </div>
@@ -315,11 +305,7 @@
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Example: Grid Word
-        </font>
-</div>
+<h2 id="Grid-World-Example">Grid World Example<a class="anchor-link" href="#Grid-World-Example">¶</a></h2>
 </div>
 </div>
 </div>
@@ -341,8 +327,8 @@ Example: Grid Word
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Example:">Example:<a class="anchor-link" href="#Example:">¶</a></h1><p>There is a factor in a maze that intends to maximize the sum of its rewards. Every move it makes has a small move cost. In some states, there are rewards and in some states there are fines.</p>
-<h1 id="Difference-from-ordinary-search-problems:">Difference from ordinary search problems:<a class="anchor-link" href="#Difference-from-ordinary-search-problems:">¶</a></h1><p>maze environmental uncertainty and The importance of intermediate steps in MDP</p>
+<h3 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h3><p>There is a factor in a maze that intends to maximize the sum of its rewards. Every move it makes has a small move cost. In some states, there are rewards and in some states there are fines.</p>
+<h3 id="Difference-from-ordinary-search-problems">Difference from ordinary search problems<a class="anchor-link" href="#Difference-from-ordinary-search-problems">¶</a></h3><p>maze environmental uncertainty and The importance of intermediate steps in MDP</p>
 <p>Each move selected has a probability of 80% moving in the specified direction and with 10% to the right and with a 10% probability to the left of the specified direction.</p>
 </div>
 </div>
@@ -354,10 +340,7 @@ Example: Grid Word
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Deterministic and Stochastic Differences    </font>
-</div>
+<h2 id="Deterministic-and-Stochastic-Transitions">Deterministic and Stochastic Transitions<a class="anchor-link" href="#Deterministic-and-Stochastic-Transitions">¶</a></h2>
 </div>
 </div>
 </div>
@@ -380,7 +363,7 @@ Deterministic and Stochastic Differences    </font>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In the deterministic model, every decided move is executed correctly, but in the stochastic, several moves with different probabilities may be executed.</p>
-<h1 id="Stochastic-example:">Stochastic example:<a class="anchor-link" href="#Stochastic-example:">¶</a></h1><h1 id="Actuator-error:">Actuator error:<a class="anchor-link" href="#Actuator-error:">¶</a></h1><p>In a robot system, when a command is given to perform an action and environmental factors can prevent it from moving, it will be like Stochastic, and for example, if the robot wants to move its moving arm but the ground is not flat, the arm might be placed elsewhere. .</p>
+<h3 id="Stochastic-example">Stochastic example<a class="anchor-link" href="#Stochastic-example">¶</a></h3><h3 id="Actuator-error">Actuator error<a class="anchor-link" href="#Actuator-error">¶</a></h3><p>In a robot system, when a command is given to perform an action and environmental factors can prevent it from moving, it will be like Stochastic, and for example, if the robot wants to move its moving arm but the ground is not flat, the arm might be placed elsewhere. .</p>
 <p>For example, if you want to buy stock in the stock market or do not buy at all, there are factors in this market and some of them are visible and some of them are not visible like how macroeconomic policy decisions are made, and if you buy, Because this uncertainty exists, it may result in different behaviors.</p>
 </div>
 </div>
@@ -392,11 +375,7 @@ Deterministic and Stochastic Differences    </font>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-MDP Definition 
-        </font>
-</div>
+<h2 id="MDP-Definition">MDP Definition<a class="anchor-link" href="#MDP-Definition">¶</a></h2>
 </div>
 </div>
 </div>
@@ -407,7 +386,7 @@ MDP Definition
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Entities:">Entities:<a class="anchor-link" href="#Entities:">¶</a></h1><p>Set of states (S)</p>
+<h3 id="Entities">Entities<a class="anchor-link" href="#Entities">¶</a></h3><p>Set of states (S)</p>
 <p>A set of actions (A)</p>
 <p>Transition Function → T (s, a, s')
 --&gt;This function takes the current state of s and gives the probability of going to the state of S 'by moving a. In other words, it gives p(s' | s, a).</p>
@@ -418,27 +397,13 @@ MDP Definition
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=photographic-championship">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Deterministic and Stochastic Differences    </font>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=divided-width">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Description-Model:">Description Model:<a class="anchor-link" href="#Description-Model:">¶</a></h1><p>We have an environment, we give a as an input, then it takes us to the destination state and gives an output.</p>
+<h3 id="Description-Model">Description Model<a class="anchor-link" href="#Description-Model">¶</a></h3><p>We have an environment, we give a as an input, then it takes us to the destination state and gives an output.</p>
 </div>
 </div>
 </div>
@@ -449,11 +414,7 @@ Deterministic and Stochastic Differences    </font>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Markov meaning in MDPs
-        </font>
-</div>
+<h2 id="The-Markov-Property">The Markov Property<a class="anchor-link" href="#The-Markov-Property">¶</a></h2>
 </div>
 </div>
 </div>
@@ -475,7 +436,9 @@ Markov meaning in MDPs
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="$-P(S_%7Bt+1%7D-=s'%7C-S_t-=-s_t,-A_t=a_t,-...S_0-=-s_0)-$">$ P(S_{t+1} =s'| S_t = s_t, A_t=a_t, ...S_0 = s_0) $<a class="anchor-link" href="#$-P(S_%7Bt+1%7D-=s'%7C-S_t-=-s_t,-A_t=a_t,-...S_0-=-s_0)-$">¶</a></h1><h1 id="$---------------=--------------$">$               =              $<a class="anchor-link" href="#$---------------=--------------$">¶</a></h1><h1 id="$-P(S_%7Bt+1%7D-=s'%7C-S_t-=-s_t,-A_t=a_t)-$">$ P(S_{t+1} =s'| S_t = s_t, A_t=a_t) $<a class="anchor-link" href="#$-P(S_%7Bt+1%7D-=s'%7C-S_t-=-s_t,-A_t=a_t)-$">¶</a></h1>
+<p>$$ P(S_{t+1} =s'| S_t = s_t, A_t=a_t, ...S_0 = s_0) $$</p>
+<p>$$ = $$</p>
+<p>$$ P(S_{t+1} =s'| S_t = s_t, A_t=a_t) $$</p>
 </div>
 </div>
 </div>
@@ -486,10 +449,7 @@ Markov meaning in MDPs
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Policies        </font>
-</div>
+<h2 id="Policies">Policies<a class="anchor-link" href="#Policies">¶</a></h2>
 </div>
 </div>
 </div>
@@ -526,7 +486,7 @@ A policy is good if it maximizes the average rewards</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Sample-review:">Sample review:<a class="anchor-link" href="#Sample-review:">¶</a></h1><img alt="No description has been provided for this image" src="/notes/assets/files/4.png"/>
+<h3 id="Sample-Review">Sample Review<a class="anchor-link" href="#Sample-Review">¶</a></h3><img alt="No description has been provided for this image" src="/notes/assets/files/4.png"/>
 R (s) = - 0.01
 
 <p>In this form, we go around to the answer that the hard way has been chosen to not have a negative penalty of one at all. This method, although it has a good average reward, but it is time consuming and will have a high repetition movement.</p>
@@ -546,10 +506,7 @@ R (s) = - 0.01
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Example: Racing        </font>
-</div>
+<h2 id="Racing-Example">Racing Example<a class="anchor-link" href="#Racing-Example">¶</a></h2>
 </div>
 </div>
 </div>
@@ -560,7 +517,7 @@ Example: Racing        </font>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Description">Description<a class="anchor-link" href="#Description">¶</a></h1><p>Consider a car that is racing and can have three states.
+<h3 id="Description">Description<a class="anchor-link" href="#Description">¶</a></h3><p>Consider a car that is racing and can have three states.
 The goal is to find the best way for a long trip in the fastest time possible.
 Reward 1 has been selected for slow movement and rewards 2 for fast movement.
 moving fast in warm state with a probability of one and fine of -10 will end up in overheated state.</p>
@@ -574,7 +531,7 @@ moving fast in warm state with a probability of one and fine of -10 will end up 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Racing-search-tree">Racing search tree<a class="anchor-link" href="#Racing-search-tree">¶</a></h1><p>In this method, we first try to draw Expectimax.
+<h3 id="Racing-Search-Tree">Racing Search Tree<a class="anchor-link" href="#Racing-Search-Tree">¶</a></h3><p>In this method, we first try to draw Expectimax.
 <img alt="No description has been provided for this image" src="/notes/assets/files/5.png"/></p>
 </div>
 </div>
@@ -586,10 +543,7 @@ moving fast in warm state with a probability of one and fine of -10 will end up 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-MDP search tree       </font>
-</div>
+<h2 id="MDP-Search-Tree">MDP Search Tree<a class="anchor-link" href="#MDP-Search-Tree">¶</a></h2>
 </div>
 </div>
 </div>
@@ -615,11 +569,7 @@ The difference between this tree and the expectimax tree is that we have rewards
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Utilities of sequenses
-        </font>
-</div>
+<h2 id="Utilities-of-Sequences">Utilities of Sequences<a class="anchor-link" href="#Utilities-of-Sequences">¶</a></h2>
 </div>
 </div>
 </div>
@@ -642,7 +592,7 @@ This function must distinguish between two methods, receiving each reward in one
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Preferences">Preferences<a class="anchor-link" href="#Preferences">¶</a></h1><p>Select more values</p>
+<h3 id="Preferences">Preferences<a class="anchor-link" href="#Preferences">¶</a></h3><p>Select more values</p>
 <p>At each state,when there is two different action sequence with length of k which result the same value, we choose the early reward rather than late reward.</p>
 </div>
 </div>
@@ -654,7 +604,7 @@ This function must distinguish between two methods, receiving each reward in one
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Discounting">Discounting<a class="anchor-link" href="#Discounting">¶</a></h1><p>Discounting makes coefficients for each state reward, which in the current case considers the coefficient 1, in the next case the coefficient Y, and in the third case, the coefficient $ Y ^ 2 $, and in this way calculates the sum of the rewards in each stage.</p>
+<h3 id="Discounting">Discounting<a class="anchor-link" href="#Discounting">¶</a></h3><p>Discounting makes coefficients for each state reward, which in the current case considers the coefficient 1, in the next case the coefficient Y, and in the third case, the coefficient $ Y ^ 2 $, and in this way calculates the sum of the rewards in each stage.</p>
 </div>
 </div>
 </div>
@@ -676,7 +626,7 @@ This function must distinguish between two methods, receiving each reward in one
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Quiz:-Discounting">Quiz: Discounting<a class="anchor-link" href="#Quiz:-Discounting">¶</a></h1><img alt="No description has been provided for this image" src="/notes/assets/files/7.png"/>
+<h3 id="Quiz:-Discounting">Quiz: Discounting<a class="anchor-link" href="#Quiz:-Discounting">¶</a></h3><img alt="No description has been provided for this image" src="/notes/assets/files/7.png"/>
 For y = 1:
 
 <p>Because we are in d, it is better to go to 10</p>
@@ -694,7 +644,7 @@ You solve the equation $10y ^ 2 = 1$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Reasons-for-the-reward-method">Reasons for the reward method<a class="anchor-link" href="#Reasons-for-the-reward-method">¶</a></h1>
+<h3 id="Reasons-for-the-Reward-Method">Reasons for the Reward Method<a class="anchor-link" href="#Reasons-for-the-Reward-Method">¶</a></h3>
 </div>
 </div>
 </div>
@@ -705,7 +655,7 @@ You solve the equation $10y ^ 2 = 1$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Stationary-preference">Stationary preference<a class="anchor-link" href="#Stationary-preference">¶</a></h1><p>To some extent the behavior is the same and from one state to another we have the same sequence. We have the same comparison and we have a pattern that gives us the same behavior over time.</p>
+<h3 id="Stationary-Preference">Stationary Preference<a class="anchor-link" href="#Stationary-Preference">¶</a></h3><p>To some extent the behavior is the same and from one state to another we have the same sequence. We have the same comparison and we have a pattern that gives us the same behavior over time.</p>
 </div>
 </div>
 </div>
@@ -734,8 +684,9 @@ $ U([r_0,r_1,...]) = r_0 + yr_1 + y^2r_2 + ...$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Infinite-utility">Infinite utility<a class="anchor-link" href="#Infinite-utility">¶</a></h1><p>use $  0&lt;\gamma&lt;1 $</p>
-<h1 id="$-U(%5Br_0,...r_%5Cinfty%5D)-=-%5Csum_%7Bt=0%7D%5E%7B%5Cinfty%7D-%5Cgamma%5Etr_t-%3C=-R_max/(1-%5Cgamma)-$">$ U([r_0,...r_\infty]) = \sum_{t=0}^{\infty} \gamma^tr_t &lt;= R_max/(1-\gamma) $<a class="anchor-link" href="#$-U(%5Br_0,...r_%5Cinfty%5D)-=-%5Csum_%7Bt=0%7D%5E%7B%5Cinfty%7D-%5Cgamma%5Etr_t-%3C=-R_max/(1-%5Cgamma)-$">¶</a></h1><p>If the program lasts indefinitely, the rewards can normally be infinite, and gamma and the discounting method can be used to achieve the following relationship using gamma, which limits the amount of rewards.</p>
+<h3 id="Infinite-Utility">Infinite Utility<a class="anchor-link" href="#Infinite-Utility">¶</a></h3><p>use $  0&lt;\gamma&lt;1 $</p>
+<p>$$ U([r_0,...r_\infty]) = \sum_{t=0}^{\infty} \gamma^tr_t &lt;= R_max/(1-\gamma) $$</p>
+<p>If the program lasts indefinitely, the rewards can normally be infinite, and gamma and the discounting method can be used to achieve the following relationship using gamma, which limits the amount of rewards.</p>
 </div>
 </div>
 </div>
@@ -746,11 +697,7 @@ $ U([r_0,r_1,...]) = r_0 + yr_1 + y^2r_2 + ...$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Optimal Quantities
-        </font>
-</div>
+<h2 id="Optimal-Quantities">Optimal Quantities<a class="anchor-link" href="#Optimal-Quantities">¶</a></h2>
 </div>
 </div>
 </div>
@@ -765,8 +712,10 @@ Optimal Quantities
 Average reward function provided optimal policy</p>
 <p>Q * (s):
 Starting with the desired s and action and then performing the optimal operation</p>
-<h1 id="$-V%5E*(s)-=-max_aQ%5E*(s,a)-$">$ V^*(s) = max_aQ^*(s,a) $<a class="anchor-link" href="#$-V%5E*(s)-=-max_aQ%5E*(s,a)-$">¶</a></h1><h1 id="$-Q%5E*(s,a)-=-%5Csum_%7Bs'%7DT(s,a,s')-%5BR(s,a,s')-+-%5Cgamma-V%5E*(s')%5D-$">$ Q^*(s,a) = \sum_{s'}T(s,a,s') [R(s,a,s') + \gamma V^*(s')] $<a class="anchor-link" href="#$-Q%5E*(s,a)-=-%5Csum_%7Bs'%7DT(s,a,s')-%5BR(s,a,s')-+-%5Cgamma-V%5E*(s')%5D-$">¶</a></h1><p>Recursive definition of value:</p>
-<h1 id="$-V%5E*(s)-=-max_a%5Csum_%7Bs'%7DT(s,a,s')-%5BR(s,a,s')-+-%5Cgamma-V%5E*(s')%5D-$">$ V^*(s) = max_a\sum_{s'}T(s,a,s') [R(s,a,s') + \gamma V^*(s')] $<a class="anchor-link" href="#$-V%5E*(s)-=-max_a%5Csum_%7Bs'%7DT(s,a,s')-%5BR(s,a,s')-+-%5Cgamma-V%5E*(s')%5D-$">¶</a></h1>
+<p>$$ V^*(s) = max_aQ^*(s,a) $$</p>
+<p>$$ Q^*(s,a) = \sum_{s'}T(s,a,s') [R(s,a,s') + \gamma V^*(s')] $$</p>
+<p>Recursive definition of value:</p>
+<p>$$ V^*(s) = max_a\sum_{s'}T(s,a,s') [R(s,a,s') + \gamma V^*(s')] $$</p>
 </div>
 </div>
 </div>
@@ -788,11 +737,7 @@ Starting with the desired s and action and then performing the optimal operation
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Markov Decision Processes
-        </font>
-</div>
+<h2 id="Formal-Definition-of-MDPs">Formal Definition of MDPs<a class="anchor-link" href="#Formal-Definition-of-MDPs">¶</a></h2>
 </div>
 </div>
 </div>
@@ -832,13 +777,7 @@ Utility which we wish to maximize is sum of discounted rewards.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Value Functions
-        </font>
-</div>
-It is often useful to estimate how “good” a given state (and action) is. The standard tools for this are the Q-function (which considers a given state and action) and the value function (which considers a state only). These are defined:
-
+<h2 id="Value-Functions">Value Functions<a class="anchor-link" href="#Value-Functions">¶</a></h2><p>It is often useful to estimate how “good” a given state (and action) is. The standard tools for this are the Q-function (which considers a given state and action) and the value function (which considers a state only). These are defined:</p>
 <p>$Q^{\pi}(s,a) := {\bf E}^{\pi}\Big[ \sum \limits _{t=1} ^{\infty} \gamma^{t} R_{t}|s_{0}=s ,a_{0}=a  \Big]$</p>
 <p>$V^{\pi}(s,a) :=  {\bf E}^{\pi}\Big[ \sum \limits _{t=1} ^{\infty} \gamma^{t} R_{t}|s_{0}=s    \Big]$</p>
 <p>now lets test the   deffinition in an example:</p>
@@ -853,7 +792,7 @@ It is often useful to estimate how “good” a given state (and action) is. The
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Optimal-value-functions">Optimal value functions<a class="anchor-link" href="#Optimal-value-functions">¶</a></h1>
+<h3 id="Optimal-Value-Functions">Optimal Value Functions<a class="anchor-link" href="#Optimal-Value-Functions">¶</a></h3>
 </div>
 </div>
 </div>
@@ -910,11 +849,7 @@ It is often useful to estimate how “good” a given state (and action) is. The
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Bellman equations and operators
-        </font>
-</div>
+<h2 id="Bellman-Equations-and-Operators">Bellman Equations and Operators<a class="anchor-link" href="#Bellman-Equations-and-Operators">¶</a></h2>
 </div>
 </div>
 </div>
@@ -977,11 +912,7 @@ In the maze example, $\pi$(s) associates a motion to a particular location on th
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Value Iteration 
-        </font>
-</div>
+<h2 id="Value-Iteration">Value Iteration<a class="anchor-link" href="#Value-Iteration">¶</a></h2>
 </div>
 </div>
 </div>
@@ -992,8 +923,7 @@ Value Iteration
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Racing tree drawbacks:</p>
-<ol>
+<h3 id="Racing-tree-drawbacks">Racing tree drawbacks<a class="anchor-link" href="#Racing-tree-drawbacks">¶</a></h3><ol>
 <li>We’re doing way too much work</li>
 <li>States are repeated and we must Only compute needed quantities once
 3.another Problem is that the  Tree goes on forever.</li>
@@ -1053,11 +983,7 @@ spaces, the magnitude of the largest reward$(O(S^{2}A))$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:ltr;line-height:300%;">
-<font face="XB Niloofar" size="25">
-Policy iteration
-        </font>
-</div>
+<h2 id="Policy-Iteration">Policy Iteration<a class="anchor-link" href="#Policy-Iteration">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1105,7 +1031,7 @@ Note that we repeat until the policy stops changing. Policy iteration is a neat 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Comparing-VI-and-PI">Comparing VI and PI<a class="anchor-link" href="#Comparing-VI-and-PI">¶</a></h1><p>How do value iteration and policy iteration compare? It is a fact that policy iteration takes at most
+<h2 id="Comparing-Value-Iteration-and-Policy-Iteration">Comparing Value Iteration and Policy Iteration<a class="anchor-link" href="#Comparing-Value-Iteration-and-Policy-Iteration">¶</a></h2><p>How do value iteration and policy iteration compare? It is a fact that policy iteration takes at most
 as many iterations to reach the optimal policy as value iteration does. In practice, it usually takes
 far fewer iterations.each individual iteration of policy iteration takes longer, because it requires
 solving the complete system of linear equations . This can be done via Gaussian
@@ -1126,16 +1052,6 @@ general, however, policy iteration is considered the better algorithm in practic
 <li>After the policy is evaluated, a new policy is chosen (slow like a value iteration pass)</li>
 <li>The new policy will be better (or we’re done)</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=internal-gauge">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
@@ -1231,6 +1147,8 @@ general, however, policy iteration is considered the better algorithm in practic
                 
                 <h3 class="wf-person-name">Amir Hossein Sadeghloo</h3>
                 
+                
+                <p class="wf-person-title">Author</p>
                 
                 
                 
@@ -1377,28 +1295,47 @@ general, however, policy iteration is considered the better algorithm in practic
     </div>
     
 
+<nav class="wf-page-navigation container-fluid bg-body shadow p-3 mt-2" aria-label="Page navigation">
+    <div class="wf-page-navigation-inner">
+        <div class="wf-page-navigation-slot wf-page-navigation-previous">
+            
+            <a class="btn btn-link p-0" href="notebooks/18_deep_neural_network/index.md">
+                <span class="d-block small text-muted">Back</span>
+                <span>Deep Neural Networks: Convolutional Models</span>
+            </a>
+            
+        </div>
+        <div class="wf-page-navigation-home text-center">
+            
+            <a class="btn btn-link p-0" href="/notes/">Notes</a>
+            
+        </div>
+        <div class="wf-page-navigation-slot wf-page-navigation-next">
+            
+            <a class="btn btn-link p-0" href="notebooks/18_reinforcement_learning/index.ipynb">
+                <span class="d-block small text-muted">Next</span>
+                <span>Reinforcement Learning</span>
+            </a>
+            
+        </div>
+    </div>
+</nav>
+
 
     
 
 
 
-
-    
 
 
 <footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
         
-        style="min-height: 2vh;
-          background-image: url('images/notes-header.jpg');
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;"
+        style="min-height: 2vh;"
         
 >
     <div
             
-            class="wf-header-panel w-100 p-3 m-auto text-center"
+            class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
         

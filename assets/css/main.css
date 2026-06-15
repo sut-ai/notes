@@ -194,6 +194,7 @@ footer {
 }
 
 .codehilite,
+.highlight,
 .wf-code-block {
     position: relative;
     margin: 1rem 0;
@@ -204,6 +205,7 @@ footer {
 }
 
 .codehilite pre,
+.highlight pre,
 .wf-code-block pre {
     margin: 0;
     padding: 1rem 1.1rem;
@@ -216,6 +218,7 @@ footer {
 }
 
 .codehilite pre,
+.highlight pre,
 .wf-code-block.has-copy pre {
     padding-right: 4.25rem;
 }
@@ -256,6 +259,8 @@ footer {
 
 .codehilite:hover .wf-code-copy,
 .codehilite:focus-within .wf-code-copy,
+.highlight:hover .wf-code-copy,
+.highlight:focus-within .wf-code-copy,
 .wf-code-block:hover .wf-code-copy,
 .wf-code-block:focus-within .wf-code-copy {
     opacity: 1;

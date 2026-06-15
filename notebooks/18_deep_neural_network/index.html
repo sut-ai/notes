@@ -222,6 +222,11 @@
 
         
         
+            <a href="/notes/" class="btn nav-item mt-1 wf-nav-back" aria-label="Back">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span>Back</span>
+            </a>
+        
 
         
         
@@ -276,29 +281,7 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1>Deep Neural Networks</h1>
-<h2>The authors' name</h2>
-<ul>
-<li>Parham Chavoshian</li>
-<li>Amirhossein Javadi</li>
-<li>Dariush Amiri</li>
-</ul>
-<h2>Table of Content</h2>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#CNN-Architecture">CNN Architecture</a></li>
-<li><a href="#Fully-Connected-Layer">Fully Connected Layer</a></li>
-<li><a href="#Conv-Layer">Conv Layer</a></li>
-<li><a href="#Pooling">Pooling</a></li>
-<li><a href="#Padding">Padding</a></li>
-<li><a href="#Stride">Stride</a></li>
-<li><a href="#Activation-Function">Activation Function</a></li>
-<li><a href="#Loss-Functions">Loss Functions</a></li>
-<li><a href="#The-output-size-of-Conv-Layer">The Output Size of Conv Layer</a></li>
-<li><a href="#Conclusion">Conclusion</a></li>
-<li><a href="#References">References</a></li>
-</ul>
-<h2>Introduction</h2>
+                <h2>Introduction</h2>
 <p>Deep learning is a subfield of machine learning that deals with algorithms inspired by the structure and function of the brain. Deep learning is a subset of machine learning, which is a part of artificial intelligence (AI).
 <img alt="" src="https://i.imgur.com/qhjJzDb.png"/></p>
 <p>CNNs are models to solve deep learning problems. Suppose that you have high-dimensional inputs such as images or videos. If we want to use MLPs, 2 (or more) dimensional inputs need to be converted to 1-dimensional vectors. This conversion increases the number of trainable parameters exponentially. Also, one important thing in these data is locality, it means that for example in an image, you can find features in adjacent pixels (for example corners and edges) but, distant pixels can't give you efficient features. The solution for solving these problems is using CNNs.</p>
@@ -428,28 +411,47 @@ No one knows!</p>
     </div>
     
 
+<nav class="wf-page-navigation container-fluid bg-body shadow p-3 mt-2" aria-label="Page navigation">
+    <div class="wf-page-navigation-inner">
+        <div class="wf-page-navigation-slot wf-page-navigation-previous">
+            
+            <a class="btn btn-link p-0" href="notebooks/16_deep_neural_networks/index.ipynb">
+                <span class="d-block small text-muted">Back</span>
+                <span>Deep Neural Networks and CNNs</span>
+            </a>
+            
+        </div>
+        <div class="wf-page-navigation-home text-center">
+            
+            <a class="btn btn-link p-0" href="/notes/">Notes</a>
+            
+        </div>
+        <div class="wf-page-navigation-slot wf-page-navigation-next">
+            
+            <a class="btn btn-link p-0" href="notebooks/17_markov_decision_processes/index.ipynb">
+                <span class="d-block small text-muted">Next</span>
+                <span>Markov Decision Processes</span>
+            </a>
+            
+        </div>
+    </div>
+</nav>
+
 
     
 
 
 
-
-    
 
 
 <footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
         
-        style="min-height: 2vh;
-          background-image: url('images/notes-header.jpg');
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;"
+        style="min-height: 2vh;"
         
 >
     <div
             
-            class="wf-header-panel w-100 p-3 m-auto text-center"
+            class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
         

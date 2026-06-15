@@ -1,6 +1,6 @@
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
-    var candidates = Array.prototype.slice.call(document.querySelectorAll(".codehilite, pre"));
+    var candidates = Array.prototype.slice.call(document.querySelectorAll(".codehilite, .highlight, pre"));
     candidates.forEach(function (candidate) {
       var block = candidate;
       var pre = candidate.matches("pre") ? candidate : candidate.querySelector("pre");
@@ -8,7 +8,7 @@
         return;
       }
       if (candidate.matches("pre")) {
-        var highlightedParent = candidate.closest(".codehilite");
+        var highlightedParent = candidate.closest(".codehilite, .highlight");
         if (highlightedParent) {
           return;
         }
