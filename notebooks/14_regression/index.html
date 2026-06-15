@@ -1,0 +1,485 @@
+
+
+
+
+
+
+
+
+<html>
+
+
+
+
+
+<head>
+    <title>index.md</title>
+    
+<!-- viewport meta-tag for responsiveness -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap v5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- FontAwesome JS -->
+<script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
+
+<!-- Loading mathjax macro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config" defer>
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+</script>
+<link rel="stylesheet" href="/notes/assets/css/codehilite.css">
+<link rel="stylesheet" href="/notes/assets/css/main.css">
+<script defer src="/notes/assets/js/codeblocks.js"></script>
+
+<script>
+(function () {
+  const switcherEnabled = true;
+  const stored = switcherEnabled ? localStorage.getItem("webifier-theme") : null;
+  const selected = stored || "system";
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved = selected === "system" ? (systemDark ? "dark" : "light") : selected;
+  document.documentElement.dataset.wfTheme = selected;
+  document.documentElement.dataset.wfResolvedTheme = resolved;
+  document.documentElement.dataset.bsTheme = resolved === "dark" ? "dark" : "light";
+})();
+</script>
+<link rel="stylesheet" href="/notes/assets/css/theme.css">
+<script defer src="/notes/assets/js/theme.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VZRZHCJ5V0');
+</script>
+
+
+
+    
+
+    
+
+
+    
+</head>
+
+<body class="bg-body-tertiary">
+<div class="app-content container-fluid">
+    
+    
+
+
+
+
+
+
+<header class="container-fluid wf-page-chrome text-center align-items-center p-0"
+        
+        style="min-height: 5vh;"
+        
+>
+    <div
+            
+            class="wf-page-chrome-panel p-3 m-auto text-center"
+            
+    >
+        <h1>index.md</h1>
+        
+    </div>
+</header>
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+<nav class="px-2 navbar navbar-expand-sm bg-body-tertiary m-0 p-2 sticky-top shadow wf-navbar">
+    
+    
+    
+
+
+
+
+
+
+
+    <a href="https://github.com/sut-ai" class="btn navbar-brand"
+       
+    >
+    
+    
+    
+        SUT-AI
+    
+    </a>
+
+
+    
+
+    <div
+            
+            class="collapse navbar-collapse p-0 m-0"
+            id="navbarSupportedContent"
+            
+    >
+        <ul class="navbar-nav me-auto my-1 p-0">
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/supplementary/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Supplementary
+    
+    </a>
+
+
+                
+            </li>
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/notes/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Notes
+    
+    </a>
+
+
+                
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="d-flex my-1 ms-auto">
+        
+        <button class="navbar-toggler btn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        <button
+                class="btn nav-item mt-1 webifier-theme-toggle"
+                type="button"
+                id="webifier-theme-toggle"
+                title="Switch color theme"
+                aria-label="Switch color theme"
+                data-theme-default="system"
+                data-theme-modes="system,light,dark"
+        >
+            <svg class="webifier-theme-symbol webifier-theme-symbol-system" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-light" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M6.34 17.66l-1.41 1.41"></path>
+                <path d="M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-dark" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+            </svg>
+            <span class="visually-hidden webifier-theme-label">Theme</span>
+        </button>
+        
+
+        
+    </div>
+</nav>
+
+
+
+
+
+
+    <div id="app-body"
+         class="app-body container-fluid bg-body justify-content-center align-items-center d-flex shadow">
+        <div class="container-fluid p-0 m-0 no-gutters">
+            
+            <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
+                <h1>Regression</h1>
+<h1>Table of Contents</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#2---linear-regression">1 - Linear Regression</a></li>
+<li><a href="#loss-function">Loss Function</a><ul>
+<li><a href="#mean-squared-error-mse">Mean Squared Error (MSE)</a></li>
+</ul>
+</li>
+<li><a href="#finding-hatw">Finding $\hat{w}$</a><ul>
+<li><a href="#gradient-descent">Gradient Descent</a></li>
+<li><a href="#normal-equation">Normal Equation</a></li>
+</ul>
+</li>
+<li><a href="#3---learning-curves-using-polynomials">2 - Learning Curves Using Polynomials</a></li>
+<li><a href="#reduction-to-linear-regression">Reduction to Linear Regression</a></li>
+<li><a href="#overfitting">Overfitting</a><ul>
+<li><a href="#using-validation-set-held-out-data">Using Validation Set (Held-Out Data)</a></li>
+<li><a href="#regularization">Regularization</a></li>
+</ul>
+</li>
+<li><a href="#5---logistic-regression">3 - Logistic Regression</a></li>
+<li><a href="#how-to-calculate-probabilities">How to Calculate Probabilities</a></li>
+<li><a href="#defining-line-l-and-cost-function-jtheta">Defining Line <em>l</em> and Cost Function $J(\theta)$</a></li>
+<li><a href="#training">Training</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h1>Introduction</h1>
+<p>In regression, we have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial that fits our training data perfectly. But the problem is that interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with a lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.</p>
+<h1>1 - Linear Regression</h1>
+<p>Here, we want to assign $f(x)$ to each data point $x$. In linear regression, we assume $f$ is a linear function. We can define $f$ as</p>
+<p>$$
+    f_w(x) = w^T x = \begin{bmatrix}
+        w_0 &amp; w_1 &amp; \cdots &amp; w_n
+    \end{bmatrix} . \begin{bmatrix}
+        1 \ x_1 \ \vdots \ x_n
+    \end{bmatrix}.
+$$
+We assumed $x_0 = 1$ in $x$ to have bias in our function. So the data points are in an n-dimensional space.</p>
+<p>We also define $y$ as</p>
+<p>$$
+    y_w = \begin{bmatrix}
+        f_w(x^{(1)}) \ f_w(x^{(2)}) \ \vdots \ f_w(x^{(m)})
+    \end{bmatrix}
+$$
+where $x^{(i)}$ is the i'th data point. </p>
+<h2>Loss Function</h2>
+<p>After defining $f$, we need to find the best function. By defining a loss function, we can try to minimize loss by changing $w$ in the main function. Assuming $L$ as our loss function, best $f$ will be</p>
+<p>$$
+    \hat{w} = argmin_w L(y_w, \hat{y}) \rightarrow f_{best}(x) = f_{\hat{w}}(x) 
+$$</p>
+<p>where $\hat{y}$ is the given number for each data point.</p>
+<h3>Mean Squared Error (MSE)</h3>
+<p>The main loss function we use is mean squared error. It's defined as </p>
+<p>$$
+    MSE(y_w, \hat{y}) = \frac{1}{2} \Sigma_{i=1}^m \left[ y_w^{(i)} - \hat{y}^{(i)} \right]^2 .
+$$
+The main reason for using this function is that we can calculate gradients easily. So we can use gradient descent to find $\hat{w}$.</p>
+<h2>Finding $\hat{w}$</h2>
+<h3>Gradient Descent</h3>
+<p>We want to use gradient descent to find $\hat{w}$. First, we need to calculate $\nabla_w L(y_w, \hat{y})$ because it's used in the gradient descent method. The partial derivatives for MSE are:</p>
+<p>$$
+    \frac{\partial MSE}{\partial w_j} = - \Sigma_{i = 1}^m x_j^{(i)} \left[ y_w^{(i)} - \hat{y}^{(i)} \right]
+$$</p>
+<p>So for gradinet, we have:</p>
+<p>$$
+    \nabla_w MSE = \begin{bmatrix}
+        \frac{\partial MSE}{\partial w_0} \ \vdots \ \frac{\partial MSE}{\partial w_n}
+    \end{bmatrix}
+$$</p>
+<p>Now, we can find $\hat{w}$ by the gradient descent algorithm as</p>
+<p>$$
+    w^{(i+1)} = w^{(i)} - \eta \nabla_{w^{(i)}} L
+$$</p>
+<p>where $\eta$ is the learning rate.</p>
+<h3>Normal Equation</h3>
+<p>If we define</p>
+<p>$$
+    X = \begin{bmatrix}
+        x^{(1)} \ \vdots \ x^{(m)}
+    \end{bmatrix}
+$$</p>
+<p>and solve the equation $\nabla_w MSE = 0$, we get the normal equation. It's defined as
+$$
+    \hat{w} = (X^TX)^{-1} X^T \hat{y}.
+$$
+However, for using this equation, our features must be linearly independent. Otherwise, $(X^TX)^{-1}$ is not defined. In that case, we can use the pseudo inverse of $X^TX$ instead of the $(X^TX)^{-1}$. Since the calculation of inverse is computationally inefficient, we usually prefer using gradient descent. </p>
+<h1>2 - Learning Curves Using Polynomials</h1>
+<p>In this section, we want to find the best $P(x)$ where x is a real number and $P$ is an n'th degree polynomial.</p>
+<h2>Reduction to Linear Regression</h2>
+<p>We can define 
+$$
+    z = \begin{bmatrix}
+        x^0 \ x^1 \ \vdots \ x^n
+    \end{bmatrix},
+$$
+then use linear regression to find $f_w(z) = w^T z$. From definition, we know that $P(x) = f_w(z)$. However, if $n$ is too large, overfitting might happen since we are getting closer and closer to interpolation.</p>
+<h2>Overfitting</h2>
+<p>To prevent overfitting, we must try to define $n$ optimally. Since $n$ is a hyperparameter here, we can use validation set.</p>
+<p>The example below demonstrates how $n$ can change the curve we find and when overfitting happens. The green curve is our goal. The red curve is the M'th degree polynomial using this method.</p>
+<p><img alt="M = 1" src="/notes/assets/images/1.png"/>
+<img alt="M = 3" src="/notes/assets/images/3.png"/>
+<img alt="M = 9" src="/notes/assets/images/9.png"/></p>
+<h3>Using Validation Set (Held-Out Data)</h3>
+<p>We split a part of the training data, and don't use it for training. Then, by calculating the loss function over this data, we can optimize $n$. Since the model hasn't seen these data points, we can be sure that overfitting will decrease.</p>
+<p>We can see in the above examples that $M = 3$ gives us the best curve. If we compare the validation loss for $M=3$ and $M=9$, the loss will be less for $M=3$ since it's closer to the green curve.</p>
+<h3>Regularization</h3>
+<p>Although using a validation set is a good way to prevent overfitting, We still might try to find the curve which best fits the data, not the curve which best matches it. Regularization tries to make $w$ smaller. The intuition is that large coefficients in $w$ happen because it tries to fit the points. It means that the curve will only get closer to each point. However, decreasing coefficients will make a better curve which might be further from each point, but does a better job at predicting the unseen data.</p>
+<p>We only define $l_2-\text{regularization}$ since it's easier to derive and understand. The loss function is </p>
+<p>$$
+    \tilde{E}(y_w, \hat{y}) = \frac{1}{2} \Sigma_{i=1}^m \left[ y_w^{(i)} - \hat{y}^{(i)} \right]^2 + \frac{\lambda}{2}||w||^2
+$$
+where $\lambda$ is a hyperparameter that controls how small the $w$ should be.</p>
+<p>In the following examples, we use regularization with 9'th degree polynomials. We can compare these with the overfitted example above. Also, we can see how important the choice of $\lambda$ is. So, using the validation set might be still useful to optimize $\lambda$.</p>
+<p><img alt="Reguralization 18" src="/notes/assets/images/r18.png"/>
+<img alt="Reguralization 0" src="/notes/assets/images/r0.png"/></p>
+<h1>3 - Logistic Regression</h1>
+<p>There are some regression algorithms that can be used for classification (And vise versa). <em>Logistic Regression</em> is one of these algorithms. It can calculate the probability that an instance belongs to a particular class. We can use this probability for classification: if the probability is higher than 0.5 then that instance belongs to the particular class.</p>
+<h2>How to Calculate Probabilities</h2>
+<p>Let's start with a simple example. We want to classify flowers that are <em>Iris Virginica</em> from those that are <em>not Iris Virginica</em>. This classification is based on Petal Width and Petal Height. Also, consider that there is some line <em>l</em> (black line in the image below) that separates these 2 types of flowers.</p>
+<p><img alt="image info" src="/notes/assets/./images/Logistic Regression.jpg"/></p>
+<p>Now, to calculate the probabilities, we use the intuition that, the further we are from <em>l</em>, the higher is the probability of belonging to that particular class.
+To be more exact, consider we want to find the probability of a given flower being <em>Iris Virginica</em>. Let's call the signed distance between the flower and the line, <em>t</em>. Signed-distance means if we are in the <em>Iris Virginica</em> region, the distance is positive, otherwise, if we are in the <em>not Iris Virginica</em> region, the distance is negative. The probability of this flower being <em>Iris Virginica</em> is related to the value of <em>t</em>, the higher the value of <em>t</em>, the higher the probability. So we need a function $\sigma(.)$ that when given the singed distance <em>t</em>, returns the probability <em>p</em>. 
+The logistic function is a common choice for this purpose. It is a sigmoid function (i.e., S-shaped) that outputs a number between 0 and 1.</p>
+<p>Logistic function: 
+$$
+\sigma(t) = \frac{1}{1 + \exp(-t)}
+$$</p>
+<p>In the image above, you can see the probability of colored lines. For example, all the points on the green line have a probability of 0.9. These probabilities are calculated using the Logistic function.
+Also in the image below, you can see the value of the Logistic function for different inputs:</p>
+<p><img alt="image info" src="/notes/assets/./images/Logistic function.jpg"/></p>
+<h2>Defining Line <em>l</em> and Cost Function $J(\theta)$</h2>
+<p>Now that we know how to calculate the probabilities, the problem is reduced to finding the best line <em>l</em> that separates 2 classes. For this, first, we need to define the line and second, we need to define a cost function $J(\theta)$ and then we should find the line <em>l</em> such that it minimizes $J(\theta)$.</p>
+<p>We define line <em>l</em> with parameters $\theta$ like before. With this definition, the signed distance between x and the <em>l</em> can be calculated as follows:
+$$
+    t_{\theta}(x) = x^{T}\theta
+$$
+Now we can define the probability of a given x with respect to line <em>l</em> with parameters $\theta$:</p>
+<p>$$
+    \hat{P} = \sigma(t_{\theta}(x)) = \sigma(x^{T}\theta)
+$$</p>
+<p>We consider that our dataset has <em>N</em> data points $X_i$ with the label $y_i \in {0 , 1}$.
+The cost function for just a single data point can be defined as:</p>
+<p>$$
+    J(\theta) = -log(\hat{P})y -log(1 - \hat{P})(1 - y)
+$$
+where $\hat{P}$ is the probability predicted for this data point given the line <em>l</em> with parameters $\theta$.</p>
+<p>And for <em>N</em> data points, we can define cost function as:</p>
+<p>$$
+    J(\theta) = -\frac{1}{N}\sum_{i = 1}^{N}log(\hat{P}^{i})y^{i} -log(1 - \hat{P}^{i})(1 - y^{i})
+$$
+where $\hat{P}^{i}$ is the probability predicted and $y^{i}$ is the label for the $i^{th}$ data point given the line <em>l</em> with parameters $\theta$.</p>
+<h2>Training</h2>
+<p>Unfortunately, there is no known closed-form equation to compute the value of $\theta$ that minimizes this cost function. But the good news is that this cost function is convex! So we can use gradient descent to find the minimum. Because of convexity, Gradient Descent is guaranteed to find the global minimum (with the right learning rate).
+We can compute the partial derivatives for the $j^{th}$ parameter of $\theta$ as follows:</p>
+<p>$$
+    \displaystyle \frac{\partial}{\partial\theta_{j}}J(\theta) = -\frac{1}{N}\sum_{i = 1}^{N}(\sigma(\theta^{T}x^{i}) - y^{i})x^{i}_{j}
+$$</p>
+<h1>Conclusion</h1>
+<p>Regression is used in a variety of AI problems. We can use it to find the best line or curve to predict a function, or to find the best hyperplane dividing 2 classes in a classification problem. In this lecture note, we discussed how to solve these problems and how to prevent overfitting. However, for more complex functions or more classes, you might want to take a look at neural networks.</p>
+<h1>References</h1>
+<ul>
+<li>Artificial Inteligence Course at Sharif University of Technology (Fall, 2021)</li>
+<li>Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2th Edition</li>
+<li><a href="https://en.wikipedia.org/wiki/Linear_regression"><em>Linear Regression</em> from Wikipedia.org</a></li>
+<li><a href="https://math.stackexchange.com/questions/1962877/compute-the-gradient-of-mean-square-error"><em>Compute the gradient of mean square error</em> from math.stackexchange.com</a></li>
+<li><a href="https://towardsdatascience.com/normal-equation-in-python-the-closed-form-solution-for-linear-regression-13df33f9ad71"><em>Normal Equation in Python: The Closed-Form Solution for Linear Regression</em> from towardsdatascience.com</a></li>
+</ul>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+    
+
+
+
+
+    
+
+
+<footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
+        
+        style="min-height: 2vh;
+          background-image: url('images/notes-header.jpg');
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;"
+        
+>
+    <div
+            
+            class="wf-header-panel w-100 p-3 m-auto text-center"
+            
+    >
+        
+        © Powered by <a class="link-primary" href="https://webifier.github.io/">Webifier</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

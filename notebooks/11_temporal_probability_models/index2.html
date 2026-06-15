@@ -1,0 +1,679 @@
+
+
+
+
+
+
+
+
+<html>
+
+
+
+
+
+<head>
+    <title>LN | Temporal Probability Models</title>
+    
+<!-- viewport meta-tag for responsiveness -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap v5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- FontAwesome JS -->
+<script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
+
+<!-- Loading mathjax macro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config" defer>
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+</script>
+<link rel="stylesheet" href="/notes/assets/css/codehilite.css">
+<link rel="stylesheet" href="/notes/assets/css/main.css">
+<script defer src="/notes/assets/js/codeblocks.js"></script>
+
+<script>
+(function () {
+  const switcherEnabled = true;
+  const stored = switcherEnabled ? localStorage.getItem("webifier-theme") : null;
+  const selected = stored || "system";
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved = selected === "system" ? (systemDark ? "dark" : "light") : selected;
+  document.documentElement.dataset.wfTheme = selected;
+  document.documentElement.dataset.wfResolvedTheme = resolved;
+  document.documentElement.dataset.bsTheme = resolved === "dark" ? "dark" : "light";
+})();
+</script>
+<link rel="stylesheet" href="/notes/assets/css/theme.css">
+<script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VZRZHCJ5V0');
+</script>
+
+
+
+    
+
+    
+
+
+    
+</head>
+
+<body class="bg-body-tertiary">
+<div class="app-content container-fluid">
+    
+    
+
+
+
+
+
+
+<header class="container-fluid wf-page-chrome text-center align-items-center p-0"
+        
+        style="min-height: 5vh;"
+        
+>
+    <div
+            
+            class="wf-page-chrome-panel p-3 m-auto text-center"
+            
+    >
+        <h1>Temporal Probability Models (Markov Models and Particle Filtering)</h1>
+        
+    </div>
+</header>
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+<nav class="px-2 navbar navbar-expand-sm bg-body-tertiary m-0 p-2 sticky-top shadow wf-navbar">
+    
+    
+    
+
+
+
+
+
+
+
+    <a href="https://github.com/sut-ai" class="btn navbar-brand"
+       
+    >
+    
+    
+    
+        SUT-AI
+    
+    </a>
+
+
+    
+
+    <div
+            
+            class="collapse navbar-collapse p-0 m-0"
+            id="navbarSupportedContent"
+            
+    >
+        <ul class="navbar-nav me-auto my-1 p-0">
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/supplementary/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Supplementary
+    
+    </a>
+
+
+                
+            </li>
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/notes/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Notes
+    
+    </a>
+
+
+                
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="d-flex my-1 ms-auto">
+        
+        <button class="navbar-toggler btn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        <button
+                class="btn nav-item mt-1 webifier-theme-toggle"
+                type="button"
+                id="webifier-theme-toggle"
+                title="Switch color theme"
+                aria-label="Switch color theme"
+                data-theme-default="system"
+                data-theme-modes="system,light,dark"
+        >
+            <svg class="webifier-theme-symbol webifier-theme-symbol-system" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-light" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M6.34 17.66l-1.41 1.41"></path>
+                <path d="M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-dark" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+            </svg>
+            <span class="visually-hidden webifier-theme-label">Theme</span>
+        </button>
+        
+
+        
+        <a class="btn nav-item mt-1 wf-colab-link" href="https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/11_temporal_probability_models/index2.ipynb" aria-label="Open in Colab" title="Open in Colab">
+            <img src="/notes/assets/images/colab-badge.svg" alt="Open in Colab">
+        </a>
+        
+    </div>
+</nav>
+
+
+
+
+
+
+    <div id="app-body"
+         class="app-body container-fluid bg-body justify-content-center align-items-center d-flex shadow">
+        <div class="container-fluid p-0 m-0 no-gutters">
+            
+            <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
+                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+<main>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Chain Rule and HMMs</strong></p>
+<p>Look at the bellow model.</p>
+<p><img alt="" height="73" src="https://i.ibb.co/Fmm8KV4/image-2021-05-13-171737.png" width="150"/></p>
+<p>From the chain rule, <em>every</em> joint distribution over can be written as:</p>
+<p><img alt="" height="31" src="https://i.ibb.co/WKws4RT/image-2021-05-13-171904.png" width="401"/></p>
+<p>And because we have bellow terms:</p>
+<p><img alt="" height="11" src="https://i.ibb.co/WsD3TpP/image-2021-05-13-172512.png" width="414"/></p>
+<p>After simplifications we have:</p>
+<p><img alt="" height="12" src="https://i.ibb.co/LtxSLby/image-2021-05-13-172748.png" width="425"/></p>
+<p>We can see some of real HMM examples:</p>
+<ul>
+<li>Speech recognition HMMs:
+<ul style="list-style-type: square;">
+<li>Observations are acoustic signals (continuous valued)</li>
+<li>States are specific positions in specific words (so, tens of thousands)</li>
+</ul>
+</li>
+<li>Machine translation HMMs:
+<ul>
+<li>Observations are words (tens of thousands)</li>
+<li>States are translation options</li>
+</ul>
+</li>
+<li>Robot tracking:
+<ul>
+<li>Observations are range readings (continuous)</li>
+<li>States are positions on a map (continuous)</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<p><strong>Filtering/Monitoring</strong></p>
+<p>First of all we define B<sub>t</sub>(x) = P(X<sub>t</sub> | E<sub>1</sub>, …, E<sub>t</sub>) as the belief state and it shows our prediction from next hidden variable according to our observations from start to now. we start from first belief state B<sub>0</sub>(X) in an initial setting (usually uniform) and as time passes or we get observations, we update the value of B<sub>t</sub>(X). In other words we have a vector with lentgh of number of hidden variables and each cell of this vector has our prediction of it's real value. we name this task of tracking the distribution B<sub>t</sub>(X) (actually B(X)) over time "Flitering" or "Monitoring".</p>
+<p> </p>
+<p><strong>Example: Robot Localization</strong></p>
+<p>Robot localization is the process of determining where a mobile robot is located with respect to its environment. Localization is one of the most fundamental competencies required by an autonomous robot as the knowledge of the robot's own location is an essential precursor to making decisions about future actions. In a typical robot localization scenario, a map of the environment is available and the robot is equipped with sensors that observe the environment as well as monitor its own motion. in this example sensor model can read in which directions there is a wall, never more than 1 mistake and motion model may not execute action with small probability. as mentioned earlier B<sub>0</sub>(X) assigned uniform.</p>
+<p><img alt="" height="145" src="https://i.ibb.co/tJhcWhd/image-2021-05-13-181644.png" width="188"/></p>
+<p>Bellow tape shows the colour of each probability for all cells. for example in t=0 each cell has equal probability.</p>
+<p><img alt="" height="157" src="https://i.ibb.co/n3k41fH/image-2021-05-13-183502.png" width="188"/></p>
+<p>Cells those are compatible with our evidence from sensors has most probability to be the real place of robot. lighter grey cells are possible to get the reading, but less likely b/c required 1 mistake. white cells need more mistakes so theirs probability is near to zero.</p>
+<p>After skipping some states we have:</p>
+<p><img alt="" height="165" src="https://i.ibb.co/r0gPnrP/image-2021-05-13-182944.png" width="180"/></p>
+<p>And then:</p>
+<p><img alt="" height="169" src="https://i.ibb.co/xfjNNPZ/image-2021-05-13-183107.png" width="183"/></p>
+<p>In this state the answer is approximately certain.</p>
+<p> </p>
+<p><strong>Passage of Time</strong></p>
+<p>If in the current state we have the belief B(X<sub>t</sub>)=P(X<sub>t</sub>|e<sub>1:t</sub>). then after one time step passes for P(X<sub>t+1</sub>|e<sub>1:t</sub>) we have:</p>
+<p><img alt="No description has been provided for this image" height="127" src="https://i.ibb.co/82Ddcrx/image-2021-05-13-184443.png" width="224"/></p>
+<p>We know P(X<sub>t+1</sub>|e<sub>1:t</sub>) isn't what we defined as B<sub>t+1</sub>(X) so we name it B'(X<sub>t+1</sub>) and we have:</p>
+<p><img alt="" height="55" src="https://i.ibb.co/7nDpTj8/image-2021-05-13-184849.png" width="159"/></p>
+<p>We name the first part P(X'|x<sub>t</sub>) as transition and say beliefs get “pushed” through the transitions.</p>
+<p> </p>
+<p><strong>Example: Passage of Time</strong></p>
+<p>In this model as time passes, uncertainty about the answer accumulates and increases.</p>
+<p><img alt="" height="120" src="https://i.ibb.co/c8LdYxD/image-2021-05-13-185716.png" width="600"/></p>
+<p> </p>
+<p><strong>Observation</strong></p>
+<p>Now we want to affect the observation in our prediction about next value of hidden variable.</p>
+<p><img alt="" height="40" src="https://i.ibb.co/tPQR0ty/Picture3.jpg" width="222"/></p>
+<p>And now in each state after observation we have:</p>
+<p><img alt="" height="93" src="https://i.ibb.co/VCwxHrS/Picture3.jpg" width="288"/></p>
+<p>We named the second part P(X<sub>t+1</sub>|e<sub>1:t</sub>) as belief and say beliefs get “reweighted” by likelihood of evidence.</p>
+<p>** Unlike passage of time, we have to renormalize.</p>
+<p> </p>
+<p><strong>Example: Observation</strong></p>
+<p>In this model as we get observations, beliefs get reweighted and uncertainty about the answer decreases.</p>
+<p><img alt="" height="125" src="https://i.ibb.co/6nd0B29/image-2021-05-13-192007.png" width="600"/></p>
+<p> </p>
+<p><strong>Example: Weather HMM</strong></p>
+<p>In this example we want to predict the weather by looking our friend, is he come with umbrella or not. First day we use a uniform distribution but after first day, in each day we compute B' and then after observation of umbrella compute B for that day and do this for each day to decreasing the uncertainty.</p>
+<p><img alt="" height="186" src="https://i.ibb.co/0V2XBGZ/Picture3.jpg" width="520"/></p>
+<p> </p>
+<p><strong>The Forward Algorithm</strong></p>
+<p>We are given evidence at each time and want to know:</p>
+<p><img alt="" height="21" src="https://i.ibb.co/F406RmD/image-2021-05-13-193937.png" width="188"/></p>
+<p>We can derive the following updates:</p>
+<p><img alt="" height="148" src="https://i.ibb.co/x1PZ6vV/Picture3.jpg" width="310"/></p>
+<p>We can normalize as we go if we want to have P(x|e) at each time step, or just once at the end. But which is better?</p>
+<p> </p>
+<p><strong>Online Belief Updates</strong></p>
+<p>Every time step, we start with current P(X | evidence)</p>
+<p>We update for time:</p>
+<p><img alt="" height="32" src="https://i.ibb.co/WFCXKL0/image-2021-05-13-194923.png" width="343"/></p>
+<p>We update for evidence:</p>
+<p><img alt="" height="21" src="https://i.ibb.co/0KYTpLz/image-2021-05-13-195017.png" width="342"/></p>
+<p> </p>
+<p><strong>Particle Filtering</strong></p>
+<p>In some problems |X| is too big for exact computing or even for storing B(X), so it's almost impossible to use previous algorithms. For example when X is continous. In this situations we must use approximate inference.</p>
+<p>In this algorithm we track just samples of X not all values and name this samples particles. Time per step is linear in the number of samples but number needed may be large enough and in memory should store list of particles not states.</p>
+<p><img alt="" height="179" src="https://i.ibb.co/2gXcttw/Picture3.jpg" width="491"/></p>
+<p>Now represent P(X) by a list of N particles and P(x) approximate by number of particles with value of x. We know generally N&lt;&lt;|X| so many x may have p(x)=0 and this isn't good event. For solving this issue we must use more particles to achieve more accuracy.(For now assume all particles has the same weight)</p>
+<p> </p>
+<p><strong>Elapse Time</strong></p>
+<p>Each particle moved by transition model to it's next position.</p>
+<p><img alt="" height="26" src="https://i.ibb.co/0fXJqqt/image-2021-05-13-213911.png" width="230"/></p>
+<p>Just like the prior sampling, each sample frequency reflect the transtition probabilities. </p>
+<p>As mentioned earlier for closing to exact values, must use enough samples.</p>
+<p><img alt="" height="175" src="https://i.ibb.co/mGSKHnC/Picture3.jpg" width="490"/></p>
+<p> </p>
+<p><strong>Observe</strong></p>
+<p>Just like the likelihood weighting, each sample's  probabilities computed based on the evidence.(As before, the probabilities don’t sum to one, since all have been down weighted and need to normalizing)</p>
+<p><img alt="" height="206" src="https://i.ibb.co/t4Nvcnj/Picture3.jpg" width="398"/></p>
+<p> </p>
+<p><strong>Resample</strong></p>
+<p>We use resampling (N times) intead of tracking weighted samples in this way choose from our weighted sample distribution (i.e. draw with replacement). This method is equivalent to renormalizing the distribution.</p>
+<p>And now the update is complete for this time step, continue with the next one.</p>
+<p><img alt="" height="135" src="https://i.ibb.co/ZNdKB8k/Picture3.jpg" width="407"/></p>
+<p> </p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body>
+            </div>
+            
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
+                AM
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Ali Mirzaei Saghezchi</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a href="https://github.com/mehrdad7008">https://github.com/mehrdad7008</a>
+                
+                
+                
+                
+                
+                <a href="mailto:mehrdad7008@gmail.com">mailto:mehrdad7008@gmail.com</a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
+                AM
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Arman Mohammadi</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a href="mailto:rman.mo2000@gmail.com">mailto:rman.mo2000@gmail.com</a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
+                AB
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Arman Babaei</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a href="https://github.com/arman17babaei">https://github.com/arman17babaei</a>
+                
+                
+                
+                
+                
+                <a href="mailto:292.arma@gmail.com">mailto:292.arma@gmail.com</a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
+                MG
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Mahdi Ghaznavi</h3>
+                
+                
+                <p class="wf-person-title">Supervisor</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a href="mailto:ghaznavi.mahdi@gmail.com">mailto:ghaznavi.mahdi@gmail.com</a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+        </div>
+    </div>
+    
+
+
+    
+
+
+
+
+    
+
+
+<footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
+        
+        style="min-height: 2vh;
+          background-image: url('images/notes-header.jpg');
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;"
+        
+>
+    <div
+            
+            class="wf-header-panel w-100 p-3 m-auto text-center"
+            
+    >
+        
+        © Powered by <a class="link-primary" href="https://webifier.github.io/">Webifier</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

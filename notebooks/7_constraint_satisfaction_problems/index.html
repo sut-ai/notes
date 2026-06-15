@@ -1,0 +1,543 @@
+
+
+
+
+
+
+
+
+<html>
+
+
+
+
+
+<head>
+    <title>index.md</title>
+    
+<!-- viewport meta-tag for responsiveness -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap v5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- FontAwesome JS -->
+<script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
+
+<!-- Loading mathjax macro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config" defer>
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+</script>
+<link rel="stylesheet" href="/notes/assets/css/codehilite.css">
+<link rel="stylesheet" href="/notes/assets/css/main.css">
+<script defer src="/notes/assets/js/codeblocks.js"></script>
+
+<script>
+(function () {
+  const switcherEnabled = true;
+  const stored = switcherEnabled ? localStorage.getItem("webifier-theme") : null;
+  const selected = stored || "system";
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved = selected === "system" ? (systemDark ? "dark" : "light") : selected;
+  document.documentElement.dataset.wfTheme = selected;
+  document.documentElement.dataset.wfResolvedTheme = resolved;
+  document.documentElement.dataset.bsTheme = resolved === "dark" ? "dark" : "light";
+})();
+</script>
+<link rel="stylesheet" href="/notes/assets/css/theme.css">
+<script defer src="/notes/assets/js/theme.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VZRZHCJ5V0');
+</script>
+
+
+
+    
+
+    
+
+
+    
+</head>
+
+<body class="bg-body-tertiary">
+<div class="app-content container-fluid">
+    
+    
+
+
+
+
+
+
+<header class="container-fluid wf-page-chrome text-center align-items-center p-0"
+        
+        style="min-height: 5vh;"
+        
+>
+    <div
+            
+            class="wf-page-chrome-panel p-3 m-auto text-center"
+            
+    >
+        <h1>index.md</h1>
+        
+    </div>
+</header>
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+<nav class="px-2 navbar navbar-expand-sm bg-body-tertiary m-0 p-2 sticky-top shadow wf-navbar">
+    
+    
+    
+
+
+
+
+
+
+
+    <a href="https://github.com/sut-ai" class="btn navbar-brand"
+       
+    >
+    
+    
+    
+        SUT-AI
+    
+    </a>
+
+
+    
+
+    <div
+            
+            class="collapse navbar-collapse p-0 m-0"
+            id="navbarSupportedContent"
+            
+    >
+        <ul class="navbar-nav me-auto my-1 p-0">
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/supplementary/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Supplementary
+    
+    </a>
+
+
+                
+            </li>
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/notes/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Notes
+    
+    </a>
+
+
+                
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="d-flex my-1 ms-auto">
+        
+        <button class="navbar-toggler btn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        <button
+                class="btn nav-item mt-1 webifier-theme-toggle"
+                type="button"
+                id="webifier-theme-toggle"
+                title="Switch color theme"
+                aria-label="Switch color theme"
+                data-theme-default="system"
+                data-theme-modes="system,light,dark"
+        >
+            <svg class="webifier-theme-symbol webifier-theme-symbol-system" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-light" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M6.34 17.66l-1.41 1.41"></path>
+                <path d="M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-dark" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+            </svg>
+            <span class="visually-hidden webifier-theme-label">Theme</span>
+        </button>
+        
+
+        
+    </div>
+</nav>
+
+
+
+
+
+
+    <div id="app-body"
+         class="app-body container-fluid bg-body justify-content-center align-items-center d-flex shadow">
+        <div class="container-fluid p-0 m-0 no-gutters">
+            
+            <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
+                <h1>Constraint Satisfaction</h1>
+<ul>
+<li><a href="#constraint-satisfaction">Constraint Satisfaction</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#map-coloring">Map-Coloring</a></li>
+<li><a href="#constraint-graph">Constraint Graph</a></li>
+<li><a href="#n-queens">N-Queens</a></li>
+<li><a href="#real-world-csps">Real World CSPs</a></li>
+<li><a href="#csp-varieties">CSP Varieties</a></li>
+<li><a href="#constraint-varieties">Constraint Varieties</a></li>
+<li><a href="#converting-n-ary-csp-to-binary-csp">Converting n-ary CSP to binary CSP</a></li>
+<li><a href="#standard-search-formulation-incremental">Standard Search Formulation (incremental)</a></li>
+<li><a href="#backtracking-search">Backtracking Search</a></li>
+<li><a href="#improving-backtrack">Improving Backtrack</a></li>
+<li><a href="#the-minimum-remaining-value-mrv">The Minimum Remaining Value (MRV)</a></li>
+<li><a href="#degree-heuristic">Degree Heuristic</a></li>
+<li><a href="#least-constraining-value">Least Constraining Value</a></li>
+<li><a href="#forward-checking">Forward Checking</a></li>
+<li><a href="#constraint-propagation-div-idcp">Constraint Propagation <div id="CP"></div></a></li>
+<li><a href="#arc-consistency-ac3-div-idac3">Arc consistency (AC3) <div id="AC3"></div></a></li>
+<li><a href="#extending-to-cases-which-have-n-ary-constraints-div-idext">Extending to cases which have n-ary constraints <div id="EXT"></div></a></li>
+<li><a href="#arc-consistency-limitations-div-idacl">Arc-Consistency limitations <div id="ACL"></div></a></li>
+<li><a href="#k-consistency-div-idkc">k-Consistency <div id="KC"></div></a></li>
+<li><a href="#strong-k-consistency-div-idskc">Strong k-Consistency <div id="SKC"></div></a></li>
+<li><a href="#using-problem-structure-div-idps">Using problem structure <div id="PS"></div></a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h1>Introduction</h1>
+<p>Try to the answer this problem: </p>
+<p>We want to find two countries that the language of one of them is Hungarian and the name of other one starts with the letter "A".</p>
+<p>You can see that answering this problem differs from other search problems. Here, at first you consider some <strong>constraints</strong> and instead of search whole countries, you search <strong>locally</strong> and only for the countries  that may satisfy the constraints.</p>
+<p><strong>Constraint Satisfaction Problems</strong> (CSPs) are problems like the one we saw earlier that rather than searching on all search states, we only search for particular states that satisfy constraints. This help us to use more efficient algorithms for search problems. </p>
+<p><strong>Constraint Satisfaction</strong> is a technique that tries to solve a problem under certain constraints. A problem is solved when there is a solution which satisfy all constraints.</p>
+<p>In CSPs, we have some variables <img src="https://render.githubusercontent.com/render/math?math=X_i"/> that we should declare some values from domain <img src="https://render.githubusercontent.com/render/math?math=D_i"/>, and some constraints that need to be satisfy.</p>
+<h1>Examples</h1>
+<h2>Map-Coloring</h2>
+<p><img alt="Forward checking limits" src="/notes/assets/images/1.png"/></p>
+<p>In this problem, we want to color all regions of Australia with three colors in a way which two adjacent regions must not have same colors.</p>
+<p><strong>Variables</strong>: Western Australia, Northern Territory, South Australia, Queensland, New South Wales, Victoria, Tasmania</p>
+<p><strong>Domains</strong>: <img src="https://render.githubusercontent.com/render/math?math=\{Red, Green, Blue\}"/></p>
+<p><strong>Constraints</strong>: two adjacent regions must have two different colors.</p>
+<p><strong>Solution(s)</strong>: all assignments with satisfying all constraints. </p>
+<p>For example:
+<img src="https://render.githubusercontent.com/render/math?math=[WA : Red, NT : Green, SA : Blue, Q : Red, NSW : Green, V : Red, T : Green]"/></p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/2.png"/></p>
+<p>But why we try to formulate a problem as a CSP format? One reason is that CSPs yields a natural representation for a wide variety of problems; so if we already have a CSP-solving system, it is easier to solve a problem using that rather than design a custom solution using another search technique. Also CSP solvers are generally faster than normal search algorithms. In map coloring for example, if we assign <img src="https://render.githubusercontent.com/render/math?math=SA = blue"/>, for five neighbors only colors of green and red are available. Without CSP technique, we must consider <img src="https://render.githubusercontent.com/render/math?math=3^5 = 243"/> assignments for five neighbors but by using CSP format, we never have to consider blue as a value, therefore we have only <img src="https://render.githubusercontent.com/render/math?math=2^5 = 32"/> assignments. A 87% reduction!</p>
+<h2>Constraint Graph</h2>
+<p>For binary CSPs, we use constraint graph. Binary CSP is a problem that each constraint relates to at most two variables. (For example in map coloring, in every step we are looking at 2 regions that can’t have same color.)  The nodes of graph correspond to variables and a link connected to two nodes is a constraint that those variables participate in the constraint</p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/3.png"/></p>
+<h2>N-Queens</h2>
+<p>Another famous Constraint Satisfaction Problem is N-Queens. In this problem, we want to put n-queens on a <img src="https://render.githubusercontent.com/render/math?math=n \times n"/> chess board in a way that no queen is able to treat another. In other words, there must be exactly one queen in each row or column or dimeter. All tiles of the board have either one queen or none. CSP formulation for this problem is as follow:</p>
+<p><strong>Variablex:</strong> <img src="https://render.githubusercontent.com/render/math?math=X_{ij}"/> which represents a queen in row i and column j.</p>
+<p><strong>Domains:</strong> {0, 1}</p>
+<p><strong>Constraint:</strong></p>
+<p><img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{ik}) \in \{(0,0), (0,1), (1,0)\}"/></p>
+<p><img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{kj}) \in \{(0,0), (0,1), (1,0)\}"/></p>
+<p><img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{j + k,k+j}) \in \{(0,0), (0,1), (1,0)\}"/></p>
+<p><img src="https://render.githubusercontent.com/render/math?math=\forall i,j,k \quad (X_{ij}, X_{j+k,j-k}) \in \{(0,0), (0,1), (1,0)\}"/></p>
+<p><img src="https://render.githubusercontent.com/render/math?math=\sum_{i,j} X_{ij} = N"/></p>
+<p>The variables, <img src="https://render.githubusercontent.com/render/math?math=X_{ij}"/>, represents a queen in row i and column j. The domain is binary because for every tile we can show if there is a queen or there is not.</p>
+<p>This problem is not a binary CSP because of the last constraint. We have every other constraint in the last one.</p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/5.png"/></p>
+<p>The picture above shows a solved 8-Queens.</p>
+<h2>Real World CSPs</h2>
+<p>What we see so far, were some famous CSPs that may not deal with them in real world. Some real world CSPs are:</p>
+<ul>
+<li>Assignment problems: e.g., Who teaches what class</li>
+<li>Timetabling problems: e.g., Which class is offered when and where?</li>
+<li>Hardware configuration</li>
+<li>Transportation scheduling</li>
+<li>Factory scheduling</li>
+<li>Circuit layout</li>
+<li>Fault diagnosis</li>
+<li>And…
+Usually real-world problems involve real-valued variables.</li>
+</ul>
+<h1>CSP Varieties</h1>
+<p>Base on variables, we can classify CSPs into two parts: Discrete variables and Continuous variables. Discrete variables can also divide into two parts of Finite domain and Infinite domain. Our main focus is on discrete variables specially finite domain ones. 
+- Discrete variables:
+  - Finite domains:
+    - Size <img src="https://render.githubusercontent.com/render/math?math=d, O(d^n)"/> complete assignments.
+    - e.g., Boolean CSPs, incl. Boolean satisfiability (NP-complete).
+   - Infinite domains (integers, strings, etc.)
+      - e.g., job scheduling, variables are start/end days for each job.
+      - need a constraint langage, e.g., StartJob1 + 5 ≤ StartJob3.
+      - Linear constraints solvable, nonlinear undecidable.
+- Continuous Variables:
+    - e.g., start / end times for Hubble Telescope observations.
+    - linear constraints solvable in poly time by LP methods.</p>
+<h1>Constraint Varieties</h1>
+<p>Based on constraints, we have different kinds of constraints.
+- Unary: Constraints involve a single variable.
+e.g., SA ≠ green
+- Binary: Constraints involve pairs of variables.
+e.g., SA ≠ WA
+- High-Order: Constraints involve 3 or more variables.
+e.g., cryptarithmetic column constraints
+- Preferences: Soft constraints.
+e.g., red is better than green.
+Often represents by a cost for each variable assignment.
+It is not a Constraint Satisfaction Problem, it is called Constrained Optimization Problem (COP).</p>
+<h1>Converting n-ary CSP to binary CSP</h1>
+<p>Is it possible to convert every n-ary problem (not binary constraints) to a binary CSP?</p>
+<p>Dual constraint graph is a graph which its vertices are not variables but constraints. The vertices are connected to each other if they have a variable in common. In other words, the arc between two constraints check if the common variables take the same value in both constraints.</p>
+<p>Consider n-ary CSP problem:</p>
+<p><strong>Variable:</strong> <img src="https://render.githubusercontent.com/render/math?math=X, Y, Z"/></p>
+<p><strong>Domain:</strong> <img src="https://render.githubusercontent.com/render/math?math={1, 2, 3}"/></p>
+<p><strong>Constraint:</strong> <img src="https://render.githubusercontent.com/render/math?math=C_1: X + Y + Z \le 3,\quad C_2: X+Y \le 2, \quad C_3: Z \ge 1"/></p>
+<p>Dual form of this problem with new constraint(<img src="https://render.githubusercontent.com/render/math?math=X, Y, Z"/> be consistent in <img src="https://render.githubusercontent.com/render/math?math=C_1, C_2, C_3"/> is as follow:</p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/ex1.png"/></p>
+<h1>Standard Search Formulation (incremental)</h1>
+<p>Now we want to come up with a general standard solution based on search technique then try to improve it and make it special for CSP. The first approach is a simple approach, partial state formulation in search. In this approach, states are defined by the values assigned so far.</p>
+<p><strong>Initial state:</strong> the empty assignment, {}</p>
+<p><strong>Successor function:</strong> assign a value to an unassigned variable that does not conflict with current assignment. If there is no legal assignment, then failure is output of function.</p>
+<p><strong>Goal state:</strong> when the current assignment is complete.</p>
+<p>Note that for all CSPs, this formulation is the same.
+We want to assign values to all n variables; therefore, the solution –if there is any- must be in depth n. So it’s reasonable to use DFS (Depth First Search) algorithm.</p>
+<p>In the initial state, we can choose n variables to assign with d, size of domain. So at the initial state, we will have nd branch factors, maximum successors of a node. Appling the same method to each one in the first layer, each node in depth 1 has
+<img src="https://render.githubusercontent.com/render/math?math=(n-1) \times d"/> branch factors, so the maximum number of leaves is <img src="https://render.githubusercontent.com/render/math?math=nd \times (n-1)d \times \dots \times d = n!d^n"/>.</p>
+<h1>Backtracking Search</h1>
+<p>With backtracking, we can reduce the number of leaves. If we consider one order of assignment and continue that, we will get to solution because the variable assignments are commutative. </p>
+<p>E.g., the assignments <img src="https://render.githubusercontent.com/render/math?math=[WA:red \rightarrow NT:green]"/>,
+ is the same as <img src="https://render.githubusercontent.com/render/math?math=[NT:green \rightarrow WA:red]"/>. With this trick, each node needs to assign to only a single variable and reduce the number of leaves to <img src="https://render.githubusercontent.com/render/math?math=d^n"/>.</p>
+<p>Depth-first search for CSPs with single variable assignments is called backtracking. The name is chosen because when the algorithm fails to assign a variable, it will go to previous depth and starts searching again.</p>
+<p>Backtracking search is the basic uniformed algorithm for CSPs and can solve n-queens for <img src="https://render.githubusercontent.com/render/math?math=n \approx 25"/>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">Backtracking</span><span class="o">-</span><span class="n">Search</span><span class="p">(</span><span class="n">csp</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Recursive</span><span class="o">-</span><span class="n">Backtracking</span> <span class="p">({},</span> <span class="n">csp</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">Recursive</span><span class="o">-</span><span class="n">Backtracking</span><span class="p">(</span><span class="n">assignment</span><span class="p">,</span> <span class="n">csp</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">assignment</span> <span class="ow">is</span> <span class="n">complete</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">assignment</span>
+  <span class="n">var</span> <span class="o">=</span> <span class="n">Select</span><span class="o">-</span><span class="n">Unassigned</span><span class="o">-</span><span class="n">Variable</span><span class="p">(</span><span class="n">Variables</span><span class="p">[</span><span class="n">csp</span><span class="p">],</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">csp</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">Order</span><span class="o">-</span><span class="n">Domain</span><span class="o">-</span><span class="n">Values</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">csp</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">consistent</span> <span class="k">with</span> <span class="n">assignment</span> <span class="n">given</span> <span class="n">Constraints</span><span class="p">[</span><span class="n">csp</span><span class="p">]:</span>
+  <span class="n">add</span> <span class="p">{</span><span class="n">var</span> <span class="o">=</span> <span class="n">value</span><span class="p">}</span> <span class="n">to</span> <span class="n">assignment</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">Recursive</span><span class="o">-</span><span class="n">Backtracking</span><span class="p">(</span><span class="n">assignment</span><span class="p">,</span> <span class="n">csp</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">result</span> <span class="err">≠</span> <span class="n">failure</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">result</span>
+  <span class="n">remove</span> <span class="p">{</span><span class="n">var</span> <span class="o">=</span> <span class="n">value</span><span class="p">}</span> <span class="kn">from</span><span class="w"> </span><span class="nn">assignment</span>
+  <span class="k">return</span> <span class="n">failure</span>
+</code></pre></div>
+<p>Backtracking search tries to find acceptable values for all variables recursively. Returns solution if it finds any, otherwise if the last assignment is leading to conflict, it removes that value for that variable and try other values. If no value is accepted, it backtracks to the previous assignment and changes that.</p>
+<p><img alt="backtrack gif" src="/notes/assets/images/prog.gif"/></p>
+<h1>Improving Backtrack</h1>
+<p>Now we want to improve backtracking. These are four methods and ideas that help us to gain speed in backtracking search:
+- Which variable should be assigned next?
+- In what order should its values be tried?
+- Can we detect inevitable failure early?
+- Can we take advantage of problem structure?</p>
+<p>For each we will give an answer Let’s start from the first question.</p>
+<h2>The Minimum Remaining Value (MRV)</h2>
+<p>For the first question we introduce The Minimum Remaining Value (MRV).
+This heuristic tells us which variable should be the next variable to be assigned. In each assignment, the possible values for the next assignment may be reduced due to the problem’s assignments. In map coloring, after coloring the first state, the neighbors cannot have the same value. If we assign randomly in each state, we might reach to a point where a variable becomes so limited that it can’t have any values.</p>
+<p><img alt="MRV" src="/notes/assets/images/10.png"/></p>
+<p>If we don’t use MRV and choose a variable randomly, at the last step in the picture, we may color the north-west region, there will be no available values for the southern region and we have to backtrack. Clearly, we don’t need to backtrack if we use MRV.</p>
+<h2>Degree Heuristic</h2>
+<p>At a tie-breaker situation in MRV, we may use Degree heuristic. Degree heuristic prioritize the variable with the most constraints on remaining variables. Like at the beginning of the problem, when there is no colored state.</p>
+<p><img alt="MRV" src="/notes/assets/images/11.png"/></p>
+<h2>Least Constraining Value</h2>
+<p>For the second question, we may use least constraining value. In this approach, for a given variable, it chooses the least constraining value: the one that rules out the fewest values in the remaining variables.</p>
+<p><img alt="MRV" src="/notes/assets/images/12.png"/></p>
+<p>In the above situation, if we assign the north west region with blue value, we will have no available value for the southern region but assigning it to red value, it allows to have an available value for the southern region and we can avoid failure.</p>
+<p>Note that in the previous heuristics, we try to find a dead end sooner but in the last one, we are doing the opposite. This contradictory is because in MRV and degree heuristic, we are choosing a variable to be assigned but in the least constraining value, we are choosing a value. Each variable has to assigned to a value in our search and we fail to assign a variable, we will get to failure inevitably. But there is no such obligation for values. In other words, a value can unassigned and not be use in a solution.</p>
+<p>Combining these heuristics, makes 1000 queens feasible.</p>
+<h2>Forward Checking</h2>
+<p>Now we want to see if we can detect failure sooner. The idea is to keep track of remaining legal values for unassigned variables. It terminates search when there is no available value for any variable.</p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/14.png"/></p>
+<p>In each state, we show the possible values for each variables. The first table is the first state. Then after two steps and choosing the variables WA and Q, the updated table will become the last table.</p>
+<h2>Constraint Propagation <div id="CP"></div></h2>
+<p>Forward checking method, detects failures in only one level higher than ordinary MRV. As a result, in many cases it fails to detect failures.</p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/ForwardChecking.png"/></p>
+<p>For instance, In this example NT and SA can't be blue at the same time but Forward Checking doesn't detect that.</p>
+<p>Constraint Propagation method can detect failure when in a higher height. In order to explain this algorithm, we must first define <strong>consistency</strong> for an edge.</p>
+<p><img src="https://render.githubusercontent.com/render/math?math=X \rightarrow Y"/>  edge is consistent iff for every value x in Domain of X, there exists some allowed (does not violate any constraint) y in Domain of Y.</p>
+<p>By making every edge consistent (if possible), Constraint Propagation causes many of non-allowed states (which violate constraints) not to appear in search.</p>
+<p>Consider coloring example. Suppose in allowed domain of X, Y, which are neighbors, remains {g, b, r},{g} respectively. In this situation, <img src="https://render.githubusercontent.com/render/math?math=X \rightarrow Y"/>  edge is not consistent because if we attribute value g to X, there remains no allowed option for Y. However If we <strong>delete</strong> g from domain of X, we can make this edge consistent. But we have to note that all edges which X exists as the destination, may become inconsistent. So for example if <img src="https://render.githubusercontent.com/render/math?math=Z \rightarrow X"/> become inconsistent, one or more member of Domain of Z will be deleted and by continuing this process (spreading consistency over all edges) we can have a new <em>equivalent problem</em> which there exists <em>less members</em> in Domain of the variables and by deleting many states, we can save time.</p>
+<h2>Arc consistency (AC3) <div id="AC3"></div></h2>
+<p>One algorithm which is based on this concept is <strong>AC-3</strong>. (AC-3 Description)</p>
+<p><img alt="Forward checking limits" src="/notes/assets/images/AC3.png"/></p>
+<p>This algorithm can reduce <em>search algorithms</em> time، 
+However, It takes <img src="https://render.githubusercontent.com/render/math?math=O(n^2d^3)"/> time to only execute this algorithm alone.</p>
+<p>It takes <img src="https://render.githubusercontent.com/render/math?math=O(d^2)"/>  time to execute Remove-Inconsistent-Value function and each edge may calls this function <img src="https://render.githubusercontent.com/render/math?math=O(d)"/> times and because there is <img src="https://render.githubusercontent.com/render/math?math=O(n^2)"/> edges it can lead to <img src="https://render.githubusercontent.com/render/math?math=O(n^2d^3)"/>  execution time overall. One solution is to execute AC-3 algorithm limited times. However, this trade-off still remains.</p>
+<h2>Extending to cases which have n-ary constraints <div id="EXT"></div></h2>
+<p>To check consistency of a constraint in a n-ary case we have two options. One of them is to convert these constraints to binary constraints via the previous method or via performing intelligent methods. </p>
+<p>Another option is to divide variables into two categories via different methods (we can actually do this in <img src="https://render.githubusercontent.com/render/math?math=2^n - 2"/> different ways) and each time consider a member of the first category and check if there is a member in the second category which satisfies constraints or not. Then we can say this constraint is consistent.
+As it seems the second method is more complex and leads to a combinatory problem. The first method is more efficient. </p>
+<h2>Arc-Consistency limitations <div id="ACL"></div></h2>
+<p>Although this method makes algorithms more efficient, in many cases it <strong>can’t</strong> detect early failures.</p>
+<p><img alt="AC3 limits" src="/notes/assets/images/AC3lim.png"/></p>
+<p>For example, in this case all edges are consistent but it's obvious that we can't assign values to all nodes.</p>
+<p>One way to confront these problems is to use <em>“Strong k-Consistency”</em> concept. In order to define this concept, we must first define k-Consistency.</p>
+<h2>k-Consistency <div id="KC"></div></h2>
+<p>For each k nodes, any consistent assignment to k-1 can be extended to the k th node. We must note that checking some k-Consistencies which k is large, will have a high complexity. However, in our previous example if we check k = 2, we will see that we can detect failure.</p>
+<h2>Strong k-Consistency <div id="SKC"></div></h2>
+<p>Includes 1-Consistency, …, k-Consistency.</p>
+<p>We must note that one <strong>can’t</strong> achieve (k-1)-Consistency from k-Consistency. That’s due to the fact that in order to have k-Consistency, it’s necessary to have k-1 consistent nodes (to expand to k) and if there is no k-1 consistent nodes, due to vacuous truth (in logic), we will have k-Consistency and obviously it’s possible that we don’t have (k-1)-Consistency.</p>
+<p>However, checking Strong k-Consistency <strong>is not</strong> an easy job(!) and has a high complexity. To the extent that Strong n-Consistency is equal to solving the problem without backtracking. That’s because we can choose any assignment to a variable and by 2-Consistency get to 2 variables. Then by 3-Consistency get to 3 variables and all the way up to n variables which is equivalent to finding the solution.</p>
+<h2>Using problem structure <div id="PS"></div></h2>
+<p>one of the ways we can use the problem structure is to see whether constraint graph has separated connected component or not. If it has connected components, then we can solve the problem by finding solution for each of components independently.</p>
+<p><img alt="connected component" src="/notes/assets/images/component.png"/></p>
+<p>Of course, in real problems we will not see cases like the previous example very often. But one of the cases which often occurs is when there is a modular structure in the graph. With some considerations, we can solve the problem for each module independently and achieve a better time complexity.</p>
+<p><strong>Modular Structure</strong>: 
+in some subgraphs there are some dense connections which have sparse connections with other subgraphs, as in figure below:</p>
+<p><img alt="connected component" src="/notes/assets/images/modular.jpg"/></p>
+<p>Another way to use the problem structure is to see whether constraint graph is in tree form or not. If it is in tree form, we can solve the problem in <img src="https://render.githubusercontent.com/render/math?math=O(nd^2)"/> which is way better than time complexity of a general case problem which is <img src="https://render.githubusercontent.com/render/math?math=O(d^n)"/> . To solve the problem, we first choose a node as the root of the graph and then we sort nodes from the highest to deepest, as in figure below:</p>
+<p><img alt="connected component" src="/notes/assets/images/sorted.png"/></p>
+<p>Then we delete all inconsistent values from node n to node 2. (In AC-3 language, we call Remove-Inconsistent function for node n to node 2). Because all edges are consistent, we can assign a value to <img src="https://render.githubusercontent.com/render/math?math=X_1"/> (root) and then for each <img src="https://render.githubusercontent.com/render/math?math=X_i"/> we will assign a value in order not to become inconsistent with respect to just its father. <em>Due to Arc-Consistency</em>, that’s possible.</p>
+<p>In cases which are almost tree form, there is a minimum cutset which includes a few members. In these cases, we can use <em>Conditioning method</em>. In this method, we first assign values to variables of the cutset in different ways. Then we solve the problem for other variables (which form a tree). If we consider c as the size of the cutset, this method includes <img src="https://render.githubusercontent.com/render/math?math=d^c"/> value assignments and then solving problem for the remaining tree which we know it has <img src="https://render.githubusercontent.com/render/math?math=O((n-c)d^2)"/> time complexity. Hence, this method has 
+<img src="https://render.githubusercontent.com/render/math?math=O(d^c.(n-c)d^2)"/> time complexity which is good for small c. </p>
+<h1>Summary</h1>
+<ul>
+<li>CSPs are kind of problem with a set of variable/value pairs that represent a state.
+These pairs represent the conditions of solution by a set of constraints on variables.</li>
+<li>Backtracking search is a form of depth first search that is commonly used for solving CSPs.</li>
+<li>Variable ordering and value selection heuristics help to improve backtracking. The minimum remaining variable and degree heuristics are methods for ordering variables and least constraining value heuristics decides which value should be try first.</li>
+<li>Forward checking is used to detect inevitable failure before we reach it.</li>
+<li>Tree-structured problems can be solved in linear time.</li>
+<li>Custset conditioning can make a general CSP structure to a tree-structured one. It is very efficient for small cutsets.</li>
+<li>Tree decomposition technique transform the CSP into a tree of subproblems. It is very efficient if tree width of the constraint graph is small. </li>
+<li>Time complexity of CSP is related to the structure of its constraint graph. </li>
+</ul>
+<h1>References</h1>
+<p>https://www.tutorialandexample.com/constraint-satisfaction-problems-in-artificial-intelligence/</p>
+<p>Factor Graphs 1 - Constraint Satisfaction Problems | Stanford CS221: AI (Autumn 2019)</p>
+<p>https://cis.temple.edu/~giorgio/cis587/readings/constraints.html</p>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+    
+
+
+
+
+    
+
+
+<footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
+        
+        style="min-height: 2vh;
+          background-image: url('images/notes-header.jpg');
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;"
+        
+>
+    <div
+            
+            class="wf-header-panel w-100 p-3 m-auto text-center"
+            
+    >
+        
+        © Powered by <a class="link-primary" href="https://webifier.github.io/">Webifier</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

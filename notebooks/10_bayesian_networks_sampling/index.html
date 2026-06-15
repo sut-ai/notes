@@ -1,0 +1,542 @@
+
+
+
+
+
+
+
+
+<html>
+
+
+
+
+
+<head>
+    <title>index.md</title>
+    
+<!-- viewport meta-tag for responsiveness -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap v5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- FontAwesome JS -->
+<script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
+
+<!-- Loading mathjax macro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config" defer>
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+</script>
+<link rel="stylesheet" href="/notes/assets/css/codehilite.css">
+<link rel="stylesheet" href="/notes/assets/css/main.css">
+<script defer src="/notes/assets/js/codeblocks.js"></script>
+
+<script>
+(function () {
+  const switcherEnabled = true;
+  const stored = switcherEnabled ? localStorage.getItem("webifier-theme") : null;
+  const selected = stored || "system";
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved = selected === "system" ? (systemDark ? "dark" : "light") : selected;
+  document.documentElement.dataset.wfTheme = selected;
+  document.documentElement.dataset.wfResolvedTheme = resolved;
+  document.documentElement.dataset.bsTheme = resolved === "dark" ? "dark" : "light";
+})();
+</script>
+<link rel="stylesheet" href="/notes/assets/css/theme.css">
+<script defer src="/notes/assets/js/theme.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VZRZHCJ5V0');
+</script>
+
+
+
+    
+
+    
+
+
+    
+</head>
+
+<body class="bg-body-tertiary">
+<div class="app-content container-fluid">
+    
+    
+
+
+
+
+
+
+<header class="container-fluid wf-page-chrome text-center align-items-center p-0"
+        
+        style="min-height: 5vh;"
+        
+>
+    <div
+            
+            class="wf-page-chrome-panel p-3 m-auto text-center"
+            
+    >
+        <h1>index.md</h1>
+        
+    </div>
+</header>
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+<nav class="px-2 navbar navbar-expand-sm bg-body-tertiary m-0 p-2 sticky-top shadow wf-navbar">
+    
+    
+    
+
+
+
+
+
+
+
+    <a href="https://github.com/sut-ai" class="btn navbar-brand"
+       
+    >
+    
+    
+    
+        SUT-AI
+    
+    </a>
+
+
+    
+
+    <div
+            
+            class="collapse navbar-collapse p-0 m-0"
+            id="navbarSupportedContent"
+            
+    >
+        <ul class="navbar-nav me-auto my-1 p-0">
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/supplementary/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Supplementary
+    
+    </a>
+
+
+                
+            </li>
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/notes/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Notes
+    
+    </a>
+
+
+                
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="d-flex my-1 ms-auto">
+        
+        <button class="navbar-toggler btn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        <button
+                class="btn nav-item mt-1 webifier-theme-toggle"
+                type="button"
+                id="webifier-theme-toggle"
+                title="Switch color theme"
+                aria-label="Switch color theme"
+                data-theme-default="system"
+                data-theme-modes="system,light,dark"
+        >
+            <svg class="webifier-theme-symbol webifier-theme-symbol-system" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-light" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M6.34 17.66l-1.41 1.41"></path>
+                <path d="M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-dark" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+            </svg>
+            <span class="visually-hidden webifier-theme-label">Theme</span>
+        </button>
+        
+
+        
+    </div>
+</nav>
+
+
+
+
+
+
+    <div id="app-body"
+         class="app-body container-fluid bg-body justify-content-center align-items-center d-flex shadow">
+        <div class="container-fluid p-0 m-0 no-gutters">
+            
+            <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
+                <div align="center">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1 style="font-size: 40px; margin: 10px 0;">AI - Inference in Bayesian Networks: Sampling</h1>
+<h1 style="font-size: 20px; font-weight: 400;">Sharif University of Technology - Computer Engineering Department</h1>
+<br/>
+<h4 style="font-size: 18px; font-weight: 400; color:#555">Alireza Honarvar, Navid Eslami, Ali Najibi</h4>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+<hr/>
+<h1>Table of Contents</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-idea">Basic Idea</a></li>
+<li><a href="#sampling-from-given-distribution">Sampling from Given Distribution</a></li>
+<li><a href="#sampling-in-bayes-nets">Sampling in Bayes' Nets</a></li>
+<li><a href="#prior-sampling">Prior Sampling</a></li>
+<li><a href="#rejection-sampling">Rejection Sampling</a></li>
+<li><a href="#likelihood-weighting">Likelihood Weighting</a></li>
+<li><a href="#gibbs-sampling">Gibbs Sampling</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references-and-further-reading">References and Further Reading</a></li>
+</ul>
+<h1>Introduction</h1>
+<p>In the previous lecture note, it was shown that Inference
+in Bayesian Networks, in general, is an intractable
+problem. The natural approach now would be to try
+and approximate the posterior probability. There are
+several approximation methods for this problem, of
+which we will discuss the ones based on randomized
+sampling. The rest of the note is layed out as follows:
+- We give intuition about the basic idea behind sampling, and why it is an attractive solution concept.
+- We describe the building block of every sampling algorithm, namely, sampling from a given distribution.
+- We explain four standard methods of sampling in Bayes' Nets, stating their pros and cons.</p>
+<h1>Basic Idea</h1>
+<p>To compute an approximate posterior probability, one approach is to simulate the Bayes' Net's joint distribution. This can be achieved by drawing many samples from the joint distribution. Using these samples, we can approximate the probability of certain events.</p>
+<p>Sampling has two main advantages:</p>
+<ul>
+<li><strong>Learning</strong>: By getting samples from an unknown distribution, we can learn the associated probabilities.</li>
+<li><strong>Performance</strong>: Getting a sample is much faster than  computing the right answer.</li>
+</ul>
+<p>The primitive element in any sampling algorithm is the generation of samples from a known probability distribution. So the step-by-step algorithm is described in the following section.</p>
+<h1>Sampling from Given Distribution</h1>
+<p>Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.</p>
+<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+<tr>
+<th style="text-align:center"> C </th>
+<th style="text-align:center"> Pr(C) </th>
+</tr>
+<tr>
+<td style="text-align:center"> Green </td>
+<td style="text-align:center"> 0.6 </td>
+</tr>
+<tr>
+<td style="text-align:center"> Red </td>
+<td style="text-align:center"> 0.1 </td>
+</tr>
+<tr>
+<td style="text-align:center"> Blue </td>
+<td style="text-align:center"> 0.3 </td>
+</tr>
+</table>
+<p>In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
+and determine the sample based on that. As shown in the figure below, the unit length segment is 
+partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_i$ s represent the 
+probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words, we have indexed the 
+values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
+$c_1 = green$, $c_2 = red$ and $c_3 = blue$.</p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/Unit_Length_Segment_Partition.png" width="auto"/>
+</p>
+<p>We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_i$. Since we chose the seed from a uniform distribution, it can be shown that the probability of the sample being equal to $c_i$ is $Pr(C=c_i)$.</p>
+<p>Thus, using uniform distributions in this manner, we can generate samples from a given distribution having the same corresponding probabilities.</p>
+<h1>Sampling in Bayes' Nets</h1>
+<p>We now explain the four standard methods of sampling in Bayes' Nets, namely, Prior Sampling, Rejection Sampling, Likelihood Weighting, &amp; Gibbs Sampling.</p>
+<h2>Prior Sampling</h2>
+<p>Now we're ready to tackle the sampling problem! Suppose we want to sample from the joint distribution 
+of the Bayes' Net, $Pr(x_1,...,x_n)$.</p>
+<p>Consider the following process:</p>
+<p>1.  For i = 1 to n</p>
+<p>2.   Sample $x_i$ from $Pr(x_i | parents(x_i))$</p>
+<p>3.  Return $(x_1,...,x_n)$</p>
+<p>This process generates a sample $X=(x_1,...,x_n)$ with the following probability:
+$$
+S_{PS}(x_1,...,x_n) = \prod_{i=1}^{n}Pr(x_i|parents(x_i)) = Pr(x_1,...,x_n),
+$$
+which is the Bayes' Net's joint probability.</p>
+<p>Now we need to prove that the samples are realizations of I.I.D (Independent, Identically Distributed) random variables. 
+1. Since we choose a new random number for every sample, thus samples are independent from each other. 
+2. It has been also shown that they are identically distributed because of the formula above.</p>
+<p>Suppose we have drawn $N$ samples from the joint distribution. Let the number of samples of an event be 
+$N_{PS}(x_1,...,x_n)$.</p>
+<p>So based on <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;ved=2ahUKEwiJsZWq0__0AhU6iv0HHagPClYQFnoECAcQAQ&amp;url=https%3A%2F%2Fwww.lakeheadu.ca%2Fsites%2Fdefault%2Ffiles%2Fuploads%2F77%2Fimages%2FSedor%2520Kelly.pdf&amp;usg=AOvVaw1xaHZqZNyROrouGHyLduDl">the law of large numbers</a>, we have:
+$$
+lim_{N\to\infty}\hat{Pr}(x_1,...,x_n) = lim_{N\to\infty} \frac{N_{PS}(x_1,...,x_n)}{N}
+$$
+$$
+= S_{PS}(x_1,...,x_n) = Pr(x_1,...,x_n),
+$$</p>
+<p>Hence, the sampling procedure is consistent with the joint distribution.</p>
+<p>It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.</p>
+<p>Take the following Bayes' net as an example.</p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
+<p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
+<p>Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of the aforementioned operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose the result of this sampling is $-c$. We continue our sampling algorithm with $B$. Suppose that after this sampling, the result is $-b$. The last variable to sample is $D$ with the result of $+d$. We return the resulting sample $(+a,-c,-b,+d)$.</p>
+<p>After the sampling algorithm has finished, to determine $Pr(query|evidence)$, first, we need to filter out samples inconsistent with our evidence list. We will set the count of samples in this list as our denominator, and the count of samples in this list consistent with our query as our numerator.</p>
+<h2>Rejection Sampling</h2>
+<p>The problem with prior sampling is that we keep samples which are not consistent with the evidence. Since the evidence might be unlikely, the number of unused samples (samples which will be discarded due to inconsistency with the evidence) will eventually be great.
+A simple idea is to reject incosistent samples whilst sampling. To achieve this goal, as soon as an incosistency in the sample is observed, we will ignore (reject) that sample.</p>
+<p>Consider the following process:</p>
+<p>1.  For i = 1 to n</p>
+<p>2.   Sample $x_i$ from $Pr(x_i | parents(x_i))$</p>
+<p>3.   if $x_i$ not consistent with evidence:</p>
+<p>4.   Return (no sample is generated in this cycle)</p>
+<p>5.  Return $(x_1,...,x_n)$</p>
+<p>This algorithm is also consistent with the conditional probabilities.</p>
+<p>Take the following Bayes' net as an example.</p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
+<p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
+<p>Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose that after sampling $C$, the result is $+c$. Since $-c$ is one of our evidences, we should reject this sample; which is achieved by returning None and adding no sample to our sample list.</p>
+<p>Otherwise, in case of $-c$ for the sampling result of C, we continue our sampling algorithm with $B$. Suppose that after sampling $B$, the result is $-b$. The last variable to sample is $D$ and since it is an evidence variable, we should repeat the same procedure we performed for $C$. If the result of sampling $D$ is $-d$, we reject this sample and return None; Otherwise, we return the resulting sample $(+a,-c,-b,+d)$.</p>
+<p>After the sampling algorithm has finished, to determine $Pr(query|evidence)$, we only need to count samples which are consistent with the query to form our numerator and the count of all samples we returned (which are not None), as our denominator. Notice that we didn't have to filter samples to make them consistent with the evidence list, since we rejected inconsistent samples.</p>
+<h2>Likelihood Weighting</h2>
+<p>If we take a close look at the problem with prior sampling, which led us to the rejection sampling method, we see that if the evidence is unlikely, many samples will be rejected, thus we end up repeating the sampling process many times to achieve the desired sample size. This problem brings us to likelihood weighting. The idea is to fix the evidence variables and sample the rest. However, this might cause an inconsistency with the distribution. The solution is to use a weight variable indicating the probability of the evidence given their parents.</p>
+<p>The algorithm is as follows. We start with topologically sorted nodes, and a weight variable $w$ equal to 1. At each step, we sample non-evidence variables and for evidence variables, we just assign the evidence value to it and multiply $w$ by $P(x_i|parents(x_i))$. In the end, we need to calculate the sum of consistent samples' weights with query divided by the sum of all samples' weights to calculate $P(Query|Evidence)$.</p>
+<p>1.  $w$ = 1.0</p>
+<p>2.  For i = 1 to n</p>
+<p>3.   if $X_i$ is an evidence variable</p>
+<p>4.   $X_i$ = observation $x_i$ for $X_i$</p>
+<p>5.   Set $w$ = $w$ * $Pr(x_i|parents(x_i))$</p>
+<p>6.   else</p>
+<p>7.    Sample $x_i$ from $Pr(x_i | parents(x_i))$</p>
+<p>8.  Return $(x_1,...,x_n), w$</p>
+<p>The consistency of the algorithm is proven as follows.
+For each sample with query or hidden variables $Q_1, ..., Q_n$ and evidence $E_1, ..., E_m$,
+the process generates a sample $X=(q_1,...,q_n,e_1,...,e_m)$ with the following probability:
+$$
+S_{WS}(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{n}Pr(q_i|parents(Q_i)).
+$$</p>
+<p>Furthermore, the weight for each sample is:</p>
+<p>$$
+w(q_1,...,q_n,e_1,...,e_m) = \prod_{i=1}^{m}Pr(e_i|parents(E_i)).
+$$</p>
+<p>Together, the weighted sampling distribution is consistent:</p>
+<p>$$
+S_{WS}(q_1,...,q_n,e_1,...,e_m) * w(q_1,...,q_n,e_1,...,e_m) 
+$$
+$$
+=\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{m}Pr(e_i|parents(E_i)) = Pr(q_1,...,q_n,e_1,...,e_m).
+$$</p>
+<p>Take the following Bayes' net as an example.</p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
+<p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
+<p>Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. Then, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will be sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.</p>
+<p>By repeating this procedure and calculating a weight for each sample, we will eventually find a collection of weighted samples. Then we could use the calculated weights to approximate the probability in question. This is done by summing the weights of the samples consistent with the query, and dividing by the sum of all weights generated.</p>
+<h2>Gibbs Sampling</h2>
+<p>The main problem with Likelihood Weighting was the sample inefficiency that could occur. To rectify this issue, one could use the approach of Gibbs Sampling, which is a special case of the <em>Metropolis-Hastings</em> algorithm (See Page 62 of this <a href="https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf">lecture note</a>).</p>
+<p>Suppose we want to draw a sample $X = (x_1, ..., x_n)$ from the distribution $Pr(X_{Query} | X_{Evidence} = Observations)$, where $X_{Query}$ and $X_{Evidence}$ are the query and evidence variables, respectively. The algorithm operates as follows:</p>
+<ol>
+<li>Start from an arbitrary sample $X^{(1)} = (x_1^{(1)}, ..., x_n^{(1)})$, satisfying the $X_{Evidence} = Observations$ equality.</li>
+<li>Assume that the last sample generated in out sample chain was $X^{(t)}$. We want to calculate the next sample, namely, $X^{(t+1)}$. Sample one <strong>non-evidence variable</strong> $x_i^{(t+1)}$ at a time, conditioned on all the others being $x_j^{(t+1)} = x_j^{(t)}$. In other words, we sample $x_i^{(t+1)}$ from $Pr(x_i | x_1^{(t)}, ..., x_{i-1}^{(t)}, x_{i+1}^{(t)}, ..., x_n^{(t)})$.</li>
+</ol>
+<p>The main idea of Gibbs sampling is the second step of the algorithm. It turns out that the specified probability can be calculated easily, since we have</p>
+<p>$$
+Pr(x_i | x_1^{(t)}, ..., x_{i-1}^{(t)}, x_{i+1}^{(t)}, ..., x_n^{(t)})
+$$</p>
+<p>$$
+ = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{j \neq i}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x Pr(x_1^{(t)}, ..., x_{i-1}^{(t)}, x, x_{i+1}^{(t)}, ..., x_n^{(t)})}<br/>
+$$</p>
+<p>$$
+ = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{j \neq i}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x [Pr(x_i=x|parents(x_i^{(t)})) \times \prod_{j \neq i}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))]} 
+$$</p>
+<p>$$
+ = \frac{Pr(x_i|parents(x_i^{(t)})) \times \prod_{x_j \in children(x_i)}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))}{\sum_x [Pr(x_i=x|parents(x_i^{(t)})) \times \prod_{x_j \in children(x_i)}^n Pr(x_j^{(t)} | parents'(x_j^{(t)}))]}. 
+$$</p>
+<p>Here, $parents'$ represents the values of the parents of the variables in $X^{(t)}$, replacing $x_i^{(t)}$ with the current relevant value of $x_i$. For example, this relevant value in the numerator is $x_i$ itself, while the value in denominator is the $x$ in the summation. As it is shown in the equation, the clauses corresponding to Conditional Probability Tables (CPTs) not including $x_i$ all cancel out.</p>
+<p>This cancellation will only leave the CPTs mentioning $x_i$, namely, the CPT of $x_i$ itself and the CPTs of its children. These CPTs are often referred to as the <strong>Markov blanket</strong> of $x_i$.</p>
+<p>Since the denominator is only a normalization factor, we can simply calculate the numerator by using a join operation on the Markov blanket of $x_i$! Note that the CPTs of the children of $x_i$ are all fully conditioned except for $x_i$, which we are calculating the distribution for. This means that the size of the pruned CPTs are small. (equal to $|D_i|$) As was shown in the equations, to calculate the probabilities, we only need to multiply the corresponding entries. This means that the join process of the CPTs won't introduce a large CPT and can be done efficiently. For an example of this process, refer to <a href="http://ce.sharif.edu/courses/99-00/1/ce417-2/resources/root/Slides/PDF/Session%2013_14.pdf">the 67th slide here</a>.</p>
+<p>It can be shown that as $t$ approaches infinity, $X^{(t)}$ approximates the distribution of $Pr(X_{Query} | X_{Evidence} = Observations)$. The proof is based on the fact that Gibbs sampling is actually simulating a Markov chain, therefore coverging to the steady state of the chain. However, it must be proven that the steady state probability distribution of this Markov chain is actually the same as the probability distribution $Pr(X_{Query} | X_{Evidence} = Observations)$. For a detailed proof, please refer to <a href="https://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/MIT14_384F13_lec26.pdf">this lecture note</a>.</p>
+<p>This updating procedure takes into account both upstream and downstream evidences in the Bayes' net, since each update conditions on every variable. This property fixes the problem of Likelihood Weighting, i.e., only conditioning on upstream variables. Thus, Gibbs sampling has better sampling efficiency (sum of the samples' weights is larger, therefore generating more effective samples), creating more useful data to be used in approximation.</p>
+<p>In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent the desired distribution. Furthermore, they may not be independent of the other samples $X'$ generated with the Gibbs method, because of the arbitrary choice of $X^{(1)}$. This begining of the chain is referred to as the <strong>burn-in period</strong>, and the samples generated here are generally not used as the desired $X$. So, $X$ is usually selected from the $X^{(t)}$ outside this period. However, this creates a time overhead, since the burn-in period could be somewhat large.</p>
+<p>Take the following Bayes' net as an example.</p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
+<p>Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.</p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/Gibbs_Example_Procedure.png" width="100%/"/>
+</p>
+<p>As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
+$$
+Pr(+b|+a, +e, +c, -d)
+$$
+$$
+ = \frac{Pr(+b | +a)Pr(-d | +b, +c)}{Pr(+b | +a)Pr(-d | +b, +c) + Pr(-b | +a)Pr(-d | -b, +c)} 
+$$
+$$
+= \frac{0.8 \times 0.5}{0.8 \times 0.5 + 0.2 \times 0.9} = \frac{0.4}{0.58} \approx 0.689.
+$$
+As it is shown, we only need to consider the terms in $B$'s Markov blanket. This is why the numerator is these terms for $+b$, while the denominator is the sum of these terms for $+b$ and $-b$. (Basically, the normalizing factor) Thus, based on the calculations, we can see that $B$ is resampled from the distribution $Pr(B | +a, +e, +c, -d)$, where $Pr(+b | +a, +e, +c, -d) \approx 0.689$. By repeating this procedure for other non-evidence variables for a number of iterations, namely, the burn-in value, we will eventually reach a sample from the distribution of the original Bayes' net. Finally, we repeat this sampling procedure to procure a healthy number of samples, and approximate the probability of the query by counting the number of consistent samples and dividing by the total number of samples.</p>
+<p>In a more general sense, Gibbs Sampling and Metropolis-Hastings are classified as <em>Markov Chain Monte Carlo</em> algorithms. Monte Carlo algorithms are basically the same as sampling. For more information, please refer to this <a href="https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf">lecture note</a>.</p>
+<h1>Conclusion</h1>
+<p>In this lecture note, we studied (randomized) approximation algorithms for inference in Bayes' nets. The main idea behind these methods was sampling, which enables fast approximation of event distributions. After describing the building block of sampling algorithms, four prominent methods of this type were studied, namely, Prior sampling, Rejection sampling, Likelihood Weighting and Gibbs sampling. The pros and cons of these methods were discussed, giving a somewhat complete picture as to what method performs the best in certain situations.</p>
+<h1>References and Further Reading</h1>
+<ul>
+<li>Artificial Intelligence, Sharif University of Technology, CE417-1, By Dr. Rohban. (Specifically, this <a href="https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf">lecture note</a>)</li>
+<li>Artificial Intelligence: A Mordern Approach (3rd Ed.), By Stuart Russel &amp; Peter Norvig.</li>
+<li>Time Series Analysis, Massachusetts Institute of Technology, By Prof. Mikusheva. (Specifically, this <a href="https://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/MIT14_384F13_lec26.pdf">lecture note on Gibbs Sampling</a>)</li>
+<li>Statistics, University of Minnesota, 8931m By Prof. Geyer. (Specifically, this <a href="https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf">lecture note on MCMCs</a>)</li>
+</ul>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+    
+
+
+
+
+    
+
+
+<footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
+        
+        style="min-height: 2vh;
+          background-image: url('images/notes-header.jpg');
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;"
+        
+>
+    <div
+            
+            class="wf-header-panel w-100 p-3 m-auto text-center"
+            
+    >
+        
+        © Powered by <a class="link-primary" href="https://webifier.github.io/">Webifier</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

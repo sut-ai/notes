@@ -1,0 +1,524 @@
+
+
+
+
+
+
+
+
+<html>
+
+
+
+
+
+<head>
+    <title>index.md</title>
+    
+<!-- viewport meta-tag for responsiveness -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap v5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- FontAwesome JS -->
+<script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
+
+<!-- Loading mathjax macro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config" defer>
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+</script>
+<link rel="stylesheet" href="/notes/assets/css/codehilite.css">
+<link rel="stylesheet" href="/notes/assets/css/main.css">
+<script defer src="/notes/assets/js/codeblocks.js"></script>
+
+<script>
+(function () {
+  const switcherEnabled = true;
+  const stored = switcherEnabled ? localStorage.getItem("webifier-theme") : null;
+  const selected = stored || "system";
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved = selected === "system" ? (systemDark ? "dark" : "light") : selected;
+  document.documentElement.dataset.wfTheme = selected;
+  document.documentElement.dataset.wfResolvedTheme = resolved;
+  document.documentElement.dataset.bsTheme = resolved === "dark" ? "dark" : "light";
+})();
+</script>
+<link rel="stylesheet" href="/notes/assets/css/theme.css">
+<script defer src="/notes/assets/js/theme.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VZRZHCJ5V0');
+</script>
+
+
+
+    
+
+    
+
+
+    
+</head>
+
+<body class="bg-body-tertiary">
+<div class="app-content container-fluid">
+    
+    
+
+
+
+
+
+
+<header class="container-fluid wf-page-chrome text-center align-items-center p-0"
+        
+        style="min-height: 5vh;"
+        
+>
+    <div
+            
+            class="wf-page-chrome-panel p-3 m-auto text-center"
+            
+    >
+        <h1>index.md</h1>
+        
+    </div>
+</header>
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+<nav class="px-2 navbar navbar-expand-sm bg-body-tertiary m-0 p-2 sticky-top shadow wf-navbar">
+    
+    
+    
+
+
+
+
+
+
+
+    <a href="https://github.com/sut-ai" class="btn navbar-brand"
+       
+    >
+    
+    
+    
+        SUT-AI
+    
+    </a>
+
+
+    
+
+    <div
+            
+            class="collapse navbar-collapse p-0 m-0"
+            id="navbarSupportedContent"
+            
+    >
+        <ul class="navbar-nav me-auto my-1 p-0">
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/supplementary/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Supplementary
+    
+    </a>
+
+
+                
+            </li>
+            
+            <li class="nav-item">
+                
+                
+                
+
+
+
+
+
+
+
+    <a href="/notes/" class="btn nav-link"
+       
+    >
+    
+    
+    
+        Notes
+    
+    </a>
+
+
+                
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="d-flex my-1 ms-auto">
+        
+        <button class="navbar-toggler btn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        <button
+                class="btn nav-item mt-1 webifier-theme-toggle"
+                type="button"
+                id="webifier-theme-toggle"
+                title="Switch color theme"
+                aria-label="Switch color theme"
+                data-theme-default="system"
+                data-theme-modes="system,light,dark"
+        >
+            <svg class="webifier-theme-symbol webifier-theme-symbol-system" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-light" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M6.34 17.66l-1.41 1.41"></path>
+                <path d="M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg class="webifier-theme-symbol webifier-theme-symbol-dark" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+            </svg>
+            <span class="visually-hidden webifier-theme-label">Theme</span>
+        </button>
+        
+
+        
+    </div>
+</nav>
+
+
+
+
+
+
+    <div id="app-body"
+         class="app-body container-fluid bg-body justify-content-center align-items-center d-flex shadow">
+        <div class="container-fluid p-0 m-0 no-gutters">
+            
+            <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
+                <div align="justify">
+
+# Inference in Bayes Nets 1
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Inference by Enumeration](#inference-by-enumeration)
+    - [Algorithm Explanation](#algorithm-explanation)
+    - [Algorithm Steps](#algorithm-steps)
+    - [Algorithm Pseudocode](#algorithm-pseudocode)
+    - [Algorithm Time Complexity](#algorithm-time-complexity)
+    - [Algorithm Example](#algorithm-example)
+- [Inference by Variable Elimination (Marginalizing Early)](#inference-by-variable-elimination-marginalizing-early)
+    - [Algorithm Explanation](#algorithm-explanation-1)
+    - [Algorithm Steps](#algorithm-steps-1)
+    - [Algorithm Pseudocode](#algorithm-pseudocode-1)
+    - [Algorithm Time Complexity](#algorithm-time-complexity-1)
+    - [Ordering Polytree Variables for VE](#ordering-polytree-variables-for-ve)
+    - [Cut-set Conditioning](#cut-set-conditioning)
+    - [Algorithm Example](#algorithm-example-1)
+- [Conclusions](#conclusions)
+- [References](#references)
+
+<p align="center"><img src="/notes/assets/./assets/intro.png" width="40%"/></p>
+
+## Introduction
+
+The basic task of a Bayesian network is to compute the posterior probability distributions for a set of query variables, given an observation of a set of evidence variables. This process is known as inference, but is also called Bayesian updating, belief updating or reasoning. There are two ways to approach this, either exact or approximate. Both approaches are worst-case NP-hard. An exact method obviously gives an exact result, while an approximate method tries to approach the correct outcome as close as possible. In this lecture, we discuss the exact inference method. Approximate (Sampling) method will be discussed in the next lecture. 
+
+## Inference by Enumeration
+
+The enumeration algorithm is a simple, brute-force algorithm for computing the distribution of a variable in a Bayes net. In this algorithm, we partition all Bayes net variables into three groups:
+
+1. evidence variables
+2. hidden variables
+3. query variables
+
+This algorithm takes query variables and evidence variables as input, and outputs the distribution of query variables. The evidence $e$ is whatever values you already know about the variables in the Bayes net. Evidence simplifies your work because instead of having to consider those variables’ whole distributions, you can assign them particular values, so they are no longer variables, they are constants. In the most general case, there is no evidence.
+
+### Algorithm Explanation
+
+This algorithm has to compute a distribution over $X$, which, because $X$ is a discrete variable, means computing the probability that $X$ takes on each of its possible values (the values in its domain). The algorithm does this simply by looping through all the possible values, and computing the probability for each one. Note that if there is no evidence, then it is literally just computing the probabilities $P(X=x_i)$ for each $x_i$ in $X$’s domain. If there is evidence, then it is computing $P(e, X=x_i)$ for each $x_i$ in $X$’s domain – that is, it is computing the probability that $X$ has the given value $x_i$ and the evidence is true – so in that case, we use the law of conditional probability, which says that $$P(X=x_i | e) = \frac{P(e, X=x_i)}{P(e)}$$. Once we have computed $P(e, X=x_i)$ for all $x_i$, we can just normalize those values to get the correct distribution $P(X | e)$.
+
+### Algorithm Steps
+
+We can summarize the explained algorithm in the following steps:
+
+1. Select the entries consistent with the evidence.
+2. Sum out the hidden variables to get joint distribution of query and evidence variables.
+3. Normalize the distribution to get the distribution of query variables.
+
+### Algorithm Pseudocode
+
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">enumeration_ask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">bn</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Input:</span>
+<span class="sd">        X: query variable</span>
+<span class="sd">        e: observed values for all variables</span>
+<span class="sd">        bn: given Bayes net </span>
+<span class="sd">    Output:</span>
+<span class="sd">        P(X | e)</span>
+<span class="sd">    """</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">ProbDist</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># a ditribution over X, where q(x) = P(X=x)</span>
+    <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span>
+        <span class="n">q</span><span class="p">[</span><span class="n">xi</span><span class="p">]</span> <span class="o">=</span> <span class="n">enumerate_all</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="p">[(</span><span class="n">X</span><span class="p">,</span> <span class="n">xi</span><span class="p">)],</span> <span class="n">bn</span><span class="o">.</span><span class="n">vars</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">q</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">enumerate_all</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="nb">vars</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Input:</span>
+<span class="sd">        e: observed values for all variables plus a new variable X assignment</span>
+<span class="sd">        vars: list of all variables</span>
+<span class="sd">    Output:</span>
+<span class="sd">        P(e[-1] | e[:-1])</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">vars</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">probability_condition_parents</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">*</span> <span class="n">enumerate_all</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">Y</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span>
+            <span class="nb">sum</span> <span class="o">+=</span> <span class="n">probability_condition_parents</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="p">[(</span><span class="n">Y</span><span class="p">,</span> <span class="n">yi</span><span class="p">)],</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">*</span> <span class="n">enumerate_all</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="p">[(</span><span class="n">Y</span><span class="p">,</span> <span class="n">yi</span><span class="p">)],</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">return</span> <span class="nb">sum</span>
+</code></pre></div>
+
+
+
+### Algorithm Time Complexity
+
+In the worst case, we have no evidence, so we have to for loop through all possible values of all variables. Hence, this algorithm has a complexity of $O(d^n)$ where $d$ is the size of the domain of the variables and $n$ is the number of variables.
+
+### Algorithm Example
+
+[Here](https://youtu.be/BrK7X_XlGB8) is a video of the algorithm running on a simple example.
+
+## Inference by Enumeration is Slow
+
+In enumeration, first we find the whole joint distribution, and then we marginalize out the hidden variables. Hence, it is too slow because of the big joint distribution we need to compute.
+
+If we marginalize out the hidden variables in the partial joint distribution, we can get a much faster algorithm. This method is called Inference by Variable Elimination.
+
+<p align="center"><img src="/notes/assets/./assets/comparison.png" width="100%"/></p>
+
+## Inference by Variable Elimination (Marginalizing Early)
+
+The point of the variable-elimination algorithm is that it is more bottom-up than top-down. Instead of figuring out the probabilities we need to compute and then computing all the other probabilities that each one depends on, we try to compute probabilities and then compute the other terms that depend on them, and repeatedly simplify the expression until we have something that is in terms of only the variable we’re looking for.
+
+The variable-elimination algorithm uses things called factors. A factor is basically a CPT, except that the entries are not necessarily probabilities (but they would be if you normalized them). You can think of a factor as a matrix with a dimension for each variable, where $Factor[VAL1][VAL2][…]$ is (proportional to) a probability such as 
+$$P(VAR1=VAL1, VAR2=VAL2, …)$$ 
+or you can think of it as a table with one row for each possible combination of assignments of values to the variables.
+
+We also define two operations on factors:
+1. Join
+2. Eliminate 
+
+Join is used to combine two factors. For example, if we have two factors $F_1$ and $F_2$, we can compute the joint distribution of $F_1$ and $F_2$ by multiplying their probabilities together, corresponding to the variable's value in factors.
+
+Eliminate is used to eliminate a variable from a factor. For example, if we have a factor $F$, and we want to eliminate $X$ from $F$, we can group rows by non-$X$ values and sum probabilities. This is exactly marginalization.
+
+&gt; - Join is exactly like SQL join.
+&gt; - Eliminate is like a group by and SUM aggregation function in SQL.
+
+### Algorithm Explanation
+
+This algorithm, like the previous one, takes a variable X and returns a distribution over X, given some evidence e. First, it initializes the list of factors; prior to any simplification, this is just the conditional probability tables for each variable given the evidence e. Then, it joins each factors with it. The summing-out process takes all the factors that depend on a given variable and replaces them with a single new factor that does not depend on that variable (by summing over all possible values of the variable). By the end of the loop, all the variables have been summed out except the query variable X, so then we can just multiply the factors together and normalize to get the distribution.
+
+### Algorithm Steps
+
+1. Initialize the list of factors which are local CPTs instantiated by the evidence.
+2. While there are any hidden variables:
+    - Join all the factors containing the hidden variable.
+    - Eliminate the hidden variable.
+3. Join all remaining factors.
+4. Normalize the resulting factor.
+
+### Algorithm Pseudocode
+
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">elimination_ask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">bn</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Input:</span>
+<span class="sd">        X: query variable</span>
+<span class="sd">        e: observed values for all variables</span>
+<span class="sd">        bn: given Bayes net </span>
+<span class="sd">    Output:</span>
+<span class="sd">        P(X | e)</span>
+<span class="sd">    """</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">marginalize</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">bn</span><span class="o">.</span><span class="n">vars</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">var</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">e</span> <span class="ow">and</span> <span class="n">var</span> <span class="o">!=</span> <span class="n">X</span><span class="p">:</span>
+            <span class="n">relevant_factors</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">factors</span> <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">vars</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">relevant_factors</span><span class="p">:</span>
+                <span class="n">factors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">eliminate</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">relevant_factors</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">join</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+### Algorithm Time Complexity
+
+The computational and space complexity of variable elimination is determined by the largest factor. In the worst case, this algorithm has exponential complexity, like the enumeration algorithm. But variable elimination ordering can greatly affect the largest factor. For example, in the following Bayes net, assuming the query is $P(X_n | Y_1, …, Y_n)$, the largest factor for following orders are different:
+
+- $Z, X_1, …, X_n \rightarrow 2^{n+1}$
+- $X_1, …, X_n, Z \rightarrow 2^{2}$ 
+
+<p align="center"><img src="/notes/assets/./assets/ve-ordering.png" width="30%"/></p>
+
+There is no general ordering that provides only small factors.
+
+### Ordering Polytree Variables for VE
+
+Polytree is a directed graph which has no undirected cycles. In this special kind of graph we can introduce an algorithm for ordering nodes in order to achieve small factors, and efficiently compute the joint distribution of the variables. 
+
+1. Drop edge directions
+2. Pick an arbitrary node as the root
+3. Do depth first search from the root
+4. Sort the resulting nodes in topological order
+5. Reverse the order
+
+Now, if we eliminate variables with this order, we would never get a factor larger than the original factors. This makes the VE algorithm linear time complexity.
+
+### Cut-set Conditioning
+
+We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree. You can see an example of this below.
+
+<p align="center"><img src="/notes/assets/./assets/conditioning-example.png" width="70%"/></p>
+
+### Algorithm Example
+
+[Here](https://youtu.be/w4sJ8SazmFo) is a video of elimination of a variable from a set of factors.
+
+## Conclusions
+
+We reviewed two major exact inference algorithms, the enumeration algorithm and the variable elimination algorithm. The enumeration algorithm is a simple algorithm that is easy to understand and implement, but it is not very efficient. On the other hand, the variable elimination algorithm is a more complex algorithm that is more efficient, but it is also harder to understand and implement. For both introduced algorithms, the worst-case time complexity is exponential. So in practice, using sampling is usually a better choice, which you will learn more about in the next lecture.
+
+## References
+
+- [Class Presentation](http://ce.sharif.edu/courses/99-00/1/ce417-2/resources/root/Slides/PDF/Session%2013_14.pdf)
+- [Visualizing Inference in Bayesian Networks](http://www.kbs.twi.tudelft.nl/Publications/MSc/2006-JRKoiter-Msc.html)
+- [Exact Inference in Bayes Nets](http://courses.csail.mit.edu/6.034s/handouts/spring12/bayesnets-pseudocode.pdf)
+- [Variable Elimination](https://ermongroup.github.io/cs228-notes/inference/ve/)
+- [Bayesian Networks - Inference (Part II)](https://ccc.inaoep.mx/~esucar/Clases-mgp/Notes/c7-bninf-p2.pdf)
+</div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+    
+
+
+
+
+    
+
+
+<footer class="container-fluid wf-page-chrome shadow text-center align-items-center p-0 hidden-print"
+        
+        style="min-height: 2vh;
+          background-image: url('images/notes-header.jpg');
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;"
+        
+>
+    <div
+            
+            class="wf-header-panel w-100 p-3 m-auto text-center"
+            
+    >
+        
+        © Powered by <a class="link-primary" href="https://webifier.github.io/">Webifier</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
