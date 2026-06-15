@@ -1,6 +1,8 @@
 brand:
-  text: CE417
-  link: https://sut-ai.github.io/
+  text: SUT-AI
+  link: https://github.com/sut-ai
 content:
-  - index: index
+  - link: /supplementary/
+    text: Supplementary
+  - link: /notes/
     text: Notes

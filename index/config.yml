@@ -1,10 +1,25 @@
-# utterances comments configuration
+webifier:
+  extensions:
+    site:
+      uses: webifier.standard
+    markdown:
+      uses: webifier.markdown
+    notebooks:
+      uses: webifier.notebook
+    theme:
+      uses: webifier.theme
+      default: system
+    comments:
+      uses: webifier.comments
+    people:
+      uses: webifier.people
+    analytics:
+      uses: webifier.analytics.google
+      measurement_id: G-VZRZHCJ5V0
+
 comments:
   repo: sut-ai/comments
   issue_term: pathname
   issue_label: comments
-  theme: github-light
+  theme: preferred-color-scheme
   crossorigin: anonymous
-
-# google analytics configuration
-google_analytics_id: G-VZRZHCJ5V0

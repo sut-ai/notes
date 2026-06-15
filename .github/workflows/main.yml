@@ -12,17 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Webify
-        uses: webifier/build@master
+        uses: webifier/build@v1.0.3
+        with:
+          python-version: "3.13"
+          index: index.yml
+          baseurl: /notes
+          publish_dir: webified
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: success()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          enable_jekyll: true
           allow_empty_commit: true
-          publish_dir: .
-          exclude_assets: '.github'
+          publish_dir: ./webified/
+          exclude_assets: '.github,README.md,LICENSE,.gitignore'

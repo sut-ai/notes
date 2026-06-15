@@ -1,57 +1,30 @@
 notebooks:
   label: Lecture Notes
   background: images/notes-header.jpg
-  content:
-    - pdf: notebooks/1_intelligent_agents/index.pdf
-      text: Intelligent Agents
-      kind: S2021, LN, PDF
-    - notebook: notebooks/2_uninformed_search/
-      kind: S2021, LN, Notebook
-    #- notebook: notebooks/3_informed_search/
-    - notebook: notebooks/4_advanced_heuistics/
-      kind: S2021, LN, Notebook
-    - notebook: notebooks/5_local_search/
-      kind: S2021, LN, Notebook
-    - notebook: notebooks/6_search_in_continuous_space/
-      kind: S2021, LN, Notebook
-    - pdf: notebooks/7_CSP/index.pdf
-      kind: S2021, LN, PDF
-    - notebook: notebooks/8_adversarial_search/
-      kind: S2021, LN, Notebook
-    - notebook: notebooks/9_bayesian_networks/index1.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/9_bayesian_networks/metadata.yml
-      text: Baysian Networks - Part 1
-    - notebook: notebooks/9_bayesian_networks/index2.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/9_bayesian_networks/metadata.yml
-      text: Baysian Networks - Part 2
-    - notebook: notebooks/9_bayesian_networks/index3.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/9_bayesian_networks/metadata.yml
-      text: Baysian Networks - Part 3
-    - notebook: notebooks/11_temporal_probability_models/index1.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/11_temporal_probability_models/metadata.yml
-      text: Temporal Probability Models - Part 1
-    - notebook: notebooks/11_temporal_probability_models/index2.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/11_temporal_probability_models/metadata.yml
-      text: Temporal Probability Models - Part 2
-    - notebook: notebooks/11_temporal_probability_models/index3.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/11_temporal_probability_models/metadata.yml
-      text: Temporal Probability Models - Part 3
-    - notebook: notebooks/11_temporal_probability_models/index4.ipynb
-      kind: S2021, LN, Notebook
-      metadata: notebooks/11_temporal_probability_models/metadata.yml
-      text: Temporal Probability Models - Part 4
-    - notebook: notebooks/13_learning_a_decision_tree/
-      kind: S2021, LN, Notebook
-    - notebook: notebooks/15_neural_networks/
-      kind: S2021, LN, Notebook
-    - notebook: notebooks/16_deep_neural_networks/
-      kind: S2021, LN, Notebook
-    #- notebook: notebooks/17_markov_decision_processes/
-    - notebook: notebooks/18_reinforcement_learning/
-      kind: S2021, LN, Notebook
+  content: |
+    These notes collect the course lecture handouts and notebooks. Notebook
+    entries open as rendered Webifier pages with author credits and comments;
+    PDF entries open as static handouts.
+
+    | Lecture | Topic | Format | Type |
+    | --- | --- | --- | --- |
+    | 1 | [Intelligent Agents](pdf=notebooks/1_intelligent_agents/index.pdf) | PDF | Lecture note |
+    | 2 | [Uninformed Search](notebook=notebooks/2_uninformed_search/index.ipynb) | Notebook | Lecture note |
+    | 3 | [Informed Search](notebook=notebooks/3_informed_search/index.ipynb) | Notebook | Lecture note |
+    | 4 | [Advanced Heuristics](notebook=notebooks/4_advanced_heuistics/index.ipynb) | Notebook | Lecture note |
+    | 5 | [Local Search](notebook=notebooks/5_local_search/index.ipynb) | Notebook | Lecture note |
+    | 6 | [Search in Continuous Space](notebook=notebooks/6_search_in_continuous_space/index.ipynb) | Notebook | Lecture note |
+    | 7 | [Constraint Satisfaction Problems](pdf=notebooks/7_CSP/index.pdf) | PDF | Lecture note |
+    | 8 | [Adversarial Search](notebook=notebooks/8_adversarial_search/index.ipynb) | Notebook | Lecture note |
+    | 9.1 | [Bayesian Networks Representation, Part 1](notebook=notebooks/9_bayesian_networks/index1.ipynb) | Notebook | Lecture note |
+    | 9.2 | [Bayesian Networks Representation, Part 2](notebook=notebooks/9_bayesian_networks/index2.ipynb) | Notebook | Lecture note |
+    | 9.3 | [Bayesian Networks Representation, Part 3](notebook=notebooks/9_bayesian_networks/index3.ipynb) | Notebook | Lecture note |
+    | 11.1 | [Temporal Probability Models, Part 1](notebook=notebooks/11_temporal_probability_models/index1.ipynb) | Notebook | Lecture note |
+    | 11.2 | [Temporal Probability Models, Part 2](notebook=notebooks/11_temporal_probability_models/index2.ipynb) | Notebook | Lecture note |
+    | 11.3 | [Temporal Probability Models, Part 3](notebook=notebooks/11_temporal_probability_models/index3.ipynb) | Notebook | Lecture note |
+    | 11.4 | [Temporal Probability Models, Part 4](notebook=notebooks/11_temporal_probability_models/index4.ipynb) | Notebook | Lecture note |
+    | 13 | [Learning a Decision Tree](notebook=notebooks/13_learning_a_decision_tree/index.ipynb) | Notebook | Lecture note |
+    | 15 | [Neural Networks and MLPs](notebook=notebooks/15_neural_networks/index.ipynb) | Notebook | Lecture note |
+    | 16 | [Deep Neural Networks](notebook=notebooks/16_deep_neural_networks/index.ipynb) | Notebook | Lecture note |
+    | 17 | [Markov Decision Processes](notebook=notebooks/17_markov_decision_processes/index.ipynb) | Notebook | Lecture note |
+    | 18 | [Reinforcement Learning](notebook=notebooks/18_reinforcement_learning/index.ipynb) | Notebook | Lecture note |
