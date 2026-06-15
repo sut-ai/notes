@@ -9,22 +9,37 @@ notebooks:
     | Lecture | Topic | Format | Type |
     | --- | --- | --- | --- |
     | 1 | [Intelligent Agents](pdf=notebooks/1_intelligent_agents/index.pdf) | PDF | Lecture note |
+    | 1 | [Intelligent Agents, Fall 2021](md=notebooks/1_intelligent_agents_fall_2021/index.md) | Markdown | Contributor note |
     | 2 | [Uninformed Search](notebook=notebooks/2_uninformed_search/index.ipynb) | Notebook | Lecture note |
     | 3 | [Informed Search](notebook=notebooks/3_informed_search/index.ipynb) | Notebook | Lecture note |
     | 4 | [Advanced Heuristics](notebook=notebooks/4_advanced_heuistics/index.ipynb) | Notebook | Lecture note |
+    | 4 | [Advanced Heuristics, Contributor Note](md=notebooks/advanced_heuristics/index.md) | Markdown | Contributor note |
     | 5 | [Local Search](notebook=notebooks/5_local_search/index.ipynb) | Notebook | Lecture note |
     | 6 | [Search in Continuous Space](notebook=notebooks/6_search_in_continuous_space/index.ipynb) | Notebook | Lecture note |
     | 7 | [Constraint Satisfaction Problems](pdf=notebooks/7_CSP/index.pdf) | PDF | Lecture note |
+    | 7 | [Constraint Satisfaction Problems, Contributor Note](md=notebooks/7_constraint_satisfaction_problems/index.md) | Markdown | Contributor note |
     | 8 | [Adversarial Search](notebook=notebooks/8_adversarial_search/index.ipynb) | Notebook | Lecture note |
+    | 8 | [Adversarial Search, Fall 2021](md=notebooks/adversarial_search_fall_2021/index.md) | Markdown | Contributor note |
     | 9.1 | [Bayesian Networks Representation, Part 1](notebook=notebooks/9_bayesian_networks/index1.ipynb) | Notebook | Lecture note |
     | 9.2 | [Bayesian Networks Representation, Part 2](notebook=notebooks/9_bayesian_networks/index2.ipynb) | Notebook | Lecture note |
     | 9.3 | [Bayesian Networks Representation, Part 3](notebook=notebooks/9_bayesian_networks/index3.ipynb) | Notebook | Lecture note |
+    | 9 | [Bayesian Networks Representation, Contributor Note](md=notebooks/bayesian_networks_representation/index.md) | Markdown | Contributor note |
+    | 10 | [Inference in Bayesian Networks](md=notebooks/10_inference_in_bayesian_networks_1/index.md) | Markdown | Contributor note |
+    | 10 | [Bayesian Networks Sampling](md=notebooks/10_bayesian_networks_sampling/index.md) | Markdown | Contributor note |
     | 11.1 | [Temporal Probability Models, Part 1](notebook=notebooks/11_temporal_probability_models/index1.ipynb) | Notebook | Lecture note |
     | 11.2 | [Temporal Probability Models, Part 2](notebook=notebooks/11_temporal_probability_models/index2.ipynb) | Notebook | Lecture note |
     | 11.3 | [Temporal Probability Models, Part 3](notebook=notebooks/11_temporal_probability_models/index3.ipynb) | Notebook | Lecture note |
     | 11.4 | [Temporal Probability Models, Part 4](notebook=notebooks/11_temporal_probability_models/index4.ipynb) | Notebook | Lecture note |
+    | 12 | [Temporal Probability Models, Contributor Note](md=notebooks/12_temporal_probability_models/index.md) | Markdown | Contributor note |
+    | 12 | [Introduction to Machine Learning Key Concepts](md=notebooks/12_Intro_to_machine_learning/index.md) | Markdown | Contributor note |
     | 13 | [Learning a Decision Tree](notebook=notebooks/13_learning_a_decision_tree/index.ipynb) | Notebook | Lecture note |
+    | 14 | [Regression](md=notebooks/14_regression/index.md) | Markdown | Contributor note |
     | 15 | [Neural Networks and MLPs](notebook=notebooks/15_neural_networks/index.ipynb) | Notebook | Lecture note |
     | 16 | [Deep Neural Networks](notebook=notebooks/16_deep_neural_networks/index.ipynb) | Notebook | Lecture note |
+    | 18 | [Deep Neural Networks, Contributor Note](md=notebooks/18_deep_neural_network/index.md) | Markdown | Contributor note |
     | 17 | [Markov Decision Processes](notebook=notebooks/17_markov_decision_processes/index.ipynb) | Notebook | Lecture note |
+    | 19 | [Introduction to Markov Decision Processes](md=notebooks/19_intro_to_mdp/index.md) | Markdown | Contributor note |
+    | 20 | [Markov Decision Processes, Part 2](md=notebooks/20_markov_decision_processes_part_2/index.md) | Markdown | Contributor note |
     | 18 | [Reinforcement Learning](notebook=notebooks/18_reinforcement_learning/index.ipynb) | Notebook | Lecture note |
+    | 21 | [Reinforcement Learning, Contributor Note](md=notebooks/21_reinforcement_learning/index.md) | Markdown | Contributor note |
+    | 22 | [Reinforcement Learning from Q-Value Onward](md=notebooks/22_reinforcement_learning_from_q_value_till_the_end/index.md) | Markdown | Contributor note |

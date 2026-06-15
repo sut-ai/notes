@@ -1,0 +1,29 @@
+title: Inference in Bayes Nets 1
+
+header:
+    title: Inference in Bayes Nets 1 # title of your notebook
+    description: An Introduction to Inference in Bayesian Networks Part 1 (Up to Sampling)
+
+authors:
+    label: 
+        position: top
+    content:
+    - name: Parsa Mohammadian
+      role: Author
+      contact:
+      - link: https://github.com/parsa2820
+        icon: fab fa-github
+    - name: Sara Azarnoush
+      role: Author
+      contact:
+      - link: https://github.com/saaz742
+        icon: fab fa-github
+    - name: Kasra Amani
+      role: Author
+      contact:
+      - link: https://github.com/iTskAsra
+        icon: fab fa-github
+
+comments:
+    label: false
+    kind: comments
