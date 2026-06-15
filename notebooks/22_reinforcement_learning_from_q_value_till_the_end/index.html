@@ -15,6 +15,7 @@
 <head>
     <title>Reinforcement Learning, Part 2</title>
     
+
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +52,11 @@
         });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  const webifierTheme = document.documentElement.getAttribute("data-bs-theme");
+  mermaid.initialize({ startOnLoad: true, theme: webifierTheme === "dark" ? "dark" : "default" });
+</script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
@@ -119,6 +125,7 @@
 
 
     
+
 
 
 
@@ -286,28 +293,7 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#reinforcement-learning-from-q-value-till-the-end">Reinforcement Learning (from Q Value till the end)</a></li><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#rl-types-of-algorithms">RL Types of Algorithms</a></li><li class="wf-content-toc-level-2"><a href="#q-learning">Q-Learning</a></li><li class="wf-content-toc-level-2"><a href="#active-rl">Active RL</a></li><li class="wf-content-toc-level-2"><a href="#real-life-example">Real life example</a></li><li class="wf-content-toc-level-2"><a href="#epsilon-greedy-strategy">Epsilon greedy strategy</a></li><li class="wf-content-toc-level-2"><a href="#exploration-functions">Exploration functions</a></li><li class="wf-content-toc-level-2"><a href="#regret">Regret</a></li><li class="wf-content-toc-level-2"><a href="#approximate-q-learning">Approximate Q-Learning</a></li><li class="wf-content-toc-level-2"><a href="#feature-based-representation">Feature-based representation</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#further-reading">Further Reading</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><div id="reinforcement-learning-from-q-value-till-the-end"><h2 id="reinforcement-learning-from-q-value-till-the-end"> Reinforcement Learning (from Q Value till the end) </h2></div>
-<ul>
-<li><a href="#reinforcement-learning-from-q-value-till-the-end">Reinforcement Learning (from Q Value till the end)</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#rl-types-of-algorithms">RL Types of Algorithms</a></li>
-<li><a href="#q-learning">Q-Learning</a></li>
-<li><a href="#active-rl">Active RL</a><ul>
-<li><a href="#real-life-example">Real life example</a></li>
-<li><a href="#epsilon-greedy-strategy">Epsilon greedy strategy</a></li>
-<li><a href="#exploration-functions">Exploration functions</a></li>
-</ul>
-</li>
-<li><a href="#regret">Regret</a></li>
-<li><a href="#approximate-q-learning">Approximate Q-Learning</a><ul>
-<li><a href="#feature-based-representation">Feature-based representation</a></li>
-</ul>
-</li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#further-reading">Further Reading</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<div id="introduction"><h2 id="introduction"> Introduction </h2></div>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#rl-types-of-algorithms">RL Types of Algorithms</a></li><li class="wf-content-toc-level-2"><a href="#q-learning">Q-Learning</a></li><li class="wf-content-toc-level-2"><a href="#active-rl">Active RL</a></li><li class="wf-content-toc-level-2"><a href="#real-life-example">Real life example</a></li><li class="wf-content-toc-level-2"><a href="#epsilon-greedy-strategy">Epsilon greedy strategy</a></li><li class="wf-content-toc-level-2"><a href="#exploration-functions">Exploration functions</a></li><li class="wf-content-toc-level-2"><a href="#regret">Regret</a></li><li class="wf-content-toc-level-2"><a href="#approximate-q-learning">Approximate Q-Learning</a></li><li class="wf-content-toc-level-2"><a href="#feature-based-representation">Feature-based representation</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#further-reading">Further Reading</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><div id="introduction"><h2 id="introduction"> Introduction </h2></div>
 <p>You’ve probably seen how a dog trainer gives a trait to the dogs after they complete a task successfully. That trait is a reward to the brain, and says “Well done! You are going in the right direction.” So after that, the brain tries to do that again to get more rewards. This way the dogs will learn and train themselves.
 This is sort of what happens in Reinforcement Learning(RL).
 Reinforcement learning (RL) is an area of machine learning concerned with how intelligent agents should take actions in an environment to maximize the reward by taking a series of actions in response to a dynamic environment. It is the science of making optimal decisions using experiences.</p>

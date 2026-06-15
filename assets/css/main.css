@@ -102,7 +102,7 @@ a {
 }
 
 .wf-page-navigation-inner {
-    align-items: center;
+    align-items: stretch;
     display: grid;
     gap: 0.75rem;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -110,25 +110,34 @@ a {
 
 .wf-page-navigation-slot,
 .wf-page-navigation-home {
+    align-items: stretch;
+    display: flex;
     min-width: 0;
 }
 
 .wf-page-navigation-home {
+    justify-content: center;
     text-align: center;
 }
 
 .wf-page-navigation-previous {
+    justify-content: flex-start;
     text-align: left;
 }
 
 .wf-page-navigation-next {
+    justify-content: flex-end;
     text-align: right;
 }
 
 .wf-page-navigation a {
-    display: inline-block;
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
     line-height: 1.25;
     max-width: 100%;
+    min-height: 2.5rem;
     text-decoration: none;
     white-space: normal;
 }
@@ -175,6 +184,42 @@ a {
     margin-top: 1.5rem;
     margin-bottom: 0.65rem;
     scroll-margin-top: 5rem;
+}
+
+.wf-content-page-body .jp-RenderedHTMLCommon h1,
+.wf-content-page-body .jp-RenderedHTMLCommon h2,
+.wf-content-page-body .jp-RenderedHTMLCommon h3 {
+    margin-top: 2rem !important;
+    margin-bottom: 0.85rem !important;
+    scroll-margin-top: 5rem;
+}
+
+.wf-content-page-body .jp-RenderedHTMLCommon h4,
+.wf-content-page-body .jp-RenderedHTMLCommon h5,
+.wf-content-page-body .jp-RenderedHTMLCommon h6 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.65rem !important;
+    scroll-margin-top: 5rem;
+}
+
+.wf-content-page-body .jp-MarkdownCell:has(.jp-RenderedHTMLCommon > h1:first-child),
+.wf-content-page-body .jp-MarkdownCell:has(.jp-RenderedHTMLCommon > h2:first-child),
+.wf-content-page-body .jp-MarkdownCell:has(.jp-RenderedHTMLCommon > h3:first-child) {
+    margin-top: 1.65rem;
+}
+
+.wf-content-page-body .jp-MarkdownCell:has(.jp-RenderedHTMLCommon > h4:first-child),
+.wf-content-page-body .jp-MarkdownCell:has(.jp-RenderedHTMLCommon > h5:first-child),
+.wf-content-page-body .jp-MarkdownCell:has(.jp-RenderedHTMLCommon > h6:first-child) {
+    margin-top: 1.2rem;
+}
+
+.wf-content-page-body .jp-MarkdownCell:first-child {
+    margin-top: 0;
+}
+
+.wf-content-page-body .jp-RenderedHTMLCommon > :first-child:is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0.75rem !important;
 }
 
 .wf-content-page-body img:not(.wf-person-avatar) {

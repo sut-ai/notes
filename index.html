@@ -14,6 +14,7 @@
 <head>
     <title>SUT-AI | Notes</title>
     
+
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +51,11 @@
         });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  const webifierTheme = document.documentElement.getAttribute("data-bs-theme");
+  mermaid.initialize({ startOnLoad: true, theme: webifierTheme === "dark" ? "dark" : "default" });
+</script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
@@ -132,6 +138,7 @@
 
 
     
+
 
 
 
@@ -342,7 +349,7 @@ PDF entries open as static handouts.</p>
 <tbody>
 <tr>
 <td rowspan="2">Lecture 1</td>
-<td><a href="/notes/assets/notebooks/1_intelligent_agents/index.pdf">Intelligent Agents</a></td>
+<td><a href="/notes/notebooks/1_intelligent_agents/">Intelligent Agents</a></td>
 </tr>
 <tr>
 <td><a href="/notes/notebooks/1_intelligent_agents_fall_2021/">Intelligent Agents, Fall 2021</a></td>
@@ -372,7 +379,7 @@ PDF entries open as static handouts.</p>
 </tr>
 <tr>
 <td rowspan="2">Lecture 7</td>
-<td><a href="/notes/assets/notebooks/7_CSP/index.pdf">Constraint Satisfaction Problems</a></td>
+<td><a href="/notes/notebooks/7_CSP/">Constraint Satisfaction Problems</a></td>
 </tr>
 <tr>
 <td><a href="/notes/notebooks/7_constraint_satisfaction_problems/">Constraint Satisfaction Problems Notes</a></td>

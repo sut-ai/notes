@@ -15,6 +15,7 @@
 <head>
     <title>CSP</title>
     
+
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +52,11 @@
         });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  const webifierTheme = document.documentElement.getAttribute("data-bs-theme");
+  mermaid.initialize({ startOnLoad: true, theme: webifierTheme === "dark" ? "dark" : "default" });
+</script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
@@ -119,6 +125,7 @@
 
 
     
+
 
 
 
@@ -286,36 +293,7 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#examples">Examples</a></li><li class="wf-content-toc-level-2"><a href="#map-coloring">Map-Coloring</a></li><li class="wf-content-toc-level-2"><a href="#constraint-graph">Constraint Graph</a></li><li class="wf-content-toc-level-2"><a href="#n-queens">N-Queens</a></li><li class="wf-content-toc-level-2"><a href="#real-world-csps">Real World CSPs</a></li><li class="wf-content-toc-level-2"><a href="#csp-varieties">CSP Varieties</a></li><li class="wf-content-toc-level-2"><a href="#constraint-varieties">Constraint Varieties</a></li><li class="wf-content-toc-level-2"><a href="#converting-n-ary-csp-to-binary-csp">Converting n-ary CSP to binary CSP</a></li><li class="wf-content-toc-level-2"><a href="#standard-search-formulation-incremental">Standard Search Formulation (incremental)</a></li><li class="wf-content-toc-level-2"><a href="#backtracking-search">Backtracking Search</a></li><li class="wf-content-toc-level-2"><a href="#improving-backtrack">Improving Backtrack</a></li><li class="wf-content-toc-level-2"><a href="#the-minimum-remaining-value-mrv">The Minimum Remaining Value (MRV)</a></li><li class="wf-content-toc-level-2"><a href="#degree-heuristic">Degree Heuristic</a></li><li class="wf-content-toc-level-2"><a href="#least-constraining-value">Least Constraining Value</a></li><li class="wf-content-toc-level-2"><a href="#forward-checking">Forward Checking</a></li><li class="wf-content-toc-level-2"><a href="#constraint-propagation">Constraint Propagation</a></li><li class="wf-content-toc-level-2"><a href="#arc-consistency-ac3">Arc consistency (AC3)</a></li><li class="wf-content-toc-level-2"><a href="#extending-to-cases-which-have-n-ary-constraints">Extending to cases which have n-ary constraints</a></li><li class="wf-content-toc-level-2"><a href="#arc-consistency-limitations">Arc-Consistency limitations</a></li><li class="wf-content-toc-level-2"><a href="#k-consistency">k-Consistency</a></li><li class="wf-content-toc-level-2"><a href="#strong-k-consistency">Strong k-Consistency</a></li><li class="wf-content-toc-level-2"><a href="#using-problem-structure">Using problem structure</a></li><li class="wf-content-toc-level-2"><a href="#summary">Summary</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
-<ul>
-<li><a href="#constraint-satisfaction">Constraint Satisfaction</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#map-coloring">Map-Coloring</a></li>
-<li><a href="#constraint-graph">Constraint Graph</a></li>
-<li><a href="#n-queens">N-Queens</a></li>
-<li><a href="#real-world-csps">Real World CSPs</a></li>
-<li><a href="#csp-varieties">CSP Varieties</a></li>
-<li><a href="#constraint-varieties">Constraint Varieties</a></li>
-<li><a href="#converting-n-ary-csp-to-binary-csp">Converting n-ary CSP to binary CSP</a></li>
-<li><a href="#standard-search-formulation-incremental">Standard Search Formulation (incremental)</a></li>
-<li><a href="#backtracking-search">Backtracking Search</a></li>
-<li><a href="#improving-backtrack">Improving Backtrack</a></li>
-<li><a href="#the-minimum-remaining-value-mrv">The Minimum Remaining Value (MRV)</a></li>
-<li><a href="#degree-heuristic">Degree Heuristic</a></li>
-<li><a href="#least-constraining-value">Least Constraining Value</a></li>
-<li><a href="#forward-checking">Forward Checking</a></li>
-<li><a href="#constraint-propagation-div-idcp">Constraint Propagation </a></li>
-<li><a href="#arc-consistency-ac3-div-idac3">Arc consistency (AC3) </a></li>
-<li><a href="#extending-to-cases-which-have-n-ary-constraints-div-idext">Extending to cases which have n-ary constraints </a></li>
-<li><a href="#arc-consistency-limitations-div-idacl">Arc-Consistency limitations </a></li>
-<li><a href="#k-consistency-div-idkc">k-Consistency </a></li>
-<li><a href="#strong-k-consistency-div-idskc">Strong k-Consistency </a></li>
-<li><a href="#using-problem-structure-div-idps">Using problem structure </a></li>
-<li><a href="#summary">Summary</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<h2 id="introduction">Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#examples">Examples</a></li><li class="wf-content-toc-level-2"><a href="#map-coloring">Map-Coloring</a></li><li class="wf-content-toc-level-2"><a href="#constraint-graph">Constraint Graph</a></li><li class="wf-content-toc-level-2"><a href="#n-queens">N-Queens</a></li><li class="wf-content-toc-level-2"><a href="#real-world-csps">Real World CSPs</a></li><li class="wf-content-toc-level-2"><a href="#csp-varieties">CSP Varieties</a></li><li class="wf-content-toc-level-2"><a href="#constraint-varieties">Constraint Varieties</a></li><li class="wf-content-toc-level-2"><a href="#converting-n-ary-csp-to-binary-csp">Converting n-ary CSP to binary CSP</a></li><li class="wf-content-toc-level-2"><a href="#standard-search-formulation-incremental">Standard Search Formulation (incremental)</a></li><li class="wf-content-toc-level-2"><a href="#backtracking-search">Backtracking Search</a></li><li class="wf-content-toc-level-2"><a href="#improving-backtrack">Improving Backtrack</a></li><li class="wf-content-toc-level-2"><a href="#the-minimum-remaining-value-mrv">The Minimum Remaining Value (MRV)</a></li><li class="wf-content-toc-level-2"><a href="#degree-heuristic">Degree Heuristic</a></li><li class="wf-content-toc-level-2"><a href="#least-constraining-value">Least Constraining Value</a></li><li class="wf-content-toc-level-2"><a href="#forward-checking">Forward Checking</a></li><li class="wf-content-toc-level-2"><a href="#constraint-propagation">Constraint Propagation</a></li><li class="wf-content-toc-level-2"><a href="#arc-consistency-ac3">Arc consistency (AC3)</a></li><li class="wf-content-toc-level-2"><a href="#extending-to-cases-which-have-n-ary-constraints">Extending to cases which have n-ary constraints</a></li><li class="wf-content-toc-level-2"><a href="#arc-consistency-limitations">Arc-Consistency limitations</a></li><li class="wf-content-toc-level-2"><a href="#k-consistency">k-Consistency</a></li><li class="wf-content-toc-level-2"><a href="#strong-k-consistency">Strong k-Consistency</a></li><li class="wf-content-toc-level-2"><a href="#using-problem-structure">Using problem structure</a></li><li class="wf-content-toc-level-2"><a href="#summary">Summary</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h2 id="introduction">Introduction</h2>
 <p>Try to the answer this problem: </p>
 <p>We want to find two countries that the language of one of them is Hungarian and the name of other one starts with the letter "A".</p>
 <p>You can see that answering this problem differs from other search problems. Here, at first you consider some <strong>constraints</strong> and instead of search whole countries, you search <strong>locally</strong> and only for the countries  that may satisfy the constraints.</p>
@@ -724,9 +702,9 @@ These pairs represent the conditions of solution by a set of constraints on vari
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="/notes/notebooks/6_search_in_continuous_space/">
+            <a class="btn btn-link p-0" href="/notes/notebooks/7_CSP/">
                 <span class="d-block small text-muted">Back</span>
-                <span>Search in Continuous Space</span>
+                <span>Constraint Satisfaction Problems</span>
             </a>
             
         </div>
