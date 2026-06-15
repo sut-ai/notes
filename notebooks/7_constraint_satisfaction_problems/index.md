@@ -1,31 +1,3 @@
-Constraint Satisfaction
-==============
-- [Constraint Satisfaction](#constraint-satisfaction)
-- [Introduction](#introduction)
-- [Examples](#examples)
-  - [Map-Coloring](#map-coloring)
-  - [Constraint Graph](#constraint-graph)
-  - [N-Queens](#n-queens)
-  - [Real World CSPs](#real-world-csps)
-- [CSP Varieties](#csp-varieties)
-- [Constraint Varieties](#constraint-varieties)
-- [Converting n-ary CSP to binary CSP](#converting-n-ary-csp-to-binary-csp)
-- [Standard Search Formulation (incremental)](#standard-search-formulation-incremental)
-- [Backtracking Search](#backtracking-search)
-- [Improving Backtrack](#improving-backtrack)
-  - [The Minimum Remaining Value (MRV)](#the-minimum-remaining-value-mrv)
-  - [Degree Heuristic](#degree-heuristic)
-  - [Least Constraining Value](#least-constraining-value)
-  - [Forward Checking](#forward-checking)
-  - [Constraint Propagation <div id='CP'/>](#constraint-propagation-div-idcp)
-  - [Arc consistency (AC3) <div id='AC3'/>](#arc-consistency-ac3-div-idac3)
-  - [Extending to cases which have n-ary constraints <div id='EXT'/>](#extending-to-cases-which-have-n-ary-constraints-div-idext)
-  - [Arc-Consistency limitations <div id='ACL'/>](#arc-consistency-limitations-div-idacl)
-  - [k-Consistency <div id='KC'/>](#k-consistency-div-idkc)
-  - [Strong k-Consistency <div id='SKC'/>](#strong-k-consistency-div-idskc)
-  - [Using problem structure <div id='PS'/>](#using-problem-structure-div-idps)
-- [Summary](#summary)
-- [References](#references)
 # Introduction
 
 Try to the answer this problem: 

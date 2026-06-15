@@ -1,20 +1,3 @@
-<div id='reinforcement-learning-from-q-value-till-the-end'><h1> Reinforcement Learning (from Q Value till the end) </h1></div>
-
-- [Reinforcement Learning (from Q Value till the end)](#reinforcement-learning-from-q-value-till-the-end)
-- [Introduction](#introduction)
-- [RL Types of Algorithms](#rl-types-of-algorithms)
-- [Q-Learning](#q-learning)
-- [Active RL](#active-rl)
-    - [Real life example](#real-life-example)
-    - [Epsilon greedy strategy](#epsilon-greedy-strategy)
-    - [Exploration functions](#exploration-functions)
-- [Regret](#regret)
-- [Approximate Q-Learning](#approximate-q-learning)
-    - [Feature-based representation](#feature-based-representation)
-- [Conclusion](#conclusion)
-- [Further Reading](#further-reading)
-- [References](#references)
-
 <div id='introduction'><h1> Introduction </h1></div>
 
 You’ve probably seen how a dog trainer gives a trait to the dogs after they complete a task successfully. That trait is a reward to the brain, and says “Well done! You are going in the right direction.” So after that, the brain tries to do that again to get more rewards. This way the dogs will learn and train themselves.

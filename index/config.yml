@@ -6,6 +6,8 @@ webifier:
       uses: webifier.markdown
     notebooks:
       uses: webifier.notebook
+    pdf:
+      uses: webifier.pdf
     theme:
       uses: webifier.theme
       default: system
@@ -36,6 +38,8 @@ page_navigation:
     title: Notes
     href: /notes/
   items:
+    - title: Intelligent Agents
+      src: notebooks/1_intelligent_agents/index.pdf
     - title: Intelligent Agents Notes
       src: notebooks/1_intelligent_agents_fall_2021/index.md
     - title: Uninformed Search
@@ -50,6 +54,8 @@ page_navigation:
       src: notebooks/5_local_search/index.ipynb
     - title: Search in Continuous Space
       src: notebooks/6_search_in_continuous_space/index.ipynb
+    - title: Constraint Satisfaction Problems
+      src: notebooks/7_CSP/index.pdf
     - title: Constraint Satisfaction Problems Notes
       src: notebooks/7_constraint_satisfaction_problems/index.md
     - title: Adversarial Search
