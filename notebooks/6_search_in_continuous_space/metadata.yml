@@ -1,7 +1,8 @@
 title: LN | Search in Continuous Space
 
 header:
-  title: Search in Continuous Space (Convex Optimization and Gradient descent)
+  title: Search in Continuous Space
+  description: Convex optimization and gradient descent
 
 authors:
   label:

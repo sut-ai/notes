@@ -1,7 +1,7 @@
 # **Bayesian Networks Representation**
 
 ## **Table of contents:**
-- [Intoduction](#Intoduction)
+- [Introduction](#Introduction)
 	- [Probabilistic Models](#Probabilistic-Models)
 - [Independence](#Independence)
 	- [Conditional Independence](#Conditional-Independence)
@@ -27,7 +27,7 @@
 	- [What comes next](#What-comes-next)
 - [References](#References)
 
-## Intoduction
+## Introduction
 
 Imagine this scenario. You want to know if the food in your fridge is going to spoil. You can hear your fridge humming. Does that change the probability of the food spoiling? What if you see that the fridge door is open? Are these evidences even related to the food spoiling? In this lecture note, we want to introduce a probabilistic model to study this kind of problems. 
 

@@ -1,4 +1,4 @@
-# Introduction to machine learning key concepts
+# Introduction to Machine Learning
 
 # Table of contents
 1. [Introduction](#introduction)

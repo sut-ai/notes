@@ -1,6 +1,4 @@
-<div align="justify">
-
-# Inference in Bayes Nets 1
+# Exact Inference in Bayesian Networks
 
 ## Table of Contents
 
@@ -201,4 +199,3 @@ We reviewed two major exact inference algorithms, the enumeration algorithm and 
 - [Exact Inference in Bayes Nets](http://courses.csail.mit.edu/6.034s/handouts/spring12/bayesnets-pseudocode.pdf)
 - [Variable Elimination](https://ermongroup.github.io/cs228-notes/inference/ve/)
 - [Bayesian Networks - Inference (Part II)](https://ccc.inaoep.mx/~esucar/Clases-mgp/Notes/c7-bninf-p2.pdf)
-</div>

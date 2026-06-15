@@ -1,7 +1,8 @@
 title: LN | Adversarial Search
 
 header:
-  title: Adversarial Search (minimax, alpha-beta pruning, expectimax) 
+  title: Adversarial Search
+  description: Minimax, alpha-beta pruning, and expectimax
 
 authors:
   label:

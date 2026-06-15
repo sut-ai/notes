@@ -1,45 +1,140 @@
 notebooks:
-  label: Lecture Notes
-  background: images/notes-header.jpg
+  label: false
   content: |
     These notes collect the course lecture handouts and notebooks. Notebook
     entries open as rendered Webifier pages with author credits and comments;
     PDF entries open as static handouts.
 
-    | Lecture | Topic | Format | Type |
-    | --- | --- | --- | --- |
-    | 1 | [Intelligent Agents](pdf=notebooks/1_intelligent_agents/index.pdf) | PDF | Lecture note |
-    | 1 | [Intelligent Agents, Fall 2021](md=notebooks/1_intelligent_agents_fall_2021/index.md) | Markdown | Contributor note |
-    | 2 | [Uninformed Search](notebook=notebooks/2_uninformed_search/index.ipynb) | Notebook | Lecture note |
-    | 3 | [Informed Search](notebook=notebooks/3_informed_search/index.ipynb) | Notebook | Lecture note |
-    | 4 | [Advanced Heuristics](notebook=notebooks/4_advanced_heuistics/index.ipynb) | Notebook | Lecture note |
-    | 4 | [Advanced Heuristics, Contributor Note](md=notebooks/advanced_heuristics/index.md) | Markdown | Contributor note |
-    | 5 | [Local Search](notebook=notebooks/5_local_search/index.ipynb) | Notebook | Lecture note |
-    | 6 | [Search in Continuous Space](notebook=notebooks/6_search_in_continuous_space/index.ipynb) | Notebook | Lecture note |
-    | 7 | [Constraint Satisfaction Problems](pdf=notebooks/7_CSP/index.pdf) | PDF | Lecture note |
-    | 7 | [Constraint Satisfaction Problems, Contributor Note](md=notebooks/7_constraint_satisfaction_problems/index.md) | Markdown | Contributor note |
-    | 8 | [Adversarial Search](notebook=notebooks/8_adversarial_search/index.ipynb) | Notebook | Lecture note |
-    | 8 | [Adversarial Search, Fall 2021](md=notebooks/adversarial_search_fall_2021/index.md) | Markdown | Contributor note |
-    | 9.1 | [Bayesian Networks Representation, Part 1](notebook=notebooks/9_bayesian_networks/index1.ipynb) | Notebook | Lecture note |
-    | 9.2 | [Bayesian Networks Representation, Part 2](notebook=notebooks/9_bayesian_networks/index2.ipynb) | Notebook | Lecture note |
-    | 9.3 | [Bayesian Networks Representation, Part 3](notebook=notebooks/9_bayesian_networks/index3.ipynb) | Notebook | Lecture note |
-    | 9 | [Bayesian Networks Representation, Contributor Note](md=notebooks/bayesian_networks_representation/index.md) | Markdown | Contributor note |
-    | 10 | [Inference in Bayesian Networks](md=notebooks/10_inference_in_bayesian_networks_1/index.md) | Markdown | Contributor note |
-    | 10 | [Bayesian Networks Sampling](md=notebooks/10_bayesian_networks_sampling/index.md) | Markdown | Contributor note |
-    | 11.1 | [Temporal Probability Models, Part 1](notebook=notebooks/11_temporal_probability_models/index1.ipynb) | Notebook | Lecture note |
-    | 11.2 | [Temporal Probability Models, Part 2](notebook=notebooks/11_temporal_probability_models/index2.ipynb) | Notebook | Lecture note |
-    | 11.3 | [Temporal Probability Models, Part 3](notebook=notebooks/11_temporal_probability_models/index3.ipynb) | Notebook | Lecture note |
-    | 11.4 | [Temporal Probability Models, Part 4](notebook=notebooks/11_temporal_probability_models/index4.ipynb) | Notebook | Lecture note |
-    | 12 | [Temporal Probability Models, Contributor Note](md=notebooks/12_temporal_probability_models/index.md) | Markdown | Contributor note |
-    | 12 | [Introduction to Machine Learning Key Concepts](md=notebooks/12_Intro_to_machine_learning/index.md) | Markdown | Contributor note |
-    | 13 | [Learning a Decision Tree](notebook=notebooks/13_learning_a_decision_tree/index.ipynb) | Notebook | Lecture note |
-    | 14 | [Regression](md=notebooks/14_regression/index.md) | Markdown | Contributor note |
-    | 15 | [Neural Networks and MLPs](notebook=notebooks/15_neural_networks/index.ipynb) | Notebook | Lecture note |
-    | 16 | [Deep Neural Networks](notebook=notebooks/16_deep_neural_networks/index.ipynb) | Notebook | Lecture note |
-    | 18 | [Deep Neural Networks, Contributor Note](md=notebooks/18_deep_neural_network/index.md) | Markdown | Contributor note |
-    | 17 | [Markov Decision Processes](notebook=notebooks/17_markov_decision_processes/index.ipynb) | Notebook | Lecture note |
-    | 19 | [Introduction to Markov Decision Processes](md=notebooks/19_intro_to_mdp/index.md) | Markdown | Contributor note |
-    | 20 | [Markov Decision Processes, Part 2](md=notebooks/20_markov_decision_processes_part_2/index.md) | Markdown | Contributor note |
-    | 18 | [Reinforcement Learning](notebook=notebooks/18_reinforcement_learning/index.ipynb) | Notebook | Lecture note |
-    | 21 | [Reinforcement Learning, Contributor Note](md=notebooks/21_reinforcement_learning/index.md) | Markdown | Contributor note |
-    | 22 | [Reinforcement Learning from Q-Value Onward](md=notebooks/22_reinforcement_learning_from_q_value_till_the_end/index.md) | Markdown | Contributor note |
+    <table>
+      <thead>
+        <tr>
+          <th>Lecture</th>
+          <th>Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">Lecture 1</td>
+          <td><a href="pdf=notebooks/1_intelligent_agents/index.pdf">Intelligent Agents</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/1_intelligent_agents_fall_2021/index.md">Intelligent Agents, Fall 2021</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 2</td>
+          <td><a href="notebook=notebooks/2_uninformed_search/index.ipynb">Uninformed Search</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 3</td>
+          <td><a href="notebook=notebooks/3_informed_search/index.ipynb">Informed Search</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Lecture 4</td>
+          <td><a href="notebook=notebooks/4_advanced_heuistics/index.ipynb">Advanced Heuristics</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/advanced_heuristics/index.md">Advanced Heuristics Notes</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 5</td>
+          <td><a href="notebook=notebooks/5_local_search/index.ipynb">Local Search</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 6</td>
+          <td><a href="notebook=notebooks/6_search_in_continuous_space/index.ipynb">Search in Continuous Space</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Lecture 7</td>
+          <td><a href="pdf=notebooks/7_CSP/index.pdf">Constraint Satisfaction Problems</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/7_constraint_satisfaction_problems/index.md">Constraint Satisfaction Problems Notes</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Lecture 8</td>
+          <td><a href="notebook=notebooks/8_adversarial_search/index.ipynb">Adversarial Search</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/adversarial_search_fall_2021/index.md">Adversarial Search Notes</a></td>
+        </tr>
+        <tr>
+          <td rowspan="4">Lecture 9</td>
+          <td><a href="notebook=notebooks/9_bayesian_networks/index1.ipynb">Bayesian Networks, Part 1</a></td>
+        </tr>
+        <tr>
+          <td><a href="notebook=notebooks/9_bayesian_networks/index2.ipynb">Bayesian Networks, Part 2</a></td>
+        </tr>
+        <tr>
+          <td><a href="notebook=notebooks/9_bayesian_networks/index3.ipynb">Bayesian Networks, Part 3</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/bayesian_networks_representation/index.md">Bayesian Networks Representation Notes</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Lecture 10</td>
+          <td><a href="md=notebooks/10_inference_in_bayesian_networks_1/index.md">Exact Inference in Bayesian Networks</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/10_bayesian_networks_sampling/index.md">Approximate Inference in Bayesian Networks</a></td>
+        </tr>
+        <tr>
+          <td rowspan="4">Lecture 11</td>
+          <td><a href="notebook=notebooks/11_temporal_probability_models/index1.ipynb">Temporal Probability Models, Part 1</a></td>
+        </tr>
+        <tr>
+          <td><a href="notebook=notebooks/11_temporal_probability_models/index2.ipynb">Temporal Probability Models, Part 2</a></td>
+        </tr>
+        <tr>
+          <td><a href="notebook=notebooks/11_temporal_probability_models/index3.ipynb">Temporal Probability Models, Part 3</a></td>
+        </tr>
+        <tr>
+          <td><a href="notebook=notebooks/11_temporal_probability_models/index4.ipynb">Temporal Probability Models, Part 4</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Lecture 12</td>
+          <td><a href="md=notebooks/12_temporal_probability_models/index.md">Hidden Markov Models</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/12_Intro_to_machine_learning/index.md">Introduction to Machine Learning</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 13</td>
+          <td><a href="notebook=notebooks/13_learning_a_decision_tree/index.ipynb">Decision Tree Learning</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 14</td>
+          <td><a href="md=notebooks/14_regression/index.md">Regression</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 15</td>
+          <td><a href="notebook=notebooks/15_neural_networks/index.ipynb">Neural Networks and MLPs</a></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Lecture 16</td>
+          <td><a href="notebook=notebooks/16_deep_neural_networks/index.ipynb">Deep Neural Networks and CNNs</a></td>
+        </tr>
+        <tr>
+          <td><a href="md=notebooks/18_deep_neural_network/index.md">Deep Neural Networks: Convolutional Models</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 17</td>
+          <td><a href="notebook=notebooks/17_markov_decision_processes/index.ipynb">Markov Decision Processes</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 18</td>
+          <td><a href="notebook=notebooks/18_reinforcement_learning/index.ipynb">Reinforcement Learning</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 19</td>
+          <td><a href="md=notebooks/19_intro_to_mdp/index.md">Introduction to Markov Decision Processes</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 21</td>
+          <td><a href="md=notebooks/21_reinforcement_learning/index.md">Reinforcement Learning Notes</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 22</td>
+          <td><a href="md=notebooks/22_reinforcement_learning_from_q_value_till_the_end/index.md">Reinforcement Learning, Part 2</a></td>
+        </tr>
+      </tbody>
+    </table>

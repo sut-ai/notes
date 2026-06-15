@@ -1,8 +1,8 @@
-title: Temporal Probability Models # shown on browser tab
+title: Hidden Markov Models # shown on browser tab
 
 header:
-    title: Temporal Probability Models (up to filter/monitor)
-    description: Temporal Probability Models and Hidden Markov Models and their Applications
+    title: Hidden Markov Models
+    description: Temporal probability models, filtering, monitoring, and applications
 authors:
     kind: people
     label: 

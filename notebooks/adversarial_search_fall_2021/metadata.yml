@@ -7,6 +7,7 @@ header:
 authors:
     label: 
         position: top
+    kind: people
     content:
     - name: Mohammad Abolnejadian 
       role: Author 
@@ -35,10 +36,9 @@ authors:
       contact:
       - link: https://github.com/mtndaghyani
         icon: fab fa-github
-       - link: mailto:matin.daghyani@gmail.com
+      - link: mailto:matin.daghyani@gmail.com
         icon: fas fa-envelope
 
-# comments:
-#     # enable comments for your post
-#     label: false
-#     kind: comments
+comments:
+    label: false
+    kind: comments

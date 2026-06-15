@@ -1,27 +1,3 @@
-# Deep Neural Networks
-
-## The authors' name
-
-- Parham Chavoshian
-- Amirhossein Javadi
-- Dariush Amiri
-
-## Table of Content
-
-- [Introduction](#introduction)
-- [CNN Architecture](#CNN-Architecture)
-- [Fully Connected Layer](#Fully-Connected-Layer)
-- [Conv Layer](#Conv-Layer)
-- [Pooling](#Pooling)
-- [Padding](#Padding)
-- [Stride](#Stride)
-- [Activation Function](#Activation-Function)
-- [Loss Functions](#Loss-Functions)
-- [The Output Size of Conv Layer](#The-output-size-of-Conv-Layer)
-- [Conclusion](#Conclusion)
-- [References](#References)
-
-
 ## Introduction
 Deep learning is a subfield of machine learning that deals with algorithms inspired by the structure and function of the brain. Deep learning is a subset of machine learning, which is a part of artificial intelligence (AI).
 ![](https://i.imgur.com/qhjJzDb.png)
@@ -204,4 +180,3 @@ No one knows!
     
 [The output size of Conv Layer](https://pytorch.org/docs/1.9.1/generated/torch.nn.Conv2d.html)  
     
-

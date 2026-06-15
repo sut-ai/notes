@@ -10,6 +10,7 @@ authors:
   kind: people
   content:
     - name: Mohammad Mahdi Gheidi
+      role: Author
       contact:
         - icon: fab fa-github
           link: https://www.github.com/mahdigheidi
@@ -23,6 +24,7 @@ authors:
           link: mailto:hamid.shojae1375@gmail.com
 
     - name: Mahta Zarean
+      role: Author
       contact:
         - icon: fab fa-github
           link: https://www.github.com/mahtaz

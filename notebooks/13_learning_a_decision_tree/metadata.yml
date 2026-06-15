@@ -1,12 +1,9 @@
-title: LN | Learning a Decision Tree
+title: LN | Decision Tree Learning
 
 header:
-  title: Learning a Decision Tree (classification)
+  title: Decision Tree Learning
 
 authors:
-  label:
-    position: top
-    text: Authors
   kind: people
   content:
     - name: Amir Sadra Abdollahi

@@ -10,6 +10,7 @@ authors:
   kind: people
   content:
     - name: Dahlia Davoudi
+      role: Author
       contact:
         - icon: fas fa-envelope
           link: mailto:dahliam.davoudi17@gmail.com
@@ -24,6 +25,7 @@ authors:
           link: mailto:ahbagheri01@gmail.com
 
     - name: Amir Hossein Nedaeipour
+      role: Author
       contact:
         - icon: fas fa-envelope
           link: mailto:nedaei79@gmail.com

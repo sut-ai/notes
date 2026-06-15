@@ -19,7 +19,7 @@
     </font>
 
   ### <font size = 3 color=green>
-  - ### [Different catergories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#different-catergories-of-games-1)
+  - ### [Different categories of games](https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#different-categories-of-games-1)
     </font>
     
     
@@ -173,7 +173,7 @@ To achieve this goal, we need to express our game and its rules and actions in a
 <br>
 
 ### <font size = 3 color=#FF7500>
-### Different catergories of games
+### Different categories of games
 </font>
 <br>
 
@@ -198,7 +198,7 @@ Before we discuss types of games, we need to define a concept named **Utility Fu
 </p>
 
 ## <font size = 5 color=red>
-## Differnt Types of Trees for games</b>
+## Different Types of Trees for games</b>
 </font>
 <br>
 

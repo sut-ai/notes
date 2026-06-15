@@ -10,6 +10,7 @@ authors:
   kind: people
   content:
     - name: Faraz Ghahremani
+      role: Author
       contact:
         - icon: fas fa-envelope
           link: mailto:faraz.ghahremani@yahoo.com

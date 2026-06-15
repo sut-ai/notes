@@ -23,3 +23,80 @@ comments:
   issue_label: comments
   theme: preferred-color-scheme
   crossorigin: anonymous
+
+content_pages:
+  cleanup: true
+  toc: true
+  comments:
+    label: false
+    kind: comments
+
+page_navigation:
+  home:
+    title: Notes
+    href: /notes/
+  items:
+    - title: Intelligent Agents Notes
+      src: notebooks/1_intelligent_agents_fall_2021/index.md
+    - title: Uninformed Search
+      src: notebooks/2_uninformed_search/index.ipynb
+    - title: Informed Search
+      src: notebooks/3_informed_search/index.ipynb
+    - title: Advanced Heuristics
+      src: notebooks/4_advanced_heuistics/index.ipynb
+    - title: Advanced Heuristics Notes
+      src: notebooks/advanced_heuristics/index.md
+    - title: Local Search
+      src: notebooks/5_local_search/index.ipynb
+    - title: Search in Continuous Space
+      src: notebooks/6_search_in_continuous_space/index.ipynb
+    - title: Constraint Satisfaction Problems Notes
+      src: notebooks/7_constraint_satisfaction_problems/index.md
+    - title: Adversarial Search
+      src: notebooks/8_adversarial_search/index.ipynb
+    - title: Adversarial Search Notes
+      src: notebooks/adversarial_search_fall_2021/index.md
+    - title: Bayesian Networks, Part 1
+      src: notebooks/9_bayesian_networks/index1.ipynb
+    - title: Bayesian Networks, Part 2
+      src: notebooks/9_bayesian_networks/index2.ipynb
+    - title: Bayesian Networks, Part 3
+      src: notebooks/9_bayesian_networks/index3.ipynb
+    - title: Bayesian Networks Representation Notes
+      src: notebooks/bayesian_networks_representation/index.md
+    - title: Exact Inference in Bayesian Networks
+      src: notebooks/10_inference_in_bayesian_networks_1/index.md
+    - title: Approximate Inference in Bayesian Networks
+      src: notebooks/10_bayesian_networks_sampling/index.md
+    - title: Temporal Probability Models, Part 1
+      src: notebooks/11_temporal_probability_models/index1.ipynb
+    - title: Temporal Probability Models, Part 2
+      src: notebooks/11_temporal_probability_models/index2.ipynb
+    - title: Temporal Probability Models, Part 3
+      src: notebooks/11_temporal_probability_models/index3.ipynb
+    - title: Temporal Probability Models, Part 4
+      src: notebooks/11_temporal_probability_models/index4.ipynb
+    - title: Hidden Markov Models
+      src: notebooks/12_temporal_probability_models/index.md
+    - title: Introduction to Machine Learning
+      src: notebooks/12_Intro_to_machine_learning/index.md
+    - title: Decision Tree Learning
+      src: notebooks/13_learning_a_decision_tree/index.ipynb
+    - title: Regression
+      src: notebooks/14_regression/index.md
+    - title: Neural Networks and MLPs
+      src: notebooks/15_neural_networks/index.ipynb
+    - title: Deep Neural Networks and CNNs
+      src: notebooks/16_deep_neural_networks/index.ipynb
+    - title: "Deep Neural Networks: Convolutional Models"
+      src: notebooks/18_deep_neural_network/index.md
+    - title: Markov Decision Processes
+      src: notebooks/17_markov_decision_processes/index.ipynb
+    - title: Reinforcement Learning
+      src: notebooks/18_reinforcement_learning/index.ipynb
+    - title: Introduction to Markov Decision Processes
+      src: notebooks/19_intro_to_mdp/index.md
+    - title: Reinforcement Learning Notes
+      src: notebooks/21_reinforcement_learning/index.md
+    - title: Reinforcement Learning, Part 2
+      src: notebooks/22_reinforcement_learning_from_q_value_till_the_end/index.md

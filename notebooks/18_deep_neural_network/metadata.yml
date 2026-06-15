@@ -1,8 +1,8 @@
-title: deep neural network # shown on browser tab
+title: "Deep Neural Networks: Convolutional Models" # shown on browser tab
 
 header:
-    title: Deep Neural Network # title of your notebook
-    description: This note is about CNN's and their application # short description of your notebook
+    title: "Deep Neural Networks: Convolutional Models" # title of your notebook
+    description: Convolutional neural networks and their applications # short description of your notebook
 
 authors:
     label: 

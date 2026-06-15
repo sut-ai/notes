@@ -1,8 +1,8 @@
-title: Reinforcement Learning - Part 2
+title: Reinforcement Learning, Part 2
 
 header:
-  title: Reinforcement Learning - Part 2
-  description: Q-learning, Active RL, Epsilon greedy strategy, Approximate Q-Learning
+  title: Reinforcement Learning, Part 2
+  description: Q-learning, active reinforcement learning, epsilon-greedy exploration, and approximate Q-learning
 
 authors:
   label:
@@ -36,4 +36,3 @@ authors:
 comments:
   label: false
   kind: comments
-

@@ -1,35 +1,6 @@
-# Reinforcement Learning 
-#  Table of content
-- [Introduction](#introduction) 
-- [Online vs Offline Learning](#OnlinevsOfflineLearning)
-- [Main Elements of RL](#MainElementsofRL)
-- [Different Methods of Learning According to Model](#DifferentMethodsofLearningAccordingtoModel)
-    - [Model-based RL](#Model-basedRL)
-    - [Model-free RL](#Model-freeRL)
-        - [an example](#anexample1)
-- [Types of Reinforcement Learning According to Learning Policy](#TypesofReinforcementLearningAccordingtoLearningPolicy)
-    - [Passive Reinforcement Learning](#PassiveReinforcementLearning)
-    - [Active Reinforcement Learning](#ActiveReinforcementLearning)
-- [Policy Evaluation](#PolicyEvaluation)
-- [Direct Utility Estimation](#DirectUtilityEstimation)
-    - [Definition](#Definition)
-        - [an example](#anexample2)
-- [Advantages of Direct Utility Estimation](#AdvantagesofDirectUtilityEstimation)
-- [Disadvantages of Direct Utility Estimation](#DisadvantagesofDirectUtilityEstimation)
-- [Temporal Difference (TD) Learning](#TemporalDifference(TD)Learning)
-    - [Definition](#DefinitionTD)
-    - [pseudocode](#pseudocode)
-    - [Some aspects of TD](#SomeaspectsofTD)
-    - [an example](#anexample3)
-- [Problem with TD](#ProblemwithTD)
-- [Summery and Conclusion](#Conclusion)
-- [Useful Links](#usefullinks)
-- [References](#resources)
-
-
 <div id='introduction'/>
 
-# Inroduction
+# Introduction
 
 _**"... What we want is a machine that can learn from experience." -Alan Turing, 1947**_
 
