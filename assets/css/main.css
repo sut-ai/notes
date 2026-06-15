@@ -137,7 +137,8 @@ a {
 .wf-page-navigation a {
     align-items: center;
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 0.35rem;
     justify-content: center;
     line-height: 1.25;
     max-width: 100%;
@@ -147,10 +148,14 @@ a {
 }
 
 .wf-page-navigation-back-icon {
+    min-width: 2.5rem;
+}
+
+.wf-page-navigation-back-icon > span:first-child,
+.wf-page-navigation-next a > span:last-child {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1;
-    min-width: 2.5rem;
 }
 
 .wf-page-navigation-previous a {
