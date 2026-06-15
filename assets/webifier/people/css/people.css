@@ -155,7 +155,7 @@
 .wf-person-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.7rem;
     justify-content: center;
     padding-top: 0.2rem;
 }
@@ -164,10 +164,29 @@
     justify-content: flex-start;
 }
 
-.wf-person-links a,
-.wf-person-links span {
+.wf-person-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    color: var(--wf-link, var(--bs-link-color));
+    border: 0;
+    background: transparent;
     font-size: 0.82rem;
     line-height: 1.2;
+    text-decoration: none;
+    text-underline-offset: 0.18em;
+    transition:
+        color 140ms ease;
+}
+
+.wf-person-link:hover,
+.wf-person-link:focus {
+    color: var(--wf-link-hover, var(--bs-link-hover-color));
+    text-decoration: underline;
+}
+
+.wf-person-link i {
+    font-size: 0.9em;
 }
 
 @media (max-width: 575.98px) {

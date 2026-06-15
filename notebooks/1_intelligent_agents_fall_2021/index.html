@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>Intelligent Agents</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,9 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Intelligent Agents</h1>
+        
+        <p class="mt-3">Agents and their types</p>
         
     </div>
 </header>
@@ -281,77 +286,28 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <div align="center">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<h1 style="font-size: 40px; margin: 10px 0;">AI - Intelligent Agents</h1>
-<h1 style="font-size: 20px; font-weight: 400;">Sharif University of Technology - Computer Engineering Department</h1>
-<br/>
-<h4 style="font-size: 18px; font-weight: 400; color:#555">Amirreza Mirzaei, Bardia Mohammadi, Sina Elahimanesh</h4>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-</div>
-<hr/>
-<h1>Table of contents</h1>
-<ul>
-<li><a href="#Introduction">Introduction</a></li>
-<li><a href="#Intelligent-agents">Intelligent agents</a><ul>
-<li><a href="#Vacuum-world-agent-example">Vacuum world agent example</a></li>
-</ul>
-</li>
-<li><a href="#Rational-agents-and-performance-measure">Rational agents and performance measure</a><ul>
-<li><a href="#Rationality-vs-perfection">Rationality vs perfection</a></li>
-<li><a href="#Autonomy">Autonomy</a></li>
-</ul>
-</li>
-<li><a href="#Task-environment-PEAS">Task environment (PEAS)</a><ul>
-<li><a href="#PEAS-example">PEAS example</a></li>
-</ul>
-</li>
-<li><a href="#Properties-of-task-environments">Properties of task environments</a><ul>
-<li><a href="#Types-of-environment">Types of environment</a></li>
-<li><a href="#Types-of-environment-example">Types of environment example</a></li>
-</ul>
-</li>
-<li><a href="#Types-of-agents">Types of agents</a><ul>
-<li><a href="#Reflex-agents">Reflex agents</a></li>
-<li><a href="#Goal-based-agents">Goal-based agents</a></li>
-<li><a href="#Utility-based-agents">Utility-based agents</a></li>
-<li><a href="#Learning-agents">Learning agents</a></li>
-</ul>
-</li>
-<li><a href="#Conclusion">Conclusion</a></li>
-<li><a href="#References">References</a></li>
-</ul>
-<h1>Introduction</h1>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#rational-agents-and-performance-measure">Rational agents and performance measure</a></li><li class="wf-content-toc-level-4"><a href="#rationality-vs-perfection">Rationality vs perfection</a></li><li class="wf-content-toc-level-4"><a href="#autonomy">Autonomy</a></li><li class="wf-content-toc-level-2"><a href="#task-environment-peas">Task environment (PEAS)</a></li><li class="wf-content-toc-level-4"><a href="#peas-example">PEAS example</a></li><li class="wf-content-toc-level-2"><a href="#properties-of-task-environments">Properties of task environments</a></li><li class="wf-content-toc-level-4"><a href="#types-of-environment">Types of environment</a></li><li class="wf-content-toc-level-4"><a href="#types-of-environment-example">Types of environment example</a></li><li class="wf-content-toc-level-2"><a href="#types-of-agents">Types of agents</a></li><li class="wf-content-toc-level-2"><a href="#reflex-agents">Reflex agents</a></li><li class="wf-content-toc-level-2"><a href="#goal-based-agents">Goal-based agents</a></li><li class="wf-content-toc-level-2"><a href="#utility-based-agents">Utility-based agents</a></li><li class="wf-content-toc-level-2"><a href="#learning-agents">Learning agents</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
+
+<h2 id="introduction">Introduction</h2>
 <p>In this notebook, we will discuss the nature of intelligent agents.  The concepts that are introduced here will give you some insight into agents and environments. You will also be introduced to a few of the most common agent architectures.</p>
-<h1>Intelligent agents</h1>
+
 <p>An <b>intelligent agent</b> is anything that perceives its environment through sensors and acts upon that environment through its actuators.<br/>
     We will use the term <b>percept</b> to refer to the agent's perceptual inputs at any given moment.
 We can describe an agent's behavior by the agent function.<br/>
 <b>Agent function</b> maps any given percept sequence to an action. But how does the agent know what sequence it must choose? we will try to answer this question using a simple example.</p>
 <h5>Vacuum world agent example</h5>
-<p><img src="/notes/assets/./images/vacumm_world.png" style="margin-left: auto;margin-right: auto;" width="500"/>
+<p><img src="/notes/assets/./images/vacumm_world.png" style="margin-left: auto; margin-right: auto" width="500"/>
 Imagine an environment that only has two rooms (room A &amp; room B). Our agent is a vacuum cleaner. It can perceive whether the room it is currently in, is dirty or not. It can also move between the rooms and suck up dirt (the actuators of the agent).<br/>
 Imagine that we only care about both rooms being clean, a simple way we can implement an agent that guarantees this is for our agent to constantly move between the rooms and suck up dirt in each one. Now imagine we also want to minimize the amount of energy the vacuum cleaner uses. In order to do that we can stop the agent for a limited amount of time if both rooms are clean. As you can see we implemented two completely different agents for these two problems and that's because we used two different performance measures.</p>
-<h1>Rational agents and performance measure</h1>
+<h2 id="rational-agents-and-performance-measure">Rational agents and performance measure</h2>
 <p>A <b>rational</b> agent chooses the set of action in order to maximize its performance. Agents use a performance measure to evaluate the desirability of any given sequence. In other words, an agent will choose the action (or a sequence of them) that maximize the expected value of its performance measure.</p>
-<h4>Rationality vs perfection</h4>
+<h4 id="rationality-vs-perfection">Rationality vs perfection</h4>
 <p>Keep in mind that rationality is distinct from omniscience. An omniscient agent knows the actual outcome of its actions but in reality, an agent only knows the expected outcome of its action. For example, imagine you're trying to cross the street and no cars are on the street naturally, you will cross the street to reach your goal. Now imagine as you are passing the street a meteorite falls on you. Can anyone blame you for being irrational and not expecting a meteorite to flatten you? </p>
-<h4>Autonomy</h4>
+<h4 id="autonomy">Autonomy</h4>
 <p>A rational agent should be autonomous meaning it mustn't only rely on the prior knowledge of its designer and must learn to compensate for partial or incorrect prior knowledge. In other words, rational agents should learn from experience. For example, in the vacuum world our agent could start to learn when the rooms usually get dirty based on its experience.</p>
-<h1>Task environment (PEAS)</h1>
+<h2 id="task-environment-peas">Task environment (PEAS)</h2>
 <p>We have already talked about performance measure, task environment, actuators and sensors. We group all these under the heading of the <b>Task environment </b> and we abbreviate it as <b>PEAS</b>(<b>P</b>erformance measure, <b>E</b>nviroment, <b>A</b>ctuators, <b>S</b>ensors). When designing an agent our first step should be specifying the task environment.</p>
-<h4>PEAS example</h4>
+<h4 id="peas-example">PEAS example</h4>
 <p>Here are a few examples of specifying PEAS for different agents.</p>
 <table>
 <thead>
@@ -387,8 +343,8 @@ Imagine that we only care about both rooms being clean, a simple way we can impl
 </tr>
 </tbody>
 </table>
-<h1>Properties of task environments</h1>
-<h4>Types of environment</h4>
+<h2 id="properties-of-task-environments">Properties of task environments</h2>
+<h4 id="types-of-environment">Types of environment</h4>
 <p>We can categorize an environment in many ways, you will find some of the most important ones listed below.</p>
 <ul>
 <li><b>Fully observable or partially observable</b> (Do the agent sensor's give access to the complete state of the environment at each time?)</li>
@@ -434,7 +390,7 @@ Imagine that we only care about both rooms being clean, a simple way we can impl
 <li><b>examples</b>: Chess is discrete. Automatic driving is continuous.</li>
 </ul>
 </ul>
-<h4>Types of environment example</h4>
+<h4 id="types-of-environment-example">Types of environment example</h4>
 <p>Here are a few examples of identifying an environment's different dimensions.</p>
 <table>
 <thead>
@@ -487,38 +443,250 @@ Imagine that we only care about both rooms being clean, a simple way we can impl
 </tr>
 </tbody>
 </table>
-<h1>Types of agents</h1>
+<h2 id="types-of-agents">Types of agents</h2>
 <p>In this section we will introduce three basic kinds of basic agent programs.(The agent program is simply a program which implements the agent function.)</p>
 <ul>
 <li>Simple reflex agents</li>
 <li>Goal-based agents</li>
 <li>Utility-based agents</li>
 </ul>
-<h2>Reflex agents</h2>
+<h2 id="reflex-agents">Reflex agents</h2>
 <p>This is the simplest kind of agents. They choose their next action only based on their current percept. In other words, they do not consider the future consequences of their actions and only consider <b>how the world IS.</b><br/>
 As an example look at this Pacman agent below, at each turn the agent looks at its surrounding and chooses the direction that has a point in it and stops when there are no points around it.</p>
-<p><img src="/notes/assets/./images/reflex_agent.gif" style="margin-left: auto;margin-right: auto;" width="500"/></p>
-<h2>Goal-based agents</h2>
+<p><img src="/notes/assets/./images/reflex_agent.gif" style="margin-left: auto; margin-right: auto" width="500"/></p>
+<h2 id="goal-based-agents">Goal-based agents</h2>
 <p>This kind of agent has a specific goal and it tries to reach that goal efficiently. They have a model of how the world evolves in response to actions, and they make decisions based on (hypothesized) consequences of actions to reach their goal state. Search and Planning are two subfields that are closely tied with these kinds of agents. In other words, these kinds of agents act on <b>how the world WOULD BE.</b><br/>
 as an example look at this Pacman agent below. The goal is to collect every point.</p>
-<p><img src="/notes/assets/./images/goal_based_agent.gif" style="margin-left: auto;margin-right: auto;" width="500"/></p>
-<h2>Utility-based agents</h2>
+<p><img src="/notes/assets/./images/goal_based_agent.gif" style="margin-left: auto; margin-right: auto" width="500"/></p>
+<h2 id="utility-based-agents">Utility-based agents</h2>
 <p>This kind of agent like goal-based agents has a goal. But they also have a utility function. They seek to reach their goal in a way that maximizes the utility function. For example, think about an automated car agent. They are many ways for this agent to get from point A to point B. But some of them are quicker, safer, cheaper. The utility function allows the agent to compare different states with each other and ask the question how happy am I in this state. 
 In other words, this kind of agent acts on <b>how the world will LIKELY be.</b> </p>
-<h2>Learning agents</h2>
+<h2 id="learning-agents">Learning agents</h2>
 <p>This kind of agent usually has 4 parts. The most important two are "the learning element", which is responsible for making improvements, and the "performance element", which is responsible for selecting external actions. The learning element uses feedback from a "critic" on how the agent is doing and determines how the performance element, or "actor", should be modified to do better in the future. <br/>
 The last part of these agents is the "problem generator" which is responsible for suggesting actions that will lead to new unexplored states. <br/>
 These agents try to do their best by both exploring the environment and using the gathered information to decide rationally. One of the advantages of Learning agents is that they can be deployed in an environment that they don't have a lot of prior knowledge on. They will gain this knowledge over time by exploring that environment.</p>
-<h1>Conclusion</h1>
+<h2 id="conclusion">Conclusion</h2>
 <p>We discussed the concept of an intelligent agent and the difference between a rational agent and a perfect agent. 
 then we talked about specifying the task environment for an agent and how we can categorize some main concepts of an environment. We also talked about some agent architectures that are commonly used.</p>
-<h1>References</h1>
+<h2 id="references">References</h2>
 <ul>
 <li>Russell, S. J., Norvig, P., &amp; Davis, E. (2022). Artificial Intelligence: A modern approach. Pearson Educación. </li>
 <li>UC Berkeley's introductory artificial intelligence course, CS 188</li>
 <li>https://www.geeksforgeeks.org/understanding-peas-in-artificial-intelligence/</li>
 </ul>
             </div>
+            
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/amirrezamirzaei.png" alt="Amirreza Mirzaei">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Amirreza Mirzaei</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/amirrezamirzaei">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:amirreza2001@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/bardia-mhd.png" alt="Bardia Mohammadi">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Bardia Mohammadi</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/bardia-mhd">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/sinaelahimanesh.png" alt="Sina Elahimanesh">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Sina Elahimanesh</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/sinaelahimanesh">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
             
         </div>
     </div>
@@ -536,7 +704,7 @@ then we talked about specifying the task environment for an agent and how we can
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/2_uninformed_search/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/2_uninformed_search/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Uninformed Search</span>
             </a>

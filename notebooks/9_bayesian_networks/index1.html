@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -286,24 +288,14 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#Bayesian-Network:-Inference">Bayesian Network: Inference</a></li><li class="wf-content-toc-level-2"><a href="#Introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#Probabilistic-Models">Probabilistic Models</a></li><li class="wf-content-toc-level-3"><a href="#independence">independence</a></li><li class="wf-content-toc-level-4"><a href="#Example:">Example:</a></li><li class="wf-content-toc-level-3"><a href="#Conditional-Independence">Conditional Independence</a></li><li class="wf-content-toc-level-4"><a href="#Example-:">Example :</a></li><li class="wf-content-toc-level-2"><a href="#Introduction-to-Bayes%E2%80%99-Networks">Introduction to Bayes’ Networks</a></li><li class="wf-content-toc-level-3"><a href="#Definition">Definition</a></li><li class="wf-content-toc-level-3"><a href="#Graphical-Model-Notation">Graphical Model Notation</a></li></ol></nav>
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Bayesian-Network:-Inference">Bayesian Network: Inference<a class="anchor-link" href="#Bayesian-Network:-Inference">¶</a></h1><h2 id="Table-of-Content">Table of Content<a class="anchor-link" href="#Table-of-Content">¶</a></h2><ul>
-<li><a href="#introduction">Introduction</a><ul>
-<li><a href="#Probabilistic-Models">Probabilistic Models</a></li>
-<li><a href="#Conditional-Independence">Conditional Independence</a></li>
-</ul>
-</li>
-<li><a href="#Introduction-to-Bayes%E2%80%99-Networks">Introduction to Bayes’ Networks</a></li>
-</ul>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><ul>
-<li><h2 id="Probabilistic-Models">Probabilistic Models<a class="anchor-link" href="#Probabilistic-Models">¶</a></h2><p>Suppose insurance wants to insure a personal car forone year
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Bayesian-Network:-Inference">Bayesian Network: Inference</h2><h2 id="Introduction">Introduction</h2><ul>
+<li><h2 id="Probabilistic-Models">Probabilistic Models</h2><p>Suppose insurance wants to insure a personal car forone year
 Criteria to be considered
 Individual information</p>
 <ul>
@@ -321,7 +313,7 @@ Then, from this statistical modeling, we can draw a statistical conclusion from 
 How to use it to make the right decision ?</p>
 <p>Let us first give an example :
 <strong>A Reasoning Scenario</strong></p>
-<p><to style="padding-left:19px">I'm at work, neighbor John calls to say that my alram is ringing, but neighbor Mary doesn't call. Sometimes it's set off by minor earthquakes. Is there a burglar?
+<p><to style="padding-left: 19px">I'm at work, neighbor John calls to say that my alram is ringing, but neighbor Mary doesn't call. Sometimes it's set off by minor earthquakes. Is there a burglar?
 To answer this question, we must first make a statistical model and then draw a statistical inference.
 So we have statistical language:</to></p>
 <ul>
@@ -356,19 +348,19 @@ The difficulties of this can be said:</p>
 </li>
 </ul>
 </li>
-<li><h3 id="independence">independence<a class="anchor-link" href="#independence">¶</a></h3><p>• Two variables $X$ and $Y$ are independent if:</p>
+<li><h3 id="independence">independence</h3><p>• Two variables $X$ and $Y$ are independent if:</p>
 <p>$$
  \forall x,y: P(X=x, Y=y) = P(X=x)P(Y=y)
 $$</p>
 <p>This says that their joint distribution factors into a product two simpler distributions.
 Independence is a simplifying modeling assumption.</p>
-<h4 id="Example:">Example:<a class="anchor-link" href="#Example:">¶</a></h4><img alt="drawing" src="/notes/assets/./images_p1/Independence.png" width="500"/>
+<h4 id="Example:">Example:</h4><img alt="drawing" src="/notes/assets/./images_p1/Independence.png" width="500"/>
 <p>So we turn it into two more tables where we can work with two variables instead of three.<br/>
 and make order from 2 power n to 2n .</p>
 </li>
 </ul>
 </li>
-<li><h3 id="Conditional-Independence">Conditional Independence<a class="anchor-link" href="#Conditional-Independence">¶</a></h3><p>Let us first give an example:
+<li><h3 id="Conditional-Independence">Conditional Independence</h3><p>Let us first give an example:
 <img alt="drawing" src="/notes/assets/./images_p1/AI-3.png" width="200"/></p>
 <p>Suppose we have three variables in tooth decay :
 1.cavity<br/>
@@ -389,7 +381,7 @@ The catch and toothache dependence is due to the cavity. If we know that the cav
 <li>P(Toothache, Catch | Cavity) = P(Toothache | Cavity) P(Catch | Cavity)</li>
 </ol>
 <p>One can be derived from the other easily.</p>
-<h4 id="Example-:">Example :<a class="anchor-link" href="#Example-:">¶</a></h4></li>
+<h4 id="Example-:">Example :</h4></li>
 </ul>
 <br/>
 <img alt="drawing" src="/notes/assets/./images_p1/AI-4.png" width="250"/>
@@ -401,9 +393,9 @@ The catch and toothache dependence is due to the cavity. If we know that the cav
 Can a variable be found here that causes two other things?
 Here, unlike the previous example, when the breakdown caused two other reasons, there is a chain that connects this fire and alarm to the existence of a smoke variable, and if we remove smoke from the environment in some way, the other two variables, fire and alarm, have nothing to do with They do not have each other</p>
 <p>In general, all world events can be divided into common and causal chains</p>
-<h2 id="Introduction-to-Bayes%E2%80%99-Networks">Introduction to Bayes’ Networks<a class="anchor-link" href="#Introduction-to-Bayes%E2%80%99-Networks">¶</a></h2><img alt="drawing" src="/notes/assets/./images_p1/Bayes.png" width="300"/>
+<h2 id="Introduction-to-Bayes%E2%80%99-Networks">Introduction to Bayes’ Networks</h2><img alt="drawing" src="/notes/assets/./images_p1/Bayes.png" width="300"/>
 <ul>
-<li><h3 id="Definition">Definition<a class="anchor-link" href="#Definition">¶</a></h3><p>• Two problems with using full joint distribution tables
+<li><h3 id="Definition">Definition</h3><p>• Two problems with using full joint distribution tables
 as our probabilistic models:</p>
 <ol>
 <li>Unless there are only a few variables, the joint is WAY too
@@ -425,7 +417,7 @@ interactions are specified</li>
 </ul>
 <img alt="drawing" src="/notes/assets/./images_p1/GMN.png" width="400"/>
 <ul>
-<li><h3 id="Graphical-Model-Notation">Graphical Model Notation<a class="anchor-link" href="#Graphical-Model-Notation">¶</a></h3><ul>
+<li><h3 id="Graphical-Model-Notation">Graphical Model Notation</h3><ul>
 <li>Nodes: variables (with domains)<ul>
 <li>Can be assigned (observed) or unassigned
 (unobserved)</li>
@@ -450,7 +442,7 @@ causation (in general, they don’t!)</li>
 </div>
 </div>
 </main>
-</body>
+
             </div>
             
                 
@@ -518,8 +510,8 @@ causation (in general, they don’t!)</li>
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                MM
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/mbehnasr.png" alt="Mohammad Mahdi Behnasr">
             </div>
             
             <div class="wf-person-main">
@@ -539,13 +531,23 @@ causation (in general, they don’t!)</li>
                 
                 
                 
-                <a href="https://github.com/mbehnasr">https://github.com/mbehnasr</a>
+                <a class="wf-person-link" href="https://github.com/mbehnasr">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:sm.m.behnasr.2000@gmail.com">mailto:sm.m.behnasr.2000@gmail.com</a>
+                <a class="wf-person-link" href="mailto:sm.m.behnasr.2000@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -577,13 +579,23 @@ causation (in general, they don’t!)</li>
                 
                 
                 
-                <a href="https://github.com/aminmgh">https://github.com/aminmgh</a>
+                <a class="wf-person-link" href="https://github.com/aminmgh">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:aminmeghrazi7899@gmail.com">mailto:aminmeghrazi7899@gmail.com</a>
+                <a class="wf-person-link" href="mailto:aminmeghrazi7899@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -594,8 +606,8 @@ causation (in general, they don’t!)</li>
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                RA
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/re0078.png" alt="Reza Abdollahzadeh">
             </div>
             
             <div class="wf-person-main">
@@ -615,13 +627,23 @@ causation (in general, they don’t!)</li>
                 
                 
                 
-                <a href="https://github.com/re0078">https://github.com/re0078</a>
+                <a class="wf-person-link" href="https://github.com/re0078">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:reza.abdollahzadeh12@gmail.com">mailto:reza.abdollahzadeh12@gmail.com</a>
+                <a class="wf-person-link" href="mailto:reza.abdollahzadeh12@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -653,7 +675,12 @@ causation (in general, they don’t!)</li>
                 
                 
                 
-                <a href="mailto:ghaznavi.mahdi@gmail.com">mailto:ghaznavi.mahdi@gmail.com</a>
+                <a class="wf-person-link" href="mailto:ghaznavi.mahdi@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -670,6 +697,25 @@ causation (in general, they don’t!)</li>
     
 </div>
             
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -678,7 +724,7 @@ causation (in general, they don’t!)</li>
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/adversarial_search_fall_2021/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/adversarial_search_fall_2021/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Adversarial Search Notes</span>
             </a>
@@ -691,7 +737,7 @@ causation (in general, they don’t!)</li>
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/9_bayesian_networks/index2.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/9_bayesian_networks/index2.html">
                 <span class="d-block small text-muted">Next</span>
                 <span>Bayesian Networks, Part 2</span>
             </a>

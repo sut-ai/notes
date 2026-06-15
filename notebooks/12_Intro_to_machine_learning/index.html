@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>LN | Introduction to Machine Learning</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,7 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Introduction to Machine Learning</h1>
         
     </div>
 </header>
@@ -281,61 +284,13 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1>Introduction to Machine Learning</h1>
-<h1>Table of contents</h1>
-<ol>
-<li><a href="#introduction">Introduction</a><ol>
-<li><a href="#history">History</a></li>
-<li><a href="#ml-applications">ML Applications</a></li>
-</ol>
-</li>
-<li><a href="#types-of-machine-learning">Types of Machine Learning</a><ol>
-<li><a href="#supervised-learning">Supervised Learning</a><ol>
-<li><a href="#classification">Classification</a></li>
-<li><a href="#naïve-bayes-Classifier-algorithm">Naïve Bayes Classifier Algorithm</a></li>
-</ol>
-</li>
-<li><a href="#unsupervised-learning">Unsupervised Learning</a></li>
-</ol>
-</li>
-<li><a href="#bias-and-variance">Bias and Variance</a><ol>
-<li><a href="#what-is-bias">What is Bias?</a></li>
-<li><a href="#what-is-variance">What is variance?</a></li>
-<li><a href="#bias-and-variance-trade-off">Bias and Variance Trade-Off</a></li>
-</ol>
-</li>
-<li><a href="#overFitting-and-underfitting">OverFitting and Underfitting</a><ol>
-<li><a href="#so-what-is-overfitting">So what is overfitting?</a></li>
-<li><a href="#what-is-underfiting">What is underfiting?</a></li>
-<li><a href="#and-how-to-prevent-overfitting">and how to prevent overfitting?</a></li>
-</ol>
-</li>
-<li><a href="#parameter-estiamtion">Parameter Estiamtion</a><ol>
-<li><a href="#what-is-mle">What is MLE?</a></li>
-<li><a href="#what-is-map">What is MAP?</a></li>
-</ol>
-</li>
-<li><a href="#handle-unseen-events">Handle unseen events</a><ol>
-<li><a href="#laplace-smoothing">Laplace Smoothing</a></li>
-<li><a href="#linear-interpolation">Linear interpolation</a></li>
-</ol>
-</li>
-<li><a href="#more-about-dataset">More about dataset</a><ol>
-<li><a href="#training-dataset">Training Dataset</a></li>
-<li><a href="#validation-dataset">Validation Dataset</a></li>
-<li><a href="#test-Dataset">Test Dataset</a></li>
-<li><a href="#about-the-dataset-split-ratio">About the dataset split ratio</a></li>
-</ol>
-</li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#references">References</a></li>
-</ol>
-<h1>Introduction</h1>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#history">History</a></li><li class="wf-content-toc-level-2"><a href="#ml-applications">ML Applications</a></li><li class="wf-content-toc-level-2"><a href="#types-of-machine-learning">Types of Machine Learning</a></li><li class="wf-content-toc-level-2"><a href="#supervised-learning">Supervised Learning</a></li><li class="wf-content-toc-level-3"><a href="#classification">Classification</a></li><li class="wf-content-toc-level-3"><a href="#na-ve-bayes-classifier-algorithm">Naïve Bayes Classifier Algorithm</a></li><li class="wf-content-toc-level-4"><a href="#advantages-of-na-ve-bayes-classifier">Advantages of Naïve Bayes Classifier</a></li><li class="wf-content-toc-level-4"><a href="#disadvantages-of-na-ve-bayes-classifier">Disadvantages of Naïve Bayes Classifier</a></li><li class="wf-content-toc-level-2"><a href="#unsupervised-learning">Unsupervised Learning</a></li><li class="wf-content-toc-level-2"><a href="#bias-and-variance">Bias and Variance</a></li><li class="wf-content-toc-level-2"><a href="#what-is-bias">What is Bias?</a></li><li class="wf-content-toc-level-4"><a href="#machine-learning-algorithms-with-low-bias">Machine learning algorithms with low bias:</a></li><li class="wf-content-toc-level-4"><a href="#machine-learning-algorithms-with-high-bias">Machine learning algorithms with high bias:</a></li><li class="wf-content-toc-level-2"><a href="#what-is-a-variance">What is a variance?</a></li><li class="wf-content-toc-level-4"><a href="#machine-learning-algorithms-with-low-variance">machine learning algorithms with low variance:</a></li><li class="wf-content-toc-level-4"><a href="#machine-learning-algorithms-with-high-variance">machine learning algorithms with high variance:</a></li><li class="wf-content-toc-level-2"><a href="#bias-and-variance-trade-off">Bias and Variance Trade-Off</a></li><li class="wf-content-toc-level-2"><a href="#overfitting-and-underfitting">OverFitting and Underfitting</a></li><li class="wf-content-toc-level-2"><a href="#so-what-is-overfitting">So what is overfitting?</a></li><li class="wf-content-toc-level-2"><a href="#what-is-underfitting">What is underfitting?</a></li><li class="wf-content-toc-level-2"><a href="#and-how-to-prevent-overfitting">and how to prevent overfitting?</a></li><li class="wf-content-toc-level-2"><a href="#parameter-estimation">Parameter Estimation</a></li><li class="wf-content-toc-level-2"><a href="#what-is-mle">What is MLE?</a></li><li class="wf-content-toc-level-2"><a href="#what-is-map">What is MAP?</a></li><li class="wf-content-toc-level-2"><a href="#handle-unseen-events">Handle unseen events</a></li><li class="wf-content-toc-level-2"><a href="#laplace-smoothing">Laplace Smoothing</a></li><li class="wf-content-toc-level-2"><a href="#linear-interpolation">Linear interpolation</a></li><li class="wf-content-toc-level-2"><a href="#more-about-the-dataset">More about the dataset</a></li><li class="wf-content-toc-level-2"><a href="#training-dataset">Training Dataset</a></li><li class="wf-content-toc-level-2"><a href="#validation-dataset">Validation Dataset</a></li><li class="wf-content-toc-level-2"><a href="#test-dataset">Test Dataset</a></li><li class="wf-content-toc-level-2"><a href="#about-the-dataset-split-ratio">About the dataset split ratio</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
+<h2 id="introduction">Introduction</h2>
 <p>Humans are capable of learning by experiencing, but how about computers? Can they learn from past data and make correct decisions for future situations?</p>
 <p><img alt="" src="/notes/assets/./images/intro_pic_1.png"/></p>
 <p>Machine learning techniques allow computers to automatically learn from a dataset and improve their performance from experiences and enable them to predict things in a new situation without being explicitly programmed. Machine learning algorithms bring computer science and statistics together to build mathematical models from our dataset that is known as training data and use these models for future decisions. The diagram below shows the ML algorithm:</p>
 <p><img alt="" src="/notes/assets/./images/intro_pic_2.png"/></p>
-<h2>History</h2>
+<h2 id="history">History</h2>
 <p>The base idea behind machine learning has a long history, But the term machine learning was first used by Arthur Samuel in 1959. Below we can see a timeline of ML in brief:</p>
 <ul>
 <li><strong>1834:</strong> Charles Babbage made the first computer that could be programmed by punched cards and all modern computers followed its logical structure.</li>
@@ -352,7 +307,7 @@
 <li><strong>2012:</strong> Google developed a deep neural network system to distinguish cat and human images in a YouTube video.</li>
 <li><strong>2016:</strong> AlphaGo won a Go game against number one and number second player of Go.</li>
 </ul>
-<h2>ML Applications</h2>
+<h2 id="ml-applications">ML Applications</h2>
 <p><img alt="" src="/notes/assets/./images/intro_pic_3.png"/></p>
 <p>Machine learning concepts are growing every day and we can see their usages everywhere. Some of the real-world applications of ML are:</p>
 <ul>
@@ -374,16 +329,16 @@
 <div class="codehilite"><pre><span></span><code><span class="nv">Amazon</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">Netflix</span><span class="w"> </span><span class="nv">use</span><span class="w"> </span><span class="nv">ML</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">their</span><span class="w"> </span><span class="nv">product</span><span class="w"> </span><span class="nv">recommendation</span><span class="w"> </span><span class="nv">systems</span>.<span class="w"> </span><span class="nv">Every</span><span class="w"> </span><span class="nv">time</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="nv">opens</span><span class="w"> </span><span class="nv">an</span><span class="w"> </span><span class="nv">amazon</span><span class="w"> </span><span class="nv">page</span><span class="w"> </span><span class="nv">can</span><span class="w"> </span><span class="nv">see</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">most</span><span class="w"> </span><span class="nv">relevant</span><span class="w"> </span><span class="nv">suggestion</span><span class="w"> </span><span class="nv">according</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">its</span><span class="w"> </span><span class="nv">previous</span><span class="w"> </span><span class="nv">searches</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">other</span><span class="w"> </span><span class="nv">features</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">used</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">dataset</span>.
 </code></pre></div>
 <p><img alt="" src="/notes/assets/./images/intro_pic_7.png"/></p>
-<h1>Types of Machine Learning</h1>
+<h2 id="types-of-machine-learning">Types of Machine Learning</h2>
 <p>There are three major recognized categories for ML:</p>
 <p><img alt="" src="/notes/assets/./images/types_learning_1.png"/></p>
-<h2>Supervised Learning</h2>
+<h2 id="supervised-learning">Supervised Learning</h2>
 <p>In this method, the computer is provided by a set of labeled (tagged) data which is called training data, and tries to create a mathematical model according to it and learn to approximate the exact nature of the relationship between examples and their labels. By the time this process of training is finished, the supervised learning algorithm will be able to observe a new, never-before-seen example and predict a good label for it. Then we provide another set of data called sample data to test if the predictions are exact or not. One example of supervised learning is Face Recognition that we have a system that takes a photo, finds faces, and guesses who is in the photo (suggesting a tag) is supervised process. It has multiple layers to it, finding faces and then identifying them, but is still supervised nonetheless. The supervised algorithms are grouped into two main categories:</p>
 <ul>
 <li><strong>Classification</strong></li>
 <li><strong>Regression</strong></li>
 </ul>
-<h3>Classification</h3>
+<h3 id="classification">Classification</h3>
 <p>In this algorithm, the machine learns from given training data and identifies the category of input data, and classifies it into some groups or classes. The main difference between this method and regression is that classification is a process of finding a function that helps in dividing the dataset into classes based on different parameters, but regression is a process of finding the correlations between dependent and independent variables. The classifiers can be binary which means we have only two possible outcomes or multi-class which means we can have more than two labels or classes. In another hand we have two types of learners in a classification problem:</p>
 <ul>
 <li>
@@ -402,35 +357,35 @@
 </ul>
 </li>
 </ul>
-<h3>Naïve Bayes Classifier Algorithm</h3>
+<h3 id="na-ve-bayes-classifier-algorithm">Naïve Bayes Classifier Algorithm</h3>
 <p>Naïve Bayes algorithm is a probabilistic classifier based on Bayes theorem and is used to solve classification problems. It is called naïve because it assumes that the occurrence of a certain feature is independent of the occurrence of other features. It is also called Bayes because it depends on the principle of Bayes' Theorem.</p>
 <p>A general naïve Bayes model has the form below that Y is our label variable and F is our feature set:</p>
 <p><img alt="" src="/notes/assets/./images/bayes_net.png"/></p>
 <p>As a result of bayes net above and bayes theorem we can say that:</p>
-<p>$P(Y, F_1, F_2, ..., F_n) = P(Y)\prod_{i}P(F_i|Y)$</p>
+$P(Y, F_1, F_2, ..., F_n) = P(Y)\prod_{i}P(F_i|Y)$
 <p>As we can use this equation for computing posterior distribution over label variable Y first by calculating the joint probability of evidence and label for each label using the equation above the second sum to get the probability of evidence and then divide the first by second to calculate $P(Y| F_1, F_2, ..., F_n)$ .
 The process can be seen in the figure below:</p>
 <p><img alt="" src="/notes/assets/./images/naive_bayes_inference.png"/></p>
-<h4>Advantages of Naïve Bayes Classifier</h4>
+<h4 id="advantages-of-na-ve-bayes-classifier">Advantages of Naïve Bayes Classifier</h4>
 <ul>
 <li>It is fast and not that much complicated.</li>
 <li>It can be used for Binary as well as Multi-class Classifications.</li>
 <li>It is the most popular choice for text classification problems.</li>
 </ul>
-<h4>Disadvantages of Naïve Bayes Classifier</h4>
+<h4 id="disadvantages-of-na-ve-bayes-classifier">Disadvantages of Naïve Bayes Classifier</h4>
 <ul>
 <li>Naive Bayes assumes that all features are independent or unrelated, so it cannot learn the relationship between features. It can be helpful in some cases to consider features independent, but sometimes the results are not exact.</li>
 </ul>
-<h2>Unsupervised Learning</h2>
+<h2 id="unsupervised-learning">Unsupervised Learning</h2>
 <p>In this method, our training dataset doesn’t contain labels and they have not been categorized. Instead, our algorithm would be fed a lot of data and given the tools to understand the properties of the data. In this case, the machine learns to group, cluster the data such that a human (or other intelligent algorithms) can come in and make sense of the newly organized data. In another word, the goal of unsupervised learning is to find the underlying structure of the dataset, group that data according to similarities, and represent that dataset in a compressed format. The unsupervised algorithms are grouped into two main categories:</p>
 <ul>
 <li><strong>Clustering</strong></li>
 <li><strong>Association</strong></li>
 </ul>
-<h1>Bias and Variance</h1>
+<h2 id="bias-and-variance">Bias and Variance</h2>
 <p>if the model in machine learning is not accurate, it will make errors and these errors are known as Bias and Variance. these two errors cause a small difference between predicted and actual values! In machine learning, we want to reduce these errors to get more accurate predictions.<br/>
 Based on these errors, the machine learning model is selected that can perform best on the particular dataset.</p>
-<h2>What is Bias?</h2>
+<h2 id="what-is-bias">What is Bias?</h2>
 <p>In general, a machine learning model analyzes the data, finds patterns in it, and makes predictions. While training, the model learns these patterns in the dataset and applies them to test data for prediction.
 <strong>While the model is making predictions about data, a difference occurs between prediction values made by the machine learning model and actual values is known as bias errors</strong><br/>
 It can be defined as an inability of ML algorithms such as polynomial Regression to capture the true relationship between the data points. Each algorithm in ML  has some amount of bias because bias occurs from assumptions in the model, which makes the target function simple to learn. A model has either:  </p>
@@ -439,27 +394,27 @@ It can be defined as an inability of ML algorithms such as polynomial Regression
 <li><strong>Low Bias:</strong> A low bias model will make fewer assumptions about the form of the target function.</li>
 </ul>
 <p>linear algorithms have a high bias, as they learn fast. The simpler the algorithm, the higher the bias it has! but a nonlinear algorithm often has low bias.</p>
-<h4>Machine learning algorithms with low bias:</h4>
+<h4 id="machine-learning-algorithms-with-low-bias">Machine learning algorithms with low bias:</h4>
 <ul>
 <li>Decision Trees</li>
 <li>k-Nearest Neighbours</li>
 </ul>
-<h4>Machine learning algorithms with high bias:</h4>
+<h4 id="machine-learning-algorithms-with-high-bias">Machine learning algorithms with high bias:</h4>
 <ul>
 <li>Linear Regression</li>
 <li>Logistic Regression</li>
 </ul>
-<h2>What is a variance?</h2>
+<h2 id="what-is-a-variance">What is a variance?</h2>
 <p>The variance of the model tells us the amount of variation in the prediction if the different data is used. a model should not vary too much from one training dataset to another, which means the algorithm should be good in understanding the mapping between inputs and outputs. some models have <strong>low variance</strong> but some of them have <strong>high variance.</strong> </p>
 <p><strong>high variance means there is a high variation in the prediction of the target function with changes in the training dataset</strong> </p>
 <p>a model that has high variance performs well on training data but can not generalize unseen datasets as well.
 high variance leads to overfitting and increases model complexities!  </p>
-<h4>machine learning algorithms with low variance:</h4>
+<h4 id="machine-learning-algorithms-with-low-variance">machine learning algorithms with low variance:</h4>
 <ul>
 <li>Linear Regression</li>
 <li>Logistic Regression</li>
 </ul>
-<h4>machine learning algorithms with high variance:</h4>
+<h4 id="machine-learning-algorithms-with-high-variance">machine learning algorithms with high variance:</h4>
 <ul>
 <li>decision tree</li>
 <li>K-nearest neighbors</li>
@@ -467,12 +422,12 @@ high variance leads to overfitting and increases model complexities!  </p>
 <p>in general, variance shows us how much our model is dependent on our dataset!</p>
 <p>in the following image you can see the impact of bias and variance in the machine learning model:  </p>
 <p><img alt="" src="/notes/assets/./images/bias-and-variance-in-machine-learning4.png"/></p>
-<h2>Bias and Variance Trade-Off</h2>
+<h2 id="bias-and-variance-trade-off">Bias and Variance Trade-Off</h2>
 <p>the best and ideal model has low bias and low variance but it can not be achieved and is not possible practically!
 low-bias and high-variance lead to overfitting, high-bias, and low-variance lead to underfitting! so it is required to make a balance between bias and variance errors, and this balance between the bias error and variance error is known as the Bias-Variance trade-off.
 in simple words, bias and variance are related to each other and we can not reduce both of them simultaneously!  </p>
 <p><img alt="" src="/notes/assets/./images/bias-and-variance-in-machine-learning6.png"/></p>
-<h1>OverFitting and Underfitting</h1>
+<h2 id="overfitting-and-underfitting">OverFitting and Underfitting</h2>
 <p>Supervised machine learning is best understood as approximating a target function (f) that maps input variables (X) to an output variable (Y). f(X) = Y </p>
 <p>An important consideration in learning the target function from the training data is how well the model generalizes to new data. Generalization is important because the data we collect is only a sample, it is incomplete and noisy  </p>
 <ul>
@@ -482,61 +437,61 @@ in simple words, bias and variance are related to each other and we can not redu
 <p>The goal of a good machine learning model is to generalize well from the training data to any data from the problem domain. This allows us to make predictions in the future on data the model has never seen.  </p>
 <p>There is terminology used in machine learning when we talk about how well a machine learning model learns and generalizes to new data, namely overfitting and underfitting.  </p>
 <p>Overfitting and underfitting are the two biggest causes for the poor performance of machine learning algorithms.  </p>
-<h2>So what is overfitting?</h2>
+<h2 id="so-what-is-overfitting">So what is overfitting?</h2>
 <p>when the ml model predicts training data very well but can not predict unseen data as well as training data we face overfitting in our ml algorithm!<br/>
 This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the model's ability to generalize.<br/>
 <strong><em>An overfitted model is said to have low bias and high variance.</em></strong> </p>
 <p>To detect overfitting we must split our dataset. about 80% of our data set is going to be trained and 20% of the dataset is going to be tested! Now, if the model performs well with the training dataset but not with the test dataset, then it is likely to have an overfitting issue. for example, if the error is 2.5% in training data and 20% in test data we have overfitting  </p>
-<h2>What is underfitting?</h2>
+<h2 id="what-is-underfitting">What is underfitting?</h2>
 <p>Underfitting refers to a model that can neither model the training data nor generalizes to new data.
 An underfit machine learning model is not a suitable model and will be obvious as it will have poor performance on the training data.  </p>
-<h2>and how to prevent overfitting?</h2>
+<h2 id="and-how-to-prevent-overfitting">and how to prevent overfitting?</h2>
 <ul>
 <li><strong>cross-validation:</strong> In the general k-fold cross-validation technique, we divided the dataset into k-equal-sized subsets of data; these subsets are known as folds.</li>
 <li><strong>regularization:</strong> in this technique we reduce our model features and simplify them with our tools! it may increase bias but reduce the variance of the model. in many cases we add penalizing terms to our objective function. as an example, in linear regression, we use l2 regularization and add sum penalizing term to the MSE function</li>
 <li>...</li>
 </ul>
 <p><img alt="" src="/notes/assets/./images/overfitting-in-machine-learning.png"/></p>
-<h1>Parameter Estimation</h1>
-<h2>What is MLE?</h2>
+<h2 id="parameter-estimation">Parameter Estimation</h2>
+<h2 id="what-is-mle">What is MLE?</h2>
 <p>The following is a general setup for a statistical inference problem: There is an unknown quantity that we would like to estimate. We get some data From the data, we estimate the desired quantity this is a frequentist approach to this problem. In this approach, the unknown quantity $ \theta $ is assumed to be a fixed (non-random) quantity that is to be estimated by the observed data.  </p>
 <p>We now would like to talk about a systematic way of parameter estimation. Specifically, we would like to introduce an estimation method, called maximum likelihood estimation (MLE)<br/>
 Let $ X_1,X_2,X_3, ... ,X_n $ be a random sample from a distribution with a parameter $ \theta $ (In general, θ might be a vector, ${\theta}=(\theta_1, \theta_2, \cdots, \theta_k)$ Suppose that $ x_1,x_2,x_3, ... ,x_n $ are the observed values of $ X_1,X_2,X_3, ... ,X_n $. If Xi's are discrete random variables, we define the likelihood function as the probability of the observed sample as a function of $ \theta $:</p>
-<p>$\begin{align}
+\begin{align}
  L(x_1, x_2, \cdots, x_n; \theta)&amp;=P(X_1=x_1, X_2=x_2, \cdots, X_n=x_n; \theta)
 &amp;=P_{X_1 X_2 \cdots X_n}(x_1, x_2, \cdots, x_n; \theta).
-\end{align}$</p>
+\end{align}
 <ul>
 <li>
 <p>If Xi's are discrete, then the likelihood function is defined as
-$\begin{align}
+\begin{align}
  L(x_1, x_2, \cdots, x_n; \theta)=P_{X_1 X_2 \cdots X_n}(x_1, x_2, \cdots, x_n; \theta).
-\end{align}$</p>
+\end{align}</p>
 </li>
 <li>
 <p>If Xi's are jointly continuous, then the likelihood function is defined as
-$\begin{align}
+\begin{align}
 L(x_1, x_2, \cdots, x_n; \theta)=f_{X_1 X_2 \cdots X_n}(x_1, x_2, \cdots, x_n; \theta).
-\end{align}$</p>
+\end{align}</p>
 </li>
 </ul>
 <p>In some problems, it is easier to work with the log likelihood function given by
-$\begin{align}
+\begin{align}
  \ln L(x_1, x_2, \cdots, x_n; \theta).
-\end{align}$ </p>
+\end{align} </p>
 <p>Now that we have defined the likelihood function, we are ready to define maximum likelihood estimation. Let X1, X2, X3, ..., Xn be a random sample from a distribution with a parameter $ \theta $. Suppose that we have observed X1=x1 , X2=x2 , ⋯ , Xn=xn . The maximum likelihood estimate of $ \theta $ is the value that maximizes the likelihood function:
-$\begin{align}
+\begin{align}
  L(x_1, x_2, \cdots, x_n; \theta).
-\end{align}$</p>
+\end{align}</p>
 <p>Note that the value of the maximum likelihood estimate is a function of the observed data. Thus, like any other estimator, the maximum likelihood estimator (MLE) is indeed a random variable  </p>
-<h2>What is MAP?</h2>
+<h2 id="what-is-map">What is MAP?</h2>
 <p>we would like to discuss a different approach for inference, namely the Bayesian approach. In the Bayesian framework, we treat the unknown quantity, $ \theta $, as a random variable. we assume that we have some initial guess about the distribution of $ \theta $. This distribution is called the prior distribution. We observe some data. We then use Bayes' rule to make inferences about the unobserved random variable. This is generally how we approach inference problems in Bayesian statistics. That is why this approach is called the Bayesian approach.  </p>
 <p>in this approach, our goal is to draw inferences about an unknown variable X by observing a related random variable Y. The unknown variable is modeled as a random variable X, with a prior distribution.<br/>
 After observing the value of the random variable Y, we find the posterior distribution of X. This is the conditional PDF (or PMF) of X given Y=y,
 we use the Bayes formula for calculating posterior distribution.  </p>
-<p>$\begin{align}
+\begin{align}
 f_{X|Y}(x|y)=\frac{f_{Y|X}(y|x)f_{X}(x)}{f_{Y}(y)}.
-\end{align}$</p>
+\end{align}
 <p>in the above image we have 
 $f_{X|Y}(x|y)$ as postrior distribution and 
 $f_{X}(x)$ as priror distribution. in many problems
@@ -545,60 +500,60 @@ $f_{Y|X}(y|x)$ is MLE function that we explained it!  </p>
 $f_{X|Y}(x|y)$ , contains all the knowledge about the unknown quantity X. Therefore, we can use the posterior distribution to find point estimation of X. One way to obtain a point estimate is to choose the value of x that maximizes the posterior PDF (or PMF). This is called the maximum a posterior (MAP) estimation. </p>
 <p>Note that 
 $f_{Y}(y)$ does not depend on the value of x. Therefore, we can equivalently find the value of x that maximizes:
-$\begin{align}
+\begin{align}
 f_{Y|X}(y|x)f_{X}(x).
-\end{align}$</p>
+\end{align}</p>
 <p><strong><em>in many cases we choose an alpha-beta distribution for prior distribution</em></strong></p>
-<h1>Handle unseen events</h1>
+<h2 id="handle-unseen-events">Handle unseen events</h2>
 <p>One of the most important concepts in machine learning is to handle unseen events. To clarify, consider the following example.  </p>
 <p>Consider the vector $ X=[x_1,x_2,x_3,x_4,x_5] $ and the following data as training dataset.  </p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">data</th>
-<th style="text-align: center;">label</th>
+<th style="text-align: center">data</th>
+<th style="text-align: center">label</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">[1, 1, 1, 0, 1]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[1, 1, 1, 0, 1]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[1, 0, 1, 0, 0]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[1, 0, 1, 0, 0]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 0, 1, 0, 1]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[0, 0, 1, 0, 1]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 1, 1, 0, 0]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[0, 1, 1, 0, 0]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 0, 1, 0, 0]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[0, 0, 1, 0, 0]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 0, 0, 0, 1]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[0, 0, 0, 0, 1]</td>
+<td style="text-align: center">b</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 1, 1, 0, 1]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[0, 1, 1, 0, 1]</td>
+<td style="text-align: center">b</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 1, 0, 1, 1]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[0, 1, 0, 1, 1]</td>
+<td style="text-align: center">b</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 1, 1, 1, 1]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[0, 1, 1, 1, 1]</td>
+<td style="text-align: center">b</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 0, 0, 1, 1]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[0, 0, 0, 1, 1]</td>
+<td style="text-align: center">b</td>
 </tr>
 </tbody>
 </table>
@@ -606,10 +561,10 @@ f_{Y|X}(y|x)f_{X}(x).
 <p><img alt="" src="/notes/assets/./images/naive_model_1.png"/></p>
 <p>Now, we calculate the probability of each label based on the created naïve Bayes model.  </p>
 <p>$P(label=a)\propto \frac{2}{5} \times \frac{2}{5} \times 0 \times 1 \times \frac{2}{5} = 0$  </p>
-<p>$P(label=b)\propto 0 \times \frac{3}{5} \times \frac{3}{5} \times \frac{2}{5} \times 1 = 0$</p>
+$P(label=b)\propto 0 \times \frac{3}{5} \times \frac{3}{5} \times \frac{2}{5} \times 1 = 0$
 <p>If you look at the naïve Bayes model again, you will find out that there is no data with $x_3=0$ or $x_4=1$ for the label a, and there is no data with $x_1=1$ or $x_5=0$ for label b.  </p>
 <p><strong>So, what would we do to handle this situation?</strong></p>
-<h2>Laplace Smoothing</h2>
+<h2 id="laplace-smoothing">Laplace Smoothing</h2>
 <p>One of the most common methods to solve the above problem is using Laplace smoothing. Consider a bag of green and yellow balls. Suppose there are three green balls and no yellow balls in the bag. So, the probability of each color is:  </p>
 <p><img alt="" src="/notes/assets/./images/balls_1.png"/></p>
 <p>$P(color=green)=1$  </p>
@@ -627,70 +582,341 @@ f_{Y|X}(y|x)f_{X}(x).
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">data</th>
-<th style="text-align: center;">label</th>
+<th style="text-align: center">data</th>
+<th style="text-align: center">label</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">[1, 1, 1, 1, 1]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[1, 1, 1, 1, 1]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[1, 1, 1, 1, 1]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[1, 1, 1, 1, 1]</td>
+<td style="text-align: center">b</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 0, 0, 0, 0]</td>
-<td style="text-align: center;">a</td>
+<td style="text-align: center">[0, 0, 0, 0, 0]</td>
+<td style="text-align: center">a</td>
 </tr>
 <tr>
-<td style="text-align: center;">[0, 0, 0, 0, 0]</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: center">[0, 0, 0, 0, 0]</td>
+<td style="text-align: center">b</td>
 </tr>
 </tbody>
 </table>
 <p><img alt="" src="/notes/assets/./images/naive_model_2.png"/></p>
 <p>$P(label=a)\propto \frac{3}{7} \times \frac{3}{7} \times \frac{1}{7} \times \frac{6}{7} \times \frac{3}{7} = \frac{162}{16807}$  </p>
 <p>$P(label=b)\propto \frac{1}{7} \times \frac{4}{7} \times \frac{4}{7} \times \frac{3}{7} \times \frac{6}{7} = \frac{288}{16807}$  </p>
-<h2>Linear interpolation</h2>
+<h2 id="linear-interpolation">Linear interpolation</h2>
 <p>In practice, Laplace smoothing often performs poorly for $P(X|Y)$ When $X$ or $Y$ is very large.  </p>
 <p>Another useful method is <strong>linear interpolation</strong>. Linear interpolation (also known as <strong>Lerp</strong>) is a method to find unknown values between two known points. The unknown values are approximated through Linear interpolation by connecting these two known points with a straight line.  </p>
 <p>In this method, we consider both $p(x|y)$ and $p(x)$ to calculate the $p(x|y)$  </p>
 <p>In general:  </p>
 <p>$P_{LIN}(x|y)=\alpha P(x|y)+(1-\alpha)P(x), 0&lt;\alpha&lt;1$  </p>
 <p>By choosing an appropriate value for $\alpha$, we can handle unseen events.  </p>
-<h1>More about the dataset</h1>
+<h2 id="more-about-the-dataset">More about the dataset</h2>
 <p>In the last section, we learned about Laplace smoothing and linear interpolation. But how can we calculate appropriate values for $\alpha$ and k?  </p>
 <p>We introduce three datasets:  </p>
-<h2>Training Dataset</h2>
+<h2 id="training-dataset">Training Dataset</h2>
 <p><strong>The sample of data used to fit the model.</strong>
 The actual dataset that we use to train the model (weights and biases in the case of a Neural Network). The model sees and learns from this data.  </p>
-<h2>Validation Dataset</h2>
+<h2 id="validation-dataset">Validation Dataset</h2>
 <p><strong>The sample of data used to provide an unbiased evaluation of a trained model on the training dataset while tuning model hyperparameters. The evaluation becomes more biased as a skill on the validation dataset is incorporated into the model configuration.</strong><br/>
 The validation set is used to evaluate a given model, but this is for frequent evaluation. We, as machine learning engineers, use this data to fine-tune the model hyperparameters. Hence the model occasionally sees this data but never does it “Learn” from this. We use the validation set results and update higher-level hyperparameters. So, the validation set affects a model, but only indirectly. The validation set is also known as the Dev set or the Development set. This makes sense since this dataset helps during the “development” stage of the model. We use this dataset to calculate $\alpha$ and $k$.  </p>
 <p><img alt="" src="/notes/assets/./images/diagram.png"/> </p>
-<h2>Test Dataset</h2>
+<h2 id="test-dataset">Test Dataset</h2>
 <p><strong>The sample of data used to provide an unbiased evaluation of the final trained model on the training dataset.</strong> </p>
 <p>The Test dataset provides the gold standard used to evaluate the model. It is only used once a model is completely trained(using the train and validation sets). The test set is generally what is used to evaluate competing models (For example on many Kaggle competitions, the validation set is released initially along with the training set, and the actual test set is only released when the competition is about to close, and it is the result of the model on the Test set that decides the winner). Many times the validation set is used as the test set, but it is not good practice. The test set is generally well-curated. It contains carefully sampled data that spans the various classes that the model would face when used in the real world.  </p>
-<h2>About the dataset split ratio</h2>
+<h2 id="about-the-dataset-split-ratio">About the dataset split ratio</h2>
 <p>Now that you know what these datasets do, you might be looking for recommendations on how to split your dataset into Train, Validation, and Test sets.<br/>
 This mainly depends on 2 things. First, the total number of samples in your data, and second, on the actual model you are training.<br/>
 Some models need substantial data to train upon, so in this case, you would optimize for the larger training sets. Models with very few hyperparameters will be easy to validate and tune, so you can probably reduce the size of your validation set, but if your model has many hyperparameters, you would want to have a large validation set as well(although you should also consider cross-validation). Also, if you happen to have a model with no hyperparameters or ones that cannot be easily tuned, you probably don’t need a validation set too!  </p>
 <p><img alt="" src="/notes/assets/./images/ratio.png"/></p>
-<h1>Conclusion</h1>
+<h2 id="conclusion">Conclusion</h2>
 <p>so in this chapter, we introduced key concepts of machine learning.
 we learned about the applications of ML, supervised and unsupervised in ML, and some algorithms like naive Bayes.
 after these primary concepts, we learned about some problems like bias and variance and their relations to overfitting and underfitting.
 for parameter estimation, we learned two statistical approaches like Bayesian and frequentist approach and after that, we used these two frameworks and some formulas like Laplace and linear interpolation which are based on MLE and MAP.
 we also learned about how to work with datasets in machine learning.  </p>
-<h1>References</h1>
+<h2 id="references">References</h2>
 <p><a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">Gentle Introduction to the Bias-Variance Trade-Off in Machine Learning</a>.  </p>
 <p><a href="https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229">Understanding the Bias-Variance Tradeoff</a>.  </p>
 <p><a href="https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/">Underfitting and Overfitting</a>.  </p>
 <p><a href="https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1">Probability concepts explained: Maximum likelihood estimation</a>.  </p>
 <p><a href="https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-and-maximum-a-posteriori-estimation-d7c318f9d22d#:~:text=estimated%20with%20MLE.-,Maximum%20A%20Posteriori%20Estimation,when%20you%20have%20enough%20data.&amp;text=For%20example%2C%20if%20Liverpool%20only,is%202%2F2%20%3D%201">A Gentle Introduction to Maximum Likelihood Estimation and Maximum A Posteriori Estimation</a>.</p>
             </div>
+            
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/AlirezaEiji191379.png" alt="Alireza Eiji">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Alireza Eiji</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:alirezaeiji151379@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/AlirezaEiji191379">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/MohammadAli-Khodabandelou.png" alt="Mohammad Ali Khodabandeloo">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Mohammad Ali Khodabandeloo</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/MohammadAli-Khodabandelou">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:mohammadali.khodabandelou@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/ARH80.png" alt="Ahmad Reza Hamzei">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Ahmad Reza Hamzei</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:hamzei@ce.sharif.edu">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/ARH80">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
+                SA
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Sepehr Amini Afshar</h3>
+                
+                
+                <p class="wf-person-title">Supervisor</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:sepehramini83@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
             
         </div>
     </div>
@@ -700,7 +926,7 @@ we also learned about how to work with datasets in machine learning.  </p>
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/12_temporal_probability_models/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/12_temporal_probability_models/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Hidden Markov Models</span>
             </a>
@@ -713,7 +939,7 @@ we also learned about how to work with datasets in machine learning.  </p>
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/13_learning_a_decision_tree/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/13_learning_a_decision_tree/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Decision Tree Learning</span>
             </a>

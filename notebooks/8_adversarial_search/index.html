@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -288,36 +290,22 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#Introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#What-is-Adversarial-Search?-Why-do-we-need-it?">What is Adversarial Search? Why do we need it?</a></li><li class="wf-content-toc-level-2"><a href="#What-is-Game-Theory?!">What is Game Theory?!</a></li><li class="wf-content-toc-level-2"><a href="#Different-type-of-games">Different type of games</a></li><li class="wf-content-toc-level-2"><a href="#Zero-Sum-Games:">Zero-Sum Games:</a></li><li class="wf-content-toc-level-2"><a href="#General-Games:">General Games:</a></li><li class="wf-content-toc-level-2"><a href="#Single-Agent-Trees">Single Agent Trees</a></li><li class="wf-content-toc-level-2"><a href="#Adversarial-Game-Trees">Adversarial Game Trees</a></li><li class="wf-content-toc-level-2"><a href="#Minimax-Strategy">Minimax Strategy</a></li><li class="wf-content-toc-level-2"><a href="#Minimax-Implementation-(-Pseudocode-)-:">Minimax Implementation ( Pseudocode ) :</a></li><li class="wf-content-toc-level-2"><a href="#Properties-of-Minimax">Properties of Minimax</a></li><li class="wf-content-toc-level-2"><a href="#Is-it-complete?">Is it complete?</a></li><li class="wf-content-toc-level-2"><a href="#Is-it-optimal?">Is it optimal?</a></li><li class="wf-content-toc-level-2"><a href="#Time-Complexity">Time Complexity</a></li><li class="wf-content-toc-level-2"><a href="#Space-Complexity">Space Complexity</a></li><li class="wf-content-toc-level-3"><a href="#So-it-is-a-beautiful-optimal-algorithm,-But%E2%80%A6">So it is a beautiful optimal algorithm, But…</a></li><li class="wf-content-toc-level-2"><a href="#Resource-Limits">Resource Limits</a></li><li class="wf-content-toc-level-2"><a href="#Evaluation-Functions">Evaluation Functions</a></li><li class="wf-content-toc-level-3"><a href="#Quality-of-the-evaluation-function">Quality of the evaluation function</a></li><li class="wf-content-toc-level-2"><a href="#Minimax-Pruning">Minimax Pruning</a></li><li class="wf-content-toc-level-3"><a href="#Alpha-Beta-Pruning-Properties">Alpha-Beta Pruning Properties</a></li><li class="wf-content-toc-level-4"><a href="#Best-Case-Analysis-of-the-Alpha-Beta-pruning">Best Case Analysis of the Alpha-Beta pruning</a></li><li class="wf-content-toc-level-2"><a href="#Uncertain-Outcomes">Uncertain Outcomes</a></li><li class="wf-content-toc-level-2"><a href="#Expectimax-Search">Expectimax Search</a></li><li class="wf-content-toc-level-2"><a href="#Expectimax-Example">Expectimax Example</a></li><li class="wf-content-toc-level-2"><a href="#Expectimax-Pruning">Expectimax Pruning</a></li><li class="wf-content-toc-level-2"><a href="#Depth-Limited-Expectimax">Depth-Limited Expectimax</a></li><li class="wf-content-toc-level-2"><a href="#Informed-Probabilities">Informed Probabilities</a></li><li class="wf-content-toc-level-2"><a href="#The-Dangers-of-Optimism-and-Pessimism">The Dangers of Optimism and Pessimism</a></li><li class="wf-content-toc-level-2"><a href="#Other-Game-Types">Other Game Types</a></li><li class="wf-content-toc-level-2"><a href="#Mixed-Layer-Types">Mixed Layer Types</a></li><li class="wf-content-toc-level-2"><a href="#Multi-Agent-Utilities">Multi-Agent Utilities</a></li><li class="wf-content-toc-level-2"><a href="#Summary">Summary</a></li></ol></nav>
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb78fce9">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8e7bb7e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="ADVERSARIAL-SEARCH">ADVERSARIAL SEARCH<a class="anchor-link" href="#ADVERSARIAL-SEARCH">¶</a></h1>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Introduction">Introduction</h2><h3 id="What-is-Adversarial-Search?-Why-do-we-need-it?">What is Adversarial Search? Why do we need it?</h3>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c51c60f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4222c206">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><h3 id="What-is-Adversarial-Search?-Why-do-we-need-it?">What is Adversarial Search? Why do we need it?<a class="anchor-link" href="#What-is-Adversarial-Search?-Why-do-we-need-it?">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af8829e5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Until this chapter, we have talked about single player games, but as we said in the first chapter, there is another type of game named Multi-agent games.
 In this chapter, we will talk about multi-agent games in which two agents are against each other and one of them should beat the other. So, our search algorithm should return a <b>strategy of playing</b> instead of a chain of deterministic actions.
 We will have a brief talk about game theory and some famous games and their solutions, then we will talk about different kind of games and mostly zero-sum games and adversarial search on these games trees, and then we will work on this algorithm complexity improvements and using this algorithm on some real games with very big state spaces. So, Let’s Start!</p>
@@ -325,23 +313,19 @@ We will have a brief talk about game theory and some famous games and their solu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3a0b744">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d8a3529">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="What-is-Game-Theory?!">What is Game Theory?!<a class="anchor-link" href="#What-is-Game-Theory?!">¶</a></h2>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="What-is-Game-Theory?!">What is Game Theory?!</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c11a69fa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a0e76ce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>According to <a href="https://plato.stanford.edu/entries/game-theory/"> Stanford Encyclopedia of Philosophy </a>, Game theory is the study of the ways in which interacting choices of economic agents produce outcomes with respect to the preferences (or utilities) of those agents, where the outcomes in question might have been intended by none of the agents. It kinda seems familiar to us, since we are working on search algorithms which give a plan to our agent to choose a way and maximize his outcome. In other words, we can say that game theory is a great basis of AI. take a look at this <a href="https://www.artiba.org/blog/ai-and-game-theory-a-primer#:~:text=Game%20theory%20is%20a%20crucial%20element%20in%20building%20AI%20models%20today.&amp;text=In%20reinforcement%20learning%2C%20multiple%20agents,considered%20as%20the%20most%20suitable.">brief article</a> for a little bit more information, and if you found this topic interesting, <a href="https://link.springer.com/chapter/10.1007/3-540-45634-1_4">this paper</a> will be a good source to learn more.</p>
 <p>As we said before, the main difference between games search problems that we faced before, is that in the games we have an unpredictable opponent, and we should consider every move of the opponent; So we cannot only give a specific plan to our agent, but we need a strategy or policy.
 At first we need to somehow formalize our problem and find a way to represent the problem to the computer and give back the strategy that it gives us. For this purpose, there are many different designs, but the notations of a good formalization could be like this:</p>
@@ -365,42 +349,36 @@ Finally, the solution returned by our intelligent system is a function named Pol
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7953bc1f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=77a9c614">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Different-type-of-games">Different type of games<a class="anchor-link" href="#Different-type-of-games">¶</a></h1><p>One can look at the games in many different ways. One of the most important classifications is based on the <b>utility functions</b>. In simple words, every player in a game has different preferences, and by happening some conditions, will be satisfied more; so every player has a utility function that wants to maximize the value of this function for him/herself. For example, in a game like chess, only winning the game matters, so the utility function could simply return 1 for the winner, -1 for the loser and 0 for both players if the result was draw.
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Different-type-of-games">Different type of games</h2><p>One can look at the games in many different ways. One of the most important classifications is based on the <b>utility functions</b>. In simple words, every player in a game has different preferences, and by happening some conditions, will be satisfied more; so every player has a utility function that wants to maximize the value of this function for him/herself. For example, in a game like chess, only winning the game matters, so the utility function could simply return 1 for the winner, -1 for the loser and 0 for both players if the result was draw.
 So based on the utility values for different players, games can be classified into 2 classes: Zero-Sum Games or General Games</p>
-<h2 id="Zero-Sum-Games:">Zero-Sum Games:<a class="anchor-link" href="#Zero-Sum-Games:">¶</a></h2><p>In these types of games, agents have opposite utilities, so the game will be adversarial and there will be a pure competition. In this type of game, we can define a single variable named Value of the game that one player wants to maximize and the other one wants to minimize it. Games such as checkers and chess are zero-sum, since if you win (1 utility) other player loses (-1 utility).</p>
-<h2 id="General-Games:">General Games:<a class="anchor-link" href="#General-Games:">¶</a></h2><p>Unlike zero-sum games, in these types of games every player has an independent utility. So based on the game play and different scenarios, players may cooperate, compete or be indifferent to each other to get a higher utility value.</p>
-<h1 id="Single-Agent-Trees">Single Agent Trees<a class="anchor-link" href="#Single-Agent-Trees">¶</a></h1><p>Assume that a game has one player (you can think about pac-man game without any ghosts). In each action our agent (pac-man) can move to left, right, up, or down. We simplify this game with constrainting pac-man move to left and right. For every terminal state, you can compute a score for the game (such as the number of seeds that pac-man has eaten). If we traverse the tree from down to top, at every state that pacman should choose between right and left, he will choose the one with higher score, and we will set the value of that state to this. So, value of a state is the best achievable utility (Score) from that state. In this way, we can compute all the scores from down to top and find the best path.</p>
+<h2 id="Zero-Sum-Games:">Zero-Sum Games:</h2><p>In these types of games, agents have opposite utilities, so the game will be adversarial and there will be a pure competition. In this type of game, we can define a single variable named Value of the game that one player wants to maximize and the other one wants to minimize it. Games such as checkers and chess are zero-sum, since if you win (1 utility) other player loses (-1 utility).</p>
+<h2 id="General-Games:">General Games:</h2><p>Unlike zero-sum games, in these types of games every player has an independent utility. So based on the game play and different scenarios, players may cooperate, compete or be indifferent to each other to get a higher utility value.</p>
+<h2 id="Single-Agent-Trees">Single Agent Trees</h2><p>Assume that a game has one player (you can think about pac-man game without any ghosts). In each action our agent (pac-man) can move to left, right, up, or down. We simplify this game with constrainting pac-man move to left and right. For every terminal state, you can compute a score for the game (such as the number of seeds that pac-man has eaten). If we traverse the tree from down to top, at every state that pacman should choose between right and left, he will choose the one with higher score, and we will set the value of that state to this. So, value of a state is the best achievable utility (Score) from that state. In this way, we can compute all the scores from down to top and find the best path.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d4703ca">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90b05ebb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Adversarial-Game-Trees">Adversarial Game Trees<a class="anchor-link" href="#Adversarial-Game-Trees">¶</a></h1><p>Now, assume that our simplified pac-man game has a ghost to, which is the opponent of our agent and assume this game is a zero-sum game, which means the utility of the ghost will be opposite of pac-man score. Again, we can draw the tree of the game, and every layer of the tree will be one of the players' turns.
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Adversarial-Game-Trees">Adversarial Game Trees</h2><p>Now, assume that our simplified pac-man game has a ghost to, which is the opponent of our agent and assume this game is a zero-sum game, which means the utility of the ghost will be opposite of pac-man score. Again, we can draw the tree of the game, and every layer of the tree will be one of the players' turns.
 Pac-man wants to maximize the score, and ghost wants to minimize it, so again if we traverse from down to up, in every state, if its pac-man turn it will choose the action which reaches the state with higher score and the ghost will choose the action which causes lower score; We call this strategy the MiniMax Strategy. In this way, both of them has played the best they could do, and if the other plays with this strategy, each player will have the best score it could take.</p>
-<h1 id="Minimax-Strategy">Minimax Strategy<a class="anchor-link" href="#Minimax-Strategy">¶</a></h1><p>So the idea is that each player chooses a move to position with the highest minimax value (min value for one state and max value for the other one) and this will result in the best achievable payoff against best play.
+<h2 id="Minimax-Strategy">Minimax Strategy</h2><p>So the idea is that each player chooses a move to position with the highest minimax value (min value for one state and max value for the other one) and this will result in the best achievable payoff against best play.
 There is a convention, that we show the max player (the player who wants to maximize the score of the game) with upward triangle and the min player (the player who wants to minimize the score of the game) with downward triangle.
 A possible tree for an adversarial game is shown below:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d87d32bb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a5313ddf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>So, in this way, in adversarial games such as chess, checkers, and XO we can guarantee the best score we can get if the other player also plays the best he/she could; but if the other player does not play his/her move (not playing with minimax strategy) we may be able to reach a better score to but we will miss it with this strategy. For example in the recent example, in the marked state, if the MIN player is naive and choose the first action, score of that state will be 14, and if the max player is playing with the minimax strategy, it will choose first action and loses a great amount of score (3 instead of 14)
 So, when we say “we can guarantee the draw in the XO game” it means that whatever the second player strategy is, if we play with the minimax strategy, we can avoid losing.
 You can see the tree of the XO game below, and the score of the root of this tree will be 0.</p>
@@ -408,13 +386,11 @@ You can see the tree of the XO game below, and the score of the root of this tre
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0cce3420">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=617c8af2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Minimax-Implementation-(-Pseudocode-)-:">Minimax Implementation (<a href="https://en.wikipedia.org/wiki/Minimax#Pseudocode"> Pseudocode </a>) :<a class="anchor-link" href="#Minimax-Implementation-(-Pseudocode-)-:">¶</a></h1>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Minimax-Implementation-(-Pseudocode-)-:">Minimax Implementation (<a href="https://en.wikipedia.org/wiki/Minimax#Pseudocode"> Pseudocode </a>) :</h2>
 </div>
 </div>
 </div>
@@ -434,203 +410,167 @@ function minimax(node, depth, maximizingPlayer) is
             value := min(value, minimax(child, depth − 1, TRUE))
         return value
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fe7202a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43b0bfcf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Properties-of-Minimax">Properties of Minimax<a class="anchor-link" href="#Properties-of-Minimax">¶</a></h1><h2 id="Is-it-complete?">Is it complete?<a class="anchor-link" href="#Is-it-complete?">¶</a></h2><p>If our adversarial search tree is finite (that means the game finishes in a finite time), since we will look at every possible state (with an algorithm like DFS) if there is an answer, we will reach it.</p>
-<h2 id="Is-it-optimal?">Is it optimal?<a class="anchor-link" href="#Is-it-optimal?">¶</a></h2><p>As we said before, if the opponent plays with the minimax strategy too, this strategy will be optimal. But if the opponent is naive, this strategy may not be optimal.</p>
-<h2 id="Time-Complexity">Time Complexity<a class="anchor-link" href="#Time-Complexity">¶</a></h2><p>If the tree branching factor (number of childs for each node) is b, and the depth of tree is m, since we will examine every node, will be $O(b^m)$</p>
-<h2 id="Space-Complexity">Space Complexity<a class="anchor-link" href="#Space-Complexity">¶</a></h2><p>We will need an algorithm like DFS, so space complexity will be $O(bm)$</p>
-<h3 id="So-it-is-a-beautiful-optimal-algorithm,-But%E2%80%A6">So it is a beautiful optimal algorithm, But…<a class="anchor-link" href="#So-it-is-a-beautiful-optimal-algorithm,-But%E2%80%A6">¶</a></h3><p>For a game like chess that has a branching factor of about 35 and a tree with depth of about 100, this exact solution is completely infeasible, since time complexity will be from order of $ 35 ^ {100} $, which is an extraordinarily large number. So, we need to improve some pieces of minimax algorithm</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Properties-of-Minimax">Properties of Minimax</h2><h2 id="Is-it-complete?">Is it complete?</h2><p>If our adversarial search tree is finite (that means the game finishes in a finite time), since we will look at every possible state (with an algorithm like DFS) if there is an answer, we will reach it.</p>
+<h2 id="Is-it-optimal?">Is it optimal?</h2><p>As we said before, if the opponent plays with the minimax strategy too, this strategy will be optimal. But if the opponent is naive, this strategy may not be optimal.</p>
+<h2 id="Time-Complexity">Time Complexity</h2><p>If the tree branching factor (number of childs for each node) is b, and the depth of tree is m, since we will examine every node, will be $O(b^m)$</p>
+<h2 id="Space-Complexity">Space Complexity</h2><p>We will need an algorithm like DFS, so space complexity will be $O(bm)$</p>
+<h3 id="So-it-is-a-beautiful-optimal-algorithm,-But%E2%80%A6">So it is a beautiful optimal algorithm, But…</h3><p>For a game like chess that has a branching factor of about 35 and a tree with depth of about 100, this exact solution is completely infeasible, since time complexity will be from order of $ 35 ^ {100} $, which is an extraordinarily large number. So, we need to improve some pieces of minimax algorithm</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=951c51dc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06b9d104">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Resource-Limits">Resource Limits<a class="anchor-link" href="#Resource-Limits">¶</a></h1>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Resource-Limits">Resource Limits</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3018906b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eaf671cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Although the Minimax algorithm is optimal, in realistic games, a complete search to leaves is not feasible since it takes too much space. A considerable solution is to only search to a limited depth in the tree, but not only a depth-limited search is not necessarily optimal it also raises another problem: How can we determine the utility of non-terminal nodes without visiting the terminal nodes? The answer is to replace the utility function with an <strong>evaluation function</strong>.  which estimates the state’s utility. Such function should be designed particularly for a specific game and requires some knowledge of the game to achieve a decent estimation of who is more likely to win given a state of the game.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=80314c46">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c97c2eca">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In games in which we have limited response time and an answer should be available at any time, an iterative-deepening algorithm can provide an <em>anytime solution</em>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ced97ea">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e754869">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Evaluation-Functions">Evaluation Functions<a class="anchor-link" href="#Evaluation-Functions">¶</a></h2>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Evaluation-Functions">Evaluation Functions</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8aa43272">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34120f1a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>An ideal evaluation function returns the actual minimax value of a node. In that case, the algorithm is indeed optimal, otherwise, there is no guarantee for optimality. In practice, an evaluation function is typically a weighted linear sum of various features of the state. For example, in chess, we would have features for the number of white pawns, black pawns, white queens, black queens, or more complicated features like the number of white queens minus the number of black queens and so on. Therefore an evaluation function typically would look like this:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ae606c4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=37e66366">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$Eval(s) = w_1f_1(s) + w_2f_2(s) + \ldots + w_nf_n(s)$</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f37cc4a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c1610275">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>For now, we can suppose that the weights are constant and predetermined. Later on, in this course, we examine ways for learning how to improve these constants over time.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b53f1c9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7bd0a719">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Quality-of-the-evaluation-function">Quality of the evaluation function<a class="anchor-link" href="#Quality-of-the-evaluation-function">¶</a></h3>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Quality-of-the-evaluation-function">Quality of the evaluation function</h3>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6606e0e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcdf4c42">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>It is expected that a deeper depth-limited search provides better results even with a not so accurate evaluation function, that is because usually the closer we get to the terminal states, the easier becomes the evaluation of each state. As a general rule the deeper in the tree the evaluation function is buried, the less the quality of the evaluation function matters.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ffd7e308">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1c63dc37">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Nevertheless, a poor choice of the evaluation function can result in unpleasant effects especially in a shallow depth-limited search. Consider the simplified single-agent game of Pacman and its 2-depth tree illustrated in the figure below. Assume that the evaluation function is 10 times the number of eaten dots, so the estimated utility of nodes at depth two from left to right would 10, 0, and 10. Maximizing the evaluated numbers recursively leads to the value of 10 for both nodes of depth 1.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3e3ff0a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fa9d7cd4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Therefore Pacman faces a tie between moving left or right. Suppose that Pacman chooses to move right in such a state. Now, again, Pacman runs a two-depth search and faces with another tie illustrated below.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21296af3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6cc471f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Suppose that Pacman chooses to move left in such a state. Now, Pacman has returned to the initial state, therefore, he will starve in a forever loop of going right and then left. From Pacman’s point of view, there are no point-scoring opportunities after eating the dot, moreover, eating a dot now seems to have no advantage over eating a dot later. This issue indicates a poor choice of the evaluation function. We can solve this issue by adding more features to the evaluation function (e.g. distance of Pacman to the nearest dot with a weight of -1) so that the evaluation function can distinguish between states with a higher resolution.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53c3e4c1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24fde2fa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Minimax-Pruning">Minimax Pruning<a class="anchor-link" href="#Minimax-Pruning">¶</a></h2>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Minimax-Pruning">Minimax Pruning</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b11b1b12">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=452d0f0f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Do we have to visit every node in the tree to calculate the minimax values? The short answer is no. Some branches of the tree need not be visited in order to calculate their ancestors, in other words, those branches were <strong>pruned</strong> from the tree.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba66a893">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3dfe92c1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>To better understand the idea consider the tree shown in the figure below. Suppose that the minimax algorithm searches the tree depth-first and from left to right. Assume that the algorithm has already fully examined the branch “a”, therefore, a value of 8 (minimum of 8 and 10) must be assigned to the node Y. Now continuing the search, suppose the minimax algorithm has just opened the node resulting from action “e” and starts backtracking to node Z to continue its search in branch “f”. But is there really a need to open any nodes of the “f” branch? Since we have found a child of value 4 for node Z, the value of node Z will not be more than 4. Furthermore, a definite value of 8 has already been assigned to Y, thus node Z  with a value of at most 4 will have no chance against node Y competing for the max value. Hence the first player will never choose action “d” and there is no need for further exploration of branch “d” so we can safely prune whatever node there is in branch “f”. Notice that we might not have been able to prune any nodes if the ordering of nodes was not in our favor.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12cab196">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cbe58db3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>How can we generalize and organize this kind of inference and bring a decent algorithm out of it? Let’s say we’re computing the MIN-VALUE at some node n. Since n’s value would be the minimum value of its children, over time, the n’s value estimation will always be dropping or at least staying the same. Notice that n’s value affects the max nodes in the active path (current path from the root to n) <em>only if</em> it is large enough. Now let α be the best value that a MAX node gets at any choice point along the active path, if n’s value becomes worse than α, the MAX node will avoid it, so we can stop considering n’s other children. In other words, they’re already bad enough that they won’t be played.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c822c10">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b9201c6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>The argument will be symmetric when n is a MAX node and the best value in an active path is called β instead. This leads us to the <strong>alpha-beta pruning algorithm</strong> below which is a modification of the minimax search algorithm. α and β are respectively MAX nodes and MIN nodes best option on the path to root (the active path).</p>
 </div>
 </div>
@@ -657,12 +597,10 @@ def min-value(state, α, β):
         β = min(β, v)       # new line: updating alpha
     return v
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8fa76afd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0db3e684">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
 <p><em><strong>WARNING! NO BASE CASE IS IMPLEMENTED IN THE ALGORITHM ABOVE</strong></em></p>
 <hr/>
@@ -670,201 +608,165 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0e50dc43">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=050f81bb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>The two new lines in each function are marked. The first line is where the pruning actually happens. If the currently calculated value of the state, v, which is the minimum (maximum) value of its successors is worst (better) than α (β),no further search is required and v is returned. The second newly added line is used to update α and β in an active path. These two values are constantly passed between functions. As expected α is only updated in a MAX node and vice versa. Notice that α and β are not defined globally since they might be different in each active path and a node should only use the α and β value of its ancestors in the active path.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9636023e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f07abd02">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Alpha-Beta-Pruning-Properties">Alpha-Beta Pruning Properties<a class="anchor-link" href="#Alpha-Beta-Pruning-Properties">¶</a></h3>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Alpha-Beta-Pruning-Properties">Alpha-Beta Pruning Properties</h3>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d904821b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=211876a3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>It is notable that the pruning does not affect the minimax value computed for the root, however, values of the intermediate nodes might be wrong. This is uncertainty also applies to the children of the root hence this naive version of pruning can be problematic when it comes to action selection. Consider the tree in the figure below, the algorithm prunes the right-most branch and leaves the root node with two indistinguishable actions that only one of them is correct. One approach to solve this issue is tagging the nodes with exact aka definite values, so in the face of a tie, we can choose the exact node over the approximately calculated ones.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5927f953">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a151709">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>The effectiveness of the alpha-beta pruning algorithm depends on the nodes child ordering. As we will show, with a “perfect ordering” of children, for a branching factor of b and maximum tree depth of m, the time complexity drops to $O((2b)^{m/2})$ or more precisely $O\left((\sqrt{b}+0.5)^{m+1}\right)$. This means that given a fixed period of time, we can search the tree twice as deep as before. With a random ordering of child nodes, the total number of nodes examined will roughly be $O(b^{3m/4})$ for a moderate b.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3cedbe27">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=25d688ce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Best-Case-Analysis-of-the-Alpha-Beta-pruning">Best Case Analysis of the Alpha-Beta pruning<a class="anchor-link" href="#Best-Case-Analysis-of-the-Alpha-Beta-pruning">¶</a></h4>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Best-Case-Analysis-of-the-Alpha-Beta-pruning">Best Case Analysis of the Alpha-Beta pruning</h4>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c3ad78a6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2ef41d1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>It is easy to show that a “perfect ordering” that could give us the maximum pruning is an ordering in which MIN nodes’ children are ordered increasingly and MAX nodes’ children are ordered decreasingly based on their value. To analyze the complexity of the best-case scenario, notice that the value of some nodes has to be calculated precisely before a pruning could happen (See figure below).</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1553ee3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a785d953">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Knowing this fact we can find recursive patterns in the figure above as a general example. For any MAX node, the left-most child must be precisely calculated, and for its other children -which are going to be pruned- each should have the value of their left-most child precisely calculated. This observation leads to the following recursive formula:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a031f302">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=933661c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$B_m = B_{m-1} + (b-1)B_{m-2}$</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f43767e8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ed64b6f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Writing the characteristic equation of the formula we have</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a221cf8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3b9fdaa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$x^m = x^{m-1} + (b-1)x^{m-2}$</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c644eae8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5f11fcd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Dividing both sides by $x^{m-2}$ we obtain</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7897025">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9c4a72d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$x^2 = x + (b-1)$</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a253a0f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a688dcb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>That means having $x_1$ and $x_2$ as two roots of the last equation, the genral form of $B_m$ would be</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=944954c4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc05aeb1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$B_m = c_1x^m + c_2x^m$,</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce974359">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c71503f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>where $c_1$ and $c_2$ are constants.
 To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=960ea3cb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecf06010">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$x_1,x_2 = \frac{ 1\pm\sqrt{1+4(b-1)}}{2}=\frac{ 1\pm\sqrt{4b-3}}{2}\leq \frac{ 1\pm 2\sqrt{b}}{2}=0.5 \pm \sqrt{b}$</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63ab4d6d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43aa23dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Continiuing this path leads to the time complexity of $O\left((\sqrt{b}+0.5)^{m+1}\right)$ for the alpha-beta pruning algorithm. We do not intend to further examine the details of this proof.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34fd07a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a98999de">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Uncertain-Outcomes">Uncertain Outcomes<a class="anchor-link" href="#Uncertain-Outcomes">¶</a></h1><p>So far in the analysis of games, we have always assumed there are only two types of moves:</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Uncertain-Outcomes">Uncertain Outcomes</h2><p>So far in the analysis of games, we have always assumed there are only two types of moves:</p>
 <ul>
 <li>Our moves, in which we try to maximize our overall gain.</li>
 <li>Opponent's move, in which an adversary chooses a move that minimizes our gain.</li>
@@ -873,36 +775,30 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b25aa7f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4a950a44">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Take the following example:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0034b520">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c303cef">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>As you can see in the picture above, if the ghosts play perfectly PacMan can never win. So using the Minimax approach causes him to despair and go right to commit suicide in order to minimize wasted time!<br/>
 But the ghosts may not be as smart as they look and play randomly. In this case pacman could be able to win if the blue one takes the wrong decision and goes down and then right.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=547335c4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c96401e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Expectimax-Search">Expectimax Search<a class="anchor-link" href="#Expectimax-Search">¶</a></h2><p>In some cases the outcome cannot be determined exactly and is chance based. For example:</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Expectimax-Search">Expectimax Search</h2><p>In some cases the outcome cannot be determined exactly and is chance based. For example:</p>
 <ul>
 <li>Rolling a dice</li>
 <li>Unpredictable opponents: Naive opponents or those with limited resources.</li>
@@ -912,23 +808,19 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fa0f953a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e989fd3d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Such situations are shown by Expectation Nodes in game trees and are depicted by circles, in which the next move is chosen according to certain probabilites for each of the child nodes. We should compute value for average cases instead of worst cases in these nodes.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7d0573b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dac2a02c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Formalizing the underlying uncertain-result problems as a Markov Decision Process will be discussed in future lectures.</p>
 </div>
 </div>
@@ -952,124 +844,102 @@ def exp-value(state):
         p = probability(successor)
         v += p * value(successor)
     return v
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c3c1dd8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e78bf450">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Expectimax-Example">Expectimax Example<a class="anchor-link" href="#Expectimax-Example">¶</a></h2>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Expectimax-Example">Expectimax Example</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e09108dd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd0a9bc2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$v = (1/2)  (8) + (1/3)  (24) + (1/6)  (12)$</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fe3f603c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=76c180dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><br/>Calculating value for each of the expectation nodes:
 <br/>Setting the maximum value of the child nodes for the Max node</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bec4c4bc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=070ad527">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Expectimax-Pruning">Expectimax Pruning<a class="anchor-link" href="#Expectimax-Pruning">¶</a></h2>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Expectimax-Pruning">Expectimax Pruning</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4e87e8db">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0afce784">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>An Expectimax tree can be pruned only if there is a known upperbound for the unseen nodes. Here is why:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=529c1ce0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=588763e5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>If the specified branches are pruned without knowing an upperbound, the remaining values could be high enough to be a valid choice:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3f52a841">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b443188d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>But we know the value of the remaining branches is not higher than 10, the expected outcome could be at best $(2 + 10 + 10)/3 = 22/3 &lt; 8$. So we will be able to can prune those branches:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62ce0b50">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a73b728">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Depth-Limited-Expectimax">Depth-Limited Expectimax<a class="anchor-link" href="#Depth-Limited-Expectimax">¶</a></h2><p>Calculating exact Expectimax values can be overly time consuming in some trees, instead it is possible to estimate the values at nodes deeper than a certain amount:</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Depth-Limited-Expectimax">Depth-Limited Expectimax</h2><p>Calculating exact Expectimax values can be overly time consuming in some trees, instead it is possible to estimate the values at nodes deeper than a certain amount:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5968656">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=15c09c93">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Informed-Probabilities">Informed Probabilities<a class="anchor-link" href="#Informed-Probabilities">¶</a></h2><p>Take an opponent who moves according to a depth 2 minimax 80% of the time, and randomly in the remaining 20%. That can also be shown by an Expectimax tree.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Informed-Probabilities">Informed Probabilities</h2><p>Take an opponent who moves according to a depth 2 minimax 80% of the time, and randomly in the remaining 20%. That can also be shown by an Expectimax tree.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89e0d683">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1c6665f1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In the above tree, we have to run a simulation of the opponent and run a depth 2 minimax which node the opponent goes to 80% of the time. These calculations can get very slow very quickly.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5389394f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cf732439">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="The-Dangers-of-Optimism-and-Pessimism">The Dangers of Optimism and Pessimism<a class="anchor-link" href="#The-Dangers-of-Optimism-and-Pessimism">¶</a></h2><ul>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="The-Dangers-of-Optimism-and-Pessimism">The Dangers of Optimism and Pessimism</h2><ul>
 <li>Dangerous Optimism: Assuming chance when the world is adversarial</li>
 <li>Dangerous Pessimism: Assuming the worst case when it is not likely</li>
 </ul>
@@ -1077,35 +947,29 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ea73b09">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07afcb69">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In the figure above, you can see the result of 5 games of PacMan. The result of expecting the ghost to move randomly while in fact it is moving adversarially is an extremely low score whereas the reward is only slightly higher when using Expectimax in case of a randomly moving ghost compared to Minimax.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29036c16">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9fe84466">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Other-Game-Types">Other Game Types<a class="anchor-link" href="#Other-Game-Types">¶</a></h1>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Other-Game-Types">Other Game Types</h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5674b6ad">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=94ba6b8b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Mixed-Layer-Types">Mixed Layer Types<a class="anchor-link" href="#Mixed-Layer-Types">¶</a></h2><p>In these types of games, the players are able to find and choose the best possible move, but there is a random factor in play that also affects the gameplay. Take Backgammon for example:</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Mixed-Layer-Types">Mixed Layer Types</h2><p>In these types of games, the players are able to find and choose the best possible move, but there is a random factor in play that also affects the gameplay. Take Backgammon for example:</p>
 <ul>
 <li>Each player has to roll a dice before making a move.</li>
 <li>The result of dice determines possible moves for each player.</li>
@@ -1115,12 +979,10 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31a22bb6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7b031f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>There are 21 possible rolls with 2 dice and approximately 20 legal moves in the game of Backgammon. So a depth 2 tree has $20(21 \times 20)^3 = 1.2 \times 10^9$ leaves.<br/>
 And as depth increases, the probability of reaching a given search node shrinks. As a result, continuing search will be less useful and depth limiting will be less damaging. But pruning becomes trickier.<br/>
 Td-Gammon is a computer backgammon program developed in 1992. It uses a depth 2 search, a very good evaluation function and reinforcement learning and is able to perform at world champion level. TD-Gammon was the first AI champion in any game!</p>
@@ -1128,24 +990,20 @@ Td-Gammon is a computer backgammon program developed in 1992. It uses a depth 2 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39d52c44">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ded8f02a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Multi-Agent-Utilities">Multi-Agent Utilities<a class="anchor-link" href="#Multi-Agent-Utilities">¶</a></h2><p>In games with multiple players, terminals have utility n-tuples and each player tries to maximize his own component. This can make cooperation strategies viable.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Multi-Agent-Utilities">Multi-Agent Utilities</h2><p>In games with multiple players, terminals have utility n-tuples and each player tries to maximize his own component. This can make cooperation strategies viable.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0e83d6b0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ff43a20">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h2><p>Adverserial Search is used when there are other agents in play, probably with conflicting objectives as in most games. Here, we are interested in finding a <strong>Strategy of Playing</strong> that determines which action we should take in different possible scenarios.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Summary">Summary</h2><p>Adverserial Search is used when there are other agents in play, probably with conflicting objectives as in most games. Here, we are interested in finding a <strong>Strategy of Playing</strong> that determines which action we should take in different possible scenarios.</p>
 <p>Games can be classified into two main categories based on utility functions:</p>
 <ul>
 <li>Zero-sum Games: agents have opposite utilities (pure competition)</li>
@@ -1165,7 +1023,7 @@ A complete search is often infeasible in minimax due to resource limits. So we c
 </div>
 </div>
 </main>
-</body>
+
             </div>
             
                 
@@ -1233,8 +1091,8 @@ A complete search is often infeasible in minimax due to resource limits. So we c
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                RB
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/sorooshbagheri.png" alt="Reza Bagheri">
             </div>
             
             <div class="wf-person-main">
@@ -1254,13 +1112,23 @@ A complete search is often infeasible in minimax due to resource limits. So we c
                 
                 
                 
-                <a href="https://github.com/sorooshbagheri">https://github.com/sorooshbagheri</a>
+                <a class="wf-person-link" href="https://github.com/sorooshbagheri">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:sorooshbagheri77@gmail.com">mailto:sorooshbagheri77@gmail.com</a>
+                <a class="wf-person-link" href="mailto:sorooshbagheri77@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -1292,13 +1160,23 @@ A complete search is often infeasible in minimax due to resource limits. So we c
                 
                 
                 
-                <a href="https://github.com/arhemd">https://github.com/arhemd</a>
+                <a class="wf-person-link" href="https://github.com/arhemd">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:mehrad.dadar@gmail.com">mailto:mehrad.dadar@gmail.com</a>
+                <a class="wf-person-link" href="mailto:mehrad.dadar@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -1330,13 +1208,23 @@ A complete search is often infeasible in minimax due to resource limits. So we c
                 
                 
                 
-                <a href="https://github.com/parsa-azm">https://github.com/parsa-azm</a>
+                <a class="wf-person-link" href="https://github.com/parsa-azm">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:parsa.azm@gmail.com">mailto:parsa.azm@gmail.com</a>
+                <a class="wf-person-link" href="mailto:parsa.azm@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -1368,7 +1256,12 @@ A complete search is often infeasible in minimax due to resource limits. So we c
                 
                 
                 
-                <a href="mailto:hsnam861@gmail.com">mailto:hsnam861@gmail.com</a>
+                <a class="wf-person-link" href="mailto:hsnam861@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -1385,6 +1278,25 @@ A complete search is often infeasible in minimax due to resource limits. So we c
     
 </div>
             
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -1393,7 +1305,7 @@ A complete search is often infeasible in minimax due to resource limits. So we c
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/7_constraint_satisfaction_problems/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/7_constraint_satisfaction_problems/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Constraint Satisfaction Problems Notes</span>
             </a>
@@ -1406,7 +1318,7 @@ A complete search is often infeasible in minimax due to resource limits. So we c
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/adversarial_search_fall_2021/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/adversarial_search_fall_2021/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Adversarial Search Notes</span>
             </a>

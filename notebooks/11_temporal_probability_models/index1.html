@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -286,25 +288,21 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#Probabilistic-Reasoning-Over-Time">Probabilistic Reasoning Over Time</a></li><li class="wf-content-toc-level-2"><a href="#Time-and-Uncertainty">Time and Uncertainty</a></li><li class="wf-content-toc-level-3"><a href="#States">States</a></li><li class="wf-content-toc-level-4"><a href="#Markov-Chain">Markov Chain</a></li><li class="wf-content-toc-level-4"><a href="#Example">Example</a></li><li class="wf-content-toc-level-3"><a href="#Mini-Forward-Algorithm">Mini-Forward Algorithm</a></li><li class="wf-content-toc-level-3"><a href="#Stationary-Distributions">Stationary Distributions</a></li><li class="wf-content-toc-level-4"><a href="#Example-2">Example</a></li><li class="wf-content-toc-level-4"><a href="#Applications">Applications</a></li><li class="wf-content-toc-level-3"><a href="#Hidden-Markov-Model">Hidden Markov Model</a></li><li class="wf-content-toc-level-4"><a href="#Example-3">Example</a></li><li class="wf-content-toc-level-4"><a href="#Joint-Distribution-of-an-HMM">Joint Distribution of an HMM</a></li><li class="wf-content-toc-level-4"><a href="#Applications-2">Applications</a></li></ol></nav>
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=coupled-adelaide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Probabilistic-Reasoning-Over-Time">Probabilistic Reasoning Over Time<a class="anchor-link" href="#Probabilistic-Reasoning-Over-Time">¶</a></h1><p>Up to now, agents we have worked with, used their current data provided by their sensors to choose their action. Yet, they have much more than that. They've seen the past. In this chapter we will talk about agents that can perceive the world their in, how it works, and can quantify the degree of <strong>belief</strong> they have in their perception.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Probabilistic-Reasoning-Over-Time">Probabilistic Reasoning Over Time</h2><p>Up to now, agents we have worked with, used their current data provided by their sensors to choose their action. Yet, they have much more than that. They've seen the past. In this chapter we will talk about agents that can perceive the world their in, how it works, and can quantify the degree of <strong>belief</strong> they have in their perception.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=complete-university">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><img alt="decorative" src="/notes/assets/resource/decorative_1.png"/></p>
 </div>
 </div>
@@ -312,11 +310,9 @@
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=exempt-numbers">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Time-and-Uncertainty">Time and Uncertainty<a class="anchor-link" href="#Time-and-Uncertainty">¶</a></h2><p>Let's discuss the change we're making to the scope of problems we're solving. We have developed our techniques for  probabilistic reasoning in the context of static worlds, in which each random variable has a single fixed value. For  example, when repairing a car, we assume that whatever is broken remains broken during the process of diagnosis; our job
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Time-and-Uncertainty">Time and Uncertainty</h2><p>Let's discuss the change we're making to the scope of problems we're solving. We have developed our techniques for  probabilistic reasoning in the context of static worlds, in which each random variable has a single fixed value. For  example, when repairing a car, we assume that whatever is broken remains broken during the process of diagnosis; our job
 is to infer the state of the car from observed evidence, which also remains fixed.</p>
 <p>Now consider a slightly different problem: treating a diabetic patient. As in the case of car repair, we have evidence such as recent insulin doses, food intake, blood sugar measurements, and other physical signs. The task is to assess the current state of the patient, including the actual blood sugar level and insulin level. Given this information, we can make a decision about the patient’s food intake and insulin dose. Unlike the case of car repair, here the dynamic aspects of the problem are essential. Blood sugar levels and measurements thereof can change rapidly over time, depending on recent food intake and insulin doses, metabolic activity, the time of day, and so on. To assess the current state from the history of evidence and to predict the outcomes of treatment actions, we must model these changes.</p>
 <p>The same considerations arise in many other contexts, such as speech recognition, robot localization, user attention, medical monitoring, etc.</p>
@@ -326,11 +322,9 @@ is to infer the state of the car from observed evidence, which also remains fixe
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=proud-spending">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="States">States<a class="anchor-link" href="#States">¶</a></h3><p>We view the world as a series of snapshots, or time slices, each of which contains a set of random variables. (Uncertainty over continuous time can be modeled by stochastic differential equations, SDEs. The models studied in this chapter can be viewed as discrete-time approximations to SDEs.)</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="States">States</h3><p>We view the world as a series of snapshots, or time slices, each of which contains a set of random variables. (Uncertainty over continuous time can be modeled by stochastic differential equations, SDEs. The models studied in this chapter can be viewed as discrete-time approximations to SDEs.)</p>
 <p>To model our problems, we first start with <strong>Markov chains</strong>, and will continue to adopt it to better meet our real world requirements.</p>
 </div>
 </div>
@@ -338,11 +332,9 @@ is to infer the state of the car from observed evidence, which also remains fixe
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=exact-supplier">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Markov-Chain">Markov Chain<a class="anchor-link" href="#Markov-Chain">¶</a></h4><p>A Markov process is a stochastic process that satisfies the <strong>Markov property</strong> (sometimes characterized as <strong>memorylessness</strong>). In simpler terms, it is a process for which predictions can be made regarding future outcomes based <em>solely</em> on its present state and—most importantly—such predictions are just as good as the ones that could be made knowing the process's full history. In other words, conditional on the present state of the system, its future and past states are independent.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Markov-Chain">Markov Chain</h4><p>A Markov process is a stochastic process that satisfies the <strong>Markov property</strong> (sometimes characterized as <strong>memorylessness</strong>). In simpler terms, it is a process for which predictions can be made regarding future outcomes based <em>solely</em> on its present state and—most importantly—such predictions are just as good as the ones that could be made knowing the process's full history. In other words, conditional on the present state of the system, its future and past states are independent.</p>
 <p>A <strong>Markov chain</strong> is a type of Markov process that has either a discrete state space or a discrete index set (often representing time), but the precise definition of a Markov chain varies. Here, we use Markov chains that have a time as their discrete index set.</p>
 <p>We define $X_t$ the <strong>state</strong> of the world in out problem at time $t$, i.e. $t$th snapshot we have.</p>
 </div>
@@ -351,10 +343,8 @@ is to infer the state of the car from observed evidence, which also remains fixe
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dimensional-honey">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><img alt="Markov chain" src="/notes/assets/resource/markov_chain.png"/></p>
 </div>
 </div>
@@ -362,10 +352,8 @@ is to infer the state of the car from observed evidence, which also remains fixe
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=resistant-turning">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>As we said before, $X_t$ relies only on $X_{t-1}$, so the bayes net for a Markov chain would be as the above figure.</p>
 <p>We define <strong>transition probabilities</strong> or <strong>dynamics</strong>, the CPT of $X_i|X_{i-1}$. Doing this, we have made an assumption about how the states are evolving, transition probabilities are the same at all times. This is called <strong>stationary assumption</strong>.</p>
 <p>We can define this Markov chain, using its <strong>initial state probabilities</strong>, i.e. the CPT of $X_1$, and transition probabilities.</p>
@@ -388,27 +376,25 @@ P(X_1, X_2, ..., X_T) &amp;= P(X_1)P(X_2|X_1)P(X_3|X_2, X_1)...P(X_T|X_{T-1},...
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=weird-poetry">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h4><p><img alt="Weekly Weather" src="/notes/assets/resource/weather_example.png"/>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Example">Example</h4><p><img alt="Weekly Weather" src="/notes/assets/resource/weather_example.png"/>
 Let's have an example to clear the air. We assume that changes of the weather is a Markov process, i.e. its state relies solely on its last step. So we make our snapshots everyday. We also that weather is classified into two states, namely rain and sun. Moreover, the <em>initial state probabilities</em> are defined by:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">state</th>
-<th style="text-align:center">probability</th>
+<th style="text-align: center">state</th>
+<th style="text-align: center">probability</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">sun</td>
-<td style="text-align:center">1.0</td>
+<td style="text-align: center">sun</td>
+<td style="text-align: center">1.0</td>
 </tr>
 <tr>
-<td style="text-align:center">rain</td>
-<td style="text-align:center">0.0</td>
+<td style="text-align: center">rain</td>
+<td style="text-align: center">0.0</td>
 </tr>
 </tbody>
 </table>
@@ -416,31 +402,31 @@ Let's have an example to clear the air. We assume that changes of the weather is
 <table>
 <thead>
 <tr>
-<th style="text-align:center">X_{t-1}</th>
-<th style="text-align:center">X_t</th>
-<th style="text-align:center">P(X_t|X_{t-1})</th>
+<th style="text-align: center">X_{t-1}</th>
+<th style="text-align: center">X_t</th>
+<th style="text-align: center">P(X_t|X_{t-1})</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">sun</td>
-<td style="text-align:center">sun</td>
-<td style="text-align:center">0.9</td>
+<td style="text-align: center">sun</td>
+<td style="text-align: center">sun</td>
+<td style="text-align: center">0.9</td>
 </tr>
 <tr>
-<td style="text-align:center">sun</td>
-<td style="text-align:center">rain</td>
-<td style="text-align:center">0.1</td>
+<td style="text-align: center">sun</td>
+<td style="text-align: center">rain</td>
+<td style="text-align: center">0.1</td>
 </tr>
 <tr>
-<td style="text-align:center">rain</td>
-<td style="text-align:center">sun</td>
-<td style="text-align:center">0.3</td>
+<td style="text-align: center">rain</td>
+<td style="text-align: center">sun</td>
+<td style="text-align: center">0.3</td>
 </tr>
 <tr>
-<td style="text-align:center">rain</td>
-<td style="text-align:center">rain</td>
-<td style="text-align:center">0.7</td>
+<td style="text-align: center">rain</td>
+<td style="text-align: center">rain</td>
+<td style="text-align: center">0.7</td>
 </tr>
 </tbody>
 </table>
@@ -452,10 +438,8 @@ Let's have an example to clear the air. We assume that changes of the weather is
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dying-beast">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <details>
 <summary> * What is probability distribution after one step? (Click for solution!)</summary>
   \begin{align*}
@@ -473,11 +457,9 @@ Let's have an example to clear the air. We assume that changes of the weather is
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=governing-rider">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Mini-Forward-Algorithm">Mini-Forward Algorithm<a class="anchor-link" href="#Mini-Forward-Algorithm">¶</a></h3><p>The problem we're trying to find solution for in this algorithm is the value of $P(X)$ on some day $t$. Mini-Forward Algorithm uses dynamic programming to find answer for this question.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Mini-Forward-Algorithm">Mini-Forward Algorithm</h3><p>The problem we're trying to find solution for in this algorithm is the value of $P(X)$ on some day $t$. Mini-Forward Algorithm uses dynamic programming to find answer for this question.</p>
 <p>$P(X_1)$ is known to us. We successively calculate probability of $P(X_t)$.</p>
 <p>\begin{align*}
 P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
@@ -492,8 +474,7 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=turkish-third">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
+
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -519,18 +500,15 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=popular-explanation">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Next, we want to calculate the state's probabilities for $t=10000$ with several initial states.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=selected-solomon">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
+
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -544,11 +522,10 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
+
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>{'sun': 0.7500000000000007, 'rain': 0.2500000000000001}
 {'sun': 0.7500000000000003, 'rain': 0.2500000000000001}
@@ -561,10 +538,8 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=spanish-shannon">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>It seems like no matter what initial value we choose, we end up with days that are 75% sunny. (Go ahead and test some initial values of your own.</p>
 </div>
 </div>
@@ -572,11 +547,9 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ordinary-there">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Stationary-Distributions">Stationary Distributions<a class="anchor-link" href="#Stationary-Distributions">¶</a></h3><p>A stationary distribution is a specific entity which is unchanged by the effect of some matrix or operator.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Stationary-Distributions">Stationary Distributions</h3><p>A stationary distribution is a specific entity which is unchanged by the effect of some matrix or operator.</p>
 <p>Regarding our topic, it's a special distribution for a Markov chain, such that if the chain starts with its stationary distribution, the marginal distribution of all states at any time will always be the same stationary distribution. Assuming irreducibility, the stationary distribution is always unique if it exists.</p>
 <p><img alt="stationary decorative" src="/notes/assets/resource/stationary-decorative.png"/></p>
 <p>For most chains, influence of the initial distribution gets less and less over time and the distribution we end up in is independent of the initial distribution. This is the so-called <strong>stationary distribution</strong>. Note that regarding its definition, it satisfies:</p>
@@ -587,11 +560,9 @@ P(X_t) &amp;= \sum_{x_{t-1}} P(x_{t-1}, x_t) \\
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=latter-tenant">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h4><p>Let's prove that for the previous example, the stationary distribution is really what we guessed.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Example-2">Example</h4><p>Let's prove that for the previous example, the stationary distribution is really what we guessed.</p>
 <p>\begin{cases}
 P_\infty(sun) = P(sun|sun)P_\infty(sun) + P(sun|rain)P_\infty(rain) \\
 P_\infty(rain) = P(rain|sun)P_\infty(sun) + P(rain|rain)P_\infty(rain)
@@ -617,15 +588,13 @@ P_\infty(rain) = 0.25
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ethical-tragedy">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Applications">Applications<a class="anchor-link" href="#Applications">¶</a></h4><h5 id="Web-Link-Analysis">Web Link Analysis<a class="anchor-link" href="#Web-Link-Analysis">¶</a></h5><p>Assume we use web pages as our state. We start from a uniformly random web page, and in each step change the state to some other uniformly random web page with probability $c$, and follow a random outlink in the web page with probability $1-c$.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Applications">Applications</h4><h5 id="Web-Link-Analysis">Web Link Analysis</h5><p>Assume we use web pages as our state. We start from a uniformly random web page, and in each step change the state to some other uniformly random web page with probability $c$, and follow a random outlink in the web page with probability $1-c$.</p>
 <p>It can be seen that we'll spend more time on web pages that are highly reachable. e.g. since many sites use Flash, you can probably find a path from any site to Acrobat Flash download page.</p>
 <p>In fact, since this transitions are random, leading it to a certain site, requires making path from many sites to it, which is practically impossible, so it's somewhat robust to link spam.</p>
 <p>Google 1.0 returned the set of pages containing all your keywords in decreasing rank (the time spent on that web page). Nowadays, all search engines use link analysis along with many other factors. (rank is actually getting less important over time)</p>
-<h5 id="Gibs-Sampling">Gibs Sampling<a class="anchor-link" href="#Gibs-Sampling">¶</a></h5><p>We define:</p>
+<h5 id="Gibs-Sampling">Gibs Sampling</h5><p>We define:</p>
 <ul>
 <li>Each state as a set of all random and query variables, i.e. $\{X_1,...,X_n\} = H \cup Q$</li>
 <li>Transitions as resampling one of the variables regarding all its parents, i.e we resample $x$ according to:
@@ -638,16 +607,14 @@ $$P(X_i|X_1,X_2,...X_n, E_1, ..., E_m)$$ Where $E_i$ is an evidence.</li>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=legendary-summary">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Hidden-Markov-Model">Hidden Markov Model<a class="anchor-link" href="#Hidden-Markov-Model">¶</a></h3><p>Usually if we look at the problem's input, it doesn't yield a Markov chain. But still, there is hope.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Hidden-Markov-Model">Hidden Markov Model</h3><p>Usually if we look at the problem's input, it doesn't yield a Markov chain. But still, there is hope.</p>
 <p>If the problem has a superior state that is a Markov process, we can make an assumption about this superior state, our <strong>belief</strong>, and update it as we <strong>observe</strong> problem's inputs.</p>
 <p><img alt="Hidden Markov Model" src="/notes/assets/resource/hmm.png"/></p>
 <p>To model this system, we start with a simple Markov chain, and at each state, add a new node for the inputs of the problem such as agent's sensors, etc. which is solely relied on its state (i.e. $P(E_t|X_{0:t},E_{0:t-1}) = P(E_t|X_t)$. This property is called <strong>sensor Markov assumption</strong>).</p>
 <p>You can see a sample Hidden Markov Model (<strong>HMM</strong>) above.</p>
-<h4 id="Example">Example<a class="anchor-link" href="#Example">¶</a></h4><p>Let's use the weather problem to clear the air again. Imagine that you are the security guard stationed at a secret  underground installation. You want to know whether it’s raining today, but your only access to the outside world occurs each morning when you see the director coming in with, or without, an umbrella. For each day $t$, the set $E_t$ thus contains a single evidence variable $Umbrella_t$ or $U_t$ for short (whether the umbrella appears), and the set $X_t$ contains a single state variable $Rain_t$ or $R_t$ for short (whether it is raining).</p>
+<h4 id="Example-3">Example</h4><p>Let's use the weather problem to clear the air again. Imagine that you are the security guard stationed at a secret  underground installation. You want to know whether it’s raining today, but your only access to the outside world occurs each morning when you see the director coming in with, or without, an umbrella. For each day $t$, the set $E_t$ thus contains a single evidence variable $Umbrella_t$ or $U_t$ for short (whether the umbrella appears), and the set $X_t$ contains a single state variable $Rain_t$ or $R_t$ for short (whether it is raining).</p>
 <p><img alt="HMM Weather Example" src="/notes/assets/resource/hmm-weather.png"/></p>
 <p>This Bayes net can help us to find whatever query we have.</p>
 </div>
@@ -656,11 +623,9 @@ $$P(X_i|X_1,X_2,...X_n, E_1, ..., E_m)$$ Where $E_i$ is an evidence.</li>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=extra-award">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Joint-Distribution-of-an-HMM">Joint Distribution of an HMM<a class="anchor-link" href="#Joint-Distribution-of-an-HMM">¶</a></h4><p>Like Markov chain, we write the joint distributions of all variables:
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Joint-Distribution-of-an-HMM">Joint Distribution of an HMM</h4><p>Like Markov chain, we write the joint distributions of all variables:
 \begin{align*}
 P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0})P(E_t|X_{t:0}) \\
 &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1})P(E_t|X_t)
@@ -673,22 +638,20 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=graphic-tennessee">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Applications">Applications<a class="anchor-link" href="#Applications">¶</a></h4><h5 id="Speech-Recognition-HMMs">Speech Recognition HMMs<a class="anchor-link" href="#Speech-Recognition-HMMs">¶</a></h5><p>Hidden Markov Models (HMMs) provide a simple and effective framework for modelling time-varying spectral vector sequences. As a consequence, almost all present day large vocabulary continuous speech recognition (LVCSR) systems are based on HMMs.</p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Applications-2">Applications</h4><h5 id="Speech-Recognition-HMMs">Speech Recognition HMMs</h5><p>Hidden Markov Models (HMMs) provide a simple and effective framework for modelling time-varying spectral vector sequences. As a consequence, almost all present day large vocabulary continuous speech recognition (LVCSR) systems are based on HMMs.</p>
 <p>We use acoustic signals as our observation, and specific positions in words as our states (so we have tens of thousands of states).</p>
-<h5 id="Machine-Translation-HMMs">Machine Translation HMMs<a class="anchor-link" href="#Machine-Translation-HMMs">¶</a></h5><p>On a basic level, machine translation performs mechanical substitution of words in one language for words in another, but that alone rarely produces a good translation because recognition of whole phrases and their closest counterparts in the target language is needed. Not all words in one language have equivalent words in another language, and many words have more than one meaning.</p>
+<h5 id="Machine-Translation-HMMs">Machine Translation HMMs</h5><p>On a basic level, machine translation performs mechanical substitution of words in one language for words in another, but that alone rarely produces a good translation because recognition of whole phrases and their closest counterparts in the target language is needed. Not all words in one language have equivalent words in another language, and many words have more than one meaning.</p>
 <p>Here, we observe words, and our states are translation options.</p>
-<h5 id="Robot-Tracking">Robot Tracking<a class="anchor-link" href="#Robot-Tracking">¶</a></h5><p>In this application, we want to localize a robot using the range readings its sensors provide. (sesors provide our observation)</p>
+<h5 id="Robot-Tracking">Robot Tracking</h5><p>In this application, we want to localize a robot using the range readings its sensors provide. (sesors provide our observation)</p>
 <p>Here, states are possible possitions of the robot on the map.</p>
 </div>
 </div>
 </div>
 </div>
 </main>
-</body>
+
             </div>
             
                 
@@ -756,8 +719,8 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                AM
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/mehrdad7008.png" alt="Ali Mirzaei Saghezchi">
             </div>
             
             <div class="wf-person-main">
@@ -777,13 +740,23 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
                 
                 
                 
-                <a href="https://github.com/mehrdad7008">https://github.com/mehrdad7008</a>
+                <a class="wf-person-link" href="https://github.com/mehrdad7008">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:mehrdad7008@gmail.com">mailto:mehrdad7008@gmail.com</a>
+                <a class="wf-person-link" href="mailto:mehrdad7008@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -815,7 +788,12 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
                 
                 
                 
-                <a href="mailto:rman.mo2000@gmail.com">mailto:rman.mo2000@gmail.com</a>
+                <a class="wf-person-link" href="mailto:rman.mo2000@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -826,8 +804,8 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                AB
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/arman17babaei.png" alt="Arman Babaei">
             </div>
             
             <div class="wf-person-main">
@@ -847,13 +825,23 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
                 
                 
                 
-                <a href="https://github.com/arman17babaei">https://github.com/arman17babaei</a>
+                <a class="wf-person-link" href="https://github.com/arman17babaei">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:292.arma@gmail.com">mailto:292.arma@gmail.com</a>
+                <a class="wf-person-link" href="mailto:292.arma@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -885,7 +873,12 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
                 
                 
                 
-                <a href="mailto:ghaznavi.mahdi@gmail.com">mailto:ghaznavi.mahdi@gmail.com</a>
+                <a class="wf-person-link" href="mailto:ghaznavi.mahdi@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -902,6 +895,25 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
     
 </div>
             
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -910,7 +922,7 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/10_bayesian_networks_sampling/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/10_bayesian_networks_sampling/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Approximate Inference in Bayesian Networks</span>
             </a>
@@ -923,7 +935,7 @@ P(X_1, E_1, ... ,X_T, E_T) &amp;= P(X_1)P(E_1|X_1) \prod_{t=2}^T P(X_t|X_{t-1:0}
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/11_temporal_probability_models/index2.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/11_temporal_probability_models/index2.html">
                 <span class="d-block small text-muted">Next</span>
                 <span>Temporal Probability Models, Part 2</span>
             </a>

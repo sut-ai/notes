@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>LN | Bayesian Networks Representation</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,7 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Bayesian Networks Representation</h1>
         
     </div>
 </header>
@@ -281,50 +284,10 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1><strong>Bayesian Networks Representation</strong></h1>
-<h2><strong>Table of contents:</strong></h2>
-<ul>
-<li><a href="#Introduction">Introduction</a><ul>
-<li><a href="#Probabilistic-Models">Probabilistic Models</a></li>
-</ul>
-</li>
-<li><a href="#Independence">Independence</a><ul>
-<li><a href="#Conditional-Independence">Conditional Independence</a></li>
-<li><a href="#Chain-Rule">Chain Rule</a></li>
-</ul>
-</li>
-<li><a href="#Bayes-Nets">Bayes' Nets</a><ul>
-<li><a href="#Problems-with-joint-distribution-tables">Problems with joint distribution tables</a></li>
-<li><a href="#Graphical-Notation">Graphical Notation</a></li>
-<li><a href="#Semantics">Semantics</a></li>
-<li><a href="#Probabilities-in-Bayes-Nets">Probabilities in Bayes' Nets</a></li>
-<li><a href="#Causality-in-Bayes-Nets">Causality in Bayes' Nets</a></li>
-<li><a href="#Space-Efficiency">Space Efficiency</a></li>
-</ul>
-</li>
-<li><a href="#Independence-in-Bayes'-Nets">Independence in Bayes' Nets</a><ul>
-<li><a href="#D-separation">D-separation</a><ul>
-<li><a href="#Outline">Outline</a></li>
-<li><a href="#Causal-Chain">Causal Chain</a></li>
-<li><a href="#Common-Cause">Common Cause</a></li>
-<li><a href="#V-Structure">V-Structure</a></li>
-</ul>
-</li>
-<li><a href="#Reachability">Reachability</a></li>
-<li><a href="#Active/Inactive-Paths">Active/Inactive Paths</a></li>
-<li><a href="#Structure-Implications">Structure Implications</a></li>
-<li><a href="#Topology-Limits-Distributions">Topology Limits Distributions</a></li>
-</ul>
-</li>
-<li><a href="#Conclusion">Conclusion</a><ul>
-<li><a href="#What-comes-next">What comes next</a></li>
-</ul>
-</li>
-<li><a href="#References">References</a></li>
-</ul>
-<h2>Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#probabilistic-models">Probabilistic Models</a></li><li class="wf-content-toc-level-2"><a href="#independence">Independence</a></li><li class="wf-content-toc-level-3"><a href="#conditional-independence">Conditional Independence</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule">Chain Rule</a></li><li class="wf-content-toc-level-2"><a href="#bayes-nets">Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#problems-with-joint-distribution-tables">Problems with joint distribution tables</a></li><li class="wf-content-toc-level-3"><a href="#graphical-notation">Graphical Notation</a></li><li class="wf-content-toc-level-3"><a href="#semantics">Semantics</a></li><li class="wf-content-toc-level-3"><a href="#probabilities-in-bayes-nets">Probabilities in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#causality-in-bayes-nets">Causality in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#space-efficiency">Space Efficiency</a></li><li class="wf-content-toc-level-2"><a href="#independence-in-bayes-nets">Independence in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#d-separation">D-separation</a></li><li class="wf-content-toc-level-4"><a href="#outline">Outline:</a></li><li class="wf-content-toc-level-4"><a href="#causal-chain">Causal Chain</a></li><li class="wf-content-toc-level-4"><a href="#common-cause">Common Cause</a></li><li class="wf-content-toc-level-4"><a href="#v-structure">V-Structure</a></li><li class="wf-content-toc-level-3"><a href="#reachability">Reachability</a></li><li class="wf-content-toc-level-3"><a href="#active-inactive-paths">Active/Inactive Paths</a></li><li class="wf-content-toc-level-3"><a href="#structure-implications">Structure Implications</a></li><li class="wf-content-toc-level-3"><a href="#topology-limits-distributions">Topology Limits Distributions</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-3"><a href="#what-comes-next">What comes next</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
+<h2 id="introduction">Introduction</h2>
 <p>Imagine this scenario. You want to know if the food in your fridge is going to spoil. You can hear your fridge humming. Does that change the probability of the food spoiling? What if you see that the fridge door is open? Are these evidences even related to the food spoiling? In this lecture note, we want to introduce a probabilistic model to study this kind of problems. </p>
-<h3>Probabilistic Models</h3>
+<h3 id="probabilistic-models">Probabilistic Models</h3>
 <p>So, what is a probabilistic model? A model is a simplification of the real world; it describes how portions of the world work. Since models are simplifications, they do not contain all the details and may not account for every variable or interaction between variables. As George E. P. Box, a British statistician once said: "All models are wrong; but some are useful."</p>
 <p>We use probabilistic models to reason about unknown variables, given evidences. This can be done in three ways:</p>
 <ul>
@@ -335,25 +298,25 @@
 <li>Intercausal inference
     Means inferring probabilities between causes of a common effect, which is often called <strong>explaining away</strong>. For example, if we know that the food spoiled and the fridge door was open, the probability of the fridge being broken gets very low, although the door being open is independent of the fridge being broken.</li>
 </ul>
-<h2>Independence</h2>
+<h2 id="independence">Independence</h2>
 <p>Two variables are <em>independent</em> if:</p>
-<p>$$\forall x, y : P(x, y)=P(x)P(y)$$</p>
+$$\forall x, y : P(x, y)=P(x)P(y)$$
 <p>If two variables are independent, their joint distribution is the product of their distributions. This can also be shown in another way:</p>
-<p>$$\forall x, y : P(x\mid y)=P(x)$$</p>
+$$\forall x, y : P(x\mid y)=P(x)$$
 <p>We show independency as:</p>
-<p>$$X\perp Y$$</p>
+$$X\perp Y$$
 <p>Note that real life joint distributions are at best close to independent. Independence is a <em>modelling assumption</em>. We'll get back to assumptions later.</p>
-<h3>Conditional Independence</h3>
+<h3 id="conditional-independence">Conditional Independence</h3>
 <p>Unconditional (absolute) independence is very rare to come by, because the variables in a problem are usually all correlated. Conditional independence is our most basic and robust form of knowledge about uncertain environments. </p>
 <p>$X$ is conditionally independent of $Y$ given $Z$,</p>
-<p>$$X\perp Y\mid Z$$</p>
+$$X\perp Y\mid Z$$
 <p>if and only if</p>
-<p>$$\forall x,y,z:P(x,y\mid z)=P(x\mid z)P(y\mid z)$$</p>
+$$\forall x,y,z:P(x,y\mid z)=P(x\mid z)P(y\mid z)$$
 <p>or equivalently, if and only if</p>
-<p>$$\forall x,y,z:P(x\mid z,y)=P(x\mid z)$$</p>
-<h3>Chain Rule</h3>
+$$\forall x,y,z:P(x\mid z,y)=P(x\mid z)$$
+<h3 id="chain-rule">Chain Rule</h3>
 <p>We all know the basic form of chain rule:</p>
-<p>$$P(X_1,X_2,...,X_n)=P(X_1)P(X_2\mid X_1)P(X_3\mid X_1,X_2)...$$</p>
+$$P(X_1,X_2,...,X_n)=P(X_1)P(X_2\mid X_1)P(X_3\mid X_1,X_2)...$$
 <p>Imagine we want $P(X, Y, Z)$. Using the chain rule, we can write:</p>
 <ul>
 <li>$$P(X,Y,Z) = P(X)P(Y|X)P(Z|X,Y)$$</li>
@@ -363,24 +326,24 @@
 <li>$$P(X,Y,Z) = P(X)P(Y|X)P(Z|X)$$</li>
 </ul>
 <p>These independencies can be derived from bayes' nets. This will come in handy when we want to infer probabilities from bayes nets.</p>
-<h2>Bayes' Nets <a name="Bayes-Nets"></a></h2>
+<h2 id="bayes-nets">Bayes' Nets <a name="Bayes-Nets"></a></h2>
 <p><img alt="fridge" src="/notes/assets/assets/Fridge_net.PNG"/></p>
-<h3>Problems with joint distribution tables</h3>
+<h3 id="problems-with-joint-distribution-tables">Problems with joint distribution tables</h3>
 <p>There are two problems with using full joint distribution tables as our probabilistic models:
 1. Unless there are only a few variables, the joint is WAY too  big to represent explicitly (With $2^n$ rows from $n$ variables).
 2. Hard to learn (estimate) anything empirically about more than a few variables at a time. For example, to find the probability of two variables being true at the same time, we would have to calculate a sum over $\frac{2^n}{4}$ rows which can be an unreasonably big calculation.</p>
 <p>Bayes nets is a technique for describing complex joint distributions or models using simple and local distributions.</p>
-<h3>Graphical Notation</h3>
+<h3 id="graphical-notation">Graphical Notation</h3>
 <p>Bayesian net's graphical notation consists of a graph, and one conditional probability table for each dependency.</p>
 <ul>
 <li>Each graph node represents a variable . Each variable can be either assigned (observed) or unassigned (unobserved). Note that being observed or not has nothing to do with the variable's domain being binary or not.</li>
 <li>Each graph arc represents an interaction. These arcs are pretty similar to what we saw in previous lecture notes about CSP constraints which indicate direct influence between variables. Formally, the arcs encode conditional dependence.</li>
 </ul>
 <p><img alt="image" src="https://user-images.githubusercontent.com/44923177/146651162-96c91d1f-9f38-4825-9d6f-983f36aca273.png"/></p>
-<h3>Semantics</h3>
+<h3 id="semantics">Semantics</h3>
 <p><img alt="image" src="https://user-images.githubusercontent.com/44923177/146654189-38c25839-e446-420f-af85-473900274dfb.png"/></p>
 <p>In this picture there are a set of nodes, one per variable $X$. And we have a directed and acyclic graph. Each node of this graph shows a conditional distribution. </p>
-<h3>Probabilities in Bayes' Nets <a name="Probabilities-in-Bayes-Nets"></a></h3>
+<h3 id="probabilities-in-bayes-nets">Probabilities in Bayes' Nets <a name="Probabilities-in-Bayes-Nets"></a></h3>
 <p>In BNs, joint distribution is obtained by the product of local conditional distributions. So, to find the probability of a full assignment, multiply all relevant conditional   probabilities. <br/>
  $$P(x_1, x_2,... , x_n)=\prod_{i=1}^{n}P(x_i|Parents(x_i))$$ <br/>
  In the following part, we will prove this method is correct.<br/>
@@ -406,21 +369,21 @@
  In this case, it is assumed that the house alarm goes off by an earthquake or burglary. John and Mary may also call us if the alarm is ringing.
  <img alt="alarm" src="/notes/assets/assets/alarm.png"/> <br/>
 For example $P(+b,-e,+a,-j,-m)=P(+b)P(-e)P(+a|+b,-e)P(-j|+a)P(-m|+a)$</p>
-<h3>Causality in Bayes' Nets <a name="Causality-in-Bayes-Nets"></a></h3>
+<h3 id="causality-in-bayes-nets">Causality in Bayes' Nets <a name="Causality-in-Bayes-Nets"></a></h3>
 <p>If in a Bayes' net the arrows represent the real causes, it can be better investigated and the probabilities are easier to find. The network also becomes simpler. Because the number of parents is fewer. <br/>
  Sometimes arrows do not represent causal relationships. Or even in some networks, none of the arrows have a causal relationship. For example, when some important variables are not available in the network. In such cases, the arrows show correlation and not causation.<br/></p>
 <p>Therefore, we do not need to know the exact causal structure between the variables.</p>
-<h3>Space Efficiency</h3>
+<h3 id="space-efficiency">Space Efficiency</h3>
 <p>The CPT size of a node depends on it's domain and parents. if a node has $k$ parents and each of which has $m$ different value, the CPT size is equal to $m^{k+1}$. <br/>
  Therefore, in a Bayes' net with $N$ Boolean variables, if each node has a maximum of $k$ parents, the size of the whole net is of the order of $O(N\times 2^{k+1})$. Whereas if we want to store their joint distribution, it is the size of $2^N$. <br/></p>
 <p>So, we conclude that if we use this method, it usually requires less memory. It is also easier and faster to use local CPTs.</p>
-<h2>Independence in Bayes' Nets</h2>
-<h3>D-separation</h3>
+<h2 id="independence-in-bayes-nets">Independence in Bayes' Nets</h2>
+<h3 id="d-separation">D-separation</h3>
 <p>In previous sections we used conditional dependencies. But in a big graph, finding dependencies with algebraic methods is so difficult and complex. In this section we present an algorithm called D-separation to find different conditional dependencies.</p>
-<h4>Outline:</h4>
+<h4 id="outline">Outline:</h4>
 <p>In this method, first we check conditional dependency for <strong><em>triples</em></strong> (3 nodes that are connected) and specify several rules to find whether the last and first variables are dependent or not. Then we use these rules to find conditional dependencies in general cases on bigger graph. In another words, in big graphs we do some processing on each triple in the path between the two desired nodes to find if they are independent. <br/>
 In the following section, we will examine three different situations for triples:</p>
-<h4>Causal Chain</h4>
+<h4 id="causal-chain">Causal Chain</h4>
 <p>The first configuration is “casual chain”. <br/></p>
 <p>In this configuration, middle node transmits the effect of the previous node to the next one.</p>
 <p>Example:</p>
@@ -441,7 +404,7 @@ $$P(+y|-x)=0 , P(+y|+x)=1$$  <br/></p>
 <p>we conclude that with condition on $Y$, $X$ and $Z$ are independent. <br/></p>
 <p>So, in triple casual case, if middle node is observed, end nodes are independent. because the effect of $X$ to $Z$ is not direct, if the value of $Y$ is known, changes in value of $X$ causes no effect on Z’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/></p>
 <p>So, evidence along the chain “blocks” the influence.</p>
-<h4>Common Cause</h4>
+<h4 id="common-cause">Common Cause</h4>
 <p>second configuration is “common cause”: <br/></p>
 <p>in this configuration one variable effect on another two variables. but child nodes are not related directly. <br/></p>
 <p>Example:</p>
@@ -462,7 +425,7 @@ As a result, the two child variables in common cause triples are not independent
 <p>we conclude that with condition on $Y$, $X$ and $Z$ are independent. <br/></p>
 <p>So, in triple common cause, if parent node is observed, child nodes are independent. because the effect of $X$ to $Z$ is not direct, if value of $Y$ is known, changes in value of $X$ causes no effect on $Z$’ value. in other word if we know value of $Y$, value of $X$ doesn't give any additional information about $Z$. <br/>
 So, observing the cause blocks influence between effects.</p>
-<h4>V-Structure</h4>
+<h4 id="v-structure">V-Structure</h4>
 <p>the last configuration is "common effect" and is sometimes called V-Structure. <br/></p>
 <p>in this configuration, one variable is affected by another two variables. <br/></p>
 <p>Example:</p>
@@ -479,10 +442,10 @@ So, observing the cause blocks influence between effects.</p>
 <p>From the problem description, We can conclude that $P(+x|+z,-y)=1$ and $P(+x|-y)=0.5$. So, $P(X|Z,Y)$ is not equal to $P(X|Y)$.<br/></p>
 <p>So, with the observation of $Z$, $X$ and $Y$ are not independent. this means Observing an effect, activating influence between possible causes. <br/>
 In the same way, it can be shown that if one of $Z$ descendants is also observed, the independence of $X$ and $Y$ is no longer guaranteed. To prove this from the previous issue, it is enough to add the condition that the occurrence or non-occurrence of each of $Z$ descendants is always the same as its parent.</p>
-<h3>Reachability</h3>
+<h3 id="reachability">Reachability</h3>
 <p>Now, we want to use these three cases to check conditional dependency in any arbitrary graph. generally, the problem is checking dependency between two random variables in a BN in which some (or any) variables are observed. for this goal, we break the graph into triples which we learned above, and do some checking on them. In the following, these steps are described.<br/></p>
 <p>in the first step, we should shade evidence nodes, nodes that are observed in the problem. then looking for undirected paths between determined random variables. the first idea is that if two nodes are connected by a path that is blocked by a shaded node, two random variables are independent. But there are drawbacks to this rule. when we have several paths between two RVs or there is a V-structure triple that its bottom node is shaded, our method is wrong. So, we describe the next step to correct these problems.</p>
-<h3>Active/Inactive Paths</h3>
+<h3 id="active-inactive-paths">Active/Inactive Paths</h3>
 <p>Question: are $X$ and $Y$ conditionally independent given evidence variables $Z$?<br/></p>
 <p>Yes, if $X$ and $Y$ “d-separated” by $Z$.</p>
 <p>to describe the "d-separated" concept, we first need to understand the concept of active/inactive path.<br/></p>
@@ -519,11 +482,11 @@ In the same way, it can be shown that if one of $Z$ descendants is also observed
 <li><strong>evidence = R:</strong> There are two paths between $T$ and $D$. upper path is an inactive “common cause” and the lower path is an inactive “common effect”.  So, $L$ and $T$ are independent given $R$.</li>
 <li><strong>evidence = R, S:</strong> There are two paths between $T$ and $D$. upper path is an inactive “common cause” and the lower path is an active “common effect”.  So, $L$ and $T$ aren't guaranteed to be independent.</li>
 </ul>
-<h3>Structure Implications</h3>
+<h3 id="structure-implications">Structure Implications</h3>
 <p>As you can see, With the help of this algorithm, sometimes it is possible to check the conditional independence of two random variables more easily. So, if we test the algorithm on all models, we get a list of conditional independence. but sometimes this list isn’t complete. because when we check conditional dependencies, some cases aren’t certain, and using this method alone, their independence cannot be recognized.<br/>
 but in some cases, “d-separation” algorithm can find all dependencies. For example, in the figure below;</p>
 <p><img alt="stIm" src="/notes/assets/assets/sim.jpg"/></p>
-<h3>Topology Limits Distributions</h3>
+<h3 id="topology-limits-distributions">Topology Limits Distributions</h3>
 <p>In a given graph topology, only certain joint distributions can be encoded. The graph structure guarantees certain (conditional) independence (There might be more independence). As the number of arcs increases, the probability that there is at least one active path between the two variables increases. Thus the independence of the variables decreases. <br/>
 For example, in the figure below, different kind of dependence for triples is mentioned.</p>
 <p><img alt="TLD" src="/notes/assets/assets/tld.jpg"/></p>
@@ -532,7 +495,7 @@ For example, in the figure below, different kind of dependence for triples is me
 <li>Red color: triples in which two RVs are independent given the 3rd one.</li>
 <li>Blue color: triples in which no independence is found.</li>
 </ul>
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>Through this lecture note, we saw that:</p>
 <ul>
 <li>
@@ -545,15 +508,216 @@ For example, in the figure below, different kind of dependence for triples is me
 <p>Even that isn't all. There may as well be more (conditional) independencies that are not detectable until we inspect the specific distributions.</p>
 </li>
 </ul>
-<h3>What comes next</h3>
+<h3 id="what-comes-next">What comes next</h3>
 <p>Up until now, we saw how to build a bayes' net and how to find the independencies. The next step is to put these bayes' nets to use and infer probabilities from it. It's basically done by multiplying probabilities taken from every node on the path from top to the desired node. Read the next lecture note to learn all the details.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <p><a href="http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx">http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PPT/Session%2011_12.pptx</a> <br/>
 <a href="https://en.wikipedia.org/wiki/Bayesian_network">https://en.wikipedia.org/wiki/Bayesian_network</a> <br/>
 <a href="https://www.bu.edu/sph/files/2014/05/bayesian-networks-final.pdf">https://www.bu.edu/sph/files/2014/05/bayesian-networks-final.pdf</a> <br/>
 <a href="https://web.stanford.edu/class/archive/cs/cs221/cs221.1196/lectures/bayes1.pdf">https://web.stanford.edu/class/archive/cs/cs221/cs221.1196/lectures/bayes1.pdf</a> <br/>
 <a href="https://www.cs.cmu.edu/~./awm/tutorials/bayesnet09.pdf">https://www.cs.cmu.edu/~./awm/tutorials/bayesnet09.pdf</a></p>
             </div>
+            
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/mhgheisarieh.png" alt="Mohammad Hosein Gheysarieh">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Mohammad Hosein Gheysarieh</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/mhgheisarieh">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/mohammadch80.png" alt="Mohammad Cheraghi">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Mohammad Cheraghi</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/mohammadch80">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/GildedJson.png" alt="Seyyed Mohammad Sadegh Tabaian">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Seyyed Mohammad Sadegh Tabaian</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/GildedJson">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
             
         </div>
     </div>
@@ -563,7 +727,7 @@ For example, in the figure below, different kind of dependence for triples is me
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/9_bayesian_networks/index3.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/9_bayesian_networks/index3.html">
                 <span class="d-block small text-muted">Back</span>
                 <span>Bayesian Networks, Part 3</span>
             </a>
@@ -576,7 +740,7 @@ For example, in the figure below, different kind of dependence for triples is me
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/10_inference_in_bayesian_networks_1/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/10_inference_in_bayesian_networks_1/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Exact Inference in Bayesian Networks</span>
             </a>

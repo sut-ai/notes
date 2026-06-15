@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>Exact Inference in Bayesian Networks</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,9 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Exact Inference in Bayesian Networks</h1>
+        
+        <p class="mt-3">Exact inference by enumeration and variable elimination</p>
         
     </div>
 </header>
@@ -281,35 +286,10 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1>Exact Inference in Bayesian Networks</h1>
-<h2>Table of Contents</h2>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#inference-by-enumeration">Inference by Enumeration</a><ul>
-<li><a href="#algorithm-explanation">Algorithm Explanation</a></li>
-<li><a href="#algorithm-steps">Algorithm Steps</a></li>
-<li><a href="#algorithm-pseudocode">Algorithm Pseudocode</a></li>
-<li><a href="#algorithm-time-complexity">Algorithm Time Complexity</a></li>
-<li><a href="#algorithm-example">Algorithm Example</a></li>
-</ul>
-</li>
-<li><a href="#inference-by-variable-elimination-marginalizing-early">Inference by Variable Elimination (Marginalizing Early)</a><ul>
-<li><a href="#algorithm-explanation-1">Algorithm Explanation</a></li>
-<li><a href="#algorithm-steps-1">Algorithm Steps</a></li>
-<li><a href="#algorithm-pseudocode-1">Algorithm Pseudocode</a></li>
-<li><a href="#algorithm-time-complexity-1">Algorithm Time Complexity</a></li>
-<li><a href="#ordering-polytree-variables-for-ve">Ordering Polytree Variables for VE</a></li>
-<li><a href="#cut-set-conditioning">Cut-set Conditioning</a></li>
-<li><a href="#algorithm-example-1">Algorithm Example</a></li>
-</ul>
-</li>
-<li><a href="#conclusions">Conclusions</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<p align="center"><img src="/notes/assets/./assets/intro.png" width="40%"/></p>
-<h2>Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#inference-by-enumeration">Inference by Enumeration</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-explanation">Algorithm Explanation</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-steps">Algorithm Steps</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-pseudocode">Algorithm Pseudocode</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-time-complexity">Algorithm Time Complexity</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-example">Algorithm Example</a></li><li class="wf-content-toc-level-2"><a href="#inference-by-enumeration-is-slow">Inference by Enumeration is Slow</a></li><li class="wf-content-toc-level-2"><a href="#inference-by-variable-elimination-marginalizing-early">Inference by Variable Elimination (Marginalizing Early)</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-explanation-2">Algorithm Explanation</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-steps-2">Algorithm Steps</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-pseudocode-2">Algorithm Pseudocode</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-time-complexity-2">Algorithm Time Complexity</a></li><li class="wf-content-toc-level-3"><a href="#ordering-polytree-variables-for-ve">Ordering Polytree Variables for VE</a></li><li class="wf-content-toc-level-3"><a href="#cut-set-conditioning">Cut-set Conditioning</a></li><li class="wf-content-toc-level-3"><a href="#algorithm-example-2">Algorithm Example</a></li><li class="wf-content-toc-level-2"><a href="#conclusions">Conclusions</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
+<h2 id="introduction">Introduction</h2>
 <p>The basic task of a Bayesian network is to compute the posterior probability distributions for a set of query variables, given an observation of a set of evidence variables. This process is known as inference, but is also called Bayesian updating, belief updating or reasoning. There are two ways to approach this, either exact or approximate. Both approaches are worst-case NP-hard. An exact method obviously gives an exact result, while an approximate method tries to approach the correct outcome as close as possible. In this lecture, we discuss the exact inference method. Approximate (Sampling) method will be discussed in the next lecture. </p>
-<h2>Inference by Enumeration</h2>
+<h2 id="inference-by-enumeration">Inference by Enumeration</h2>
 <p>The enumeration algorithm is a simple, brute-force algorithm for computing the distribution of a variable in a Bayes net. In this algorithm, we partition all Bayes net variables into three groups:</p>
 <ol>
 <li>evidence variables</li>
@@ -317,16 +297,16 @@
 <li>query variables</li>
 </ol>
 <p>This algorithm takes query variables and evidence variables as input, and outputs the distribution of query variables. The evidence $e$ is whatever values you already know about the variables in the Bayes net. Evidence simplifies your work because instead of having to consider those variables’ whole distributions, you can assign them particular values, so they are no longer variables, they are constants. In the most general case, there is no evidence.</p>
-<h3>Algorithm Explanation</h3>
+<h3 id="algorithm-explanation">Algorithm Explanation</h3>
 <p>This algorithm has to compute a distribution over $X$, which, because $X$ is a discrete variable, means computing the probability that $X$ takes on each of its possible values (the values in its domain). The algorithm does this simply by looping through all the possible values, and computing the probability for each one. Note that if there is no evidence, then it is literally just computing the probabilities $P(X=x_i)$ for each $x_i$ in $X$’s domain. If there is evidence, then it is computing $P(e, X=x_i)$ for each $x_i$ in $X$’s domain – that is, it is computing the probability that $X$ has the given value $x_i$ and the evidence is true – so in that case, we use the law of conditional probability, which says that $$P(X=x_i | e) = \frac{P(e, X=x_i)}{P(e)}$$. Once we have computed $P(e, X=x_i)$ for all $x_i$, we can just normalize those values to get the correct distribution $P(X | e)$.</p>
-<h3>Algorithm Steps</h3>
+<h3 id="algorithm-steps">Algorithm Steps</h3>
 <p>We can summarize the explained algorithm in the following steps:</p>
 <ol>
 <li>Select the entries consistent with the evidence.</li>
 <li>Sum out the hidden variables to get joint distribution of query and evidence variables.</li>
 <li>Normalize the distribution to get the distribution of query variables.</li>
 </ol>
-<h3>Algorithm Pseudocode</h3>
+<h3 id="algorithm-pseudocode">Algorithm Pseudocode</h3>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">enumeration_ask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">bn</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Input:</span>
@@ -360,15 +340,15 @@
             <span class="nb">sum</span> <span class="o">+=</span> <span class="n">probability_condition_parents</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="p">[(</span><span class="n">Y</span><span class="p">,</span> <span class="n">yi</span><span class="p">)],</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">*</span> <span class="n">enumerate_all</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="p">[(</span><span class="n">Y</span><span class="p">,</span> <span class="n">yi</span><span class="p">)],</span> <span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
         <span class="k">return</span> <span class="nb">sum</span>
 </code></pre></div>
-<h3>Algorithm Time Complexity</h3>
+<h3 id="algorithm-time-complexity">Algorithm Time Complexity</h3>
 <p>In the worst case, we have no evidence, so we have to for loop through all possible values of all variables. Hence, this algorithm has a complexity of $O(d^n)$ where $d$ is the size of the domain of the variables and $n$ is the number of variables.</p>
-<h3>Algorithm Example</h3>
+<h3 id="algorithm-example">Algorithm Example</h3>
 <p><a href="https://youtu.be/BrK7X_XlGB8">Here</a> is a video of the algorithm running on a simple example.</p>
-<h2>Inference by Enumeration is Slow</h2>
+<h2 id="inference-by-enumeration-is-slow">Inference by Enumeration is Slow</h2>
 <p>In enumeration, first we find the whole joint distribution, and then we marginalize out the hidden variables. Hence, it is too slow because of the big joint distribution we need to compute.</p>
 <p>If we marginalize out the hidden variables in the partial joint distribution, we can get a much faster algorithm. This method is called Inference by Variable Elimination.</p>
 <p align="center"><img src="/notes/assets/./assets/comparison.png" width="100%"/></p>
-<h2>Inference by Variable Elimination (Marginalizing Early)</h2>
+<h2 id="inference-by-variable-elimination-marginalizing-early">Inference by Variable Elimination (Marginalizing Early)</h2>
 <p>The point of the variable-elimination algorithm is that it is more bottom-up than top-down. Instead of figuring out the probabilities we need to compute and then computing all the other probabilities that each one depends on, we try to compute probabilities and then compute the other terms that depend on them, and repeatedly simplify the expression until we have something that is in terms of only the variable we’re looking for.</p>
 <p>The variable-elimination algorithm uses things called factors. A factor is basically a CPT, except that the entries are not necessarily probabilities (but they would be if you normalized them). You can think of a factor as a matrix with a dimension for each variable, where $Factor[VAL1][VAL2][…]$ is (proportional to) a probability such as 
 $$P(VAR1=VAL1, VAR2=VAL2, …)$$ 
@@ -384,9 +364,9 @@ or you can think of it as a table with one row for each possible combination of 
 <li>Eliminate is like a group by and SUM aggregation function in SQL.</li>
 </ul>
 </blockquote>
-<h3>Algorithm Explanation</h3>
+<h3 id="algorithm-explanation-2">Algorithm Explanation</h3>
 <p>This algorithm, like the previous one, takes a variable X and returns a distribution over X, given some evidence e. First, it initializes the list of factors; prior to any simplification, this is just the conditional probability tables for each variable given the evidence e. Then, it joins each factors with it. The summing-out process takes all the factors that depend on a given variable and replaces them with a single new factor that does not depend on that variable (by summing over all possible values of the variable). By the end of the loop, all the variables have been summed out except the query variable X, so then we can just multiply the factors together and normalize to get the distribution.</p>
-<h3>Algorithm Steps</h3>
+<h3 id="algorithm-steps-2">Algorithm Steps</h3>
 <ol>
 <li>Initialize the list of factors which are local CPTs instantiated by the evidence.</li>
 <li>While there are any hidden variables:<ul>
@@ -397,7 +377,7 @@ or you can think of it as a table with one row for each possible combination of 
 <li>Join all remaining factors.</li>
 <li>Normalize the resulting factor.</li>
 </ol>
-<h3>Algorithm Pseudocode</h3>
+<h3 id="algorithm-pseudocode-2">Algorithm Pseudocode</h3>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">elimination_ask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">bn</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Input:</span>
@@ -416,7 +396,7 @@ or you can think of it as a table with one row for each possible combination of 
             <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">eliminate</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">join</span><span class="p">(</span><span class="n">relevant_factors</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">join</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
 </code></pre></div>
-<h3>Algorithm Time Complexity</h3>
+<h3 id="algorithm-time-complexity-2">Algorithm Time Complexity</h3>
 <p>The computational and space complexity of variable elimination is determined by the largest factor. In the worst case, this algorithm has exponential complexity, like the enumeration algorithm. But variable elimination ordering can greatly affect the largest factor. For example, in the following Bayes net, assuming the query is $P(X_n | Y_1, …, Y_n)$, the largest factor for following orders are different:</p>
 <ul>
 <li>$Z, X_1, …, X_n \rightarrow 2^{n+1}$</li>
@@ -424,7 +404,7 @@ or you can think of it as a table with one row for each possible combination of 
 </ul>
 <p align="center"><img src="/notes/assets/./assets/ve-ordering.png" width="30%"/></p>
 <p>There is no general ordering that provides only small factors.</p>
-<h3>Ordering Polytree Variables for VE</h3>
+<h3 id="ordering-polytree-variables-for-ve">Ordering Polytree Variables for VE</h3>
 <p>Polytree is a directed graph which has no undirected cycles. In this special kind of graph we can introduce an algorithm for ordering nodes in order to achieve small factors, and efficiently compute the joint distribution of the variables. </p>
 <ol>
 <li>Drop edge directions</li>
@@ -434,14 +414,14 @@ or you can think of it as a table with one row for each possible combination of 
 <li>Reverse the order</li>
 </ol>
 <p>Now, if we eliminate variables with this order, we would never get a factor larger than the original factors. This makes the VE algorithm linear time complexity.</p>
-<h3>Cut-set Conditioning</h3>
+<h3 id="cut-set-conditioning">Cut-set Conditioning</h3>
 <p>We can cut the bayes net at an instantiated variable, and this can transform a multi connected graph into a polytree, for which we can find the order of elimination. If these variables are not actually known, we can set them to each of their possible values and then solve the problem with the polytree. You can see an example of this below.</p>
 <p align="center"><img src="/notes/assets/./assets/conditioning-example.png" width="70%"/></p>
-<h3>Algorithm Example</h3>
+<h3 id="algorithm-example-2">Algorithm Example</h3>
 <p><a href="https://youtu.be/w4sJ8SazmFo">Here</a> is a video of elimination of a variable from a set of factors.</p>
-<h2>Conclusions</h2>
+<h2 id="conclusions">Conclusions</h2>
 <p>We reviewed two major exact inference algorithms, the enumeration algorithm and the variable elimination algorithm. The enumeration algorithm is a simple algorithm that is easy to understand and implement, but it is not very efficient. On the other hand, the variable elimination algorithm is a more complex algorithm that is more efficient, but it is also harder to understand and implement. For both introduced algorithms, the worst-case time complexity is exponential. So in practice, using sampling is usually a better choice, which you will learn more about in the next lecture.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <ul>
 <li><a href="http://ce.sharif.edu/courses/99-00/1/ce417-2/resources/root/Slides/PDF/Session%2013_14.pdf">Class Presentation</a></li>
 <li><a href="http://www.kbs.twi.tudelft.nl/Publications/MSc/2006-JRKoiter-Msc.html">Visualizing Inference in Bayesian Networks</a></li>
@@ -451,6 +431,207 @@ or you can think of it as a table with one row for each possible combination of 
 </ul>
             </div>
             
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/parsa2820.png" alt="Parsa Mohammadian">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Parsa Mohammadian</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/parsa2820">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/saaz742.png" alt="Sara Azarnoush">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Sara Azarnoush</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/saaz742">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/iTskAsra.png" alt="Kasra Amani">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Kasra Amani</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/iTskAsra">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -459,7 +640,7 @@ or you can think of it as a table with one row for each possible combination of 
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/bayesian_networks_representation/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/bayesian_networks_representation/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Bayesian Networks Representation Notes</span>
             </a>
@@ -472,7 +653,7 @@ or you can think of it as a table with one row for each possible combination of 
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/10_bayesian_networks_sampling/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/10_bayesian_networks_sampling/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Approximate Inference in Bayesian Networks</span>
             </a>

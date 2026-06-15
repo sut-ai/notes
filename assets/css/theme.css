@@ -44,6 +44,11 @@
     --wf-code-copy-hover-border: #858585;
     --wf-code-copy-success-color: #89d185;
     --wf-code-copy-success-border: #89d185;
+    --wf-table-bg: #191d23;
+    --wf-table-border: #343a40;
+    --wf-table-head-bg: #21262d;
+    --wf-table-head-text: #f1f3f5;
+    --wf-table-row-hover: rgba(255, 255, 255, 0.035);
 }
 
 body,

@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -286,55 +288,29 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#heuristic-functions">Heuristic Functions</a></li><li class="wf-content-toc-level-2"><a href="#heuristic-dominance">Heuristic Dominance</a></li><li class="wf-content-toc-level-2"><a href="#pattern-database">Pattern Database:</a></li><li class="wf-content-toc-level-2"><a href="#drawbacks-of-pattern-dbs">Drawbacks of Pattern DBs:</a></li><li class="wf-content-toc-level-2"><a href="#disjoint-of-pattern-dbs">Disjoint of Pattern DBs:</a></li><li class="wf-content-toc-level-2"><a href="#resources">Resources</a></li></ol></nav>
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="direction:rtl;line-height:300%;">
-<font face="XB Zar" size="5">
-<div align="center">
-<font face="IranNastaliq" size="30">
-<p></p>
-<b>Advanced Heuristics</b>
-<img alt="No description has been provided for this image" src="/notes/assets/pics/opening.jpg" style="float:center; width:60%"/>
-<p></p>
-</font>
-<font>
-By Fatemeh Bahrani, Rosta Roghani, Yasaman Shaykhan
-            </font>
-<p></p>
-</div>
-</font></div>
-</div>
-</div>
-</div>
+
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
 <br/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-Heuristic Functions
-        </font>
+<div id="sec_intro">
+
+<h2 id="heuristic-functions">Heuristic Functions</h2>
 <br/>
 <hr/>
-<font>
+
 <b>Definition:</b>
-</font>
-<p></p>
+
+
 For systematic search in AI, it is common to use heuristic functions. These functions provide a guide to the status of the remaining path in each mode to the target mode. With such a function, our search will be smarter. A*, Hill climbing, Simmulated Annealing, and Beam Search are some of the most famous algorithms that use heuristics.
 <br/>   
 This function takes a state of the environment and estimates the shortest path of the node to the target and returns it. This function is one of the search criteria for selecting estimates of the cost of the route so that it succeeds in reaching the nearest goal. The better heuristic function is, the fewer mistakes we make and the faster we get the answer. The most common way that transfers problem information to a search operation is called a heuristic function, usually denoted by h (n). 
-	</font>
+	
 </div>
 </div>
 </div>
@@ -342,18 +318,16 @@ This function takes a state of the environment and estimates the shortest path o
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div id="sec_intro">
+
 In the case of heuristic functions, two features are important; Being <b>monotonic</b> and <b>admissible</b>.
         <br/>
 ● Being “Admissible” means that the heuristic function underestimates the cost of reaching the goal from a node. The advantage of having such feature in A* (For example) is that if there is a path from s to a goal state, A* terminates by finding an optimal path.
-        <img alt="No description has been provided for this image" src="/notes/assets/pics/admissable.png" style="float:center; width:60%"/>
-</font>
+        <img alt="No description has been provided for this image" src="/notes/assets/pics/admissable.png" style="float: center; width: 60%"/>
+
 </div>
 </div>
 </div>
@@ -361,20 +335,18 @@ In the case of heuristic functions, two features are important; Being <b>monoton
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div id="sec_intro">
+
 ● Being “Monotonic” means that f values never decrease from node to descendants. 
-	</font>
+	
 </div>
 <br/>
-<figure class="half" style="display:flex">
-<img alt="No description has been provided for this image" src="/notes/assets/pics/monotonic1.png" style="width:50%"/>
-<img alt="No description has been provided for this image" src="/notes/assets/pics/monotonic2.png" style="width:50%"/>
+<figure class="half" style="display: flex">
+<img alt="No description has been provided for this image" src="/notes/assets/pics/monotonic1.png" style="width: 50%"/>
+<img alt="No description has been provided for this image" src="/notes/assets/pics/monotonic2.png" style="width: 50%"/>
 </figure>
 </div>
 </div>
@@ -382,20 +354,18 @@ In the case of heuristic functions, two features are important; Being <b>monoton
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
 <br/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
+<div id="sec_intro">
+
 Note that being monotonic is a sufficient condition for being admissible. (Nonetheless, most admissible heuristics are also consistent.) 
         <br/>
 <b>Proof:</b>
-<img alt="No description has been provided for this image" src="/notes/assets/pics/mono-admiss.png" style="float:center; width:90%"/>
+<img alt="No description has been provided for this image" src="/notes/assets/pics/mono-admiss.png" style="float: center; width: 90%"/>
         Like admissibility, being monotonic also helps to find an optimal path to the state it selects for expansion.
-	</font>
+	
 </div>
 </div>
 </div>
@@ -403,24 +373,22 @@ Note that being monotonic is a sufficient condition for being admissible. (Nonet
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
 <hr/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
+<div id="sec_intro">
+
 <b>How to make a heuristic function Monotonic (or Consistent):</b>
-<img alt="No description has been provided for this image" src="/notes/assets/pics/makeconsistant.png" style="float:center; width:90%"/>
+<img alt="No description has been provided for this image" src="/notes/assets/pics/makeconsistant.png" style="float: center; width: 90%"/>
 <br/>
     In the case of Tree Search, only the condition of h being admissible is required. Two conditions are required for the h function in Graph Search: 1. being Admissible and 2. being Monotonic. 
 <br/><br/>
-<font color="red" size="5"> <b>∗</b> </font>Finding the optimal h (h∗) is difficult in some cases, and this is an important choice. The closer h is to h∗, the fewer nodes open. If h ≤ h*, it will find the optimal answer. If h and h∗ are equal, it only opens the path to the optimal answer. But if h &gt; h∗ , it may not find the optimal answer. 
+ <b>∗</b> Finding the optimal h (h∗) is difficult in some cases, and this is an important choice. The closer h is to h∗, the fewer nodes open. If h ≤ h*, it will find the optimal answer. If h and h∗ are equal, it only opens the path to the optimal answer. But if h &gt; h∗ , it may not find the optimal answer. 
         <br/>
         Counterexample:
-         <img alt="No description has been provided for this image" src="/notes/assets/pics/counter.jpg" style="float:center; width:50%"/>
-</font>
+         <img alt="No description has been provided for this image" src="/notes/assets/pics/counter.jpg" style="float: center; width: 50%"/>
+
 </div>
 </div>
 </div>
@@ -428,22 +396,20 @@ Note that being monotonic is a sufficient condition for being admissible. (Nonet
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p><hr/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<hr/>
+<div id="sec_intro">
+
 <b>8-puzzle; An Important Example:</b>
 <br/>
         Given a 3×3 board with 8 tiles (every tile has one number from 1 to 8) and one empty space. The objective is to place the numbers on tiles to match the final configuration using the empty space. We can slide four adjacent (left, right, above, and below) tiles into the empty space. 
 For example:
-    <img alt="No description has been provided for this image" src="/notes/assets/pics/puzzle8init.png" style="width:30%"/>
+    <img alt="No description has been provided for this image" src="/notes/assets/pics/puzzle8init.png" style="width: 30%"/>
         24-puzzle could be defined as well. (Size of the board is 5×5 instead of 3×3 and it has the same rules for moving.)
         <br/>
         For more information, click <a href="https://www.geeksforgeeks.org/8-puzzle-problem-using-branch-and-bound/">here</a>
-</font>
+
 </div>
 </div>
 </div>
@@ -451,24 +417,20 @@ For example:
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <br/>
-<p></p>
+
 <br/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-Heuristic Dominance
-        </font>
+<div id="sec_intro">
+
+<h2 id="heuristic-dominance">Heuristic Dominance</h2>
 <br/>
 <hr/>
-<p></p>
+
 Now we are going to introduce a new concept that is used to compare the performance of two heuristic functions.
         <br/>
-        ● If h<sub>2</sub>  ≥ h<sub>1</sub> for all n (both admissable) then h<sub>2</sub> <font color="red"> dominates </font> h<sub>1</sub> →  h<sub>2</sub> is better for search
+        ● If h<sub>2</sub>  ≥ h<sub>1</sub> for all n (both admissable) then h<sub>2</sub>  dominates  h<sub>1</sub> →  h<sub>2</sub> is better for search
         <br/>
         ● Typical earch costs (average number of nodes axpanded) for 8-puzzle problem
         <br/>
@@ -482,7 +444,7 @@ Now we are going to introduce a new concept that is used to compare the performa
               IDS = too many nodes <br/>
               A∗(h<sub>1</sub>) = 39,135 nodes <br/>
               A∗(h<sub>2</sub>) = 1,641 nodes
-	</font>
+	
 </div>
 </div>
 </div>
@@ -490,17 +452,15 @@ Now we are going to introduce a new concept that is used to compare the performa
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p><hr/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<hr/>
+<div id="sec_intro">
+
 <b>Heuristic function design constraint relaxation:</b>
 <br/>
         There are ways to improve a heuristic function. One of these ways is relaxation. In this method, we look for the answer in a space with fewer terms and conditions; and instead of minimizing the cost, we find the lower bound. As a result, it has become easier to solve.
-    <img alt="No description has been provided for this image" src="/notes/assets/pics/constraint.png" style="width:80%"/>
+    <img alt="No description has been provided for this image" src="/notes/assets/pics/constraint.png" style="width: 80%"/>
         In general, admissible heuristic functions represent the cost of exact solutions to simplified or relaxed versions of the original problem (Pearl, 1984). For example, in a sliding tile puzzle (like 8-puzzle), to move a tile from position x to position y, x and y must be adjacent, and position y must be empty. By ignoring the empty constraint, we get a simplified problem where any tile can move to any adjacent position. We can solve any instance of this new problem optimally by moving each tile along the shortest path to its goal position, counting the number of moves made. The cost of such a solution is exactly the Manhattan distance from the initial state to the goal state. Since we removed a constraint on the moves, any solution to the original problem is also a solution to the simplified problem, and the cost of an optimal solution to the simplified problem is a lower bound on the cost of an optimal solution to the original problem. Thus, any heuristic derived in this way is admissible. 
         <br/>
 <br/>
@@ -509,7 +469,7 @@ Now we are going to introduce a new concept that is used to compare the performa
   − Pattern Database Heuristics <br/>
   − Linear Conflict Heuristics <br/>
   − Gaschnig’s Heuristics
-	</font>
+	
 </div>
 </div>
 </div>
@@ -517,32 +477,26 @@ Now we are going to introduce a new concept that is used to compare the performa
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <br/>
-<p></p>
+
 <br/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#09C42B" size="5.5">
-Pattern Database:
-        </font>
+<div id="sec_intro">
+
+<h2 id="pattern-database">Pattern Database:</h2>
 <br/>
-<p></p>
+
 We can consider a subset of the search space and consider others as "don't care". In this case, the interaction between the cells inside this subset is considered and the independence is reduced. The function h can then be obtained by combining "h"s from different subsets (search space separation).
 
 <p>Pattern databases are for exploratory estimation of storing state-to-target distances in state space. Their effectiveness depends on the choice of basic patterns. If it is possible to divide the subsets into separate subsets so that each operator only affects the subsets in one subset, then we can have a more acceptable exploration performance. We used this method to improve performance in 15-puzzles with a coefficient of more than 2000 and to find optimal solutions for 50 random samples of 24-puzzles.
-<img alt="No description has been provided for this image" src="/notes/assets/pics/15puzzle.png" style="float:center; width:80%"/>
+<img alt="No description has been provided for this image" src="/notes/assets/pics/15puzzle.png" style="float: center; width: 80%"/>
 How do we combine the “h” s of the separated subset of state space?</p>
 <p>  − MAX: Which has diminishing. <br/>
   − ADD: In this case, the limitation is removed and it is admissible. <br/>
 Using a Pattern Database helps us solve many problems, but it is flawed in very large cases and is not scalable.
 <br/><br/>
-<font color="#09C42B" size="5.5">
-Drawbacks of Pattern DBs:
-</font>
+<h2 id="drawbacks-of-pattern-dbs">Drawbacks of Pattern DBs:</h2>
 <br/>
 ● Since we can only take max <br/>
   ● Diminishing returns on additional DBs <br/>
@@ -550,7 +504,7 @@ Drawbacks of Pattern DBs:
       ● Subproblems should be small to be scalable. <br/>
       ● If hi(n) from each database is at most x, then maxi hi would be at most x. <br/>
 ● Would like to be able to add values
-</p></font>
+</p>
 </div>
 </div>
 </div>
@@ -558,22 +512,18 @@ Drawbacks of Pattern DBs:
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <br/>
-<p></p>
+
 <br/>
-<div id="sec_intro" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#09C42B" size="5.5">
-Disjoint of Pattern DBs:
-        </font>
+<div id="sec_intro">
+
+<h2 id="disjoint-of-pattern-dbs">Disjoint of Pattern DBs:</h2>
 <br/>
-<p></p>
+
 What if we make patterns be disjoint sets? Can we take summation of heuristics by pattern DBs as an admissible heuristic? In order to fix this, take number of moves made to the specified tiles as hi instead.
-        <img alt="No description has been provided for this image" src="/notes/assets/pics/disjoint.png" style="float:center; width:80%"/>
+        <img alt="No description has been provided for this image" src="/notes/assets/pics/disjoint.png" style="float: center; width: 80%"/>
 <pre><code>    </code></pre>
 <p>Why does summation result in an admissible heuristic in that case?
 <br/>
@@ -593,7 +543,7 @@ n<sub>i</sub> = |{a<sub>k</sub> | s<sub>k</sub>(a<sub>k</sub>(1)) ∈ P<sub>i</s
 A<sub>s<sub>i</sub></sub> = {(j,k)| 1 ≤ j ≤ 8 , 1 ≤ k ≤ 9 , j ∈ N<sub>empty</sub></center></p>
 <p>Manhattan Dist. is a trivial example of a disjoint DBs, where each group contains only a single tile. As a general rule, when partitioning the tiles, we want to group tiles that are near each other in the goal state, since these tiles will interact the most with one another.
 Using this method, the 15-puzzle problem is solved 2000 times and the 24-puzzle problem is 12 million times faster
-</p></font>
+</p>
 </div>
 </div>
 </div>
@@ -601,17 +551,13 @@ Using this method, the 15-puzzle problem is solved 2000 times and the 24-puzzle 
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p></p>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
 <br/>
-<div id="sec_refs" style="line-height:300%;">
-<font face="XB Zar" size="5">
-<font color="#FF7500" size="6">
-Resources
-        </font>
+<div id="sec_refs">
+
+<h2 id="resources">Resources</h2>
 <hr/>
 <ul>
 <li>
@@ -642,14 +588,14 @@ Resources
                www.stackoverflow.com/questions/46554459/intuitively-understanding-why-consistency-is-required-for-optimality-in-a-searc
             </li>
 </ul>
-</font>
+
 </div>
 </div>
 </div>
 </div>
 </div>
 </div></main>
-</body>
+
             </div>
             
                 
@@ -717,8 +663,8 @@ Resources
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                FB
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/nfbahrani.png" alt="Fatemeh Bahrani">
             </div>
             
             <div class="wf-person-main">
@@ -738,13 +684,23 @@ Resources
                 
                 
                 
-                <a href="https://github.com/nfbahrani">https://github.com/nfbahrani</a>
+                <a class="wf-person-link" href="https://github.com/nfbahrani">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:nf.bahrani@gmail.com">mailto:nf.bahrani@gmail.com</a>
+                <a class="wf-person-link" href="mailto:nf.bahrani@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -755,8 +711,8 @@ Resources
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                YS
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/yasmansh.png" alt="Yasaman Shaykhan">
             </div>
             
             <div class="wf-person-main">
@@ -776,13 +732,23 @@ Resources
                 
                 
                 
-                <a href="https://github.com/yasmansh">https://github.com/yasmansh</a>
+                <a class="wf-person-link" href="https://github.com/yasmansh">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:yasamanshaykhan@gmail.com">mailto:yasamanshaykhan@gmail.com</a>
+                <a class="wf-person-link" href="mailto:yasamanshaykhan@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -814,7 +780,12 @@ Resources
                 
                 
                 
-                <a href="mailto:rrosta@yahoo.com">mailto:rrosta@yahoo.com</a>
+                <a class="wf-person-link" href="mailto:rrosta@yahoo.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -825,8 +796,8 @@ Resources
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                ZS
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/atenasadat.png" alt="Zeinab Sadat Saghi">
             </div>
             
             <div class="wf-person-main">
@@ -846,19 +817,34 @@ Resources
                 
                 
                 
-                <a href="https://github.com/atenasadat">https://github.com/atenasadat</a>
+                <a class="wf-person-link" href="https://github.com/atenasadat">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="https://www.linkedin.com/in/atena-saghi/">https://www.linkedin.com/in/atena-saghi/</a>
+                <a class="wf-person-link" href="https://www.linkedin.com/in/atena-saghi/">
+                    
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    
+                    <span>LinkedIn</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:atenasaghi@ce.sharif.edu">mailto:atenasaghi@ce.sharif.edu</a>
+                <a class="wf-person-link" href="mailto:atenasaghi@ce.sharif.edu">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -875,6 +861,25 @@ Resources
     
 </div>
             
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -883,7 +888,7 @@ Resources
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/3_informed_search/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/3_informed_search/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Informed Search</span>
             </a>
@@ -896,7 +901,7 @@ Resources
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/advanced_heuristics/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/advanced_heuristics/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Advanced Heuristics Notes</span>
             </a>

@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -286,54 +288,46 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#forward-viterbi-algorithm">Forward/Viterbi Algorithm</a></li><li class="wf-content-toc-level-3"><a href="#viterbi-recurrence">Viterbi Recurrence</a></li><li class="wf-content-toc-level-3"><a href="#most-likely-paths-through-the-state-graph">Most Likely Paths Through the State Graph</a></li><li class="wf-content-toc-level-3"><a href="#forward-pass-and-backpointers">Forward Pass and Backpointers</a></li><li class="wf-content-toc-level-3"><a href="#complexity">Complexity</a></li><li class="wf-content-toc-level-2"><a href="#https-traffic-as-an-hmm-example">HTTPS Traffic as an HMM Example</a></li></ol></nav>
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2>Forward/Viterbi Algorithm</h2>
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="forward-viterbi-algorithm">Forward/Viterbi Algorithm</h2>
 <p>The Viterbi algorithm is a dynamic programming algorithm for obtaining the maximum a posteriori probability estimate of the most likely sequence of hidden states—called the Viterbi path—that results in a sequence of observed events, especially in the context of Markov information sources and hidden Markov models (HMM).</p>
 <p><img alt="" height="135" src="https://i.ibb.co/m59jc4S/Picture1.jpg" width="407"/></p>
-<h3>Viterbi Recurrence</h3><p>And we have: </p>
+<h3 id="viterbi-recurrence">Viterbi Recurrence</h3><p>And we have: </p>
 <p><img alt="" height="135" src="https://i.ibb.co/d4W2gHt/image-2021-05-19-020525.png" width="407"/> </p>
 <p><img alt="" height="135" src="https://i.ibb.co/N370tWM/image-2021-05-19-020754.png" width="407"/> </p>
-<p> </p>
-<p> </p><h3>Most Likely Paths Through the State Graph</h3>
+
+<h3 id="most-likely-paths-through-the-state-graph">Most Likely Paths Through the State Graph</h3>
 There is a linear-time algorithm for finding the most likely sequence, but it requires a little more thought. It relies on the same Markov property that yielded efficient algorithms for filtering and smoothing. The easiest way to think about the problem is to view each sequence as a path through a graph whose nodes are the possible states at each time step. Now consider the task of finding the most likely path through this graph, where the likelihood of any path is the product of the transition probabilities along the path and the probabilities of the given observations at each state. Let’s focus in particular on paths that reach the state $Rain_5 = true$ Because of the Markov property, it follows that the most likely path to the state _$Rain_5 = true$_ consists of the most likely path to some state at time 4 followed by a transition to $Rain_5 = true$ ; and the state at time 4 that will become part of the path to $Rain_5 = true$ is whichever maximizes the likelihood of that path. In other words, there is a recursive relationship between most likely paths to each state xt+1 and most likely paths to each state $x_t$. We can write this relationship as an equation connecting the probabilities of the paths:
 
-<p><img alt="" height="135" src="https://i.ibb.co/X2rsvT2/1.png" width="407"/></p><h3>Forward Pass and Backpointers</h3>
+<p><img alt="" height="135" src="https://i.ibb.co/X2rsvT2/1.png" width="407"/></p><h3 id="forward-pass-and-backpointers">Forward Pass and Backpointers</h3>
 <p>Thus, the algorithm for computing the most likely sequence is similar to filtering: it runs for- ward along the sequence, computing the m message at each time step, using Equation above. The progress of this computation is shown in Figure below. At the end, it will have the probability for the most likely sequence reaching each of the final states. One can thus easily select the most likely sequence overall (the states outlined in bold). In order to identify the actual sequence, as opposed to just computing its probability, the algorithm will also need to record, for each state, the best state that leads to it; these are indicated by the bold arrows in Figure below. The optimal sequence is identified by following these bold arrows backwards from the best final state.</p>
-<p><img alt="" height="160" src="https://i.ibb.co/9smyH1g/2.png" width="480"/></p><h3>Complexity</h3>
+<p><img alt="" height="160" src="https://i.ibb.co/9smyH1g/2.png" width="480"/></p><h3 id="complexity">Complexity</h3>
 <p>The algorithm we have just described is called the Viterbi algorithm, after its inventor. Like the filtering algorithm, its time complexity is linear in $t$, the length of the sequence. Unlike filtering, which uses constant space, its space requirement is also linear in $t$. This is because the Viterbi algorithm needs to keep the pointers that identify the best sequence leading to each state.</p>
-<h2>HTTPS Traffic as an HMM Example</h2>
+<h2 id="https-traffic-as-an-hmm-example">HTTPS Traffic as an HMM Example</h2>
 <p>Suppose someone wants to spy on HTTPS connections and infer the sequence of browsing webpages. How he can do this? If he/she measures the sequence of sizes of packets coming in as noisy observations and define the contents of packets as hidden variables he/she can use the HMM Model to reach that goal!</p>
 <p>Transition model can be calculate via links on each webpage. In other words probability of choosing next webpage is related to the links in each webpage. That's mean we do random walk between webpages. After considering some tips such as dynamically generated content and user-specific content and ... we can run the HMM Algorithm to estimate probability distribution P(packet size| webpage).</p>
 <p>In the following chart we can see the error of this algorithm is around 10% (BoG) and it's so so shocking. nowadays Deep-Learning can decrease error to about 0%! Do you think you have secuirty?!</p>
 <p><img alt="" height="180" src="https://i.ibb.co/pRjDVkf/image-2021-05-19-023331.png" width="600"/></p>
-<p> </p>
+
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
+
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
 </main>
-</body>
+
             </div>
             
                 
@@ -401,8 +395,8 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                AM
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/mehrdad7008.png" alt="Ali Mirzaei Saghezchi">
             </div>
             
             <div class="wf-person-main">
@@ -422,13 +416,23 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
                 
                 
                 
-                <a href="https://github.com/mehrdad7008">https://github.com/mehrdad7008</a>
+                <a class="wf-person-link" href="https://github.com/mehrdad7008">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:mehrdad7008@gmail.com">mailto:mehrdad7008@gmail.com</a>
+                <a class="wf-person-link" href="mailto:mehrdad7008@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -460,7 +464,12 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
                 
                 
                 
-                <a href="mailto:rman.mo2000@gmail.com">mailto:rman.mo2000@gmail.com</a>
+                <a class="wf-person-link" href="mailto:rman.mo2000@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -471,8 +480,8 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                AB
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/arman17babaei.png" alt="Arman Babaei">
             </div>
             
             <div class="wf-person-main">
@@ -492,13 +501,23 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
                 
                 
                 
-                <a href="https://github.com/arman17babaei">https://github.com/arman17babaei</a>
+                <a class="wf-person-link" href="https://github.com/arman17babaei">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:292.arma@gmail.com">mailto:292.arma@gmail.com</a>
+                <a class="wf-person-link" href="mailto:292.arma@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -530,7 +549,12 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
                 
                 
                 
-                <a href="mailto:ghaznavi.mahdi@gmail.com">mailto:ghaznavi.mahdi@gmail.com</a>
+                <a class="wf-person-link" href="mailto:ghaznavi.mahdi@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -547,6 +571,25 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
     
 </div>
             
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -555,7 +598,7 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/11_temporal_probability_models/index3.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/11_temporal_probability_models/index3.html">
                 <span class="d-block small text-muted">Back</span>
                 <span>Temporal Probability Models, Part 3</span>
             </a>
@@ -568,7 +611,7 @@ There is a linear-time algorithm for finding the most likely sequence, but it re
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/12_temporal_probability_models/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/12_temporal_probability_models/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Hidden Markov Models</span>
             </a>

@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>Hidden Markov Models</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,9 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Hidden Markov Models</h1>
+        
+        <p class="mt-3">Temporal probability models, filtering, monitoring, and applications</p>
         
     </div>
 </header>
@@ -281,22 +286,8 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h1>Temporal Probability Models - Part 1</h1>
-<h2>Table of Contents</h2>
-<p><a href="#Introduction">Introduction</a></p>
-<p><a href="#What-is-a-Temporal-Probability-Model">What is a Temporal Probability Model?</a></p>
-<p><a href="#Markov-Models">Markov Models</a>
-* <a href="#Joint-Distributions-of-Markov-Models">Joint Distributions of Markov Models</a>
-* <a href="#Chain-Rule">Chain Rule</a></p>
-<p><a href="#Mini-Forward-Algorithm">Mini-Forward Algorithm</a></p>
-<p><a href="#Stationary-Distribution">Stationary Distribution</a></p>
-<p><a href="#Most-Likely-Explanation-Mini-Viterbi-Algorithm">Most Likely Explanation: Mini-Viterbi Algorithm</a></p>
-<p><a href="#Hidden-Markov-Model">Hidden Markov Model</a>
-* <a href="#Chain-Rule-and-Joint-Distribution-of-Hidden-Markov-Model">Chain Rule and Joint Distribution of Hidden Markov Model</a>
-* <a href="#Hidden-Markov-Model-Applications">Hidden Markov Models Applications</a></p>
-<p><a href="#Conclusion">Conclusion</a></p>
-<p><a href="#References">References</a></p>
-<h2>Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#temporal-probability-models-part-1">Temporal Probability Models - Part 1</a></li><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#what-is-a-temporal-probability-model">What is a Temporal Probability Model?</a></li><li class="wf-content-toc-level-3"><a href="#joint-distributions-of-markov-models">Joint Distributions of Markov Models</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule">Chain Rule</a></li><li class="wf-content-toc-level-2"><a href="#mini-forward-algorithm">Mini-Forward Algorithm</a></li><li class="wf-content-toc-level-2"><a href="#stationary-distribution">Stationary Distribution</a></li><li class="wf-content-toc-level-2"><a href="#most-likely-explanation-mini-viterbi-algorithm">Most Likely Explanation: Mini-Viterbi Algorithm</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule-and-joint-distribution-of-hidden-markov-model">Chain Rule and Joint Distribution of Hidden Markov Model</a></li><li class="wf-content-toc-level-3"><a href="#hidden-markov-model-applications">Hidden Markov Model Applications</a></li><li class="wf-content-toc-level-4"><a href="#speech-recognition-hmms">Speech recognition HMMs</a></li><li class="wf-content-toc-level-4"><a href="#machine-translation-hmms">Machine translation HMMs</a></li><li class="wf-content-toc-level-4"><a href="#robot-tracking-hmms">Robot tracking HMMs</a></li><li class="wf-content-toc-level-4"><a href="#characterizing-facial-expressions">Characterizing facial expressions</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h2 id="temporal-probability-models-part-1">Temporal Probability Models - Part 1</h2>
+<h2 id="introduction">Introduction</h2>
 <p>In this lecture note, we are going to talk about <strong><em>Temporal Probability Models</em></strong>. We will discuss what they are and how they can help us model problems that are subject to change over time.</p>
 <p>So far, we have learned how to deal with probabilistic reasoning in static worlds. That means each random variable has a fixed value and doesn't change over time. However, most of our problems don't have this static behavior, and the state varies over time (or space).</p>
 <p>Let' start with an example of a static problem:</p>
@@ -315,55 +306,55 @@
 </center>
 <p>As you can see, the patient's status varies over time, and our approaches in static probabilistic reasoning won't work for these problems. So we should look for other approaches to solve them.</p>
 <p>Temporal Probability Models can make it easier for us to model and solve these types of problems.</p>
-<h2>What is a Temporal Probability Model?</h2>
+<h2 id="what-is-a-temporal-probability-model">What is a Temporal Probability Model?</h2>
 <p>As the diabetes example above shows, we need to introduce <strong>time</strong> (or space) for our models.
 Retake variables of the diabetes example. We know that these variables can change over time, so to manage the diabetes of the patient, we slice time at specific points and keep track of this evidence to evaluate the current state and predict the future diabetic condition of the patient.</p>
 <blockquote>
-<p><span style="color:DarkSlateGray"><em><strong>Hence we can model the diabetes status of a patient using a Temporal Probability Model.</strong></em></span></p>
+<p><span style="color: DarkSlateGray"><em><strong>Hence we can model the diabetes status of a patient using a Temporal Probability Model.</strong></em></span></p>
 </blockquote>
 <p>There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as ${E}_t$ at time $t$.</p>
 <p>On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time $t$, we use ${X}_t$ to denote them.
 In a nutshell, we have:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
 {E}_t = Observable\;Variable\;at\;time\;t$$$$
 {X}_t = NonObservable\;Variable\;at\;time\;t
 $$
 </span></p>
-<h2>Markov Models</h2>
+
 <p>Let's define a random variable $X$ and call its value at a given time $t$ the <em><strong>state of $X$</strong></em> and denote it as $X_t$. If in our model, the future state of $X$ depends only on the current state of $X$ and not on states that had occurred before, we call it a <strong><em>First-order Markov Model</em></strong>, or simply a <strong><em>Markov Model</em></strong>. Bayesian network of this model looks like the below network and is referred to as a <strong><em>Markov Chain</em></strong>:</p>
 <center>
 <img alt="Bayes Net of Markov Model" src="/notes/assets/resources/markov_bayesnet.png" width="400"/>
 </center>
 <p>In a Markov chain, we can write the Morkov assumption as:</p>
-<p>$$
+$$
 P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x_n|X_{n - 1}=x_{n - 1})
-$$</p>
+$$
 <p><em>Note:</em> We also define $X_{a:b}$ to denote a set of variables from $X_a$ to $X_b$.
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
 X_{a:b} = X_a, X_{a+1}, \cdots, X_{b-1}, X_b
 $$
 </span></p>
 <p>In a similar way, we can use <strong><em>$i$th-order Markov Models</em></strong> to model situations in which the future state of $X$ depends only on $i$ recent states and not on states that had occrred before. In this case we have:</p>
-<p>$$
+$$
 P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x|X_{n - i:n - 1}=x_{n - i : n - 1})
-$$</p>
-<h3>Joint Distributions of Markov Models</h3>
+$$
+<h3 id="joint-distributions-of-markov-models">Joint Distributions of Markov Models</h3>
 <p>Take $X$ as a Markov Model and consider its Bayesian network (depicted below).</p>
 <center>
 <img alt="Bayes Net of Markov Model" src="/notes/assets/resources/markov_bayesnet.png" width="400"/>
 </center>
 <p>We can quickly notice that for every $1 \lt i \leq n$ , if we are given $X_{i-1}$, then <strong>$X_i$ is independent of $X_1, X_2, \cdots, X_{i-2}$</strong> since there is only one inactive path between each of them and $X_i$. (Regarding the fact that $X_{i-1}$ is given)
 So we have:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
-    X_i \perp !!! \perp X_1, X_2, \cdots, X_{i-2} \vert X_{i-1}
+    X_i \perp \!\!\! \perp X_1, X_2, \cdots, X_{i-2} \vert X_{i-1}
 $$
 </span>
 We define two parameters here:
 * <strong>Transition Probabilities</strong>:
-    <span style="color:DarkSlateGray">
+    <span style="color: DarkSlateGray">
     $$
     P(X_t \vert X_{t-1})
     $$
@@ -371,38 +362,38 @@ We define two parameters here:
     It shows how each state is related to its previous state and how states develop.
     The <strong><em>Stationary assumption</em></strong> in Markov models ensures that transition probabilities don't change over time.
 * <strong>Initial State Probability</strong>:
-    <span style="color:DarkSlateGray">
+    <span style="color: DarkSlateGray">
     $$
     P(X_1)
     $$
     </span>
     It is the probability of the initial state ($X_1$), and we usually know its value.</p>
 <p>We can find the joint distribution of X regarding the Bayesian network and the parameters we defined. If we consider $X_1$ to $X_n$, then we have:
-    <span style="color:DarkSlateGray">
+    <span style="color: DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1}$$$$ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
     </span></p>
 <p>In the next section, we will prove this joint distribution using Chain Rule and independence.</p>
-<h3>Chain Rule</h3>
+<h3 id="chain-rule">Chain Rule</h3>
 <p>Take $X$ as a Markov Model and consider its Bayesian network (depicted below).</p>
 <center>
 <img alt="Bayes Net of Markov Model" src="/notes/assets/resources/markov_bayesnet.png" width="400"/>
 </center>
 <p>We know that from Chain Rule, every joint distribution of $X_1$ to $X_n$ can be written as:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})
     $$
     </span>
 Now, due to the independence we saw earlier, we can assume:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
-    X_3 \perp !!! \perp X_1\vert X_2, X_4\perp !!! \perp X_1,X_2\vert X_3, \cdots, X_{n}\perp !!! \perp X_1,X_2\cdots X_{n-2}\vert X_{n-1}
+    X_3 \perp \!\!\! \perp X_1\vert X_2, X_4\perp \!\!\! \perp X_1,X_2\vert X_3, \cdots, X_{n}\perp \!\!\! \perp X_1,X_2\cdots X_{n-2}\vert X_{n-1}
 $$
 </span>
 So, after applying independence to Chain Rule, we have:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n)= P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})$$$$=P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n}\vert X_{n-1})$$$$=P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
@@ -415,39 +406,39 @@ P(X_0=x_0, X_1 = profitable, X_2 = profitable, \cdots, X_n = profitable)
 $$
 $$= P(X_0 = x_0) P(X_1 = profitable | X_0 = x_0) \prod_{t=2}^{n}P(X_t = profitable\vert X_{t-1} = profitable)
 $$</p>
-<h2>Mini-Forward Algorithm</h2>
+<h2 id="mini-forward-algorithm">Mini-Forward Algorithm</h2>
 <p>Imagine you want to go on a trip with your friends. Your friends think that trips in sunny days are more fun, so they ask you to schedule the trip for a sunny day. You know that you cannot be completely certain whether the $n$th day after today is going to be sunny or rainy, so what will you do?</p>
 <p>We can solve this problem easily if we assume a Markov model. Suppose that we have measured the transition probabilities for this model and know that if some day is sunny, the next day will be sunny with probability $P(X_{n + 1} = sunny | X_{n} = sunny) = 0.9$ and will be rainy otherwise. Similarly, if some day is rainy, the next day will be rainy with probability $P(X_{n + 1} = rainy | X_{n} = rainy) = 0.7$ and will be sunny otherwise. We also know the initial probability because we know today's weather.</p>
 <p>Now that we have a good model, we need an efficient approach to find the probability of each outcome in the $n$th day after today. A naive approach would be to enumerate all possible sequences of length $n$ which end in each outcome and then add up their probabilities. This will do the work, but it will require a lot of time and effort and is too slow. A better approach is to store our incremental <em>belief</em> about the weather and to update it as we consider proceed twords the $n$th day in our calculations. This approach is called the <strong>Mini-Forward Algorithm</strong>.</p>
 <p>In the Mini-Forward algorithm, we use the probabilities for the initial state and forward simulation to calculate the probabilities in the future states. The probability of outcome $x_i$ in the state $X_n$ using this algorithm is:</p>
-<p>$$
+$$
     P(X_n = x_i) = \sum_{x_j} P(X_n = x_i | X_{n - 1} = x_j) P(X_{n - 1} = x_j)
-$$</p>
+$$
 <p>This can be easily computed for each state because we know the initial probability $P(X_1 = x_k)$ for every $k$ and the transition probabilities for each state can also be calculated using this algorothm.</p>
 <p>Now that we have this solution, we can say that the probability that the $n$th day after today will be sunny in our example is:</p>
-<p>$$
-    P(X_{n + 1} = sunny) = \sum_{x_j \in {sunny, rainy}} P(X_n = sunny | X_{n - 1} = x_j) P(X_{n - 1} = x_j)
-$$</p>
-<p>$$
+$$
+    P(X_{n + 1} = sunny) = \sum_{x_j \in \{sunny, rainy\}} P(X_n = sunny | X_{n - 1} = x_j) P(X_{n - 1} = x_j)
+$$
+$$
     \Rightarrow P(X_{n + 1} = sunny) = 0.9 \times P(X_n = sunny | X_{n - 1} = sunny) + 0.3 \times P(X_n = sunny | X_{n - 1} = rainy)
-$$</p>
+$$
 <p>Now, let's take a look at the state of weather with initial observation of sun:</p>
 <center>
 <img alt="Initial Sunny Day" src="/notes/assets/resources/sunny_initial.png" width="600"/>
 </center>
-<p><br/></p>
+
 <p>Finally, let's take a look at the state of weather with initial observation of rain:</p>
 <center>
 <img alt="Weather State" src="/notes/assets/resources/weather_state.png" width="600"/>
 </center>
-<h2>Stationary Distribution</h2>
+<h2 id="stationary-distribution">Stationary Distribution</h2>
 <p>An interesting question to ask in problems modeled using Markov chains is about the state as we continue simulating for a long time. As we simulate further into the future, the Moarkov chain becomes longer and uncertainty is accumulated. </p>
 <p>In the general case, we cannot say what the state will be in the far future. However, for most Markov chains, we will eventually end up in the same distribution no matter what the initial distribution is. In other words, the distribution we end up in is independent of the initial distribution. In such cases, the distribution we end up with is called the <strong>stationary distribution</strong> of the chain. This distribution is denoted by $P_\infty$ and satisfies the condition below.</p>
-<p>$$
+$$
     P_{\infty}(X) = P_{\infty + 1}(X) = \sum_{x} P(X|x) P_{\infty}(x)
-$$</p>
+$$
 <p>In the weather example we mentioned earlier, the stationary distribution denotes the probability that each day will be sunny or rainy in general.</p>
-<h2>Most Likely Explanation: Mini-Viterbi Algorithm</h2>
+<h2 id="most-likely-explanation-mini-viterbi-algorithm">Most Likely Explanation: Mini-Viterbi Algorithm</h2>
 <p>Sometimes we would like to find out what happened in the past using the knowledge that we have in present. Consider the trip we discussed earlier as an example. Imagine that you and your friends want to go outside, but some of your friends warn you that everything might be wet if it had rained in the past $n$ days. Since your destination is too far, you do not know about its past, so we need to reason about the most likely sequence of your destination's weather in the past $n$ days. The course of this problem can be shown using the following figure.</p>
 <center>
 <img alt="Weather CPT" src="/notes/assets/resources/weather_cpt.png" width="400/"/>
@@ -458,7 +449,7 @@ $$</p>
     m_t[x] = \max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
 $$
 $$
-    a_t[x] = arg!\max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
+    a_t[x] = arg\!\max_{x_{1:t - 1}} P(x_{1:t - 1}, x)
 $$</p>
 <p>The equation above can be rewritten to:
 $$
@@ -469,7 +460,7 @@ $$
 $$</p>
 <p>Using this method, the most likely sequence in the past $t - 1$ states, also known as the most likely explanation, will be available in $a_t[x]$.</p>
 <p>In our example, we can use the Mini-Viterbi algorithm starting from $x_1 = The\ weather\ n\ days\ ago$, and the most likely sequence would be available in $a_{n + 1}[x_{today}]$.</p>
-<h2>Hidden Markov Model</h2>
+
 <p>Let's start with the following scenario:</p>
 <p>We have two friends Alice and Bob. They live very far apart. So, they talk on the phone. Bob has a mood that changes based on the weather. Whenever they talk on the phone, Bob tells Alice his mood.</p>
 <p>Suppose that if the weather is sunny, then Bob is happy with a probability of 80% and grumpy with a probability of 20%. Likewise, if the weather is rainy, Bob is grumpy with a probability of 60% and happy with a probability of 40%.</p>
@@ -480,10 +471,10 @@ $$</p>
 <img alt="CPT Diagram of Weather and Mood" src="/notes/assets/resources/weather_mood_cpt_diagram.jpeg" width="600/"/>
 </center>
 <p>Now, we formulate the problem formally:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
-{E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in {happy, grumpy}$$$$
-{X}_t: Weather's\;condition\;at\;time\;t\;(State) \in {sunny, rainy}
+{E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in \{happy, grumpy\}$$$$
+{X}_t: Weather's\;condition\;at\;time\;t\;(State) \in \{sunny, rainy\}
 $$ </span>
 So, the question is, how can Alice infer the weather’s condition (state) regarding Bob’s mood (observation)?</p>
 <p>The problem discussed above is an example of the Hidden Markov Model (HMM). It is not possible to model the problem as a Markov Chain in many problems. So, how can we model these problems?</p>
@@ -494,31 +485,31 @@ So, the question is, how can Alice infer the weather’s condition (state) regar
 <center>
 <img alt="HMM Structure" src="/notes/assets/resources/hmm_structure.png" width="400/"/>
 </center>
-<p></p>
+
 <p>Regarding the structure above, an HMM is defined by:
 - $P(X_1)$ as initial distribution
 - $P(X_t \mid X_{t-1})$ as transitions distribution
 - $P(E_t \mid X_t)$ as emissions distribution</p>
 <p>We will dive into more mathematics in the next part.</p>
-<h3>Chain Rule and Joint Distribution of Hidden Markov Model</h3>
+<h3 id="chain-rule-and-joint-distribution-of-hidden-markov-model">Chain Rule and Joint Distribution of Hidden Markov Model</h3>
 <p>Let's denote $X_t,X_{t-1},\cdots,X_2,X_1$ by $X_{t:1}$. Similarly, denote $E_t,E_{t-1},\cdots,E_2,E_1$ by $E_{t:1}$.</p>
 <p>We are going to calculate joint distribution of HMM.</p>
 <p>From the Chain Rule, every joint distribution over $X_{t:1}, E_{t:1}$ can be written as:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
 P(X_{t:1}, E_{t:1})=P(X_1)P(E_1 \mid X_1)P(X_2\mid X_1,E_1)P(E_2\mid X_{2:1},E_1)\cdots P(X_t\mid X_{t-1:1},E_{t-1:1})P(E_t\mid X_{t:1},E_{t-1:1})
 $$ </span> 
 Regarding the HMM's structure, we can assume that:
-<span style="color:DarkSlateGray">
+<span style="color: DarkSlateGray">
 $$
-\forall t&gt;1:\;\;\;X_t \perp !!! \perp X_{t-2:1},E_{t-1:1} \mid X_{t-1}\;\;\;and\;\;\;E_t \perp !!! \perp X_{t-1:1},E_{t-1:1} \mid X_{t}
+\forall t&gt;1:\;\;\;X_t \perp \!\!\! \perp X_{t-2:1},E_{t-1:1} \mid X_{t-1}\;\;\;and\;\;\;E_t \perp \!\!\! \perp X_{t-1:1},E_{t-1:1} \mid X_{t}
 $$ </span> 
 Recall that every node given its parents is independent of its non-descendants.</p>
-<p>Using the properties above, we get: <span style="color:DarkSlateGray">
+<p>Using the properties above, we get: <span style="color: DarkSlateGray">
 $$
 P(X_{t:1}, E_{t:1})=P(X_1)P(E_1 \mid X_1)\prod_{i = 2}^{t} P(X_i \mid X_{i-1})P(E_i \mid X_i)
 $$ </span> </p>
-<h3>Hidden Markov Model Applications</h3>
+<h3 id="hidden-markov-model-applications">Hidden Markov Model Applications</h3>
 <p>Hidden Markov models are known for their applications in various fields, such as:
 - Signal processing
 - Information theory
@@ -530,38 +521,38 @@ $$ </span> </p>
 - Finance
 - Thermodynamics</p>
 <p>Below, some of its popular applications are described in more details:</p>
-<h4>Speech recognition HMMs</h4>
+<h4 id="speech-recognition-hmms">Speech recognition HMMs</h4>
 <p>The main core of HMM-based speech recognition systems is the Viterbi algorithm which will be discussed in the following section. The Viterbi algorithm uses dynamic programming to find out the best alignment between the input speech and a given speech model. Nowadays, most Large Vocabulary Continuous Speech Recognition (LVCSR) systems are based on HMMs.</p>
 <p>In speech recognition HMMs, the continuous-valued acoustic signals are our observations. States are particular positions in specific words.</p>
 <center>
 <img alt="speech recognition" src="/notes/assets/resources/automatic-speech-recognition_updated.png" width="400/"/>
 </center>
-<h4>Machine translation HMMs</h4>
+<h4 id="machine-translation-hmms">Machine translation HMMs</h4>
 <p>A simple approach would be the mechanical substitution of words in one language for words in another. However, this won't result in coherent translations most of the time.</p>
 <p>Better results can be achieved using attention-based neural machine translation (NMT) models. These models focus on specific source positions to produce a translation with considerable improvements over pure encoder-decoder models. To achieve this, We use a Hidden Markov Model (HMM) consisting of neural network-based alignment and lexicon models, which are trained jointly using the forward-backward algorithm. </p>
 <p>In machine translation HMMs, observations are millions of words and corresponding states are translation options.</p>
 <center>
 <img alt="machine translation" src="/notes/assets/resources/textra.png" width="400/"/>
 </center>
-<h4>Robot tracking HMMs</h4>
+<h4 id="robot-tracking-hmms">Robot tracking HMMs</h4>
 <p>Hidden Markov Models (HMM) are applied to interoceptive data acquired by a moving robot when contouring an environment. To track the robot accurately, the robot needs a sufficient set of sensors.</p>
 <p>In Robot tracking HMMs, observations are sensors' continuous perceptions and corresponding states are positions in the map.</p>
 <center>
 <img alt="robot localization" src="/notes/assets/resources/localization.jpeg" width="400/"/>
 </center>
-<h4>Characterizing facial expressions</h4>
+<h4 id="characterizing-facial-expressions">Characterizing facial expressions</h4>
 <p>Facial Action Coding Systems (FACS) prescribes one of the most comprehensive means to characterize facial expressions.</p>
 <p>Now, you may wonder what is the role of HMM in these systems?</p>
 <p>We model this problem as an HMM where observations are the feature vectors extracted from face videos, and corresponding states are the hidden emotional state of the individual.</p>
 <center>
 <img alt="Facial Expressions" src="/notes/assets/resources/facial_expressions.jpg" width="400/"/>
 </center>
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>In this note, we first introduced Temporal Probability Model and discussed why we need them to model problems that vary over time. We then introduce Markov Models, explain their properties, and calculate their joint distribution with Chain Rule.</p>
 <p>Then, we talked about the Mini-Forward algorithm and how it can help us predict the state of the system in the future. After that, we talked about stationary distributions help us to know will eventually end up in the same distribution no matter what the initial distribution is.</p>
 <p>Then, we discussed a popular family of temporal models, called Hidden Markov Models for probabilistic sequence classification. In these models, we link a sequence of observations to a sequence of hidden states that explains those observations. Inference, as our goal, was the process of discovering the sequence of hidden states, given the sequence
 of observations. Finally, we introduced some of the HMM's well-known applications.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <ul>
 <li><a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach, 4th Edition</a></li>
 <li><a href="http://ce.sharif.edu/courses/00-01/1/ce417-1/resources/root/Slides/PDF/Session%2015_16.pdf">CE-417 Lecture Slides, Prof. Rohabn, Sharif University of Technology</a></li>
@@ -574,6 +565,229 @@ of observations. Finally, we introduced some of the HMM's well-known application
 <p><em>*Some conceptual pictures used in this note are under courtesy of <a href="https://vectorstock.com">VectorStock Media</a></em></p>
             </div>
             
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/arshandalili.png" alt="Arshan Dalili">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Arshan Dalili</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/arshandalili">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:arshandalili@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/SJahanzad.png" alt="Soroush Jahanzad">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Soroush Jahanzad</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/SJahanzad">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:SoroushJahanzad@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/MohammadHejri.png" alt="Mohammad Hejri">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Mohammad Hejri</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/MohammadHejri">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -582,7 +796,7 @@ of observations. Finally, we introduced some of the HMM's well-known application
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/11_temporal_probability_models/index4.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/11_temporal_probability_models/index4.html">
                 <span class="d-block small text-muted">Back</span>
                 <span>Temporal Probability Models, Part 4</span>
             </a>
@@ -595,7 +809,7 @@ of observations. Finally, we introduced some of the HMM's well-known application
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/12_Intro_to_machine_learning/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/12_Intro_to_machine_learning/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Introduction to Machine Learning</span>
             </a>

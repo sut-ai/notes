@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -288,29 +290,27 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#Continuous-Optimization">Continuous Optimization</a></li><li class="wf-content-toc-level-2"><a href="#Examples">Examples</a></li><li class="wf-content-toc-level-3"><a href="#Weber-Point">Weber Point</a></li><li class="wf-content-toc-level-3"><a href="#Image-deblurring-and-denoising">Image deblurring and denoising</a></li><li class="wf-content-toc-level-3"><a href="#Machine-Learning">Machine Learning</a></li><li class="wf-content-toc-level-2"><a href="#Optimization-benefits">Optimization benefits</a></li><li class="wf-content-toc-level-2"><a href="#Classes-of-optimization-problems">Classes of optimization problems</a></li><li class="wf-content-toc-level-2"><a href="#Constrained-vs.-Unconstrained">Constrained vs. Unconstrained</a></li><li class="wf-content-toc-level-2"><a href="#How-difficult-is-real-valued-optimization?">How difficult is real-valued optimization?</a></li><li class="wf-content-toc-level-2"><a href="#Convexity">Convexity</a></li><li class="wf-content-toc-level-3"><a href="#Convex-sets">Convex sets</a></li><li class="wf-content-toc-level-3"><a href="#Convex-functions">Convex functions</a></li><li class="wf-content-toc-level-4"><a href="#Proof:">Proof:</a></li><li class="wf-content-toc-level-4"><a href="#Proof">Proof</a></li><li class="wf-content-toc-level-2"><a href="#Convex-Optimization">Convex Optimization</a></li><li class="wf-content-toc-level-3"><a href="#gradient-descent">gradient descent</a></li></ol></nav>
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b48a2a47">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d223c4f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Courtesy: Most content are adopted from 15-780 course at CMU.</p>
-<h1 id="Continuous-Optimization">Continuous Optimization<a class="anchor-link" href="#Continuous-Optimization">¶</a></h1><p>In real life, we face a lot of problems with continues variables.
+<h2 id="Continuous-Optimization">Continuous Optimization</h2><p>In real life, we face a lot of problems with continues variables.
 Actually, the <em>state</em> of the environment, the way <em>time</em> is handled and the <em>percepts</em> and <em>actions</em> of agents might be continuous in our problems, in this section we provide an introduction to some local search techniques for finding optimal solutions in continuous spaces.</p>
-<h2 id="Examples">Examples<a class="anchor-link" href="#Examples">¶</a></h2><h3 id="Weber-Point">Weber Point<a class="anchor-link" href="#Weber-Point">¶</a></h3><p>Given a collection of cities (assume on 2D plane) how can we find the location that minimizes the sum of distances to all cities?
+<h2 id="Examples">Examples</h2><h3 id="Weber-Point">Weber Point</h3><p>Given a collection of cities (assume on 2D plane) how can we find the location that minimizes the sum of distances to all cities?
 <img alt="Weber Point of European cities" src="https://mgje.github.io/presentations/Budapest2014/media/fermat_weber_europe.png"/>
 Let's denote the location of cities as $y_1, y_2, ..., y_n$.
 Then we can find answer to our question by solving the optimization problem below:
 $$\min_{x} \sum^{n}_{i=1}||x-y_i||_2$$</p>
-<h3 id="Image-deblurring-and-denoising">Image deblurring and denoising<a class="anchor-link" href="#Image-deblurring-and-denoising">¶</a></h3><p><img alt="Image Denoising" src="/notes/assets/./house.jpg"/>
+<h3 id="Image-deblurring-and-denoising">Image deblurring and denoising</h3><p><img alt="Image Denoising" src="/notes/assets/./house.jpg"/>
 Image <strong>Deblurring</strong> (<strong>Noise reduction</strong>) is the processes of removing blurring artifacts (noise) from images [input image say $Y$ which is blurred image which generally happens due to camera shake or some other phenomenon].
 <img alt="Image Denoising" src="https://uupload.ir/files/dzfn_picture1.png"/>
 Given corrupted image $Y \in \mathbb R^{m\times n}$, we reconstruct the image by solving the optimization problem below:
 $$\min_X \sum_{i, j}|Y_{ij}-(K*X)_{ij}| + \lambda \sum_{i, j}\sqrt{(X_{ij}-X_{i, j+1})^2+(X_{i+1, j}-X_{ij})^2}$$
 where $K*$ denotes convolution with a blurring filter.</p>
-<h3 id="Machine-Learning">Machine Learning<a class="anchor-link" href="#Machine-Learning">¶</a></h3><p>Virtually all (supervised) machine learning algorithms boil down to solving the optimization problem:
+<h3 id="Machine-Learning">Machine Learning</h3><p>Virtually all (supervised) machine learning algorithms boil down to solving the optimization problem:
 $$\min_\theta \sum_{i=1}^m \ell(h_\theta(x_i), y_i)$$
 where</p>
 <ul>
@@ -319,29 +319,29 @@ where</p>
 <li>$\ell$ is loss function</li>
 <li>$h_\theta$ is a hypothesis function parameterized by $\theta$</li>
 </ul>
-<h2 id="Optimization-benefits">Optimization benefits<a class="anchor-link" href="#Optimization-benefits">¶</a></h2><p>One of the key benefits of looking at problems in AI as optimization problems is that by doing so, we can separate out the <em>definition</em> of the problem and the <em>method</em> for <em>solving</em> it, and that way we can use general methods to solve different problems.
+<h2 id="Optimization-benefits">Optimization benefits</h2><p>One of the key benefits of looking at problems in AI as optimization problems is that by doing so, we can separate out the <em>definition</em> of the problem and the <em>method</em> for <em>solving</em> it, and that way we can use general methods to solve different problems.
 There are off-the-shelf solvers for many classes of optimization problems that will let us solve even large, complex problems. We only need to put our problems in the right form.</p>
-<h2 id="Classes-of-optimization-problems">Classes of optimization problems<a class="anchor-link" href="#Classes-of-optimization-problems">¶</a></h2><p>There are many different types of optimization problems (linear programming, quadratic programming, nonlinear programming, semidefinite programming, integer programming, geometric programming, mixed linear binary integer programming, etc.).
+<h2 id="Classes-of-optimization-problems">Classes of optimization problems</h2><p>There are many different types of optimization problems (linear programming, quadratic programming, nonlinear programming, semidefinite programming, integer programming, geometric programming, mixed linear binary integer programming, etc.).
 As these names could all get confusing, we instead classify problems by focusing on two dimensions:</p>
 <ul>
 <li>constrained vs. unconstrained</li>
 <li>convex vs. nonconvex</li>
 </ul>
 <p><img alt="" src="https://uupload.ir/files/pqj1_picture1.png"/></p>
-<h2 id="Constrained-vs.-Unconstrained">Constrained vs. Unconstrained<a class="anchor-link" href="#Constrained-vs.-Unconstrained">¶</a></h2><p><img alt="" src="https://uupload.ir/files/6gjn_picture2.png"/>
+<h2 id="Constrained-vs.-Unconstrained">Constrained vs. Unconstrained</h2><p><img alt="" src="https://uupload.ir/files/6gjn_picture2.png"/>
 In an unconstrained optimization problem, every point $x \in \mathbb{R}^n$ is feasible, so we only focus on minimizing $f(x)$.
 In contrast, for constrained optimization, it may be difficult to even find a point $x \in \zeta$.</p>
-<h2 id="How-difficult-is-real-valued-optimization?">How difficult is real-valued optimization?<a class="anchor-link" href="#How-difficult-is-real-valued-optimization?">¶</a></h2><p>If we do not make any assumptions about the function $f:S\rightarrow\mathbb{R}$ where $S\subseteq\mathbb{R}^n$ is an infinite set, then it is impossible to find a global minimizer or maximiser in finite time. This is due to the fact that the value of the function at any one point does not reveal information about the function's behaviour at other points. As a result, we must know the function value for every point in $S$, which takes infinite time because the set $S$ is simply not finite. Even if we try to find a point at which the function's value is at most  $\epsilon$ far from the real minimum or maximum, we still need to find out the value of the function at all points which was shown cannot be done in finite time.</p>
+<h2 id="How-difficult-is-real-valued-optimization?">How difficult is real-valued optimization?</h2><p>If we do not make any assumptions about the function $f:S\rightarrow\mathbb{R}$ where $S\subseteq\mathbb{R}^n$ is an infinite set, then it is impossible to find a global minimizer or maximiser in finite time. This is due to the fact that the value of the function at any one point does not reveal information about the function's behaviour at other points. As a result, we must know the function value for every point in $S$, which takes infinite time because the set $S$ is simply not finite. Even if we try to find a point at which the function's value is at most  $\epsilon$ far from the real minimum or maximum, we still need to find out the value of the function at all points which was shown cannot be done in finite time.</p>
 <p>However, if we make some reasonable assumptions about the function being examined, near-optimal solutions can be found in finite time. One such assumption is Lipschitz continuity. The mathematical definition is as follows:</p>
 <p>$$\exists L\in\mathbb{R}:\forall x,y\in\mathbb{R}^n|f(x)-f(y)|\le L||x-y||$$</p>
 <p>It means that the difference between the value of the function at two points is never more than a constant multiple of the distance of the two points. This assumption restricts the growth of the function when moving from one point to another. As to know how this assumption can help us find a near optimal solution, consider the following case:</p>
 <p>Assume $S$ is a bounded subset of $\mathbb{R}$. We know that $\forall x,y\in\mathbb{R}^n|f(x)-f(y)|\le 5||x-y||$ and we want to find a function value which is at most $0.1$ far from the actual minimum or maximum. ow, consider points in $S$ at most $\frac{0.1}{5}=0.02$ far from each other and from the boundaries of $S$ and call the set of these points $P$. Because of the restriction imposed on $f$ we can be sure that the value of the function at points not in $P$ is at most $0.02 \times 5 = 0.1$ far from the two nearest points in $P$. Consequentially, if we take the minimum or maximum value of $f$ among points in $P$, we can be sure that this value is at most $0.1$ far from the real minimum or maximum of $f$ in $S$.</p>
 <p><img alt="" src="/notes/assets/./lipschitz.png"/></p>
 <p>Lipschitz continuity made it possible to find near-optimal solutions, but it can be proved that any algorithm to find a near-optimal minimum or maximum for a Lipschitz continuous function on $\mathbb{R}^n$ has $\Omega\big(\frac{1}{t^\frac{1}{n}}\big)$ error after $t$ iterations. We can see that assumptions can make a big difference, but we still need faster algorithms.</p>
-<h2 id="Convexity">Convexity<a class="anchor-link" href="#Convexity">¶</a></h2><p>Originally, researchers distinguished between linear (easy) and nonlinear (hard) problems, but in 80s and 90s it became clear that this wasn’t the right distinction; the key difference is between convex and non-convex problems.</p>
+<h2 id="Convexity">Convexity</h2><p>Originally, researchers distinguished between linear (easy) and nonlinear (hard) problems, but in 80s and 90s it became clear that this wasn’t the right distinction; the key difference is between convex and non-convex problems.</p>
 <p><img alt="" src="/notes/assets/./convex.png"/></p>
 <p>First, we need to know the definition of convex sets and convex functions:</p>
-<h3 id="Convex-sets">Convex sets<a class="anchor-link" href="#Convex-sets">¶</a></h3><p>A set $\mathcal{C}$ is convex if and only if $$\forall x,y\in\mathcal{C},\theta\in[0,1]\;\;\;\;\;\theta x+(1-\theta)y\in\mathcal{C}.$$</p>
+<h3 id="Convex-sets">Convex sets</h3><p>A set $\mathcal{C}$ is convex if and only if $$\forall x,y\in\mathcal{C},\theta\in[0,1]\;\;\;\;\;\theta x+(1-\theta)y\in\mathcal{C}.$$</p>
 <p><img alt="" src="/notes/assets/./set.png"/></p>
 <p>For example, the following sets are convex:</p>
 <ul>
@@ -352,7 +352,7 @@ In contrast, for constrained optimization, it may be difficult to even find a po
 <li>The set $\{x|x\in\mathbb{R}^2,x_1\ge0,x_2\ge0,x_1\cdot x_2\ge1\}$ (it is the area above the function $f(x)=\frac{1}{x}$)</li>
 </ul>
 <p>Note that the union of any number of convex sets need not be convex. (Consider the union of two disjoint circles in $\mathbb{R}^2$.)</p>
-<h3 id="Convex-functions">Convex functions<a class="anchor-link" href="#Convex-functions">¶</a></h3><p>A function $f:\mathbb{R}^n\rightarrow\mathbb{R}$ is convex if and only if it never curves downward. The formal definition is as follows:</p>
+<h3 id="Convex-functions">Convex functions</h3><p>A function $f:\mathbb{R}^n\rightarrow\mathbb{R}$ is convex if and only if it never curves downward. The formal definition is as follows:</p>
 <p>$$\forall x,y\in\mathbb{R}^n,\theta\in[0,1]\;\;\;f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)$$</p>
 <p><img alt="" src="/notes/assets/./function.png"/></p>
 <p>If the function $f$ is convex, we call $-f$ concave, and if $f$ is both convex and concave, then it is an affine function is of the form $$f(x)=\sum^{n}_{i=1}a_ix_i+b.$$</p>
@@ -367,7 +367,7 @@ In contrast, for constrained optimization, it may be difficult to even find a po
 <ul>
 <li>$f:\mathbb{R}\rightarrow\mathbb{R}$, is convex if and only if its second derivative is non-negative.</li>
 </ul>
-<h4 id="Proof:">Proof:<a class="anchor-link" href="#Proof:">¶</a></h4><p>Assume $f(ta+(1-t)b)\le tf(a)+(1-t)f(b)$ for all $a,b\in\mathbb{R},t\in[0,1]$. Let $t=\frac{1}{2},a=x-h,b=x+h$. We have: $$f(x)\le\frac{1}{2}f(x-h)+\frac{1}{2}f(x+h)\\\Rightarrow f(x+h)-2f(x)+f(x-h)\ge0$$
+<h4 id="Proof:">Proof:</h4><p>Assume $f(ta+(1-t)b)\le tf(a)+(1-t)f(b)$ for all $a,b\in\mathbb{R},t\in[0,1]$. Let $t=\frac{1}{2},a=x-h,b=x+h$. We have: $$f(x)\le\frac{1}{2}f(x-h)+\frac{1}{2}f(x+h)\\\Rightarrow f(x+h)-2f(x)+f(x-h)\ge0$$
 (Note that $f''(x)=\lim_{h\to0}\frac{f(x+h)-2f(x)+f(x-h)}{h^2}.$)</p>
 <p>Now assume $f''(x)\ge0$ for all $x\in(-\infty,\infty)$. Using the first-order Taylor series expansion of $f$ around $x_0$ we have: $$f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x^*)}{2}(x-x_0)^2$$
 for some $x^*$ between $x$ and $x_0$.
@@ -377,14 +377,14 @@ Now we can conclude that $$f(x_0)\le\lambda f(x_1)+(1-\lambda)f(x_2)$$ and the p
 <ul>
 <li>$f:\mathbb{R}^n\rightarrow\mathbb{R}$, is convex if and only $\mathbf{H}_f(x)$ (its Hessian matrix) is positive semi-definite at all $x\in\mathbb{R}^n$</li>
 </ul>
-<h4 id="Proof">Proof<a class="anchor-link" href="#Proof">¶</a></h4><p>Lemma: $f:\mathbb{R}^n\rightarrow\mathbb{R}$ is convex if and only if $g(t)=f(x_0+tu)$ is convex for every $x_0,u\in\mathbb{R}^n$ (the function is convex in every direction).
+<h4 id="Proof">Proof</h4><p>Lemma: $f:\mathbb{R}^n\rightarrow\mathbb{R}$ is convex if and only if $g(t)=f(x_0+tu)$ is convex for every $x_0,u\in\mathbb{R}^n$ (the function is convex in every direction).
 We have $g''(t)=u^T(\mathbf{H}_f(x_0+tu))u\ge0$ for all $x_0$ and $u$, so $\mathbf{H}_f(x)$ must be positive semi-definite for all $x$.</p>
 <p>Using the second-order convexity test, we can easily show that:</p>
 <ul>
 <li>$f(x_1,x_2)=x_1\cdot x_2$ is not convex.</li>
 <li>$f(x_1,x_2)=x^2_1+x^2_2+x_1x_2$ is convex.</li>
 </ul>
-<h2 id="Convex-Optimization">Convex Optimization<a class="anchor-link" href="#Convex-Optimization">¶</a></h2><p>As you may know,  convex optimization problem is an optimization problem in which the objective function is a convex function and the feasible set is a convex set.
+<h2 id="Convex-Optimization">Convex Optimization</h2><p>As you may know,  convex optimization problem is an optimization problem in which the objective function is a convex function and the feasible set is a convex set.
 Now let's examine some useful properties:</p>
 <ul>
 <li>every local minimum is a  global minimum</li>
@@ -402,7 +402,7 @@ $$f(Z) \ge f(x_*)$$
 which contradicts to the previous relation. Hence the hypothesis was wrong and the property is proved.</p>
 <hr/>
 <p>Now once we found out this useful property, a good idea can be model our problems to a convex optimization problem through which we can apply various iterative methods like <code>gradient descent</code> to solve the problems.</p>
-<h3 id="gradient-descent">gradient descent<a class="anchor-link" href="#gradient-descent">¶</a></h3><p>The idea is to take repeated steps in the opposite direction of the gradient (or approximate gradient) of the function at the current point, because this is the direction of steepest descent. Conversely, stepping in the direction of the gradient will lead to a local maximum of that function; the procedure is then known as <strong>gradient ascent</strong>.</p>
+<h3 id="gradient-descent">gradient descent</h3><p>The idea is to take repeated steps in the opposite direction of the gradient (or approximate gradient) of the function at the current point, because this is the direction of steepest descent. Conversely, stepping in the direction of the gradient will lead to a local maximum of that function; the procedure is then known as <strong>gradient ascent</strong>.</p>
 <p><img alt="" src="https://miro.medium.com/max/2976/1*70f9PB-RwFaakqD6lfp4iw.png"/></p>
 <p>The algorithm is really simple (and effective!!!). Isimple which its pseudocode can be in below:</p>
 <pre><code>x  = initilize_point()
@@ -426,23 +426,17 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e022b5e9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=65b0c4c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
+
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
 </main>
-</body>
+
             </div>
             
                 
@@ -510,8 +504,8 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
         
         <article class="wf-person-card wf-person-card-center">
             
-            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
-                MS
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/sepehrmsp.png" alt="Mohammad Sepehr Pourghannad">
             </div>
             
             <div class="wf-person-main">
@@ -531,13 +525,23 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
                 
                 
                 
-                <a href="https://github.com/sepehrmsp">https://github.com/sepehrmsp</a>
+                <a class="wf-person-link" href="https://github.com/sepehrmsp">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
                 
                 
                 
                 
                 
-                <a href="mailto:sepehrpourghannad@yahoo.com">mailto:sepehrpourghannad@yahoo.com</a>
+                <a class="wf-person-link" href="mailto:sepehrpourghannad@yahoo.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -591,7 +595,12 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
                 
                 
                 
-                <a href="mailto:hsnam861@gmail.com">mailto:hsnam861@gmail.com</a>
+                <a class="wf-person-link" href="mailto:hsnam861@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
                 
                 
             </div>
@@ -608,6 +617,25 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
     
 </div>
             
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -616,7 +644,7 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/5_local_search/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/5_local_search/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Local Search</span>
             </a>
@@ -629,7 +657,7 @@ and obviously $x_{new} = (x_{new_1}, x_{new_2})$.</p>
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/7_constraint_satisfaction_problems/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/7_constraint_satisfaction_problems/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Constraint Satisfaction Problems Notes</span>
             </a>

@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>Introduction to Markov Decision Processes</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,7 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Introduction to Markov Decision Processes</h1>
         
     </div>
 </header>
@@ -281,27 +284,21 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h2>Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#markov-decision-process">Markov Decision Process</a></li><li class="wf-content-toc-level-3"><a href="#states">States</a></li><li class="wf-content-toc-level-3"><a href="#actions">Actions</a></li><li class="wf-content-toc-level-3"><a href="#transition-model">Transition Model</a></li><li class="wf-content-toc-level-3"><a href="#rewards">Rewards</a></li><li class="wf-content-toc-level-3"><a href="#formalization">Formalization</a></li><li class="wf-content-toc-level-3"><a href="#policy">Policy</a></li><li class="wf-content-toc-level-2"><a href="#mdp-search-trees">MDP Search Trees</a></li><li class="wf-content-toc-level-2"><a href="#utilities-of-sequences">Utilities of Sequences</a></li><li class="wf-content-toc-level-3"><a href="#discounting">Discounting</a></li><li class="wf-content-toc-level-3"><a href="#finite-and-infinite-horizons">Finite and infinite horizons</a></li><li class="wf-content-toc-level-4"><a href="#infinite-utilities">Infinite Utilities</a></li><li class="wf-content-toc-level-4"><a href="#stationary-preference">Stationary Preference</a></li><li class="wf-content-toc-level-2"><a href="#bellman-equation">Bellman Equation</a></li><li class="wf-content-toc-level-2"><a href="#time-limited-values">Time Limited Values</a></li><li class="wf-content-toc-level-2"><a href="#implementation">Implementation</a></li><li class="wf-content-toc-level-2"><a href="#real-life-example">Real Life Example</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h2 id="introduction">Introduction</h2>
 <p>In nature, learning by trial and error is the most common way of learning. learning by trial and error is called Reinforcement Learning (RL) in computer literature. Markov Decision Process (MDP) is a foundational element of formulating RL mathematically. In a typical RL problem, there is a learner called agent, which makes decisions. The surrounding which agent interacts with is called <strong>environment</strong>. The environment provides rewards and a new state based on the actions the agent perform. All these could be modeled in a single MDP. The environment is modeled with <strong>states</strong> and agent's possible decisions are modeled by <strong>actions</strong>. Since In real problems unexpected events may happen, agent's actions may not lead to expected results. This is why MDPs with <strong>stochastic transition models</strong> are used. In RL, agent is not told how it should act but it is presented with rewards whether positive or negative based on its actions. These rewards are modeled by <strong>reward function</strong> in an MDP. Solving an MDP means to find the best way that the agent can act. There are different ways to solve an MDP which all of them are based on <strong>Bellman equation</strong>, So in order to find the best guideline for the agent Bellman equation should be solved.</p>
 <p>In this note, first MDP formalization is introduced. A way to represent MDP is MDP search trees.  MDP search trees are explained in the next part. At the end Bellman equation is discussed as the way of solving an MDP.</p>
-<h2>Markov Decision Process</h2>
+<h2 id="markov-decision-process">Markov Decision Process</h2>
 <p>MDP is based on Markov chain. A Markov chain is a mathematical system that experiences transitions from one state to another according to certain probabilistic rules. The chain holds the following independence assumption.</p>
-<p>$$ P(S_{t+1}|S_t, ..., S_0)=P(S_{t+1}|S_t) $$</p>
+$$ P(S_{t+1}|S_t, ..., S_0)=P(S_{t+1}|S_t) $$
 <p>$S_t$ represents the state at time $t$ . Intuitively, $S_t$ retains all of the information about the history that can affect the future states so <em>the future is conditionally independent of the past, given the present</em>.</p>
-<h3>States</h3>
+<h3 id="states">States</h3>
 <p>A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent's sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards {which can be also called return} can be computed.</p>
 <p>As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated}. Note that overheated is a terminal state.</p>
-<p align="center">
-<image src="cool.jpg" width="30%"/>
-<image src="warm.jpg" width="30%"/>
-<image src="overheated.jpg" width="30%"/>
-</p>
-<h3>Actions</h3>
+
+<h3 id="actions">Actions</h3>
 <p>Actions are set of operations an agent is allowed to do in the given environment. The set of actions is usually shown with $A$. In the robot car example, the machine can increase or decrease its speed. So the actions' set would be {slow, fast}</p>
-<p align="center">
-<image src="action.jpg" width="60%"/>
-</p>
-<h3>Transition Model</h3>
+
+<h3 id="transition-model">Transition Model</h3>
 <p>At each state, the agent decides which action to perform. The resulting state ($s'$) depends on both the current state ($s$) and the action performed by the agent ($a$). The transition model $T(s, a, s')$ gives probability $P(s'|s, a)$, that is, the probability of landing up in the new  state $s'$ given that the agent takes an action, $a$, in the given state, $s$.</p>
 <p>Environments can be divided into two types according to their transition models.</p>
 <ul>
@@ -310,19 +307,15 @@
 </ul>
 <p>In the machine robot example, we assume that the environment is stochastic. The probability of transitions is determined based on the current state, action, and next state.
 One of the possible transitions is shown in the figure below.</p>
-<p align="center">
-<image src="transition.jpg"/>
-</p>
-<h3>Rewards</h3>
+
+<h3 id="rewards">Rewards</h3>
 <p>The reward function, quantifies the usefulness of taking a specific action and entering a specific state. These rewards incorporate the action costs in addition to any prizes or penalties that may be given. Negative rewards are called punishments. The general form of the reward function is shown as $R(s, a, s')$. But in some MDPs the reward function is independent from the resulting state or both resulting state and action. In those models reward function is shown with $R(s, a)$ and $R(s)$ respectively.</p>
 <p>For a particular environment, the domain knowledge plays an important role in the assignment of rewards for different states as minor changes in the reward do matter for finding the optimal solution to an MDP problem.
 Sum of the rewards is called <em>utility</em> or <em>return</em>.</p>
 <p>Usually the performance of the agent, which is also called <em>utility</em>, is measured by the sum of rewards on the visited path. But other utility functions are also possible. General form of utility is shown by $U_h[s_0,s_1, s_2, ..., s_N]$.  </p>
 <p>In the robot car example, the robot must reach its destination as quickly as possible, so the high-speed reward must be considered more than the low-speed, e.g. +2 and +1 may be considered. But reward should be assigned in a way to prevent the robot from going to overheated state. So -10 is assigned to entering the overheated state.</p>
-<p align="center">
-<image src="reward.jpg"/>
-</p>
-<h3>Formalization</h3>
+
+<h3 id="formalization">Formalization</h3>
 <p>By combining the concepts which were explained above the complete formulation for MDP is achieved as below.</p>
 <ul>
 <li>A set of possible states $S$.</li>
@@ -332,34 +325,32 @@ Sum of the rewards is called <em>utility</em> or <em>return</em>.</p>
 <li>A start state</li>
 <li>Maybe a terminal state</li>
 </ul>
-<h3>Policy</h3>
+<h3 id="policy">Policy</h3>
 <p>The policy is a function that takes the state as an input and outputs the action to be taken. Policy $\pi : S \rightarrow A$ is a set of commands that the agent follows.</p>
 <p>The policy which maximizes the expected utility among all the possible policies is called optimal policy and shown with $\pi^\star$.</p>
 <p>Finding $\pi^\star$ is usually referred to as solving the MDP. There are different algorithms which attempt to find $\pi^\star$ such as value iteration and policy evaluation.</p>
-<h2>MDP Search Trees</h2>
+<h2 id="mdp-search-trees">MDP Search Trees</h2>
 <p>In expectimax tree the path which leads to the most reward is desired. MDP problems could be demonstrated as a search tree. But there are two main differences.</p>
 <ul>
 <li>In MDP Rewards are assigned to edges rather than nodes.</li>
 <li>In MDP utility is the sum of rewards gained in the path to the terminal state. But in expectimax utility is the the value assigned to the terminal state.</li>
 </ul>
 <p>In the robot car example, the search is as shown below.</p>
-<p align="center">
-<image src="tree.png"/>
-</p>
-<h2>Utilities of Sequences</h2>
+
+<h2 id="utilities-of-sequences">Utilities of Sequences</h2>
 <p>It's easy to choose between sequence of [1, 2, 2] and [2, 3, 4]. Obviously more utility as well as more reward in each step is gained . But choosing between [1, 0, 0] and [0, 0, 1] is not that easy. This motivates us to consider the time which the reward is being received. In most cases, it's preferred to gain the rewards as soon as possible.</p>
-<h3>Discounting</h3>
+<h3 id="discounting">Discounting</h3>
 <p>Consider gaining reward $r_i$ in time step $t_i$. In discounting, $\sum \gamma^t r_i$ is considered instead of $\sum r_i$ as utility function such that $0\lt \gamma \lt 1$. $\gamma=1$ is just equivalent to simple summation. Apart from what we have said so far, this method has other advantages, which will be mentioned below briefly.</p>
-<h3>Finite and infinite horizons</h3>
+<h3 id="finite-and-infinite-horizons">Finite and infinite horizons</h3>
 <p>Decision making problems may be of two types. Some may be <strong>finite horizon</strong> and some <strong>infinite horizon</strong>. Finite horizon means that there is a fixed time N after which nothing matters. In other words what happens after the fixed time is not analysed. To be mathematically shown, $U_h([s_0, s_1,...,s_{N+k}]) = U_h([s_0, s_1,..., s_N ])$
 for all $k &gt; 0$ . In finite horizon problems, the optimal action in a given state could change over time. That is, when there is little time left, the agent should take risk to gain reward before the deadline is reached. Because of this change in optimal action in a given state over time, the optimal policy for a finite horizon is non stationary. However, with no fixed time limit, there is no reason to behave differently in the same state at different times. Hence, the optimal policy depends only on the current state, and the optimal policy is stationary. Note that infinite horizon does not necessarily mean that all state sequences are infinite, it just means that there is no fixed deadline.</p>
-<h4>Infinite Utilities</h4>
+<h4 id="infinite-utilities">Infinite Utilities</h4>
 <p>In infinite horizon problems, calculating an upper bound on the gained utility is desired to distinguish different policies appropriately. But defining utility as $\sum r_i$ does not satisfy the mentioned condition. But if discounting is applied, according to the geometric sequence sum $\sum \gamma^t r_i &lt; r_{max} \sum \gamma^t = \frac{r_{max}}{1 - \gamma}$ .</p>
-<h4>Stationary Preference</h4>
+<h4 id="stationary-preference">Stationary Preference</h4>
 <p>In infinite horizon only if utility is defined as $\sum r_i$ or $\sum \gamma^t r_i$ the agent's preferences between state sequences are stationary. Stationarity for preferences means</p>
-<p>$[s, s_0, s_1, s_2,  ... ] &gt; [s, s_0', s_1', s_2',  ... ] \iff [s_0, s_1, s_2,  ... ] &gt; [s_0', s_1', s_2',  ... ].$</p>
+$[s, s_0, s_1, s_2,  ... ] &gt; [s, s_0', s_1', s_2',  ... ] \iff [s_0, s_1, s_2,  ... ] &gt; [s_0', s_1', s_2',  ... ].$
 <p>This means that if a sequence is preferred to another, it is also preferred after one state is passed. Explaining in simple words, this means that if one future is preferred  to another starting tomorrow, then it is still preferred if it were to start today instead.</p>
-<h2>Bellman Equation</h2>
+<h2 id="bellman-equation">Bellman Equation</h2>
 <p>Due to previous discussions, now objective is to find policy that maximizes expected discounted utility.
 $$ \max_{\pi} E \Bigg[ \sum_{i=0}^\infty \gamma^ir_i \Bigg] $$</p>
 <p>Consider $V^\star(s)$ as expected utility starting from state $s$ and act according to $\pi^\star$, the optimal policy.</p>
@@ -372,7 +363,7 @@ $$ Q^\star(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \bi
 $$ V^\star(s) = \max_{a} \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V^\star(s') \big] $$</p>
 <p>Equation above is called as <strong>bellman equation</strong>.</p>
 <p>By solving bellman equation for all states, optimal policy will be obtained.</p>
-<h2>Time Limited Values</h2>
+<h2 id="time-limited-values">Time Limited Values</h2>
 <p>Solving bellman equation via tree has two major problems:</p>
 <ol>
 <li>There are repeating sub problems, so there are a lots of overheads on the system.</li>
@@ -386,7 +377,7 @@ $$ Q_k(s, a) = \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V_k(s') \big]$$</p>
 <p>So $V_{k+1}$ can be calculated by
 $$ V_{k+1}(s) = \max_{a} \sum_{s'}T(s, a, s')\big[R(s, a, s') + \gamma V_k(s') \big] .$$</p>
 <p>For each state $s$, $V_{k+1}(s)$ will be calculated by iteration over all states and all actions, which has time complexity $O(|S||A|)$. So the total time complexity for each iteration will  be $O(|S|^2|A|)$.</p>
-<h2>Implementation</h2>
+<h2 id="implementation">Implementation</h2>
 <p>States, terminal states, actions, transition and reward function should be implemented in order to define the MDP.
 The robot car example explained above will be encoded as bellow</p>
 <div class="codehilite"><pre><span></span><code><span class="n">car_states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Cool'</span><span class="p">,</span> <span class="s1">'Warm'</span><span class="p">,</span> <span class="s1">'Over'</span><span class="p">]</span>
@@ -513,13 +504,11 @@ The robot car example explained above will be encoded as bellow</p>
 <div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mdp_solve</span><span class="p">(</span><span class="n">car_transition</span><span class="p">,</span> <span class="n">car_reward</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">car_states</span><span class="p">,</span> <span class="n">car_terminals</span><span class="p">,</span> <span class="n">car_actions</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="p">{</span><span class="s1">'Cool'</span><span class="p">:</span> <span class="s1">'fast'</span><span class="p">,</span> <span class="s1">'Warm'</span><span class="p">:</span> <span class="s1">'slow'</span><span class="p">,</span> <span class="s1">'Over'</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 </code></pre></div>
-<h2>Real Life Example</h2>
+<h2 id="real-life-example">Real Life Example</h2>
 <p>In a TV quiz show, there are several levels. At each level, if the participant answers the question correctly, they will receive some prize. If the participant's answer is wrong, they leave the competition empty-handed. Before each stage begins, the participant can decide whether to continue or withdraw and leave the game with the reward which they already earned.</p>
 <p>Beside states representing each level, There are three terminal states of <em>Win</em>, <em>Lost</em> and <em>Quit</em> in the game. Actions in each state are quit and play. The player will go to the quit state with probability of 1 if they decide to take action quit. otherwise they will pass the level i by probability of <code>win_ratio[i]</code> and go to the state which represents the next level.</p>
 <p>So the play / quit decision problem can be modeled as an MDP as below.</p>
-<p align="center">
-<image src="quiz.png"/>
-</p>
+
 <p>Considering $100, $200, $300, $400 and $500 as rewards and 0.9, 0.7, 0.6, 0.3, 0.1 as win ratio for levels 0 to 4 respectively, The model can be implemented as below.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">quiz_levels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="n">quiz_terminals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Win'</span><span class="p">,</span> <span class="s1">'Lost'</span><span class="p">,</span> <span class="s1">'Quit'</span><span class="p">]</span>
@@ -591,9 +580,9 @@ E_2 = 0.6 \times 300 + 0.4 \times -300 = 60 \
 E_3 = 0.3 \times 400 + 0.7 \times -600 = -300 \
 E_4 = 0.1 \times 500 + 0.9 \times -1000 = -850
 $</p>
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>In conclusion MDP is an appropriate tool to represent RL problems. In order to represent a problem using MDP, states, actions, transition model and rewards should be determined properly. Afterwards finding the optimal policy, i.e. the one with the most utility, is desired. In order to find the optimal utility, bellman equation should be solved. Algorithms such as value iteration and policy iteration attempt to solve the bellman equation feasibly. In the end take into consideration that in real world RL problems, the transition model and reward function are not known and must be learned.</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <ul>
 <li>Russell, Stuart, and Peter Norvig. "Artificial intelligence: a modern approach." (2002).</li>
 <li><a href="https://inst.eecs.berkeley.edu/~cs188/fa18/assets/notes/n4.pdf">https://inst.eecs.berkeley.edu/~cs188/fa18/assets/notes/n4.pdf</a></li>
@@ -606,6 +595,299 @@ $</p>
 </ul>
             </div>
             
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/AryanAhadinia.png" alt="Aryan Ahadinia">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Aryan Ahadinia</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:ahadinia@ce.sharif.edu">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/AryanAhadinia">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://www.linkedin.com/in/ahadinia/">
+                    
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    
+                    <span>LinkedIn</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/rpirayadi.png" alt="Rouzbeh Pirayadi">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Rouzbeh Pirayadi</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:rouzbehpirayadi@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/rpirayadi">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/ArianYp.png" alt="Arian Yazdanparast">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Arian Yazdanparast</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:arian.yazdan2001@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/ArianYp">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap wf-person-avatar-initials" aria-hidden="true">
+                SA
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Sepehr Amini Afshar</h3>
+                
+                
+                <p class="wf-person-title">Supervisor</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="mailto:sepehramini83@gmail.com">
+                    
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    
+                    <span>Email</span>
+                </a>
+                
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://www.linkedin.com/in/sepehr-amini-afshar-2201381b8/">
+                    
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    
+                    <span>LinkedIn</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+            
         </div>
     </div>
     
@@ -614,7 +896,7 @@ $</p>
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/18_reinforcement_learning/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/18_reinforcement_learning/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Reinforcement Learning</span>
             </a>
@@ -627,7 +909,7 @@ $</p>
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/21_reinforcement_learning/index.md">
+            <a class="btn btn-link p-0" href="/notes/notebooks/21_reinforcement_learning/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Reinforcement Learning Notes</span>
             </a>

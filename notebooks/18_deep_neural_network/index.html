@@ -13,7 +13,7 @@
 
 
 <head>
-    <title>index.md</title>
+    <title>Deep Neural Networks: Convolutional Models</title>
     
 <!-- viewport meta-tag for responsiveness -->
 <meta charset="utf-8">
@@ -34,14 +34,14 @@
 <script src="https://kit.fontawesome.com/01c0691b3e.js" crossorigin="anonymous"></script>
 
 <!-- Loading mathjax macro -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-<script type="text/x-mathjax-config" defer>
+<script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true,
-                processEnvironments: true
+                processEnvironments: true,
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
             },
             displayAlign: 'center',
             "HTML-CSS": {
@@ -50,9 +50,11 @@
             }
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
 <link rel="stylesheet" href="/notes/assets/css/codehilite.css">
 <link rel="stylesheet" href="/notes/assets/css/main.css">
 <script defer src="/notes/assets/js/codeblocks.js"></script>
+<script defer src="/notes/assets/js/content-toc.js"></script>
 
 <script>
 (function () {
@@ -68,6 +70,7 @@
 </script>
 <link rel="stylesheet" href="/notes/assets/css/theme.css">
 <script defer src="/notes/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/notes/assets/webifier/people/css/people.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZRZHCJ5V0"></script>
 <script>
@@ -107,7 +110,9 @@
             class="wf-page-chrome-panel p-3 m-auto text-center"
             
     >
-        <h1>index.md</h1>
+        <h1>Deep Neural Networks: Convolutional Models</h1>
+        
+        <p class="mt-3">Convolutional neural networks and their applications</p>
         
     </div>
 </header>
@@ -281,11 +286,11 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <h2>Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#cnn-architecture">CNN Architecture</a></li><li class="wf-content-toc-level-2"><a href="#fully-connected-layer">Fully Connected Layer</a></li><li class="wf-content-toc-level-2"><a href="#conv-layer">Conv Layer</a></li><li class="wf-content-toc-level-2"><a href="#pooling">Pooling</a></li><li class="wf-content-toc-level-2"><a href="#padding">Padding</a></li><li class="wf-content-toc-level-2"><a href="#stride">Stride</a></li><li class="wf-content-toc-level-2"><a href="#activation-function">Activation Function</a></li><li class="wf-content-toc-level-2"><a href="#loss-functions">Loss Functions</a></li><li class="wf-content-toc-level-2"><a href="#the-output-size-of-conv-layer">The output size of Conv Layer</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h2 id="introduction">Introduction</h2>
 <p>Deep learning is a subfield of machine learning that deals with algorithms inspired by the structure and function of the brain. Deep learning is a subset of machine learning, which is a part of artificial intelligence (AI).
 <img alt="" src="https://i.imgur.com/qhjJzDb.png"/></p>
 <p>CNNs are models to solve deep learning problems. Suppose that you have high-dimensional inputs such as images or videos. If we want to use MLPs, 2 (or more) dimensional inputs need to be converted to 1-dimensional vectors. This conversion increases the number of trainable parameters exponentially. Also, one important thing in these data is locality, it means that for example in an image, you can find features in adjacent pixels (for example corners and edges) but, distant pixels can't give you efficient features. The solution for solving these problems is using CNNs.</p>
-<h2>CNN Architecture</h2>
+<h2 id="cnn-architecture">CNN Architecture</h2>
 <p>A CNN architecture is formed by a stack of distinct layers that transform the input volume into an output volume through a differentiable function. A few distinct types of layers are commonly used:</p>
 <ul>
 <li>Fully Connected Layer</li>
@@ -303,12 +308,12 @@
 <img alt="" src="https://www.researchgate.net/publication/341031637/figure/fig1/AS:885839181660162@1588211927876/A-classic-convolutional-neural-network-CNN-model-LeNet-5-architecture-original-image.ppm"/>
 <center><figcaption></figcaption>
 </center></figure>
-<h2>Fully Connected Layer</h2>
+<h2 id="fully-connected-layer">Fully Connected Layer</h2>
 <p>Fully Connected layers in neural networks are those layers where all the inputs from one layer are connected to every activation unit of the next layer. In most popular CNN models, the last few layers are fully connected layers that compile the data extracted by previous layers to form the final output. It is the second most time-consuming layer second to the Convolution Layer.
 <img alt="" src="https://i.imgur.com/3nItEgk.png"/></p>
-<h2>Conv Layer</h2>
+<h2 id="conv-layer">Conv Layer</h2>
 <p>This layer is the main difference between CNNs and MLPs. Convolution in the word refers to two operators between two functions. In mathematics convolution is defined as below:<br/>
-<img src="https://render.githubusercontent.com/render/math?math=(f * g)(t) := \int_{-\infty}^{\infty} f(\tau)g(t - \tau)d\tau"/><br/>
+\((f * g)(t) := \int_{-\infty}^{\infty} f(\tau)g(t - \tau)d\tau\)<br/>
 In this image, you can see an example for functions of convolution and two other similar operators.</p>
 <figure>
 <img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Comparison_convolution_correlation.svg/800px-Comparison_convolution_correlation.svg.png"/>
@@ -324,7 +329,7 @@ In the context of a convolutional neural network, convolution is a linear operat
 <center><img alt="" src="https://miro.medium.com/max/738/1*Q7NXeOlDkm4xlNrNQOS67g.gif"/>
 <center><figcaption></figcaption>
 </center></center></figure>
-<h2>Pooling</h2>
+<h2 id="pooling">Pooling</h2>
 <p>Similar to the Convolutional Layer, the Pooling layer is responsible for reducing the spatial size of the convolved feature.
 While a lot of information is lost in the pooling layer, it also has a number of benefits to the Convolutional Neural Network. They help to reduce complexity, improve efficiency, and limit the risk of overfitting.
 This is to decrease the computational power required to process the data by reducing the number of parameters in the input.
@@ -337,7 +342,7 @@ Comparing these two, we can say that Max Pooling performs a lot better than Aver
 In the following, we will see a picture of how these two methods work.</li>
 </ol>
 <p><img alt="" src="https://i.imgur.com/G3hOlnQ.jpg"/></p>
-<h2>Padding</h2>
+<h2 id="padding">Padding</h2>
 <p>As you see, after applying convolutional layers, the size of the feature map is always smaller than the input. We have to do something to prevent our feature map from shrinking. This is where we use padding. Layers of zero-value pixels are added to surround the input with zeros so that our feature map will not shrink. By padding, we can control the shrinking of our inputs.
 Different padding modes are:
 * zeros(Default)
@@ -347,13 +352,13 @@ Different padding modes are:
 <center><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/1/19/2D_Convolution_Animation.gif"/>
 <center><figcaption></figcaption>
 </center></center></figure>
-<h2>Stride</h2>
+<h2 id="stride">Stride</h2>
 <p>As we said before, when you're applying a kernel to the image, you have to move the kernel along the image. But sometimes you prefer not to move one pixel every time and move the kernel more than one pixel. This is stride. The stride specifies how many kernels have to move each time.</p>
 <figure>
 <center><img alt="" src="https://miro.medium.com/max/1400/1*4wZt9G7W7CchZO-5rVxl5g@2x.gif"/>
 <center><figcaption></figcaption>
 </center></center></figure>
-<h2>Activation Function</h2>
+<h2 id="activation-function">Activation Function</h2>
 <p>An activation function is a function that is added to an artificial neural network in order to help the network learn complex patterns in the data. When compared with a neuron-based model that is in our brains, the activation function is at the end deciding what is to be fired to the next neuron. That is exactly what an activation function does in a neural network as well. It takes in the output signal from the previous cell and converts it into some form that can be taken as input to the next cell. The comparison can be summarized in the figure below.
 <img alt="" src="https://i.imgur.com/HuTmRFj.png"/></p>
 <p>The most important feature in an activation function is its ability to add non-linearity into a neural network.
@@ -371,7 +376,7 @@ The Maxout unit is an activation function that is itself trained by our model. A
 - <strong>ELU</strong> :
 Exponential Linear Unit or its widely known name ELU is a function that tends to converge cost to zero faster and produce more accurate results. ELU is very similar to RELU except for negative inputs. They are both in identity function form for non-negative inputs. On the other hand, ELU becomes smooth slowly until its output is equal to -α whereas RELU sharply smoothes.</p>
 <p><img alt="" src="https://i.imgur.com/uyoEZLC.png"/></p>
-<h2>Loss Functions</h2>
+<h2 id="loss-functions">Loss Functions</h2>
 <p>As part of the optimization algorithm, the error for the current state of the model must be estimated repeatedly. This requires the choice of an error function, conventionally called a loss function, that can be used to estimate the loss of the model so that the weights can be updated to reduce the loss on the next evaluation. These are two famous loss functions: </p>
 <ul>
 <li><strong>Mean Squared Error Loss</strong>:
@@ -379,16 +384,16 @@ Mean squared error is calculated as the average of the squared differences betwe
 <li><strong>Cross-Entropy</strong>:
 Cross-entropy is a measure of the difference between two probability distributions for a given random variable or set of events. It is closely related to but is different from KL divergence that calculates the relative entropy between two probability distributions, whereas cross-entropy can be thought to calculate the total entropy between the distributions.</li>
 </ul>
-<h2>The output size of Conv Layer</h2>
+<h2 id="the-output-size-of-conv-layer">The output size of Conv Layer</h2>
 <p>in_channels: Number of channels in the input image<br/>
 out_channels: Number of channels produced by the convolution<br/>
 kernel_size: Size of the convolving kernel<br/>
 stride: Stride of the convolution. Default: 1<br/>
 padding: Padding added to all four sides of the input. Default: 0<br/>
 dilation: Spacing between kernel elements. Default: 1  </p>
-<p>$H_{out} = \lfloor \frac{H_{in} + 2×padding[0]−dilation[0]×(kernel_size[0]−1)−1 }{stride[0]}  \rfloor + 1$</p>
-<p>$W_{out} = \lfloor \frac{W_{in} + 2×padding[1]−dilation[1]×(kernel_size[1]−1)−1 }{stride[1]}  \rfloor + 1$</p>
-<h2>Conclusion</h2>
+$H_{out} = \lfloor \frac{H_{in} + 2×padding[0]−dilation[0]×(kernel_size[0]−1)−1 }{stride[0]}  \rfloor + 1$
+$W_{out} = \lfloor \frac{W_{in} + 2×padding[1]−dilation[1]×(kernel_size[1]−1)−1 }{stride[1]}  \rfloor + 1$
+<h2 id="conclusion">Conclusion</h2>
 <p>Interest in deep learning is continuing to increase. Reasons for this interest include deep learning’s capacity to</p>
 <ol>
 <li>Improve accuracy of predictions, enabling improved data-driven decisions</li>
@@ -398,7 +403,7 @@ dilation: Spacing between kernel elements. Default: 1  </p>
 <p><img alt="" src="https://i.imgur.com/YRbiR35.jpg"/></p>
 <p>What's Next For Deep Learning?    <br/>
 No one knows!</p>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <p><a href="https://machinelearningmastery.com/convolutional-layers-for-deep-learning-neural-networks/">Convolutional Neural Network</a> </p>
 <p><a href="https://www.analyticsvidhya.com/blog/2021/05/convolutional-neural-networks-cnn/">Pooling link1</a> </p>
 <p><a href="https://www.ibm.com/cloud/learn/convolutional-neural-networks">Pooling link2</a> </p>
@@ -406,6 +411,207 @@ No one knows!</p>
 <p><a href="https://machinelearningmastery.com/how-to-choose-loss-functions-when-training-deep-learning-neural-networks/">Loss Functions</a> </p>
 <p><a href="https://pytorch.org/docs/1.9.1/generated/torch.nn.Conv2d.html">The output size of Conv Layer</a> </p>
             </div>
+            
+                
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+<div id="authors"
+    
+        class="hover-shadow row align-items-start my-2 px-xs-0
+            px-sm-0 px-md-1
+         px-lg-2 px-xlg-2 px-xxlg-2"
+        style="min-height: 5vh;"
+    
+>
+    
+    
+        
+            <div class="wf-section-label text-center col-12 py-3">
+                <span class="shadow-lg p-3 px-5 w-100"><strong>Authors</strong></span>
+            </div>
+        
+    
+
+    <div
+        
+            class="rounded  bg-body shadow col-12 px-4 p-4
+            justify-content-center"
+        
+    >
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wf-people"
+     style="--wf-people-card-min: 14rem;
+            --wf-people-card-max: 18rem;
+            --wf-people-gap: 1rem;
+            --wf-people-avatar-size: 4.25rem;">
+    
+    <div class="wf-people-grid wf-people-grid-center wf-people-density-comfortable">
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/parhampch.png" alt="Parham Chavoshian">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Parham Chavoshian</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/parhampch">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/Amirhosein-javadi.png" alt="Amirhossein Javadi">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Amirhossein Javadi</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/Amirhosein-javadi">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+        
+        
+        <article class="wf-person-card wf-person-card-center">
+            
+            <div class="wf-person-avatar-wrap">
+                <img class="wf-person-avatar" src="https://github.com/dariusamiri.png" alt="Dariush Amiri">
+            </div>
+            
+            <div class="wf-person-main">
+                
+                <h3 class="wf-person-name">Dariush Amiri</h3>
+                
+                
+                <p class="wf-person-title">Author</p>
+                
+                
+                
+                
+            </div>
+            
+            <div class="wf-person-links">
+                
+                
+                
+                
+                <a class="wf-person-link" href="https://github.com/dariusamiri">
+                    
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub</span>
+                </a>
+                
+                
+            </div>
+            
+        </article>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    
+    
+</div>
+            
+                
+
+
+    
+
+
+<div class="p-2">
+    <script src="https://utteranc.es/client.js"
+            repo="sut-ai/comments"
+            issue-term="pathname"
+            label="comments"
+            theme="preferred-color-scheme"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
             
         </div>
     </div>
@@ -415,7 +621,7 @@ No one knows!</p>
     <div class="wf-page-navigation-inner">
         <div class="wf-page-navigation-slot wf-page-navigation-previous">
             
-            <a class="btn btn-link p-0" href="notebooks/16_deep_neural_networks/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/16_deep_neural_networks/">
                 <span class="d-block small text-muted">Back</span>
                 <span>Deep Neural Networks and CNNs</span>
             </a>
@@ -428,7 +634,7 @@ No one knows!</p>
         </div>
         <div class="wf-page-navigation-slot wf-page-navigation-next">
             
-            <a class="btn btn-link p-0" href="notebooks/17_markov_decision_processes/index.ipynb">
+            <a class="btn btn-link p-0" href="/notes/notebooks/17_markov_decision_processes/">
                 <span class="d-block small text-muted">Next</span>
                 <span>Markov Decision Processes</span>
             </a>
