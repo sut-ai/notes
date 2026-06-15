@@ -374,6 +374,22 @@ a {
     margin: 0;
 }
 
+.wf-content-actions {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1.5rem;
+}
+
+.wf-content-actions .wf-colab-link {
+    display: inline-flex;
+    line-height: 1;
+}
+
+.wf-content-page-body .wf-content-actions .wf-content-colab-link img {
+    height: 20px !important;
+    margin: 0 !important;
+}
+
 .wf-content-toc-level-2 {
     margin-left: 1rem !important;
 }
@@ -644,11 +660,11 @@ footer {
         padding-inline: 0.45rem;
     }
 
-    .wf-colab-link img {
+    .wf-navbar .wf-colab-link img {
         display: none;
     }
 
-    .wf-colab-link::before {
+    .wf-navbar .wf-colab-link::before {
         background: url("../images/colab-badge.svg") left center / auto 1.25rem no-repeat;
         content: "";
         display: block;
