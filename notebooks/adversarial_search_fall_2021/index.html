@@ -292,17 +292,121 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#the-concept-of-adversarial-search-and-an-introduction-to-game-theory">The concept of adversarial search and an introduction to Game Theory</a></li><li class="wf-content-toc-level-3"><a href="#game-theory-explanation-and-deterministic-games">Game Theory Explanation and Deterministic Games</a></li><li class="wf-content-toc-level-3"><a href="#different-categories-of-games">Different categories of games</a></li><li class="wf-content-toc-level-2"><a href="#different-types-of-trees-for-games">Different Types of Trees for games</a></li><li class="wf-content-toc-level-3"><a href="#single-agent-trees">Single Agent Trees</a></li><li class="wf-content-toc-level-3"><a href="#adversarial-agent-trees">Adversarial Agent Trees</a></li><li class="wf-content-toc-level-2"><a href="#minimax-strategy">Minimax Strategy</a></li><li class="wf-content-toc-level-3"><a href="#pseudocode-of-minimax-strategy">Pseudocode of Minimax Strategy</a></li><li class="wf-content-toc-level-3"><a href="#properties-of-minimax-strategy">Properties of Minimax Strategy</a></li><li class="wf-content-toc-level-2"><a href="#resource-limits">Resource Limits</a></li><li class="wf-content-toc-level-3"><a href="#depth-limited-search">Depth-limited search</a></li><li class="wf-content-toc-level-3"><a href="#evaluation-functions">Evaluation Functions</a></li><li class="wf-content-toc-level-3"><a href="#iterative-deepening-search">Iterative Deepening Search</a></li><li class="wf-content-toc-level-2"><a href="#pruning">Pruning</a></li><li class="wf-content-toc-level-3"><a href="#houston-we-have-a-problem">Houston, We have a problem!</a></li><li class="wf-content-toc-level-3"><a href="#minimax-pruning">Minimax Pruning</a></li><li class="wf-content-toc-level-3"><a href="#alpha-beta-pruning">Alpha-Beta Pruning</a></li><li class="wf-content-toc-level-3"><a href="#sample-code">Sample Code:</a></li><li class="wf-content-toc-level-2"><a href="#expectimax-search">Expectimax Search</a></li><li class="wf-content-toc-level-2"><a href="#other-types-of-games">Other types of games</a></li><li class="wf-content-toc-level-3"><a href="#multi-agent-utilities">Multi-Agent Utilities</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#useful-links">Useful links</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
-
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-1"><a href="#adversarial-search">Adversarial Search</a></li><li class="wf-content-toc-level-2"><a href="#table-of-contents">Table of Contents</a></li><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#the-concept-of-adversarial-search-and-an-introduction-to-game-theory">The concept of adversarial search and an introduction to Game Theory</a></li><li class="wf-content-toc-level-3"><a href="#game-theory-explanation-and-deterministic-games">Game Theory Explanation and Deterministic Games</a></li><li class="wf-content-toc-level-3"><a href="#different-categories-of-games">Different categories of games</a></li><li class="wf-content-toc-level-2"><a href="#different-types-of-trees-for-games">Different Types of Trees for games</a></li><li class="wf-content-toc-level-3"><a href="#single-agent-trees">Single Agent Trees</a></li><li class="wf-content-toc-level-3"><a href="#adversarial-agent-trees">Adversarial Agent Trees</a></li><li class="wf-content-toc-level-2"><a href="#minimax-strategy">Minimax Strategy</a></li><li class="wf-content-toc-level-3"><a href="#pseudocode-of-minimax-strategy">Pseudocode of Minimax Strategy</a></li><li class="wf-content-toc-level-3"><a href="#properties-of-minimax-strategy">Properties of Minimax Strategy</a></li><li class="wf-content-toc-level-2"><a href="#resource-limits">Resource Limits</a></li><li class="wf-content-toc-level-3"><a href="#depth-limited-search">Depth-limited search</a></li><li class="wf-content-toc-level-3"><a href="#evaluation-functions">Evaluation Functions</a></li><li class="wf-content-toc-level-3"><a href="#iterative-deepening-search">Iterative Deepening Search</a></li><li class="wf-content-toc-level-2"><a href="#pruning">Pruning</a></li><li class="wf-content-toc-level-3"><a href="#houston-we-have-a-problem">Houston, We have a problem!</a></li><li class="wf-content-toc-level-3"><a href="#minimax-pruning">Minimax Pruning</a></li><li class="wf-content-toc-level-3"><a href="#alpha-beta-pruning">Alpha-Beta Pruning</a></li><li class="wf-content-toc-level-3"><a href="#sample-code">Sample Code:</a></li><li class="wf-content-toc-level-2"><a href="#expectimax-search">Expectimax Search</a></li><li class="wf-content-toc-level-2"><a href="#other-types-of-games">Other types of games</a></li><li class="wf-content-toc-level-3"><a href="#multi-agent-utilities">Multi-Agent Utilities</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#useful-links">Useful links</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h1 id="adversarial-search">Adversarial Search</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<hr/>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+  ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#introduction-1">Introduction</a>
+</li>
+</ul>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#the-concept-of-adversarial-search-and-an-introduction-to-game-theory-1">The concept of adversarial search and an introduction to Game Theory</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#game-theory-explanation-and-deterministic-games-1">Game Theory Explanation and Deterministic Games</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#different-categories-of-games-1">Different categories of games</a>
+</font></p>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+  ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#differnt-types-of-trees-for-games">Different Types of trees for games</a>
+</li>
+</ul>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#single-agent-trees-1">Single-Agent Trees</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#adversarial-agent-trees-1">Adversarial Agent Trees</a>
+</font></p>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+  ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#minimax-strategy-1">Minimax Strategy</a>
+</li>
+</ul>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pseudocode-of-minimax-strategy-1">Pseudocode of Minimax Strategy</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#properties-of-minimax-strategy-1">Properties of Minimax Strategy</a>
+</font></p>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+  ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#resource-limits">Resource limit</a>
+</li>
+</ul>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#depth-limited-search-1">Depth-limited Search</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#evaluation-functions">Evaluation Function</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#iterative-deepening-search-1">Iterative Deepening Search</a>
+</font></p>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+  ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#pruning-1">Pruning</a>
+</li>
+</ul>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#houston-we-have-a-problem-1">Houston, We Have A Problem!</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#minimax-pruning-1">Minimax Pruning</a>
+</font></p>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#alpha-beta-pruning-1">Alpha-Beta Pruning</a>
+</font></p>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+<p>### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#expectimax-search-1">Expectimax Search</a>
+</p>
+</li>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+<p>### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#other-types-of-games-1">Other types of games</a>
+</p>
+</li>
+</ul>
+<p>### <font color="green" size="3">
+  - ### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#multi-agent-utilities-1">Multi-Agent Utilities</a>
+</font></p>
+<ul>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+<p>### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#conclusion-1">Conclusion</a>
+</p>
+</li>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+<p>### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#useful-links">Useful Linkes</a>
+</p>
+</li>
+<li>
+<h3><font color="Orange" size="4.5"></font></h3>
+<p>### <a href="https://github.com/mothegoat/notes/blob/master/notebooks/adversarial_search_fall_2021/index.md#references">Reference</a>
+</p>
+</li>
+</ul>
+<h2><font color="red" size="5"></font></h2>
 <h2 id="introduction">Introduction</h2>
-
-
+<p>
+<br/></p>
+<h3><font color="#FF7500" size="3"></font></h3>
 <h3 id="the-concept-of-adversarial-search-and-an-introduction-to-game-theory">The concept of adversarial search and an introduction to Game Theory</h3>
-
+<p></p>
 <p>In previous lectures, we discussed situations in which we had only a single agent. We didn't consider other parameters affecting our environment but in this chapter, a new type of search called <strong>Adversarial Search</strong> is introduced. In adversarial search, we define our problem in a multi-agent context. For instance, while playing a game, our agent has to consider the other agent's moves (adversarial moves) to play in an efficient way. Even in some games we can define a winning stategy which means we can guarantee that in every state of our game, no matter how bad it is, our agent is able to win the game.
 To gather more 
 ormation about the concept of adversarial search, visit <a href="https://www.techslang.com/definition/what-is-adversarial-search/">this link</a>.</p>
-
+<h3><font color="#FF7500" size="3"></font></h3>
 <h3 id="game-theory-explanation-and-deterministic-games">Game Theory Explanation and Deterministic Games</h3>
 <p>
 <br/>
@@ -352,9 +456,10 @@ To achieve this goal, we need to express our game and its rules and actions in a
 <br/></p>
 </li>
 </ol>
-
+<h3><font color="#FF7500" size="3"></font></h3>
 <h3 id="different-categories-of-games">Different categories of games</h3>
-
+<p>
+<br/></p>
 <p>Before we discuss types of games, we need to define a concept named <strong>Utility Function</strong> first. Each player has some states that will be more willing in them. For example, if the player P has a State S which is more satisfied in it, this means that P has better moves in S toward the goal state and is able to win the game more easily. So each player has a utility function which indicates that in every state, how satisfied the player is and what is the best result that it can score, starting with that state. Naturally in goal states, which the game has been finished, the utility function is maximum for that player.</p>
 <ul>
 <li>Zero-Sum games</li>
@@ -371,21 +476,23 @@ To achieve this goal, we need to express our game and its rules and actions in a
 <img alt="zero-sum-game" height="50%" src="/notes/assets/./images/zero-sum-game.jpeg" width="50%"/>
 <em>A good example on zero-sum vs. non-zero-sum games. (Credit: Market Business News)</em>
 </p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="different-types-of-trees-for-games">Different Types of Trees for games</h2>
-
-
+<p>
+<br/></p>
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="single-agent-trees"><b>Single Agent Trees</b></h3>
-
+<p>
+<br/></p>
 <p>Consider the game Pacman which has only an agent playing the game. Starting from an initial state, our agent can either move to left or right. based on this, and its following moves, we can form a tree called <strong>Single Agent Tree</strong>. Each node of this tree indicates an state of the game and the utility function has an specific value in every one of them. We call the leaves of the tree <strong>The Terminal Nodes</strong>. In these terminal nodes, the game is finshed and the utility values are defined. The main question is how can we obtain the utility value of a node? According on what's been said, we have the utility values of the leaves. Recursively, to get the utility value of a node N, we calculate the utility value of every successor of N and we choose the maximum of those numbers as the utility value of the node N.
 <br/>
-</p>
+<font color="#FF7500" size="3"></font></p>
 <h3 id="adversarial-agent-trees"><b>Adversarial Agent Trees</b></h3>
 <p>
 <br/>
 Like the previous Example, we explain this concept with the game Pacman but this time, the game has another agent called the adversarial agent or specific to this game, <b>The Ghost</b>.
 Like Single Agent Trees, we can form a tree to express the moves of the agents, but the difference is that at each level of the tree, only one agent can play. For example if we start with the player P1 at the root of the tree, based on its move, we gain 2 successors and we go to the first level of the tree. At this level of tree, only the other player called P2 can move and each of the 2 nodes will have 2 successors based on P2's move. So we have 4 nodes in the second level and the game will continue this way till the end. In this Configuration, how can we calculate the utility value of nodes? This will be our next topic.  </p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="minimax-strategy">Minimax Strategy</h2>
 <p>
 <br/>
@@ -401,9 +508,10 @@ Why does this strategy work? Because while forming the tree and assigning the ut
 <li>The adversary agent is too naive and may do some inoptimal actions. In this case, we may even score more than what we gained as utillty value.</li>
 </ol>
 <p>As a conclusion of what's said before, we can say that the utility value that we calculate for nodes in minimax strategy, is a floor value of what we may actually score.</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="pseudocode-of-minimax-strategy"><b>Pseudocode of Minimax Strategy</b></h3>
-
+<p>
+<br/></p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">max_value</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">leaf</span><span class="err">?</span><span class="p">(</span><span class="n">state</span><span class="p">),</span> <span class="k">return</span> <span class="n">U</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
     <span class="n">initialize</span> <span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>
@@ -419,38 +527,40 @@ Why does this strategy work? Because while forming the tree and assigning the ut
         <span class="n">v</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">v</span>
 </code></pre></div>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="properties-of-minimax-strategy"><b>Properties of Minimax Strategy</b></h3>
-
 <p>
+<br/>
+<br/></p>
+<p><font color="#green" size="2">
 <b>Complete:</b>
-</p>
-
+</font></p>
+<p><br/></p>
 <p>Yes, It is complete if the tree formed for the game is finite.</p>
-<p>
+<p><font color="#green" size="2">
 <b>Optimal:</b>
-
+</font>
 <br/></p>
 <p>Yes, It is optimal if the opponent acts optimally not naivly. otherwise, we will surely win the game but not in an optimal way because we could've won the game sooner and with a higher score.
 <br/></p>
-<p>
+<p><font color="#green" size="2">
 <b>Time Complexity:</b>
-
+</font>
 <br/></p>
 <p>\(O(b^m)\), as it's obvious, it's dependant on the branching factor and the level the tree goes down. So on a game like chess with \(b = 35\) and\(m = 100\), we can't use this strategy because the time complexity will be huge.
 <br/></p>
-<p>
+<p><font color="#green" size="2">
 <b>Space Complexity:</b>
-
+</font>
 <br/></p>
 <p>\(O(b^m)\), because it's like DFS and only stores the nodes on the current path.</p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="resource-limits">Resource Limits</h2>
 <p>
 <br/>
 Although the minimax algorithm would be proper for problems with relatively small state space, it isn't an efficient and feasible one for problems with more complicated and larger state space. Since the number of game states it has to examine, is exponential in relation to the depth of the tree.</p>
 <p>Consider a <em>reasonable</em> chess game with \(b \approx 35\) and \(m \approx 100\) . Due to the time complexity of this algorithm which is \(O(b^m)\), solving the game is not possible at all. We'll discuss some ideas to solve the problem in details below.</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="depth-limited-search"><b>Depth-limited search</b></h3>
 <p>
 <br/>
@@ -459,7 +569,7 @@ One idea might be running the algorithm up to a specified depth instead of searc
 <p>But using this technique is not much satisfying because it leads to another issue: <em>How can we find the minimax value while there is no solution at a limited depth?</em>
 Recall how we find the minimax value of each node in the original form. We continue searching until we reach a final state and then use recursion to calculate the parents' values. But in the <em>limited</em> format, there are no goal states at depth \(k &lt; m\).</p>
 <p>Now to deal with this issue, we'll introduce <em><em>Evaluation function</em></em>.</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="evaluation-functions"><b>Evaluation Functions</b></h3>
 <p>
 <br/>
@@ -470,7 +580,7 @@ The goal of an evaluation function is to answer to the question: <b>How good is 
 \(Eval(s) = w_1f_1(s) + w_2f_2(s) + ... + w_nf_n(s)\)
 <p>Each of the \(f_i s\)  is calculating a specific <em>feature</em> of the state <em>s</em>.For instance, in chess, we would have features for the number of white pawns, black pawns, white queens, black queens, and etc. To differentiate the effect of each feature better, we multiply them by <em>weights</em>.</p>
 <p>Ideally, evaluation function returns exactly the minimax value of the current state.</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="iterative-deepening-search"><b>Iterative Deepening Search</b></h3>
 <p>
 <br/>
@@ -478,16 +588,19 @@ The accuracy of the evaluation function is critical in shallower states. And the
 So a good idea is to maximize the depth of our search as much as possible, considering the limits that we have. In other words, we are looking for an algorithm that can return an acceptable solution whenever we ask. This kind of algorithms are called <em>anytime algorithms</em>. These algorithms are expected to find better and better solutions the longer they keep running.</p>
 <p>So simply instead of running the depth-limited-search once, we start running the algorithm with an initial depth limit (k). Then after we found s policy, increase the depth limit (k' &gt; k) and run the algorithm again with this new limit to find a better and more accurate solution. We continue the iteration until the program reaches the time limit.
 This algorithm is called <em>iterative-deepening search</em>.</p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="pruning">Pruning</h2>
-
-
+<p>
+<br/></p>
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="houston-we-have-a-problem"><b>Houston, We have a problem!</b></h3>
-
+<p>
+<br/></p>
 <p>So far, we have seen some imporvements upon our original Adversarial Search algorithm. But the problem with minimax search is that the number of game states it has to examine is <strong>exponential</strong> in the depth of the tree. The logical way to tackle this problem is to cut off some nodes and not to see them at all. This brings us to the idea of "Pruning" which we use a lot when we can in AI algorithms. In the following chapter, we see two ways to prune our tree so we can solve our problem in less time.</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="minimax-pruning"><b>Minimax Pruning</b></h3>
-
+<p>
+<br/></p>
 <p>If we take a look at how minimax works, it is noticeable that it explores some parts of the tree that are not necessary at all. In other words, exploring some branches are totally useless but time-consuming. If we can predict which branches are not worthy to be explored so that we can  <em>prune</em> them, we can improve minimax algorithm significantly.</p>
 <p>To understand better, consider the following example:</p>
 <div height="50%" width="50%">
@@ -510,9 +623,10 @@ This algorithm is called <em>iterative-deepening search</em>.</p>
 <img alt="prunning5" height="50%" src="/notes/assets/./images/5.png" width="50%"/>
 </div>
 <p>This idea helps us finding a general and systematic algorithm to predict the <em>bad branches</em> and stop exploring them, which is called \(\alpha-\beta\) <em>pruning</em>.</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="alpha-beta-pruning"><b>Alpha-Beta Pruning</b></h3>
-
+<p>
+<br/></p>
 <p>As we are trying to improve our algorithm even more, there is another approach to prune branches that cannot possibly influence the final decision. So in the last section, we talked about Minimax Pruning, but how can we implement it? </p>
 <p>The approach we are trying to explain here as you can see in the title is called Alpha-Beta Pruning.</p>
 <p>The main idea here is that if a node (e.g. m) has a better choice than another node (e.g. n) or its parents, then that another node (n) will never be wanted to expanded. So we can prune it and never check its successor nodes.</p>
@@ -565,9 +679,10 @@ This algorithm is called <em>iterative-deepening search</em>.</p>
 <img alt="alpha_beta_run_4" src="/notes/assets/./images/alpha_beta_run_4.png"/>
 <em>Now since beta is less than alpha, we know that our root's best possible value from this child will be a 3 which is lower than its other child (i.e. 5), so we prune the other leaf.</em>
 </p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="expectimax-search">Expectimax Search</h2>
-
+<p>
+<br/></p>
 <p>As we can see in the real world, not all the games are played only based on players' skills. We have so many games with stochastic variables in them, like throwing a dice or picking a random card. These games are called <strong>stochastic games</strong>.</p>
 <p>Even when there is no element of luck, we can expect unpredicted behaviors from our agent or the opponent's agent, like robot slipping on the wet floor, or the opponent taking a worse route.</p>
 <p>So the problem we face here is that while we know what legal actions we can take, we can't afford to know what moves will the opponent be able to take as takes its random element into use.(i.e. The transition function will be variable as the game goes on.).</p>
@@ -583,9 +698,9 @@ This algorithm is called <em>iterative-deepening search</em>.</p>
 <img alt="expectimax_tree" height="50%" src="/notes/assets/./images/expectimax_tree.png" width="50%"/>
 <em>The minimal expectimax tree for snakes ladder game.</em>
 </p>
-<p>
+<p><font color="#FF7500" size="3">
 <b>Node values in Expectimax Search:</b>
-
+</font>
 <br/></p>
 <p>As we deal with probability in this kind of search so much, we expect to calculate the values based on some kind of probabilty.</p>
 <p>Terminal nodes and MAX and MIN nodes (for which the dice roll is known) work exactly the same way as before. So how should we calculate the value of chance nodes?</p>
@@ -619,7 +734,7 @@ For example the value of every chance node in Snake ladder will be:</p>
 </tr>
 </tbody>
 </table>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="other-types-of-games">Other types of games</h2>
 <p>
 <br/>
@@ -630,14 +745,15 @@ On top of what's been discussed before, we can count another type of game called
 <p>So if we want to build the tree till the depth of 2, we will have \(20 * (21 * 20) ^ 3\) leaves and termainal states. As we go deeper in tree, this number increases.</p>
 <p>As the deepness increases, the probability to reach a goal state gets smaller and limiting the depth gets less damaging. So the usefulness of search will be threatened and pruning becomes trickier. </p>
 <p>Td-Gammon is a computer backgammon program developed in 1992. It uses a 2-depth search, a very good evaluation function plus reinforcement learning and what we get, is a champion-class player! TD-Gammon was the first AI world champion in any game!</p>
-
+<p><font color="#FF7500" size="3"></font></p>
 <h3 id="multi-agent-utilities"><b>Multi-Agent Utilities</b></h3>
 <p>
 <br/>
 In games with multiple players, terminal states have utility in form of tuple values and each player tries to maximize its own part. This idea can raise the cooperation and competetion strategies dynamically.</p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="conclusion">Conclusion</h2>
-
+<p>
+<br/></p>
 <p>Before this, we only discussed games with a single player. But we use Adversarial search when there are other players and agents in the game too, often with opposite objectives. With adversarial search, we are seeking a method called <strong>Playing Strategy</strong> that gives us correct directions and instructions at each state of game.</p>
 <p>We classified games in two main groups based on utility functions:
 - Zero-Sum Games: The sum of agents' utility functions is equal to zero. (pure competition)
@@ -649,18 +765,19 @@ A complete search is often impossible in minimax because of resource limits. So 
 - Do <strong>Minimax Pruning</strong>: While calculating minimax values, it's sometimes possible to detect and <strong>prune</strong> some suboptimal branches that we know we'll never visit them during the algorithm.</p>
 <p>Another point that has to be considered is that While we are looking for a good strategy of playing, we must neighter act Optimistically nor Pessimismtically, because they can both result in suboptimal behaviour so it's important to evaluate each problem realistically and choose our strategy in proportion of the adversarial agent's cleverness.</p>
 <p>Uncertain factors (like rolling dice) are represented by Expectation Nodes in a game tree. Optimal strategy in such games can be found using <strong>Expectimax Search</strong> which was explained before.</p>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="useful-links">Useful links</h2>
-
+<p></p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=xBXHtz4Gbdo">Step-by-Step alpha-betta example</a></li>
 <li><a href="https://www.baeldung.com/cs/expectimax-search">A simple overview of adversarial search with some examples</a></li>
 <li><a href="https://medium.com/@SereneBiologist/the-anatomy-of-a-chess-ai-2087d0d565">More about adversarial search in Chess game</a></li>
 <li><a href="https://stackoverflow.com/questions/2080050/how-do-we-determine-the-time-and-space-complexity-of-minmax">About minimax time complexity</a></li>
 </ul>
-
+<h2><font color="red" size="5"></font></h2>
 <h2 id="references">References</h2>
-
+<p>
+<br/></p>
 <ul>
 <li>https://towardsdatascience.com/understanding-the-minimax-algorithm-726582e4f2c6</li>
 <li>Russell, S. J., Norvig, P., &amp; Davis, E. (3rd. Ed). Artificial Intelligence: A modern approach. Pearson Educación. </li>

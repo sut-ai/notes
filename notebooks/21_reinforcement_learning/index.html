@@ -292,30 +292,30 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#online-vs-offline-learning">Online vs Offline Learning</a></li><li class="wf-content-toc-level-2"><a href="#main-elements-of-rl">Main Elements of RL</a></li><li class="wf-content-toc-level-2"><a href="#different-methods-of-learning-according-to-model">Different Methods of Learning According to Model</a></li><li class="wf-content-toc-level-2"><a href="#types-of-reinforcement-learning-according-to-learning-policy">Types of Reinforcement Learning According to Learning Policy</a></li><li class="wf-content-toc-level-2"><a href="#policy-evaluation">Policy Evaluation</a></li><li class="wf-content-toc-level-2"><a href="#direct-utility-estimation">Direct Utility Estimation</a></li><li class="wf-content-toc-level-2"><a href="#advantages-of-direct-utility-estimation">Advantages of Direct Utility Estimation</a></li><li class="wf-content-toc-level-2"><a href="#disadvantages-of-direct-utility-estimation">Disadvantages of Direct Utility Estimation</a></li><li class="wf-content-toc-level-2"><a href="#temporal-difference-td-learning">Temporal Difference (TD) Learning</a></li><li class="wf-content-toc-level-2"><a href="#pseudocode">Pseudocode</a></li><li class="wf-content-toc-level-2"><a href="#some-aspects-of-td">Some aspects of TD</a></li><li class="wf-content-toc-level-2"><a href="#problem-with-td">Problem with TD</a></li><li class="wf-content-toc-level-2"><a href="#summery-and-conclusion">Summery and Conclusion</a></li><li class="wf-content-toc-level-3"><a href="#discussed-rl-methods">Discussed RL Methods</a></li><li class="wf-content-toc-level-4"><a href="#direct-utility-estimation-2">Direct Utility Estimation</a></li><li class="wf-content-toc-level-4"><a href="#temporal-difference-learning">Temporal Difference Learning</a></li><li class="wf-content-toc-level-3"><a href="#why-to-use-rl">Why to use RL</a></li><li class="wf-content-toc-level-3"><a href="#usage-of-rl">Usage of RL</a></li><li class="wf-content-toc-level-2"><a href="#useful-links">Useful Links</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
-<h2 id="introduction">Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-1"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#online-vs-offline-learning">Online vs Offline Learning</a></li><li class="wf-content-toc-level-2"><a href="#main-elements-of-rl">Main Elements of RL</a></li><li class="wf-content-toc-level-2"><a href="#different-methods-of-learning-according-to-model">Different Methods of Learning According to Model</a></li><li class="wf-content-toc-level-2"><a href="#types-of-reinforcement-learning-according-to-learning-policy">Types of Reinforcement Learning According to Learning Policy</a></li><li class="wf-content-toc-level-2"><a href="#passive-reinforcement-learning">Passive Reinforcement Learning</a></li><li class="wf-content-toc-level-2"><a href="#active-reinforcement-learning">Active Reinforcement Learning</a></li><li class="wf-content-toc-level-2"><a href="#policy-evaluation">Policy Evaluation</a></li><li class="wf-content-toc-level-1"><a href="#direct-utility-estimation">Direct Utility Estimation</a></li><li class="wf-content-toc-level-2"><a href="#advantages-of-direct-utility-estimation">Advantages of Direct Utility Estimation</a></li><li class="wf-content-toc-level-2"><a href="#disadvantages-of-direct-utility-estimation">Disadvantages of Direct Utility Estimation</a></li><li class="wf-content-toc-level-1"><a href="#temporal-difference-td-learning">Temporal Difference (TD) Learning</a></li><li class="wf-content-toc-level-2"><a href="#pseudocode">Pseudocode</a></li><li class="wf-content-toc-level-2"><a href="#some-aspects-of-td">Some aspects of TD</a></li><li class="wf-content-toc-level-2"><a href="#problem-with-td">Problem with TD</a></li><li class="wf-content-toc-level-1"><a href="#summery-and-conclusion">Summery and Conclusion</a></li><li class="wf-content-toc-level-3"><a href="#discussed-rl-methods">Discussed RL Methods</a></li><li class="wf-content-toc-level-4"><a href="#direct-utility-estimation-2">Direct Utility Estimation</a></li><li class="wf-content-toc-level-4"><a href="#temporal-difference-learning">Temporal Difference Learning</a></li><li class="wf-content-toc-level-3"><a href="#why-to-use-rl">Why to use RL</a></li><li class="wf-content-toc-level-3"><a href="#usage-of-rl">Usage of RL</a></li><li class="wf-content-toc-level-1"><a href="#useful-links">Useful Links</a></li><li class="wf-content-toc-level-1"><a href="#references">References</a></li></ol></nav><div id="introduction"></div>
+<h1 id="introduction">Introduction</h1>
 <p><em><strong>"... What we want is a machine that can learn from experience." -Alan Turing, 1947</strong></em></p>
 <p>At the beginning of the lecture note, we briefly introduce the RL algorithm. After that, we compare online models to offline models. Additionally, we compare different categories of learning methods based on the model. Then we use Direct Utility Estimation Method to estimate our factor based on sample values. Later, we introduce Temporal Difference Learning Algorithm to understand how the agent can gain experience and learn from the envirnment if it does not have enough knowledge. At the end of the discussion, there is a summary of different topics in RL which we have learned. </p>
 <p><strong>Reinforcement Learning</strong> is a subcategory of Machine Learning which can solve real-life problems. These problems involve learning what to do—how to
 map situations to actions— to maximize a numerical reward signal. In this learning system, the system's actions influence its later inputs. Moreover, the learner is not told which actions to take but instead must discover
 which actions yield the most reward by trying them out.
 <br/></p>
-<div style="text-align: center">
+<div style="text-align:center">
 <img src="/notes/assets/resources/agent.jpg"/>
 <br/>
 <em>relation of agent and environment</em>
 </div>
-
-
+<p><br/></p>
+<div id="OnlinevsOfflineLearning"></div>
 <h2 id="online-vs-offline-learning">Online vs Offline Learning</h2>
 <p>Overall, there are two learning methods—online and offline. In the online approach, the agent has no information about the environment. It gathers information by rewards and decides which states are good and which are bad and should be avoided. However, in the offline method, the agent has prior information, helping it decide on its actions based on the information and receive a less negative reward.
 Reinforcement learning (RL) is an MDP without $T$ and $R$, meaning it has no information on the environment. Thus, the learning method in RL is online.</p>
-<div style="text-align: center">
+<div style="text-align:center">
 <img src="/notes/assets/resources/online.jpg"/>
 <br/>
 </div>
-
-
+<p><br/></p>
+<div id="MainElementsofRL"></div>
 <h2 id="main-elements-of-rl">Main Elements of RL</h2>
 <ol>
 <li>Policy $\pi : S \rightarrow A$<ul>
@@ -333,11 +333,11 @@ Reinforcement learning (RL) is an MDP without $T$ and $R$, meaning it has no inf
 </ul>
 </li>
 </ol>
-
-
+<p><br/></p>
+<div id="DifferentMethodsofLearningAccordingtoModel"></div>
 <h2 id="different-methods-of-learning-according-to-model">Different Methods of Learning According to Model</h2>
 <p>RL systems can be divided into two categories: <strong>model-based</strong> and <strong>model-free</strong></p>
-
+<div id="Model-basedRL"></div>
 <ul>
 <li>
 <p><strong>Model-based RL :</strong>  This method tries to overcome the issue of a lack of prior knowledge to construct a functional representation of its environment. It solves the problem in two steps:</p>
@@ -351,12 +351,12 @@ Reinforcement learning (RL) is an MDP without $T$ and $R$, meaning it has no inf
 </ol>
 </li>
 </ul>
-
+<div id="Model-freeRL"></div>
 <ul>
 <li><strong>Model-free RL:</strong> Unlike the previous category, in this type of Reinforcement Learning, the parameters of the traditional MDP are not estimated.  Consequently, the agent directly learns the policy and the evaluation function. This algorithm can be thought of as a <em>trial and error</em> algorithm. </li>
 </ul>
-
-
+<p><br/></p>
+<div id="anexample1"></div>
 <p><strong>Example:</strong> Assume that an agent wants to compute the expected age of students in one class. ($A$ is a random variable that represents the distribution of age) If the agent has the distribution of $A$, it can easily calculate the expectation according to $E[A] = \sum_{a} P(a).a$ . On the other hand, if the agent doesn't have the distribution over $A$, the problem must use Reinforcement Learning that can be solved with model-based or model-free RL. 
 <br/>
 * <strong>Model-based approach:</strong> In this algorithm, first we have to estimate $\hat{P}(a)$. The estimation is simple in this special example, but it can be complicated in real-world problems. We start exploring and getting samples and then We set $\hat{P}(a) = \frac{num(a)}{N}$. $num(a)$ is the number of occurrences of the age $a$. Finally, after finding the probability function, we can find the expectation with $E[A] \approx \sum_{a} \hat{P}(a).a$.
@@ -386,7 +386,8 @@ Reinforcement learning (RL) is an MDP without $T$ and $R$, meaning it has no inf
 <tr>
 <td></td>
 <td><table> <tbody> <td>E</td> <td>north</td> <td>C</td> <td>-1</td> <td>     E</td> <td>north</td> <td>C</td> <td>-1</td> </tbody></table></td></tr> <tr> <td>C</td> <td>east</td> <td>D</td><td>-1</td> <td>     C</td> <td> east</td> <td> A</td> <td> -1</td> </tr> <tr> <td>D</td> <td>exit</td> <td>X</td><td>+10</td> <td>     A</td> <td> exit</td> <td> X</td> <td> +10</td> </tr> <tr> </tr></tbody> </table>
-
+<p><br clear="left"/>
+<br/></p>
 <p>After sampling, in order to estimate $\hat{T}$ for each $(s,a,s')$, we have to count the number of all movements that start from $s$ and have the action $a$ and go to state $s'$. After that we have to divise this count to the number of movements that start from $s$ and have the action $a$. For example:
 * $T(B, east, C) = \frac{2}{2} = 1$
 * $T(C, east, D) = \frac{3}{4} = 0.75$
@@ -396,16 +397,16 @@ In addition, we can estimate $\hat{R}(s,a,s')$ for each movement in all episodes
 * $$R(B, east, C) = \frac{-1-1}{2} = -1$$
 * $$R(D, exit, x) = \frac{10+10+10}{3} = 10$$</p>
 <p><strong>Question:</strong> What is the problem of above model-based algorithm?<br/> If the number of states are large, the number of required samples to train the model will be $O((|S|)^2.|A|)$. In other words, we need many episodes to be able to train the model properly. </p>
-
+<div id="TypesofReinforcementLearningAccordingtoLearningPolicy"></div>
 <h2 id="types-of-reinforcement-learning-according-to-learning-policy">Types of Reinforcement Learning According to Learning Policy</h2>
 <p>According to learning policy, there are two types of RL: <strong>Passive Reinforcement Learning</strong>, <strong>Active Reinforcement Learning</strong>. In below, we explain both methods.</p>
-
-
+<div id="PassiveReinforcementLearning"></div>
+<h2 id="passive-reinforcement-learning">Passive Reinforcement Learning</h2>
 <p>Passive reinforcement learning is when we want an agent to learn about the utilities of various states under a fixed policy. The learned policy will be different from the original fixed policy. <em><strong>Direct Utility Estimation</strong></em> and <em><strong>Temporal Difference Learning</strong></em> are two passive RL algorithms. </p>
-
-
+<div id="ActiveReinforcementLearning"></div>
+<h2 id="active-reinforcement-learning">Active Reinforcement Learning</h2>
 <p>Active reinforcement learning is when the agent's policy is not fixed and can change during the time of training. In this method exploration and exploition are done. Exploration refers to trying new actions that are rarely done and checking if they have a bigger reward. Exploition refers to keep doing the optimal action at each state. <em>Q-learning</em> is one of the active RL algorithms. </p>
-
+<div id="PolicyEvaluation"></div>
 <h2 id="policy-evaluation">Policy Evaluation</h2>
 <p>Policy evaluation computes the value functions for a policy $\pi$ using the Bellman equations.
 $$ V^{\pi}_0 (s) = 0 $$
@@ -413,9 +414,9 @@ $$ V^{\pi}_{k+1} \leftarrow \sum_{s'}T(s, \pi(s), s')[R(s, \pi, s') + \gamma V^{
 In fact, simplified Bellman updates calculate V for a fixed policy:
 * Each round, replace V with a one-step-look-ahead layer over V
 * This approach fully exploited the connections between the states</p>
-
-<h2 id="direct-utility-estimation">Direct Utility Estimation</h2>
-
+<div id="DirectUtilityEstimation"></div>
+<h1 id="direct-utility-estimation">Direct Utility Estimation</h1>
+<div id="Definition"></div>
 <p><strong>Definition:</strong> In this method, the agent executes a sequence of trials. Each trial gives a sample value and the agent estimates the utility based on the samples values. This can be calculated as running averages of sample values.</p>
 <ul>
 <li>
@@ -456,9 +457,10 @@ $(1,2) _{-0.04}  \rightarrow (1,3) _{-0.04}  \rightarrow (2,3) _{-0.04}  \righta
 <p>    <strong>$V^\pi (s) = E [\sum_{t = 0}^{\infty } \gamma^t R (S_{t})]$</strong></p>
 <p>Direct utility estimation succeeds in reducing the reinforcement learning problem to an inductive learning problem, about which much is known. Unfortunately, it misses a very important source of information, namely, the fact that the utilities of states are not independent! The utility of each state equals its own reward plus the expected utility of its successor states. That is, the utility values obey the Bellman equations for a fixed policy (the following  Equation)</p>
 <p>   <strong>$V^\pi (s) =R(S)+\gamma \sum_{\acute{s}}   P(\acute{s}|s,\pi(s))   U^\pi(\acute{s})$</strong></p>
-
+<p><br/>
+<br/></p>
 <p>And now it is good to see an example. The purpose of this question is to estimate the returns.</p>
-
+<div id="anexample2"></div>
 <p><strong>Example:</strong> Calculate the return of each state according to the figure below and the given episodes.($\gamma =1$)</p>
 <p><img align="left" src="/notes/assets/resources/one.PNG" width="315px"/></p>
 <table>
@@ -483,11 +485,12 @@ $(1,2) _{-0.04}  \rightarrow (1,3) _{-0.04}  \rightarrow (2,3) _{-0.04}  \righta
 <tr>
 <td></td>
 <td><table> <tbody> <td>E</td> <td>north</td> <td>C</td> <td>-1</td> <td>     E</td> <td>north</td> <td>C</td> <td>-1</td> </tbody></table></td></tr> <tr> <td>C</td> <td>east</td> <td>D</td><td>-1</td> <td>     C</td> <td> east</td> <td> A</td> <td> -1</td> </tr> <tr> <td>D</td> <td>exit</td> <td>X</td><td>+10</td> <td>     A</td> <td> exit</td> <td> X</td> <td> +10</td> </tr> <tr> </tr></tbody> </table>
-
-
+<p><br clear="left"/></p>
+<p><br/>
+<br/></p>
 <p>Now we solve this example:</p>
 <p><img align="left" src="/notes/assets/resources/two.PNG" width="320px"/>  </p>
-
+<p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <p><br/>According to the question, you have to estimate the return seen in each state.</p>
 <p>According to the given episodes and $\gamma = 1$, you should look for your state in the first column of each episode, then average the numbers(s) in the last column, from that point until the end.</p>
 <p>Pay attention to the solution:</p>
@@ -501,7 +504,7 @@ $\frac{( -1 + 10 )+( -1+10 ) + ( -1 + 10 )+( -1 -10 )} {4} = +4$</p>
 $\frac{(+10+10+10)}{3} =+10$</p>
 <p>If you pay more attention, you will notice that the problem with this method is, we can move to C both from E and B, but we find very different values for them. The reason for this difference is the lack of sample. we also express the values of each state independent from other states.
 <br/><br/></p>
-
+<div id="AdvantagesofDirectUtilityEstimation"></div>
 <h2 id="advantages-of-direct-utility-estimation">Advantages of Direct Utility Estimation</h2>
 <ul>
 <li>
@@ -514,8 +517,8 @@ $\frac{(+10+10+10)}{3} =+10$</p>
 <p>Computes the correct average values, using just sample transitions</p>
 </li>
 </ul>
-
-
+<p><br/></p>
+<div id="DisadvantagesofDirectUtilityEstimation"></div>
 <h2 id="disadvantages-of-direct-utility-estimation">Disadvantages of Direct Utility Estimation</h2>
 <ul>
 <li>
@@ -545,9 +548,9 @@ $V^\pi (s) \approx \frac{1}{N} \sum [R(s,\pi(s),\acute{s})+\gamma  V^\pi(\acute{
 For example, if the average is $\varphi$ up to this point, the updated average would be:</p>
 $\varphi_{new} = \varphi n + \frac {x} {n+1}$
 <p>In which $n$ is the number of data you have collected.</p>
-
-<h2 id="temporal-difference-td-learning">Temporal Difference (TD) Learning</h2>
-
+<div id="TemporalDifference(TD)Learning"></div>
+<h1 id="temporal-difference-td-learning">Temporal Difference (TD) Learning</h1>
+<div id="DefinitionTD"></div>
 <p><strong>Definition:</strong> TD is an agent learning from an environment through episodes with no prior knowledge of the environment.</p>
 <ul>
 <li>
@@ -573,7 +576,7 @@ $$=  r_{t+1} + \gamma \times \sum_{k = 0}^{\infty }\gamma ^{k} r_{(t  + 1) + (k 
 $$= r_{t+1} + \gamma \times V^\pi_{t+1} - V^\pi_{t}$$</p>
 <p>Updating the value: ($\alpha$ is learning rate)</p>
 $$V^\pi_{t} \leftarrow V^\pi_{t} + \alpha \times E_{t} = V^\pi_{t} + \alpha \times( r_{t+1} + \gamma \times V^\pi_{t+1} - V^\pi_{t})$$
-
+<div id="pseudocode"></div>
 <h2 id="pseudocode">Pseudocode</h2>
 <p>The pseudocode of the process is shown below.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">function</span><span class="w"> </span><span class="nf">PASSIVE-TD-AGENT</span><span class="p">(</span>percept<span class="p">)</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">action</span>
@@ -594,7 +597,7 @@ $$V^\pi_{t} \leftarrow V^\pi_{t} + \alpha \times E_{t} = V^\pi_{t} + \alpha \tim
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span>
 </code></pre></div>
 <p>It is good to mention that because rare transitions occur only rarely, the average of <strong>value function</strong> will converge to the correct value.</p>
-
+<div id="SomeaspectsofTD"></div>
 <h2 id="some-aspects-of-td">Some aspects of TD</h2>
 <ol>
 <li>TD shows almost high variability.</li>
@@ -611,28 +614,28 @@ $$x_{n} = (1-\alpha) . x_{n-1} + \alpha . x_{n}$$<ul>
 </ul>
 </li>
 </ol>
-
+<div id="anexample3"></div>
 <p><strong>Example</strong></p>
 <p>Consider the following grid with $\gamma = 1$ and $\alpha = 1/2$. We have the initial $V^{\pi}(x_i)$ in State 1. We want to calculate $V^{\pi}(B)$ and $V^{\pi}(C)$ after sampling and two moves.
 <br/>
-<img src="/notes/assets/resources/1.png" style="width: 200px"/></p>
+<img src="/notes/assets/resources/1.png" style="width:200px;"/></p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center">State 1</th>
-<th style="text-align: center">Move 1(B, east, C, -2)</th>
-<th style="text-align: center">State 2</th>
-<th style="text-align: center">Move 2 (C, east, D, -2)</th>
-<th style="text-align: center">State 3</th>
+<th style="text-align: center;">State 1</th>
+<th style="text-align: center;">Move 1(B, east, C, -2)</th>
+<th style="text-align: center;">State 2</th>
+<th style="text-align: center;">Move 2 (C, east, D, -2)</th>
+<th style="text-align: center;">State 3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center"><img src="/notes/assets/resources/2.png" style="width: 200px"/></td>
-<td style="text-align: center"></td>
-<td style="text-align: center"><img src="/notes/assets/resources/3.png" style="width: 200px"/></td>
-<td style="text-align: center"></td>
-<td style="text-align: center"><img src="/notes/assets/resources/4.png" style="width: 200px"/></td>
+<td style="text-align: center;"><img src="/notes/assets/resources/2.png" style="width:200px;"/></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img src="/notes/assets/resources/3.png" style="width:200px;"/></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img src="/notes/assets/resources/4.png" style="width:200px;"/></td>
 </tr>
 </tbody>
 </table>
@@ -688,12 +691,12 @@ $\rightarrow V^{\pi}(C) = 0 + 1/2 \times (-2 + 1 \times 8) = 3$
 </code></pre></div>
 <p>The video of this agent in the environment is shown below.</p>
 <p>https://user-images.githubusercontent.com/62206142/148566163-089a2a3c-4361-4997-b956-d4e790cf1cbd.mp4</p>
-
+<div id="ProblemwithTD"></div>
 <h2 id="problem-with-td">Problem with TD</h2>
 <p>All we want is to find the best policy that suits us. Although TD agent finds the value of each state (A value that converges to the real value during the time), it cannot find the best policy because for finding that and doing one-step expectimax, $T$ and $R$ functions are needed. However, in RL, they are not available. Therefore, a new method is required, called <strong>Q-Learning</strong>.</p>
-
-<h2 id="summery-and-conclusion">Summery and Conclusion</h2>
-
+<div id="Conclusion"></div>
+<h1 id="summery-and-conclusion">Summery and Conclusion</h1>
+<div id="SummaryofDiscussedRLMethods"></div>
 <p>In this lecture note, we tried to cover some topics of RL. First, we talked about RL itself and gave the definition. Then, we mentioned various types of RL and their differences. In the end, we tried to cover two methods of learning used in RL. There is a summary of these methods and usages of RL in the following.</p>
 <h3 id="discussed-rl-methods">Discussed RL Methods</h3>
 <h4 id="direct-utility-estimation-2">Direct Utility Estimation</h4>
@@ -724,14 +727,14 @@ $\rightarrow V^{\pi}(C) = 0 + 1/2 \times (-2 + 1 \times 8) = 3$
 <li>It helps you to create training systems that provide custom instruction and materials according to the requirement of students.</li>
 <li>Aircraft control and robot motion control</li>
 </ul>
-
-<h2 id="useful-links">Useful Links</h2>
+<div id="usefullinks"></div>
+<h1 id="useful-links">Useful Links</h1>
 <p>[1] Learning to Run: Example of Reinforcement Learning. https://deepsense.ai/learning-to-run-an-example-of-reinforcement-learning/</p>
 <p>[2] Reinforcement Learning Applicants. https://neptune.ai/blog/reinforcement-learning-applications</p>
 <p>[3] What is Q-Learning. https://www.simplilearn.com/tutorials/machine-learning-tutorial/what-is-q-learning</p>
 <p>[4] Reinforcement Learning and Python. https://www.youtube.com/watch?v=-daMfdwpmAg </p>
-
-<h2 id="references">References</h2>
+<div id="resources"></div>
+<h1 id="references">References</h1>
 <p>[1] Passive Reinforcement Learning. https://kcir.pwr.edu.pl/~witold/ai/mle_rl_h.pdf (visited: 2/1/2022)</p>
 <p>[2] Active vs Passive Learning. Shweta Bhatt. https://towardsdatascience.com/explaining-reinforcement-learning-active-vs-passive-a389f41e7195 (visited: 2/1/2022)</p>
 <p>[3] Active and Passive Learning. Philipp Koehn. https://www.cs.jhu.edu/~phi/ai/slides/lecture-reinforcement-learning.pdf (visited: 25/12/2021)</p>
@@ -930,25 +933,6 @@ $\rightarrow V^{\pi}(C) = 0 + 1/2 \times (-2 + 1 \times 8) = 3$
     
     
 </div>
-            
-                
-
-
-    
-
-
-<div class="p-2">
-    <script src="https://utteranc.es/client.js"
-            repo="sut-ai/comments"
-            issue-term="pathname"
-            label="comments"
-            theme="preferred-color-scheme"
-            crossorigin="anonymous"
-            async>
-    </script>
-</div>
-
-
             
         </div>
     </div>

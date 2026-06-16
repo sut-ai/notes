@@ -300,10 +300,16 @@ $$ P(S_{t+1}|S_t, ..., S_0)=P(S_{t+1}|S_t) $$
 <h3 id="states">States</h3>
 <p>A representation of the environment's features at a specific time is called state and shown by $s$. Thus, any input from the agent's sensors can play an important role in state formation. The $S$ state set is a set of different states, represented as $s$ which shows the status of the environment. Each MDP consists of some states, which some of them are stopping state or so called terminal state. Terminal state is a state in which no action could be taken. When agent enters a stopping state, sum of rewards {which can be also called return} can be computed.</p>
 <p>As an example, consider a robot car that wants to reach its destination as quickly as possible. The engine condition of this car can be cool, warm, or overheated depending on its speed.So in the above example, set of states would be {cool, warm, overheated}. Note that overheated is a terminal state.</p>
-
+<p align="center">
+<image src="cool.jpg" width="30%"/>
+<image src="warm.jpg" width="30%"/>
+<image src="overheated.jpg" width="30%"/>
+</p>
 <h3 id="actions">Actions</h3>
 <p>Actions are set of operations an agent is allowed to do in the given environment. The set of actions is usually shown with $A$. In the robot car example, the machine can increase or decrease its speed. So the actions' set would be {slow, fast}</p>
-
+<p align="center">
+<image src="action.jpg" width="60%"/>
+</p>
 <h3 id="transition-model">Transition Model</h3>
 <p>At each state, the agent decides which action to perform. The resulting state ($s'$) depends on both the current state ($s$) and the action performed by the agent ($a$). The transition model $T(s, a, s')$ gives probability $P(s'|s, a)$, that is, the probability of landing up in the new  state $s'$ given that the agent takes an action, $a$, in the given state, $s$.</p>
 <p>Environments can be divided into two types according to their transition models.</p>
@@ -313,14 +319,18 @@ $$ P(S_{t+1}|S_t, ..., S_0)=P(S_{t+1}|S_t) $$
 </ul>
 <p>In the machine robot example, we assume that the environment is stochastic. The probability of transitions is determined based on the current state, action, and next state.
 One of the possible transitions is shown in the figure below.</p>
-
+<p align="center">
+<image src="transition.jpg"/>
+</p>
 <h3 id="rewards">Rewards</h3>
 <p>The reward function, quantifies the usefulness of taking a specific action and entering a specific state. These rewards incorporate the action costs in addition to any prizes or penalties that may be given. Negative rewards are called punishments. The general form of the reward function is shown as $R(s, a, s')$. But in some MDPs the reward function is independent from the resulting state or both resulting state and action. In those models reward function is shown with $R(s, a)$ and $R(s)$ respectively.</p>
 <p>For a particular environment, the domain knowledge plays an important role in the assignment of rewards for different states as minor changes in the reward do matter for finding the optimal solution to an MDP problem.
 Sum of the rewards is called <em>utility</em> or <em>return</em>.</p>
 <p>Usually the performance of the agent, which is also called <em>utility</em>, is measured by the sum of rewards on the visited path. But other utility functions are also possible. General form of utility is shown by $U_h[s_0,s_1, s_2, ..., s_N]$.  </p>
 <p>In the robot car example, the robot must reach its destination as quickly as possible, so the high-speed reward must be considered more than the low-speed, e.g. +2 and +1 may be considered. But reward should be assigned in a way to prevent the robot from going to overheated state. So -10 is assigned to entering the overheated state.</p>
-
+<p align="center">
+<image src="reward.jpg"/>
+</p>
 <h3 id="formalization">Formalization</h3>
 <p>By combining the concepts which were explained above the complete formulation for MDP is achieved as below.</p>
 <ul>
@@ -342,7 +352,9 @@ Sum of the rewards is called <em>utility</em> or <em>return</em>.</p>
 <li>In MDP utility is the sum of rewards gained in the path to the terminal state. But in expectimax utility is the the value assigned to the terminal state.</li>
 </ul>
 <p>In the robot car example, the search is as shown below.</p>
-
+<p align="center">
+<image src="tree.png"/>
+</p>
 <h2 id="utilities-of-sequences">Utilities of Sequences</h2>
 <p>It's easy to choose between sequence of [1, 2, 2] and [2, 3, 4]. Obviously more utility as well as more reward in each step is gained . But choosing between [1, 0, 0] and [0, 0, 1] is not that easy. This motivates us to consider the time which the reward is being received. In most cases, it's preferred to gain the rewards as soon as possible.</p>
 <h3 id="discounting">Discounting</h3>
@@ -514,7 +526,9 @@ The robot car example explained above will be encoded as bellow</p>
 <p>In a TV quiz show, there are several levels. At each level, if the participant answers the question correctly, they will receive some prize. If the participant's answer is wrong, they leave the competition empty-handed. Before each stage begins, the participant can decide whether to continue or withdraw and leave the game with the reward which they already earned.</p>
 <p>Beside states representing each level, There are three terminal states of <em>Win</em>, <em>Lost</em> and <em>Quit</em> in the game. Actions in each state are quit and play. The player will go to the quit state with probability of 1 if they decide to take action quit. otherwise they will pass the level i by probability of <code>win_ratio[i]</code> and go to the state which represents the next level.</p>
 <p>So the play / quit decision problem can be modeled as an MDP as below.</p>
-
+<p align="center">
+<image src="quiz.png"/>
+</p>
 <p>Considering $100, $200, $300, $400 and $500 as rewards and 0.9, 0.7, 0.6, 0.3, 0.1 as win ratio for levels 0 to 4 respectively, The model can be implemented as below.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">quiz_levels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="n">quiz_terminals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Win'</span><span class="p">,</span> <span class="s1">'Lost'</span><span class="p">,</span> <span class="s1">'Quit'</span><span class="p">]</span>
@@ -874,25 +888,6 @@ $</p>
     
     
 </div>
-            
-                
-
-
-    
-
-
-<div class="p-2">
-    <script src="https://utteranc.es/client.js"
-            repo="sut-ai/comments"
-            issue-term="pathname"
-            label="comments"
-            theme="preferred-color-scheme"
-            crossorigin="anonymous"
-            async>
-    </script>
-</div>
-
-
             
         </div>
     </div>

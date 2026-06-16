@@ -290,10 +290,37 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#1-linear-regression">1 - Linear Regression</a></li><li class="wf-content-toc-level-2"><a href="#loss-function">Loss Function</a></li><li class="wf-content-toc-level-3"><a href="#mean-squared-error-mse">Mean Squared Error (MSE)</a></li><li class="wf-content-toc-level-2"><a href="#finding-hat-w">Finding $\hat{w}$</a></li><li class="wf-content-toc-level-3"><a href="#gradient-descent">Gradient Descent</a></li><li class="wf-content-toc-level-3"><a href="#normal-equation">Normal Equation</a></li><li class="wf-content-toc-level-2"><a href="#2-learning-curves-using-polynomials">2 - Learning Curves Using Polynomials</a></li><li class="wf-content-toc-level-2"><a href="#reduction-to-linear-regression">Reduction to Linear Regression</a></li><li class="wf-content-toc-level-2"><a href="#overfitting">Overfitting</a></li><li class="wf-content-toc-level-3"><a href="#using-validation-set-held-out-data">Using Validation Set (Held-Out Data)</a></li><li class="wf-content-toc-level-3"><a href="#regularization">Regularization</a></li><li class="wf-content-toc-level-2"><a href="#3-logistic-regression">3 - Logistic Regression</a></li><li class="wf-content-toc-level-2"><a href="#how-to-calculate-probabilities">How to Calculate Probabilities</a></li><li class="wf-content-toc-level-2"><a href="#defining-line-l-and-cost-function-j-theta">Defining Line l and Cost Function $J(\theta)$</a></li><li class="wf-content-toc-level-2"><a href="#training">Training</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
-<h2 id="introduction">Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-1"><a href="#regression">Regression</a></li><li class="wf-content-toc-level-1"><a href="#table-of-contents">Table of Contents</a></li><li class="wf-content-toc-level-1"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-1"><a href="#1-linear-regression">1 - Linear Regression</a></li><li class="wf-content-toc-level-2"><a href="#loss-function">Loss Function</a></li><li class="wf-content-toc-level-3"><a href="#mean-squared-error-mse">Mean Squared Error (MSE)</a></li><li class="wf-content-toc-level-2"><a href="#finding-hat-w">Finding $\hat{w}$</a></li><li class="wf-content-toc-level-3"><a href="#gradient-descent">Gradient Descent</a></li><li class="wf-content-toc-level-3"><a href="#normal-equation">Normal Equation</a></li><li class="wf-content-toc-level-1"><a href="#2-learning-curves-using-polynomials">2 - Learning Curves Using Polynomials</a></li><li class="wf-content-toc-level-2"><a href="#reduction-to-linear-regression">Reduction to Linear Regression</a></li><li class="wf-content-toc-level-2"><a href="#overfitting">Overfitting</a></li><li class="wf-content-toc-level-3"><a href="#using-validation-set-held-out-data">Using Validation Set (Held-Out Data)</a></li><li class="wf-content-toc-level-3"><a href="#regularization">Regularization</a></li><li class="wf-content-toc-level-1"><a href="#3-logistic-regression">3 - Logistic Regression</a></li><li class="wf-content-toc-level-2"><a href="#how-to-calculate-probabilities">How to Calculate Probabilities</a></li><li class="wf-content-toc-level-2"><a href="#defining-line-l-and-cost-function-j-theta">Defining Line l and Cost Function $J(\theta)$</a></li><li class="wf-content-toc-level-2"><a href="#training">Training</a></li><li class="wf-content-toc-level-1"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-1"><a href="#references">References</a></li></ol></nav><h1 id="regression">Regression</h1>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#2---linear-regression">1 - Linear Regression</a></li>
+<li><a href="#loss-function">Loss Function</a><ul>
+<li><a href="#mean-squared-error-mse">Mean Squared Error (MSE)</a></li>
+</ul>
+</li>
+<li><a href="#finding-hatw">Finding $\hat{w}$</a><ul>
+<li><a href="#gradient-descent">Gradient Descent</a></li>
+<li><a href="#normal-equation">Normal Equation</a></li>
+</ul>
+</li>
+<li><a href="#3---learning-curves-using-polynomials">2 - Learning Curves Using Polynomials</a></li>
+<li><a href="#reduction-to-linear-regression">Reduction to Linear Regression</a></li>
+<li><a href="#overfitting">Overfitting</a><ul>
+<li><a href="#using-validation-set-held-out-data">Using Validation Set (Held-Out Data)</a></li>
+<li><a href="#regularization">Regularization</a></li>
+</ul>
+</li>
+<li><a href="#5---logistic-regression">3 - Logistic Regression</a></li>
+<li><a href="#how-to-calculate-probabilities">How to Calculate Probabilities</a></li>
+<li><a href="#defining-line-l-and-cost-function-jtheta">Defining Line <em>l</em> and Cost Function $J(\theta)$</a></li>
+<li><a href="#training">Training</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
 <p>In regression, we have some data points and a number or a label is assigned to each data point. Our goal is to predict the number or label of an unseen data point after learning from the data we already have. We assume each data point is a vector $x$ and we want to predict $f(x)$. The first idea is to use interpolation. By using interpolation, we will have a high degree polynomial that fits our training data perfectly. But the problem is that interpolation leads to overfitting. So the error for unseen data will be too large. In regression, we aim to find the best curve with a lower degree. Although there will be some training error here, our test error will decrease since we are avoiding overfitting.</p>
-<h2 id="1-linear-regression">1 - Linear Regression</h2>
+<h1 id="1-linear-regression">1 - Linear Regression</h1>
 <p>Here, we want to assign $f(x)$ to each data point $x$. In linear regression, we assume $f$ is a linear function. We can define $f$ as</p>
 <p>$$
     f_w(x) = w^T x = \begin{bmatrix}
@@ -351,7 +378,7 @@ $$
     \hat{w} = (X^TX)^{-1} X^T \hat{y}.
 $$
 However, for using this equation, our features must be linearly independent. Otherwise, $(X^TX)^{-1}$ is not defined. In that case, we can use the pseudo inverse of $X^TX$ instead of the $(X^TX)^{-1}$. Since the calculation of inverse is computationally inefficient, we usually prefer using gradient descent. </p>
-<h2 id="2-learning-curves-using-polynomials">2 - Learning Curves Using Polynomials</h2>
+<h1 id="2-learning-curves-using-polynomials">2 - Learning Curves Using Polynomials</h1>
 <p>In this section, we want to find the best $P(x)$ where x is a real number and $P$ is an n'th degree polynomial.</p>
 <h2 id="reduction-to-linear-regression">Reduction to Linear Regression</h2>
 <p>We can define 
@@ -380,7 +407,7 @@ where $\lambda$ is a hyperparameter that controls how small the $w$ should be.</
 <p>In the following examples, we use regularization with 9'th degree polynomials. We can compare these with the overfitted example above. Also, we can see how important the choice of $\lambda$ is. So, using the validation set might be still useful to optimize $\lambda$.</p>
 <p><img alt="Reguralization 18" src="/notes/assets/images/r18.png"/>
 <img alt="Reguralization 0" src="/notes/assets/images/r0.png"/></p>
-<h2 id="3-logistic-regression">3 - Logistic Regression</h2>
+<h1 id="3-logistic-regression">3 - Logistic Regression</h1>
 <p>There are some regression algorithms that can be used for classification (And vise versa). <em>Logistic Regression</em> is one of these algorithms. It can calculate the probability that an instance belongs to a particular class. We can use this probability for classification: if the probability is higher than 0.5 then that instance belongs to the particular class.</p>
 <h2 id="how-to-calculate-probabilities">How to Calculate Probabilities</h2>
 <p>Let's start with a simple example. We want to classify flowers that are <em>Iris Virginica</em> from those that are <em>not Iris Virginica</em>. This classification is based on Petal Width and Petal Height. Also, consider that there is some line <em>l</em> (black line in the image below) that separates these 2 types of flowers.</p>
@@ -422,9 +449,9 @@ We can compute the partial derivatives for the $j^{th}$ parameter of $\theta$ as
 $$
     \displaystyle \frac{\partial}{\partial\theta_{j}}J(\theta) = -\frac{1}{N}\sum_{i = 1}^{N}(\sigma(\theta^{T}x^{i}) - y^{i})x^{i}_{j}
 $$
-<h2 id="conclusion">Conclusion</h2>
+<h1 id="conclusion">Conclusion</h1>
 <p>Regression is used in a variety of AI problems. We can use it to find the best line or curve to predict a function, or to find the best hyperplane dividing 2 classes in a classification problem. In this lecture note, we discussed how to solve these problems and how to prevent overfitting. However, for more complex functions or more classes, you might want to take a look at neural networks.</p>
-<h2 id="references">References</h2>
+<h1 id="references">References</h1>
 <ul>
 <li>Artificial Inteligence Course at Sharif University of Technology (Fall, 2021)</li>
 <li>Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2th Edition</li>
@@ -685,25 +712,6 @@ $$
     
     
 </div>
-            
-                
-
-
-    
-
-
-<div class="p-2">
-    <script src="https://utteranc.es/client.js"
-            repo="sut-ai/comments"
-            issue-term="pathname"
-            label="comments"
-            theme="preferred-color-scheme"
-            crossorigin="anonymous"
-            async>
-    </script>
-</div>
-
-
             
         </div>
     </div>

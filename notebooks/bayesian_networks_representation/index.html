@@ -290,7 +290,47 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#probabilistic-models">Probabilistic Models</a></li><li class="wf-content-toc-level-2"><a href="#independence">Independence</a></li><li class="wf-content-toc-level-3"><a href="#conditional-independence">Conditional Independence</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule">Chain Rule</a></li><li class="wf-content-toc-level-2"><a href="#bayes-nets">Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#problems-with-joint-distribution-tables">Problems with joint distribution tables</a></li><li class="wf-content-toc-level-3"><a href="#graphical-notation">Graphical Notation</a></li><li class="wf-content-toc-level-3"><a href="#semantics">Semantics</a></li><li class="wf-content-toc-level-3"><a href="#probabilities-in-bayes-nets">Probabilities in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#causality-in-bayes-nets">Causality in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#space-efficiency">Space Efficiency</a></li><li class="wf-content-toc-level-2"><a href="#independence-in-bayes-nets">Independence in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#d-separation">D-separation</a></li><li class="wf-content-toc-level-4"><a href="#outline">Outline:</a></li><li class="wf-content-toc-level-4"><a href="#causal-chain">Causal Chain</a></li><li class="wf-content-toc-level-4"><a href="#common-cause">Common Cause</a></li><li class="wf-content-toc-level-4"><a href="#v-structure">V-Structure</a></li><li class="wf-content-toc-level-3"><a href="#reachability">Reachability</a></li><li class="wf-content-toc-level-3"><a href="#active-inactive-paths">Active/Inactive Paths</a></li><li class="wf-content-toc-level-3"><a href="#structure-implications">Structure Implications</a></li><li class="wf-content-toc-level-3"><a href="#topology-limits-distributions">Topology Limits Distributions</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-3"><a href="#what-comes-next">What comes next</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-1"><a href="#bayesian-networks-representation">Bayesian Networks Representation</a></li><li class="wf-content-toc-level-2"><a href="#table-of-contents">Table of contents:</a></li><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#probabilistic-models">Probabilistic Models</a></li><li class="wf-content-toc-level-2"><a href="#independence">Independence</a></li><li class="wf-content-toc-level-3"><a href="#conditional-independence">Conditional Independence</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule">Chain Rule</a></li><li class="wf-content-toc-level-2"><a href="#bayes-nets">Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#problems-with-joint-distribution-tables">Problems with joint distribution tables</a></li><li class="wf-content-toc-level-3"><a href="#graphical-notation">Graphical Notation</a></li><li class="wf-content-toc-level-3"><a href="#semantics">Semantics</a></li><li class="wf-content-toc-level-3"><a href="#probabilities-in-bayes-nets">Probabilities in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#causality-in-bayes-nets">Causality in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#space-efficiency">Space Efficiency</a></li><li class="wf-content-toc-level-2"><a href="#independence-in-bayes-nets">Independence in Bayes' Nets</a></li><li class="wf-content-toc-level-3"><a href="#d-separation">D-separation</a></li><li class="wf-content-toc-level-4"><a href="#outline">Outline:</a></li><li class="wf-content-toc-level-4"><a href="#causal-chain">Causal Chain</a></li><li class="wf-content-toc-level-4"><a href="#common-cause">Common Cause</a></li><li class="wf-content-toc-level-4"><a href="#v-structure">V-Structure</a></li><li class="wf-content-toc-level-3"><a href="#reachability">Reachability</a></li><li class="wf-content-toc-level-3"><a href="#active-inactive-paths">Active/Inactive Paths</a></li><li class="wf-content-toc-level-3"><a href="#structure-implications">Structure Implications</a></li><li class="wf-content-toc-level-3"><a href="#topology-limits-distributions">Topology Limits Distributions</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-3"><a href="#what-comes-next">What comes next</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h1 id="bayesian-networks-representation"><strong>Bayesian Networks Representation</strong></h1>
+<h2 id="table-of-contents"><strong>Table of contents:</strong></h2>
+<ul>
+<li><a href="#Introduction">Introduction</a><ul>
+<li><a href="#Probabilistic-Models">Probabilistic Models</a></li>
+</ul>
+</li>
+<li><a href="#Independence">Independence</a><ul>
+<li><a href="#Conditional-Independence">Conditional Independence</a></li>
+<li><a href="#Chain-Rule">Chain Rule</a></li>
+</ul>
+</li>
+<li><a href="#Bayes-Nets">Bayes' Nets</a><ul>
+<li><a href="#Problems-with-joint-distribution-tables">Problems with joint distribution tables</a></li>
+<li><a href="#Graphical-Notation">Graphical Notation</a></li>
+<li><a href="#Semantics">Semantics</a></li>
+<li><a href="#Probabilities-in-Bayes-Nets">Probabilities in Bayes' Nets</a></li>
+<li><a href="#Causality-in-Bayes-Nets">Causality in Bayes' Nets</a></li>
+<li><a href="#Space-Efficiency">Space Efficiency</a></li>
+</ul>
+</li>
+<li><a href="#Independence-in-Bayes'-Nets">Independence in Bayes' Nets</a><ul>
+<li><a href="#D-separation">D-separation</a><ul>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Causal-Chain">Causal Chain</a></li>
+<li><a href="#Common-Cause">Common Cause</a></li>
+<li><a href="#V-Structure">V-Structure</a></li>
+</ul>
+</li>
+<li><a href="#Reachability">Reachability</a></li>
+<li><a href="#Active/Inactive-Paths">Active/Inactive Paths</a></li>
+<li><a href="#Structure-Implications">Structure Implications</a></li>
+<li><a href="#Topology-Limits-Distributions">Topology Limits Distributions</a></li>
+</ul>
+</li>
+<li><a href="#Conclusion">Conclusion</a><ul>
+<li><a href="#What-comes-next">What comes next</a></li>
+</ul>
+</li>
+<li><a href="#References">References</a></li>
+</ul>
 <h2 id="introduction">Introduction</h2>
 <p>Imagine this scenario. You want to know if the food in your fridge is going to spoil. You can hear your fridge humming. Does that change the probability of the food spoiling? What if you see that the fridge door is open? Are these evidences even related to the food spoiling? In this lecture note, we want to introduce a probabilistic model to study this kind of problems. </p>
 <h3 id="probabilistic-models">Probabilistic Models</h3>

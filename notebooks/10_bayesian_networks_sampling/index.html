@@ -292,9 +292,40 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#basic-idea">Basic Idea</a></li><li class="wf-content-toc-level-2"><a href="#sampling-from-given-distribution">Sampling from Given Distribution</a></li><li class="wf-content-toc-level-2"><a href="#sampling-in-bayes-nets">Sampling in Bayes' Nets</a></li><li class="wf-content-toc-level-2"><a href="#prior-sampling">Prior Sampling</a></li><li class="wf-content-toc-level-2"><a href="#rejection-sampling">Rejection Sampling</a></li><li class="wf-content-toc-level-2"><a href="#likelihood-weighting">Likelihood Weighting</a></li><li class="wf-content-toc-level-2"><a href="#gibbs-sampling">Gibbs Sampling</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references-and-further-reading">References and Further Reading</a></li></ol></nav>
-
-<h2 id="introduction">Introduction</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-1"><a href="#ai-inference-in-bayesian-networks-sampling">AI - Inference in Bayesian Networks: Sampling</a></li><li class="wf-content-toc-level-1"><a href="#sharif-university-of-technology-computer-engineering-department">Sharif University of Technology - Computer Engineering Department</a></li><li class="wf-content-toc-level-4"><a href="#alireza-honarvar-navid-eslami-ali-najibi">Alireza Honarvar, Navid Eslami, Ali Najibi</a></li><li class="wf-content-toc-level-1"><a href="#table-of-contents">Table of Contents</a></li><li class="wf-content-toc-level-1"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-1"><a href="#basic-idea">Basic Idea</a></li><li class="wf-content-toc-level-1"><a href="#sampling-from-given-distribution">Sampling from Given Distribution</a></li><li class="wf-content-toc-level-1"><a href="#sampling-in-bayes-nets">Sampling in Bayes' Nets</a></li><li class="wf-content-toc-level-2"><a href="#prior-sampling">Prior Sampling</a></li><li class="wf-content-toc-level-2"><a href="#rejection-sampling">Rejection Sampling</a></li><li class="wf-content-toc-level-2"><a href="#likelihood-weighting">Likelihood Weighting</a></li><li class="wf-content-toc-level-2"><a href="#gibbs-sampling">Gibbs Sampling</a></li><li class="wf-content-toc-level-1"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-1"><a href="#references-and-further-reading">References and Further Reading</a></li></ol></nav><div align="center">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1 id="ai-inference-in-bayesian-networks-sampling" style="font-size: 40px; margin: 10px 0;">AI - Inference in Bayesian Networks: Sampling</h1>
+<h1 id="sharif-university-of-technology-computer-engineering-department" style="font-size: 20px; font-weight: 400;">Sharif University of Technology - Computer Engineering Department</h1>
+<br/>
+<h4 id="alireza-honarvar-navid-eslami-ali-najibi" style="font-size: 18px; font-weight: 400; color:#555">Alireza Honarvar, Navid Eslami, Ali Najibi</h4>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+<hr/>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-idea">Basic Idea</a></li>
+<li><a href="#sampling-from-given-distribution">Sampling from Given Distribution</a></li>
+<li><a href="#sampling-in-bayes-nets">Sampling in Bayes' Nets</a></li>
+<li><a href="#prior-sampling">Prior Sampling</a></li>
+<li><a href="#rejection-sampling">Rejection Sampling</a></li>
+<li><a href="#likelihood-weighting">Likelihood Weighting</a></li>
+<li><a href="#gibbs-sampling">Gibbs Sampling</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references-and-further-reading">References and Further Reading</a></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
 <p>In the previous lecture note, it was shown that Inference
 in Bayesian Networks, in general, is an intractable
 problem. The natural approach now would be to try
@@ -305,7 +336,7 @@ sampling. The rest of the note is layed out as follows:
 - We give intuition about the basic idea behind sampling, and why it is an attractive solution concept.
 - We describe the building block of every sampling algorithm, namely, sampling from a given distribution.
 - We explain four standard methods of sampling in Bayes' Nets, stating their pros and cons.</p>
-<h2 id="basic-idea">Basic Idea</h2>
+<h1 id="basic-idea">Basic Idea</h1>
 <p>To compute an approximate posterior probability, one approach is to simulate the Bayes' Net's joint distribution. This can be achieved by drawing many samples from the joint distribution. Using these samples, we can approximate the probability of certain events.</p>
 <p>Sampling has two main advantages:</p>
 <ul>
@@ -313,24 +344,24 @@ sampling. The rest of the note is layed out as follows:
 <li><strong>Performance</strong>: Getting a sample is much faster than  computing the right answer.</li>
 </ul>
 <p>The primitive element in any sampling algorithm is the generation of samples from a known probability distribution. So the step-by-step algorithm is described in the following section.</p>
-<h2 id="sampling-from-given-distribution">Sampling from Given Distribution</h2>
+<h1 id="sampling-from-given-distribution">Sampling from Given Distribution</h1>
 <p>Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.</p>
-<table style="border: 1px solid black; margin-left: auto; margin-right: auto">
+<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
 <tr>
-<th style="text-align: center"> C </th>
-<th style="text-align: center"> Pr(C) </th>
+<th style="text-align:center"> C </th>
+<th style="text-align:center"> Pr(C) </th>
 </tr>
 <tr>
-<td style="text-align: center"> Green </td>
-<td style="text-align: center"> 0.6 </td>
+<td style="text-align:center"> Green </td>
+<td style="text-align:center"> 0.6 </td>
 </tr>
 <tr>
-<td style="text-align: center"> Red </td>
-<td style="text-align: center"> 0.1 </td>
+<td style="text-align:center"> Red </td>
+<td style="text-align:center"> 0.1 </td>
 </tr>
 <tr>
-<td style="text-align: center"> Blue </td>
-<td style="text-align: center"> 0.3 </td>
+<td style="text-align:center"> Blue </td>
+<td style="text-align:center"> 0.3 </td>
 </tr>
 </table>
 <p>In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
@@ -339,12 +370,12 @@ partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_
 probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words, we have indexed the 
 values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
 $c_1 = green$, $c_2 = red$ and $c_3 = blue$.</p>
-<p style="text-align: center">
+<p style="text-align:center;">
 <img alt="drawing" src="/notes/assets/./Images/Unit_Length_Segment_Partition.png" width="auto"/>
 </p>
 <p>We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_i$. Since we chose the seed from a uniform distribution, it can be shown that the probability of the sample being equal to $c_i$ is $Pr(C=c_i)$.</p>
 <p>Thus, using uniform distributions in this manner, we can generate samples from a given distribution having the same corresponding probabilities.</p>
-<h2 id="sampling-in-bayes-nets">Sampling in Bayes' Nets</h2>
+<h1 id="sampling-in-bayes-nets">Sampling in Bayes' Nets</h1>
 <p>We now explain the four standard methods of sampling in Bayes' Nets, namely, Prior Sampling, Rejection Sampling, Likelihood Weighting, &amp; Gibbs Sampling.</p>
 <h2 id="prior-sampling">Prior Sampling</h2>
 <p>Now we're ready to tackle the sampling problem! Suppose we want to sample from the joint distribution 
@@ -373,7 +404,7 @@ $$</p>
 <p>Hence, the sampling procedure is consistent with the joint distribution.</p>
 <p>It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.</p>
 <p>Take the following Bayes' net as an example.</p>
-<p style="text-align: center">
+<p style="text-align:center;">
 <img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
 </p>
 <p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
@@ -390,7 +421,7 @@ A simple idea is to reject incosistent samples whilst sampling. To achieve this 
 <p>5.  Return $(x_1,...,x_n)$</p>
 <p>This algorithm is also consistent with the conditional probabilities.</p>
 <p>Take the following Bayes' net as an example.</p>
-<p style="text-align: center">
+<p style="text-align:center;">
 <img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
 </p>
 <p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
@@ -426,7 +457,7 @@ $$
 =\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{m}Pr(e_i|parents(E_i)) = Pr(q_1,...,q_n,e_1,...,e_m).
 $$</p>
 <p>Take the following Bayes' net as an example.</p>
-<p style="text-align: center">
+<p style="text-align:center;">
 <img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
 </p>
 <p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
@@ -459,11 +490,11 @@ $$
 <p>This updating procedure takes into account both upstream and downstream evidences in the Bayes' net, since each update conditions on every variable. This property fixes the problem of Likelihood Weighting, i.e., only conditioning on upstream variables. Thus, Gibbs sampling has better sampling efficiency (sum of the samples' weights is larger, therefore generating more effective samples), creating more useful data to be used in approximation.</p>
 <p>In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent the desired distribution. Furthermore, they may not be independent of the other samples $X'$ generated with the Gibbs method, because of the arbitrary choice of $X^{(1)}$. This begining of the chain is referred to as the <strong>burn-in period</strong>, and the samples generated here are generally not used as the desired $X$. So, $X$ is usually selected from the $X^{(t)}$ outside this period. However, this creates a time overhead, since the burn-in period could be somewhat large.</p>
 <p>Take the following Bayes' net as an example.</p>
-<p style="text-align: center">
+<p style="text-align:center;">
 <img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
 </p>
 <p>Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.</p>
-<p style="text-align: center">
+<p style="text-align:center;">
 <img alt="drawing" src="/notes/assets/./Images/Gibbs_Example_Procedure.png" width="100%/"/>
 </p>
 <p>As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
@@ -478,9 +509,9 @@ $$
 $$
 As it is shown, we only need to consider the terms in $B$'s Markov blanket. This is why the numerator is these terms for $+b$, while the denominator is the sum of these terms for $+b$ and $-b$. (Basically, the normalizing factor) Thus, based on the calculations, we can see that $B$ is resampled from the distribution $Pr(B | +a, +e, +c, -d)$, where $Pr(+b | +a, +e, +c, -d) \approx 0.689$. By repeating this procedure for other non-evidence variables for a number of iterations, namely, the burn-in value, we will eventually reach a sample from the distribution of the original Bayes' net. Finally, we repeat this sampling procedure to procure a healthy number of samples, and approximate the probability of the query by counting the number of consistent samples and dividing by the total number of samples.</p>
 <p>In a more general sense, Gibbs Sampling and Metropolis-Hastings are classified as <em>Markov Chain Monte Carlo</em> algorithms. Monte Carlo algorithms are basically the same as sampling. For more information, please refer to this <a href="https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf">lecture note</a>.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h1 id="conclusion">Conclusion</h1>
 <p>In this lecture note, we studied (randomized) approximation algorithms for inference in Bayes' nets. The main idea behind these methods was sampling, which enables fast approximation of event distributions. After describing the building block of sampling algorithms, four prominent methods of this type were studied, namely, Prior sampling, Rejection sampling, Likelihood Weighting and Gibbs sampling. The pros and cons of these methods were discussed, giving a somewhat complete picture as to what method performs the best in certain situations.</p>
-<h2 id="references-and-further-reading">References and Further Reading</h2>
+<h1 id="references-and-further-reading">References and Further Reading</h1>
 <ul>
 <li>Artificial Intelligence, Sharif University of Technology, CE417-1, By Dr. Rohban. (Specifically, this <a href="https://www.stat.umn.edu/geyer/f05/8931/n1998.pdf">lecture note</a>)</li>
 <li>Artificial Intelligence: A Mordern Approach (3rd Ed.), By Stuart Russel &amp; Peter Norvig.</li>

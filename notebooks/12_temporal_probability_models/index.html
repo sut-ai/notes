@@ -292,7 +292,21 @@
         <div class="container-fluid p-0 m-0 no-gutters">
             
             <div class="wf-content-page-body container-fluid bg-body px-4 py-4 px-md-5 py-md-5">
-                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#temporal-probability-models-part-1">Temporal Probability Models - Part 1</a></li><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#what-is-a-temporal-probability-model">What is a Temporal Probability Model?</a></li><li class="wf-content-toc-level-3"><a href="#joint-distributions-of-markov-models">Joint Distributions of Markov Models</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule">Chain Rule</a></li><li class="wf-content-toc-level-2"><a href="#mini-forward-algorithm">Mini-Forward Algorithm</a></li><li class="wf-content-toc-level-2"><a href="#stationary-distribution">Stationary Distribution</a></li><li class="wf-content-toc-level-2"><a href="#most-likely-explanation-mini-viterbi-algorithm">Most Likely Explanation: Mini-Viterbi Algorithm</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule-and-joint-distribution-of-hidden-markov-model">Chain Rule and Joint Distribution of Hidden Markov Model</a></li><li class="wf-content-toc-level-3"><a href="#hidden-markov-model-applications">Hidden Markov Model Applications</a></li><li class="wf-content-toc-level-4"><a href="#speech-recognition-hmms">Speech recognition HMMs</a></li><li class="wf-content-toc-level-4"><a href="#machine-translation-hmms">Machine translation HMMs</a></li><li class="wf-content-toc-level-4"><a href="#robot-tracking-hmms">Robot tracking HMMs</a></li><li class="wf-content-toc-level-4"><a href="#characterizing-facial-expressions">Characterizing facial expressions</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h2 id="temporal-probability-models-part-1">Temporal Probability Models - Part 1</h2>
+                <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-1"><a href="#temporal-probability-models-part-1">Temporal Probability Models - Part 1</a></li><li class="wf-content-toc-level-2"><a href="#table-of-contents">Table of Contents</a></li><li class="wf-content-toc-level-2"><a href="#introduction">Introduction</a></li><li class="wf-content-toc-level-2"><a href="#what-is-a-temporal-probability-model">What is a Temporal Probability Model?</a></li><li class="wf-content-toc-level-2"><a href="#markov-models">Markov Models</a></li><li class="wf-content-toc-level-3"><a href="#joint-distributions-of-markov-models">Joint Distributions of Markov Models</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule">Chain Rule</a></li><li class="wf-content-toc-level-2"><a href="#mini-forward-algorithm">Mini-Forward Algorithm</a></li><li class="wf-content-toc-level-2"><a href="#stationary-distribution">Stationary Distribution</a></li><li class="wf-content-toc-level-2"><a href="#most-likely-explanation-mini-viterbi-algorithm">Most Likely Explanation: Mini-Viterbi Algorithm</a></li><li class="wf-content-toc-level-2"><a href="#hidden-markov-model">Hidden Markov Model</a></li><li class="wf-content-toc-level-3"><a href="#chain-rule-and-joint-distribution-of-hidden-markov-model">Chain Rule and Joint Distribution of Hidden Markov Model</a></li><li class="wf-content-toc-level-3"><a href="#hidden-markov-model-applications">Hidden Markov Model Applications</a></li><li class="wf-content-toc-level-4"><a href="#speech-recognition-hmms">Speech recognition HMMs</a></li><li class="wf-content-toc-level-4"><a href="#machine-translation-hmms">Machine translation HMMs</a></li><li class="wf-content-toc-level-4"><a href="#robot-tracking-hmms">Robot tracking HMMs</a></li><li class="wf-content-toc-level-4"><a href="#characterizing-facial-expressions">Characterizing facial expressions</a></li><li class="wf-content-toc-level-2"><a href="#conclusion">Conclusion</a></li><li class="wf-content-toc-level-2"><a href="#references">References</a></li></ol></nav><h1 id="temporal-probability-models-part-1">Temporal Probability Models - Part 1</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><a href="#Introduction">Introduction</a></p>
+<p><a href="#What-is-a-Temporal-Probability-Model">What is a Temporal Probability Model?</a></p>
+<p><a href="#Markov-Models">Markov Models</a>
+* <a href="#Joint-Distributions-of-Markov-Models">Joint Distributions of Markov Models</a>
+* <a href="#Chain-Rule">Chain Rule</a></p>
+<p><a href="#Mini-Forward-Algorithm">Mini-Forward Algorithm</a></p>
+<p><a href="#Stationary-Distribution">Stationary Distribution</a></p>
+<p><a href="#Most-Likely-Explanation-Mini-Viterbi-Algorithm">Most Likely Explanation: Mini-Viterbi Algorithm</a></p>
+<p><a href="#Hidden-Markov-Model">Hidden Markov Model</a>
+* <a href="#Chain-Rule-and-Joint-Distribution-of-Hidden-Markov-Model">Chain Rule and Joint Distribution of Hidden Markov Model</a>
+* <a href="#Hidden-Markov-Model-Applications">Hidden Markov Models Applications</a></p>
+<p><a href="#Conclusion">Conclusion</a></p>
+<p><a href="#References">References</a></p>
 <h2 id="introduction">Introduction</h2>
 <p>In this lecture note, we are going to talk about <strong><em>Temporal Probability Models</em></strong>. We will discuss what they are and how they can help us model problems that are subject to change over time.</p>
 <p>So far, we have learned how to deal with probabilistic reasoning in static worlds. That means each random variable has a fixed value and doesn't change over time. However, most of our problems don't have this static behavior, and the state varies over time (or space).</p>
@@ -316,18 +330,18 @@
 <p>As the diabetes example above shows, we need to introduce <strong>time</strong> (or space) for our models.
 Retake variables of the diabetes example. We know that these variables can change over time, so to manage the diabetes of the patient, we slice time at specific points and keep track of this evidence to evaluate the current state and predict the future diabetic condition of the patient.</p>
 <blockquote>
-<p><span style="color: DarkSlateGray"><em><strong>Hence we can model the diabetes status of a patient using a Temporal Probability Model.</strong></em></span></p>
+<p><span style="color:DarkSlateGray"><em><strong>Hence we can model the diabetes status of a patient using a Temporal Probability Model.</strong></em></span></p>
 </blockquote>
 <p>There are some variables like measured blood sugar and pulse rate that are measurable, and we denote them as ${E}_t$ at time $t$.</p>
 <p>On the other hand, we have some unmeasurable variables like stomach content and blood sugar. (Notice that measured blood sugar and blood sugar are considered different variables since measured blood sugar has some errors.) and at time $t$, we use ${X}_t$ to denote them.
 In a nutshell, we have:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
 {E}_t = Observable\;Variable\;at\;time\;t$$$$
 {X}_t = NonObservable\;Variable\;at\;time\;t
 $$
 </span></p>
-
+<h2 id="markov-models">Markov Models</h2>
 <p>Let's define a random variable $X$ and call its value at a given time $t$ the <em><strong>state of $X$</strong></em> and denote it as $X_t$. If in our model, the future state of $X$ depends only on the current state of $X$ and not on states that had occurred before, we call it a <strong><em>First-order Markov Model</em></strong>, or simply a <strong><em>Markov Model</em></strong>. Bayesian network of this model looks like the below network and is referred to as a <strong><em>Markov Chain</em></strong>:</p>
 <center>
 <img alt="Bayes Net of Markov Model" src="/notes/assets/resources/markov_bayesnet.png" width="400"/>
@@ -337,7 +351,7 @@ $$
 P(X_n=x_n|X_{1:n-1}=x_{1:n-1}) = P(X_n = x_n|X_{n - 1}=x_{n - 1})
 $$
 <p><em>Note:</em> We also define $X_{a:b}$ to denote a set of variables from $X_a$ to $X_b$.
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
 X_{a:b} = X_a, X_{a+1}, \cdots, X_{b-1}, X_b
 $$
@@ -353,14 +367,14 @@ $$
 </center>
 <p>We can quickly notice that for every $1 \lt i \leq n$ , if we are given $X_{i-1}$, then <strong>$X_i$ is independent of $X_1, X_2, \cdots, X_{i-2}$</strong> since there is only one inactive path between each of them and $X_i$. (Regarding the fact that $X_{i-1}$ is given)
 So we have:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
     X_i \perp \!\!\! \perp X_1, X_2, \cdots, X_{i-2} \vert X_{i-1}
 $$
 </span>
 We define two parameters here:
 * <strong>Transition Probabilities</strong>:
-    <span style="color: DarkSlateGray">
+    <span style="color:DarkSlateGray">
     $$
     P(X_t \vert X_{t-1})
     $$
@@ -368,14 +382,14 @@ We define two parameters here:
     It shows how each state is related to its previous state and how states develop.
     The <strong><em>Stationary assumption</em></strong> in Markov models ensures that transition probabilities don't change over time.
 * <strong>Initial State Probability</strong>:
-    <span style="color: DarkSlateGray">
+    <span style="color:DarkSlateGray">
     $$
     P(X_1)
     $$
     </span>
     It is the probability of the initial state ($X_1$), and we usually know its value.</p>
 <p>We can find the joint distribution of X regarding the Bayesian network and the parameters we defined. If we consider $X_1$ to $X_n$, then we have:
-    <span style="color: DarkSlateGray">
+    <span style="color:DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n-1}\vert X_{n-2})P(X_{n}\vert X_{n-1}$$$$ \Rightarrow P(X_1, X_2, \cdots, X_{n-1}, X_n) =P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
@@ -387,19 +401,19 @@ We define two parameters here:
 <img alt="Bayes Net of Markov Model" src="/notes/assets/resources/markov_bayesnet.png" width="400"/>
 </center>
 <p>We know that from Chain Rule, every joint distribution of $X_1$ to $X_n$ can be written as:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n) = P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})
     $$
     </span>
 Now, due to the independence we saw earlier, we can assume:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
     X_3 \perp \!\!\! \perp X_1\vert X_2, X_4\perp \!\!\! \perp X_1,X_2\vert X_3, \cdots, X_{n}\perp \!\!\! \perp X_1,X_2\cdots X_{n-2}\vert X_{n-1}
 $$
 </span>
 So, after applying independence to Chain Rule, we have:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
     $$
     P(X_1, X_2, \cdots, X_{n-1}, X_n)= P(X_1)P(X_2\vert X_1)P(X_3\vert X_1, X_2)\cdots P(X_{n}\vert X_1,X_2,\cdots X_{n-1})$$$$=P(X_1)P(X_2\vert X_1)P(X_3\vert X_2)\cdots P(X_{n}\vert X_{n-1})$$$$=P(X_1)\prod_{t=2}^{n}P(X_t \vert X_{t-1})
     $$
@@ -432,7 +446,7 @@ $$
 <center>
 <img alt="Initial Sunny Day" src="/notes/assets/resources/sunny_initial.png" width="600"/>
 </center>
-
+<p><br/></p>
 <p>Finally, let's take a look at the state of weather with initial observation of rain:</p>
 <center>
 <img alt="Weather State" src="/notes/assets/resources/weather_state.png" width="600"/>
@@ -466,7 +480,7 @@ $$
 $$</p>
 <p>Using this method, the most likely sequence in the past $t - 1$ states, also known as the most likely explanation, will be available in $a_t[x]$.</p>
 <p>In our example, we can use the Mini-Viterbi algorithm starting from $x_1 = The\ weather\ n\ days\ ago$, and the most likely sequence would be available in $a_{n + 1}[x_{today}]$.</p>
-
+<h2 id="hidden-markov-model">Hidden Markov Model</h2>
 <p>Let's start with the following scenario:</p>
 <p>We have two friends Alice and Bob. They live very far apart. So, they talk on the phone. Bob has a mood that changes based on the weather. Whenever they talk on the phone, Bob tells Alice his mood.</p>
 <p>Suppose that if the weather is sunny, then Bob is happy with a probability of 80% and grumpy with a probability of 20%. Likewise, if the weather is rainy, Bob is grumpy with a probability of 60% and happy with a probability of 40%.</p>
@@ -477,7 +491,7 @@ $$</p>
 <img alt="CPT Diagram of Weather and Mood" src="/notes/assets/resources/weather_mood_cpt_diagram.jpeg" width="600/"/>
 </center>
 <p>Now, we formulate the problem formally:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
 {E}_t: Bob's\;mood\;at\;time\;t\;(Observation) \in \{happy, grumpy\}$$$$
 {X}_t: Weather's\;condition\;at\;time\;t\;(State) \in \{sunny, rainy\}
@@ -491,7 +505,7 @@ So, the question is, how can Alice infer the weather’s condition (state) regar
 <center>
 <img alt="HMM Structure" src="/notes/assets/resources/hmm_structure.png" width="400/"/>
 </center>
-
+<p></p>
 <p>Regarding the structure above, an HMM is defined by:
 - $P(X_1)$ as initial distribution
 - $P(X_t \mid X_{t-1})$ as transitions distribution
@@ -501,17 +515,17 @@ So, the question is, how can Alice infer the weather’s condition (state) regar
 <p>Let's denote $X_t,X_{t-1},\cdots,X_2,X_1$ by $X_{t:1}$. Similarly, denote $E_t,E_{t-1},\cdots,E_2,E_1$ by $E_{t:1}$.</p>
 <p>We are going to calculate joint distribution of HMM.</p>
 <p>From the Chain Rule, every joint distribution over $X_{t:1}, E_{t:1}$ can be written as:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
 P(X_{t:1}, E_{t:1})=P(X_1)P(E_1 \mid X_1)P(X_2\mid X_1,E_1)P(E_2\mid X_{2:1},E_1)\cdots P(X_t\mid X_{t-1:1},E_{t-1:1})P(E_t\mid X_{t:1},E_{t-1:1})
 $$ </span> 
 Regarding the HMM's structure, we can assume that:
-<span style="color: DarkSlateGray">
+<span style="color:DarkSlateGray">
 $$
 \forall t&gt;1:\;\;\;X_t \perp \!\!\! \perp X_{t-2:1},E_{t-1:1} \mid X_{t-1}\;\;\;and\;\;\;E_t \perp \!\!\! \perp X_{t-1:1},E_{t-1:1} \mid X_{t}
 $$ </span> 
 Recall that every node given its parents is independent of its non-descendants.</p>
-<p>Using the properties above, we get: <span style="color: DarkSlateGray">
+<p>Using the properties above, we get: <span style="color:DarkSlateGray">
 $$
 P(X_{t:1}, E_{t:1})=P(X_1)P(E_1 \mid X_1)\prod_{i = 2}^{t} P(X_i \mid X_{i-1})P(E_i \mid X_i)
 $$ </span> </p>

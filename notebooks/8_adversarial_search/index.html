@@ -295,7 +295,7 @@
                 <nav aria-label="Table of contents" class="wf-content-toc is-collapsed"><h2><button aria-expanded="false" class="wf-content-toc-toggle" type="button"><span aria-hidden="true" class="wf-content-toc-toggle-icon">▸</span><span>Table of Contents</span></button></h2><ol><li class="wf-content-toc-level-2"><a href="#Introduction">Introduction</a></li><li class="wf-content-toc-level-3"><a href="#What-is-Adversarial-Search?-Why-do-we-need-it?">What is Adversarial Search? Why do we need it?</a></li><li class="wf-content-toc-level-2"><a href="#What-is-Game-Theory?!">What is Game Theory?!</a></li><li class="wf-content-toc-level-2"><a href="#Different-type-of-games">Different type of games</a></li><li class="wf-content-toc-level-2"><a href="#Zero-Sum-Games:">Zero-Sum Games:</a></li><li class="wf-content-toc-level-2"><a href="#General-Games:">General Games:</a></li><li class="wf-content-toc-level-2"><a href="#Single-Agent-Trees">Single Agent Trees</a></li><li class="wf-content-toc-level-2"><a href="#Adversarial-Game-Trees">Adversarial Game Trees</a></li><li class="wf-content-toc-level-2"><a href="#Minimax-Strategy">Minimax Strategy</a></li><li class="wf-content-toc-level-2"><a href="#Minimax-Implementation-(-Pseudocode-)-:">Minimax Implementation ( Pseudocode ) :</a></li><li class="wf-content-toc-level-2"><a href="#Properties-of-Minimax">Properties of Minimax</a></li><li class="wf-content-toc-level-2"><a href="#Is-it-complete?">Is it complete?</a></li><li class="wf-content-toc-level-2"><a href="#Is-it-optimal?">Is it optimal?</a></li><li class="wf-content-toc-level-2"><a href="#Time-Complexity">Time Complexity</a></li><li class="wf-content-toc-level-2"><a href="#Space-Complexity">Space Complexity</a></li><li class="wf-content-toc-level-3"><a href="#So-it-is-a-beautiful-optimal-algorithm,-But%E2%80%A6">So it is a beautiful optimal algorithm, But…</a></li><li class="wf-content-toc-level-2"><a href="#Resource-Limits">Resource Limits</a></li><li class="wf-content-toc-level-2"><a href="#Evaluation-Functions">Evaluation Functions</a></li><li class="wf-content-toc-level-3"><a href="#Quality-of-the-evaluation-function">Quality of the evaluation function</a></li><li class="wf-content-toc-level-2"><a href="#Minimax-Pruning">Minimax Pruning</a></li><li class="wf-content-toc-level-3"><a href="#Alpha-Beta-Pruning-Properties">Alpha-Beta Pruning Properties</a></li><li class="wf-content-toc-level-4"><a href="#Best-Case-Analysis-of-the-Alpha-Beta-pruning">Best Case Analysis of the Alpha-Beta pruning</a></li><li class="wf-content-toc-level-2"><a href="#Uncertain-Outcomes">Uncertain Outcomes</a></li><li class="wf-content-toc-level-2"><a href="#Expectimax-Search">Expectimax Search</a></li><li class="wf-content-toc-level-2"><a href="#Expectimax-Example">Expectimax Example</a></li><li class="wf-content-toc-level-2"><a href="#Expectimax-Pruning">Expectimax Pruning</a></li><li class="wf-content-toc-level-2"><a href="#Depth-Limited-Expectimax">Depth-Limited Expectimax</a></li><li class="wf-content-toc-level-2"><a href="#Informed-Probabilities">Informed Probabilities</a></li><li class="wf-content-toc-level-2"><a href="#The-Dangers-of-Optimism-and-Pessimism">The Dangers of Optimism and Pessimism</a></li><li class="wf-content-toc-level-2"><a href="#Other-Game-Types">Other Game Types</a></li><li class="wf-content-toc-level-2"><a href="#Mixed-Layer-Types">Mixed Layer Types</a></li><li class="wf-content-toc-level-2"><a href="#Multi-Agent-Utilities">Multi-Agent Utilities</a></li><li class="wf-content-toc-level-2"><a href="#Summary">Summary</a></li></ol></nav><div class="wf-content-actions"><a aria-label="Open in Colab" class="wf-content-colab-link" href="https://colab.research.google.com/github/sut-ai/notes/blob/master/notebooks/8_adversarial_search/index.ipynb" rel="noopener noreferrer" target="_blank" title="Open in Colab"><img alt="Open in Colab" src="/notes/assets/images/colab-badge.svg"/></a></div>
 <main>
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6fdcc02">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=329484bd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -304,7 +304,7 @@
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0278b34">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b46ac19">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -315,7 +315,7 @@ We will have a brief talk about game theory and some famous games and their solu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6d4a696">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89c887c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -324,7 +324,7 @@ We will have a brief talk about game theory and some famous games and their solu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24164092">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3e0e17c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -351,7 +351,7 @@ Finally, the solution returned by our intelligent system is a function named Pol
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3e10f275">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7776869f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -364,7 +364,7 @@ So based on the utility values for different players, games can be classified in
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f68f6a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98aea829">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -377,7 +377,7 @@ A possible tree for an adversarial game is shown below:</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d05e4ba6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=035bb7d2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -388,7 +388,7 @@ You can see the tree of the XO game below, and the score of the root of this tre
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb5d8bd4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64228d0a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -412,7 +412,7 @@ function minimax(node, depth, maximizingPlayer) is
             value := min(value, minimax(child, depth − 1, TRUE))
         return value
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a333fa5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca6e0059">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -425,7 +425,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=05696203">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a39297d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -434,7 +434,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70428f78">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=255e26f0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -443,7 +443,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=54eb4ca2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=010ac821">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -452,7 +452,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7118ed76">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3697c56a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -461,7 +461,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9506f322">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=81658395">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -470,7 +470,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b31311b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4de2da87">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -479,7 +479,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb5094b1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0bbae7b9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -488,7 +488,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5068a128">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cf58ca6a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -497,7 +497,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f57e1cdd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b378db30">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -506,7 +506,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97c23c15">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb27df3e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -515,7 +515,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbd6127a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2b96dc5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -524,7 +524,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc6efe21">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=542b49c3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -533,7 +533,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8134ed6c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b743e0a7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -542,7 +542,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=91ead2cc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90afe4f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -551,7 +551,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=edeb3ba2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e4f1af9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -560,7 +560,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a238e0b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b13df7d1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -569,7 +569,7 @@ function minimax(node, depth, maximizingPlayer) is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ad54e014">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a82933b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -599,7 +599,7 @@ def min-value(state, α, β):
         β = min(β, v)       # new line: updating alpha
     return v
 
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3c96eb7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2b2764d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -610,7 +610,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70aef5a4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d41d152">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -619,7 +619,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a5887de">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a0da7322">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -628,7 +628,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3ac44947">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42d22a00">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -637,7 +637,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f38194b1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e5c4f5d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -646,7 +646,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85f650a4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a7eec04">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -655,7 +655,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7e2f8803">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ace74523">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -664,7 +664,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=624c1d79">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a30d619d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -673,7 +673,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7dc03806">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=de6c5c13">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -682,7 +682,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f4f6168">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d4b5bd57">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -691,7 +691,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5ad0335">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=52f76290">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -700,7 +700,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=621310bc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=104ac0e3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -709,7 +709,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c49fc3a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eeaa6512">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -718,7 +718,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=37f14939">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ec2fb291">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -727,7 +727,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=681c8f64">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42658e4c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -736,7 +736,7 @@ def min-value(state, α, β):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2221852">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=47f10a18">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -746,7 +746,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=897ba01d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46ebabc1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -755,7 +755,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=47170f09">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=44cc8e5b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -764,7 +764,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58d17af2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcd3f7d0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -777,7 +777,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3e509f4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=456c224a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -786,7 +786,7 @@ To calculate $x_1$ and $x_2$ we have</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fdf00e1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=edbfd406">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -796,7 +796,7 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2347916d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=75856ba0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -810,7 +810,7 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=224b372a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34da6bb2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -819,7 +819,7 @@ But the ghosts may not be as smart as they look and play randomly. In this case 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b03329c4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24048432">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -846,7 +846,7 @@ def exp-value(state):
         p = probability(successor)
         v += p * value(successor)
     return v
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c41e636">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1f897e1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -855,7 +855,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c17f3364">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a36b1c4b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -864,7 +864,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4bb696bd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=086bb408">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -874,7 +874,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ba13680">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4ebc80f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -883,7 +883,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d71f75eb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7481b145">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -892,7 +892,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2de9c0fb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f11882c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -901,7 +901,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57d45bf6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b2d80ec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -910,7 +910,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=013382e5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e22cf07">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -919,7 +919,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b4a0923">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a0ab2cc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -928,7 +928,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0d98bb5f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e17ac35">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -937,7 +937,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=332e2e99">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=343e6b0d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -949,7 +949,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c1bc810b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e248903b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -958,7 +958,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cfa69ef2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a88a64bc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -967,7 +967,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65e04029">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=15fb405c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -981,7 +981,7 @@ def exp-value(state):
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=da2de53b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46905588">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -992,7 +992,7 @@ Td-Gammon is a computer backgammon program developed in 1992. It uses a depth 2 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ae45b3e2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9e94763">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -1001,7 +1001,7 @@ Td-Gammon is a computer backgammon program developed in 1992. It uses a depth 2 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b517277">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=61a5fdd4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
@@ -1279,25 +1279,6 @@ A complete search is often infeasible in minimax due to resource limits. So we c
     
     
 </div>
-            
-                
-
-
-    
-
-
-<div class="p-2">
-    <script src="https://utteranc.es/client.js"
-            repo="sut-ai/comments"
-            issue-term="pathname"
-            label="comments"
-            theme="preferred-color-scheme"
-            crossorigin="anonymous"
-            async>
-    </script>
-</div>
-
-
             
         </div>
     </div>
