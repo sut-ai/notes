@@ -29,9 +29,6 @@ comments:
 content_pages:
   cleanup: true
   toc: true
-  comments:
-    label: false
-    kind: comments
 
 page_navigation:
   home:
